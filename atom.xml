@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://baozouai.github.io/"/>
-  <updated>2019-02-25T06:35:49.058Z</updated>
+  <updated>2019-02-25T14:31:52.210Z</updated>
   <id>https://baozouai.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://baozouai.github.io/2019/02/23/machine%20learning/"/>
     <id>https://baozouai.github.io/2019/02/23/machine learning/</id>
     <published>2019-02-23T13:06:11.566Z</published>
-    <updated>2019-02-25T06:35:49.058Z</updated>
+    <updated>2019-02-25T14:31:52.210Z</updated>
     
     <content type="html"><![CDATA[<p>A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E</p>]]></content>
     
@@ -34,6 +34,14 @@
     
     </summary>
     
+      <category term="机器学习" scheme="https://baozouai.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="jQuery" scheme="https://baozouai.github.io/tags/jQuery/"/>
+    
+      <category term="表格" scheme="https://baozouai.github.io/tags/%E8%A1%A8%E6%A0%BC/"/>
+    
+      <category term="表单验证" scheme="https://baozouai.github.io/tags/%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
