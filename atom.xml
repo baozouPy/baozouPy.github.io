@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>MyBlog</title>
-  
-  <subtitle>一生只做浪漫极客</subtitle>
+  <title>暴走的技术博客</title>
+  <icon>https://www.gravatar.com/avatar/97247acaa80562646767878bdb1f84d0</icon>
+  <subtitle>The people who are crazy enough to change the world are the ones who do！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://baozouai.com/"/>
+  <link href="https://baozouai.github.io/"/>
   <updated>2019-02-25T06:35:49.058Z</updated>
-  <id>http://baozouai.com/</id>
+  <id>https://baozouai.github.io/</id>
   
   <author>
-    <name>Tim</name>
-    
+    <name>暴走</name>
+    <email>baoou140690@mail.com</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
     <title>Machine Learning</title>
-    <link href="http://baozouai.com/2019/02/23/machine%20learning/"/>
-    <id>http://baozouai.com/2019/02/23/machine learning/</id>
+    <link href="https://baozouai.github.io/2019/02/23/machine%20learning/"/>
+    <id>https://baozouai.github.io/2019/02/23/machine learning/</id>
     <published>2019-02-23T13:06:11.566Z</published>
     <updated>2019-02-25T06:35:49.058Z</updated>
     
