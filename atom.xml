@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://baozouai.github.io/"/>
-  <updated>2019-02-26T05:22:35.418Z</updated>
+  <updated>2019-02-26T05:24:13.069Z</updated>
   <id>https://baozouai.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://baozouai.github.io/2019/02/23/machine%20learning/"/>
     <id>https://baozouai.github.io/2019/02/23/machine learning/</id>
     <published>2019-02-23T13:06:11.566Z</published>
-    <updated>2019-02-26T05:22:35.418Z</updated>
+    <updated>2019-02-26T05:24:13.069Z</updated>
     
     <summary type="html">
     
@@ -31,12 +31,16 @@
     
       <category term="机器学习" scheme="https://baozouai.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
+      <category term="深度学习" scheme="https://baozouai.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="jQuery" scheme="https://baozouai.github.io/tags/jQuery/"/>
+      <category term="Python" scheme="https://baozouai.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Python/"/>
     
-      <category term="表格" scheme="https://baozouai.github.io/tags/%E8%A1%A8%E6%A0%BC/"/>
     
-      <category term="表单验证" scheme="https://baozouai.github.io/tags/%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81/"/>
+      <category term="Python" scheme="https://baozouai.github.io/tags/Python/"/>
+    
+      <category term="深度学习" scheme="https://baozouai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="机器学习" scheme="https://baozouai.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
