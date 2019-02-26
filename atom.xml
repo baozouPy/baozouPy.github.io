@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://baozouai.github.io/"/>
-  <updated>2019-02-26T05:41:34.698Z</updated>
+  <updated>2019-02-26T15:07:52.651Z</updated>
   <id>https://baozouai.github.io/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>DeepLearning.ai深度学习课程笔记</title>
+    <link href="https://baozouai.github.io/2019/02/27/DeepLearning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    <id>https://baozouai.github.io/2019/02/27/DeepLearning-ai深度学习课程笔记/</id>
+    <published>2019-02-27T06:11:00.000Z</published>
+    <updated>2019-02-26T15:07:52.651Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Coursera-上斯坦福Andrew-Ng老师的DeepLearning-ai深度学习课程笔记&quot;&gt;&lt;a href=&quot;#Coursera-上斯坦福Andrew-Ng老师的DeepLearning-ai深度学习课程笔记&quot; class=&quot;headerlink&quot; title=&quot;Coursera 上斯坦福Andrew Ng老师的DeepLearning.ai深度学习课程笔记&quot;&gt;&lt;/a&gt;Coursera 上斯坦福Andrew Ng老师的DeepLearning.ai深度学习课程笔记&lt;/h3&gt;&lt;p&gt;笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%E6%8D%95%E8%8E%B7_%E5%89%AF%E6%9C%AC11.png&quot; alt&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://baozouai.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://baozouai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Machine Learning</title>
     <link href="https://baozouai.github.io/2019/02/23/machine%20learning/"/>
     <id>https://baozouai.github.io/2019/02/23/machine learning/</id>
     <published>2019-02-23T13:06:11.566Z</published>
-    <updated>2019-02-26T05:41:34.698Z</updated>
+    <updated>2019-02-26T15:07:17.058Z</updated>
     
     <summary type="html">
     
