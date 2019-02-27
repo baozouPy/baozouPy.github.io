@@ -130,7 +130,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/dad50972904bcd2131657db7798595b7.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7503372ab986cd3aedda7674bedfd5f0.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8fd4c61773f0245c87871de14f0a2d03.png">
-<meta property="og:updated_time" content="2019-02-27T05:52:10.832Z">
+<meta property="og:updated_time" content="2019-02-27T05:53:25.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 卷积神经网络（Foundations of Convolutional Neural Networks）(Course 4)">
 <meta name="twitter:description" content="1.1 计算机视觉（Computer vision）图片分类，或图片识别：  目标检测：  神经网络实现图片风格迁移：  使用传统神经网络处理机器视觉的一个主要问题是输入层维度很大。例如一张64x64x3的图片，神经网络输入层的维度为12288。如果图片尺寸较大，例如一张1000x1000x3的图片，神经网络输入层的维度将达到3百万，使得网络权重W非常庞大。这样会造成两个后果，一是神经网络结构复杂">
@@ -381,7 +381,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T21:43:00Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T05:43:00+08:00">
                 2019-02-27
               </time>
             
@@ -397,7 +397,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T05:52:10Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T13:53:25+08:00">
                 2019-02-27
               </time>
             
@@ -617,7 +617,7 @@ A^{[l]}=g^{[l]}(Z^{[l]})</script><p>卷积运算对应着上式中的乘积运�
 n_H^{[l]}=\lfloor \frac{n_H^{[l-1]}+2p^{[l]}-f^{[l]}}{s^{[l]}}+1 \rfloor</script><script type="math/tex; mode=display">
 n_W^{[l]}=\lfloor \frac{n_W^{[l-1]}+2p^{[l]}-f^{[l]}}{s^{[l]}}+1 \rfloor</script><p>如果有<script type="math/tex">m</script>个样本，进行向量化运算，相应的输出维度为：</p>
 <script type="math/tex; mode=display">
-m \times n_H^{[l]}\times n_W^{[l]}\times n_c^{[l]}</script><h2 id="1-8简单卷积网络示例（A-simple-convolution-network-example）"><a href="#1-8简单卷积网络示例（A-simple-convolution-network-example）" class="headerlink" title="1.8简单卷积网络示例（A simple convolution network example）"></a>1.8简单卷积网络示例（A simple convolution network example）</h2><p>简单的CNN网络模型：</p>
+m \times n_H^{[l]}\times n_W^{[l]}\times n_c^{[l]}</script><h2 id="1-8-简单卷积网络示例（A-simple-convolution-network-example）"><a href="#1-8-简单卷积网络示例（A-simple-convolution-network-example）" class="headerlink" title="1.8 简单卷积网络示例（A simple convolution network example）"></a>1.8 简单卷积网络示例（A simple convolution network example）</h2><p>简单的CNN网络模型：</p>
 <p><img src="/images/pasted-144.png" alt="upload successful"></p>
 <script type="math/tex; mode=display">a^{[3]}$$的维度是7 x 7 x 40，将$$a^{[3]}$$排列成1列，维度为1960 x 1，然后连接最后一级输出层。输出层可以是一个神经元，即二元分类（logistic）；也可以是多个神经元，即多元分类（softmax）。最后得到预测输出$$\hat y</script><p>随着CNN层数增加，<script type="math/tex">n_H^{[l]}</script>和<script type="math/tex">n_W^{[l]}</script>一般逐渐减小，而<script type="math/tex">n_c^{[l]}</script>一般逐渐增大</p>
 <p>CNN有三种类型的layer：</p>
@@ -723,6 +723,10 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/" rel="prev" title="第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4)">
+                第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -857,7 +861,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -868,7 +872,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -941,7 +945,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-计算机视觉（Computer-vision）"><span class="nav-number">1.</span> <span class="nav-text">1.1 计算机视觉（Computer vision）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2边缘检测示例（Edge-detection-example）"><span class="nav-number">2.</span> <span class="nav-text">1.2边缘检测示例（Edge detection example）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片的边缘检测"><span class="nav-number">3.</span> <span class="nav-text">图片的边缘检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-更多边缘检测内容（More-edge-detection）"><span class="nav-number">4.</span> <span class="nav-text">1.3 更多边缘检测内容（More edge detection）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Padding"><span class="nav-number">5.</span> <span class="nav-text">1.4 Padding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-卷积步长（Strided-convolutions）"><span class="nav-number">6.</span> <span class="nav-text">1.5 卷积步长（Strided convolutions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6三维卷积（Convolutions-over-volumes）"><span class="nav-number">7.</span> <span class="nav-text">1.6三维卷积（Convolutions over volumes）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7单层卷积网络（One-layer-of-a-convolutional-network）"><span class="nav-number">8.</span> <span class="nav-text">1.7单层卷积网络（One layer of a convolutional network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8简单卷积网络示例（A-simple-convolution-network-example）"><span class="nav-number">9.</span> <span class="nav-text">1.8简单卷积网络示例（A simple convolution network example）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-池化层（Pooling-layers）"><span class="nav-number">10.</span> <span class="nav-text">1.9 池化层（Pooling layers）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-卷积神经网络示例（Convolutional-neural-network-example）"><span class="nav-number">11.</span> <span class="nav-text">1.10 卷积神经网络示例（Convolutional neural network example）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11-为什么使用卷积？（Why-convolutions-）"><span class="nav-number">12.</span> <span class="nav-text">1.11 为什么使用卷积？（Why convolutions?）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-计算机视觉（Computer-vision）"><span class="nav-number">1.</span> <span class="nav-text">1.1 计算机视觉（Computer vision）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2边缘检测示例（Edge-detection-example）"><span class="nav-number">2.</span> <span class="nav-text">1.2边缘检测示例（Edge detection example）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片的边缘检测"><span class="nav-number">3.</span> <span class="nav-text">图片的边缘检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-更多边缘检测内容（More-edge-detection）"><span class="nav-number">4.</span> <span class="nav-text">1.3 更多边缘检测内容（More edge detection）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Padding"><span class="nav-number">5.</span> <span class="nav-text">1.4 Padding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-卷积步长（Strided-convolutions）"><span class="nav-number">6.</span> <span class="nav-text">1.5 卷积步长（Strided convolutions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6三维卷积（Convolutions-over-volumes）"><span class="nav-number">7.</span> <span class="nav-text">1.6三维卷积（Convolutions over volumes）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7单层卷积网络（One-layer-of-a-convolutional-network）"><span class="nav-number">8.</span> <span class="nav-text">1.7单层卷积网络（One layer of a convolutional network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-简单卷积网络示例（A-simple-convolution-network-example）"><span class="nav-number">9.</span> <span class="nav-text">1.8 简单卷积网络示例（A simple convolution network example）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-池化层（Pooling-layers）"><span class="nav-number">10.</span> <span class="nav-text">1.9 池化层（Pooling layers）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-卷积神经网络示例（Convolutional-neural-network-example）"><span class="nav-number">11.</span> <span class="nav-text">1.10 卷积神经网络示例（Convolutional neural network example）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11-为什么使用卷积？（Why-convolutions-）"><span class="nav-number">12.</span> <span class="nav-text">1.11 为什么使用卷积？（Why convolutions?）</span></a></li></ol></div>
             
 
           </div>
@@ -988,7 +992,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共31k字</span>
+  <span class="post-count">博客全站共36.5k字</span>
 </div>
 
         
