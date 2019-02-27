@@ -107,11 +107,12 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8fb1c4afe30b7a0ede26522b355068ba.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac5d647140997ba713c376fb097ea0e2.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1521560729.png">
+<meta property="og:image" content="https://baozouai.com/assets/501import.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/48c787912f7f8daee638dd311583d6cf.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/053831ff43d039bd5e734df96d8794cb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8378c2bfe73e1ac9f85d6aa79b71b5eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/455863a3c8c2dfaa0e5474bfa2c6824d.png">
-<meta property="og:updated_time" content="2019-02-27T06:42:35.552Z">
+<meta property="og:updated_time" content="2019-02-27T06:43:28.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
 <meta name="twitter:description" content="1.1 为什么选择序列模型？（Why Sequence Models?）语音识别：给定一个输入音频片段 X，要求输出对应的文字记录 Y。输入和输出数据都是序列模型，因为 X是一个按时播放的音频片段，输出 Y是一系列单词">
@@ -378,7 +379,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:42:35+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:43:28+08:00">
                 2019-02-27
               </time>
             
@@ -626,23 +627,15 @@ P(y^{<1>},y^{<2>},y^{<3>})=P(y^{<1>})\cdot P(y^{<2>}|y^{<1>})\cdot P(y^{<3>}|y^{
 <h2 id="1-9-GRU单元（Gated-Recurrent-Unit（GRU））"><a href="#1-9-GRU单元（Gated-Recurrent-Unit（GRU））" class="headerlink" title="1.9 GRU单元（Gated Recurrent Unit（GRU））"></a>1.9 GRU单元（Gated Recurrent Unit（GRU））</h2><p>门控循环单元：改变了<strong>RNN</strong>的隐藏层，使其可以更好地捕捉深层连接，并改善了梯度消失问题</p>
 <h3 id="简化的GRU模型"><a href="#简化的GRU模型" class="headerlink" title="简化的GRU模型"></a>简化的GRU模型</h3><p><strong>RNN</strong>隐藏层的单元的可视化：</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1521560729.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1521560729.png" alt title="1521560729"></a></p>
-<script type="math/tex; mode=display">a^{<t>}$$表达式为：</script><p>a^{<t>}=tanh(W_a[a^{<t-1>},x^{<t>}]+b_a)</t></t-1></t></p>
+<p>$a^{<t>}$表达式为：</t></p>
 <script type="math/tex; mode=display">
-
-
-为了解决梯度消失问题，对上述单元进行修改，添加了记忆单元，构建GRU，如下图所示：
-
-![](/assets/501import.png)
-
-表达式为：</script><p>\tilde c^{<t>}=tanh(W_c[c^{<t-1>},x^{<t>}]+b_c)</t></t-1></t></p>
+a^{<t>}=tanh(W_a[a^{<t-1>},x^{<t>}]+b_a)</script><p>为了解决梯度消失问题，对上述单元进行修改，添加了记忆单元，构建GRU，如下图所示：</p>
+<p><img src="/assets/501import.png" alt></p>
+<p>表达式为：</p>
 <script type="math/tex; mode=display">
-</script><p>\Gamma_u=\sigma(W_u[c^{<t-1>},x^{<t>}]+b_u)</t></t-1></p>
-<script type="math/tex; mode=display">
-</script><p>c^{<t>}=\Gamma_u<em>\tilde c^{<t>}+(1-\Gamma_u)</t></em>c^{<t-1>}</t-1></t></p>
-<script type="math/tex; mode=display">
-
-
-$$c^{<t-1>}=a^{<t-1>}$$，$$c^{<t>}=a^{<t>}$$。符号$$c$$表示记忆细胞的值，$$a$$表示输出的激活值，$$\tilde c^{<t>}$$是个候选值，替代了c的值，$$\Gamma_u$$（0到1）意为gate，**u**表示“**update**”，当$$\Gamma_u=1$$时，代表更新；当$$\Gamma_u=0$$时，代表记忆，保留之前的模块输出。$$\Gamma_u$$能够保证RNN模型中跨度很大的依赖关系不受影响，消除梯度消失问题
+\tilde c^{<t>}=tanh(W_c[c^{<t-1>},x^{<t>}]+b_c)</script><script type="math/tex; mode=display">
+\Gamma_u=\sigma(W_u[c^{<t-1>},x^{<t>}]+b_u)</script><script type="math/tex; mode=display">
+c^{<t>}=\Gamma_u*\tilde c^{<t>}+(1-\Gamma_u)*c^{<t-1>}</script><script type="math/tex; mode=display">c^{<t-1>}=a^{<t-1>}$$，$$c^{<t>}=a^{<t>}$$。符号$$c$$表示记忆细胞的值，$$a$$表示输出的激活值，$$\tilde c^{<t>}$$是个候选值，替代了c的值，$$\Gamma_u$$（0到1）意为gate，**u**表示“**update**”，当$$\Gamma_u=1$$时，代表更新；当$$\Gamma_u=0$$时，代表记忆，保留之前的模块输出。$$\Gamma_u$$能够保证RNN模型中跨度很大的依赖关系不受影响，消除梯度消失问题
 
 ### 完整的GRU
 
