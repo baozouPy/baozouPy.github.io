@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://www.ai-start.com/dl2017/images/2efd9728b5f07f914903dde309167a5d.png">
 <meta property="og:image" content="http://www.ai-start.com/dl2017/images/c61d149beecddb96f0f93944320cf639.png">
 <meta property="og:image" content="http://www.ai-start.com/dl2017/images/6e86aa7d9b21b1a49bf4a084c7503527.png">
-<meta property="og:updated_time" content="2019-02-27T03:43:13.339Z">
+<meta property="og:updated_time" content="2019-02-27T03:45:54.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周：优化算法 (Optimization algorithms)(Course 2)">
 <meta name="twitter:description" content="1.1训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数  循环迭代的过程是这样的：  先有个想法Idea，先选择初始的参数值，构建神经网络模型结构 然后通过代码Code的形">
@@ -366,7 +366,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T11:43:13+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T11:45:54+08:00">
                 2019-02-27
               </time>
             
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  1.8k
                 </span>
               
 
@@ -431,7 +431,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  6
                 </span>
               
             </div>
@@ -490,6 +490,12 @@
 <p>这条曲线中间部分灵活性非常高，却过度拟合了这两个样本，这类分类器偏差很高，因为它几乎是线性的</p>
 </blockquote>
 <p>采用曲线函数或二次元函数会产生高方差，因为曲线灵活性太高以致拟合了这两个错误样本和中间这些活跃数据。但对于高维数据，有些数据区域偏差高，有些数据区域方差高，所以在高维数据中采用这种分类器看起来就不会那么牵强</p>
+<h2 id="1-3-机器学习基础（Basic-Recipe-for-Machine-Learning）"><a href="#1-3-机器学习基础（Basic-Recipe-for-Machine-Learning）" class="headerlink" title="1.3 机器学习基础（Basic Recipe for Machine Learning）"></a>1.3 机器学习基础（Basic Recipe for Machine Learning）</h2><p>初始模型训练完成后，首先要知道算法的偏差高不高，如果偏差较高，试着评估训练集或训练数据的性能。如果偏差的确很高，甚至无法拟合训练集，要做的就是增加神经网络的隐藏层个数、神经元个数，训练时间延长，选择其它更复杂的NN模型等</p>
+<p>如果网络足够大，通常可以很好的拟合训练集，一旦偏差降低到可以接受的数值，检查一下方差有没有问题，为了评估方差，要查看验证集性能，从一个性能理想的训练集推断出验证集的性能是否也理想，如果方差高，最好的解决办法就是增加训练样本数据，进行正则化Regularization，选择其他更复杂的NN模型</p>
+<p>两点需要注意：</p>
+<p>第一点，高偏差和高方差是两种不同的情况，通常用训练验证集来诊断算法是否存在偏差或方差问题，然后根据结果选择尝试部分方法。如果算法存在高偏差问题，准备更多训练数据没什么用处</p>
+<p>第二点，在当前的深度学习和大数据时代，只要持续训练一个更大的网络，只要正则适度，通常构建一个更大的网络便可以在不影响方差的同时减少偏差，而采用更多数据通常可以在不过多影响偏差的同时减少方差。</p>
+<p>这两步实际要做的工作是：使用更复杂的神经网络和海量的训练样本，一般能够同时有效减小Bias和Variance</p>
 
       
     </div>
@@ -756,7 +762,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1训练，验证，测试集（Train-Dev-Test-sets）"><span class="nav-number">1.</span> <span class="nav-text">1.1训练，验证，测试集（Train / Dev / Test sets）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2偏差，方差（Bias-Variance）"><span class="nav-number">2.</span> <span class="nav-text">1.2偏差，方差（Bias /Variance）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1训练，验证，测试集（Train-Dev-Test-sets）"><span class="nav-number">1.</span> <span class="nav-text">1.1训练，验证，测试集（Train / Dev / Test sets）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2偏差，方差（Bias-Variance）"><span class="nav-number">2.</span> <span class="nav-text">1.2偏差，方差（Bias /Variance）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-机器学习基础（Basic-Recipe-for-Machine-Learning）"><span class="nav-number">3.</span> <span class="nav-text">1.3 机器学习基础（Basic Recipe for Machine Learning）</span></a></li></ol></div>
             
 
           </div>
@@ -803,7 +809,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.2k字</span>
+  <span class="post-count">博客全站共7.7k字</span>
 </div>
 
         
