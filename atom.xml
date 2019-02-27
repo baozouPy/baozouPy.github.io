@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://baozouai.com/"/>
-  <updated>2019-02-27T06:10:54.962Z</updated>
+  <updated>2019-02-27T06:16:58.619Z</updated>
   <id>https://baozouai.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第四周 特殊应用：人脸识别和神经风格转换（Special applications: Face recognition &amp;Neural style transfer）(Course 4)</title>
+    <link href="https://baozouai.com/2019/02/28/%E7%AC%AC%E5%9B%9B%E5%91%A8-%E7%89%B9%E6%AE%8A%E5%BA%94%E7%94%A8%EF%BC%9A%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E5%92%8C%E7%A5%9E%E7%BB%8F%E9%A3%8E%E6%A0%BC%E8%BD%AC%E6%8D%A2%EF%BC%88Special-applications-Face-recognition-Neural-style-transfer%EF%BC%89-Course-4/"/>
+    <id>https://baozouai.com/2019/02/28/第四周-特殊应用：人脸识别和神经风格转换（Special-applications-Face-recognition-Neural-style-transfer）-Course-4/</id>
+    <published>2019-02-27T22:09:00.000Z</published>
+    <updated>2019-02-27T06:16:58.619Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>第三周 目标检测（Object detection)(Course 4)</title>
@@ -158,20 +184,6 @@
     
     
       <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第四周 特殊应用：人脸识别和神经风格转换（Special applications: Face recognition &amp;Neural style transfer）(Course 4)</title>
-    <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E5%9B%9B%E5%91%A8-%E7%89%B9%E6%AE%8A%E5%BA%94%E7%94%A8%EF%BC%9A%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E5%92%8C%E7%A5%9E%E7%BB%8F%E9%A3%8E%E6%A0%BC%E8%BD%AC%E6%8D%A2%EF%BC%88Special-applications-Face-recognition-Neural-style-transfer%EF%BC%89-Course-4/"/>
-    <id>https://baozouai.com/2019/02/27/第四周-特殊应用：人脸识别和神经风格转换（Special-applications-Face-recognition-Neural-style-transfer）-Course-4/</id>
-    <published>2019-02-27T14:09:46.000Z</published>
-    <updated>2019-02-27T06:09:46.696Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   
