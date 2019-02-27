@@ -109,7 +109,11 @@
 <meta property="og:image" content="https://baozouai.com/images/pasted-38.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-39.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-40.png">
-<meta property="og:updated_time" content="2019-02-27T03:51:04.373Z">
+<meta property="og:image" content="https://baozouai.com/images/pasted-47.png">
+<meta property="og:image" content="https://baozouai.com/images/pasted-48.png">
+<meta property="og:image" content="https://baozouai.com/images/pasted-49.png">
+<meta property="og:image" content="https://baozouai.com/images/pasted-50.png">
+<meta property="og:updated_time" content="2019-02-27T03:55:51.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周：深度学习的实用层面(Practical aspects of Deep Learning)(Course 2)">
 <meta name="twitter:description" content="1.1训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数  循环迭代的过程是这样的：  先有个想法Idea，先选择初始的参数值，构建神经网络模型结构 然后通过代码Code的形">
@@ -376,7 +380,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T11:51:04+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T11:55:51+08:00">
                 2019-02-27
               </time>
             
@@ -594,6 +598,62 @@ X:=\frac{X-\mu}{\sigma^2}</script><p><img src="/images/pasted-39.png" alt="uploa
 <p>对输入进行标准化操作，是为了让所有输入归一化在同样的尺度上，方便进行梯度下降算法时能够更快更准确地找到全局最优解。假如输入特征是二维的，且<script type="math/tex">x_1</script>的范围是[1,1000]，<script type="math/tex">x_2</script>的范围是[0,1]。如果不进行标准化处理，<script type="math/tex">x_1</script>与<script type="math/tex">x_2</script>之间分布极不平衡，训练得到的<script type="math/tex">w_1</script>和<script type="math/tex">w_2</script>也会在数量级上差别很大。这样导致的结果是costfunction与<script type="math/tex">w</script>和<script type="math/tex">b</script>的关系可能是一个非常细长的椭圆形碗。对其进行梯度下降算法时，由于<script type="math/tex">w_1</script>和<script type="math/tex">w_2</script>数值差异很大，只能选择很小的学习因子<script type="math/tex">\alpha</script>，来避免J发生振荡。一旦<script type="math/tex">\alpha</script>较大，必然发生振荡，<script type="math/tex">J</script>不再单调下降。如果进行了标准化操作，<script type="math/tex">x_1</script>与<script type="math/tex">x_2</script>分布均匀，<script type="math/tex">w_1</script>和<script type="math/tex">w_2</script>数值差别不大，得到的cost function与<script type="math/tex">w</script>和<script type="math/tex">b</script>的关系是类似圆形碗。对其进行梯度下降算法时，<script type="math/tex">\alpha</script>可以选择相对大一些，且<script type="math/tex">J</script>一般不会发生振荡，保证了<script type="math/tex">J</script>是单调下降</p>
 <p><img src="/images/pasted-40.png" alt="upload successful"></p>
 <p>如果输入特征之间的范围比较接近，不进行标准化操作没有太大影响</p>
+<h2 id="1-10梯度消失-梯度爆炸（Vanishing-Exploding-gradients）"><a href="#1-10梯度消失-梯度爆炸（Vanishing-Exploding-gradients）" class="headerlink" title="1.10梯度消失/梯度爆炸（Vanishing / Exploding gradients）"></a>1.10梯度消失/梯度爆炸（Vanishing / Exploding gradients）</h2><p>当训练一个层数非常多的神经网络时，计算得到的梯度可能非常小或非常大，甚至是指数级别的减小或增大</p>
+<p><img src="/images/pasted-47.png" alt="upload successful"><br>令各层的激活函数为线性函数，即<script type="math/tex">g(Z)=Z</script>。且忽略各层常数项b的影响，令b全部为零。该网络的预测输出<script type="math/tex">\hat Y</script>为：</p>
+<script type="math/tex; mode=display">
+\hat Y=W^{[L]}W^{[L-1]}W^{[L-2]}\cdots W^{[3]}W^{[2]}W^{[1]}X</script><p>如果各层权重<script type="math/tex">W[l]</script>的元素都稍大于1，例如1.5，则预测输出<script type="math/tex">\hat Y</script>将正比于<script type="math/tex">1.5^L</script>。L越大，<script type="math/tex">\hat Y</script>越大，且呈指数型增长。称之为<strong>梯度爆炸</strong>。</p>
+<p>如果各层权重<script type="math/tex">W[l]</script>的元素都稍小于1，例如0.5，则预测输出<script type="math/tex">\hat Y</script>将正比于<script type="math/tex">0.5^L</script>。网络层数L越多，<script type="math/tex">\hat Y</script>呈指数型减小。称之为<strong>梯度消失</strong></p>
+<h2 id="1-11神经网络的权重初始化（Weight-Initialization-for-Deep-Networks）"><a href="#1-11神经网络的权重初始化（Weight-Initialization-for-Deep-Networks）" class="headerlink" title="1.11神经网络的权重初始化（Weight Initialization for Deep Networks）"></a>1.11神经网络的权重初始化（Weight Initialization for Deep Networks）</h2><p>深度神经网络模型中，以单个神经元为例，该层（<script type="math/tex">l</script>）的输入个数为<script type="math/tex">n</script>，其输出为：</p>
+<script type="math/tex; mode=display">
+z=w_1x_1+w_2x_2+\cdots+w_nx_n</script><script type="math/tex; mode=display">
+a=g(z)</script><p><img src="/images/pasted-48.png" alt="upload successful"></p>
+<blockquote>
+<p>忽略了常数项b</p>
+</blockquote>
+<p>为了让<script type="math/tex">z</script>不会过大或者过小，<script type="math/tex">w</script>应该越小才好。方法是在初始化<script type="math/tex">w</script>时，令其方差为<script type="math/tex">\frac{1}{n}</script></p>
+<p>激活函数是<script type="math/tex">tanh</script>相应的python伪代码为：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w[l] = np.random.randn(n[l],n[l<span class="number">-1</span>])*np.sqrt(<span class="number">1</span>/n[l<span class="number">-1</span>])</span><br></pre></td></tr></table></figure>
+<p>如果激活函数是<script type="math/tex">ReLU</script>，权重<script type="math/tex">w</script>的初始化一般令其方差为<script type="math/tex">\frac{2}{n}</script>：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w[l] = np.random.randn(n[l],n[l<span class="number">-1</span>])*np.sqrt(<span class="number">2</span>/n[l<span class="number">-1</span>])</span><br></pre></td></tr></table></figure>
+<p>另外一种初始化<script type="math/tex">w</script>的方法，令其方差为<script type="math/tex">\frac{2}{n^{[l-1]}+n^{[l]}}</script>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w[l] = np.random.randn(n[l],n[l<span class="number">-1</span>])*np.<span class="built_in">sqrt</span>(<span class="number">2</span>/(n[l<span class="number">-1</span>] + n[l]))</span><br></pre></td></tr></table></figure>
+<h2 id="1-12梯度的数值逼近（Numerical-approximation-of-gradients）"><a href="#1-12梯度的数值逼近（Numerical-approximation-of-gradients）" class="headerlink" title="1.12梯度的数值逼近（Numerical approximation of gradients）"></a>1.12梯度的数值逼近（Numerical approximation of gradients）</h2><p>Back Propagation神经网络有一项重要的测试是梯度检验（gradient checking）。其目的是检查验证反向传播过程中梯度下降算法是否正确。</p>
+<p><img src="/images/pasted-49.png" alt="upload successful"></p>
+<p>对于一个非零的<script type="math/tex">\varepsilon</script>，它的逼近误差可以写成<script type="math/tex">O(\varepsilon^2)</script>，<script type="math/tex">\varepsilon</script>值非常小，大写符号<script type="math/tex">O</script>的含义是指<strong>逼近误差</strong></p>
+<p>函数<script type="math/tex">f</script>在点<script type="math/tex">\theta</script>处的梯度可以表示成：</p>
+<script type="math/tex; mode=display">
+g(\theta)=\frac{f(\theta+\varepsilon)-f(\theta-\varepsilon)}{2\varepsilon}</script><p>$\varepsilon&gt;0$，且足够小</p>
+<h2 id="1-13梯度检验（Gradient-checking）"><a href="#1-13梯度检验（Gradient-checking）" class="headerlink" title="1.13梯度检验（Gradient checking）"></a>1.13梯度检验（Gradient checking）</h2><ul>
+<li>梯度检查要做的是将<script type="math/tex">W^{[1]},b^{[1]},\cdots,W^{[L]},b^{[L]}</script>这些矩阵构造成一维向量，然后将这些一维向量组合起来构成一个更大的一维向量<script type="math/tex">\theta</script>。这样的cost function<script type="math/tex">J(W^{[1]},b^{[1]},\cdots,W^{[L]},b^{[L]})</script>可以表示成<script type="math/tex">J(\theta)</script></li>
+</ul>
+<p><img src="/images/pasted-50.png" alt="upload successful"></p>
+<ul>
+<li><p>然后将反向传播过程通过梯度下降算法得到的$dW^{[1]},db^{[1]},\cdots,dW^{[L]},db^{[L]}$按照一样的顺序构造成一个一维向量<script type="math/tex">d\theta</script>。<script type="math/tex">d\theta</script>的维度与<script type="math/tex">\theta</script>一致</p>
+</li>
+<li><p>接着利用<script type="math/tex">J(\theta)</script>对每个<script type="math/tex">\theta_i</script>算近似梯度，其值与反向传播算法得到的<script type="math/tex">d\theta_i</script>相比较，检查是否一致。例如，对于第<script type="math/tex">i</script>个元素，近似梯度为：</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+d\theta_{approx}[i]=\frac{J(\theta_1,\theta_2,\cdots,\theta_i+\varepsilon,\cdots)-J(\theta_1,\theta_2,\cdots,\theta_i-\varepsilon,\cdots)}{2\varepsilon}</script><ul>
+<li>计算完所有<script type="math/tex">\theta_i</script>的近似梯度后，可以计算<script type="math/tex">d\theta_{approx}</script>与<script type="math/tex">d\theta</script>的欧氏（Euclidean）距离来比较二者的相似度。公式如下：</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{||d\theta_{approx}-d\theta||_2}{||d\theta_{approx}||_2+||d\theta||_2}</script><ul>
+<li>如果欧氏距离越小，例如<script type="math/tex">10^{-7}</script>，甚至更小，则表明<script type="math/tex">d\theta_{approx}</script>与<script type="math/tex">d\theta</script>越接近，即反向梯度计算是正确的，没有bugs。如果欧氏距离较大，例如<script type="math/tex">10^{-5}</script>，则表明梯度计算可能出现问题，需要再次检查是否有bugs存在。如果欧氏距离很大，例如<script type="math/tex">10^{-3}</script>，甚至更大，则表明<script type="math/tex">d\theta_{approx}</script>与<script type="math/tex">d\theta</script>差别很大，梯度下降计算过程有bugs，需要仔细检查</li>
+</ul>
+<h2 id="1-14梯度检验应用的注意事项（Gradient-Checking-Implementation-Notes）"><a href="#1-14梯度检验应用的注意事项（Gradient-Checking-Implementation-Notes）" class="headerlink" title="1.14梯度检验应用的注意事项（Gradient Checking Implementation Notes）"></a>1.14梯度检验应用的注意事项（Gradient Checking Implementation Notes）</h2><p>在进行梯度检验的过程中有几点需要注意的地方：</p>
+<ul>
+<li><p>不要在训练中使用梯度检验而仅仅在调试时使用。计算所有<script type="math/tex">i</script>值的<script type="math/tex">d\theta_{approx}[i]</script>是一个非常漫长的计算过程，为了实施梯度下降，必须使用<script type="math/tex">W</script>和<script type="math/tex">b</script><strong> </strong>backprop来计算<script type="math/tex">d\theta</script><strong>，</strong>并使用backprop来计算导数，所以只有调试的时候才会计算它，来确认数值是否接近<script type="math/tex">d\theta</script>。完成后要关闭梯度检验。别在每一次进行梯度下降迭代的时候都运行梯度检验，因为太慢了</p>
+</li>
+<li><p>如果<script type="math/tex">d\theta_{approx}</script>与<script type="math/tex">d\theta</script>差距很大, 应检查不同的<script type="math/tex">i</script>值,看看哪些<script type="math/tex">d\theta_{approx}</script>的值与<script type="math/tex">d\theta</script>的值差距最大</p>
+</li>
+<li><p>进行梯度检验时,如果使用了正则化,注意不要忽略正则化项，计算近似梯度的时候要包括进去</p>
+</li>
+<li><p>梯度检验不能与随机失活(dropout) 一起使用,因为在每一次的迭代中,随机失活(dropout)将随机消除隐藏层单元的不同子集,在使用随机失活(dropout) 进行梯度下降的过程中并不存在一个容易计算的代价函数<script type="math/tex">J</script>,随机失活(dropout)可以被视为对代价函数的优化, 但是这个代价函数的定义是在每一次迭代中对所有非常大的可消除节点集进行求和,所以这个代价函数是很难计算的,只需要对代价函数进行抽样,在那些使用随机失活(dropout)的集合中每次消除不同的随机集合,所以使用梯度检验来检查包含了随机失活(dropout)的运算是很困难的,可以把keep-prob和dropout设为1.0,然后打开dropout。梯度检查时关闭dropout，检查完毕后再打开dropout。关掉随机失活(dropout) 使用梯度检验来检查算法，在没有dropout的情况下至少是正确的 然后再打开dropout</p>
+</li>
+<li><p>在随机初始化的时候运行梯度检验,然后训练网络一段时间,<script type="math/tex">w</script>和<script type="math/tex">b</script> 将会在0附近摇摆一段时间,即很小的随机初始值,在进行几次训练的迭代后再运行梯度检验。<strong>（不常用）</strong></p>
+</li>
+</ul>
 
       
     </div>
@@ -629,8 +689,8 @@ X:=\frac{X-\mu}{\sigma^2}</script><p><img src="/images/pasted-39.png" alt="uploa
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/" rel="next" title="第二周：优化算法 (Optimization algorithms)(Course 2)">
-                <i class="fa fa-chevron-left"></i> 第二周：优化算法 (Optimization algorithms)(Course 2)
+              <a href="/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/" rel="next" title="第三周：浅层神经网络(Shallow neural networks)(Course 1)">
+                <i class="fa fa-chevron-left"></i> 第三周：浅层神经网络(Shallow neural networks)(Course 1)
               </a>
             
           </div>
@@ -639,8 +699,8 @@ X:=\frac{X-\mu}{\sigma^2}</script><p><img src="/images/pasted-39.png" alt="uploa
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/" rel="prev" title="第四周：深层神经网络(Deep Neural Networks)(Course 1)">
-                第四周：深层神经网络(Deep Neural Networks)(Course 1) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/" rel="prev" title="第二周：优化算法 (Optimization algorithms)(Course 2)">
+                第二周：优化算法 (Optimization algorithms)(Course 2) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -860,7 +920,7 @@ X:=\frac{X-\mu}{\sigma^2}</script><p><img src="/images/pasted-39.png" alt="uploa
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1训练，验证，测试集（Train-Dev-Test-sets）"><span class="nav-number">1.</span> <span class="nav-text">1.1训练，验证，测试集（Train / Dev / Test sets）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2偏差，方差（Bias-Variance）"><span class="nav-number">2.</span> <span class="nav-text">1.2偏差，方差（Bias /Variance）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-机器学习基础（Basic-Recipe-for-Machine-Learning）"><span class="nav-number">3.</span> <span class="nav-text">1.3 机器学习基础（Basic Recipe for Machine Learning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4正则化（Regularization）"><span class="nav-number">4.</span> <span class="nav-text">1.4正则化（Regularization）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5为什么正则化有利于预防过拟合呢？（Why-regularization-reduces-overfitting-）"><span class="nav-number">5.</span> <span class="nav-text">1.5为什么正则化有利于预防过拟合呢？（Why regularization reduces overfitting?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6dropout-正则化（Dropout-Regularization）"><span class="nav-number">6.</span> <span class="nav-text">1.6dropout 正则化（Dropout Regularization）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Inverted-dropout（反向随机失活）"><span class="nav-number">6.1.</span> <span class="nav-text">Inverted dropout（反向随机失活）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7理解-dropout（Understanding-Dropout）"><span class="nav-number">7.</span> <span class="nav-text">1.7理解 dropout（Understanding Dropout）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8其他正则化方法（Other-regularization-methods）"><span class="nav-number">8.</span> <span class="nav-text">1.8其他正则化方法（Other regularization methods）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9归一化输入（Normalizing-inputs）"><span class="nav-number">9.</span> <span class="nav-text">1.9归一化输入（Normalizing inputs）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1训练，验证，测试集（Train-Dev-Test-sets）"><span class="nav-number">1.</span> <span class="nav-text">1.1训练，验证，测试集（Train / Dev / Test sets）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2偏差，方差（Bias-Variance）"><span class="nav-number">2.</span> <span class="nav-text">1.2偏差，方差（Bias /Variance）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-机器学习基础（Basic-Recipe-for-Machine-Learning）"><span class="nav-number">3.</span> <span class="nav-text">1.3 机器学习基础（Basic Recipe for Machine Learning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4正则化（Regularization）"><span class="nav-number">4.</span> <span class="nav-text">1.4正则化（Regularization）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5为什么正则化有利于预防过拟合呢？（Why-regularization-reduces-overfitting-）"><span class="nav-number">5.</span> <span class="nav-text">1.5为什么正则化有利于预防过拟合呢？（Why regularization reduces overfitting?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6dropout-正则化（Dropout-Regularization）"><span class="nav-number">6.</span> <span class="nav-text">1.6dropout 正则化（Dropout Regularization）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Inverted-dropout（反向随机失活）"><span class="nav-number">6.1.</span> <span class="nav-text">Inverted dropout（反向随机失活）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7理解-dropout（Understanding-Dropout）"><span class="nav-number">7.</span> <span class="nav-text">1.7理解 dropout（Understanding Dropout）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8其他正则化方法（Other-regularization-methods）"><span class="nav-number">8.</span> <span class="nav-text">1.8其他正则化方法（Other regularization methods）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9归一化输入（Normalizing-inputs）"><span class="nav-number">9.</span> <span class="nav-text">1.9归一化输入（Normalizing inputs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10梯度消失-梯度爆炸（Vanishing-Exploding-gradients）"><span class="nav-number">10.</span> <span class="nav-text">1.10梯度消失/梯度爆炸（Vanishing / Exploding gradients）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11神经网络的权重初始化（Weight-Initialization-for-Deep-Networks）"><span class="nav-number">11.</span> <span class="nav-text">1.11神经网络的权重初始化（Weight Initialization for Deep Networks）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12梯度的数值逼近（Numerical-approximation-of-gradients）"><span class="nav-number">12.</span> <span class="nav-text">1.12梯度的数值逼近（Numerical approximation of gradients）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-13梯度检验（Gradient-checking）"><span class="nav-number">13.</span> <span class="nav-text">1.13梯度检验（Gradient checking）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-14梯度检验应用的注意事项（Gradient-Checking-Implementation-Notes）"><span class="nav-number">14.</span> <span class="nav-text">1.14梯度检验应用的注意事项（Gradient Checking Implementation Notes）</span></a></li></ol></div>
             
 
           </div>
@@ -907,7 +967,7 @@ X:=\frac{X-\mu}{\sigma^2}</script><p><img src="/images/pasted-39.png" alt="uploa
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共11.1k字</span>
+  <span class="post-count">博客全站共8.5k字</span>
 </div>
 
         
