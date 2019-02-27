@@ -82,13 +82,13 @@
 
 
 
-<meta name="description" content="1.1训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数  循环迭代的过程是这样的：  先有个想法Idea，先选择初始的参数值，构建神经网络模型结构 然后通过代码Code的形">
+<meta name="description" content="1.1训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数">
 <meta name="keywords" content="Machine Learning&#x2F;Deep Learning&#x2F;Python&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一周：深度学习的实用层面(Practical aspects of Deep Learning)(Course 2)">
 <meta property="og:url" content="https://baozouai.com/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="1.1训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数  循环迭代的过程是这样的：  先有个想法Idea，先选择初始的参数值，构建神经网络模型结构 然后通过代码Code的形">
+<meta property="og:description" content="1.1训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://baozouai.com/images/pasted-42.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-43.png">
@@ -113,10 +113,10 @@
 <meta property="og:image" content="https://baozouai.com/images/pasted-48.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-49.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-50.png">
-<meta property="og:updated_time" content="2019-02-27T03:55:51.962Z">
+<meta property="og:updated_time" content="2019-02-27T05:24:09.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周：深度学习的实用层面(Practical aspects of Deep Learning)(Course 2)">
-<meta name="twitter:description" content="1.1训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数  循环迭代的过程是这样的：  先有个想法Idea，先选择初始的参数值，构建神经网络模型结构 然后通过代码Code的形">
+<meta name="twitter:description" content="1.1训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数">
 <meta name="twitter:image" content="https://baozouai.com/images/pasted-42.png">
 
 
@@ -380,7 +380,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T11:55:51+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T13:24:09+08:00">
                 2019-02-27
               </time>
             
@@ -470,11 +470,12 @@
 <li>神经网络分多少层</li>
 <li>每层含有多少个隐藏单元</li>
 <li>学习速率是多少</li>
-<li>各层采用哪些激活函数</li>
-</ol>
+<li><p>各层采用哪些激活函数</p>
+<a id="more"></a>
 <p>循环迭代的过程是这样的：</p>
-<ol>
-<li>先有个想法Idea，先选择初始的参数值，构建神经网络模型结构</li>
+</li>
+<li><p>先有个想法Idea，先选择初始的参数值，构建神经网络模型结构</p>
+</li>
 <li>然后通过代码Code的形式，实现这个神经网络；</li>
 <li>通过实验Experiment验证这些参数对应的神经网络的表现性能。</li>
 <li>根据验证结果，对参数进行适当的调整优化，再进行下一次的Idea-&gt;Code-&gt;Experiment循环。通过很多次的循环，不断调整参数，选定最佳的参数值，从而让神经网络性能最优化</li>
@@ -689,8 +690,8 @@ d\theta_{approx}[i]=\frac{J(\theta_1,\theta_2,\cdots,\theta_i+\varepsilon,\cdots
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/" rel="next" title="第二周：优化算法 (Optimization algorithms)(Course 2)">
-                <i class="fa fa-chevron-left"></i> 第二周：优化算法 (Optimization algorithms)(Course 2)
+              <a href="/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/" rel="next" title="第三周：浅层神经网络(Shallow neural networks)(Course 1)">
+                <i class="fa fa-chevron-left"></i> 第三周：浅层神经网络(Shallow neural networks)(Course 1)
               </a>
             
           </div>
@@ -699,8 +700,8 @@ d\theta_{approx}[i]=\frac{J(\theta_1,\theta_2,\cdots,\theta_i+\varepsilon,\cdots
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/27/第一周-机器学习（ML）策略（1）（ML-strategy（1））-Course-3/" rel="prev" title="第一周 机器学习（ML）策略（1）（ML strategy（1））(Course 3)">
-                第一周 机器学习（ML）策略（1）（ML strategy（1））(Course 3) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/" rel="prev" title="第二周：优化算法 (Optimization algorithms)(Course 2)">
+                第二周：优化算法 (Optimization algorithms)(Course 2) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://baozouai.com/"/>
-  <updated>2019-02-27T04:47:31.927Z</updated>
+  <updated>2019-02-27T05:23:28.288Z</updated>
   <id>https://baozouai.com/</id>
   
   <author>
@@ -21,17 +21,20 @@
     <link href="https://baozouai.com/2019/02/28/%E7%AC%AC-%E4%B8%89-%E5%91%A8-%E8%B6%85-%E5%8F%82-%E6%95%B0-%E8%B0%83-%E8%AF%95-%E3%80%81-Batch-%E6%AD%A3-%E5%88%99-%E5%8C%96-%E5%92%8C-%E7%A8%8B-%E5%BA%8F-%E6%A1%86-%E6%9E%B6-%EF%BC%88Hyperparameter-tuning%EF%BC%89-Course-2/"/>
     <id>https://baozouai.com/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/</id>
     <published>2019-02-27T20:22:00.000Z</published>
-    <updated>2019-02-27T04:47:31.927Z</updated>
+    <updated>2019-02-27T05:23:28.288Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;3-1调试处理（Tuning-process）&quot;&gt;&lt;a href=&quot;#3-1调试处理（Tuning-process）&quot; class=&quot;headerlink&quot; title=&quot;3.1调试处理（Tuning process）&quot;&gt;&lt;/a&gt;3.1调试处理（Tuning process）&lt;/h2&gt;&lt;p&gt;深度神经网络需要调试的超参数（Hyperparameters）包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt;&lt;strong&gt;：学习因子&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;\beta&lt;/script&gt;&lt;strong&gt;：动量梯度下降因子&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;\beta_1,\beta_2,\varepsilon&lt;/script&gt;&lt;strong&gt;：Adam算法参数&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;#layers：神经网络层数&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;#hidden units：各隐藏层神经元个数&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;learning rate decay：学习因子下降参数&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mini-batch size：批量训练样本包含的样本个数&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -63,21 +66,15 @@
   </entry>
   
   <entry>
-    <title>第二周：机器学习策略（2）(ML Strategy (2))(Course 2)</title>
+    <title>第二周：机器学习策略（2）(ML Strategy (2))(Course 3)</title>
     <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AD%96%E7%95%A5%EF%BC%882%EF%BC%89-ML-Strategy-2-Course-2/"/>
     <id>https://baozouai.com/2019/02/27/第二周：机器学习策略（2）-ML-Strategy-2-Course-2/</id>
     <published>2019-02-27T13:08:33.000Z</published>
-    <updated>2019-02-27T05:20:53.961Z</updated>
+    <updated>2019-02-27T05:23:43.008Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;2-1进行误差分析（Carrying-out-error-analysis）&quot;&gt;&lt;a href=&quot;#2-1进行误差分析（Carrying-out-error-analysis）&quot; class=&quot;headerlink&quot; title=&quot;2.1进行误差分析（Carrying out error analysis）&quot;&gt;&lt;/a&gt;2.1进行误差分析（Carrying out error analysis）&lt;/h2&gt;&lt;p&gt;如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为&lt;strong&gt;错误分析&lt;/strong&gt;&lt;br&gt;
     
     </summary>
     
@@ -85,43 +82,23 @@
   </entry>
   
   <entry>
-    <title>第一周 机器学习（ML）策略（1）（ML strategy（1））(Course 3)</title>
+    <title>第一周 机器学习策略（1）（ML strategy（1））(Course 3)</title>
     <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88ML%EF%BC%89%E7%AD%96%E7%95%A5%EF%BC%881%EF%BC%89%EF%BC%88ML-strategy%EF%BC%881%EF%BC%89%EF%BC%89-Course-3/"/>
     <id>https://baozouai.com/2019/02/27/第一周-机器学习（ML）策略（1）（ML-strategy（1））-Course-3/</id>
     <published>2019-02-27T12:49:53.000Z</published>
-    <updated>2019-02-27T05:06:54.805Z</updated>
+    <updated>2019-02-27T05:23:58.457Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>第一周：深度学习的实用层面(Practical aspects of Deep Learning)(Course 2)</title>
-    <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B1%82%E9%9D%A2-Practical-aspects-of-Deep-Learning-Course-2/"/>
-    <id>https://baozouai.com/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/</id>
-    <published>2019-02-27T11:20:37.000Z</published>
-    <updated>2019-02-27T03:55:51.962Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;1-1为什么是-ML-策略？（Why-ML-Strategy-）&quot;&gt;&lt;a href=&quot;#1-1为什么是-ML-策略？（Why-ML-Strategy-）&quot; class=&quot;headerlink&quot; title=&quot;1.1为什么是 ML 策略？（Why ML Strategy?）&quot;&gt;&lt;/a&gt;1.1为什么是 ML 策略？（Why ML Strategy?）&lt;/h2&gt;&lt;p&gt;当最初得到一个深度神经网络模型时，希望从很多方面来对它进行优化，例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Collect more data&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Collect more diverse training set&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Train algorithm longer with gradient descent&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Try Adam instead of gradient descent&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -144,6 +121,27 @@
           
         
       
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>第一周：深度学习的实用层面(Practical aspects of Deep Learning)(Course 2)</title>
+    <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B1%82%E9%9D%A2-Practical-aspects-of-Deep-Learning-Course-2/"/>
+    <id>https://baozouai.com/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/</id>
+    <published>2019-02-27T11:20:37.000Z</published>
+    <updated>2019-02-27T05:24:09.650Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-1训练，验证，测试集（Train-Dev-Test-sets）&quot;&gt;&lt;a href=&quot;#1-1训练，验证，测试集（Train-Dev-Test-sets）&quot; class=&quot;headerlink&quot; title=&quot;1.1训练，验证，测试集（Train / Dev / Test sets）&quot;&gt;&lt;/a&gt;1.1训练，验证，测试集（Train / Dev / Test sets）&lt;/h2&gt;&lt;p&gt;在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;神经网络分多少层&lt;/li&gt;
+&lt;li&gt;每层含有多少个隐藏单元&lt;/li&gt;
+&lt;li&gt;学习速率是多少&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;各层采用哪些激活函数&lt;/p&gt;
     
     </summary>
     

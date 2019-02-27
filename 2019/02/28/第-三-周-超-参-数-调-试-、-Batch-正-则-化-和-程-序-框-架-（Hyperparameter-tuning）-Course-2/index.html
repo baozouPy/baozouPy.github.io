@@ -109,7 +109,7 @@
 <meta property="og:image" content="https://baozouai.com/images/pasted-87.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-88.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-89.png">
-<meta property="og:updated_time" content="2019-02-27T04:47:31.927Z">
+<meta property="og:updated_time" content="2019-02-27T05:23:28.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)">
 <meta name="twitter:description" content="3.1调试处理（Tuning process）深度神经网络需要调试的超参数（Hyperparameters）包括：  \alpha：学习因子 \beta：动量梯度下降因子 \beta_1,\beta_2,\varepsilon：Adam算法参数 #layers：神经网络层数 #hidden units：各隐藏层神经元个数 learning rate decay：学习因子下降参数 mini-batc">
@@ -376,7 +376,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T12:47:31+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T13:23:28+08:00">
                 2019-02-27
               </time>
             
@@ -493,6 +493,7 @@
 <li><strong>learning rate decay：学习因子下降参数</strong></li>
 <li><strong>mini-batch size：批量训练样本包含的样本个数</strong></li>
 </ul>
+<a id="more"></a>
 <p>学习因子<script type="math/tex">\alpha</script>是最重要的超参数，也是需要重点调试的超参数。动量梯度下降因子<script type="math/tex">\beta</script>、各隐藏层神经元个数#hidden units和mini-batch size的重要性仅次于,然后就是神经网络层数#layers和学习因子下降参数learning rate decay。最后，Adam算法的三个参数<script type="math/tex">\beta_1,\beta_2,\varepsilon</script>一般常设置为0.9，0.999和<script type="math/tex">10^{-8}</script></p>
 <p>传统的机器学习中，对每个参数等距离选取任意个数的点，分别使用不同点对应的参数组合进行训练，最后根据验证集上的表现好坏来选定最佳的参数。例如有两个待调试的参数，分别在每个参数上选取5个点，这样构成了5x5=25中参数组合：</p>
 <p><img src="/images/pasted-69.png" alt="upload successful"></p>
