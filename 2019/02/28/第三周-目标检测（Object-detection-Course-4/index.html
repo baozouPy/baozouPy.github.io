@@ -82,13 +82,13 @@
 
 
 
-<meta name="description" content="3.1 目标定位（Object localization） 定位分类问题：不仅要用算法判断图片中是不是一辆汽车，还要在图片中标记出它的位置，用边框或红色方框把汽车圈起来，“定位”的意思是判断汽车在图片中的具体位置 定位分类问题通常只有一个较大的对象位于图片中间位置，对它进行识别和定位。对象检测问题中图片可以含有多个对象，甚至单张图片中会有多个不同分类的对象  构建汽车自动驾驶系统，对象可能包括以下">
+<meta name="description" content="3.1 目标定位（Object localization）">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第三周 目标检测（Object detection)(Course 4)">
 <meta property="og:url" content="https://baozouai.com/2019/02/28/第三周-目标检测（Object-detection-Course-4/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="3.1 目标定位（Object localization） 定位分类问题：不仅要用算法判断图片中是不是一辆汽车，还要在图片中标记出它的位置，用边框或红色方框把汽车圈起来，“定位”的意思是判断汽车在图片中的具体位置 定位分类问题通常只有一个较大的对象位于图片中间位置，对它进行识别和定位。对象检测问题中图片可以含有多个对象，甚至单张图片中会有多个不同分类的对象  构建汽车自动驾驶系统，对象可能包括以下">
+<meta property="og:description" content="3.1 目标定位（Object localization）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0107af10b33fcb955cc3c588dfb78d49.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d4a47c2041807f891c0a606d246330c5.png">
@@ -141,10 +141,10 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/838a6aeb35865f9cfecac8dc593b565b.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e78e4465af892d0965e2b0863263ef8c.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e6ed1aa3263107d4e189dd75adc060b4.png">
-<meta property="og:updated_time" content="2019-02-27T06:10:54.962Z">
+<meta property="og:updated_time" content="2019-02-27T06:23:48.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三周 目标检测（Object detection)(Course 4)">
-<meta name="twitter:description" content="3.1 目标定位（Object localization） 定位分类问题：不仅要用算法判断图片中是不是一辆汽车，还要在图片中标记出它的位置，用边框或红色方框把汽车圈起来，“定位”的意思是判断汽车在图片中的具体位置 定位分类问题通常只有一个较大的对象位于图片中间位置，对它进行识别和定位。对象检测问题中图片可以含有多个对象，甚至单张图片中会有多个不同分类的对象  构建汽车自动驾驶系统，对象可能包括以下">
+<meta name="twitter:description" content="3.1 目标定位（Object localization）">
 <meta name="twitter:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0107af10b33fcb955cc3c588dfb78d49.png">
 
 
@@ -408,7 +408,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:10:54+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:23:48+08:00">
                 2019-02-27
               </time>
             
@@ -493,8 +493,7 @@
       
 
       
-        <h2 id="3-1-目标定位（Object-localization）"><a href="#3-1-目标定位（Object-localization）" class="headerlink" title="3.1 目标定位（Object localization）"></a>3.1 目标定位（Object localization）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0107af10b33fcb955cc3c588dfb78d49.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0107af10b33fcb955cc3c588dfb78d49.png" alt></a></p>
-<p>定位分类问题：不仅要用算法判断图片中是不是一辆汽车，还要在图片中标记出它的位置，用边框或红色方框把汽车圈起来，“定位”的意思是判断汽车在图片中的具体位置</p>
+        <h2 id="3-1-目标定位（Object-localization）"><a href="#3-1-目标定位（Object-localization）" class="headerlink" title="3.1 目标定位（Object localization）"></a>3.1 目标定位（Object localization）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0107af10b33fcb955cc3c588dfb78d49.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0107af10b33fcb955cc3c588dfb78d49.png" alt></a><br><a id="more"></a><br>定位分类问题：不仅要用算法判断图片中是不是一辆汽车，还要在图片中标记出它的位置，用边框或红色方框把汽车圈起来，“定位”的意思是判断汽车在图片中的具体位置</p>
 <p>定位分类问题通常只有一个较大的对象位于图片中间位置，对它进行识别和定位。对象检测问题中图片可以含有多个对象，甚至单张图片中会有多个不同分类的对象</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/d4a47c2041807f891c0a606d246330c5.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d4a47c2041807f891c0a606d246330c5.png" alt></a></p>
 <p>构建汽车自动驾驶系统，对象可能包括以下几类：行人、汽车、摩托车和背景</p>
@@ -996,7 +995,7 @@ y= \begin{bmatrix} p_{c} & b_{x} & b_{y} &b_{h} & b_{w} & c_{1} & c_{2} & c_{3} 
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共47.6k字</span>
+  <span class="post-count">博客全站共52.4k字</span>
 </div>
 
         

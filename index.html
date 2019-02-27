@@ -358,7 +358,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:21:23+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:34:29Z">
                 2019-02-27
               </time>
             
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  427
+                  5.2k
                 </span>
               
 
@@ -445,7 +445,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  20
                 </span>
               
             </div>
@@ -466,21 +466,17 @@
 
       
         
-          
-            <h2 id="5-1-为什么选择序列模型？（Why-Sequence-Models-）"><a href="#5-1-为什么选择序列模型？（Why-Sequence-Models-）" class="headerlink" title="5.1 为什么选择序列模型？（Why Sequence Models?）"></a>5.1 为什么选择序列模型？（Why Sequence Models?）</h2><p>语音识别：给定一个输入音频片段 <script type="math/tex">X</script>，要求输出对应的文字记录 <script type="math/tex">Y</script>。输入和输出数据都是序列模型，因为 <script type="math/tex">X</script>是一个按时播放的音频片段，输出 <script type="math/tex">Y</script>是一系列单词</p>
-<p>音乐生成问题：只有输出数据 <script type="math/tex">Y</script>是序列，而输入数据可以是空集，也可以是个单一的整数，这个数可能指代想要生成的音乐风格，或者想要生成的那首曲子的头几个音符</p>
-<p>处理情感分类：输入数据 <script type="math/tex">X</script>是序列，会得到类似这样的输入：“<strong>There is nothing to like in this movie.</strong>”，你认为这句评论对应几星？</p>
-<p><strong>DNA</strong>序列分析：<strong>DNA</strong>用<strong>A</strong>、<strong>C</strong>、<strong>G</strong>、<strong>T</strong>四个字母来表示。给定一段<strong>DNA</strong>序列，能够标记出哪部分是匹配某种蛋白质？</p>
-<p>机器翻译：输入句：“<strong>Voulez-vou chante avecmoi?</strong>”（法语：要和我一起唱么？），要求输出另一种语言的翻译结果</p>
-<p>视频行为识别：得到一系列视频帧，要求识别其中的行为</p>
-<p>命名实体识别：给定一个句子，要求识别出句中的人名</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ae2970d80a119cd341ef31c684bfac49.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ae2970d80a119cd341ef31c684bfac49.png" alt></a></p>
-<p>这些问题都可以被称作使用标签数据 <script type="math/tex">(X,Y)</script>作为训练集的监督学习。但序列问题有很多不同类型。有些问题里，输入数据 <script type="math/tex">X</script>和输出数据<script type="math/tex">Y</script>都是序列，但就算在那种情况下，<script type="math/tex">X</script>和<script type="math/tex">Y</script>有时也会不一样长。或者像上图编号1和编号2所示的<script type="math/tex">X</script>和<script type="math/tex">Y</script>有相同的数据长度。在另一些问题里，只有 <script type="math/tex">X</script>或者只有<script type="math/tex">Y</script>是序列</p>
-
-          
+          <h2 id="1-1-为什么选择序列模型？（Why-Sequence-Models-）"><a href="#1-1-为什么选择序列模型？（Why-Sequence-Models-）" class="headerlink" title="1.1 为什么选择序列模型？（Why Sequence Models?）"></a>1.1 为什么选择序列模型？（Why Sequence Models?）</h2><p>语音识别：给定一个输入音频片段 <script type="math/tex">X</script>，要求输出对应的文字记录 <script type="math/tex">Y</script>。输入和输出数据都是序列模型，因为 <script type="math/tex">X</script>是一个按时播放的音频片段，输出 <script type="math/tex">Y</script>是一系列单词<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/28/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -577,7 +573,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:22:05Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:23:33Z">
                 2019-02-27
               </time>
             
@@ -685,188 +681,18 @@
 
       
         
-          
-            <h2 id="4-1-什么是人脸识别？（What-is-face-recognition-）"><a href="#4-1-什么是人脸识别？（What-is-face-recognition-）" class="headerlink" title="4.1 什么是人脸识别？（What is face recognition?）"></a>4.1 什么是人脸识别？（What is face recognition?）</h2><ul>
-<li><p>人脸验证（<strong>face verification</strong>）问题：如果有一张输入图片以及某人的<strong>ID</strong>或者是名字，系统要做的是验证输入图片是否是这个人，也被称作1对1问题，只需要弄明白这个人是否和他声称的身份相符</p>
-</li>
-<li><p>人脸识别（<strong>face recognition</strong>）问题：（1对多问题（<script type="math/tex">1:K</script>））输入一张人脸图片，验证输出是否为K个模板中的某一个，即一对多问题</p>
-</li>
-</ul>
-<p>一般人脸识别比人脸验证更难。因为假设人脸验证系统的错误率是1%，那么在人脸识别中，输出分别与K个模板都进行比较，则相应的错误率就会增加，约K%。模板个数越多，错误率越大一些</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b0d5f91254b48dcc44944bfbdc05992b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b0d5f91254b48dcc44944bfbdc05992b.png" alt></a></p>
-<p>什么是人脸识别？（What is face recognition?）<br>人脸验证（face verification）问题：如果有一张输入图片以及某人的ID或者是名字，系统要做的是验证输入图片是否是这个人，也被称作1对1问题，只需要弄明白这个人是否和他声称的身份相符<br>人脸识别（face recognition）问题：（1对多问题（1:K））输入一张人脸图片，验证输出是否为K个模板中的某一个，即一对多问题<br>一般人脸识别比人脸验证更难。因为假设人脸验证系统的错误率是1%，那么在人脸识别中，输出分别与K个模板都进行比较，则相应的错误率就会增加，约K%。模板个数越多，错误率越大一些</p>
-<h2 id="4-2-One-Shot学习（One-shot-learning）"><a href="#4-2-One-Shot学习（One-shot-learning）" class="headerlink" title="4.2 One-Shot学习（One-shot learning）"></a>4.2 One-Shot学习（One-shot learning）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8b3b58571307fce29dbced077bd86ea7.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8b3b58571307fce29dbced077bd86ea7.png" alt></a></p>
-<p>要让人脸识别能够做到一次学习，要做的是学习<strong>Similarity</strong>函数</p>
-<p>让神经网络学习用<script type="math/tex">d</script>表示的函数：</p>
-<script type="math/tex; mode=display">
-d(img1,img2) = degree\ of\ difference\ between\ images</script><p>以两张图片作为输入，然后输出这两张图片的差异值</p>
-<ul>
-<li>如果这两张图片的差异值小于某个阈值<script type="math/tex">\tau</script>，就能预测这两张图片是同一个人</li>
-<li>如果差异值大于τ，就能预测这是不同的两个人</li>
-</ul>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f46e9ff3ef4819665b487a81784ab821.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f46e9ff3ef4819665b487a81784ab821.png" alt></a></p>
-<p>对于人脸识别问题，只需计算测试图片与数据库中K个目标的相似函数，取其中d(img1,img2)最小的目标为匹配对象。若所有的d(img1,img2)都很大，则表示数据库没有这个人</p>
-<p>如果之后有新人加入了团队（编号5），只需将他的照片加入数据库，系统依然能照常工作</p>
-<h2 id="4-3-Siamese-网络（Siamese-network）"><a href="#4-3-Siamese-网络（Siamese-network）" class="headerlink" title="4.3 Siamese 网络（Siamese network）"></a>4.3 Siamese 网络（Siamese network）</h2><p>函数d的作用是输入两张人脸，然后输出相似度。实现这个功能的一个方式是用<strong>Siamese</strong>网络</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/18679869eb23651215b517b0f00806f5.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/18679869eb23651215b517b0f00806f5.png" alt></a></p>
-<p>向量（编号1）是由网络深层的全连接层计算出来的，叫做<script type="math/tex">f(x^{(1)})</script>。可以把<script type="math/tex">f(x^{(1)})</script>看作是输入图像<script type="math/tex">x^{(1)}</script>的编码，即取输入图像（编号2），然后表示成128维的向量</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ecd4f7ca6487b4ccb19c1f5039e9d876.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ecd4f7ca6487b4ccb19c1f5039e9d876.png" alt></a></p>
-<p>如果要比较两个图片，要做的是把第二张图片喂给有同样参数的同样的神经网络，得到一个不同的128维的向量（编号3），第二张图片的编码叫做<script type="math/tex">f(x^{(2)})</script></p>
-<p>然后定义<script type="math/tex">d</script>，将<script type="math/tex">x^{(1)}</script>和<script type="math/tex">x^{(2)}</script>的距离定义为两幅图片的编码之差的范数：</p>
-<script type="math/tex; mode=display">
-d( x^{( 1)},x^{( 2)}) =|| f( x^{( 1)}) - f( x^{( 2)})||_{2}^{2}</script><p>对于两个不同的输入，运行相同的卷积神经网络，然后比较它们，就叫做<strong>Siamese</strong>网络架构</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/214e009729b015bc6088200e3c1ca3cd.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/214e009729b015bc6088200e3c1ca3cd.png" alt></a></p>
-<p>训练<strong>Siamese</strong>神经网络：不同图片的CNN网络所有结构和参数都是一样的。所以要做的是训练一个网络，利用梯度下降算法不断调整网络参数，使得属于同一人的图片之间<script type="math/tex">d(x^{(1)},x^{(2)})</script> 很小，而不同人的图片之间<script type="math/tex">d(x^{(1)},x^{(2)})</script>很大</p>
-<p>即神经网络的参数定义了一个编码函数<script type="math/tex">f(x^{(i)})</script>，如果给定输入图像<script type="math/tex">x^{(i)}</script>，这个网络会输出<script type="math/tex">x^{(i)}</script>的128维的编码。然后要做的就是学习参数</p>
-<ul>
-<li>使得如果两个图片<script type="math/tex">x^{( i)}</script>和<script type="math/tex">x^{( j)}</script>是同一个人，那么得到的两个编码的距离就小</li>
-<li>如果<script type="math/tex">x^{(i)}</script>和<script type="math/tex">x^{(j)}</script>是不同的人，那么编码距离就大</li>
-</ul>
-<p>如果改变这个网络所有层的参数，会得到不同的编码结果，要做的是用反向传播来改变这些所有的参数，以确保满足这些条件</p>
-<h2 id="4-4-Triplet-损失（Triplet-损失）"><a href="#4-4-Triplet-损失（Triplet-损失）" class="headerlink" title="4.4 Triplet 损失（Triplet 损失）"></a>4.4 Triplet 损失（Triplet 损失）</h2><p>要想通过学习神经网络的参数来得到优质的人脸图片编码，方法之一就是定义三元组损失函数然后应用梯度下降</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/d56e1c92b45d8b9e76c1592fdbf0fc7f.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d56e1c92b45d8b9e76c1592fdbf0fc7f.png" alt></a></p>
-<p>三元组损失每个样本包含三张图片：靶目标（Anchor）、正例（Positive）、反例（Negative），简写成<script type="math/tex">A</script>、<script type="math/tex">P</script>、<script type="math/tex">N</script></p>
-<p>网络的参数或者编码应满足：</p>
-<p>让<script type="math/tex">|| f(A) - f(P) ||^{2}</script>很小，即：</p>
-<script type="math/tex; mode=display">
-|| f(A) - f(P)||^{2} \leq ||f(A) - f(N)||^{2}</script><script type="math/tex; mode=display">
-||f(A)-f(P)||^2-||f(A)-F(N)||^2\leq 0</script><p>$|| f(A) - f(P) ||^{2}$是<script type="math/tex">d(A,P)</script>，<script type="math/tex">|| f(A) - f(N) ||^{2}</script>是<script type="math/tex">d(A,N)</script></p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/76d6eaae60caea5f2c4fcca0db226737.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/76d6eaae60caea5f2c4fcca0db226737.png" alt></a></p>
-<p>如果所有的图片都是零向量，即<script type="math/tex">f(A)=0,f(P)=0,f(N)=0</script>那么上述不等式也满足。但是对进行人脸识别没有任何作用，所以添加一个超参数<script type="math/tex">\alpha</script>，且<script type="math/tex">\alpha>0</script>，对上述不等式做出如下修改：</p>
-<script type="math/tex; mode=display">
-||f(A)-f(P)||^2-||f(A)-F(N)||^2\leq -\alpha</script><script type="math/tex; mode=display">
-||f(A)-f(P)||^2-||f(A)-F(N)||^2+\alpha \leq 0</script><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/eadc17c7748d8d2c36d74fa95e317e0d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/eadc17c7748d8d2c36d74fa95e317e0d.png" alt></a></p>
-<p>间隔参数<script type="math/tex">\alpha</script>也被称为边界margin，类似于支持向量机中的margin，拉大了<strong>Anchor</strong>和<strong>Positive</strong>图片对和<strong>Anchor</strong>与<strong>Negative</strong>图片对之间的差距。若<script type="math/tex">d(A,P)=0.5</script>，<script type="math/tex">\alpha=0.2</script>，则<script type="math/tex">d(A,N)\geq0.7</script></p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/6a701944309f6dce72d03f5070275d5f.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6a701944309f6dce72d03f5070275d5f.png" alt></a></p>
-<p>损失函数的定义基于三元图片组，即取这个和0的最大值：</p>
-<script type="math/tex; mode=display">
-L( A,P,N) = max(|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha,0)</script><p>$max$函数的作用是只要<script type="math/tex">|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha\leq0</script>，损失函数就是0</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/16bd20003ac6e93b71abb565ac4fd98e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/16bd20003ac6e93b71abb565ac4fd98e.png" alt></a></p>
-<p>如果<script type="math/tex">|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha\leq0</script>，最终会得到<script type="math/tex">|| f(A) - f( P)||^{2} -|| f( A) - f( N)||^{2} +\alpha</script>，即正的损失值。通过最小化这个损失函数达到的效果就是使这部分<script type="math/tex">|| f( A) - f( P)||^{2} -||f( A) - f( N)||^{2} +\alpha</script>成为0，或者小于等于0</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/bb258e78602ca65b6556a502da731764.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bb258e78602ca65b6556a502da731764.png" alt></a></p>
-<p>整个网络的代价函数是训练集中单个三元组损失的总和</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5d0ec945435eeb29f78463e38c58e90d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5d0ec945435eeb29f78463e38c58e90d.png" alt></a></p>
-<p>如何选择三元组来形成训练集：如果从训练集中随机地选择<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>，遵守<script type="math/tex">A</script>和<script type="math/tex">P</script>是同一个人，而<script type="math/tex">A</script>和<script type="math/tex">N</script>是不同的人这一原则。那么约束条件（<script type="math/tex">d(A,P) + \alpha \leq d(A,N)</script>）很容易达到，因为随机选择的图片，<script type="math/tex">A</script>和<script type="math/tex">N</script>比<script type="math/tex">A</script>和<script type="math/tex">P</script>差别很大的概率很大，而且差距远大于<script type="math/tex">\alpha</script>，这样网络并不能从中学到什么</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8d010b8d7ee7011cf7f5d1889af0e4ce.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8d010b8d7ee7011cf7f5d1889af0e4ce.png" alt></a></p>
-<p>所以为了构建一个数据集，要做的就是尽可能选择难训练的三元组<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>：</p>
-<p>想要所有的三元组都满足条件（<script type="math/tex">d(A,P) + a \leq d(A,N)</script>），<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>的选择应使得<script type="math/tex">d(A,P)</script>很接近<script type="math/tex">d(A,N)</script>，即<script type="math/tex">d(A,P) \approx d(A,N)</script>，这样学习算法会竭尽全力使右边式子变大（<script type="math/tex">d(A,N)</script>），或者使左边式子（<script type="math/tex">d(A,P)</script>）变小，这样左右两边至少有一个<script type="math/tex">\alpha</script>的间隔。并且选择这样的三元组还可以增加学习算法的计算效率</p>
-<p>总结：</p>
-<p>训练三元组损失需要把训练集做成很多三元组，这就是一个三元组（编号1），有一个<strong>Anchor</strong>图片和<strong>Positive</strong>图片，这两个（<strong>Anchor</strong>和<strong>Positive</strong>）是同一个人，还有一张另一个人的<strong>Negative</strong>图片。这是另一组（编号2），其中<strong>Anchor</strong>和<strong>Positive</strong>图片是同一个人，但是<strong>Anchor</strong>和<strong>Negative</strong>不是同一个人，等等。</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/347cf0fc665abe47fa0999d8bf771d26.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/347cf0fc665abe47fa0999d8bf771d26.png" alt></a></p>
-<p>定义了这些包括<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>图片的数据集之后，还需要用梯度下降最小化代价函数<script type="math/tex">J</script>，这样做的效果就是反向传播到网络中的所有参数来学习到一种编码，使得如果两个图片是同一个人，那么它们的<script type="math/tex">d</script>就会很小，如果两个图片不是同一个人，它们的<script type="math/tex">d</script> 就会很大</p>
-<h2 id="4-5-面部验证与二分类（Face-verification-and-binary-classification）"><a href="#4-5-面部验证与二分类（Face-verification-and-binary-classification）" class="headerlink" title="4.5 面部验证与二分类（Face verification and binary classification）"></a>4.5 面部验证与二分类（Face verification and binary classification）</h2><p>另一个训练神经网络的方法是选取一对神经网络，选取<strong>Siamese</strong>网络，使其同时计算这些嵌入，比如说128维的嵌入（编号1），或者更高维，然后将其输入到逻辑回归单元进行预测，如果是相同的人，那么输出是1，若是不同的人，输出是0。这就把人脸识别问题转换为一个二分类问题，训练这种系统时可以替换<strong>Triplet loss</strong>的方法</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c3bf61934da2f20a7d15e183c1d1d2ab.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c3bf61934da2f20a7d15e183c1d1d2ab.png" alt></a></p>
-<p>最后的逻辑回归单元怎么处理：</p>
-<p>比如说<strong>sigmoid</strong>函数应用到某些特征上，输出<script type="math/tex">\hat y</script>会变成：</p>
-<script type="math/tex; mode=display">
-\hat y = \sigma(\sum_{k = 1}^{128}{w_{i}\| f( x^{( i)})_{k} - f( x^{( j)})_{k}\| + b})</script><p>把这128个元素当作特征，然后把他们放入逻辑回归中，最后的逻辑回归可以增加参数<script type="math/tex">w_{i}</script>和<script type="math/tex">b</script>，就像普通的逻辑回归一样。然后在这128个单元上训练合适的权重，用来预测两张图片是否是一个人</p>
-<p>$\hat y$的另外一种表达式为：</p>
-<script type="math/tex; mode=display">
-\hat y=\sigma(\sum_{k=1}^Kw_k\frac{(f(x^{(i)})_k-f(x^{(j)})_k)^2}{f(x^{(i)})_k+f(x^{(j)})_k}+b)</script><p>这个公式也被叫做<script type="math/tex">\chi^{2}</script>公式，也被称为<script type="math/tex">\chi</script>平方相似度</p>
-<p>上面神经网络拥有的参数和下面神经网络的相同（编号3和4所示的网络），两组参数是绑定的，这样的系统效果很好</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/3054acaedc374b50c13ece55b7e1ff27.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/3054acaedc374b50c13ece55b7e1ff27.png" alt></a></p>
-<p>如果这是一张新图片（编号1），当员工走进门时，希望门可以自动为他们打开，这个（编号2）是在数据库中的图片，不需要每次都计算这些特征（编号6），可以提前计算好，当一个新员工走近时，使用上方的卷积网络来计算这些编码（编号5），和预先计算好的编码进行比较，然后输出预测值<script type="math/tex">\hat y</script></p>
-<p>总结：把人脸验证当作一个监督学习，创建一个只有成对图片的训练集，不是三个一组，而是成对的图片，目标标签是1表示一对图片是一个人，目标标签是0表示图片中是不同的人。利用不同的成对图片，使用反向传播算法去训练<strong>Siamese</strong>神经网络</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/bb970476d7de45a473a1c98b8d87b23a.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bb970476d7de45a473a1c98b8d87b23a.png" alt></a></p>
-<h2 id="4-6-什么是深度卷积网络？（What-are-deep-ConvNets-learning-）"><a href="#4-6-什么是深度卷积网络？（What-are-deep-ConvNets-learning-）" class="headerlink" title="4.6 什么是深度卷积网络？（What are deep ConvNets learning?）"></a>4.6 什么是深度卷积网络？（What are deep ConvNets learning?）</h2><p>假如训练了一个<strong>Alexnet</strong>轻量级网络，不同层之间隐藏单元的计算结果如下：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/6d489f040214efb27bf0f109874b3918.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6d489f040214efb27bf0f109874b3918.png" alt></a></p>
-<p>从第一层的隐藏单元开始，将训练集经过神经网络，然后弄明白哪一张图片最大限度地激活特定的单元。在第一层的隐藏单元，只能看到小部分卷积神经，只有一小块图片块是有意义的，因为这就是特定单元所能看到的全部</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1472cbf93948173ac314ceb4eb5e4c97.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1472cbf93948173ac314ceb4eb5e4c97.png" alt></a></p>
-<p>然后选一个另一个第一层的隐藏单元，重复刚才的步骤：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5b097161aa8a3e22c081185a69a367a3.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5b097161aa8a3e22c081185a69a367a3.png" alt></a></p>
-<p>对其他隐藏单元也进行处理，会发现其他隐藏单元趋向于激活类似于这样的图片：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/eb711a9de1a7c8681c25c9c6e3bf71cd.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/eb711a9de1a7c8681c25c9c6e3bf71cd.png" alt></a></p>
-<p>以此类推，这是9个不同的代表性神经元，每一个不同的图片块都最大化地激活了。可以理解为第一层的隐藏单元通常会找一些简单的特征，比如说边缘或者颜色阴影</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/4000d4a71a5820691197d506654216bd.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4000d4a71a5820691197d506654216bd.png" alt></a></p>
-<p>在深层部分，一个隐藏单元会看到一张图片更大的部分，在极端的情况下，可以假设每一个像素都会影响到神经网络更深层的输出，靠后的隐藏单元可以看到更大的图片块</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2ccff4b8e125893f330414574cd03af8.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2ccff4b8e125893f330414574cd03af8.png" alt></a></p>
-<p>第一层，第一个被高度激活的单元：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/d7fd293116929c0e6e807e10156d7e5a.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d7fd293116929c0e6e807e10156d7e5a.png" alt></a></p>
-<p>第二层检测的特征变得更加复杂：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/83f73c165fe6ec9c98ab2993d3efaf7f.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/83f73c165fe6ec9c98ab2993d3efaf7f.png" alt></a></p>
-<p>第三层明显检测到更复杂的模式</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/62ac4181d43c9f937b33a70428d1fca1.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/62ac4181d43c9f937b33a70428d1fca1.png" alt></a></p>
-<p>第四层，检测到的模式和特征更加复杂：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/96585e7bfa539245870080d4db16f255.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/96585e7bfa539245870080d4db16f255.png" alt></a></p>
-<p>第五层检测到更加复杂的事物：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ac77f5f5dd63264cf8af597c3aa20d59.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac77f5f5dd63264cf8af597c3aa20d59.png" alt></a></p>
-<h2 id="4-7-代价函数（Cost-function）"><a href="#4-7-代价函数（Cost-function）" class="headerlink" title="4.7 代价函数（Cost function）"></a>4.7 代价函数（Cost function）</h2><p>为了实现神经风格迁移，需要定义一个关于<script type="math/tex">G</script>的代价函数<script type="math/tex">J</script>用来评判某个生成图像的好坏，使用梯度下降法去最小化<script type="math/tex">J(G)</script>，以便于生成图像</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/dd9dc6d164ca059f7996a6cbf58997a5.jpg" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/dd9dc6d164ca059f7996a6cbf58997a5.jpg" alt></a></p>
-<p>代价函数定义为两个部分：</p>
-<ul>
-<li><script type="math/tex">J_{\text{content}}(C,G)</script>，被称作内容代价，是一个关于内容图片和生成图片的函数，用来度量生成图片<script type="math/tex">G</script>的内容与内容图片<script type="math/tex">C</script>的内容有多相似</li>
-<li>然后把结果加上一个风格代价函数<script type="math/tex">J_{\text{style}}(S,G)</script>，用来度量图片<script type="math/tex">G</script>的风格和图片<script type="math/tex">S</script>的风格的相似度</li>
-</ul>
-<script type="math/tex; mode=display">
-J( G) = \alpha J_{\text{content}}( C,G) + \beta J_{\text{style}}(S,G)</script><p>最后用两个超参数<script type="math/tex">\alpha</script>和<script type="math/tex">\beta</script>来来确定内容代价和风格代价</p>
-<p>对于代价函数<script type="math/tex">J(G)</script>，为了生成一个新图像，要做的是随机初始化生成图像<script type="math/tex">G</script>，可能是100×100×3、500×500×3，或任何想要的尺寸</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b8dafd082111a86c00066dedd1033ef1.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b8dafd082111a86c00066dedd1033ef1.png" alt></a></p>
-<p>然后使用之前定义的代价函数<script type="math/tex">J(G)</script>，用梯度下降的方法将其最小化，更新：</p>
-<script type="math/tex; mode=display">
-G:= G - \frac{\partial}{\partial G}J(G)</script><p>即更新图像<script type="math/tex">G</script>的像素值，也就是100×100×3，比如<strong>RGB</strong>通道的图片</p>
-<p>比如从内容图片（编号1）和风格（编号2）图片开始，当随机初始化<script type="math/tex">G</script>，生成图像就是随机选取像素的白噪声图（编号3）。接下来运行梯度下降算法，最小化代价函数<script type="math/tex">J(G)</script>，逐步处理像素，慢慢得到一个生成图片（编号4、5、6），越来越像用风格图片的风格画出来的内容图片</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/dd376e74155008845e96d662cc45493a.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/dd376e74155008845e96d662cc45493a.png" alt></a></p>
-<h2 id="4-8-内容代价函数（Content-cost-function）"><a href="#4-8-内容代价函数（Content-cost-function）" class="headerlink" title="4.8 内容代价函数（Content cost function）"></a>4.8 内容代价函数（Content cost function）</h2><p>$J(G)$的第一部分<script type="math/tex">J_{content}(C,G)</script>，它表示内容图片C与生成图片G之间的相似度</p>
-<p>使用的CNN网络是之前训练好的模型，例如Alex-Net。C，S，G共用相同模型和参数</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/d54256309adfc1e140390a334bfc49ee.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d54256309adfc1e140390a334bfc49ee.png" alt></a></p>
-<p>CNN的每个隐藏层分别提取原始图片的不同深度特征，由简单到复杂。如果<script type="math/tex">l</script>太小，则G与C在像素上会非常接近，没有迁移效果；如果<script type="math/tex">l</script>太深，则G上某个区域将直接会出现C中的物体。所以在实际中，层<script type="math/tex">l</script>在网络中既不会选的太浅也不会选的太深</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5b63e8b0c5c991bc19838b709524b79d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5b63e8b0c5c991bc19838b709524b79d.png" alt></a></p>
-<p>衡量内容图片和生成图片在内容上的相似度：</p>
-<p>令<script type="math/tex">a^{[l][C]}</script>和<script type="math/tex">a^{[l][G]}</script>代表图片<script type="math/tex">C</script>和<script type="math/tex">G</script>的<script type="math/tex">l</script>层的激活函数值。如果这两个激活值相似，意味着两个图片的内容相似</p>
-<p>定义：</p>
-<script type="math/tex; mode=display">
-J_{content}(C,G) = \frac{1}{4 \times n_H \times n_W \times n_C}\sum _{ \text{all entries}} (a^{[l][C]} - a^{[l][C]})^2</script><p>为两个激活值不同或者相似的程度</p>
-<p>后面如果对<script type="math/tex">J(G)</script>做梯度下降来找<script type="math/tex">G</script>的值时，整个代价函数会激励这个算法来找到图像<script type="math/tex">G</script>，使得隐含层的激活值和内容图像的相似</p>
-<h2 id="4-9-风格代价函数（Style-cost-function）"><a href="#4-9-风格代价函数（Style-cost-function）" class="headerlink" title="4.9 风格代价函数（Style cost function）"></a>4.9 风格代价函数（Style cost function）</h2><p>利用CNN网络模型，图片的风格可以定义成第<script type="math/tex">l</script>层隐藏层不同通道间激活函数的乘积（相关性）</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/efa0f6e81320966647658cba96ff28ee.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/efa0f6e81320966647658cba96ff28ee.png" alt></a></p>
-<p>选取第<script type="math/tex">l</script>层隐藏层，各通道使用不同颜色标注。因为每个通道提取图片的特征不同，比如1通道（红色）提取的是图片的垂直纹理特征，2通道（黄色）提取的是图片的橙色背景特征。那么这两个通道的相关性越大，表示原始图片及既包含了垂直纹理也包含了该橙色背景；相关性越小，表示原始图片并没有同时包含这两个特征。即计算不同通道的相关性，反映了原始图片特征间的相互关系，从某种程度上刻画了图片的“风格”</p>
-<p><img src="/images/pasted-154.png" alt="upload successful"></p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e3d74c1ce2393ae4e706a1cc4024f311.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e3d74c1ce2393ae4e706a1cc4024f311.png" alt></a></p>
-<p>接下来定义图片的风格矩阵（style matrix）为：</p>
-<script type="math/tex; mode=display">
-G_{kk^{'}}^{[l]} = \sum_{i = 1}^{n_{H}^{[l]}}{\sum_{j = 1}^{n_{W}^{[l]}}{a_{i, j,k}^{[l]}a_{i, j, k^{'}}^{[l]}}}</script><script type="math/tex; mode=display">a_{i, j, k}^{[l]}$$为隐藏层$$l$$中$$(i,j,k)$$位置的激活项，$$i$$，$$j$$，$$k$$分别代表该位置的高度、宽度以及对应的通道数，k，$$k^{'}$$分别表示不同通道。风格矩阵$$G_{kk^{'}}^{[l]}$$计算第$$l$$层隐藏层不同通道对应的所有激活函数输出和，$$l$$层风格图像的矩阵$$G^{[l]}$$是一个$$n_{c} \times n_{c}$$的矩阵：
-
-
-![upload successful](/images/pasted-155.png)
-
-若两个通道之间相似性高，则对应的$$G_{kk^{'}}^{[l]}$$较大；若两个通道之间相似性低，则对应的$$G_{kk^{'}}^{[l]}$$较小
-
-风格矩阵$$G_{kk'}^{[l](S)}$$表征了风格图片$$S$$第$$l$$层隐藏层的“风格”。生成图片$$G$$也有$$G_{kk'}^{[l](G)}$$，$$G_{kk'}^{[l](S)}$$与$$G_{kk'}^{[l](G)}$$越相近，则表示$$G$$的风格越接近$$S$$。即$$J^{[l]}_{style}(S,G)$$定义为：</script><p>J_{style}^{[l]}(S,G) = \frac{1}{4 \times {n_C}^2 \times (n_H \times n_W)^2} \sum _{i=1}^{n_C}\sum_{j=1}^{n_C}(G^{(S)}_{ij} - G^{(G)}_{ij})^2</p>
-<script type="math/tex; mode=display">
-
-
-然后使用梯度下降算法，不断迭代修正$$G$$的像素值，使$$J^{[l]}_{style}(S,G)$$不断减小
-
-为了提取更多的“风格”，可以使用多层隐藏层，然后相加，表达式为：</script><p>J_{style}(S,G)=\sum_l\lambda^{[l]}\cdot J^{[l]}_{style}(S,G)</p>
-<script type="math/tex; mode=display">
-
-
-$$\lambda^{[l]}$$表示累加过程中各层$$J^{[l]}_{style}(S,G)$$的权重系数，为超参数
-
-最终的cost function为：</script><p>J(G)=\alpha \cdot J_{content}(C,G)+\beta \cdot J_{style}(S,G)</p>
-<p>$$</p>
-<p>之后用梯度下降法，或者更复杂的优化算法来找到一个合适的图像<script type="math/tex">G</script>，并计算<script type="math/tex">J(G)</script>的最小值，这样将能够得到非常好看的结果</p>
-<h2 id="4-10-一维到三维推广（1D-and-3D-generalizations-of-models）"><a href="#4-10-一维到三维推广（1D-and-3D-generalizations-of-models）" class="headerlink" title="4.10 一维到三维推广（1D and 3D generalizations of models）"></a>4.10 一维到三维推广（1D and 3D generalizations of models）</h2><h2 id="1D卷积"><a href="#1D卷积" class="headerlink" title="1D卷积"></a>1D卷积</h2><p>将2D卷积推广到1D卷积：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/155e535d0d3725181e7c080707acd84f.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/155e535d0d3725181e7c080707acd84f.png" alt></a></p>
-<p>二维数据的卷积是将同一个5×5特征检测器应用于图像中不同的位置（编号1所示），最后得到10×10的输出结果。1维过滤器可以在不同的位置中应用类似的方法（编号3，4，5所示）</p>
-<p>当对这个1维信号使用卷积，将一个14维的数据与5维数据进行卷积，并产生一个10维输出：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/eeb764b9c08e48aa2bac70eb76110979.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/eeb764b9c08e48aa2bac70eb76110979.png" alt></a></p>
-<p>如果有16个过滤器，最后会获得一个10×16的数据：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e8274e05078653cf68313e891c79796c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e8274e05078653cf68313e891c79796c.png" alt></a></p>
-<p>对于卷积网络的下一层，如果输入一个10×16数据，可以使用一个5维过滤器进行卷积，需要16个通道进行匹配，如果有32个过滤器，另一层的输出结果就是6×32：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8b2d8ac94e71fb591c44c29ded5d6b7e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8b2d8ac94e71fb591c44c29ded5d6b7e.png" alt></a></p>
-<h3 id="3D卷积"><a href="#3D卷积" class="headerlink" title="3D卷积"></a>3D卷积</h3><p>当进行<strong>CT</strong>扫描时，人体躯干的不同切片数据本质上是3维的</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/38e111b08f94c905ff97f627a4b986ff.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/38e111b08f94c905ff97f627a4b986ff.png" alt></a></p>
-<p>如果有一个<strong>3D</strong>对象是14×14×14：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8323f5f9c33edb284eb038020f3ff7e7.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8323f5f9c33edb284eb038020f3ff7e7.png" alt></a></p>
-<p>过滤器也是3D的，如果使用5×5×5过滤器进行卷积，将会得到一个10×10×10的结果输出，如果使用16个过滤器，输出将是10×10×10×16</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/49076b88b9ecbd1597f6ae37e8d87dc3.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/49076b88b9ecbd1597f6ae37e8d87dc3.png" alt></a></p>
-<p>如果下一层卷积使用5×5×5×16维度的过滤器再次卷积，如果有32个过滤器，最终将得到一个6×6×6×32的输出</p>
-
-          
+          <h2 id="4-1-什么是人脸识别？（What-is-face-recognition-）"><a href="#4-1-什么是人脸识别？（What-is-face-recognition-）" class="headerlink" title="4.1 什么是人脸识别？（What is face recognition?）"></a>4.1 什么是人脸识别？（What is face recognition?）</h2><ul>
+<li>人脸验证（<strong>face verification</strong>）问题：如果有一张输入图片以及某人的<strong>ID</strong>或者是名字，系统要做的是验证输入图片是否是这个人，也被称作1对1问题，只需要弄明白这个人是否和他声称的身份相符
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/28/第四周-特殊应用：人脸识别和神经风格转换（Special-applications-Face-recognition-Neural-style-transfer）-Course-4/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </li></ul></div>
     
     
     
@@ -963,7 +789,7 @@ $$\lambda^{[l]}$$表示累加过程中各层$$J^{[l]}_{style}(S,G)$$的权重系
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:10:54Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:23:48Z">
                 2019-02-27
               </time>
             
@@ -1049,194 +875,17 @@ $$\lambda^{[l]}$$表示累加过程中各层$$J^{[l]}_{style}(S,G)$$的权重系
 
       
         
-          
-            <h2 id="3-1-目标定位（Object-localization）"><a href="#3-1-目标定位（Object-localization）" class="headerlink" title="3.1 目标定位（Object localization）"></a>3.1 目标定位（Object localization）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0107af10b33fcb955cc3c588dfb78d49.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0107af10b33fcb955cc3c588dfb78d49.png" alt></a></p>
-<p>定位分类问题：不仅要用算法判断图片中是不是一辆汽车，还要在图片中标记出它的位置，用边框或红色方框把汽车圈起来，“定位”的意思是判断汽车在图片中的具体位置</p>
-<p>定位分类问题通常只有一个较大的对象位于图片中间位置，对它进行识别和定位。对象检测问题中图片可以含有多个对象，甚至单张图片中会有多个不同分类的对象</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/d4a47c2041807f891c0a606d246330c5.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d4a47c2041807f891c0a606d246330c5.png" alt></a></p>
-<p>构建汽车自动驾驶系统，对象可能包括以下几类：行人、汽车、摩托车和背景</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/6461ff27c00dff4205688de4cf9d8803.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6461ff27c00dff4205688de4cf9d8803.png" alt></a></p>
-<p>定位图片中汽车的位置：让神经网络输出一个边界框，标记为<script type="math/tex">b_{x}</script>,<script type="math/tex">b_{y}</script>,<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>，是被检测对象的边界框的参数化表示</p>
-<p>红色方框的中心点表示为(<script type="math/tex">b_{x}</script>,<script type="math/tex">b_{y}</script>)，边界框的高度为<script type="math/tex">b_{h}</script>，宽度为<script type="math/tex">b_{w}</script>。训练集不仅包含神经网络要预测的对象分类标签，还要包含表示边界框的这四个数字，接着采用监督学习算法，输出一个分类标签，还有四个参数值，从而给出检测对象的边框位置</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/21b37dcb413e7c86464f88484796420c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/21b37dcb413e7c86464f88484796420c.png" alt></a></p>
-<p>如何为监督学习任务定义目标标签 <script type="math/tex">y</script>：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/02d85ab36285cd21b5df4d1c253df57e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/02d85ab36285cd21b5df4d1c253df57e.png" alt></a></p>
-<p>目标标签<script type="math/tex">y</script>的定义：<script type="math/tex">y= \begin{bmatrix} p_{c} \\ b_{x} \\ b_{y}\\ b_{h}\\ b_{w} \\ c_{1}\\ c_{2}\\ c_{3} \end{bmatrix}</script></p>
-<p>$p_{c}$表示是否含有对象，如果对象属于前三类（行人、汽车、摩托车），则<script type="math/tex">p_{c}= 1</script>，如果是背景，则<script type="math/tex">p_{c} =0</script>。<script type="math/tex">p_{c}</script>表示被检测对象属于某一分类的概率，背景分类除外</p>
-<p>如果检测到对象，就输出被检测对象的边界框参数<script type="math/tex">b_{x}</script>、<script type="math/tex">b_{y}</script>、<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>。<script type="math/tex">p_{c}=1</script>，同时输出<script type="math/tex">c_{1}</script>、<script type="math/tex">c_{2}</script>和<script type="math/tex">c_{3}</script>，表示该对象属于行人，汽车还是摩托车</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/fd37e4750b64a07cc1f29880c9b97261.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fd37e4750b64a07cc1f29880c9b97261.png" alt></a></p>
-<p>如果图片中没有检测对象:</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/131239883224f03709ddc66d9481c3c7.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/131239883224f03709ddc66d9481c3c7.png" alt></a></p>
-<p>$p_{c} =0$，<script type="math/tex">y</script>的其它参数全部写成问号，表示“毫无意义”的参数</p>
-<p>神经网络的损失函数，如果采用平方误差策略：</p>
-<script type="math/tex; mode=display">
-L\left(\hat{y},y \right) = \left( \hat{y_1} - y_{1} \right)^{2} + \left(\hat{y_2} - y_{2}\right)^{2} + \ldots+\left( \hat{y_8} - y_{8}\right)^{2}</script><p>损失值等于每个元素相应差值的平方和</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/d50ae3ee809da4c728837fee2d055f00.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d50ae3ee809da4c728837fee2d055f00.png" alt></a></p>
-<p>如果图片中存在定位对象，<script type="math/tex">y_{1} =p_{c}=1</script>，损失值是不同元素的平方和</p>
-<p>$y_{1}= p_{c} = 0$，损失值是<script type="math/tex">\left(\hat{y_1} - y_{1}\right)^{2}</script>，只需要关注神经网络输出<script type="math/tex">p_{c}</script>的准确度</p>
-<p>这里用平方误差简化了描述过程。实际应用中可以不对<script type="math/tex">c_{1}</script>、<script type="math/tex">c_{2}</script>、<script type="math/tex">c_{3}</script>和<strong>softmax</strong>激活函数应用对数损失函数，并输出其中一个元素值，通常做法是对边界框坐标应用平方差，对<script type="math/tex">p_{c}</script>应用逻辑回归函数，甚至采用平方预测误差</p>
-<h2 id="3-2-特征点检测（Landmark-detection）"><a href="#3-2-特征点检测（Landmark-detection）" class="headerlink" title="3.2 特征点检测（Landmark detection）"></a>3.2 特征点检测（Landmark detection）</h2><p>仅对目标的关键特征点坐标进行定位，这些关键点被称为landmarks</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/100b265aefc4b0170fb39ed339e5181a.png" target="_blank" rel="noopener"><img src="/assets/1231import.png" alt></a></p>
-<p>选定特征点个数，并生成包含特征点的标签训练集，利用神经网络输出脸部关键特征点的位置</p>
-<p>具体做法:准备一个卷积网络和一些特征集，将人脸图片输入卷积网络，输出1表示有人脸，0表示没有人脸，然后输出（<script type="math/tex">l_{1x}</script>，<script type="math/tex">l_{1y}</script>）……直到（<script type="math/tex">l_{64x}</script>，<script type="math/tex">l_{64y}</script>），<script type="math/tex">l</script>代表一个特征，即该网络模型共检测人脸上64处特征点，加上是否为face的标志位，输出label共有64x2+1=129个值，即有129个输出单元，由此实现对图片的人脸检测和定位</p>
-<p>检测人体姿势动作：</p>
-<p><img src="/images/pasted-153.png" alt="upload successful"></p>
-<p>特征点的特性在所有图片中必须保持一致</p>
-<h2 id="3-3-目标检测（Object-detection）"><a href="#3-3-目标检测（Object-detection）" class="headerlink" title="3.3 目标检测（Object detection）"></a>3.3 目标检测（Object detection）</h2><p>通过卷积网络进行对象检测，采用的是基于滑动窗口的目标检测算法</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2f4e567978bb62fcbec093887de37783.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2f4e567978bb62fcbec093887de37783.png" alt></a></p>
-<p>构建汽车检测算法步骤：</p>
-<ol>
-<li>首先创建一个标签训练集，<script type="math/tex">x</script>和<script type="math/tex">y</script>表示适当剪切的汽车图片样本，一开始可以使用适当剪切的图片，就是整张图片<script type="math/tex">x</script>几乎都被汽车占据，使汽车居于中间位置，并基本占据整张图片</li>
-<li>开始训练卷积网络，输入这些适当剪切过的图片（编号6），卷积网络输出<script type="math/tex">y</script>，0或1表示图片中有汽车或没有汽车</li>
-</ol>
-<p>训练完这个卷积网络，用它来实现滑动窗口目标检测，具体步骤如下：</p>
-<p>1.首先选定一个特定大小的窗口，将红色小方块输入卷积神经网络，卷积网络开始判断红色方框内有没有汽车</p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2ac2ab6dcdcc0fe26a9833ff9da49bd2.png" alt></a></p>
-<p>2.滑动窗口目标检测算法继续处理第二个图像，红色方框稍向右滑动之后的区域，并输入给卷积网络，再次运行卷积网络，然后处理第三个图像，依次重复操作，直到这个窗口滑过图像的每一个角落</p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c55f22f302899d5f9d77bef958465660.png" alt></a></p>
-<p>思路是以固定步幅移动窗口，遍历图像的每个区域，把这些剪切后的小图像输入卷积网络，对每个位置按0或1进行分类</p>
-<p>3.重复上述操作，选择一个更大的窗口，截取更大的区域，并输入给卷积神经网络处理，输出0或1</p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/34507c03fbda16049faeb3caf075fe50.png" alt></a></p>
-<p>4.再以某个固定步幅滑动窗口，重复以上操作，遍历整个图像，输出结果</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f2b6d5bfedc5298160bc2628544e315c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f2b6d5bfedc5298160bc2628544e315c.png" alt></a></p>
-<p>5.第三次重复操作，选用更大的窗口</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c14524aa0534ed78c433e1cd0a8dff50.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c14524aa0534ed78c433e1cd0a8dff50.png" alt></a></p>
-<p>这样不论汽车在图片的什么位置，总有一个窗口可以检测到</p>
-<p>这种算法叫作滑动窗口目标检测：以某个步幅滑动这些方框窗口遍历整张图片，对这些方形区域进行分类，判断里面有没有汽车</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ef8afff4e50fc1c50a46b8443f1d6976.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ef8afff4e50fc1c50a46b8443f1d6976.png" alt></a></p>
-<p>滑动窗口目标检测算法缺点：<strong>计算成本</strong></p>
-<ul>
-<li>如果选用的步幅很大，会减少输入卷积网络的窗口个数，粗糙间隔尺寸可能会影响性能</li>
-<li>如果采用小粒度或小步幅，传递给卷积网络的小窗口会特别多，这意味着超高的计算成本</li>
-</ul>
-<h2 id="3-4-卷积的滑动窗口实现（Convolutional-implementation-of-sliding-windows）"><a href="#3-4-卷积的滑动窗口实现（Convolutional-implementation-of-sliding-windows）" class="headerlink" title="3.4 卷积的滑动窗口实现（Convolutional implementation of sliding windows）"></a>3.4 卷积的滑动窗口实现（Convolutional implementation of sliding windows）</h2><h3 id="把神经网络的全连接层转化成卷积层"><a href="#把神经网络的全连接层转化成卷积层" class="headerlink" title="把神经网络的全连接层转化成卷积层"></a>把神经网络的全连接层转化成卷积层</h3><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/38be387e37d131e44aff9d7fc9e3488a.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/38be387e37d131e44aff9d7fc9e3488a.png" alt></a></p>
-<p>前几层和之前的一样，下一层全连接层用5×5×16的过滤器来实现，数量是400个（编号1），输入图像大小为5×5×16，输出维度是1×1×400，这400个节点中每个节点都是上一层5×5×16激活值经过某个任意线性函数的输出结果</p>
-<p>再添加另外一个卷积层（编号2），用1×1卷积，假设有400个1×1的过滤器，在这400个过滤器的作用下，下一层的维度是1×1×400，是上个网络中的这一全连接层经由1×1过滤器的处理，得到一个<strong>softmax</strong>激活值，通过卷积网络，最终得到1×1×4的输出层，而不是这4个数字（编号3）</p>
-<p>以上就是用卷积层代替全连接层的过程，结果这几个单元集变成了1×1×400和1×1×4的维度</p>
-<h3 id="通过卷积实现滑动窗口对象检测算法"><a href="#通过卷积实现滑动窗口对象检测算法" class="headerlink" title="通过卷积实现滑动窗口对象检测算法"></a>通过卷积实现滑动窗口对象检测算法</h3><p>假设向滑动窗口卷积网络输入14×14×3的图片，神经网络最后的输出层，即<strong>softmax</strong>单元的输出是1×1×4</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/00c4fb1a1af9b50f0fd0bcf5eacca6ff.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/00c4fb1a1af9b50f0fd0bcf5eacca6ff.png" alt></a></p>
-<p>假设测试集图片是16×16×3，给输入图片加上黄色条块，在最初的滑动窗口算法中，把蓝色区域输入卷积网络（红色笔标记）生成0或1分类。接着滑动窗口，步幅为2个像素，向右滑动2个像素，将绿框区域输入给卷积网络，运行整个卷积网络，得到另外一个标签0或1。继续将这个橘色区域输入给卷积网络，卷积后得到另一个标签，最后对右下方的紫色区域进行最后一次卷积操作。在这个16×16×3的小图像上滑动窗口，卷积网络运行了4次，于是输出了了4个标签</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2a8750d733379aebf58f4354203153f2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2a8750d733379aebf58f4354203153f2.png" alt></a></p>
-<p>这4次卷积操作中很多计算都是重复的。执行滑动窗口的卷积时使得卷积网络在这4次前向传播过程中共享很多计算，尤其是在编号1，卷积网络运行同样的参数，使用相同的5×5×16过滤器进行卷积操作，得到12×12×16的输出层。然后执行同样的最大池化（编号2），输出结果6×6×16。照旧应用400个5×5的过滤器（编号3），得到一个2×2×400的输出层，现在输出层为2×2×400，应用1×1过滤器（编号4）得到另一个2×2×400的输出层。再做一次全连接的操作（编号5），最终得到2×2×4的输出层，在输出层4个子方块中，蓝色的是图像左上部分14×14的输出（红色箭头标识），右上角方块是图像右上部分（绿色箭头标识）的对应输出，左下角方块是输入层左下角（橘色箭头标识），右下角是卷积网络处理输入层右下角14×14区域(紫色箭头标识)的结果</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ad1743ff113f9d30080f63a16c74ed64.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ad1743ff113f9d30080f63a16c74ed64.png" alt></a></p>
-<p>具体的计算步骤：以绿色方块为例，假设剪切出这块区域（编号1），传递给卷积网络，第一层的激活值就是这块区域（编号2），最大池化后的下一层的激活值是这块区域（编号3），这块区域对应着后面几层输出的右上角方块（编号4，5，6）</p>
-<p>该卷积操作的原理是不需要把输入图像分割成四个子集，分别执行前向传播，而是把它们作为一张图片输入给卷积网络进行计算，其中的公共区域可以共享很多计算</p>
-<p>假如对一个28×28×3的图片应用滑动窗口操作，以14×14区域滑动窗口，以大小为2的步幅不断地向右移动窗口，直到第8个单元格，得到输出层的第一行。然后向图片下方移动，最终输出8×8×4的结果</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5fd2f8d039a3bfc5187dfe33f5276235.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5fd2f8d039a3bfc5187dfe33f5276235.png" alt></a></p>
-<p>总结滑动窗口的实现过程：</p>
-<p>在图片上剪切出一块区域，假设大小是14×14，把它输入到卷积网络。继续输入下一块区域，大小同样是14×14，重复操作，直到某个区域识别到汽车</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/84a6a0505acc165c6600d4b6f03d5e3c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/84a6a0505acc165c6600d4b6f03d5e3c.png" alt></a></p>
-<p>但是不能依靠连续的卷积操作来识别图片中的汽车，可以对大小为28×28的整张图片进行卷积操作，一次得到所有预测值，如果足够幸运，神经网络便可以识别出汽车的位置</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/447080411189a0a4544747c2380fbda4.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/447080411189a0a4544747c2380fbda4.png" alt></a></p>
-<p>在卷积层上应用滑动窗口算法提高了整个算法的效率，缺点是边界框的位置可能不够准确</p>
-<h2 id="3-5-Bounding-Box预测（Bounding-box-predictions）"><a href="#3-5-Bounding-Box预测（Bounding-box-predictions）" class="headerlink" title="3.5 Bounding Box预测（Bounding box predictions）"></a>3.5 Bounding Box预测（Bounding box predictions）</h2><p>滑动窗口法的卷积实现算法效率很高，但不能输出最精准的边界框</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/cd3e263bf279739afe62eb8730b4e167.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cd3e263bf279739afe62eb8730b4e167.png" alt></a></p>
-<p>输入图像是100×100的，用3×3网格，实际实现时会用更精细的网格（19×19）。使用图像分类和定位算法</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e4bebc707829a1610572f43f8e0995c9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e4bebc707829a1610572f43f8e0995c9.png" alt></a></p>
-<p>编号1什么也没有，左上格子的标签向量<script type="math/tex">y</script>是<script type="math/tex">\begin{bmatrix}0\ ?\ ?\ ?\ ?\ ?\ ?\ ? \end{bmatrix}</script>。其他什么也没有的格子都一样</p>
-<p>图中有两个对象，<strong>YOLO</strong>算法做的是取两个对象的中点，将对象分配给包含对象中点的格子。即使中心格子（编号5）同时有两辆车的一部分，分类标签<script type="math/tex">y</script>也为<script type="math/tex">y= \begin{bmatrix}0\ ?\ ?\ ?\ ?\ ?\ ?\ ? \end{bmatrix}</script>。编号4目标标签<script type="math/tex">y= \begin{bmatrix} 1\ b_{x}\ b_{y}\ b_{h}\ b_{w}\ 0\ 1\ 0 \end{bmatrix}</script>，编号6类似</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/fb08477cd3937f7df0deddc1de1d2920.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fb08477cd3937f7df0deddc1de1d2920.png" alt></a></p>
-<p>3×3中9个格子都对应一个8维输出目标向量<script type="math/tex">y</script>，其中一些值可以是<strong>dont care-s</strong>（即？）所以总的目标输出尺寸就是3×3×8</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/98633e9df22fd06cfc21af2e7d39bbb6.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/98633e9df22fd06cfc21af2e7d39bbb6.png" alt></a></p>
-<p>如果要训练一个输入为100×100×3的神经网络，输入图像通过普通的卷积网络，卷积层，最大池化层等等，最后映射到一个3×3×8输出尺寸。然后用反向传播训练神经网络，将任意输入<script type="math/tex">x</script>映射到输出向量<script type="math/tex">y</script></p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/404fdcba2685b830ae3718d348ab1d75.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/404fdcba2685b830ae3718d348ab1d75.png" alt></a></p>
-<p>这个算法的优点在于神经网络可以输出精确的边界框，测试的时候有要做的是喂入输入图像<script type="math/tex">x</script>，然后跑正向传播，直到得到输出<script type="math/tex">y</script>。然后3×3位置对应的9个输出，只要每个格子中对象数目没有超过1个，这个算法应该是没问题的。但实践中会使用更精细的19×19网格，输出就是19×19×8，多个对象分配到同一个格子得概率就小得多</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/a6d32959543c502ee18765cf20495bc2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a6d32959543c502ee18765cf20495bc2.png" alt></a></p>
-<p>即使对象可以横跨多个格子，也只会被分配到9个格子其中之一，或者19×19网络的其中一个格子。在19×19网格中，两个对象的中点（图中蓝色点所示）处于同一个格子的概率就会更低。</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b6b6ca6167596a180c7bab7296ea850c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b6b6ca6167596a180c7bab7296ea850c.png" alt></a></p>
-<p>优点：</p>
-<ul>
-<li>显式地输出边界框坐标，可以具有任意宽高比，并且能输出更精确的坐标，不会受到滑动窗口分类器的步长大小限制</li>
-<li>并没有在3×3网格上跑9次算法，而是单次卷积实现，但在处理这3×3计算中很多计算步骤是共享的，所以这个算法效率很高</li>
-<li>因为是卷积实现，运行速度非常快，可以达到实时识别</li>
-</ul>
-<p>如何编码这些边界框<script type="math/tex">b_{x}</script>、<script type="math/tex">b_{y}</script>、<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>：</p>
-<p>在<strong>YOLO</strong>算法中，编号1约定左上点是<script type="math/tex">(0,0)</script>，右下点是<script type="math/tex">(1,1)</script>，橙色中点的位置<script type="math/tex">b_{x}</script>大概是0.4，<script type="math/tex">b_{y}</script>大概是0.3，<script type="math/tex">b_{w}</script>是0.9，<script type="math/tex">b_{h}</script>是0.5。<script type="math/tex">b_{x}</script>、<script type="math/tex">b_{y}</script>、<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>单位是相对于格子尺寸的比例，所以<script type="math/tex">b_{x}</script>和<script type="math/tex">b_{y}</script>必须在0和1之间，因为从定义上看，橙色点位于对象分配到格子的范围内，如果它不在0和1之间，即它在方块外，那么这个对象就应该分配到另一个格子上。这个值（<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>）可能会大于1，特别是如果有一辆汽车的边界框是这样的（编号3所示），那么边界框的宽度和高度有可能大于1</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0d7ee9b9f455338a8724520841223b11.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d7ee9b9f455338a8724520841223b11.png" alt></a></p>
-<h2 id="3-6-交并比（Intersection-over-union）"><a href="#3-6-交并比（Intersection-over-union）" class="headerlink" title="3.6 交并比（Intersection over union）"></a>3.6 交并比（Intersection over union）</h2><p>并交比函数可以用来评价对象检测算法</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/38eea69baa46091d516a0b7a33e5379e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/38eea69baa46091d516a0b7a33e5379e.png" alt></a></p>
-<p>交并比（<strong>loU</strong>）函数是计算两个边界框交集和并集之比。两个边界框的并集是两个边界框绿色阴影区域，而交集是这个橙色阴影区域，交并比就是交集的大小（橙色阴影面积）除以绿色阴影的并集面积</p>
-<p>一般约定，在计算机检测任务中，如果loU≥0.5，就说检测正确，如果预测器和实际边界框完美重叠，<strong>loU</strong>就是1，因为交集就等于并集</p>
-<h2 id="3-7-非极大值抑制（Non-max-suppression）"><a href="#3-7-非极大值抑制（Non-max-suppression）" class="headerlink" title="3.7 非极大值抑制（Non-max suppression）"></a>3.7 非极大值抑制（Non-max suppression）</h2><p>对象检测中的一个问题是算法可能对同一个对象做出多次检测，非极大值抑制可以确保算法对每个对象只检测一次</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/a86a2edbb89014e193ab613a162cff58.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a86a2edbb89014e193ab613a162cff58.png" alt></a></p>
-<p>实践中当运行对象分类和定位算法时，对于每个格子都运行一次，编号1、2、3可能会认为这辆车中点应该在格子内部</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/78f2b2a2efdbd6aebe034ce30cda440b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/78f2b2a2efdbd6aebe034ce30cda440b.png" alt></a></p>
-<p>这个算法做的是：</p>
-<p>1.首先看哪个检测结果相关的概率<script type="math/tex">p_{c}</script>（实际上是<script type="math/tex">p_{c}</script>乘以<script type="math/tex">c_{1}</script>、<script type="math/tex">c_{2}</script>或<script type="math/tex">c_{3}</script>）概率最大，右边车辆中是0.9，即最可靠的检测，用高亮标记，之后非极大值抑制逐一审视剩下的矩形，所有和这个最大的边框有很高交并比，高度重叠的其他边界框输出就会被抑制</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/074beeacfd9d400fc580171b09a6f3e9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/074beeacfd9d400fc580171b09a6f3e9.png" alt></a></p>
-<p>2.逐一审视剩下的矩形，找出概率<script type="math/tex">p_{c}</script>最高的一个，在这种情况下是0.8，就认为检测出一辆车（左边车辆），然后非极大值抑制算法就会去掉其他<strong>loU</strong>值很高的矩形。现在每个矩形都会被高亮显示或者变暗，如果直接抛弃变暗的矩形，就剩下高亮显示的那些是最后得到的两个预测结果</p>
-<p>非最大值意味着只输出概率最大的分类结果，但抑制很接近，不是最大的其他预测结果</p>
-<p>算法的细节：</p>
-<p>首先在19×19网格上执行算法，会得到19×19×8的输出尺寸。简化成只做汽车检测，会得到输出预测概率（<script type="math/tex">p_{c}</script>）和边界框参数（<script type="math/tex">b_{x}</script>、<script type="math/tex">b_{y}</script>、<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>）</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/514cfeb2d7315eba2b6a29f68eae2879.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/514cfeb2d7315eba2b6a29f68eae2879.png" alt></a></p>
-<p>1.将所有的预测值<script type="math/tex">p_{c}</script>小于或等于某个阈值，如<script type="math/tex">p_{c}\le 0.6</script>的边界框去掉</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/6d0fa2073b280cd0bb111485ee1639e5.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6d0fa2073b280cd0bb111485ee1639e5.png" alt></a></p>
-<p>2.剩下的边界框就一直选择概率<script type="math/tex">p_{c}</script>最高的边界框，把它输出成预测结果，取一个边界框，让它高亮显示，就可以确定输出有一辆车的预测</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/549430cf442163c7f44ae648e625ca10.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/549430cf442163c7f44ae648e625ca10.png" alt></a></p>
-<p>3.去掉所有剩下的边界框</p>
-<p>如果同时检测三个对象，比如说行人、汽车、摩托，输出向量就会有三个额外的分量。正确的做法是独立进行三次非极大值抑制，对每个输出类别都做一次</p>
-<h2 id="3-9-Anchor-Boxes"><a href="#3-9-Anchor-Boxes" class="headerlink" title="3.9 Anchor Boxes"></a>3.9 Anchor Boxes</h2><p>对象检测存在的一个问题是每个格子只能检测出一个对象，如果想让一个格子检测出多个对象，可以使用<strong>anchor box</strong></p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/49b7d68a17e89dd109f96efecc223f5a.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/49b7d68a17e89dd109f96efecc223f5a.png" alt></a></p>
-<blockquote>
-<p>行人的中点和汽车的中点都落入到同一个格子中</p>
-</blockquote>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e001f5f3d2afa76a1c3710bd60bcad00.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e001f5f3d2afa76a1c3710bd60bcad00.png" alt></a></p>
-<p><strong>anchor box</strong>的思路是：预先定义两个不同形状的<strong>anchor box</strong>，把预测结果和这两个<strong>anchor box</strong>关联起来</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2e357b5b92122660c550dcfb0901519c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2e357b5b92122660c550dcfb0901519c.png" alt></a></p>
-<p>定义类别标签：</p>
-<script type="math/tex; mode=display">
-y= \begin{bmatrix} p_{c} & b_{x} & b_{y} &b_{h} & b_{w} & c_{1} & c_{2} & c_{3} & p_{c} & b_{x} & b_{y} & b_{h} & b_{w} &c_{1} & c_{2} & c_{3} \end{bmatrix}^{T}</script><p>前面的<script type="math/tex">p_{c},b_{x},b_{y},b_{h},b_{w},c_{1},c_{2},c_{3}</script>（绿色方框标记的参数）是和<strong>anchor box 1</strong>关联的8个参数，后面的8个参数（橙色方框标记的元素）是和<strong>anchor box 2</strong>相关联</p>
-<p>行人：<script type="math/tex">p_{c}= 1,b_{x},b_{y},b_{h},b_{w},c_{1} = 1,c_{2} = 0,c_{3} = 0</script></p>
-<p>车子的边界框更像<strong>anchor box 2</strong>，(<script type="math/tex">p_{c}= 1,b_{x},b_{y},b_{h},b_{w},c_{1} = 0,c_{2} = 1,c_{3} = 0</script>)</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e94aa7ea75300ea4692682b179834bb4.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e94aa7ea75300ea4692682b179834bb4.png" alt></a></p>
-<p>现在每个对象都分配到对象中点所在的格子中，以及分配到和对象形状交并比最高的<strong>anchor box</strong>中。然后观察哪个<strong>anchor box</strong>和实际边界框（编号1，红色框）的交并比更高</p>
-<p>编号1对应同时有车和行人，编号3对应只有车：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/322b15fe615c739ebd1d36b669748618.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/322b15fe615c739ebd1d36b669748618.png" alt></a>:</p>
-<p><strong>anchor box</strong>是为了处理两个对象出现在同一个格子的情况，实践中这种情况很少发生，特别用的是19×19网格</p>
-<p>怎么选择<strong>anchor box：</strong></p>
-<ul>
-<li>一般手工指定<strong>anchor box</strong>形状，可以选择5到10个<strong>anchor box</strong>形状，覆盖到想要检测的对象的各种形状</li>
-<li>更高级的是使用<strong>k-平均算法</strong>，将两类对象形状聚类，选择最具有代表性的一组<strong>anchor box</strong></li>
-</ul>
-<h2 id="3-9-YOLO-算法（Putting-it-together-YOLO-algorithm）"><a href="#3-9-YOLO-算法（Putting-it-together-YOLO-algorithm）" class="headerlink" title="3.9 YOLO 算法（Putting it together: YOLO algorithm）"></a>3.9 YOLO 算法（Putting it together: YOLO algorithm）</h2><p>假设要在图片中检测行人、汽车，同时使用两种不同的Anchor box</p>
-<p><strong>训练集：</strong></p>
-<ul>
-<li>输入X：同样大小的完整图片</li>
-<li><p>目标Y：使用<script type="math/tex">3\times3</script>网格划分，输出大小<script type="math/tex">3\times3\times2\times8</script>，或者<script type="math/tex">3\times3\times16</script></p>
-</li>
-<li><p>对不同格子中的小图，定义目标输出向量Y</p>
-</li>
-</ul>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/36ff927836cfcd7fee9413e2d34757d8.png" alt></a></p>
-<p>编号2目标向量<script type="math/tex">y =\begin{bmatrix} 0 & ? & ? & ? & ? & ? & ? & ? & 1 & b_{x} & b_{y} & b_{h} &b_{w} & 0 & 1 & 0 \end{bmatrix}^{T}</script>，假设训练集中对于车子有一个边界框（编号3），水平方向更长一点，红框和<strong>anchor box 2</strong>的交并比更高，车子和向量的下半部分相关</p>
-<p><strong>模型预测：</strong></p>
-<p>输入与训练集中相同大小的图片，然后训练一个卷积网络，遍历9个格子，得到每个格子中不同的输出结果：<script type="math/tex">3\times3\times2\times8</script></p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e23084f4a75246f08ea4cedef55f60ab.png" alt></a></p>
-<p><strong>运行非最大值抑制（NMS）：</strong></p>
-<ol>
-<li>假设使用了2个Anchor box，每一个网格都会得到预测输出的2个bounding boxes，其中一个<script type="math/tex">P_{c}</script>比较高</li>
-<li>抛弃概率<script type="math/tex">P_{c}</script>值低的预测bounding boxes</li>
-<li>对每个对象分别使用NMS算法得到最终的预测边界框</li>
-</ol>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/23256c4b7b28d62d34a744f5fb5e9c3b.png" alt></a></p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/66f8cf8e55eadc1ac01f773515bfbc45.png" alt></a></p>
-<p>如果有三个对象检测类别，希望检测行人，汽车和摩托车：对于每个类别单独运行非极大值抑制，处理预测结果所属类别的边界框，用非极大值抑制来处理行人类别、车子类别、摩托车类别，运行三次来得到最终的预测结果</p>
-<h2 id="3-10-候选区域（选修）（Region-proposals-Optional-）"><a href="#3-10-候选区域（选修）（Region-proposals-Optional-）" class="headerlink" title="3.10 候选区域（选修）（Region proposals (Optional)）"></a>3.10 候选区域（选修）（Region proposals (Optional)）</h2><p>滑动窗法会对原始图片的每个区域都进行扫描，即使是一些空白的或明显没有目标的区域，这样会降低算法运行效率，耗费时间</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/838a6aeb35865f9cfecac8dc593b565b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/838a6aeb35865f9cfecac8dc593b565b.png" alt></a></p>
-<p><strong>R-CNN</strong>算法，即带区域的卷积网络，或者带区域的<strong>CNN</strong>。这个算法尝试选出一些区域，在少数窗口上运行卷积网络分类器</p>
-<p>选出候选区域的方法是运行图像分割算法，找出各个尺度的色块，然后在色块上运行分类器，即首先得到候选区域，然后再分类</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e78e4465af892d0965e2b0863263ef8c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e78e4465af892d0965e2b0863263ef8c.png" alt></a></p>
-<p><strong>R-CNN</strong>算法很慢，基本的<strong>R-CNN</strong>算法是使用某种算法求出候选区域，然后对每个候选区域运行一下分类器，每个区域会输出一个标签，有没有车子、行人、摩托车？并输出一个边界框，就能在确实存在对象的区域得到一个精确的边界框</p>
-<p><strong>R-CNN</strong>算法不会直接信任输入的边界框，也会输出一个边界框<script type="math/tex">b_{x}</script>，<script type="math/tex">b_{y}</script>，<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>，这样得到的边界框比较精确，比单纯使用图像分割算法给出的色块边界要好</p>
-<p><strong>Fast R-CNN</strong>算法基本上是<strong>R-CNN</strong>算法，最初的算法是逐一对区域分类，快速<strong>R-CNN</strong>用的是滑动窗法的一个卷积实现，和<strong>3.4 卷积的滑动窗口实现</strong>的相似，显著提升了<strong>R-CNN</strong>的速度，问题是得到候选区域的聚类步骤仍然非常缓慢</p>
-<p>更快的<strong>R-CNN</strong>算法（<strong>Faster R-CNN</strong>），使用的是卷积神经网络，而不是更传统的分割算法来获得候选区域色块，比<strong>Fast R-CNN</strong>算法快得多</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e6ed1aa3263107d4e189dd75adc060b4.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e6ed1aa3263107d4e189dd75adc060b4.png" alt></a></p>
-<p>不过大多数更快<strong>R-CNN</strong>的算法实现还是比<strong>YOLO</strong>算法慢很多</p>
-
-          
+          <h2 id="3-1-目标定位（Object-localization）"><a href="#3-1-目标定位（Object-localization）" class="headerlink" title="3.1 目标定位（Object localization）"></a>3.1 目标定位（Object localization）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0107af10b33fcb955cc3c588dfb78d49.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0107af10b33fcb955cc3c588dfb78d49.png" alt></a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/28/第三周-目标检测（Object-detection-Course-4/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1333,7 +982,7 @@ y= \begin{bmatrix} p_{c} & b_{x} & b_{y} &b_{h} & b_{w} & c_{1} & c_{2} & c_{3} 
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:03:39Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:24:06Z">
                 2019-02-27
               </time>
             
@@ -1441,168 +1090,18 @@ y= \begin{bmatrix} p_{c} & b_{x} & b_{y} &b_{h} & b_{w} & c_{1} & c_{2} & c_{3} 
 
       
         
-          
-            <h2 id="2-1-经典网络（Classic-networks）"><a href="#2-1-经典网络（Classic-networks）" class="headerlink" title="2.1 经典网络（Classic networks）"></a>2.1 经典网络（Classic networks）</h2><h3 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h3><p><strong>LeNet-5</strong>可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。该LeNet模型总共包含了大约6万个参数，典型的LeNet-5结构包含CONV layer，POOL layer和FC layer，顺序一般是CONV layer-&gt;POOL layer-&gt;CONV layer-&gt;POOL layer-&gt;FC layer-&gt;FC layer-&gt;OUTPUT layer，即<script type="math/tex">\hat y</script>：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5e59b38c9b2942a407b49da84677dae9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e59b38c9b2942a407b49da84677dae9.png" alt></a></p>
-<p>随着网络越来越深，图像的高度和宽度在缩小，从最初的32×32缩小到28×28，再到14×14、10×10，最后只有5×5，通道数量一直在增加，从1增加到6个，再到16个</p>
-<p>这个神经网络中还有一种模式就是一个或多个卷积层后面跟着一个池化层，然后又是若干个卷积层再接一个池化层，然后是全连接层，最后是输出</p>
-<h2 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h2><p><strong>AlexNet</strong>包含约6000万个参数。当用于训练图像和数据集时，<strong>AlexNet</strong>能够处理非常相似的基本构造模块，这些模块往往包含着大量的隐藏单元或数据，<strong>AlexNet</strong>比<strong>LeNet</strong>表现更为出色的另一个原因是它使用了<strong>ReLu</strong>激活函数</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/92575493ecd20003b0b76ac51de0efbb.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/92575493ecd20003b0b76ac51de0efbb.png" alt></a></p>
-<h2 id="VGG-16"><a href="#VGG-16" class="headerlink" title="VGG-16"></a>VGG-16</h2><p><strong>VGG</strong>，也叫作<strong>VGG-16</strong>网络。<strong>VGG-16</strong>网络没有那么多超参数，是一种只需要专注于构建卷积层的简单网络。首先用3×3，步幅为1的过滤器构建卷积层，<strong>padding</strong>参数为<strong>same</strong>卷积中的参数。然后用一个2×2，步幅为2的过滤器构建最大池化层。<strong>VGG</strong>网络的一大优点是简化了神经网络结构</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/a645bff2623ba6f30f01fbc6e3149484.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a645bff2623ba6f30f01fbc6e3149484.png" alt></a></p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/781ddc74bcc8da430c99b196d0c4c6d4.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/781ddc74bcc8da430c99b196d0c4c6d4.png" alt></a></p>
-<p>假设要识别这个图像，在最开始的两层用64个3×3的过滤器对输入图像进行卷积，输出结果是224×224×64，因为使用了<strong>same</strong>卷积，通道数量也一样</p>
-<p>接下来创建一个池化层，池化层将输入图像进行压缩，减少到112×112×64。然后又是若干个卷积层，使用128个过滤器，以及一些<strong>same</strong>卷积，输出112×112×128。然后进行池化，池化后的结果是56×56×128。再用256个相同的过滤器进行三次卷积操作，然后再池化，然后再卷积三次，再池化。如此进行几轮操作后，将最后得到的7×7×512的特征图进行全连接操作，得到4096个单元，然后进行<strong>softmax</strong>激活，输出从1000个对象中识别的结果</p>
-<p><img src="/images/pasted-149.png" alt="upload successful"></p>
-<p><strong>VGG-16</strong>的数字16指在这个网络中有13个卷积层和3个全链接层</p>
-<p><img src="/images/pasted-150.png" alt="upload successful"></p>
-<p>总共包含约1.38亿个参数，这种网络结构很规整，都是几个卷积层后面跟着可以压缩图像大小的池化层，池化层缩小图像的高度和宽度。同时，卷积层的过滤器数量变化存在一定的规律，由64翻倍变成128，再到256和512。主要缺点是需要训练的特征数量非常巨大</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0a29aeae65a311c56675ad8f1fec2824.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0a29aeae65a311c56675ad8f1fec2824.png" alt></a></p>
-<p>随着网络的加深，图像的高度和宽度都在以一定的规律不断缩小，每次池化后刚好缩小一半，而通道数量在不断增加，而且刚好也是在每组卷积操作后增加一倍。即图像缩小的比例和通道数增加的比例是有规律的</p>
-<h2 id="2-2-残差网络（Residual-Networks-ResNets-）"><a href="#2-2-残差网络（Residual-Networks-ResNets-）" class="headerlink" title="2.2 残差网络（Residual Networks (ResNets)）"></a>2.2 残差网络（Residual Networks (ResNets)）</h2><p>人为地让神经网络某些层跳过下一层神经元的连接，隔层相连，弱化每层之间的强联系，这种神经网络被称为<strong>Residual Networks(ResNets)</strong></p>
-<p>Residual Networks由许多隔层相连的神经元子模块组成，称之为Residual block（残差块）。单个Residual block的结构如下图所示：</p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f0a8471f869d8062ba59598c418da7fb.png" alt></a></p>
-<p>紫色线是skip connection（跳跃连接），直接建立<script type="math/tex">a^{[l]}</script>与<script type="math/tex">a^{[l+2]}</script>之间的隔层联系。相应的表达式如下：</p>
-<script type="math/tex; mode=display">
-z^{[l+1]}=W^{[l+1]}a^{[l]}+b^{[l+1]}</script><script type="math/tex; mode=display">
-a^{[l+1]}=g(z^{[l+1]})</script><script type="math/tex; mode=display">
-z^{[l+2]}=W^{[l+2]}a^{[l+1]}+b^{[l+2]}</script><script type="math/tex; mode=display">
-a^{[l+2]}=g(z^{[l+2]}+a^{[l]})</script><p>$a^{[l]}$直接隔层与下一层的线性输出相连，<script type="math/tex">a^{[l]}</script>插入的时机是在线性激活之后，<strong>ReLU</strong>激活之前，与<script type="math/tex">z^{[l+2]}</script>共同通过激活函数（ReLU）输出<script type="math/tex">a^{[l+2]}</script></p>
-<p>这种模型结构对于训练非常深的神经网络效果很好。非Residual Networks称为Plain Network</p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/131e538bb527859430280becd65b049b.png" alt></a></p>
-<blockquote>
-<p>Residual Network的结构</p>
-</blockquote>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/48bded15cca17581084e3fe0853673b5.png" alt></a></p>
-<blockquote>
-<p>Plain Network</p>
-</blockquote>
-<p>与Plain Network相比，Residual Network能够训练更深层的神经网络，有效避免发生发生梯度消失和梯度爆炸</p>
-<ul>
-<li>随着神经网络层数增加，Plain Network实际性能会变差，training error甚至会变大</li>
-<li>Residual Network的训练效果却很好，training error一直呈下降趋势</li>
-</ul>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6077958a616425d76284cecb43c2f458.png" alt></a></p>
-<h2 id="2-3-残差网络为什么有用？（Why-ResNets-work-）"><a href="#2-3-残差网络为什么有用？（Why-ResNets-work-）" class="headerlink" title="2.3 残差网络为什么有用？（Why ResNets work?）"></a>2.3 残差网络为什么有用？（Why ResNets work?）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e1106db40c78c2e384305d6474c40d69.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e1106db40c78c2e384305d6474c40d69.png" alt></a></p>
-<p>输入<script type="math/tex">X</script> 经过一个大型神经网络输出激活值<script type="math/tex">a^{[l]}</script>，再给这个网络额外添加两层作为一个<strong>ResNets</strong>块，输出<script type="math/tex">a^{\left\lbrack l + 2 \right\rbrack}</script>：</p>
-<script type="math/tex; mode=display">
-a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><p>假设在整个网络中使用<strong>ReLU</strong>激活函数，所以激活值都大于等于0，包括输入<script type="math/tex">X</script>的非零异常值。因为<strong>ReLU</strong>激活函数输出的数字要么是0，要么是正数</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f60f5ca514d4bad1288fc7cbd666dd99.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f60f5ca514d4bad1288fc7cbd666dd99.png" alt></a></p>
-<p>如果使用L2正则化或权重衰减，会压缩<script type="math/tex">W^{\left\lbrack l + 2\right\rbrack}</script>的值。<script type="math/tex">W</script>是关键项，如果<script type="math/tex">W^{\left\lbrack l + 2 \right\rbrack} = 0</script>，方便起见，假设<script type="math/tex">b^{\left\lbrack l + 2 \right\rbrack} = 0</script>，假定使用ReLU激活函数，并且所有激活值都是非负的，<script type="math/tex">g\left(a^{[l]} \right)</script>是应用于非负数的ReLU函数，所以<script type="math/tex">a^{[l+2]} =a^{[l]}</script></p>
-<p>可以看出，即使发生了梯度消失，<script type="math/tex">W^{[l+2]}\approx0</script>，<script type="math/tex">b^{[l+2]}\approx0</script>，也能直接建立<script type="math/tex">a^{[l+2]}</script>与<script type="math/tex">a^{[l]}</script>的线性关系，且<script type="math/tex">a^{[l+2]}=a^{[l]}</script>，这就是identity function（恒等函数）。<script type="math/tex">a^{[l]}</script>直接连到<script type="math/tex">a^{[l+2]}</script>，相当于直接忽略了<script type="math/tex">a^{[l]}</script>之后的这两层神经层。这样看似很深的神经网络，由于许多Residual blocks的存在，弱化削减了某些神经层之间的联系，实现隔层线性传递，而不是一味追求非线性关系，模型本身也就能“容忍”更深层的神经网络了。从性能上来说，这两层额外的Residual blocks也不会降低Big NN的性能，所以给大型神经网络增加两层，不论是把残差块添加到神经网络的中间还是末端位置，都不会影响网络的表现</p>
-<p>如果Residual blocks确实能训练得到非线性关系，那么也会忽略short cut，跟Plain Network起到同样的效果</p>
-<p>如果Residual blocks中<script type="math/tex">a^{[l+2]}</script>与<script type="math/tex">a^{[l]}</script>的维度不同，可以引入矩阵<script type="math/tex">W_s</script>与<script type="math/tex">a^{[l]}</script>相乘，使得<script type="math/tex">W_s*a^{[l]}</script>的维度与<script type="math/tex">a^{[l+2]}</script>一致</p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cefcaece17927e14eb488cb52d99aaef.png" alt></a></p>
-<p>参数矩阵<script type="math/tex">W_s</script>有来两种方法得到：</p>
-<ul>
-<li>将<script type="math/tex">W_s</script>作为学习参数，通过模型训练得到</li>
-<li>固定<script type="math/tex">W_s</script>值（类似单位矩阵），不需要训练，<script type="math/tex">W_s</script>与<script type="math/tex">a^{[l]}</script>的乘积仅使得<script type="math/tex">a^{[l]}</script>截断或者补零</li>
-</ul>
-<p>CNN中ResNets的结构：</p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/70062fa97916ab79c7ad37282ba1a5f4.png" alt></a></p>
-<p>ResNets同类型层之间，例如CONV layers，大多使用same类型，这也解释了添加项<script type="math/tex">z^{[l+2]}+a^{[l]}</script>（维度相同所以能够相加）。如果是不同类型层之间的连接，例如CONV layer与POOL layer之间，如果维度不同，则引入矩阵<script type="math/tex">W_s</script></p>
-<h2 id="2-4-网络中的网络以及-1×1-卷积（Network-in-Network-and-1×1-convolutions）"><a href="#2-4-网络中的网络以及-1×1-卷积（Network-in-Network-and-1×1-convolutions）" class="headerlink" title="2.4 网络中的网络以及 1×1 卷积（Network in Network and 1×1 convolutions）"></a>2.4 网络中的网络以及 1×1 卷积（Network in Network and 1×1 convolutions）</h2><p>如果是一张6×6×32的图片，使用1×1过滤器进行卷积效果更好。1×1卷积所实现的功能是遍历这36个单元格，计算左图中32个数字和过滤器中32个数字的元素积之和，然后应用<strong>ReLU</strong>非线性函数</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/7522d4cbc42b7db1c5a05bc461106590.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7522d4cbc42b7db1c5a05bc461106590.png" alt></a></p>
-<p>1×1×32过滤器中的32个数字可以理解为一个神经元的输入是32个数字，这32个数字具有不同通道，乘以32个权重（将过滤器中的32个数理解为权重），然后应用<strong>ReLU</strong>非线性函数，输出相应的结果</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f97e6c31c2b27a2d4ef9610b8f32b335.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f97e6c31c2b27a2d4ef9610b8f32b335.png" alt></a></p>
-<p>如果过滤器是多个，就好像有多个输入单元，其输入内容为一个切片上所有数字，输出结果是6×6×#filters</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/70eba35d0705dc681c40f09a0926061a.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/70eba35d0705dc681c40f09a0926061a.png" alt></a></p>
-<p>1×1卷积可以从根本上理解为对这32个不同的位置都应用一个全连接层，全连接层的作用是输入32个数字（过滤器数量标记为<script type="math/tex">n\_{C}^{\left\lbrack l + 1\right\rbrack}</script>，在这36个单元上重复此过程）,输出结果是6×6×#filters（过滤器数量），以便在输入层上实施一个非平凡（<strong>non-trivial</strong>）计算</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/46698c486da9ae184532d773716c77e9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/46698c486da9ae184532d773716c77e9.png" alt></a></p>
-<p>这种方法通常称为1×1卷积，也被称为<strong>Network in Network</strong></p>
-<p>假设一个28×28×192的输入层，如果通道数量很大，可以用32个大小为1×1×192的过滤器，使输出层为28×28×32，这就是压缩通道数（<script type="math/tex">n_{C}</script>）的方法</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/49a16fdc10769a86355911f9e324c728.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/49a16fdc10769a86355911f9e324c728.png" alt></a></p>
-<p>如果想保持通道数192不变，也是可行的，1×1卷积只是添加了非线性函数，也可以让网络学习更复杂的函数</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/70f3b26fe86c3ec2507b8bb85be8d30c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/70f3b26fe86c3ec2507b8bb85be8d30c.png" alt></a></p>
-<p>1×1卷积层给神经网络添加了一个非线性函数，从而减少或保持输入层中的通道数量不变，也可以增加通道数量</p>
-<h2 id="2-5-谷歌-Inception-网络简介（Inception-network-motivation）"><a href="#2-5-谷歌-Inception-网络简介（Inception-network-motivation）" class="headerlink" title="2.5 谷歌 Inception 网络简介（Inception network motivation）"></a>2.5 谷歌 Inception 网络简介（Inception network motivation）</h2><p><strong>Inception</strong>网络或<strong>Inception</strong>层的作用是代替人工来确定卷积层中的过滤器类型，或者确定是否需要创建卷积层或池化层</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/99f8fc7dbe7cd0726f5271aae11b9872.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/99f8fc7dbe7cd0726f5271aae11b9872.png" alt></a></p>
-<p>基本思想是<strong>Inception</strong>网络在单层网络上可以使用多个不同尺寸的filters，进行same convolutions，把各filter下得到的输出拼接起来。还可以将CONV layer与POOL layer混合，同时实现各种效果，但是要注意使用same pool。Inception Network不需要人为决定使用哪个过滤器或者是否需要池化，它使用不同尺寸的filters并将CONV和POOL混合起来，将所有功能输出组合拼接，再由神经网络本身去学习参数并选择最好的模块</p>
-<p>Inception Network在提升性能的同时，会带来计算量大的问题：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/27894eae037f4fd859d33ebdda1cac9a.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/27894eae037f4fd859d33ebdda1cac9a.png" alt></a></p>
-<p>乘法运算的总次数为每个输出值所需要执行的乘法运算次数（5×5×192）乘以输出值个数（28×28×32），结果等于1.2亿。</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5b3df2904b9d8dc51bd99ccb45ac9f5b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5b3df2904b9d8dc51bd99ccb45ac9f5b.png" alt></a></p>
-<p>为此，引入1x1 Convolutions来减少计算量，对于输入层，使用1×1卷积把输入值从192个通道减少到16个通道。然后对这个较小层运行5×5卷积，得到最终输出</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1fec66d984a3c8c47ff459775d411e71.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1fec66d984a3c8c47ff459775d411e71.png" alt></a></p>
-<p>把该1x1 Convolution称为“瓶颈层”（bottleneck layer），瓶颈层是网络中最小的部分，即先缩小网络，然后再扩大</p>
-<p>引入bottleneck layer之后，第一个卷积层计算成本：1×1×192×输出28×28×16，相乘结果约等于240万，第二个卷积层的计算成本是：28×28×32×5×5×16，计算结果为1000万，总次数是1204万，计算成本从1.2亿下降到了原来的十分之一</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/7d160f6eab22e4b9544b28b44da686a6.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7d160f6eab22e4b9544b28b44da686a6.png" alt></a></p>
-<p>总结：</p>
-<ul>
-<li>如果在构建神经网络层的时候，不想决定池化层是使用1×1，3×3还是5×5的过滤器，<strong>Inception</strong>模块是最好的选择。可以应用各种类型的过滤器，只需要把输出连接起来</li>
-<li>计算成本问题，通过使用1×1卷积来构建瓶颈层，大大降低计算成本</li>
-</ul>
-<p>只要合理构建瓶颈层，既可以显著缩小表示层规模，又不会降低网络性能，从而节省了计算</p>
-<h2 id="2-6-Inception-网络（Inception-network）"><a href="#2-6-Inception-网络（Inception-network）" class="headerlink" title="2.6 Inception 网络（Inception network）"></a>2.6 Inception 网络（Inception network）</h2><p>引入1x1 Convolution后的Inception module如下图所示：</p>
-<p><img src="/images/pasted-151.png" alt="upload successful"></p>
-<p><strong>Inception</strong>模块会将之前层的激活或者输出作为它的输入，为了能在最后将这些输出都连接起来，会使用<strong>same</strong>类型的<strong>padding</strong>来池化，使得输出的高和宽依然是28×28，这样才能将它与其他输出连接起来。如果进行了最大池化，即便用了<strong>same padding</strong>，3×3的过滤器，<strong>stride</strong>为1，其输出将会是28×28×192，其通道数与输入（通道数）相同。要做的是再加上一个1×1的卷积层，将通道的数量缩小到28×28×32，避免了最后输出时，池化层占据所有的通道</p>
-<p>最后把得到的各个层的通道都加起来，得到一个28×28×256的输出。这就是一个<strong>Inception</strong>模块</p>
-<p><strong>Inception</strong>网络只是很多在不同的位置重复组成的网络：</p>
-<p><img src="/images/pasted-152.png" alt="upload successful"></p>
-<p>中间隐藏层也可以作为输出层Softmax，确保了即便是隐藏单元和中间层也参与了特征计算，也能预测图片的分类，起到一种调整的效果，有利于防止发生过拟合</p>
-<h2 id="2-7-迁移学习（Transfer-Learning）"><a href="#2-7-迁移学习（Transfer-Learning）" class="headerlink" title="2.7 迁移学习（Transfer Learning）"></a>2.7 迁移学习（Transfer Learning）</h2><p>训练集很小的情况：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8f0e69f085991cfc74726983418f6569.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8f0e69f085991cfc74726983418f6569.png" alt></a></p>
-<p>建议：从网上下载一些神经网络开源的实现，不仅把代码下载下来，也把权重下载下来。然后去掉<strong>Softmax</strong>层，创建自己的<strong>Softmax</strong>单元，用来输出<strong>Tigger</strong>、<strong>Misty</strong>和<strong>neither</strong>三个类别。把所有的层看作是冻结的，冻结网络中所有层的参数，只需要训练和<strong>Softmax</strong>层有关的参数。这个<strong>Softmax</strong>层有三种可能的输出，<strong>Tigger</strong>、<strong>Misty</strong>或者<strong>Neither</strong>。</p>
-<p>通过使用其他人预训练的权重，很可能得到很好的性能，即使只有一个小的数据集。大多数深度学习框架会有<code>trainableParameter=0</code>的参数，对于前面的层，可以设置这个参数。为了不训练这些权重，会有<code>freeze=1</code>的参数。只需要训练<strong>softmax</strong>层的权重，把前面这些层的权重都冻结</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ac520bf9e9facfc026db46b187b513bd.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac520bf9e9facfc026db46b187b513bd.png" alt></a></p>
-<p>由于前面的层都冻结了，相当于一个固定的函数，因此不需要改变和训练它，取输入图像<script type="math/tex">X</script>，然后把它映射到<strong>softmax</strong>前一层的激活函数。能加速训练的技巧是如果先计算这一层（紫色箭头标记），计算特征或者激活值，然后把它们存到硬盘里。所做的就是用这个固定的函数，在这个神经网络的前半部分（<strong>softmax</strong>层之前的所有层视为一个固定映射），取任意输入图像<script type="math/tex">X</script>，然后计算它的某个特征向量，这样训练的就是一个很浅的<strong>softmax</strong>模型，用这个特征向量来做预测。对计算有用的一步就是对训练集中所有样本的这一层的激活值进行预计算，然后存储到硬盘里，在此之上训练<strong>softmax</strong>分类器。存储到硬盘或者说预计算方法的优点是不需要每次遍历训练集再重新计算这个激活值</p>
-<p>更大的训练集：应该冻结更少的层，然后训练后面的层。如果输出层的类别不同，那么需要构建自己的输出单元，<strong>Tigger</strong>、<strong>Misty</strong>或者<strong>Neither</strong>三个类别。可以取后面几层的权重，用作初始化，然后从这里开始梯度下降</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e7079af956d884d6184c4bde62271175.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e7079af956d884d6184c4bde62271175.png" alt></a></p>
-<p>也可以直接去掉这几层，换成自己的隐藏单元和<strong>softmax</strong>输出层，如果有越来越多的数据，那么需要冻结的层数就越少，能够训练的层数就越多。如果有一个更大的数据集，那么不要单单训练一个<strong>softmax</strong>单元，而是考虑训练中等大小的网络，包含最终要用的网络的后面几层</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/7cf0e18b739684106548cbbf0c1dd500.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7cf0e18b739684106548cbbf0c1dd500.png" alt></a></p>
-<p>如果有大量数据：应该做的就是用开源的网络和它的权重，把所有的权重当作初始化，然后训练整个网络</p>
-<p>如果有越多的标定的数据，可以训练越多的层。极端情况下，可以用下载的权重只作为初始化，用它们来代替随机初始化，接着用梯度下降训练，更新网络所有层的所有权重</p>
-<h2 id="2-8-数据扩充（Data-augmentation）"><a href="#2-8-数据扩充（Data-augmentation）" class="headerlink" title="2.8 数据扩充（Data augmentation）"></a>2.8 数据扩充（Data augmentation）</h2><p>当下计算机视觉的主要问题是没有办法得到充足的数据</p>
-<p>最简单的数据扩充方法就是垂直镜像对称</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f92337ae2e50a0896d42d45cc7951e43.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f92337ae2e50a0896d42d45cc7951e43.png" alt></a></p>
-<p>另一个经常使用的技巧是随机裁剪，给定一个数据集，然后开始随机裁剪，得到不同的图片放在数据集中，随机裁剪并不是一个完美的数据扩充的方法，如果随机裁剪的那一部分（红色方框标记部分，编号4）看起来不像猫。但在实践中，这个方法还是很实用的，随机裁剪构成了很大一部分的真实图片</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/709aa552b6a5f4715620047bacf64753.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/709aa552b6a5f4715620047bacf64753.png" alt></a></p>
-<p>也可以使用旋转，剪切（仅水平或垂直坐标发生变化）图像，扭曲变形，引入很多形式的局部弯曲等等，但在实践中太复杂所以使用的很少</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e7e2d497b751f798e77e1b040ebbf358.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e7e2d497b751f798e77e1b040ebbf358.png" alt></a></p>
-<p>彩色转换：给<strong>R</strong>、<strong>G</strong>和<strong>B</strong>三个通道上加上不同的失真值</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/a5bcde6f0d2c2326be700c0ca441c934.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a5bcde6f0d2c2326be700c0ca441c934.png" alt></a></p>
-<p>实践中对<strong>R</strong>、<strong>G</strong>和<strong>B</strong>的变化是基于某些分布，改变可能很小，<strong>R</strong>、<strong>G</strong>和<strong>B</strong>的值是根据某种概率分布来决定，这样会使得学习算法对照片的颜色更改更具鲁棒性</p>
-<p>对<strong>R、G和B</strong>有不同的采样方式，其中一种影响颜色失真的算法是<strong>PCA</strong>，即主成分分析，<strong>PCA</strong>颜色增强的大概含义是，如果图片呈现紫色，即主要含有红色和蓝色，绿色很少，然后<strong>PCA</strong>颜色增强算法就会对红色和蓝色增减很多，绿色变化相对少一点，所以使总体的颜色保持一致</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/d69cfc9648f3a37eede074bd28c74c0d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d69cfc9648f3a37eede074bd28c74c0d.png" alt></a></p>
-<p>如果有特别大的训练数据，可以使用<strong>CPU</strong>线程，不停的从硬盘中读取数据，用<strong>CPU</strong>线程来实现失真变形，可以是随机裁剪、颜色变化，或者是镜像</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2d9b9ca15ce25598d229470494d796ee.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2d9b9ca15ce25598d229470494d796ee.png" alt></a></p>
-<p>同时<strong>CPU</strong>线程持续加载数据，然后实现任意失真变形，从而构成批数据或者最小批数据，这些数据持续的传输给其他线程或者其他的进程，然后开始训练，可以在<strong>CPU</strong>或者<strong>GPU</strong>上实现一个大型网络的训练</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5ee17d350497cb8cf52881f14cb0d9e8.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5ee17d350497cb8cf52881f14cb0d9e8.png" alt></a></p>
-<p>常用的实现数据扩充的方法是使用一个线程或者是多线程来加载数据，实现变形失真，然后传给其他的线程或者其他进程，来训练编号2和这个编号1，可以并行实现</p>
-<p>在数据扩充过程中也有一些超参数，比如说颜色变化了多少，以及随机裁剪的时候使用的参数</p>
-<h2 id="2-9-计算机视觉现状（The-state-of-computer-vision）"><a href="#2-9-计算机视觉现状（The-state-of-computer-vision）" class="headerlink" title="2.9 计算机视觉现状（The state of computer vision）"></a>2.9 计算机视觉现状（The state of computer vision）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/7e51335f705120b35fa4ed5444ec5cda.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7e51335f705120b35fa4ed5444ec5cda.png" alt></a></p>
-<p>大部分机器学习问题是介于少量数据和大量数据范围之间的。</p>
-<ul>
-<li>语音识别有很大数量的数据</li>
-<li>虽然现在图像识别或图像分类方面有相当大的数据集，但因为图像识别是一个复杂的问题，通过分析像素并识别出它是什么，即使在线数据集非常大，如超过一百万张图片，仍然希望能有更多的数据</li>
-<li>物体检测拥有的数据更少</li>
-<li>图像识别是如何看图片的问题，并且告诉你这张图是不是猫，而对象检测则是看一幅图，画一个框，告诉你图片里的物体，比如汽车等等。因为获取边框的成本比标记对象的成本更高，所以进行对象检测的数据往往比图像识别数据要少</li>
-</ul>
-<p>当有很多数据时，倾向于使用更简单的算法和更少的手工工程，只要有一个大型的神经网络，甚至一个更简单的架构，就可以去学习它想学习的东西</p>
-<p>当没有那么多的数据时，更多的是手工工程</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e6701cf4129576648941bfd593a13c77.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e6701cf4129576648941bfd593a13c77.png" alt></a></p>
-<p>对机器学习应用时，通常学习算法有两种知识来源：</p>
-<ul>
-<li>一个来源是被标记的数据，像<script type="math/tex">(x,y)</script>应用在监督学习</li>
-<li>第二个来源是手工工程，有很多方法去建立一个手工工程系统，它可以是源于精心设计的特征，手工精心设计的网络体系结构或者是系统的其他组件。当没有太多标签数据时，只需要更多地考虑手工工程</li>
-</ul>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c87f6cc9ec9c45ad57a049b6baf0b86d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c87f6cc9ec9c45ad57a049b6baf0b86d.png" alt></a></p>
-<p>在基准研究和比赛中，下面的tips可能会有较好的表现：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png" alt></a></p>
-<ul>
-<li>集成，意味着想好了要的神经网络之后，可以独立训练几个神经网络，并平均它们的输出。比如说随机初始化三个、五个或者七个神经网络，然后训练所有这些网络，对输出<script type="math/tex">\hat y</script>进行平均计算，而不要平均权重，可能会在基准上提高1%，2%或者更好。但因为集成意味着要对每张图片进行测试，可能需要在从3到15个不同的网络中运行一个图像，会让运行时间变慢</li>
-<li><strong>Multi-crop at test time</strong>，<strong>Multi-crop</strong>是一种将数据扩充应用到测试图像中的一种形式，在测试图片的多种版本上运行分类器，输出平均结果</li>
-</ul>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/6027faa79b81f9940281ea36ca901504.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png" alt></a></p>
-<p>如把猫的图片复制四遍，包括两个镜像版本。如取中心的<strong>crop</strong>，然后取四个角落的<strong>crop，</strong>通过分类器来运行它</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/fbb8d5acae8a02c366cea92000577d62.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png" alt></a></p>
-<p>编号1和编号3是中心<strong>crop</strong>，编号2和编号4是四个角落的<strong>crop</strong>。把这些加起来会有10种不同的图像的<strong>crop</strong>，命名为<strong>10-crop</strong>。通过分类器来运行这十张图片，然后对结果进行平均</p>
-<p>集成的一个大问题是需要保持所有这些不同的神经网络，占用了更多的计算机内存。<strong>multi-crop</strong>，只保留一个网络，不会占用太多的内存，但仍然会让运行时间变慢</p>
-
-          
+          <h2 id="2-1-经典网络（Classic-networks）"><a href="#2-1-经典网络（Classic-networks）" class="headerlink" title="2.1 经典网络（Classic networks）"></a>2.1 经典网络（Classic networks）</h2><h3 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h3><p><strong>LeNet-5</strong>可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。该LeNet模型总共包含了大约6万个参数，典型的LeNet-5结构包含CONV layer，POOL layer和FC layer，顺序一般是CONV layer-&gt;POOL layer-&gt;CONV layer-&gt;POOL layer-&gt;FC layer-&gt;FC layer-&gt;OUTPUT layer，即<script type="math/tex">\hat y</script>：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5e59b38c9b2942a407b49da84677dae9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e59b38c9b2942a407b49da84677dae9.png" alt></a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -3224,7 +2723,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共47.6k字</span>
+  <span class="post-count">博客全站共52.4k字</span>
 </div>
 
         

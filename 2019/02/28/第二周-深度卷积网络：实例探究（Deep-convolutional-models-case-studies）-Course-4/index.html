@@ -135,7 +135,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png">
-<meta property="og:updated_time" content="2019-02-27T06:03:39.305Z">
+<meta property="og:updated_time" content="2019-02-27T06:24:06.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4)">
 <meta name="twitter:description" content="2.1 经典网络（Classic networks）LeNet-5LeNet-5可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。该LeNet模型总共包含了大约6万个参数，典型的LeNet-5结构包含CONV layer，POOL layer和FC layer，顺序一般是CONV layer-&amp;gt;POOL layer-&amp;gt;CONV layer-&amp;gt;POOL">
@@ -402,7 +402,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:03:39+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:24:06+08:00">
                 2019-02-27
               </time>
             
@@ -510,8 +510,7 @@
 
       
         <h2 id="2-1-经典网络（Classic-networks）"><a href="#2-1-经典网络（Classic-networks）" class="headerlink" title="2.1 经典网络（Classic networks）"></a>2.1 经典网络（Classic networks）</h2><h3 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h3><p><strong>LeNet-5</strong>可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。该LeNet模型总共包含了大约6万个参数，典型的LeNet-5结构包含CONV layer，POOL layer和FC layer，顺序一般是CONV layer-&gt;POOL layer-&gt;CONV layer-&gt;POOL layer-&gt;FC layer-&gt;FC layer-&gt;OUTPUT layer，即<script type="math/tex">\hat y</script>：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5e59b38c9b2942a407b49da84677dae9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e59b38c9b2942a407b49da84677dae9.png" alt></a></p>
-<p>随着网络越来越深，图像的高度和宽度在缩小，从最初的32×32缩小到28×28，再到14×14、10×10，最后只有5×5，通道数量一直在增加，从1增加到6个，再到16个</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5e59b38c9b2942a407b49da84677dae9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e59b38c9b2942a407b49da84677dae9.png" alt></a><br><a id="more"></a><br>随着网络越来越深，图像的高度和宽度在缩小，从最初的32×32缩小到28×28，再到14×14、10×10，最后只有5×5，通道数量一直在增加，从1增加到6个，再到16个</p>
 <p>这个神经网络中还有一种模式就是一个或多个卷积层后面跟着一个池化层，然后又是若干个卷积层再接一个池化层，然后是全连接层，最后是输出</p>
 <h2 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h2><p><strong>AlexNet</strong>包含约6000万个参数。当用于训练图像和数据集时，<strong>AlexNet</strong>能够处理非常相似的基本构造模块，这些模块往往包含着大量的隐藏单元或数据，<strong>AlexNet</strong>比<strong>LeNet</strong>表现更为出色的另一个原因是它使用了<strong>ReLu</strong>激活函数</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/92575493ecd20003b0b76ac51de0efbb.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/92575493ecd20003b0b76ac51de0efbb.png" alt></a></p>
@@ -986,7 +985,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共47.6k字</span>
+  <span class="post-count">博客全站共52.4k字</span>
 </div>
 
         

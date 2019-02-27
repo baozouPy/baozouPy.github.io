@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://baozouai.com/"/>
-  <updated>2019-02-27T06:21:23.238Z</updated>
+  <updated>2019-02-27T06:34:29.931Z</updated>
   <id>https://baozouai.com/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="https://baozouai.com/2019/02/28/%E7%AC%AC%E4%B8%80%E5%91%A8-%E5%BE%AA%E7%8E%AF%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B%EF%BC%88Recurrent-Neural-Networks%EF%BC%89-Course-5/"/>
     <id>https://baozouai.com/2019/02/28/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/</id>
     <published>2019-02-27T22:17:00.000Z</published>
-    <updated>2019-02-27T06:21:23.238Z</updated>
+    <updated>2019-02-27T06:34:29.931Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;1-1-为什么选择序列模型？（Why-Sequence-Models-）&quot;&gt;&lt;a href=&quot;#1-1-为什么选择序列模型？（Why-Sequence-Models-）&quot; class=&quot;headerlink&quot; title=&quot;1.1 为什么选择序列模型？（Why Sequence Models?）&quot;&gt;&lt;/a&gt;1.1 为什么选择序列模型？（Why Sequence Models?）&lt;/h2&gt;&lt;p&gt;语音识别：给定一个输入音频片段 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;，要求输出对应的文字记录 &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt;。输入和输出数据都是序列模型，因为 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;是一个按时播放的音频片段，输出 &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt;是一系列单词&lt;br&gt;
     
     </summary>
     
@@ -47,17 +41,12 @@
     <link href="https://baozouai.com/2019/02/28/%E7%AC%AC%E5%9B%9B%E5%91%A8-%E7%89%B9%E6%AE%8A%E5%BA%94%E7%94%A8%EF%BC%9A%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E5%92%8C%E7%A5%9E%E7%BB%8F%E9%A3%8E%E6%A0%BC%E8%BD%AC%E6%8D%A2%EF%BC%88Special-applications-Face-recognition-Neural-style-transfer%EF%BC%89-Course-4/"/>
     <id>https://baozouai.com/2019/02/28/第四周-特殊应用：人脸识别和神经风格转换（Special-applications-Face-recognition-Neural-style-transfer）-Course-4/</id>
     <published>2019-02-27T22:09:00.000Z</published>
-    <updated>2019-02-27T06:22:05.036Z</updated>
+    <updated>2019-02-27T06:23:33.604Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;4-1-什么是人脸识别？（What-is-face-recognition-）&quot;&gt;&lt;a href=&quot;#4-1-什么是人脸识别？（What-is-face-recognition-）&quot; class=&quot;headerlink&quot; title=&quot;4.1 什么是人脸识别？（What is face recognition?）&quot;&gt;&lt;/a&gt;4.1 什么是人脸识别？（What is face recognition?）&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;人脸验证（&lt;strong&gt;face verification&lt;/strong&gt;）问题：如果有一张输入图片以及某人的&lt;strong&gt;ID&lt;/strong&gt;或者是名字，系统要做的是验证输入图片是否是这个人，也被称作1对1问题，只需要弄明白这个人是否和他声称的身份相符
     
     </summary>
     
@@ -73,17 +62,11 @@
     <link href="https://baozouai.com/2019/02/28/%E7%AC%AC%E4%B8%89%E5%91%A8-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%EF%BC%88Object-detection-Course-4/"/>
     <id>https://baozouai.com/2019/02/28/第三周-目标检测（Object-detection-Course-4/</id>
     <published>2019-02-27T22:01:00.000Z</published>
-    <updated>2019-02-27T06:10:54.962Z</updated>
+    <updated>2019-02-27T06:23:48.816Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;3-1-目标定位（Object-localization）&quot;&gt;&lt;a href=&quot;#3-1-目标定位（Object-localization）&quot; class=&quot;headerlink&quot; title=&quot;3.1 目标定位（Object localization）&quot;&gt;&lt;/a&gt;3.1 目标定位（Object localization）&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0107af10b33fcb955cc3c588dfb78d49.png&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;img src=&quot;https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0107af10b33fcb955cc3c588dfb78d49.png&quot; alt&gt;&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
@@ -97,17 +80,12 @@
     <link href="https://baozouai.com/2019/02/28/%E7%AC%AC%E4%BA%8C%E5%91%A8-%E6%B7%B1%E5%BA%A6%E5%8D%B7%E7%A7%AF%E7%BD%91%E7%BB%9C%EF%BC%9A%E5%AE%9E%E4%BE%8B%E6%8E%A2%E7%A9%B6%EF%BC%88Deep-convolutional-models-case-studies%EF%BC%89-Course-4/"/>
     <id>https://baozouai.com/2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/</id>
     <published>2019-02-27T21:54:00.000Z</published>
-    <updated>2019-02-27T06:03:39.305Z</updated>
+    <updated>2019-02-27T06:24:06.999Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;2-1-经典网络（Classic-networks）&quot;&gt;&lt;a href=&quot;#2-1-经典网络（Classic-networks）&quot; class=&quot;headerlink&quot; title=&quot;2.1 经典网络（Classic networks）&quot;&gt;&lt;/a&gt;2.1 经典网络（Classic networks）&lt;/h2&gt;&lt;h3 id=&quot;LeNet-5&quot;&gt;&lt;a href=&quot;#LeNet-5&quot; class=&quot;headerlink&quot; title=&quot;LeNet-5&quot;&gt;&lt;/a&gt;LeNet-5&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;LeNet-5&lt;/strong&gt;可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。该LeNet模型总共包含了大约6万个参数，典型的LeNet-5结构包含CONV layer，POOL layer和FC layer，顺序一般是CONV layer-&amp;gt;POOL layer-&amp;gt;CONV layer-&amp;gt;POOL layer-&amp;gt;FC layer-&amp;gt;FC layer-&amp;gt;OUTPUT layer，即&lt;script type=&quot;math/tex&quot;&gt;\hat y&lt;/script&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5e59b38c9b2942a407b49da84677dae9.png&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;img src=&quot;https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e59b38c9b2942a407b49da84677dae9.png&quot; alt&gt;&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
@@ -270,26 +248,6 @@
   </entry>
   
   <entry>
-    <title>第二周：优化算法 (Optimization algorithms)(Course 2)</title>
-    <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95-Optimization-algorithms-Course-2/"/>
-    <id>https://baozouai.com/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/</id>
-    <published>2019-02-27T11:20:37.000Z</published>
-    <updated>2019-02-27T05:39:24.809Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot;&gt;&lt;a href=&quot;#2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot; class=&quot;headerlink&quot; title=&quot;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&quot;&gt;&lt;/a&gt;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&lt;/h2&gt;&lt;p&gt;神经网络训练过程是同时对所有m个样本（称为batch）通过向量化计算方式进行的。如果m很大，训练速度会很慢，因为每次迭代都要对所有样本进进行求和运算和矩阵运算。这种梯度下降算法称为Batch Gradient Descent&lt;br&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>第一周：深度学习的实用层面(Practical aspects of Deep Learning)(Course 2)</title>
     <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B1%82%E9%9D%A2-Practical-aspects-of-Deep-Learning-Course-2/"/>
     <id>https://baozouai.com/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/</id>
@@ -304,6 +262,26 @@
 &lt;li&gt;每层含有多少个隐藏单元&lt;/li&gt;
 &lt;li&gt;学习速率是多少&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;各层采用哪些激活函数&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第二周：优化算法 (Optimization algorithms)(Course 2)</title>
+    <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95-Optimization-algorithms-Course-2/"/>
+    <id>https://baozouai.com/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/</id>
+    <published>2019-02-27T11:20:37.000Z</published>
+    <updated>2019-02-27T05:39:24.809Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot;&gt;&lt;a href=&quot;#2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot; class=&quot;headerlink&quot; title=&quot;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&quot;&gt;&lt;/a&gt;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&lt;/h2&gt;&lt;p&gt;神经网络训练过程是同时对所有m个样本（称为batch）通过向量化计算方式进行的。如果m很大，训练速度会很慢，因为每次迭代都要对所有样本进进行求和运算和矩阵运算。这种梯度下降算法称为Batch Gradient Descent&lt;br&gt;
     
     </summary>
     
@@ -417,9 +395,9 @@
       <category term="Python" scheme="https://baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Python/"/>
     
     
-      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="Python" scheme="https://baozouai.com/tags/Python/"/>
+    
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="机器学习" scheme="https://baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
