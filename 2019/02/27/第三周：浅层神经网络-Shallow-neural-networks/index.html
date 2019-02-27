@@ -98,7 +98,10 @@
 <meta property="og:image" content="https://baozouai.com/images/pasted-21.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-22.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-23.png">
-<meta property="og:updated_time" content="2019-02-27T02:15:57.181Z">
+<meta property="og:image" content="https://baozouai.com/images/pasted-24.png">
+<meta property="og:image" content="https://baozouai.com/images/pasted-25.png">
+<meta property="og:image" content="https://baozouai.com/images/pasted-26.png">
+<meta property="og:updated_time" content="2019-02-27T02:16:40.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三周：浅层神经网络(Shallow neural networks)">
 <meta name="twitter:description" content="3.1 神经网络概述（Neural Network Overview） 3.2 神经网络的表示（Neural Network Representation ）单隐藏层神经网络就是典型的浅层（shallow）神经网络  单隐藏层神经网络也被称为两层神经网络（2 layer NN） 第l层的权重W^{[l]}维度的行等于l层神经元的个数，列等于l-1层神经元的个数；第i层常数项b^{[l]}维度的行等">
@@ -365,7 +368,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T10:15:57+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T10:16:40+08:00">
                 2019-02-27
               </time>
             
@@ -513,64 +516,34 @@ g(z)=max(0,z)</script><script type="math/tex; mode=display">
 x = \begin{cases}
 0 &\text{if } z < 0 \\
 1 &\text{if } z \geq 0
-\end{cases}</script><script type="math/tex; mode=display">Leaky ReLU$$函数：</script><p>g(z)=max(0.01z,z)</p>
+\end{cases}</script><p>$Leaky ReLU$函数：</p>
 <script type="math/tex; mode=display">
-</script><p>g’(z) = \begin{cases}<br>0.01 &amp;\text{if } z &lt; 0 \\<br>1 &amp;\text{if } z \geq 0<br>\end{cases}</p>
+g(z)=max(0.01z,z)</script><script type="math/tex; mode=display">
+g'(z) = \begin{cases}
+0.01 &\text{if } z < 0 \\
+1 &\text{if } z \geq 0
+\end{cases}</script><h2 id="3-8-神经网络的梯度下降（Gradient-descent-for-neural-networks）"><a href="#3-8-神经网络的梯度下降（Gradient-descent-for-neural-networks）" class="headerlink" title="3.8 神经网络的梯度下降（Gradient descent for neural networks）"></a>3.8 神经网络的梯度下降（Gradient descent for neural networks）</h2><script type="math/tex; mode=display">
+dZ^{[2]}=A^{[2]}-Y</script><script type="math/tex; mode=display">
+dW^{[2]}=\frac1mdZ^{[2]}A^{[1]T}</script><script type="math/tex; mode=display">
+db^{[2]}=\frac1mnp.sum(dZ^{[2]},axis=1,keepdim=True)</script><script type="math/tex; mode=display">
+dZ^{[1]}=W^{[2]T}dZ^{[2]}\ast g'(Z^{[1]})</script><script type="math/tex; mode=display">
+dW^{[1]}=\frac1mdZ^{[1]}X^T</script><script type="math/tex; mode=display">
+db^{[1]}=\frac1mnp.sum(dZ^{[1]},axis=1,keepdim=True)</script><h2 id="3-9-（选修）直观理解反向传播（Backpropagation-intuition-）"><a href="#3-9-（选修）直观理解反向传播（Backpropagation-intuition-）" class="headerlink" title="3.9 （选修）直观理解反向传播（Backpropagation intuition ）"></a>3.9 （选修）直观理解反向传播（Backpropagation intuition ）</h2><p>单个训练样本反向过程可以根据梯度计算方法逐一推导：</p>
 <script type="math/tex; mode=display">
-
-## 3.8 神经网络的梯度下降（Gradient descent for neural networks）</script><p>dZ^{[2]}=A^{[2]}-Y</p>
+dz^{[2]}=a^{[2]}-y</script><script type="math/tex; mode=display">
+dW^{[2]}=dz^{[2]}\cdot \frac{\partial z^{[2]}}{\partial W^{[2]}}=dz^{[2]}a^{[1]T}</script><script type="math/tex; mode=display">
+db^{[2]}=dz^{[2]}\cdot \frac{\partial z^{[2]}}{\partial b^{[2]}}=dz^{[2]}\cdot 1=dz^{[2]}</script><script type="math/tex; mode=display">
+dz^{[1]}=dz^{[2]}\cdot \frac{\partial z^{[2]}}{\partial a^{[1]}}\cdot \frac{\partial a^{[1]}}{\partial z^{[1]}}=W^{[2]T}dz^{[2]}\ast g^{[1]'}(z^{[1]})</script><script type="math/tex; mode=display">
+dW^{[1]}=dz^{[1]}\cdot \frac{\partial z^{[1]}}{\partial W^{[1]}}=dz^{[1]}x^T</script><script type="math/tex; mode=display">
+db^{[1]}=dz^{[1]}\cdot \frac{\partial z^{[1]}}{\partial b^{[1]}}=dz^{[1]}\cdot 1=dz^{[1]}</script><p><img src="/images/pasted-24.png" alt="upload successful"></p>
+<p>浅层神经网络（包含一个隐藏层），<script type="math/tex">m</script>个训练样本的正向传播过程和反向传播过程分别包含了<script type="math/tex">6</script>个表达式，其向量化矩阵形式如下图所示：</p>
+<p><img src="/images/pasted-25.png" alt="upload successful"></p>
+<h2 id="3-10-随机初始化（Random-Initialization）"><a href="#3-10-随机初始化（Random-Initialization）" class="headerlink" title="3.10 随机初始化（Random Initialization）"></a>3.10 随机初始化（Random Initialization）</h2><p>神经网络模型中的参数权重<script type="math/tex">W</script>不能全部初始化为零</p>
+<p><img src="/images/pasted-26.png" alt="upload successful"></p>
+<p>如果权重<script type="math/tex">W^{[1]}</script>和<script type="math/tex">W^{[2]}</script>都初始化为零，即：</p>
 <script type="math/tex; mode=display">
-</script><p>dW^{[2]}=\frac1mdZ^{[2]}A^{[1]T}</p>
-<script type="math/tex; mode=display">
-</script><p>db^{[2]}=\frac1mnp.sum(dZ^{[2]},axis=1,keepdim=True)</p>
-<script type="math/tex; mode=display">
-</script><p>dZ^{[1]}=W^{[2]T}dZ^{[2]}\ast g’(Z^{[1]})</p>
-<script type="math/tex; mode=display">
-</script><p>dW^{[1]}=\frac1mdZ^{[1]}X^T</p>
-<script type="math/tex; mode=display">
-</script><p>db^{[1]}=\frac1mnp.sum(dZ^{[1]},axis=1,keepdim=True)</p>
-<script type="math/tex; mode=display">
-
-
-
-
-## 3.9 （选修）直观理解反向传播（Backpropagation intuition ）
-
-单个训练样本反向过程可以根据梯度计算方法逐一推导：</script><p>dz^{[2]}=a^{[2]}-y</p>
-<script type="math/tex; mode=display">
-</script><p>dW^{[2]}=dz^{[2]}\cdot \frac{\partial z^{[2]}}{\partial W^{[2]}}=dz^{[2]}a^{[1]T}</p>
-<script type="math/tex; mode=display">
-</script><p>db^{[2]}=dz^{[2]}\cdot \frac{\partial z^{[2]}}{\partial b^{[2]}}=dz^{[2]}\cdot 1=dz^{[2]}</p>
-<script type="math/tex; mode=display">
-</script><p>dz^{[1]}=dz^{[2]}\cdot \frac{\partial z^{[2]}}{\partial a^{[1]}}\cdot \frac{\partial a^{[1]}}{\partial z^{[1]}}=W^{[2]T}dz^{[2]}\ast g^{[1]’}(z^{[1]})</p>
-<script type="math/tex; mode=display">
-</script><p>dW^{[1]}=dz^{[1]}\cdot \frac{\partial z^{[1]}}{\partial W^{[1]}}=dz^{[1]}x^T</p>
-<script type="math/tex; mode=display">
-</script><p>db^{[1]}=dz^{[1]}\cdot \frac{\partial z^{[1]}}{\partial b^{[1]}}=dz^{[1]}\cdot 1=dz^{[1]}</p>
-<script type="math/tex; mode=display">
-
-
-
-![upload successful](/images/pasted-24.png)
-
-浅层神经网络（包含一个隐藏层），$$m$$个训练样本的正向传播过程和反向传播过程分别包含了$$6$$个表达式，其向量化矩阵形式如下图所示：
-
-
-![upload successful](/images/pasted-25.png)
-
-
-## 3.10 随机初始化（Random Initialization）
-
-神经网络模型中的参数权重$$W$$不能全部初始化为零
-
-
-![upload successful](/images/pasted-26.png)
-
-如果权重$$W^{[1]}$$和$$W^{[2]}$$都初始化为零，即：</script><p>W^{[1]}= \left[ \begin{matrix} 0 &amp; 0 \ 0 &amp; 0 \end{matrix} \right]</p>
-<script type="math/tex; mode=display">
-</script><p>W^{[2]}= \left[ \begin{matrix} 0 &amp; 0 \end{matrix} \right]</p>
-<p>$$</p>
-<p>这样使得隐藏层第一个神经元的输出等于第二个神经元的输出，即<script type="math/tex">a_1^{[1]}=a_2^{[1]}</script>。经过推导得到<script type="math/tex">dz_1^{[1]}=dz_2^{[1]}</script>，<script type="math/tex">dW_1^{[1]}=dW_2^{[1]}</script>，这样的结果是隐藏层两个神经元对应的权重行向量<script type="math/tex">W_1^{[1]}</script>和<script type="math/tex">W_2^{[1]}</script>每次迭代更新都会得到完全相同的结果，<script type="math/tex">W_1^{[1]}</script>始终等于<script type="math/tex">W_2^{[1]}</script>，完全对称。这样隐藏层设置多个神经元就没有任何意义</p>
+W^{[1]}= \left[ \begin{matrix} 0 & 0 \\ 0 & 0 \end{matrix} \right]</script><script type="math/tex; mode=display">
+W^{[2]}= \left[ \begin{matrix} 0 & 0 \end{matrix} \right]</script><p>这样使得隐藏层第一个神经元的输出等于第二个神经元的输出，即<script type="math/tex">a_1^{[1]}=a_2^{[1]}</script>。经过推导得到<script type="math/tex">dz_1^{[1]}=dz_2^{[1]}</script>，<script type="math/tex">dW_1^{[1]}=dW_2^{[1]}</script>，这样的结果是隐藏层两个神经元对应的权重行向量<script type="math/tex">W_1^{[1]}</script>和<script type="math/tex">W_2^{[1]}</script>每次迭代更新都会得到完全相同的结果，<script type="math/tex">W_1^{[1]}</script>始终等于<script type="math/tex">W_2^{[1]}</script>，完全对称。这样隐藏层设置多个神经元就没有任何意义</p>
 <p>权重<script type="math/tex">W</script>全部初始化为零带来的问题称为<strong>symmetry breaking problem</strong></p>
 <p>随机初始化：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">W_1 = np.random.randn((<span class="number">2</span>,<span class="number">2</span>))*<span class="number">0.01</span></span><br><span class="line">b_1 = np.zero((<span class="number">2</span>,<span class="number">1</span>))</span><br><span class="line">W_2 = np.random.randn((<span class="number">1</span>,<span class="number">2</span>))*<span class="number">0.01</span></span><br><span class="line">b_2 = <span class="number">0</span></span><br></pre></td></tr></table></figure>
@@ -848,7 +821,7 @@ x = \begin{cases}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-神经网络概述（Neural-Network-Overview）"><span class="nav-number">1.</span> <span class="nav-text">3.1 神经网络概述（Neural Network Overview）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-神经网络的表示（Neural-Network-Representation-）"><span class="nav-number">2.</span> <span class="nav-text">3.2 神经网络的表示（Neural Network Representation ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-计算一个神经网络的输出（Computing-a-Neural-Network’s-output-）"><span class="nav-number">3.</span> <span class="nav-text">3.3 计算一个神经网络的输出（Computing a Neural Network’s output ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-多样本向量化（Vectorizing-across-multiple-examples-）"><span class="nav-number">4.</span> <span class="nav-text">3.4 多样本向量化（Vectorizing across multiple examples ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-激活函数（Activation-functions）"><span class="nav-number">5.</span> <span class="nav-text">3.5 激活函数（Activation functions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-为什么需要（-非线性激活函数？（why-need-a-nonlinear-activation-function-）"><span class="nav-number">6.</span> <span class="nav-text">3.6 为什么需要（ 非线性激活函数？（why need a nonlinear activation function?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-激活函数的导数（Derivatives-of-activation-functions-）"><span class="nav-number">7.</span> <span class="nav-text">3.7 激活函数的导数（Derivatives of activation functions ）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-神经网络概述（Neural-Network-Overview）"><span class="nav-number">1.</span> <span class="nav-text">3.1 神经网络概述（Neural Network Overview）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-神经网络的表示（Neural-Network-Representation-）"><span class="nav-number">2.</span> <span class="nav-text">3.2 神经网络的表示（Neural Network Representation ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-计算一个神经网络的输出（Computing-a-Neural-Network’s-output-）"><span class="nav-number">3.</span> <span class="nav-text">3.3 计算一个神经网络的输出（Computing a Neural Network’s output ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-多样本向量化（Vectorizing-across-multiple-examples-）"><span class="nav-number">4.</span> <span class="nav-text">3.4 多样本向量化（Vectorizing across multiple examples ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-激活函数（Activation-functions）"><span class="nav-number">5.</span> <span class="nav-text">3.5 激活函数（Activation functions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-为什么需要（-非线性激活函数？（why-need-a-nonlinear-activation-function-）"><span class="nav-number">6.</span> <span class="nav-text">3.6 为什么需要（ 非线性激活函数？（why need a nonlinear activation function?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-激活函数的导数（Derivatives-of-activation-functions-）"><span class="nav-number">7.</span> <span class="nav-text">3.7 激活函数的导数（Derivatives of activation functions ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-神经网络的梯度下降（Gradient-descent-for-neural-networks）"><span class="nav-number">8.</span> <span class="nav-text">3.8 神经网络的梯度下降（Gradient descent for neural networks）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9-（选修）直观理解反向传播（Backpropagation-intuition-）"><span class="nav-number">9.</span> <span class="nav-text">3.9 （选修）直观理解反向传播（Backpropagation intuition ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10-随机初始化（Random-Initialization）"><span class="nav-number">10.</span> <span class="nav-text">3.10 随机初始化（Random Initialization）</span></a></li></ol></div>
             
 
           </div>
