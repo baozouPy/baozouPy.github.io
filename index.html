@@ -358,7 +358,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T02:14:47Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T02:15:57Z">
                 2019-02-27
               </time>
             
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.7k
+                  1.6k
                 </span>
               
 
@@ -499,19 +499,16 @@ a^{[2]}=z^{[2]}=W^{[2]}a^{[1]}+b^{[2]}=W^{[2]}(W^{[1]}x+b^{[1]})+b^{[2]}=(W^{[2]
 <h2 id="3-7-激活函数的导数（Derivatives-of-activation-functions-）"><a href="#3-7-激活函数的导数（Derivatives-of-activation-functions-）" class="headerlink" title="3.7 激活函数的导数（Derivatives of activation functions ）"></a>3.7 激活函数的导数（Derivatives of activation functions ）</h2><p>$sigmoid$函数的导数：</p>
 <script type="math/tex; mode=display">
 g(z)=\frac{1}{1+e^{(-z)}}</script><script type="math/tex; mode=display">
-g'(z)=\frac{d}{dz}g(z)=g(z)(1-g(z))=a(1-a)</script><script type="math/tex; mode=display">tanh$$函数的导数：</script><p>g(z)=\frac{e^{(z)}-e^{(-z)}}{e^{(z)}+e^{(-z)}}</p>
+g'(z)=\frac{d}{dz}g(z)=g(z)(1-g(z))=a(1-a)</script><p>$tanh$函数的导数：</p>
 <script type="math/tex; mode=display">
-</script><p>g’(z)=\frac{d}{dz}g(z)=1-(g(z))^2=1-a^2</p>
+g(z)=\frac{e^{(z)}-e^{(-z)}}{e^{(z)}+e^{(-z)}}</script><script type="math/tex; mode=display">
+g'(z)=\frac{d}{dz}g(z)=1-(g(z))^2=1-a^2</script><p>$ReLU$函数的导数：</p>
 <script type="math/tex; mode=display">
-
-
-$$ReLU$$函数的导数：</script><p>g(z)=max(0,z)</p>
-<script type="math/tex; mode=display">
-</script><p>x = \begin{cases}<br>0 &amp;\text{if } z &lt; 0 \\<br>1 &amp;\text{if } z \geq 0<br>\end{cases}</p>
-<script type="math/tex; mode=display">
-
-
-$$Leaky ReLU$$函数：</script><p>g(z)=max(0.01z,z)</p>
+g(z)=max(0,z)</script><script type="math/tex; mode=display">
+x = \begin{cases}
+0 &\text{if } z < 0 \\
+1 &\text{if } z \geq 0
+\end{cases}</script><script type="math/tex; mode=display">Leaky ReLU$$函数：</script><p>g(z)=max(0.01z,z)</p>
 <script type="math/tex; mode=display">
 </script><p>g’(z) = \begin{cases}<br>0.01 &amp;\text{if } z &lt; 0 \\<br>1 &amp;\text{if } z \geq 0<br>\end{cases}</p>
 <script type="math/tex; mode=display">
