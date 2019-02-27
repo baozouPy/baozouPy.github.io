@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://baozouai.com/"/>
-  <updated>2019-02-27T03:00:53.619Z</updated>
+  <updated>2019-02-27T04:36:11.975Z</updated>
   <id>https://baozouai.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)</title>
+    <link href="https://baozouai.com/2019/02/28/%E7%AC%AC-%E4%B8%89-%E5%91%A8-%E8%B6%85-%E5%8F%82-%E6%95%B0-%E8%B0%83-%E8%AF%95-%E3%80%81-Batch-%E6%AD%A3-%E5%88%99-%E5%8C%96-%E5%92%8C-%E7%A8%8B-%E5%BA%8F-%E6%A1%86-%E6%9E%B6-%EF%BC%88Hyperparameter-tuning%EF%BC%89-Course-2/"/>
+    <id>https://baozouai.com/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/</id>
+    <published>2019-02-27T20:22:00.000Z</published>
+    <updated>2019-02-27T04:36:11.975Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>第四周：深层神经网络(Deep Neural Networks)(Course 1)</title>
