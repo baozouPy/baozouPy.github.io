@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico  /16X16小图?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="深度学习,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="暴走的技术博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="3.1 目标定位（Object localization） 定位分类问题：不仅要用算法判断图片中是不是一辆汽车，还要在图片中标记出它的位置，用边框或红色方框把汽车圈起来，“定位”的意思是判断汽车在图片中的具体位置 定位分类问题通常只有一个较大的对象位于图片中间位置，对它进行识别和定位。对象检测问题中图片可以含有多个对象，甚至单张图片中会有多个不同分类的对象  构建汽车自动驾驶系统，对象可能包括以下">
+<meta name="keywords" content="深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三周 目标检测（Object detection)(Course 4)">
+<meta property="og:url" content="https://baozouai.com/2019/02/28/第三周-目标检测（Object-detection-Course-4/index.html">
+<meta property="og:site_name" content="暴走的技术博客">
+<meta property="og:description" content="3.1 目标定位（Object localization） 定位分类问题：不仅要用算法判断图片中是不是一辆汽车，还要在图片中标记出它的位置，用边框或红色方框把汽车圈起来，“定位”的意思是判断汽车在图片中的具体位置 定位分类问题通常只有一个较大的对象位于图片中间位置，对它进行识别和定位。对象检测问题中图片可以含有多个对象，甚至单张图片中会有多个不同分类的对象  构建汽车自动驾驶系统，对象可能包括以下">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0107af10b33fcb955cc3c588dfb78d49.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d4a47c2041807f891c0a606d246330c5.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6461ff27c00dff4205688de4cf9d8803.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/21b37dcb413e7c86464f88484796420c.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/02d85ab36285cd21b5df4d1c253df57e.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/404fdcba2685b830ae3718d348ab1d75.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a6d32959543c502ee18765cf20495bc2.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b6b6ca6167596a180c7bab7296ea850c.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d7ee9b9f455338a8724520841223b11.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/38eea69baa46091d516a0b7a33e5379e.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a86a2edbb89014e193ab613a162cff58.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/78f2b2a2efdbd6aebe034ce30cda440b.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/074beeacfd9d400fc580171b09a6f3e9.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/514cfeb2d7315eba2b6a29f68eae2879.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6d0fa2073b280cd0bb111485ee1639e5.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/549430cf442163c7f44ae648e625ca10.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/49b7d68a17e89dd109f96efecc223f5a.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e001f5f3d2afa76a1c3710bd60bcad00.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2e357b5b92122660c550dcfb0901519c.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e94aa7ea75300ea4692682b179834bb4.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/322b15fe615c739ebd1d36b669748618.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/36ff927836cfcd7fee9413e2d34757d8.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e23084f4a75246f08ea4cedef55f60ab.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/23256c4b7b28d62d34a744f5fb5e9c3b.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/66f8cf8e55eadc1ac01f773515bfbc45.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/838a6aeb35865f9cfecac8dc593b565b.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e78e4465af892d0965e2b0863263ef8c.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e6ed1aa3263107d4e189dd75adc060b4.png">
+<meta property="og:updated_time" content="2019-02-27T06:09:07.352Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第三周 目标检测（Object detection)(Course 4)">
+<meta name="twitter:description" content="3.1 目标定位（Object localization） 定位分类问题：不仅要用算法判断图片中是不是一辆汽车，还要在图片中标记出它的位置，用边框或红色方框把汽车圈起来，“定位”的意思是判断汽车在图片中的具体位置 定位分类问题通常只有一个较大的对象位于图片中间位置，对它进行识别和定位。对象检测问题中图片可以含有多个对象，甚至单张图片中会有多个不同分类的对象  构建汽车自动驾驶系统，对象可能包括以下">
+<meta name="twitter:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0107af10b33fcb955cc3c588dfb78d49.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://baozouai.com/2019/02/28/第三周-目标检测（Object-detection-Course-4/">
+
+
+
+
+
+  <title>第三周 目标检测（Object detection)(Course 4) | 暴走的技术博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8a46909e912a122ce69d3b5e9a8dc661";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">暴走的技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">The people who are crazy enough to change the world are the ones who do！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+    
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+      
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://baozouai.com/2019/02/28/第三周-目标检测（Object-detection-Course-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="暴走">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暴走的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">第三周 目标检测（Object detection)(Course 4)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T22:01:00Z">
+                2019-02-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:09:07Z">
+                2019-02-27
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/28/第三周-目标检测（Object-detection-Course-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/28/第三周-目标检测（Object-detection-Course-4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/28/第三周-目标检测（Object-detection-Course-4/" class="leancloud_visitors" data-flag-title="第三周 目标检测（Object detection)(Course 4)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  24
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        <h2 id="3-1-目标定位（Object-localization）"><a href="#3-1-目标定位（Object-localization）" class="headerlink" title="3.1 目标定位（Object localization）"></a>3.1 目标定位（Object localization）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0107af10b33fcb955cc3c588dfb78d49.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0107af10b33fcb955cc3c588dfb78d49.png" alt></a></p>
+<p>定位分类问题：不仅要用算法判断图片中是不是一辆汽车，还要在图片中标记出它的位置，用边框或红色方框把汽车圈起来，“定位”的意思是判断汽车在图片中的具体位置</p>
+<p>定位分类问题通常只有一个较大的对象位于图片中间位置，对它进行识别和定位。对象检测问题中图片可以含有多个对象，甚至单张图片中会有多个不同分类的对象</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/d4a47c2041807f891c0a606d246330c5.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d4a47c2041807f891c0a606d246330c5.png" alt></a></p>
+<p>构建汽车自动驾驶系统，对象可能包括以下几类：行人、汽车、摩托车和背景</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/6461ff27c00dff4205688de4cf9d8803.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6461ff27c00dff4205688de4cf9d8803.png" alt></a></p>
+<p>定位图片中汽车的位置：让神经网络输出一个边界框，标记为<script type="math/tex">b_{x}</script>,<script type="math/tex">b_{y}</script>,<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>，是被检测对象的边界框的参数化表示</p>
+<p>红色方框的中心点表示为(<script type="math/tex">b_{x}</script>,<script type="math/tex">b_{y}</script>)，边界框的高度为<script type="math/tex">b_{h}</script>，宽度为<script type="math/tex">b_{w}</script>。训练集不仅包含神经网络要预测的对象分类标签，还要包含表示边界框的这四个数字，接着采用监督学习算法，输出一个分类标签，还有四个参数值，从而给出检测对象的边框位置</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/21b37dcb413e7c86464f88484796420c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/21b37dcb413e7c86464f88484796420c.png" alt></a></p>
+<p>如何为监督学习任务定义目标标签 <script type="math/tex">y</script>：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/02d85ab36285cd21b5df4d1c253df57e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/02d85ab36285cd21b5df4d1c253df57e.png" alt></a></p>
+<p>目标标签<script type="math/tex">y</script>的定义：<script type="math/tex">y= \begin{bmatrix} p_{c} \\ b_{x} \\ b_{y}\\ b_{h}\\ b_{w} \\ c_{1}\\ c_{2}\\ c_{3} \end{bmatrix}</script></p>
+<script type="math/tex; mode=display">p_{c}$$表示是否含有对象，如果对象属于前三类（行人、汽车、摩托车），则$$p_{c}= 1$$，如果是背景，则$$p_{c} =0$$。$$p_{c}$$表示被检测对象属于某一分类的概率，背景分类除外
+
+如果检测到对象，就输出被检测对象的边界框参数$$b_{x}$$、$$b_{y}$$、$$b_{h}$$和$$b_{w}$$。$$p_{c}=1$$，同时输出$$c_{1}$$、$$c_{2}$$和$$c_{3}$$，表示该对象属于行人，汽车还是摩托车
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fd37e4750b64a07cc1f29880c9b97261.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/fd37e4750b64a07cc1f29880c9b97261.png)
+
+如果图片中没有检测对象:
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/131239883224f03709ddc66d9481c3c7.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/131239883224f03709ddc66d9481c3c7.png)
+
+$p_{c} =0$，$$y$$的其它参数全部写成问号，表示“毫无意义”的参数
+
+神经网络的损失函数，如果采用平方误差策略：</script><p>L\left(\hat{y},y \right) = \left( \hat{y_1} - y_{1} \right)^{2} + \left(\hat{y_2} - y_{2}\right)^{2} + \ldots+\left( \hat{y_8} - y_{8}\right)^{2}</p>
+<script type="math/tex; mode=display">
+
+
+损失值等于每个元素相应差值的平方和
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d50ae3ee809da4c728837fee2d055f00.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/d50ae3ee809da4c728837fee2d055f00.png)
+
+如果图片中存在定位对象，$$y_{1} =p_{c}=1$$，损失值是不同元素的平方和
+
+$y_{1}= p_{c} = 0$，损失值是$$\left(\hat{y_1} - y_{1}\right)^{2}$$，只需要关注神经网络输出$$p_{c}$$的准确度
+
+这里用平方误差简化了描述过程。实际应用中可以不对$$c_{1}$$、$$c_{2}$$、$$c_{3}$$和**softmax**激活函数应用对数损失函数，并输出其中一个元素值，通常做法是对边界框坐标应用平方差，对$$p_{c}$$应用逻辑回归函数，甚至采用平方预测误差
+
+## 3.2 特征点检测（Landmark detection）
+
+仅对目标的关键特征点坐标进行定位，这些关键点被称为landmarks
+
+[![](/assets/1231import.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/100b265aefc4b0170fb39ed339e5181a.png)
+
+选定特征点个数，并生成包含特征点的标签训练集，利用神经网络输出脸部关键特征点的位置
+
+具体做法:准备一个卷积网络和一些特征集，将人脸图片输入卷积网络，输出1表示有人脸，0表示没有人脸，然后输出（$$l_{1x}$$，$$l_{1y}$$）……直到（$$l_{64x}$$，$$l_{64y}$$），$$l$$代表一个特征，即该网络模型共检测人脸上64处特征点，加上是否为face的标志位，输出label共有64x2+1=129个值，即有129个输出单元，由此实现对图片的人脸检测和定位
+
+检测人体姿势动作：
+
+
+![upload successful](/images/pasted-153.png)
+
+特征点的特性在所有图片中必须保持一致
+
+## 3.3 目标检测（Object detection）
+
+通过卷积网络进行对象检测，采用的是基于滑动窗口的目标检测算法
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2f4e567978bb62fcbec093887de37783.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2f4e567978bb62fcbec093887de37783.png)
+
+构建汽车检测算法步骤：
+
+1. 首先创建一个标签训练集，$$x$$和$$y$$表示适当剪切的汽车图片样本，一开始可以使用适当剪切的图片，就是整张图片$$x$$几乎都被汽车占据，使汽车居于中间位置，并基本占据整张图片
+2. 开始训练卷积网络，输入这些适当剪切过的图片（编号6），卷积网络输出$$y$$，0或1表示图片中有汽车或没有汽车
+
+训练完这个卷积网络，用它来实现滑动窗口目标检测，具体步骤如下：
+
+1.首先选定一个特定大小的窗口，将红色小方块输入卷积神经网络，卷积网络开始判断红色方框内有没有汽车
+
+[
+![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2ac2ab6dcdcc0fe26a9833ff9da49bd2.png)](https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#)
+
+2.滑动窗口目标检测算法继续处理第二个图像，红色方框稍向右滑动之后的区域，并输入给卷积网络，再次运行卷积网络，然后处理第三个图像，依次重复操作，直到这个窗口滑过图像的每一个角落
+
+[
+![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c55f22f302899d5f9d77bef958465660.png)](https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#)
+
+思路是以固定步幅移动窗口，遍历图像的每个区域，把这些剪切后的小图像输入卷积网络，对每个位置按0或1进行分类
+
+3.重复上述操作，选择一个更大的窗口，截取更大的区域，并输入给卷积神经网络处理，输出0或1
+
+[
+![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/34507c03fbda16049faeb3caf075fe50.png)](https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#)
+
+4.再以某个固定步幅滑动窗口，重复以上操作，遍历整个图像，输出结果
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f2b6d5bfedc5298160bc2628544e315c.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f2b6d5bfedc5298160bc2628544e315c.png)
+
+5.第三次重复操作，选用更大的窗口
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c14524aa0534ed78c433e1cd0a8dff50.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c14524aa0534ed78c433e1cd0a8dff50.png)
+
+这样不论汽车在图片的什么位置，总有一个窗口可以检测到
+
+这种算法叫作滑动窗口目标检测：以某个步幅滑动这些方框窗口遍历整张图片，对这些方形区域进行分类，判断里面有没有汽车
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ef8afff4e50fc1c50a46b8443f1d6976.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ef8afff4e50fc1c50a46b8443f1d6976.png)
+
+滑动窗口目标检测算法缺点：**计算成本**
+
+* 如果选用的步幅很大，会减少输入卷积网络的窗口个数，粗糙间隔尺寸可能会影响性能
+* 如果采用小粒度或小步幅，传递给卷积网络的小窗口会特别多，这意味着超高的计算成本
+
+## 3.4 卷积的滑动窗口实现（Convolutional implementation of sliding windows）
+
+### 把神经网络的全连接层转化成卷积层
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/38be387e37d131e44aff9d7fc9e3488a.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/38be387e37d131e44aff9d7fc9e3488a.png)
+
+前几层和之前的一样，下一层全连接层用5×5×16的过滤器来实现，数量是400个（编号1），输入图像大小为5×5×16，输出维度是1×1×400，这400个节点中每个节点都是上一层5×5×16激活值经过某个任意线性函数的输出结果
+
+再添加另外一个卷积层（编号2），用1×1卷积，假设有400个1×1的过滤器，在这400个过滤器的作用下，下一层的维度是1×1×400，是上个网络中的这一全连接层经由1×1过滤器的处理，得到一个**softmax**激活值，通过卷积网络，最终得到1×1×4的输出层，而不是这4个数字（编号3）
+
+以上就是用卷积层代替全连接层的过程，结果这几个单元集变成了1×1×400和1×1×4的维度
+
+
+
+### 通过卷积实现滑动窗口对象检测算法
+
+假设向滑动窗口卷积网络输入14×14×3的图片，神经网络最后的输出层，即**softmax**单元的输出是1×1×4
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/00c4fb1a1af9b50f0fd0bcf5eacca6ff.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/00c4fb1a1af9b50f0fd0bcf5eacca6ff.png)
+
+假设测试集图片是16×16×3，给输入图片加上黄色条块，在最初的滑动窗口算法中，把蓝色区域输入卷积网络（红色笔标记）生成0或1分类。接着滑动窗口，步幅为2个像素，向右滑动2个像素，将绿框区域输入给卷积网络，运行整个卷积网络，得到另外一个标签0或1。继续将这个橘色区域输入给卷积网络，卷积后得到另一个标签，最后对右下方的紫色区域进行最后一次卷积操作。在这个16×16×3的小图像上滑动窗口，卷积网络运行了4次，于是输出了了4个标签
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2a8750d733379aebf58f4354203153f2.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2a8750d733379aebf58f4354203153f2.png)
+
+这4次卷积操作中很多计算都是重复的。执行滑动窗口的卷积时使得卷积网络在这4次前向传播过程中共享很多计算，尤其是在编号1，卷积网络运行同样的参数，使用相同的5×5×16过滤器进行卷积操作，得到12×12×16的输出层。然后执行同样的最大池化（编号2），输出结果6×6×16。照旧应用400个5×5的过滤器（编号3），得到一个2×2×400的输出层，现在输出层为2×2×400，应用1×1过滤器（编号4）得到另一个2×2×400的输出层。再做一次全连接的操作（编号5），最终得到2×2×4的输出层，在输出层4个子方块中，蓝色的是图像左上部分14×14的输出（红色箭头标识），右上角方块是图像右上部分（绿色箭头标识）的对应输出，左下角方块是输入层左下角（橘色箭头标识），右下角是卷积网络处理输入层右下角14×14区域\(紫色箭头标识\)的结果
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ad1743ff113f9d30080f63a16c74ed64.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ad1743ff113f9d30080f63a16c74ed64.png)
+
+具体的计算步骤：以绿色方块为例，假设剪切出这块区域（编号1），传递给卷积网络，第一层的激活值就是这块区域（编号2），最大池化后的下一层的激活值是这块区域（编号3），这块区域对应着后面几层输出的右上角方块（编号4，5，6）
+
+该卷积操作的原理是不需要把输入图像分割成四个子集，分别执行前向传播，而是把它们作为一张图片输入给卷积网络进行计算，其中的公共区域可以共享很多计算
+
+假如对一个28×28×3的图片应用滑动窗口操作，以14×14区域滑动窗口，以大小为2的步幅不断地向右移动窗口，直到第8个单元格，得到输出层的第一行。然后向图片下方移动，最终输出8×8×4的结果
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5fd2f8d039a3bfc5187dfe33f5276235.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5fd2f8d039a3bfc5187dfe33f5276235.png)
+
+总结滑动窗口的实现过程：
+
+在图片上剪切出一块区域，假设大小是14×14，把它输入到卷积网络。继续输入下一块区域，大小同样是14×14，重复操作，直到某个区域识别到汽车
+
+
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/84a6a0505acc165c6600d4b6f03d5e3c.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/84a6a0505acc165c6600d4b6f03d5e3c.png)
+
+但是不能依靠连续的卷积操作来识别图片中的汽车，可以对大小为28×28的整张图片进行卷积操作，一次得到所有预测值，如果足够幸运，神经网络便可以识别出汽车的位置
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/447080411189a0a4544747c2380fbda4.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/447080411189a0a4544747c2380fbda4.png)
+
+在卷积层上应用滑动窗口算法提高了整个算法的效率，缺点是边界框的位置可能不够准确
+
+
+## 3.5 Bounding Box预测（Bounding box predictions）
+
+滑动窗口法的卷积实现算法效率很高，但不能输出最精准的边界框
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cd3e263bf279739afe62eb8730b4e167.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/cd3e263bf279739afe62eb8730b4e167.png)
+
+输入图像是100×100的，用3×3网格，实际实现时会用更精细的网格（19×19）。使用图像分类和定位算法
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e4bebc707829a1610572f43f8e0995c9.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e4bebc707829a1610572f43f8e0995c9.png)
+
+编号1什么也没有，左上格子的标签向量$$y$$是$$\begin{bmatrix}0\ ?\ ?\ ?\ ?\ ?\ ?\ ? \end{bmatrix}$$。其他什么也没有的格子都一样
+
+图中有两个对象，**YOLO**算法做的是取两个对象的中点，将对象分配给包含对象中点的格子。即使中心格子（编号5）同时有两辆车的一部分，分类标签$$y$$也为$$y= \begin{bmatrix}0\ ?\ ?\ ?\ ?\ ?\ ?\ ? \end{bmatrix}$$。编号4目标标签$$y= \begin{bmatrix} 1\ b_{x}\ b_{y}\ b_{h}\ b_{w}\ 0\ 1\ 0 \end{bmatrix}$$，编号6类似
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fb08477cd3937f7df0deddc1de1d2920.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/fb08477cd3937f7df0deddc1de1d2920.png)
+
+3×3中9个格子都对应一个8维输出目标向量$$y$$，其中一些值可以是**dont care-s**（即？）所以总的目标输出尺寸就是3×3×8
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/98633e9df22fd06cfc21af2e7d39bbb6.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/98633e9df22fd06cfc21af2e7d39bbb6.png)
+
+如果要训练一个输入为100×100×3的神经网络，输入图像通过普通的卷积网络，卷积层，最大池化层等等，最后映射到一个3×3×8输出尺寸。然后用反向传播训练神经网络，将任意输入$$x$$映射到输出向量$$y</script><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/404fdcba2685b830ae3718d348ab1d75.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/404fdcba2685b830ae3718d348ab1d75.png" alt></a></p>
+<p>这个算法的优点在于神经网络可以输出精确的边界框，测试的时候有要做的是喂入输入图像<script type="math/tex">x</script>，然后跑正向传播，直到得到输出<script type="math/tex">y</script>。然后3×3位置对应的9个输出，只要每个格子中对象数目没有超过1个，这个算法应该是没问题的。但实践中会使用更精细的19×19网格，输出就是19×19×8，多个对象分配到同一个格子得概率就小得多</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/a6d32959543c502ee18765cf20495bc2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a6d32959543c502ee18765cf20495bc2.png" alt></a></p>
+<p>即使对象可以横跨多个格子，也只会被分配到9个格子其中之一，或者19×19网络的其中一个格子。在19×19网格中，两个对象的中点（图中蓝色点所示）处于同一个格子的概率就会更低。</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b6b6ca6167596a180c7bab7296ea850c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b6b6ca6167596a180c7bab7296ea850c.png" alt></a></p>
+<p>优点：</p>
+<ul>
+<li>显式地输出边界框坐标，可以具有任意宽高比，并且能输出更精确的坐标，不会受到滑动窗口分类器的步长大小限制</li>
+<li>并没有在3×3网格上跑9次算法，而是单次卷积实现，但在处理这3×3计算中很多计算步骤是共享的，所以这个算法效率很高</li>
+<li>因为是卷积实现，运行速度非常快，可以达到实时识别</li>
+</ul>
+<p>如何编码这些边界框<script type="math/tex">b_{x}</script>、<script type="math/tex">b_{y}</script>、<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>：</p>
+<p>在<strong>YOLO</strong>算法中，编号1约定左上点是<script type="math/tex">(0,0)</script>，右下点是<script type="math/tex">(1,1)</script>，橙色中点的位置<script type="math/tex">b_{x}</script>大概是0.4，<script type="math/tex">b_{y}</script>大概是0.3，<script type="math/tex">b_{w}</script>是0.9，<script type="math/tex">b_{h}</script>是0.5。<script type="math/tex">b_{x}</script>、<script type="math/tex">b_{y}</script>、<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>单位是相对于格子尺寸的比例，所以<script type="math/tex">b_{x}</script>和<script type="math/tex">b_{y}</script>必须在0和1之间，因为从定义上看，橙色点位于对象分配到格子的范围内，如果它不在0和1之间，即它在方块外，那么这个对象就应该分配到另一个格子上。这个值（<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>）可能会大于1，特别是如果有一辆汽车的边界框是这样的（编号3所示），那么边界框的宽度和高度有可能大于1</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0d7ee9b9f455338a8724520841223b11.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d7ee9b9f455338a8724520841223b11.png" alt></a></p>
+<h2 id="3-6-交并比（Intersection-over-union）"><a href="#3-6-交并比（Intersection-over-union）" class="headerlink" title="3.6 交并比（Intersection over union）"></a>3.6 交并比（Intersection over union）</h2><p>并交比函数可以用来评价对象检测算法</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/38eea69baa46091d516a0b7a33e5379e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/38eea69baa46091d516a0b7a33e5379e.png" alt></a></p>
+<p>交并比（<strong>loU</strong>）函数是计算两个边界框交集和并集之比。两个边界框的并集是两个边界框绿色阴影区域，而交集是这个橙色阴影区域，交并比就是交集的大小（橙色阴影面积）除以绿色阴影的并集面积</p>
+<p>一般约定，在计算机检测任务中，如果loU≥0.5，就说检测正确，如果预测器和实际边界框完美重叠，<strong>loU</strong>就是1，因为交集就等于并集</p>
+<h2 id="3-7-非极大值抑制（Non-max-suppression）"><a href="#3-7-非极大值抑制（Non-max-suppression）" class="headerlink" title="3.7 非极大值抑制（Non-max suppression）"></a>3.7 非极大值抑制（Non-max suppression）</h2><p>对象检测中的一个问题是算法可能对同一个对象做出多次检测，非极大值抑制可以确保算法对每个对象只检测一次</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/a86a2edbb89014e193ab613a162cff58.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a86a2edbb89014e193ab613a162cff58.png" alt></a></p>
+<p>实践中当运行对象分类和定位算法时，对于每个格子都运行一次，编号1、2、3可能会认为这辆车中点应该在格子内部</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/78f2b2a2efdbd6aebe034ce30cda440b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/78f2b2a2efdbd6aebe034ce30cda440b.png" alt></a></p>
+<p>这个算法做的是：</p>
+<p>1.首先看哪个检测结果相关的概率<script type="math/tex">p_{c}</script>（实际上是<script type="math/tex">p_{c}</script>乘以<script type="math/tex">c_{1}</script>、<script type="math/tex">c_{2}</script>或<script type="math/tex">c_{3}</script>）概率最大，右边车辆中是0.9，即最可靠的检测，用高亮标记，之后非极大值抑制逐一审视剩下的矩形，所有和这个最大的边框有很高交并比，高度重叠的其他边界框输出就会被抑制</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/074beeacfd9d400fc580171b09a6f3e9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/074beeacfd9d400fc580171b09a6f3e9.png" alt></a></p>
+<p>2.逐一审视剩下的矩形，找出概率<script type="math/tex">p_{c}</script>最高的一个，在这种情况下是0.8，就认为检测出一辆车（左边车辆），然后非极大值抑制算法就会去掉其他<strong>loU</strong>值很高的矩形。现在每个矩形都会被高亮显示或者变暗，如果直接抛弃变暗的矩形，就剩下高亮显示的那些是最后得到的两个预测结果</p>
+<p>非最大值意味着只输出概率最大的分类结果，但抑制很接近，不是最大的其他预测结果</p>
+<p>算法的细节：</p>
+<p>首先在19×19网格上执行算法，会得到19×19×8的输出尺寸。简化成只做汽车检测，会得到输出预测概率（<script type="math/tex">p_{c}</script>）和边界框参数（<script type="math/tex">b_{x}</script>、<script type="math/tex">b_{y}</script>、<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>）</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/514cfeb2d7315eba2b6a29f68eae2879.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/514cfeb2d7315eba2b6a29f68eae2879.png" alt></a></p>
+<p>1.将所有的预测值<script type="math/tex">p_{c}</script>小于或等于某个阈值，如<script type="math/tex">p_{c}\le 0.6</script>的边界框去掉</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/6d0fa2073b280cd0bb111485ee1639e5.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6d0fa2073b280cd0bb111485ee1639e5.png" alt></a></p>
+<p>2.剩下的边界框就一直选择概率<script type="math/tex">p_{c}</script>最高的边界框，把它输出成预测结果，取一个边界框，让它高亮显示，就可以确定输出有一辆车的预测</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/549430cf442163c7f44ae648e625ca10.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/549430cf442163c7f44ae648e625ca10.png" alt></a></p>
+<p>3.去掉所有剩下的边界框</p>
+<p>如果同时检测三个对象，比如说行人、汽车、摩托，输出向量就会有三个额外的分量。正确的做法是独立进行三次非极大值抑制，对每个输出类别都做一次</p>
+<h2 id="3-9-Anchor-Boxes"><a href="#3-9-Anchor-Boxes" class="headerlink" title="3.9 Anchor Boxes"></a>3.9 Anchor Boxes</h2><p>对象检测存在的一个问题是每个格子只能检测出一个对象，如果想让一个格子检测出多个对象，可以使用<strong>anchor box</strong></p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/49b7d68a17e89dd109f96efecc223f5a.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/49b7d68a17e89dd109f96efecc223f5a.png" alt></a></p>
+<blockquote>
+<p>行人的中点和汽车的中点都落入到同一个格子中</p>
+</blockquote>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e001f5f3d2afa76a1c3710bd60bcad00.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e001f5f3d2afa76a1c3710bd60bcad00.png" alt></a></p>
+<p><strong>anchor box</strong>的思路是：预先定义两个不同形状的<strong>anchor box</strong>，把预测结果和这两个<strong>anchor box</strong>关联起来</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2e357b5b92122660c550dcfb0901519c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2e357b5b92122660c550dcfb0901519c.png" alt></a></p>
+<p>定义类别标签：</p>
+<script type="math/tex; mode=display">
+y= \begin{bmatrix} p_{c} & b_{x} & b_{y} &b_{h} & b_{w} & c_{1} & c_{2} & c_{3} & p_{c} & b_{x} & b_{y} & b_{h} & b_{w} &c_{1} & c_{2} & c_{3} \end{bmatrix}^{T}</script><p>前面的<script type="math/tex">p_{c},b_{x},b_{y},b_{h},b_{w},c_{1},c_{2},c_{3}</script>（绿色方框标记的参数）是和<strong>anchor box 1</strong>关联的8个参数，后面的8个参数（橙色方框标记的元素）是和<strong>anchor box 2</strong>相关联</p>
+<p>行人：<script type="math/tex">p_{c}= 1,b_{x},b_{y},b_{h},b_{w},c_{1} = 1,c_{2} = 0,c_{3} = 0</script></p>
+<p>车子的边界框更像<strong>anchor box 2</strong>，(<script type="math/tex">p_{c}= 1,b_{x},b_{y},b_{h},b_{w},c_{1} = 0,c_{2} = 1,c_{3} = 0</script>)</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e94aa7ea75300ea4692682b179834bb4.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e94aa7ea75300ea4692682b179834bb4.png" alt></a></p>
+<p>现在每个对象都分配到对象中点所在的格子中，以及分配到和对象形状交并比最高的<strong>anchor box</strong>中。然后观察哪个<strong>anchor box</strong>和实际边界框（编号1，红色框）的交并比更高</p>
+<p>编号1对应同时有车和行人，编号3对应只有车：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/322b15fe615c739ebd1d36b669748618.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/322b15fe615c739ebd1d36b669748618.png" alt></a>:</p>
+<p><strong>anchor box</strong>是为了处理两个对象出现在同一个格子的情况，实践中这种情况很少发生，特别用的是19×19网格</p>
+<p>怎么选择<strong>anchor box：</strong></p>
+<ul>
+<li>一般手工指定<strong>anchor box</strong>形状，可以选择5到10个<strong>anchor box</strong>形状，覆盖到想要检测的对象的各种形状</li>
+<li>更高级的是使用<strong>k-平均算法</strong>，将两类对象形状聚类，选择最具有代表性的一组<strong>anchor box</strong></li>
+</ul>
+<h2 id="3-9-YOLO-算法（Putting-it-together-YOLO-algorithm）"><a href="#3-9-YOLO-算法（Putting-it-together-YOLO-algorithm）" class="headerlink" title="3.9 YOLO 算法（Putting it together: YOLO algorithm）"></a>3.9 YOLO 算法（Putting it together: YOLO algorithm）</h2><p>假设要在图片中检测行人、汽车，同时使用两种不同的Anchor box</p>
+<p><strong>训练集：</strong></p>
+<ul>
+<li>输入X：同样大小的完整图片</li>
+<li><p>目标Y：使用<script type="math/tex">3\times3</script>网格划分，输出大小<script type="math/tex">3\times3\times2\times8</script>，或者<script type="math/tex">3\times3\times16</script></p>
+</li>
+<li><p>对不同格子中的小图，定义目标输出向量Y</p>
+</li>
+</ul>
+<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/36ff927836cfcd7fee9413e2d34757d8.png" alt></a></p>
+<p>编号2目标向量<script type="math/tex">y =\begin{bmatrix} 0 & ? & ? & ? & ? & ? & ? & ? & 1 & b_{x} & b_{y} & b_{h} &b_{w} & 0 & 1 & 0 \end{bmatrix}^{T}</script>，假设训练集中对于车子有一个边界框（编号3），水平方向更长一点，红框和<strong>anchor box 2</strong>的交并比更高，车子和向量的下半部分相关</p>
+<p><strong>模型预测：</strong></p>
+<p>输入与训练集中相同大小的图片，然后训练一个卷积网络，遍历9个格子，得到每个格子中不同的输出结果：<script type="math/tex">3\times3\times2\times8</script></p>
+<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e23084f4a75246f08ea4cedef55f60ab.png" alt></a></p>
+<p><strong>运行非最大值抑制（NMS）：</strong></p>
+<ol>
+<li>假设使用了2个Anchor box，每一个网格都会得到预测输出的2个bounding boxes，其中一个<script type="math/tex">P_{c}</script>比较高</li>
+<li>抛弃概率<script type="math/tex">P_{c}</script>值低的预测bounding boxes</li>
+<li>对每个对象分别使用NMS算法得到最终的预测边界框</li>
+</ol>
+<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/23256c4b7b28d62d34a744f5fb5e9c3b.png" alt></a></p>
+<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/66f8cf8e55eadc1ac01f773515bfbc45.png" alt></a></p>
+<p>如果有三个对象检测类别，希望检测行人，汽车和摩托车：对于每个类别单独运行非极大值抑制，处理预测结果所属类别的边界框，用非极大值抑制来处理行人类别、车子类别、摩托车类别，运行三次来得到最终的预测结果</p>
+<h2 id="3-10-候选区域（选修）（Region-proposals-Optional-）"><a href="#3-10-候选区域（选修）（Region-proposals-Optional-）" class="headerlink" title="3.10 候选区域（选修）（Region proposals (Optional)）"></a>3.10 候选区域（选修）（Region proposals (Optional)）</h2><p>滑动窗法会对原始图片的每个区域都进行扫描，即使是一些空白的或明显没有目标的区域，这样会降低算法运行效率，耗费时间</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/838a6aeb35865f9cfecac8dc593b565b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/838a6aeb35865f9cfecac8dc593b565b.png" alt></a></p>
+<p><strong>R-CNN</strong>算法，即带区域的卷积网络，或者带区域的<strong>CNN</strong>。这个算法尝试选出一些区域，在少数窗口上运行卷积网络分类器</p>
+<p>选出候选区域的方法是运行图像分割算法，找出各个尺度的色块，然后在色块上运行分类器，即首先得到候选区域，然后再分类</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e78e4465af892d0965e2b0863263ef8c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e78e4465af892d0965e2b0863263ef8c.png" alt></a></p>
+<p><strong>R-CNN</strong>算法很慢，基本的<strong>R-CNN</strong>算法是使用某种算法求出候选区域，然后对每个候选区域运行一下分类器，每个区域会输出一个标签，有没有车子、行人、摩托车？并输出一个边界框，就能在确实存在对象的区域得到一个精确的边界框</p>
+<p><strong>R-CNN</strong>算法不会直接信任输入的边界框，也会输出一个边界框<script type="math/tex">b_{x}</script>，<script type="math/tex">b_{y}</script>，<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>，这样得到的边界框比较精确，比单纯使用图像分割算法给出的色块边界要好</p>
+<p><strong>Fast R-CNN</strong>算法基本上是<strong>R-CNN</strong>算法，最初的算法是逐一对区域分类，快速<strong>R-CNN</strong>用的是滑动窗法的一个卷积实现，和<strong>3.4 卷积的滑动窗口实现</strong>的相似，显著提升了<strong>R-CNN</strong>的速度，问题是得到候选区域的聚类步骤仍然非常缓慢</p>
+<p>更快的<strong>R-CNN</strong>算法（<strong>Faster R-CNN</strong>），使用的是卷积神经网络，而不是更传统的分割算法来获得候选区域色块，比<strong>Fast R-CNN</strong>算法快得多</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e6ed1aa3263107d4e189dd75adc060b4.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e6ed1aa3263107d4e189dd75adc060b4.png" alt></a></p>
+<p>不过大多数更快<strong>R-CNN</strong>的算法实现还是比<strong>YOLO</strong>算法慢很多</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+     
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+     
+  </div>
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i>
+
+ 深度学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/" rel="next" title="第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4)">
+                <i class="fa fa-chevron-left"></i> 第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2019/02/28/第三周-目标检测（Object-detection-Course-4/" data-title="第三周 目标检测（Object detection)(Course 4)" data-url="https://baozouai.com/2019/02/28/第三周-目标检测（Object-detection-Course-4/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+
+
+            
+              <img class="site-author-image" itemprop="image" src="/img/avatar.png" alt="暴走">
+            
+
+
+              <p class="site-author-name" itemprop="name">暴走</p>
+              <p class="site-description motion-element" itemprop="description">你如果不忙着求生， 你就在忙着求死</p>
+          </div>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<div class="aplayer" data-id="D89A1236EF4D99ED641FFD846F1A23AF" data-server="kugou " data-type="song" data-autoplay="false" data-mode="single"></div>
+<br>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/baozouai" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:baozouai@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-目标定位（Object-localization）"><span class="nav-number">1.</span> <span class="nav-text">3.1 目标定位（Object localization）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-交并比（Intersection-over-union）"><span class="nav-number">2.</span> <span class="nav-text">3.6 交并比（Intersection over union）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-非极大值抑制（Non-max-suppression）"><span class="nav-number">3.</span> <span class="nav-text">3.7 非极大值抑制（Non-max suppression）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9-Anchor-Boxes"><span class="nav-number">4.</span> <span class="nav-text">3.9 Anchor Boxes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9-YOLO-算法（Putting-it-together-YOLO-algorithm）"><span class="nav-number">5.</span> <span class="nav-text">3.9 YOLO 算法（Putting it together: YOLO algorithm）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10-候选区域（选修）（Region-proposals-Optional-）"><span class="nav-number">6.</span> <span class="nav-text">3.10 候选区域（选修）（Region proposals (Optional)）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">暴走</span>
+
+  
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共42.8k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+    
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"notes-iissnan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("S5fCBBMaimjEzLztiJKSBnbL-gzGzoHsz", "m3rlGieJoVqNqhc9YbnO52cM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":100,"height":150},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

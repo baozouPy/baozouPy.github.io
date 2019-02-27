@@ -135,7 +135,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png">
-<meta property="og:updated_time" content="2019-02-27T06:02:12.643Z">
+<meta property="og:updated_time" content="2019-02-27T06:03:39.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4)">
 <meta name="twitter:description" content="2.1 经典网络（Classic networks）LeNet-5LeNet-5可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。该LeNet模型总共包含了大约6万个参数，典型的LeNet-5结构包含CONV layer，POOL layer和FC layer，顺序一般是CONV layer-&amp;gt;POOL layer-&amp;gt;CONV layer-&amp;gt;POOL">
@@ -402,7 +402,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:02:12+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:03:39+08:00">
                 2019-02-27
               </time>
             
@@ -600,15 +600,14 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <li>计算成本问题，通过使用1×1卷积来构建瓶颈层，大大降低计算成本</li>
 </ul>
 <p>只要合理构建瓶颈层，既可以显著缩小表示层规模，又不会降低网络性能，从而节省了计算</p>
-<h2 id="Inception-网络（Inception-network）"><a href="#Inception-网络（Inception-network）" class="headerlink" title="Inception 网络（Inception network）"></a>Inception 网络（Inception network）</h2><p>引入1x1 Convolution后的Inception module如下图所示：</p>
+<h2 id="2-6-Inception-网络（Inception-network）"><a href="#2-6-Inception-网络（Inception-network）" class="headerlink" title="2.6 Inception 网络（Inception network）"></a>2.6 Inception 网络（Inception network）</h2><p>引入1x1 Convolution后的Inception module如下图所示：</p>
 <p><img src="/images/pasted-151.png" alt="upload successful"></p>
 <p><strong>Inception</strong>模块会将之前层的激活或者输出作为它的输入，为了能在最后将这些输出都连接起来，会使用<strong>same</strong>类型的<strong>padding</strong>来池化，使得输出的高和宽依然是28×28，这样才能将它与其他输出连接起来。如果进行了最大池化，即便用了<strong>same padding</strong>，3×3的过滤器，<strong>stride</strong>为1，其输出将会是28×28×192，其通道数与输入（通道数）相同。要做的是再加上一个1×1的卷积层，将通道的数量缩小到28×28×32，避免了最后输出时，池化层占据所有的通道</p>
 <p>最后把得到的各个层的通道都加起来，得到一个28×28×256的输出。这就是一个<strong>Inception</strong>模块</p>
 <p><strong>Inception</strong>网络只是很多在不同的位置重复组成的网络：</p>
 <p><img src="/images/pasted-152.png" alt="upload successful"></p>
 <p>中间隐藏层也可以作为输出层Softmax，确保了即便是隐藏单元和中间层也参与了特征计算，也能预测图片的分类，起到一种调整的效果，有利于防止发生过拟合</p>
-<h2 id="2-7"><a href="#2-7" class="headerlink" title="2.7"></a>2.7</h2><p>迁移学习（Transfer Learning）</p>
-<p>训练集很小的情况：</p>
+<h2 id="2-7-迁移学习（Transfer-Learning）"><a href="#2-7-迁移学习（Transfer-Learning）" class="headerlink" title="2.7 迁移学习（Transfer Learning）"></a>2.7 迁移学习（Transfer Learning）</h2><p>训练集很小的情况：</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8f0e69f085991cfc74726983418f6569.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8f0e69f085991cfc74726983418f6569.png" alt></a></p>
 <p>建议：从网上下载一些神经网络开源的实现，不仅把代码下载下来，也把权重下载下来。然后去掉<strong>Softmax</strong>层，创建自己的<strong>Softmax</strong>单元，用来输出<strong>Tigger</strong>、<strong>Misty</strong>和<strong>neither</strong>三个类别。把所有的层看作是冻结的，冻结网络中所有层的参数，只需要训练和<strong>Softmax</strong>层有关的参数。这个<strong>Softmax</strong>层有三种可能的输出，<strong>Tigger</strong>、<strong>Misty</strong>或者<strong>Neither</strong>。</p>
 <p>通过使用其他人预训练的权重，很可能得到很好的性能，即使只有一个小的数据集。大多数深度学习框架会有<code>trainableParameter=0</code>的参数，对于前面的层，可以设置这个参数。为了不训练这些权重，会有<code>freeze=1</code>的参数。只需要训练<strong>softmax</strong>层的权重，把前面这些层的权重都冻结</p>
@@ -718,6 +717,10 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/28/第三周-目标检测（Object-detection-Course-4/" rel="prev" title="第三周 目标检测（Object detection)(Course 4)">
+                第三周 目标检测（Object detection)(Course 4) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -936,7 +939,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-经典网络（Classic-networks）"><span class="nav-number">1.</span> <span class="nav-text">2.1 经典网络（Classic networks）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LeNet-5"><span class="nav-number">1.1.</span> <span class="nav-text">LeNet-5</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AlexNet"><span class="nav-number">2.</span> <span class="nav-text">AlexNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG-16"><span class="nav-number">3.</span> <span class="nav-text">VGG-16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-残差网络（Residual-Networks-ResNets-）"><span class="nav-number">4.</span> <span class="nav-text">2.2 残差网络（Residual Networks (ResNets)）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-残差网络为什么有用？（Why-ResNets-work-）"><span class="nav-number">5.</span> <span class="nav-text">2.3 残差网络为什么有用？（Why ResNets work?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-网络中的网络以及-1×1-卷积（Network-in-Network-and-1×1-convolutions）"><span class="nav-number">6.</span> <span class="nav-text">2.4 网络中的网络以及 1×1 卷积（Network in Network and 1×1 convolutions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-谷歌-Inception-网络简介（Inception-network-motivation）"><span class="nav-number">7.</span> <span class="nav-text">2.5 谷歌 Inception 网络简介（Inception network motivation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inception-网络（Inception-network）"><span class="nav-number">8.</span> <span class="nav-text">Inception 网络（Inception network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7"><span class="nav-number">9.</span> <span class="nav-text">2.7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-数据扩充（Data-augmentation）"><span class="nav-number">10.</span> <span class="nav-text">2.8 数据扩充（Data augmentation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9-计算机视觉现状（The-state-of-computer-vision）"><span class="nav-number">11.</span> <span class="nav-text">2.9 计算机视觉现状（The state of computer vision）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-经典网络（Classic-networks）"><span class="nav-number">1.</span> <span class="nav-text">2.1 经典网络（Classic networks）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LeNet-5"><span class="nav-number">1.1.</span> <span class="nav-text">LeNet-5</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AlexNet"><span class="nav-number">2.</span> <span class="nav-text">AlexNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG-16"><span class="nav-number">3.</span> <span class="nav-text">VGG-16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-残差网络（Residual-Networks-ResNets-）"><span class="nav-number">4.</span> <span class="nav-text">2.2 残差网络（Residual Networks (ResNets)）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-残差网络为什么有用？（Why-ResNets-work-）"><span class="nav-number">5.</span> <span class="nav-text">2.3 残差网络为什么有用？（Why ResNets work?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-网络中的网络以及-1×1-卷积（Network-in-Network-and-1×1-convolutions）"><span class="nav-number">6.</span> <span class="nav-text">2.4 网络中的网络以及 1×1 卷积（Network in Network and 1×1 convolutions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-谷歌-Inception-网络简介（Inception-network-motivation）"><span class="nav-number">7.</span> <span class="nav-text">2.5 谷歌 Inception 网络简介（Inception network motivation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-Inception-网络（Inception-network）"><span class="nav-number">8.</span> <span class="nav-text">2.6 Inception 网络（Inception network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-迁移学习（Transfer-Learning）"><span class="nav-number">9.</span> <span class="nav-text">2.7 迁移学习（Transfer Learning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-数据扩充（Data-augmentation）"><span class="nav-number">10.</span> <span class="nav-text">2.8 数据扩充（Data augmentation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9-计算机视觉现状（The-state-of-computer-vision）"><span class="nav-number">11.</span> <span class="nav-text">2.9 计算机视觉现状（The state of computer vision）</span></a></li></ol></div>
             
 
           </div>
@@ -983,7 +986,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共36.5k字</span>
+  <span class="post-count">博客全站共42.8k字</span>
 </div>
 
         
