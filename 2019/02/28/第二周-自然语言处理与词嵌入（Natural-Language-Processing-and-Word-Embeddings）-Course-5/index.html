@@ -98,8 +98,19 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/43943c791844cc7f077f6c6f98f1f629.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/12242657bd982acd1d80570cc090b4fe.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5a42eea162ddc75a1d37520618b4bcd2.png">
-<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/markdown/..\images\cosine_sim.png">
-<meta property="og:updated_time" content="2019-02-27T06:48:28.479Z">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/31347eca490e0ae8541140fb01c04d72.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/747e619260737ded586ae51b3b4f07d6.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/638c103855ffeb25122259dd6b669850.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0800c19895cbf1a360379b5dc5493902.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4ebf216a59d46efa2136f72b51fd49bd.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/89743b5ade106cad1318b8f3f4547a7f.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/54beb302688f6a298b63178534281575.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f36df292b7444e9b7379fa7c14626fa2.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b05dd0362a19496bb0ad91b8494e374c.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/70e282d4d1abb86fd15ff7b175f4e579.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4102795b004ff090ed83dc654f585852.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png">
+<meta property="og:updated_time" content="2019-02-27T06:55:50.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
 <meta name="twitter:description" content="2.2 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：  缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强 因为任何两个one-hot">
@@ -366,7 +377,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:48:28+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:55:50+08:00">
                 2019-02-27
               </time>
             
@@ -437,7 +448,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.3k
+                  6.5k
                 </span>
               
 
@@ -453,7 +464,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  24
                 </span>
               
             </div>
@@ -525,12 +536,191 @@ Find\ word\ w:argmax\ Sim(e_{w},e_{\text{king}} - e_{\text{man}} + e_{\text{woma
 Sim(u,v)=\frac{u^Tv}{||u||\cdot ||v||}</script><p>分子是<script type="math/tex">u</script>和<script type="math/tex">v</script>的内积。如果<script type="math/tex">u</script>和<script type="math/tex">v</script>非常相似，那么它们的内积将会很大，把整个式子叫做余弦相似度，是因为该式是<script type="math/tex">u</script>和<script type="math/tex">v</script>的夹角的余弦值</p>
 <p><strong>参考资料：</strong> 给定两个向量<script type="math/tex">u</script>和<script type="math/tex">v</script>，余弦相似度定义如下：</p>
 <script type="math/tex; mode=display">
-{CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta)</script><p><script type="math/tex">u.v</script> 是两个向量的点积（或内积），<script type="math/tex">||u||_2</script>是向量<script type="math/tex">u</script>的范数（或长度）， <script type="math/tex">\theta</script> 是向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间的角度。这种相似性取决于角度在向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间。如果向量<script type="math/tex">u</script>和<script type="math/tex">v</script>非常相似，它们的余弦相似性将接近1; 如果它们不相似，则余弦相似性将取较小的值</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/markdown/..\images\cosine_sim.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/markdown/..\images\cosine_sim.png" alt title="osine\_si"></a></p>
-<blockquote>
-<p>两个向量之间角度的余弦是衡量它们有多相似的指标，角度越小，两个向量越相似</p>
+{CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta)</script><script type="math/tex; mode=display">u.v$$ 是两个向量的点积（或内积），$$||u||_2$$是向量$$u$$的范数（或长度）， $$\theta$$ 是向量$$u$$和$$v$$之间的角度。这种相似性取决于角度在向量$$u$$和$$v$$之间。如果向量$$u$$和$$v$$非常相似，它们的余弦相似性将接近1; 如果它们不相似，则余弦相似性将取较小的值
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/markdown/..\images\cosine_sim.png "osine\_si")](https://github.com/fengdu78/deeplearning_ai_books/blob/master/markdown/..\images\cosine_sim.png)
+
+> 两个向量之间角度的余弦是衡量它们有多相似的指标，角度越小，两个向量越相似
+
+还可以计算Euclidian distance来比较相似性，即$$||u-v||^2$$。距离越大，相似性越小
+
+## 2.4 嵌入矩阵（Embedding Matrix）
+
+当应用算法来学习词嵌入时，实际上是学习一个**嵌入矩阵**
+
+假设某个词汇库包含了10000个单词，每个单词包含的特征维度为300，那么表征所有单词的**embedding matrix**维度为300 x 10000，用$$E$$来表示。某单词$$w$$的one-hot向量表示为$$O_w$$，维度为10000 x 1
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ad1c7b1e85d39f56756c28787ccef892.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ad1c7b1e85d39f56756c28787ccef892.png)
+
+则该单词的嵌入向量\(embedding vector\)表达式为：</script><p>e_w=E\cdot O_w</p>
+<script type="math/tex; mode=display">
+
+
+只要知道了embedding matrix$$ E$$，就能计算出所有单词的embedding vector $$e_w</script><p>不过上述这种矩阵乘积运算<script type="math/tex">E\cdot O_w</script>效率并不高，矩阵维度很大，且<script type="math/tex">O_w</script>大部分元素为零。通常做法是直接从<script type="math/tex">E</script>中选取第<script type="math/tex">w</script>列作为<script type="math/tex">e_w</script></p>
+<h2 id="2-5-学习词嵌入（Learning-Word-Embeddings）"><a href="#2-5-学习词嵌入（Learning-Word-Embeddings）" class="headerlink" title="2.5 学习词嵌入（Learning Word Embeddings）"></a>2.5 学习词嵌入（Learning Word Embeddings）</h2><p>embedding matrix <script type="math/tex">E</script>可以通过构建自然语言模型，运用梯度下降算法得到。若输入样本是：</p>
+<p><strong>I want a glass of orange (juice).</strong></p>
+<p>通过这句话的前6个单词，预测最后的单词“juice”。<script type="math/tex">E</script>未知待求，每个单词可用embedding vector <script type="math/tex">e_w</script>表示。构建的神经网络模型结构如下图所示：</p>
+<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/31347eca490e0ae8541140fb01c04d72.png" alt></a></p>
+<p>神经网络输入层包含6个embedding vectors，每个embedding vector维度是300，则输入层总共有1800个输入。Softmax层有10000个概率输出，与词汇表包含的单词数目一致。正确的输出label是“juice”。其中$E,W^{[1]},b^{[1]},W^{[2]},b^{[2]}$为待求值。对足够的训练例句样本，运用梯度下降算法，迭代优化，最终求出embedding matrix<script type="math/tex">E</script></p>
+<p>这种算法的效果还不错，能够保证具有相似属性单词的embedding vector相近</p>
+<p>为了让神经网络输入层数目固定，可以选择只取预测单词的前4个单词作为输入，例如该句中只选择“a glass of orange”四个单词作为输入。这里的4是超参数，可调</p>
+<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/747e619260737ded586ae51b3b4f07d6.png" alt></a></p>
+<p>把输入叫做<strong>context</strong>，输出叫做<strong>target</strong>。对应到上面这句话里：</p>
+<ul>
+<li><p><strong>context: a glass of orange</strong></p>
+</li>
+<li><p><strong>target: juice</strong></p>
+</li>
+</ul>
+<p>关于context的选择有多种方法：</p>
+<ul>
+<li><p><strong>target前n个单词或后n个单词，n可调</strong></p>
+</li>
+<li><p><strong>target前1个单词</strong></p>
+</li>
+<li><p><strong>target附近某1个单词（Skip-Gram）</strong><script type="math/tex">E</script></p>
+</li>
+</ul>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/638c103855ffeb25122259dd6b669850.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/638c103855ffeb25122259dd6b669850.png" alt></a></p>
+<p>事实证明，不同的context选择方法都能计算出较准确的embedding matrix <script type="math/tex">E</script></p>
+<h2 id="2-6-Word2Vec"><a href="#2-6-Word2Vec" class="headerlink" title="2.6 Word2Vec"></a>2.6 Word2Vec</h2><p>选择context和target的方法中，比较流行的是采用<strong>Skip-Gram</strong>模型</p>
+<p>Skip-Gram模型的做法是：首先随机选择一个单词作为context，例如“orange”；然后使用一个宽度为5或10（自定义）的滑动窗，在context附近选择一个单词作为target，可以是“juice”、“glass”、“my”等等。最终得到了多个context—target对作为监督式学习样本：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0800c19895cbf1a360379b5dc5493902.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0800c19895cbf1a360379b5dc5493902.png" alt></a></p>
+<p>训练的过程是构建自然语言模型，经过softmax单元的输出为：</p>
+<script type="math/tex; mode=display">
+\hat y=\frac{e^{\theta_t^T\cdot e_c}}{\sum_{j=1}^{10000}e^{\theta_j^T\cdot e_c}}</script><script type="math/tex; mode=display">\theta_t$$为target对应的参数，$$e_c$$为context的embedding vector，且$$e_c=E\cdot O_c</script><p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4ebf216a59d46efa2136f72b51fd49bd.png" alt></a></p>
+<p>相应的loss function为：</p>
+<script type="math/tex; mode=display">
+L(\hat y,y)=-\sum_{i=1}^{10000}y_ilog\ \hat y_i</script><blockquote>
+<p>由于</p>
+<script type="math/tex; mode=display">y</script><p>是一个one-hot向量，所以上式实际上10000个项里面只有一项是非0的</p>
 </blockquote>
-<p>还可以计算Euclidian distance来比较相似性，即<script type="math/tex">||u-v||^2</script>。距离越大，相似性越小</p>
+<p>然后，运用梯度下降算法，迭代优化，最终得到embedding matrix <script type="math/tex">E</script></p>
+<p>然而，这种算法计算量大，影响运算速度。主要因为softmax输出单元为10000个，<script type="math/tex">\hat y</script>计算公式中包含了大量的求和运算</p>
+<p>解决的办法之一是使用<strong>hierarchical softmax classifier</strong>，即<strong>树形分类器</strong>：</p>
+<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/89743b5ade106cad1318b8f3f4547a7f.png" alt></a></p>
+<p>这种树形分类器是一种二分类。它在每个数节点上对目标单词进行区间判断，最终定位到目标单词。最多需要<script type="math/tex">\log_2 N</script>步就能找到目标单词，N为单词总数</p>
+<p>实际应用中，对树形分类器做了一些改进。改进后的树形分类器是非对称的，通常选择把比较常用的单词放在树的顶层，而把不常用的单词放在树的底层。这样更能提高搜索速度</p>
+<p>关于context的采样：如果使用均匀采样，那么一些常用的介词、冠词，例如the, of, a, and, to等出现的概率更大一些。但是这些单词的embedding vectors通常不是最关心的，更关心的例如orange, apple， juice等这些名词。所以实际应用中一般不选择随机均匀采样的方式来选择context，而是使用其它算法来处理这类问题</p>
+<h2 id="2-7-负采样（Negative-Sampling）"><a href="#2-7-负采样（Negative-Sampling）" class="headerlink" title="2.7 负采样（Negative Sampling）"></a>2.7 负采样（Negative Sampling）</h2><p>算法要做的是构造一个新的监督学习问题：给定一对单词，比如<strong>orange</strong>和<strong>juice</strong>，去预测这是否是一对上下文词-目标词（<strong>context-target</strong>）</p>
+<p>在这个例子中<strong>orange</strong>和<strong>juice</strong>就是个正样本，用1作为标记，<strong>orange</strong>和<strong>king</strong>就是个负样本，标为0。要做的就是采样得到一个上下文词和一个目标词，中间列叫做词（<strong>word</strong>）。然后：</p>
+<ul>
+<li>生成一个正样本，先抽取一个context，在一定词距内比如说正负10个词距内选一个target，生成这个表的第一行，即<strong>orange– juice -1</strong>的过程</li>
+<li>生成一个负样本，用相同的context，再在字典中随机选一个词，如<strong>king、book、the、of</strong>，标记为0。因为如果随机选一个词，它很可能跟<strong>orange</strong>没关联</li>
+</ul>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/54beb302688f6a298b63178534281575.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/54beb302688f6a298b63178534281575.png" alt></a></p>
+<p>如果从字典中随机选到的词，正好出现在了词距内，比如说在上下文词<strong>orange</strong>正负10个词之内，也没关系，如<strong>of</strong>被标记为0，即使<strong>of</strong>的确出现在<strong>orange</strong>词的前面</p>
+<p>接下来将构造一个监督学习问题，学习算法输入<script type="math/tex">x</script>，即输入这对词（编号7），要去预测目标的标签（编号8），即预测输出<script type="math/tex">y</script></p>
+<p>如何选取<script type="math/tex">K</script>：</p>
+<ul>
+<li>小数据集的话，<script type="math/tex">K</script>从5到20，数据集越小<script type="math/tex">K</script>就越大</li>
+<li>如果数据集很大，<script type="math/tex">K</script>就选的小一点。对于更大的数据集<script type="math/tex">K</script>就从2到5</li>
+</ul>
+<p>学习从<script type="math/tex">x</script>映射到<script type="math/tex">y</script>的监督学习模型：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f36df292b7444e9b7379fa7c14626fa2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f36df292b7444e9b7379fa7c14626fa2.png" alt></a></p>
+<p>编号2是新的输入<script type="math/tex">x</script>，编号3是要预测的值<script type="math/tex">y</script>。记号<script type="math/tex">c</script>表示context，记号<script type="math/tex">t</script>表示可能的target，<script type="math/tex">y</script>表示0和1，即是否是一对context-target。要做的是定义一个逻辑回归模型，给定输入的<script type="math/tex">c</script>，<script type="math/tex">t</script>对的条件下，<script type="math/tex">y=1</script>的概率，即：</p>
+<script type="math/tex; mode=display">
+P\left( y = 1 \middle| c,t \right) = \sigma(\theta_{t}^{T}e_{c})</script><p>如果输入词是<strong>orange</strong>，即词6257，要做的就是输入<strong>one-hot</strong>向量，和<script type="math/tex">E</script>相乘获得嵌入向量<script type="math/tex">e_{6257}</script>，最后得到10,000个可能的逻辑回归分类问题，其中一个（编号4）将会是用来判断目标词是否是<strong>juice</strong>的分类器，其他的词比如下面的某个分类器（编号5）是用来预测<strong>king</strong>是否是目标词</p>
+<p>negative sampling中某个固定的正样本对应<script type="math/tex">k</script>个负样本，即模型总共包含了<script type="math/tex">k+1</script>个<strong>binary classification</strong>。对比之前10000个输出单元的softmax分类，negative sampling转化为<script type="math/tex">k+1</script>个二分类问题，每次迭代并不是训练10000个，而仅训练其中<script type="math/tex">k+1</script>个，计算量要小很多，大大提高了模型运算速度</p>
+<p>这种方法就叫做<strong>负采样（Negative Sampling）: </strong>选择一个正样本，随机采样<script type="math/tex">k</script>个负样本</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b05dd0362a19496bb0ad91b8494e374c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b05dd0362a19496bb0ad91b8494e374c.png" alt></a></p>
+<p>选取了context <strong>orange</strong>之后，如何选取负样本：</p>
+<ul>
+<li>通过单词出现的频率进行采样：导致一些类似a、the、of等词的频率较高</li>
+<li>均匀随机地抽取负样本：没有很好的代表性</li>
+</ul>
+<p><strong>（推荐）</strong>：</p>
+<script type="math/tex; mode=display">
+P(w_{i}) = \frac{f( w_{i})^{\frac{3}{4}}}{\sum_{j = 1}^{10,000}{f( w_{j} )^{\frac{3}{4}}}}</script><p>这种方法处于上面两种极端采样方法之间，即不用频率分布，也不用均匀分布，而采用的是对词频的<script type="math/tex">\frac{3}{4}</script>除以词频<script type="math/tex">\frac{3}{4}</script>整体的和进行采样的。其中，<script type="math/tex">f(w_j)</script>是语料库中观察到的某个词的词频</p>
+<h2 id="2-8-GloVe-词向量（GloVe-Word-Vectors）"><a href="#2-8-GloVe-词向量（GloVe-Word-Vectors）" class="headerlink" title="2.8 GloVe 词向量（GloVe Word Vectors）"></a>2.8 GloVe 词向量（GloVe Word Vectors）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/70e282d4d1abb86fd15ff7b175f4e579.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/70e282d4d1abb86fd15ff7b175f4e579.png" alt></a></p>
+<p><strong>GloVe</strong>代表用词表示的全局变量（<strong>global vectors for word representation</strong>）</p>
+<p>假定<script type="math/tex">X_{ij}</script>是单词<script type="math/tex">i</script>在单词<script type="math/tex">j</script>上下文中出现的次数，<script type="math/tex">i</script>和<script type="math/tex">j</script> 与<script type="math/tex">t</script>和<script type="math/tex">c</script>的功能一样，可以认为<script type="math/tex">X_{ij}</script>等同于<script type="math/tex">X_{tc}</script>。根据context和target的定义，会得出<script type="math/tex">X_{ij}</script>等于<script type="math/tex">X_{ji}</script></p>
+<ul>
+<li>如果将context和target的范围定义为出现于左右各10词以内的话，就有对称关系<script type="math/tex">X_{ij}=X_{ji}</script></li>
+<li>如果对context的选择是context总是目target前一个单词，那么<script type="math/tex">X_{ij}\neq X_{ji}</script></li>
+</ul>
+<p>对于<strong>GloVe</strong>算法，可以定义context和target为任意两个位置相近的单词，假设是左右各10词的距离，那么<script type="math/tex">X_{ij}</script>就是一个能够获取单词<script type="math/tex">i</script>和单词<script type="math/tex">j</script>彼此接近的频率计数器</p>
+<p><strong>GloVe</strong>模型做的就是进行优化，将差距进行最小化处理：</p>
+<script type="math/tex; mode=display">
+\text{mini}\text{mize}\sum_{i = 1}^{10,000}{\sum_{j = 1}^{10,000}}{f\left( X_{ij}
+\right)\left( \theta_{i}^{T}e_{j} + b_{i} + b_{j}^{'} - \log X_{ij} \right)^{2}}</script><script type="math/tex; mode=display">\theta_{i}^{T}e_{j}$$即$$\theta_{t}^{T}e_{c}$$。对于$$\theta_{t}^{T}e_{c}$$，这两个单词同时出现的频率是多少受$$X_{ij}$$影响，若两个词的embedding vector越相近，同时出现的次数越多，则对应的loss越小
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f6fc2cec52f4ecb15567511aae822914.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f6fc2cec52f4ecb15567511aae822914.png)
+
+当$$X_{ij}=0$$时，权重因子$$f(X_{ij})=0$$。这种做法直接忽略了无任何相关性的context和target，只考虑$$X_{ij}>0$$的情况
+
+出现频率较大的单词相应的权重因子$$f(X_{ij})$$较大，出现频率较小的单词相应的权重因子$$f(X_{ij})$$较小一些
+
+因为$$\theta$$和$$e$$是完全对称的，所以$$\theta_{i}$$和$$e_{j}$$是对称的。因此训练算法的方法是一致地初始化$$\theta$$和$$e$$，然后使用梯度下降来最小化输出，当每个词都处理完之后取平均值：</script><p>e_{w}^{(final)}= \frac{e_{w} +\theta_{w}}{2}</p>
+<script type="math/tex; mode=display">
+
+
+**GloVe**算法不能保证嵌入向量的独立组成部分：
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ec4b604d619dd617f14c2a34945c075d.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ec4b604d619dd617f14c2a34945c075d.png)
+
+通过上面的很多算法得到的词嵌入向量，无法保证词嵌入向量的每个独立分量是能够理解的。但能够确定是每个分量和所想的一些特征是有关联的，可能是一些我们能够理解的特征的组合而构成的一个组合分量
+
+使用上面的GloVe模型，从线性代数的角度解释如下：</script><p>\Theta_{i}^{T}e_{j} = \Theta_{i}^{T}A^{T}A^{-T}e_{j}=(A\Theta_{i})^{T}(A^{-T}e_{j})</p>
+<script type="math/tex; mode=display">
+
+
+加入的$$A$$项，可能构成任意的分量组合
+
+
+## 2.9 情感分类（Sentiment Classification）
+
+情感分类任务就是看一段文本，然后分辨这个人是否喜欢他们在讨论的这个东西，最大的挑战就是可能标记的训练集没有那么多，但是有了词嵌入，即使只有中等大小标记的训练集，也能构建一个不错的情感分类器
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bf6f5879d33ae4ef09b32f77df84948e.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/bf6f5879d33ae4ef09b32f77df84948e.png)
+
+> 输入$$x$$是一段文本，输出$$y$$是要预测的相应情感。比如一个餐馆评价的星级
+
+情感分类一个最大的挑战就是可能标记的训练集没有那么多。对于情感分类任务来说，训练集大小从10,000到100,000个单词都很常见，甚至有时会小于10,000个单词，采用了词嵌入能够带来更好的效果，尤其是只有很小的训练集
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ea844a0290e66d1c76a31e34b632dc0c.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ea844a0290e66d1c76a31e34b632dc0c.png)
+
+给定四个词（"**dessert is excellent**"），通常用10,000个词的词汇表，找到相应的**one-hot**向量，再乘以嵌入矩阵$$E$$，$$E$$可以从一个很大的文本集里学习到，比如它可以从一亿个词或者一百亿个词里学习嵌入，然后用来提取单词**the**的嵌入向量$$e_{8928}$$，对**dessert**、**is**、**excellent**做同样的步骤
+
+然后取这些向量（编号2），如300维度的向量，通过平均值计算单元（编号3），求和并平均，再送进**softmax**分类器，然后输出$$\hat y$$。这个**softmax**能够输出5个可能结果的概率值，从一星到五星
+
+这个算法适用于任何长短的评论，因为即使评论是100个词长，也可以对这一百个词的特征向量求和取平均，得到一个300维的特征向量，然后送进**softmax**分类器
+
+但问题是没考虑词序，如负面的评价，"**Completely lacking in good taste, good service, and good ambiance.**"，**good**这个词出现了很多次，但算法忽略词序，仅仅把所有单词的词嵌入加起来或者平均下来，最后的特征向量会有很多**good**的表示，分类器很可能认为这是一个好的评论，尽管事实上这是一个差评，只有一星的评价
+
+为了解决这一问题，情感分类的另一种模型是RNN：
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png)
+
+首先取这条评论，"**Completely lacking in good taste, good service, and good ambiance.**"，找出每一个**one-hot**向量，乘以词嵌入矩阵$$E$$，得到词嵌入表达$$e$$，然后把它们送进**RNN**
+
+**RNN**的工作就是在最后一步（编号1）计算一个特征表示，用来预测$$\hat y$$。这样的算法考虑词的顺序效果更好，能意识到"**things are lacking in good taste**"是个负面的评价，“**not good**”也是一个负面的评价。而不像原来的算法一样，只是把所有的加在一起得到一个大的向量，根本意识不到“**not good**”和 “**good**”不是一个意思，"**lacking in good taste**"也是如此，等等
+
+如果训练一个这样的算法，最后会得到一个很合适的情感分类的算法。由于词嵌入是在一个更大的数据集里训练的，这样会更好的泛化一些没有见过的新的单词。比如"**Completely absent of good taste, good service, and good ambiance.**"，即使**absent**这个词不在标记的训练集里
+
+如果是在一亿或者一百亿单词集里训练词嵌入，它仍然可以正确判断，并且泛化的很好，甚至这些词是在训练集中用于训练词嵌入，但不在专门做情感分类问题标记的训练集
+
+## 2.10 词嵌入除偏（Debiasing Word Embeddings）
+
+根据训练模型所使用的文本，词嵌入能够反映出性别、种族、年龄、性取向等其他方面的偏见：
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/25430afa93f24dc6caa6f85503bbad27.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/25430afa93f24dc6caa6f85503bbad27.png)
+
+假设已经完成一个词嵌入的学习，各个词的位置如图：
+
+[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cf60f429ef532a2b3bbad3db98b054c5.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/cf60f429ef532a2b3bbad3db98b054c5.png)
+
+首先做的事就是辨别出想要减少或想要消除的特定偏见的趋势
+
+怎样辨别出偏见相似的趋势：
+
+一、对于性别歧视，对所有性别对立的单词求差值，再平均：</script><p>bias direction=\frac1N ((e_{he}-e_{she})+(e_{male}-e_{female})+\cdots)</p>
+<p>$$</p>
+<p>二、中和步骤，对于定义不确切的词可以将其处理一下，避免偏见。像<strong>doctor</strong>和<strong>babysitter</strong>使之在性别方面中立。将它们在这个轴（编号1）上进行处理，减少或是消除他们的性别歧视趋势的成分，即减少在水平方向上的距离（编号2方框内所示的投影）</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/4102795b004ff090ed83dc654f585852.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4102795b004ff090ed83dc654f585852.png" alt></a></p>
+<p>三、均衡步，<strong>babysitter</strong>和<strong>grandmother</strong>之间的距离或者说是相似度实际上是小于<strong>babysitter</strong>和<strong>grandfather</strong>之间的（编号1），因此这可能会加重不良状态，或者非预期的偏见，也就是说<strong>grandmothers</strong>相比于<strong>grandfathers</strong>最终更有可能输出<strong>babysitting</strong>。所以在最后的均衡步中，想要确保的是像<strong>grandmother</strong>和<strong>grandfather</strong>这样的词都能够有一致的相似度，或者说是相等的距离，做法是将<strong>grandmother</strong>和<strong>grandfather</strong>移至与中间轴线等距的一对点上（编号2），现在性别歧视的影响也就是这两个词与<strong>babysitter</strong>的距离就完全相同了（编号3）</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png" alt></a></p>
+<p>最后，掌握哪些单词需要中立化非常重要。一般来说，大部分英文单词，例如职业、身份等都需要中立化，消除embedding vector中性别这一维度的影响</p>
 
       
     </div>
@@ -805,7 +995,7 @@ Sim(u,v)=\frac{u^Tv}{||u||\cdot ||v||}</script><p>分子是<script type="math/te
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-词汇表征（Word-Representation）"><span class="nav-number">1.</span> <span class="nav-text">2.2 词汇表征（Word Representation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-使用词嵌入（Using-Word-Embeddings）"><span class="nav-number">2.</span> <span class="nav-text">2.2 使用词嵌入（Using Word Embeddings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-词嵌入的特性（Properties-of-Word-Embeddings）"><span class="nav-number">3.</span> <span class="nav-text">2.3 词嵌入的特性（Properties of Word Embeddings）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-词汇表征（Word-Representation）"><span class="nav-number">1.</span> <span class="nav-text">2.2 词汇表征（Word Representation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-使用词嵌入（Using-Word-Embeddings）"><span class="nav-number">2.</span> <span class="nav-text">2.2 使用词嵌入（Using Word Embeddings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-词嵌入的特性（Properties-of-Word-Embeddings）"><span class="nav-number">3.</span> <span class="nav-text">2.3 词嵌入的特性（Properties of Word Embeddings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-学习词嵌入（Learning-Word-Embeddings）"><span class="nav-number">4.</span> <span class="nav-text">2.5 学习词嵌入（Learning Word Embeddings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-Word2Vec"><span class="nav-number">5.</span> <span class="nav-text">2.6 Word2Vec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-负采样（Negative-Sampling）"><span class="nav-number">6.</span> <span class="nav-text">2.7 负采样（Negative Sampling）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-GloVe-词向量（GloVe-Word-Vectors）"><span class="nav-number">7.</span> <span class="nav-text">2.8 GloVe 词向量（GloVe Word Vectors）</span></a></li></ol></div>
             
 
           </div>
@@ -852,7 +1042,7 @@ Sim(u,v)=\frac{u^Tv}{||u||\cdot ||v||}</script><p>分子是<script type="math/te
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共54.6k字</span>
+  <span class="post-count">博客全站共58.8k字</span>
 </div>
 
         
