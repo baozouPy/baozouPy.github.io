@@ -358,7 +358,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T02:13:09Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T02:14:47Z">
                 2019-02-27
               </time>
             
@@ -496,13 +496,10 @@ z^{[2]}=W^{[2]}a^{[1]}+b^{[2]}</script><script type="math/tex; mode=display">
 a^{[2]}=z^{[2]}</script><script type="math/tex; mode=display">
 a^{[2]}=z^{[2]}=W^{[2]}a^{[1]}+b^{[2]}=W^{[2]}(W^{[1]}x+b^{[1]})+b^{[2]}=(W^{[2]}W^{[1]})x+(W^{[2]}b^{[1]}+b^{[2]})=W'x+b'</script><p>多层隐藏层的神经网络，如果使用线性函数作为激活函数，最终的输出仍然是输入<script type="math/tex">x</script>的线性模型。这样的话神经网络就没有任何作用了。因此，隐藏层的激活函数必须要是非线性的</p>
 <p>如果是预测问题而不是分类问题，输出<script type="math/tex">y</script>是连续的情况下，输出层的激活函数可以使用线性函数。如果输出<script type="math/tex">y</script>恒为正值，则也可以使用<script type="math/tex">ReLU</script>激活函数</p>
-<h2 id="3-7-激活函数的导数（Derivatives-of-activation-functions-）"><a href="#3-7-激活函数的导数（Derivatives-of-activation-functions-）" class="headerlink" title="3.7 激活函数的导数（Derivatives of activation functions ）"></a>3.7 激活函数的导数（Derivatives of activation functions ）</h2><script type="math/tex; mode=display">sigmoid$$函数的导数：</script><p>g(z)=\frac{1}{1+e^{(-z)}}</p>
+<h2 id="3-7-激活函数的导数（Derivatives-of-activation-functions-）"><a href="#3-7-激活函数的导数（Derivatives-of-activation-functions-）" class="headerlink" title="3.7 激活函数的导数（Derivatives of activation functions ）"></a>3.7 激活函数的导数（Derivatives of activation functions ）</h2><p>$sigmoid$函数的导数：</p>
 <script type="math/tex; mode=display">
-</script><p>g’(z)=\frac{d}{dz}g(z)=g(z)(1-g(z))=a(1-a)</p>
-<script type="math/tex; mode=display">
-
-
-$$tanh$$函数的导数：</script><p>g(z)=\frac{e^{(z)}-e^{(-z)}}{e^{(z)}+e^{(-z)}}</p>
+g(z)=\frac{1}{1+e^{(-z)}}</script><script type="math/tex; mode=display">
+g'(z)=\frac{d}{dz}g(z)=g(z)(1-g(z))=a(1-a)</script><script type="math/tex; mode=display">tanh$$函数的导数：</script><p>g(z)=\frac{e^{(z)}-e^{(-z)}}{e^{(z)}+e^{(-z)}}</p>
 <script type="math/tex; mode=display">
 </script><p>g’(z)=\frac{d}{dz}g(z)=1-(g(z))^2=1-a^2</p>
 <script type="math/tex; mode=display">
