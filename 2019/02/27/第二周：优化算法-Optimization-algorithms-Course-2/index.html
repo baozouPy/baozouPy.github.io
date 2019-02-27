@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://baozouai.com/images/pasted-66.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-67.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-68.png">
-<meta property="og:updated_time" content="2019-02-27T04:19:29.105Z">
+<meta property="og:updated_time" content="2019-02-27T04:21:13.091Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周：优化算法 (Optimization algorithms)(Course 2)">
 <meta name="twitter:description" content="2.1Mini-batch 梯度下降（Mini-batch gradient descent）神经网络训练过程是同时对所有m个样本（称为batch）通过向量化计算方式进行的。如果m很大，训练速度会很慢，因为每次迭代都要对所有样本进进行求和运算和矩阵运算。这种梯度下降算法称为Batch Gradient Descent 解决： 把m个训练样本分成若干个子集，称为mini-batches，然后每次在单">
@@ -374,7 +374,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T12:19:29+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T12:21:13+08:00">
                 2019-02-27
               </time>
             
@@ -542,7 +542,7 @@ V_t=\beta V_{t-1}+(1-\beta)\theta_t</script><p>$\beta$值决定了指数加权�
 =&\beta V_{t-1}+(1-\beta)\theta_t\\
 =&(1-\beta)\theta_t+(1-\beta)\cdot\beta\cdot\theta_{t-1}+(1-\beta)\cdot \beta^2\cdot\theta_{t-2}+\cdots
 +(1-\beta)\cdot \beta^{t-1}\cdot \theta_1+\beta^t\cdot V_0
-\end{aligned}</script><p>$\theta_t,\theta_{t-1},\theta_{t-2},\cdots,\theta_1$是原始数据值，<script type="math/tex">(1-\beta),(1-\beta)\beta,(1-\beta)\beta^2,$$$$\cdots,(1-\beta)\beta^{t-1}</script>是类似指数曲线，从右向左，呈指数下降的。<script type="math/tex">V_t</script> 的值是这两个子式的点乘，将原始数据值与衰减指数点乘，相当于做了指数衰减，离得越近，影响越大，离得越远，影响越小，衰减越厉害</p>
+\end{aligned}</script><p>$\theta_t,\theta_{t-1},\theta_{t-2},\cdots,\theta_1$是原始数据值，<script type="math/tex">(1-\beta),(1-\beta)\beta,(1-\beta)\beta^2,\cdots,(1-\beta)\beta^{t-1}</script>是类似指数曲线，从右向左，呈指数下降的。<script type="math/tex">V_t</script> 的值是这两个子式的点乘，将原始数据值与衰减指数点乘，相当于做了指数衰减，离得越近，影响越大，离得越远，影响越小，衰减越厉害</p>
 <p><img src="/images/pasted-62.png" alt="upload successful"></p>
 <p>为了减少内存的使用，使用这样的语句来实现指数加权平均算法：</p>
 <script type="math/tex; mode=display">
