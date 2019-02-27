@@ -82,13 +82,13 @@
 
 
 
-<meta name="description" content="2.1 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：  缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强 因为任何两个one-hot">
+<meta name="description" content="2.1 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
 <meta property="og:url" content="https://baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="2.1 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：  缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强 因为任何两个one-hot">
+<meta property="og:description" content="2.1 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/68d7c930146724f39782cb57d33161e9.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ce30c9ae7912bdb3562199bf85eca1cd.png">
@@ -119,10 +119,10 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cf60f429ef532a2b3bbad3db98b054c5.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4102795b004ff090ed83dc654f585852.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png">
-<meta property="og:updated_time" content="2019-02-27T07:02:03.194Z">
+<meta property="og:updated_time" content="2019-02-27T07:18:29.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
-<meta name="twitter:description" content="2.1 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：  缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强 因为任何两个one-hot">
+<meta name="twitter:description" content="2.1 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：">
 <meta name="twitter:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/68d7c930146724f39782cb57d33161e9.png">
 
 
@@ -386,7 +386,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T15:02:03+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T15:18:29+08:00">
                 2019-02-27
               </time>
             
@@ -493,8 +493,7 @@
       
 
       
-        <h2 id="2-1-词汇表征（Word-Representation）"><a href="#2-1-词汇表征（Word-Representation）" class="headerlink" title="2.1 词汇表征（Word Representation）"></a>2.1 词汇表征（Word Representation）</h2><p><strong>one-hot</strong>向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用<script type="math/tex">O_{5391}</script>,<script type="math/tex">O_{9853}</script> 等表示，<script type="math/tex">O</script>代表<strong>one-hot：</strong></p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/68d7c930146724f39782cb57d33161e9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/68d7c930146724f39782cb57d33161e9.png" alt></a></p>
+        <h2 id="2-1-词汇表征（Word-Representation）"><a href="#2-1-词汇表征（Word-Representation）" class="headerlink" title="2.1 词汇表征（Word Representation）"></a>2.1 词汇表征（Word Representation）</h2><p><strong>one-hot</strong>向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用<script type="math/tex">O_{5391}</script>,<script type="math/tex">O_{9853}</script> 等表示，<script type="math/tex">O</script>代表<strong>one-hot：</strong><br><a id="more"></a><br><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/68d7c930146724f39782cb57d33161e9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/68d7c930146724f39782cb57d33161e9.png" alt></a></p>
 <p>缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强</p>
 <p>因为任何两个one-hot向量的内积都是0，例如king和queen，词性相近，但是单从one-hot编码上来看，内积为零，无法知道二者的相似性</p>
 <p>因此用<strong>特征表征（Featurized representation）</strong>的方法对每个单词进行编码。也就是使用一个特征向量表征单词，特征向量的每个元素都是对该单词某一特征的量化描述，量化范围可以是[-1,1]之间，而单词使用这种高维特征表示时，就叫做<strong>词嵌入（word embedding）， </strong>词嵌入可以让算法自动的理解一些类似的词，比如男人对女人，国王对王后：</p>

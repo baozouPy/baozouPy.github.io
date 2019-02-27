@@ -358,7 +358,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T07:14:05Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T07:18:19Z">
                 2019-02-27
               </time>
             
@@ -444,187 +444,18 @@
 
       
         
-          
-            <h2 id="3-1-基础模型（Basic-Models）"><a href="#3-1-基础模型（Basic-Models）" class="headerlink" title="3.1 基础模型（Basic Models）"></a>3.1 基础模型（Basic Models）</h2><h3 id="机器翻译"><a href="#机器翻译" class="headerlink" title="机器翻译"></a>机器翻译</h3><p>用<script type="math/tex">x^{<1>}</script> 到<script type="math/tex">x^{< 5>}</script>表示输入句子的单词，用<script type="math/tex">y^{<1>}</script>到<script type="math/tex">y^{<6>}</script>表示输出句子的单词：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png" alt></a></p>
-<p>首先，建立一个<strong>RNN</strong>编码网络（<strong>encoder network</strong>）（编号1），单元可以是<strong>GRU</strong>或<strong>LSTM</strong>。每次只向该网络中输入一个法语单词，将输入序列接收完毕后，这个<strong>RNN</strong>网络会输出一个向量来代表这个输入序列</p>
-<p>之后建立一个解码网络（编号2），以编码网络的输出作为输入，之后它可以被训练为每次输出一个翻译后的单词，一直到它输出序列的结尾或者句子结尾标记</p>
-<p>在给出足够的法语和英语文本的情况下，训练模型，通过输入一个法语句子来输出对应的英语翻译，这个模型将会非常有效。这个模型简单地用一个编码网络来对输入的法语句子进行编码，然后用一个解码网络来生成对应的英语翻译</p>
-<h3 id="图像描述"><a href="#图像描述" class="headerlink" title="图像描述"></a>图像描述</h3><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b9492d18803ebe3853e936098f08661c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b9492d18803ebe3853e936098f08661c.png" alt></a></p>
-<blockquote>
-<p>给出猫的图片，能自动地输出该图片的描述：一只猫坐在椅子上</p>
-</blockquote>
-<p>通过输入图像来输出描述：</p>
-<p>将图片输入到卷积神经网络中（一个预训练的<strong>AlexNet</strong>结构）（编号2），然后让其学习图片的编码，或者学习图片的一系列特征。去掉最后的<strong>softmax</strong>单元（编号3），这个预训练的<strong>AlexNet</strong>结构会输出4096维的特征向量，向量表示的就是这只猫的图片，这个预训练网络可以是图像的编码网络</p>
-<p>接着把这个向量输入到<strong>RNN</strong>中（编号4），RNN要做的就是生成图像的描述，每次生成一个单词：输入一个描述输入的特征向量，然后让网络一个一个地输出单词序列</p>
-<h2 id="3-2-选择最可能的句子（Picking-the-most-likely-sentence）"><a href="#3-2-选择最可能的句子（Picking-the-most-likely-sentence）" class="headerlink" title="3.2 选择最可能的句子（Picking the most likely sentence）"></a>3.2 选择最可能的句子（Picking the most likely sentence）</h2><p><strong>seq2seq</strong>机器翻译模型和第一周所用的语言模型之间有很多相似的地方，但也有许多重要的区别：</p>
-<p>可以把机器翻译想成是建立一个条件语言模型，能够估计句子的可能性</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/a8b8c64483ee84d57135829ab025da53.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a8b8c64483ee84d57135829ab025da53.png" alt></a></p>
-<p>绿色（编号2）表示<strong>encoder</strong>网络，紫色（编号3）表示<strong>decoder</strong>网络。不同在于语言模型总是以零向量（编号4）开始，而<strong>encoder</strong>网络会计算出一系列向量（编号2）来表示输入的句子，以这个向量作为输入，这叫做条件语言模型（<strong>conditional language model</strong>）</p>
-<p>相比语言模型输出任意句子的概率，翻译模型会输出句子的英文翻译（编号5），这取决于输入的法语句子（编号6）。即估计一个英文翻译的概率，比如估计”<strong>Jane is visiting Africa in September.</strong>“翻译的概率，这句翻译是取决于法语句子，”<strong>Jane visite I’Afrique en septembre.</strong>“，这就是英语句子相对于输入的法语句子的可能性，是一个条件语言模型</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/fd97f885fe1e6e1a7c70bb965595210a.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fd97f885fe1e6e1a7c70bb965595210a.png" alt></a></p>
-<blockquote>
-<p>模型将法语翻译成英文，通过输入的法语句子模型将会告诉你各种英文翻译所对应的可能性</p>
-</blockquote>
-<p>$x$是法语句子”<strong>Jane visite l’Afrique en septembre.</strong>“，它将告诉你不同的英语翻译所对应的概率：从这个分布中进行取样得到<script type="math/tex">P(y|x)</script>，但不是从得到的分布中进行随机取样，而是要找到一个英语句子<script type="math/tex">y</script>（编号1），使得条件概率最大化：</p>
-<script type="math/tex; mode=display">
-max\ P(y^{<1>},y^{<2>},\cdots,y^{<T_y>}|x^{<1>},x^{<2>},\cdots,x^{<T_x>})</script><p>而解决这种问题最通用的算法就是束搜索(<strong>Beam Search</strong>)</p>
-<p>为什么不用贪心搜索(<strong>Greedy Search</strong>)：</p>
-<p>贪心搜索生成第一个词的分布以后，将会根据条件语言模型挑选出最有可能的第一个词进入机器翻译模型中，在挑选出第一个词之后将会继续挑选出最有可能的第二个词……这种算法就叫做贪心搜索，但是真正需要的是一次性挑选出整个单词序列，从<script type="math/tex">y^{<1>}</script>、<script type="math/tex">y^{<2>}</script>到<script type="math/tex">y^{<T_{y}>}</script>来使得整体的概率最大化。所以贪心算法先挑出最好的第一个词，在这之后再挑最好的第二词，然后再挑第三个，这种方法并不管用</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c50a0e8948bbdb9a1d23f2f8a768bf5c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c50a0e8948bbdb9a1d23f2f8a768bf5c.png" alt></a></p>
-<p>第一串（编号1）翻译明显比第二个（编号2）好，但如果贪心算法挑选出了”<strong>Jane is</strong>“作为前两个词，因为在英语中<strong>going</strong>更加常见，于是对于法语句子来说”<strong>Jane is going</strong>“相比”<strong>Jane is visiting</strong>“会有更高的概率作为法语的翻译，所以如果仅仅根据前两个词来估计第三个词的可能性，得到的更可能是<strong>going</strong>，最终得到一个欠佳的句子</p>
-<p>当想得到单词序列<script type="math/tex">y^{<1>}</script>、<script type="math/tex">y^{<2>}</script>一直到最后一个词总体的概率时，一次仅仅挑选一个词并不是最佳的选择。如果字典中有10,000个单词，翻译有10个词，可能的组合就有10,000的10次方这么多，从这样大一个字典中来挑选单词，句子数量非常巨大，大大增加了运算成本，降低运算速度，不可能去计算每一种组合的可能性</p>
-<p>所以最常用的办法就是用一个近似的搜索算法，它会尽力地将挑选出句子<script type="math/tex">y</script>使得条件概率最大化，尽管不能保证找到的<script type="math/tex">y</script>值一定可以使概率最大化</p>
-<p>机器翻译模型和之前的语言模型一个主要的区别就是：相比之前的模型随机地生成句子，该模型是找到最有可能的翻译</p>
-<h2 id="3-3-集束搜索（Beam-Search）"><a href="#3-3-集束搜索（Beam-Search）" class="headerlink" title="3.3 集束搜索（Beam Search）"></a>3.3 集束搜索（Beam Search）</h2><p>“<strong>Jane visite l’Afrique en Septembre.</strong>”翻译成英语”<strong>Jane is visiting Africa in September</strong>“.，集束搜索算法首先做的就是挑选要输出的英语翻译中的第一个单词。这里列出了10,000个词的词汇表，忽略大小写，在集束搜索的第一步中用这个网络来评估第一个单词的概率值，给定输入序列<script type="math/tex">x</script>，即法语作为输入，第一个输出<script type="math/tex">y</script>的概率值是多少</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8a22dfb5d3c0a4b5d2fdfa716dc3f3b2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8a22dfb5d3c0a4b5d2fdfa716dc3f3b2.png" alt></a></p>
-<p>集束搜索会考虑多个选择，集束搜索算法会有一个参数<strong>B</strong>，叫做集束宽（<strong>beam width</strong>）。这个例子中集束宽设成3，意味着集束搜索一次会考虑3个可能结果，比如对第一个单词有不同选择的可能性，最后找到<strong>in</strong>、<strong>jane</strong>、<strong>september</strong>，是英语输出的第一个单词的最可能的三个选项，然后集束搜索算法会把结果存到计算机内存里以便后面尝试用这三个词。为了执行集束搜索的第一步，需要输入法语句子到编码网络，然后解码这个网络，<strong>softmax</strong>层会输出10,000个概率值，然后取前三个存起来，概率表示为：</p>
-<script type="math/tex; mode=display">
-P(\hat y^{<1>} | x)</script><p>集束搜索算法的第二步：针对每个第一个单词考虑第二个单词是什么</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/14a940ae2ea7932b7b7190eceb79f79e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/14a940ae2ea7932b7b7190eceb79f79e.png" alt></a></p>
-<p>为了评估第二个词的概率值，把<script type="math/tex">y^{<1>}</script>设为单词<strong>in</strong>（编号3），输出就是<script type="math/tex">y^{<2>}</script>（编号5），有了这个连接（编号6），这个网络就可以用来评估：在给定法语句子和翻译结果的第一个单词<strong>in</strong>的情况下第二个单词的概率</p>
-<p>在第二步更关心的是要找到最可能的第一个和第二个单词对，所以不仅仅是第二个单词有最大的概率，而是第一个、第二个单词对有最大的概率（编号7）。可以表示成第一个单词的概率（编号8）乘以第二个单词的概率（编号9）：</p>
-<script type="math/tex; mode=display">
-P(\hat y^{<1>},\hat y^{<2>}|x)=P(\hat y^{<1>} | x)\cdot P(\hat y^{<2>}|x,\hat y^{<1>})</script><p><strong>jane</strong>、<strong>september</strong>跟上面一样</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/507c9081ee77c686bb96a009248087fd.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/507c9081ee77c686bb96a009248087fd.png" alt></a></p>
-<p>注意，如果集束搜索找到了第一个和第二个单词对最可能的三个选择是“<strong>in September</strong>”或者“<strong>jane is</strong>”或者“<strong>jane visits</strong>”，就意味着去掉了<strong>september</strong>作为英语翻译结果的第一个单词的选择，第一个单词现在减少到了两个可能结果，但是集束宽是3，还是有<script type="math/tex">y^{<1>}</script>，<script type="math/tex">y^{<2>}</script>对的三个选择</p>
-<p>接着，再预测第三个单词。分别以in september，jane is，jane visits为条件，计算每个词汇表单词作为预测第三个单词的概率。从中选择概率最大的3个作为第三个单词的预测值，得到：in september jane，jane is visiting，jane visits africa</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/6a0b785dd54fcbc439bd82794eeefcf8.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6a0b785dd54fcbc439bd82794eeefcf8.png" alt></a></p>
-<p>概率表示为：</p>
-<script type="math/tex; mode=display">
-P(\hat y^{<3>}|x,\hat y^{<1>},\hat y^{<2>})</script><p>此时，得到的前三个单词的3种情况的概率为：</p>
-<script type="math/tex; mode=display">
-P(\hat y^{<1>},\hat y^{<2>},\hat y^{<3>}|x)=P(\hat y^{<1>} | x)\cdot P(\hat y^{<2>}|x,\hat y^{<1>})\cdot P(\hat y^{<3>}|x,\hat y^{<1>},\hat y^{<2>})</script><p>以此类推，每次都取概率最大的三种预测。最后，选择概率最大的那一组作为最终的翻译语句：</p>
-<p><strong>Jane is visiting Africa in September.</strong></p>
-<p>如果参数B=1，则就等同于greedy search。实际应用中，可以根据不同的需要设置B为不同的值。一般B越大，机器翻译越准确，但同时也会增加计算复杂度</p>
-<h2 id="3-4-改进集束搜索（Refinements-to-Beam-Search）"><a href="#3-4-改进集束搜索（Refinements-to-Beam-Search）" class="headerlink" title="3.4 改进集束搜索（Refinements to Beam Search）"></a>3.4 改进集束搜索（Refinements to Beam Search）</h2><p>长度归一化（<strong>Length normalization</strong>）是对束搜索算法稍作调整的一种方式，使之得到更好的结果</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/725eec5b76123bf45c9495e1231b6584.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/725eec5b76123bf45c9495e1231b6584.png" alt></a></p>
-<p><strong>束搜索</strong>就是最大化概率<script type="math/tex">P(y^{< 1 >}\ldots y^{< T_{y}>}|X)</script>，表示成:</p>
-<script type="math/tex; mode=display">
-P(y^{<1>}|X)P(y^{< 2 >}|X,y^{< 1 >})P(y^{< 3 >}|X,y^{< 1 >},y^{< 2>})\cdots P(y^{< T_{y} >}|X,y^{<1 >},y^{<2 >}\ldots y^{< T_{y} - 1 >})</script><p>即乘积概率（<strong>the product probabilities</strong>）：</p>
-<script type="math/tex; mode=display">
-arg\ max\prod_{t=1}^{T_y} P(\hat y^{< t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script><p>这些概率值通常都远小于1，会造成<strong>数值下溢</strong>（<strong>numerical underflow</strong>），即数值太小了，导致电脑的浮点表示不能精确地储存</p>
-<p>因此在实践中,不会最大化这个乘积，而是取<script type="math/tex">log</script>值：</p>
-<script type="math/tex; mode=display">
-arg\ max \sum_{t=1}^{T_y}\log P(\hat y^{<t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script><p>会得到一个数值上更稳定的算法，不容易出现数值的舍入误差（<strong>rounding errors</strong>）或者说数值下溢（<strong>numerical underflow</strong>）</p>
-<p>参照原来的目标函数（<strong>this original objective</strong>），如果有一个很长的句子，那么这个句子的概率会很低，因为乘了很多项小于1的数字来估计句子的概率，就会得到一个更小的概率值，所以可能不自然地倾向于简短的翻译结果，因为短句子的概率是由更少数量的小于1的数字乘积得到的，所以乘积不会那么小。概率的<script type="math/tex">log</script>值也有同样的问题</p>
-<p>解决：可以把它归一化，通过除以翻译结果的单词数量。即取每个单词的概率对数值的平均，这样很明显地减少了对输出长的结果的惩罚：</p>
-<script type="math/tex; mode=display">
-arg\ max\ \frac{1}{T_y}\sum_{t=1}^{T_y}\log P(\hat y^{< t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script><p>在实践中，会用一个更柔和的方法（<strong>a softer approach</strong>），在<script type="math/tex">T_{y}</script>上加上指数<script type="math/tex">\alpha</script>：</p>
-<script type="math/tex; mode=display">
-arg\ max\ \frac{1}{T_y^{\alpha}}\sum_{t=1}^{T_y}\log P(\hat y^{< t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script><p>$\alpha$可以等于0.7。如果<script type="math/tex">\alpha</script>等于1，就相当于完全用长度来归一化，如果<script type="math/tex">\alpha</script>等于0，<script type="math/tex">T_{y}</script>的0次幂就是1，就相当于完全没有归一化，<script type="math/tex">\alpha</script>就是算法另一个超参数（<strong>hyper parameter</strong>）</p>
-<p>总结一下如何运行束搜索算法：</p>
-<p>当运行束搜索时，会看到很多长度分别等于1、2、3…的句子等等，针对这些所有的可能的输出句子，取概率最大的几个句子，然后对这些句子计算目标函数<script type="math/tex">arg\ max\ \frac{1}{T_y^{\alpha}}\sum_{t=1}^{T_y}\log P(\hat y^{<t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script>，最后从经过评估的这些句子中挑选出在归一化的<script type="math/tex">log</script> 概率目标函数上得分最高的一个，也叫作<strong>归一化的对数似然目标函数</strong>（<strong>a normalized log likelihood objective</strong>）</p>
-<p>如何选择束宽<strong>B：</strong></p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/96e50aec6e1d7287e5bac70a0c4d92f4.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/96e50aec6e1d7287e5bac70a0c4d92f4.png" alt></a></p>
-<ul>
-<li><strong>B</strong>越大，考虑的选择越多，找到的句子可能越好，但是算法的计算代价越大，因为要把很多的可能选择保存起来，内存占用增大</li>
-<li>如果用小的束宽<strong>B</strong>，结果会没那么好，因为在算法运行中，保存的选择更少，但是算法运行的更快，内存占用也小</li>
-</ul>
-<p>在产品中，经常可以看到把束宽设到10，当B很大的时候，性能提高会越来越少。对于很多应用来说，从束宽1，也就是贪心算法，到束宽为3、到10，会看到一个很大的改善。但是当束宽从1000增加到3000时，效果就没那么明显</p>
-<p>相对广度优先搜索（<strong>BFS, Breadth First Search algorithms</strong>），深度优先搜索（<strong>DFS, Depth First Search</strong>）这些精确的搜索算法（<strong>exact search algorithms</strong>），束搜索运行的更快，但是不能保证一定能找到argmax的准确的最大值</p>
-<h2 id="3-5-集束搜索的误差分析（Error-analysis-in-beam-search）"><a href="#3-5-集束搜索的误差分析（Error-analysis-in-beam-search）" class="headerlink" title="3.5 集束搜索的误差分析（Error analysis in beam search）"></a>3.5 集束搜索的误差分析（Error analysis in beam search）</h2><p>束搜索算法是一种<strong>近似搜索算法</strong>（<strong>an approximate search algorithm</strong>），也被称作<strong>启发式搜索算法</strong>（<strong>a heuristic search algorithm</strong>），它不总是输出可能性最大的句子，它仅记录着<strong>B</strong>为前3或者10或是100种可能</p>
-<p>人工标记为<script type="math/tex">y^*</script>。束搜索算法翻译结果标记为<script type="math/tex">\hat y</script>，是一个十分糟糕的翻译，改变了句子的原意：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/748283d682db5be4855e61b90e96c427.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/748283d682db5be4855e61b90e96c427.png" alt></a></p>
-<p>模型有两个主要部分，一个是神经网络模型，或说是序列到序列模型（<strong>sequence to sequence model</strong>），称作是<strong>RNN</strong>模型，另一部分是束搜索算法，以某个集束宽度<strong>B</strong>运行</p>
-<p><strong>RNN</strong>(<strong>循环神经网络</strong>)实际上是个编码器和解码器（<strong>the encoder and the decoder</strong>），它会计算<script type="math/tex">P(y|x)</script>。如对于句子：<strong>Jane visits Africa in September</strong>，将<strong>Jane visits Africa</strong>填入这里（上图编号1），忽略字母的大小写，后面也是一样，计算得到<script type="math/tex">P(y^*|x)</script>，<script type="math/tex">P(\hat y|x)</script> 同样如此，然后比较一下这两个值哪个更大</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1bc0b442db9d5a1aa19dfe9a477a3c3e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1bc0b442db9d5a1aa19dfe9a477a3c3e.png" alt></a></p>
-<ul>
-<li>若<script type="math/tex">P(y^*|x)</script> 大于<script type="math/tex">P(\hat y|x)</script>，可束搜索算法却选择了<script type="math/tex">\hat y</script> ， 因此能够得出束搜索算法实际上不能给出使<script type="math/tex">P(y|x)</script>最大化的<script type="math/tex">y</script>值，因为束搜索算法的任务就是寻找一个<script type="math/tex">y</script>的值来使这项更大，但是它却选择了<script type="math/tex">\hat y</script>，而<script type="math/tex">y^*</script>实际上能得到更大的值。因此这种情况下束搜索算法出错</li>
-<li>若<script type="math/tex">P(y^*|x)</script>小于或等于<script type="math/tex">P(\hat y|x)</script>，<script type="math/tex">y^*</script> 是比 <script type="math/tex">\hat y</script>更好的翻译结果，不过根据RNN模型的结果，<script type="math/tex">P(y^*)</script> 是小于<script type="math/tex">P(\hat y)</script>的，即相比于<script type="math/tex">\hat y</script>，<script type="math/tex">y^*</script>成为输出的可能更小。因此在这种情况下是<strong>RNN</strong>模型出了问题</li>
-</ul>
-<p>以上都忽略了长度归一化（<strong>length normalizations</strong>）的细节，如果用了某种长度归一化，那么要比较长度归一化后的最优化目标函数值</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2689876529562b7d9a79bf868e7cbad7.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2689876529562b7d9a79bf868e7cbad7.png" alt></a></p>
-<p>误差分析过程：</p>
-<ol>
-<li>先遍历开发集，找出算法产生的错误</li>
-<li>假如<script type="math/tex">P(y^*|x)</script>的值为2 x 10<script type="math/tex">^{-10}</script>，而<script type="math/tex">P(\hat y|x)</script>的值为 1 x10<script type="math/tex">^{-10}</script>，得知束搜索算法实际上选择了比<script type="math/tex">y^*</script>可能性更低的<script type="math/tex">\hat y</script>，则束搜索算法出错，缩写为<strong>B</strong></li>
-<li>接着继续遍历第二个错误，若对于第二个例子是<strong>RNN</strong>模型出现了问题，用缩写<strong>R</strong>来代表<strong>RNN</strong></li>
-<li>接着遍历更多的例子，有时是束搜索算法出现了问题，有时是模型出现了问题，等等</li>
-<li>执行误差分析，得出束搜索算法和<strong>RNN</strong>模型出错的比例是多少。对开发集中每一个错误例子，即算法输出了比人工翻译更差的结果的情况，尝试确定是搜索算法出了问题，还是生成目标函数(束搜索算法使之最大化)的<strong>RNN</strong>模型出了问题。找到这两个部分中哪个是产生更多错误的原因</li>
-<li>只有当发现是束搜索算法造成了大部分错误时，才值得花费努力<strong>增大集束宽度B</strong>；如果发现是<strong>RNN</strong>模型出了更多错，那么可以进行更深层次的分析，来决定是需要<strong>增加正则化</strong>还是<strong>获取更多的训练数据</strong>，抑或是尝试一个<strong>不同的网络结构</strong></li>
-</ol>
-<h2 id="3-6-Bleu-得分（选修）（Bleu-Score-optional-）"><a href="#3-6-Bleu-得分（选修）（Bleu-Score-optional-）" class="headerlink" title="3.6 Bleu 得分（选修）（Bleu Score (optional)）"></a>3.6 Bleu 得分（选修）（Bleu Score (optional)）</h2><p>机器翻译（<strong>machine translation</strong>）的一大难题是一个法语句子可以有多种英文翻译而且都同样很好，常见的解决办法是通过一个<strong>BLEU</strong>得分（<strong>the BLEU score</strong>）的东西来解决，BLEU得分是一个有用的单一实数评估指标，用于评估生成文本的算法，判断输出的结果是否与人工写出的参考文本的含义相似</p>
-<p>一般有多个人工翻译：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5e854a803e36991a6e0dd4e33ecab930.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e854a803e36991a6e0dd4e33ecab930.png" alt></a></p>
-<p>BLEU得分做的就是给定一个机器生成的翻译，它能够自动地计算一个分数来衡量机器翻译的好坏。只要机器生成的翻译与任何一个人工翻译的结果足够接近，那么它就会得到一个高的BLEU分数。<strong>BLEU</strong>代表<strong>bilingual evaluation understudy</strong>(双语评估替补)。且这些人工翻译的参考会包含在开发集或是测试集中</p>
-<p>假设机器翻译 (<strong>MT</strong>)的输出是：<strong>the the the the the the the，</strong>是一个十分糟糕的翻译。衡量机器翻译输出质量的方法之一是<strong>观察输出结果的每一个词，看其是否出现在参考中</strong>，这被称做是机器翻译的精确度（<strong>a precision of the machine translation output</strong>）。这个情况下，机器翻译输出了七个单词并且这七个词中的每一个都出现在了参考1或是参考2，因此输出的精确度就是7/7，分母为机器翻译单词数目，分子为相应单词是否出现在参考翻译中。但是，这种方法很不科学，并不可取</p>
-<p>改良后的精确度评估方法（<strong>the modified precision measure</strong>）：<strong>把每一个单词的记分上限定为它在参考句子中出现的最多次数</strong>。在参考1中，单词<strong>the</strong>出现了两次，在参考2中，单词<strong>the</strong>只出现了一次。单词<strong>the</strong>的得分上限为2。输出句子的得分为2/7，分母是7个词中单词<strong>the</strong>总共出现的次数，分子是单词<strong>the</strong>出现的计数，在达到<strong>上限</strong>时截断计数</p>
-<p>上述都只是关注单独的单词，在<strong>BLEU</strong>得分中，另外一种更科学的打分方法是<strong>bleu score on bigrams（二元词组）</strong>，bigram的意思就是相邻的两个单词</p>
-<p>定义<strong>截取计数</strong>（<strong>the clipped count</strong>），也就是<strong>Count_clip：</strong>给算法设置得分上限，上限值为二元词组出现在参考1<strong>或</strong>2中的最大次数</p>
-<p>假定机器翻译输出了稍微好一点的翻译，对MT output进行分解，得到的bigrams及其出现在MT output中的次数count为：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0bc25316900ccd1d4dd25a35ec7c45c4.png" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0bc25316900ccd1d4dd25a35ec7c45c4.png" alt></a></p>
-<p>相应的bigrams precision为4/6也就是2/3，为二元词组改良后的精确度</p>
-<p>将改良后的一元词组精确度定义为<script type="math/tex">P_1</script>，<script type="math/tex">P</script>代表的是精确度。下标1的意思是一元词组，即考虑单独的词，<script type="math/tex">P_n</script> 定义为<script type="math/tex">n</script>元词组精确度，用<strong>n-gram</strong>替代掉一元词组。即机器翻译输出中的<script type="math/tex">n</script>元词组的<strong>countclip</strong>之和除以<script type="math/tex">n</script>元词组的出现次数之和</p>
-<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7f48951acf8ca7c7b63f6c4c455ada18.png" alt></p>
-<p>如果机器翻译输出与参考1或是参考2完全一致，那么所有的<script type="math/tex">P_1</script>、<script type="math/tex">P_2</script>等等的值，都会等于1.0</p>
-<p>最终的BLEU得分：</p>
-<p>将得到的<script type="math/tex">P_1</script>，<script type="math/tex">P_2</script>， <script type="math/tex">P_3</script>…<script type="math/tex">P_n</script> 相加再取平均值</p>
-<p>BLEU得分被定义为：</p>
-<script type="math/tex; mode=display">
-p=exp (\frac{1}{n}\sum\limits_{i=1}^{n}{P_i})</script><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0f9646d825a0c254376e094b48523ed3.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0f9646d825a0c254376e094b48523ed3.png" alt></a></p>
-<p>然后用BP（“简短惩罚”brevity penalty） 的惩罚因子（the BP penalty）来调整。它能够惩罚输出了太短翻译结果的翻译系统：</p>
-<script type="math/tex; mode=display">
-p=BP\cdot exp(\frac1n\sum_{i=1}^np_i)</script><p>BLEU得分被用来评估许多生成文本的系统（systems that generate text），比如说机器翻译系统（machine translation systems），图像描述系统（image captioning systems）。不过它并没有用于语音识别（speech recognition）。因为在语音识别当中，通常只有一个答案</p>
-<h2 id="3-7-注意力模型直观理解（Attention-Model-Intuition）"><a href="#3-7-注意力模型直观理解（Attention-Model-Intuition）" class="headerlink" title="3.7 注意力模型直观理解（Attention Model Intuition）"></a>3.7 注意力模型直观理解（Attention Model Intuition）</h2><p>给定一个很长的法语句子，在神经网络中，绿色的编码器要做的就是读整个句子，然后记忆整个句子，再在感知机中传递。紫色的神经网络，即解码网络（<strong>the decoder network</strong>）将生成英文翻译</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/59279ff91bb69a94280e6735eba8ab99.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/59279ff91bb69a94280e6735eba8ab99.png" alt></a></p>
-<p>对于短句子效果非常好，会有一个相对高的<strong>Bleu</strong>分（<strong>Bleu score</strong>），但是对于长句子而言，比如说大于30或者40词的句子，它的表现就会变差。<strong>Bleu</strong>评分随着单词数量变化，短的句子会难以翻译，因为很难得到所有词。对于长的句子，效果也不好，因为在神经网络中，记忆非常长句子是非常困难的。</p>
-<p>而注意力模型翻译得很像人类，一次翻译句子的一部分。且机器翻译系统只会翻译句子的一部分，不会有一个巨大的下倾（<strong>huge dip</strong>），这个下倾衡量了神经网络记忆一个长句子的能力</p>
-<p>对于句子里的每五个单词，使用双向的<strong>RNN</strong>（<strong>a bidirectional RNN</strong>），使用另一个<strong>RNN</strong>生成英文翻译：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/3dcdd58eaa544a09e67eb892f8c732bf.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/3dcdd58eaa544a09e67eb892f8c732bf.png" alt></a></p>
-<p>S^{<t>}$由原语句附近单元共同决定，<strong>注意力权重（attention weights）</strong><script type="math/tex">\alpha^{<  t,t'>}</script> 表示尝试生成第<script type="math/tex">t</script>个英文词时应该花多少注意力在第<script type="math/tex">t'</script>个法语词上面。直到最终生成<script type="math/tex">< EOS></script>。离得越近，<strong>注意力权重</strong>越大，相当于当前的注意力区域有个滑动窗。<script type="math/tex">c</script>表示编码器激活函数在注意力权重加权后的结果，将<script type="math/tex">c</script>输入到解码器用来生成翻译语句， 同时上一个时间步输出的翻译结果也加入</t></p>
-<h2 id="3-8-注意力模型（Attention-Model）"><a href="#3-8-注意力模型（Attention-Model）" class="headerlink" title="3.8 注意力模型（Attention Model）"></a>3.8 注意力模型（Attention Model）</h2><p>注意力模型让一个神经网络只注意到一部分的输入句子。当它在生成句子的时候，更像人类翻译</p>
-<p>假定有一个输入句子，并使用双向的<strong>RNN</strong>，或者双向的<strong>GRU</strong>或者双向的<strong>LSTM</strong>，去计算每个词的特征：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1e6b86a4e3690b4a0c6b8146ffa2f791.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1e6b86a4e3690b4a0c6b8146ffa2f791.png" alt></a></p>
-<p>用<script type="math/tex">a^{<t{'}>}</script>表示时间步<script type="math/tex">t</script>上的特征向量。用<script type="math/tex">t{'}</script>来索引法语句子里面的词，由于是双向RNN，每个<script type="math/tex">a^{<t{'}>}</script>：</p>
-<script type="math/tex; mode=display">
-a^{<t{'}>}=(a^{\rightarrow <t{'}>},a^{\leftarrow <t{'}>})</script><p>注意力权重用<script type="math/tex">\alpha</script>表示，C是各个RNN神经元经过注意力权重得到的参数值。例如<script type="math/tex">\alpha^{<1,t{'}>}</script>表示机器翻译的第一个单词“jane”对应的第<script type="math/tex">t{'}</script>个RNN神经元，<script type="math/tex">C^{<1>}</script>表示机器翻译第一个单词“jane”对应的解码网络输入参数。满足：</p>
-<script type="math/tex; mode=display">
-\sum_{t{'}}\alpha^{<1,t{'}>}=1</script><script type="math/tex; mode=display">
-C^{<1>}=\sum_{t{'}}\alpha^{<1,t{'}>}\cdot a^{<t{'}>}</script><p>用状态<script type="math/tex">S</script>表示生成翻译。<script type="math/tex">\alpha^{<t,t{'}>}</script>是输出<script type="math/tex">\hat y^{<t>}</script>在<script type="math/tex">t{'}</script>时对RNN单元花在<script type="math/tex">a^{< t{ '}>}</script>上的注意力权重因子。即在<script type="math/tex">t</script>处生成输出词应该花多少注意力在第<script type="math/tex">t{'}</script>个输入词上面</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b22dff4a3b1a4ea8c1ab201446e98889.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b22dff4a3b1a4ea8c1ab201446e98889.png" alt></a></p>
-<p>为了让<script type="math/tex">\alpha^{<t,t{'}>}</script>之和为1，利用softamx思想，引入参数<script type="math/tex">e^{<t,t{'}>}</script>，使得：</p>
-<script type="math/tex; mode=display">
-a^{<t,t'>} = \frac{\text{exp}(e^{<t,t'>})}{\sum^{T_x}_{t'=1} \text{exp}(e^{<t,t'>})}</script><p>只要求出<script type="math/tex">e^{<t,t{'}>}</script>，就能得到<script type="math/tex">\alpha^{<t,t{'}>}</script></p>
-<p>如何求出<script type="math/tex">e^{<t,t{'}>}</script>：</p>
-<p>建立一个简单的神经网络</p>
-<p><img src="/images/pasted-166.png" alt="upload successful"></p>
-<p>输入<script type="math/tex">s^{<t-1>}</script>，即神经网络在上个时间步的状态和<script type="math/tex">a^{<t{'}>}</script>，训练一个很小的神经网络，利用反向传播算法、梯度下降算法迭代优化，学到一个正确的函数<script type="math/tex">e^{<t,t{'}>}</script> 和<script type="math/tex">\alpha^{<t,t{'}>}</script></p>
-<p>缺点：计算量较大，<script type="math/tex">T_x</script>个输入单词和<script type="math/tex">T_y</script>个输出单词的注意力参数的总数是<script type="math/tex">T_x\times T_y</script>，但是在机器翻译的应用上，输入和输出的句子一般不会太长，消耗还是可以接受</p>
-<p>注意力模型在图像捕捉方面也有应用。比如图片加标题（<strong>image captioning</strong>），即看一张图，写下这张图的标题</p>
-<p>Attention model还能处理日期标准化的问题（<strong>the date normalization problem</strong>）：</p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fa6769127cd98ea0058f600449833a21.png" alt></a></p>
-<p>训练一个神经网络，输入任何形式的日期，生成标准化的日期形式</p>
-<p>还有可视化的注意力权重（<strong>the visualizations of the attention weights</strong>）。颜色越白表示注意力权重越大，颜色越深表示权重越小。输出语句单词与其输入语句单词对应位置的注意力权重较大，即对角线附近</p>
-<h2 id="3-9-语音识别（Speech-recognition）"><a href="#3-9-语音识别（Speech-recognition）" class="headerlink" title="3.9 语音识别（Speech recognition）"></a>3.9 语音识别（Speech recognition）</h2><p>输入音频片段<script type="math/tex">x</script>（<strong>an audio clip,x</strong>），生成文本<script type="math/tex">y</script>：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8da3e9cf049139a8e4a78503bd72e7fd.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8da3e9cf049139a8e4a78503bd72e7fd.png" alt></a></p>
-<p>音频片段横轴是时间。麦克风的作用是测量出微小的气压变化，而气压随着时间而变化。音频数据的常见预处理步骤就是运行这个原始的音频片段，然后生成一个声谱图（<strong>a spectrogram</strong>），横轴是时间，纵轴是声音的频率（<strong>frequencies</strong>），图中不同的颜色显示了声波能量的大小（<strong>the amount of energy</strong>），也就是在不同的时间和频率上这些声音有多大</p>
-<p>在<strong>end-to-end</strong>模型中，可以构建一个系统，通过向系统中输入音频片段（<strong>audio clip</strong>），然后直接输出音频的文本（<strong>a transcript</strong>）。这种方法要用一个很大的数据集，需要上千上万个小时的语音素材</p>
-<p>如何建立一个语音识别系统：</p>
-<p>在输入音频的不同时间帧上，用一个注意力模型来输出文本描述，如”<strong>the quick brown fox</strong>“</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/4130b85a0694549f02bdf60f7c47a3d7.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4130b85a0694549f02bdf60f7c47a3d7.png" alt></a></p>
-<p>另一种方法是<strong>CTC</strong>损失函数（<strong>CTC cost</strong>），即<strong>Connectionist Temporal Classification</strong></p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8f409fc3980b0be00dca49bf4fac2659.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8f409fc3980b0be00dca49bf4fac2659.png" alt></a></p>
-<p>输入<script type="math/tex">x</script>和输出<script type="math/tex">y</script>的数量都是一样，这里只是一个简单的单向<strong>RNN</strong>结构，在实际中有可能是双向的<strong>LSTM、GRU</strong>结构，并且通常是很深的模型</p>
-<p>在语音识别中，通常输入的时间步数量（<strong>the number of input time steps</strong>）要比输出的时间步的数量（<strong>the number of output time steps</strong>）多出很多。如一段10秒的音频，并且特征（<strong>features</strong>）是100赫兹的，即每秒有100个样本，于是这段10秒的音频片段就会有1000个输入</p>
-<p>算法思想如下：</p>
-<p>把输出相应字符重复并加入空白（blank），形如：</p>
-<script type="math/tex; mode=display">
-ttt \_ h\_eee\_ \_ \_ \sqcup\_ \_ \_ qqq\_ \_ \cdots</script><p>下划线”_“表示空白，“<script type="math/tex">\sqcup</script>“表示两个单词之间的空字符</p>
-<p>CTC损失函数的一个基本规则是没有被空白符”_“分割的重复字符将被折叠到一起，即表示一个字符。<strong>the</strong>和<strong>quick</strong>之间有一个空格符，这段序列折叠成”the q<strong>“</strong></p>
-<h2 id="3-10-触发字检测（Trigger-Word-Detection）"><a href="#3-10-触发字检测（Trigger-Word-Detection）" class="headerlink" title="3.10 触发字检测（Trigger Word Detection）"></a>3.10 触发字检测（Trigger Word Detection）</h2><p>触发字系统的例子如下：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/28443f8b28afa63adb6cf89ce19c4f6d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/28443f8b28afa63adb6cf89ce19c4f6d.png" alt></a></p>
-<p>对于这样的<strong>RNN</strong>结构，要做的就是计算出一个音频片段（an audio clip）的声谱图特征（spectrogram features），得到特征向量<script type="math/tex">x^{<1>}</script>, <script type="math/tex">x^{<2>}</script>, <script type="math/tex">x^{<3>}</script>..，然后把它放到<strong>RNN</strong>中，最后定义目标标签<script type="math/tex">y</script></p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f2da69f9fa6462c8e591e79db452f6c1.png" target="_blank" rel="noopener"><img src="/assets/505import.png" alt></a></p>
-<p>假如音频片段中的这一点是某人刚刚说完一个触发字，比如”<strong>Alexa</strong>“，那么在这一点之前，可以在训练集中把目标标签都设为0，在这个点之后把目标标签设为1。假如在一段时间之后，触发字又被说了一次，那么就可以再次在这个点之后把目标标签设为1</p>
-<p>不过该算法一个明显的缺点：它构建了一个很不平衡的训练集（<strong>a very imbalanced training set</strong>），0的数量比1多太多</p>
-<p>解决方法：在输出变回0之前，多次输出1，或说在固定的一段时间内输出多个1，就稍微提高了1与0的比例，即在音频片段中，触发字刚被说完之后，就把多个目标标签设为1</p>
-<p><img src="/images/pasted-167.png" alt="upload successful"></p>
-
-          
+          <h2 id="3-1-基础模型（Basic-Models）"><a href="#3-1-基础模型（Basic-Models）" class="headerlink" title="3.1 基础模型（Basic Models）"></a>3.1 基础模型（Basic Models）</h2><h3 id="机器翻译"><a href="#机器翻译" class="headerlink" title="机器翻译"></a>机器翻译</h3><p>用<script type="math/tex">x^{<1>}</script> 到<script type="math/tex">x^{< 5>}</script>表示输入句子的单词，用<script type="math/tex">y^{<1>}</script>到<script type="math/tex">y^{<6>}</script>表示输出句子的单词：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png" alt></a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/28/第三周-序列模型和注意力机制（Sequence-models-Attention-mechanism）-Course-5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -721,7 +552,7 @@ ttt \_ h\_eee\_ \_ \_ \sqcup\_ \_ \_ qqq\_ \_ \cdots</script><p>下划线”_“
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T07:02:03Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T07:18:29Z">
                 2019-02-27
               </time>
             
@@ -829,206 +660,17 @@ ttt \_ h\_eee\_ \_ \_ \sqcup\_ \_ \_ qqq\_ \_ \cdots</script><p>下划线”_“
 
       
         
-          
-            <h2 id="2-1-词汇表征（Word-Representation）"><a href="#2-1-词汇表征（Word-Representation）" class="headerlink" title="2.1 词汇表征（Word Representation）"></a>2.1 词汇表征（Word Representation）</h2><p><strong>one-hot</strong>向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用<script type="math/tex">O_{5391}</script>,<script type="math/tex">O_{9853}</script> 等表示，<script type="math/tex">O</script>代表<strong>one-hot：</strong></p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/68d7c930146724f39782cb57d33161e9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/68d7c930146724f39782cb57d33161e9.png" alt></a></p>
-<p>缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强</p>
-<p>因为任何两个one-hot向量的内积都是0，例如king和queen，词性相近，但是单从one-hot编码上来看，内积为零，无法知道二者的相似性</p>
-<p>因此用<strong>特征表征（Featurized representation）</strong>的方法对每个单词进行编码。也就是使用一个特征向量表征单词，特征向量的每个元素都是对该单词某一特征的量化描述，量化范围可以是[-1,1]之间，而单词使用这种高维特征表示时，就叫做<strong>词嵌入（word embedding）， </strong>词嵌入可以让算法自动的理解一些类似的词，比如男人对女人，国王对王后：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ce30c9ae7912bdb3562199bf85eca1cd.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ce30c9ae7912bdb3562199bf85eca1cd.png" alt></a></p>
-<blockquote>
-<p>以上举例的特征实际上并不是手工设计的，而是算法（word embedding）学习而来；而且这些学习的特征，可能并不具有良好的解释性，但无论如何，算法都可以快速找到哪些单词是类似的</p>
-</blockquote>
-<p>特征向量的长度依情况而定，特征元素越多则对单词表征得越全面。这里的特征向量长度设定为300。使用特征表征之后，词汇表中的每个单词都可以使用对应的300 x 1的向量来表示，该向量的每个元素表示该单词对应的某个特征值。每个单词用e+词汇表索引的方式标记，例如<script type="math/tex">e_{5391}</script>，<script type="math/tex">e_{9853}</script>，<script type="math/tex">e_{4914}</script>，<script type="math/tex">e_{7157}</script>，<script type="math/tex">e_{456}</script>，<script type="math/tex">e_{6257}</script></p>
-<p>用这种表示方法来表示<strong>apple</strong>和<strong>orange</strong>这些词，那么<strong>apple</strong>和<strong>orange</strong>的这种表示肯定会非常相似，可能有些特征不太一样，如颜色口味，但总的来说<strong>apple</strong>和<strong>orange</strong>的大部分特征实际上都一样，或者说都有相似的值。这样对于已经知道<strong>orange juice</strong>的算法很大几率上也会明白<strong>apple juice</strong>这个东西，这样对于不同的单词算法会泛化的更好</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/59fb45cfdf7faa53571ec7b921b78358.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/59fb45cfdf7faa53571ec7b921b78358.png" alt></a></p>
-<p>如果能够学习到一个300维的特征向量，或者说300维的<strong>词嵌入</strong>，把这300维的数据嵌入到一个二维空间里，就可以可视化了。常用的可视化算法是<strong>t-SNE算法</strong>，会发现<strong>man</strong>和<strong>woman</strong>这些词聚集在一块，<strong>king</strong>和<strong>queen</strong>聚集在一块等等</p>
-<p>在对这些概念可视化的时候，词嵌入算法对于相近的概念，学到的特征也比较类似，最终把它们映射为相似的特征向量</p>
-<h2 id="2-2-使用词嵌入（Using-Word-Embeddings）"><a href="#2-2-使用词嵌入（Using-Word-Embeddings）" class="headerlink" title="2.2 使用词嵌入（Using Word Embeddings）"></a>2.2 使用词嵌入（Using Word Embeddings）</h2><p>之前Named entity识别的例子（即找出语句中的人名），每个单词采用的是one-hot编码。RNN模型能确定<strong>Sally Johnson</strong>是一个人名而不是一个公司名，是因为“orange farmer”是份职业，很明显“Sally Johnson”是一个人名（输出1）</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b4bf4b0cdcef0c9d021707c47d5aecda.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b4bf4b0cdcef0c9d021707c47d5aecda.png" alt></a></p>
-<p>如果用特征化表示方法，即用<strong>词嵌入</strong>作为输入训练好的模型，如果一个新的输入：“<strong>Robert Lin is an apple farmer.</strong>”，因为知道<strong>orange</strong>和<strong>apple</strong>很相近，那么算法很容易就知道<strong>Robert Lin</strong>也是一个人的名字</p>
-<p><strong>featurized representation</strong>的优点是可以减少训练样本的数目，前提是对海量单词建立特征向量表述。即使训练样本不够多，测试时遇到陌生单词，例如“durian cultivator”，根据之前海量词汇特征向量就判断出“durian”也是一种水果，与“apple”类似，而“cultivator”与“farmer”也很相似。从而得到与“durian cultivator”对应的应该也是一个人名。这种做法将单词用不同的特征来表示，即使是训练样本中没有的单词，也可以根据word embedding的结果得到与其词性相近的单词，从而得到与该单词相近的结果，有效减少了训练样本的数量</p>
-<p>词嵌入能够达到这种效果，原因是学习词嵌入的算法会考察非常大的文本集</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8a1d58b7ade17208053c10728b2bf3b6.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8a1d58b7ade17208053c10728b2bf3b6.png" alt></a></p>
-<p>词嵌入做迁移学习的步骤：</p>
-<ol>
-<li>先从大量的文本集中学习词嵌入，或者下载网上预训练好的词嵌入模型</li>
-<li>用这些词嵌入模型迁移到新的只有少量标注训练集的任务中，比如用300维的词嵌入来表示单词。好处就是可以用更低维度的特征向量代替原来的10000维的<strong>one-hot</strong>向量。尽管<strong>one-hot</strong>向量很快计算，但学到的用于词嵌入的300维的向量会更加紧凑</li>
-<li>当在新的任务上训练模型，而在命名实体识别任务上只有少量的标记数据集，可以选择要不要继续微调，用新的数据调整词嵌入。但实际中只有第二步中有很大的数据集才会这样做，如果标记的数据集不是很大，通常不会在微调词嵌入上费力气</li>
-</ol>
-<p>当任务的训练集相对较小时，词嵌入的作用最明显，所以它广泛用于<strong>NLP</strong>领域</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/43943c791844cc7f077f6c6f98f1f629.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/43943c791844cc7f077f6c6f98f1f629.png" alt></a></p>
-<p>词嵌入和人脸编码有很多相似性，训练了一个<strong>Siamese</strong>网络结构，这个网络会学习不同人脸的一个128维表示，然后通过比较编码结果来判断两个图片是否是同一个人脸，在人脸识别领域用编码指代向量<script type="math/tex">f(x^{\left(i \right)})</script>，<script type="math/tex">f(x^{\left( j\right)})</script>，词嵌入的意思和这个差不多</p>
-<p>人脸识别领域和词嵌入不同就是：</p>
-<ul>
-<li>在人脸识别中训练一个网络，任给一个人脸照片，甚至是没有见过的照片，神经网络都会计算出相应的一个编码结果</li>
-<li>学习词嵌入则是有一个固定的词汇表，比如10000个单词，学习向量<script type="math/tex">e_{1}</script>到<script type="math/tex">e_{10000}</script>，学习一个固定的编码，即每一个词汇表的单词的固定嵌入</li>
-<li>人脸识别中的算法未来可能涉及到海量的人脸照片，而自然语言处理有一个固定的词汇表，没有出现过的单词就记为未知单词</li>
-</ul>
-<h2 id="2-3-词嵌入的特性（Properties-of-Word-Embeddings）"><a href="#2-3-词嵌入的特性（Properties-of-Word-Embeddings）" class="headerlink" title="2.3 词嵌入的特性（Properties of Word Embeddings）"></a>2.3 词嵌入的特性（Properties of Word Embeddings）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/12242657bd982acd1d80570cc090b4fe.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/12242657bd982acd1d80570cc090b4fe.png" alt></a></p>
-<p>该例中，假设用的是四维的嵌入向量，假如向量<script type="math/tex">e_{\text{man}}</script>和<script type="math/tex">e_{\text{woman}}</script>、<script type="math/tex">e_{\text{king}}</script>和<script type="math/tex">e_{\text{queen}}</script> 分别进行减法运算，相减结果表明，“Man”与“Woman”的主要区别是性别，“King”与“Queen”也是一样</p>
-<p>所以当算法被问及<strong>man</strong>对<strong>woman</strong>相当于<strong>king</strong>对什么时，算法所做的就是计算<script type="math/tex">e_{\text{man}}-e_{\text{woman}}</script>，然后找出一个向量也就是找出一个词，使得：</p>
-<script type="math/tex; mode=display">
-e_{\text{man}}-e_{\text{woman}}\approx e_{\text{king}} - e_{?}</script><p>即当这个新词是<strong>queen</strong>时，式子的左边会近似地等于右边</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5a42eea162ddc75a1d37520618b4bcd2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5a42eea162ddc75a1d37520618b4bcd2.png" alt></a></p>
-<p>在图中，词嵌入向量在一个可能有300维的空间里，箭头代表的是向量在<strong>gender</strong>（<strong>性别</strong>）这一维的差，为了得出类比推理，计算当<strong>man</strong>对于<strong>woman</strong>，<strong>king</strong>对于什么，要做的就是找到单词<strong>w</strong>来使得</p>
-<script type="math/tex; mode=display">
-e_{\text{man}}-e_{\text{woman}}\approx e_{\text{king}} - e_{w}</script><p>等式成立，即找到单词<strong>w</strong>来最大化<script type="math/tex">e_{w}</script>与<script type="math/tex">e_{\text{king}} - e_{\text{man}} + e_{\text{woman}}</script>的相似度，即</p>
-<script type="math/tex; mode=display">
-Find\ word\ w:argmax\ Sim(e_{w},e_{\text{king}} - e_{\text{man}} + e_{\text{woman}})</script><p>即把<script type="math/tex">e_{w}</script>全部放到等式的一边，另一边是<script type="math/tex">e_{\text{king}}- e_{\text{man}} + e_{\text{woman}}</script>。应用相似度函数，通过方程找到一个使得相似度最大的单词，如果结果理想的话会得到单词<strong>queen</strong></p>
-<p><strong>t-SNE算法</strong>所做的就是把这些300维的数据用一种非线性的方式映射到2维平面上，可以得知<strong>t-SNE</strong>中这种映射很复杂而且很非线性。在大多数情况下，由于<strong>t-SNE</strong>的非线性映射，不能总是期望使等式成立的关系会像左边那样成一个平行四边形</p>
-<p>关于相似函数，比较常用的是余弦相似度，假如在向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间定义相似度：</p>
-<script type="math/tex; mode=display">
-Sim(u,v)=\frac{u^Tv}{||u||\cdot ||v||}</script><p>分子是<script type="math/tex">u</script>和<script type="math/tex">v</script>的内积。如果<script type="math/tex">u</script>和<script type="math/tex">v</script>非常相似，那么它们的内积将会很大，把整个式子叫做余弦相似度，是因为该式是<script type="math/tex">u</script>和<script type="math/tex">v</script>的夹角的余弦值</p>
-<p><strong>参考资料：</strong> 给定两个向量<script type="math/tex">u</script>和<script type="math/tex">v</script>，余弦相似度定义如下：</p>
-<script type="math/tex; mode=display">
-{CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta)</script><p>$u.v$ 是两个向量的点积（或内积），<script type="math/tex">||u||_2</script>是向量<script type="math/tex">u</script>的范数（或长度）， <script type="math/tex">\theta</script> 是向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间的角度。这种相似性取决于角度在向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间。如果向量<script type="math/tex">u</script>和<script type="math/tex">v</script>非常相似，它们的余弦相似性将接近1; 如果它们不相似，则余弦相似性将取较小的值</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/markdown/..\images\cosine_sim.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/markdown/..\images\cosine_sim.png" alt title="osine\_si"></a></p>
-<blockquote>
-<p>两个向量之间角度的余弦是衡量它们有多相似的指标，角度越小，两个向量越相似</p>
-</blockquote>
-<p>还可以计算Euclidian distance来比较相似性，即<script type="math/tex">||u-v||^2</script>。距离越大，相似性越小</p>
-<h2 id="2-4-嵌入矩阵（Embedding-Matrix）"><a href="#2-4-嵌入矩阵（Embedding-Matrix）" class="headerlink" title="2.4 嵌入矩阵（Embedding Matrix）"></a>2.4 嵌入矩阵（Embedding Matrix）</h2><p>当应用算法来学习词嵌入时，实际上是学习一个<strong>嵌入矩阵</strong></p>
-<p>假设某个词汇库包含了10000个单词，每个单词包含的特征维度为300，那么表征所有单词的<strong>embedding matrix</strong>维度为300 x 10000，用<script type="math/tex">E</script>来表示。某单词<script type="math/tex">w</script>的one-hot向量表示为<script type="math/tex">O_w</script>，维度为10000 x 1</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ad1c7b1e85d39f56756c28787ccef892.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ad1c7b1e85d39f56756c28787ccef892.png" alt></a></p>
-<p>则该单词的嵌入向量(embedding vector)表达式为：</p>
-<script type="math/tex; mode=display">
-e_w=E\cdot O_w</script><p>只要知道了embedding matrix<script type="math/tex">E</script>，就能计算出所有单词的embedding vector <script type="math/tex">e_w</script></p>
-<p>不过上述这种矩阵乘积运算<script type="math/tex">E\cdot O_w</script>效率并不高，矩阵维度很大，且<script type="math/tex">O_w</script>大部分元素为零。通常做法是直接从<script type="math/tex">E</script>中选取第<script type="math/tex">w</script>列作为<script type="math/tex">e_w</script></p>
-<h2 id="2-5-学习词嵌入（Learning-Word-Embeddings）"><a href="#2-5-学习词嵌入（Learning-Word-Embeddings）" class="headerlink" title="2.5 学习词嵌入（Learning Word Embeddings）"></a>2.5 学习词嵌入（Learning Word Embeddings）</h2><p>embedding matrix <script type="math/tex">E</script>可以通过构建自然语言模型，运用梯度下降算法得到。若输入样本是：</p>
-<p><strong>I want a glass of orange (juice).</strong></p>
-<p>通过这句话的前6个单词，预测最后的单词“juice”。<script type="math/tex">E</script>未知待求，每个单词可用embedding vector <script type="math/tex">e_w</script>表示。构建的神经网络模型结构如下图所示：</p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/31347eca490e0ae8541140fb01c04d72.png" alt></a></p>
-<p>神经网络输入层包含6个embedding vectors，每个embedding vector维度是300，则输入层总共有1800个输入。Softmax层有10000个概率输出，与词汇表包含的单词数目一致。正确的输出label是“juice”。其中$E,W^{[1]},b^{[1]},W^{[2]},b^{[2]}$为待求值。对足够的训练例句样本，运用梯度下降算法，迭代优化，最终求出embedding matrix<script type="math/tex">E</script></p>
-<p>这种算法的效果还不错，能够保证具有相似属性单词的embedding vector相近</p>
-<p>为了让神经网络输入层数目固定，可以选择只取预测单词的前4个单词作为输入，例如该句中只选择“a glass of orange”四个单词作为输入。这里的4是超参数，可调</p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/747e619260737ded586ae51b3b4f07d6.png" alt></a></p>
-<p>把输入叫做<strong>context</strong>，输出叫做<strong>target</strong>。对应到上面这句话里：</p>
-<ul>
-<li><p><strong>context: a glass of orange</strong></p>
-</li>
-<li><p><strong>target: juice</strong></p>
-</li>
-</ul>
-<p>关于context的选择有多种方法：</p>
-<ul>
-<li><p><strong>target前n个单词或后n个单词，n可调</strong></p>
-</li>
-<li><p><strong>target前1个单词</strong></p>
-</li>
-<li><p><strong>target附近某1个单词（Skip-Gram）</strong><script type="math/tex">E</script></p>
-</li>
-</ul>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/638c103855ffeb25122259dd6b669850.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/638c103855ffeb25122259dd6b669850.png" alt></a></p>
-<p>事实证明，不同的context选择方法都能计算出较准确的embedding matrix <script type="math/tex">E</script></p>
-<h2 id="2-6-Word2Vec"><a href="#2-6-Word2Vec" class="headerlink" title="2.6 Word2Vec"></a>2.6 Word2Vec</h2><p>选择context和target的方法中，比较流行的是采用<strong>Skip-Gram</strong>模型</p>
-<p>Skip-Gram模型的做法是：首先随机选择一个单词作为context，例如“orange”；然后使用一个宽度为5或10（自定义）的滑动窗，在context附近选择一个单词作为target，可以是“juice”、“glass”、“my”等等。最终得到了多个context—target对作为监督式学习样本：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0800c19895cbf1a360379b5dc5493902.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0800c19895cbf1a360379b5dc5493902.png" alt></a></p>
-<p>训练的过程是构建自然语言模型，经过softmax单元的输出为：</p>
-<script type="math/tex; mode=display">
-\hat y=\frac{e^{\theta_t^T\cdot e_c}}{\sum_{j=1}^{10000}e^{\theta_j^T\cdot e_c}}</script><p>$\theta_t$为target对应的参数，<script type="math/tex">e_c</script>为context的embedding vector，且<script type="math/tex">e_c=E\cdot O_c</script></p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4ebf216a59d46efa2136f72b51fd49bd.png" alt></a></p>
-<p>相应的loss function为：</p>
-<script type="math/tex; mode=display">
-L(\hat y,y)=-\sum_{i=1}^{10000}y_ilog\ \hat y_i</script><blockquote>
-<p>由于</p>
-<script type="math/tex; mode=display">y</script><p>是一个one-hot向量，所以上式实际上10000个项里面只有一项是非0的</p>
-</blockquote>
-<p>然后，运用梯度下降算法，迭代优化，最终得到embedding matrix <script type="math/tex">E</script></p>
-<p>然而，这种算法计算量大，影响运算速度。主要因为softmax输出单元为10000个，<script type="math/tex">\hat y</script>计算公式中包含了大量的求和运算</p>
-<p>解决的办法之一是使用<strong>hierarchical softmax classifier</strong>，即<strong>树形分类器</strong>：</p>
-<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/89743b5ade106cad1318b8f3f4547a7f.png" alt></a></p>
-<p>这种树形分类器是一种二分类。它在每个数节点上对目标单词进行区间判断，最终定位到目标单词。最多需要<script type="math/tex">\log_2 N</script>步就能找到目标单词，N为单词总数</p>
-<p>实际应用中，对树形分类器做了一些改进。改进后的树形分类器是非对称的，通常选择把比较常用的单词放在树的顶层，而把不常用的单词放在树的底层。这样更能提高搜索速度</p>
-<p>关于context的采样：如果使用均匀采样，那么一些常用的介词、冠词，例如the, of, a, and, to等出现的概率更大一些。但是这些单词的embedding vectors通常不是最关心的，更关心的例如orange, apple， juice等这些名词。所以实际应用中一般不选择随机均匀采样的方式来选择context，而是使用其它算法来处理这类问题</p>
-<h2 id="2-7-负采样（Negative-Sampling）"><a href="#2-7-负采样（Negative-Sampling）" class="headerlink" title="2.7 负采样（Negative Sampling）"></a>2.7 负采样（Negative Sampling）</h2><p>算法要做的是构造一个新的监督学习问题：给定一对单词，比如<strong>orange</strong>和<strong>juice</strong>，去预测这是否是一对上下文词-目标词（<strong>context-target</strong>）</p>
-<p>在这个例子中<strong>orange</strong>和<strong>juice</strong>就是个正样本，用1作为标记，<strong>orange</strong>和<strong>king</strong>就是个负样本，标为0。要做的就是采样得到一个上下文词和一个目标词，中间列叫做词（<strong>word</strong>）。然后：</p>
-<ul>
-<li>生成一个正样本，先抽取一个context，在一定词距内比如说正负10个词距内选一个target，生成这个表的第一行，即<strong>orange– juice -1</strong>的过程</li>
-<li>生成一个负样本，用相同的context，再在字典中随机选一个词，如<strong>king、book、the、of</strong>，标记为0。因为如果随机选一个词，它很可能跟<strong>orange</strong>没关联</li>
-</ul>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/54beb302688f6a298b63178534281575.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/54beb302688f6a298b63178534281575.png" alt></a></p>
-<p>如果从字典中随机选到的词，正好出现在了词距内，比如说在上下文词<strong>orange</strong>正负10个词之内，也没关系，如<strong>of</strong>被标记为0，即使<strong>of</strong>的确出现在<strong>orange</strong>词的前面</p>
-<p>接下来将构造一个监督学习问题，学习算法输入<script type="math/tex">x</script>，即输入这对词（编号7），要去预测目标的标签（编号8），即预测输出<script type="math/tex">y</script></p>
-<p>如何选取<script type="math/tex">K</script>：</p>
-<ul>
-<li>小数据集的话，<script type="math/tex">K</script>从5到20，数据集越小<script type="math/tex">K</script>就越大</li>
-<li>如果数据集很大，<script type="math/tex">K</script>就选的小一点。对于更大的数据集<script type="math/tex">K</script>就从2到5</li>
-</ul>
-<p>学习从<script type="math/tex">x</script>映射到<script type="math/tex">y</script>的监督学习模型：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f36df292b7444e9b7379fa7c14626fa2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f36df292b7444e9b7379fa7c14626fa2.png" alt></a></p>
-<p>编号2是新的输入<script type="math/tex">x</script>，编号3是要预测的值<script type="math/tex">y</script>。记号<script type="math/tex">c</script>表示context，记号<script type="math/tex">t</script>表示可能的target，<script type="math/tex">y</script>表示0和1，即是否是一对context-target。要做的是定义一个逻辑回归模型，给定输入的<script type="math/tex">c</script>，<script type="math/tex">t</script>对的条件下，<script type="math/tex">y=1</script>的概率，即：</p>
-<script type="math/tex; mode=display">
-P\left( y = 1 \middle| c,t \right) = \sigma(\theta_{t}^{T}e_{c})</script><p>如果输入词是<strong>orange</strong>，即词6257，要做的就是输入<strong>one-hot</strong>向量，和<script type="math/tex">E</script>相乘获得嵌入向量<script type="math/tex">e_{6257}</script>，最后得到10,000个可能的逻辑回归分类问题，其中一个（编号4）将会是用来判断目标词是否是<strong>juice</strong>的分类器，其他的词比如下面的某个分类器（编号5）是用来预测<strong>king</strong>是否是目标词</p>
-<p>negative sampling中某个固定的正样本对应<script type="math/tex">k</script>个负样本，即模型总共包含了<script type="math/tex">k+1</script>个<strong>binary classification</strong>。对比之前10000个输出单元的softmax分类，negative sampling转化为<script type="math/tex">k+1</script>个二分类问题，每次迭代并不是训练10000个，而仅训练其中<script type="math/tex">k+1</script>个，计算量要小很多，大大提高了模型运算速度</p>
-<p>这种方法就叫做<strong>负采样（Negative Sampling）: </strong>选择一个正样本，随机采样<script type="math/tex">k</script>个负样本</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b05dd0362a19496bb0ad91b8494e374c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b05dd0362a19496bb0ad91b8494e374c.png" alt></a></p>
-<p>选取了context <strong>orange</strong>之后，如何选取负样本：</p>
-<ul>
-<li>通过单词出现的频率进行采样：导致一些类似a、the、of等词的频率较高</li>
-<li>均匀随机地抽取负样本：没有很好的代表性</li>
-</ul>
-<p><strong>（推荐）</strong>：</p>
-<script type="math/tex; mode=display">
-P(w_{i}) = \frac{f( w_{i})^{\frac{3}{4}}}{\sum_{j = 1}^{10,000}{f( w_{j} )^{\frac{3}{4}}}}</script><p>这种方法处于上面两种极端采样方法之间，即不用频率分布，也不用均匀分布，而采用的是对词频的<script type="math/tex">\frac{3}{4}</script>除以词频<script type="math/tex">\frac{3}{4}</script>整体的和进行采样的。其中，<script type="math/tex">f(w_j)</script>是语料库中观察到的某个词的词频</p>
-<h2 id="2-8-GloVe-词向量（GloVe-Word-Vectors）"><a href="#2-8-GloVe-词向量（GloVe-Word-Vectors）" class="headerlink" title="2.8 GloVe 词向量（GloVe Word Vectors）"></a>2.8 GloVe 词向量（GloVe Word Vectors）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/70e282d4d1abb86fd15ff7b175f4e579.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/70e282d4d1abb86fd15ff7b175f4e579.png" alt></a></p>
-<p><strong>GloVe</strong>代表用词表示的全局变量（<strong>global vectors for word representation</strong>）</p>
-<p>假定<script type="math/tex">X_{ij}</script>是单词<script type="math/tex">i</script>在单词<script type="math/tex">j</script>上下文中出现的次数，<script type="math/tex">i</script>和<script type="math/tex">j</script> 与<script type="math/tex">t</script>和<script type="math/tex">c</script>的功能一样，可以认为<script type="math/tex">X_{ij}</script>等同于<script type="math/tex">X_{tc}</script>。根据context和target的定义，会得出<script type="math/tex">X_{ij}</script>等于<script type="math/tex">X_{ji}</script></p>
-<ul>
-<li>如果将context和target的范围定义为出现于左右各10词以内的话，就有对称关系<script type="math/tex">X_{ij}=X_{ji}</script></li>
-<li>如果对context的选择是context总是目target前一个单词，那么<script type="math/tex">X_{ij}\neq X_{ji}</script></li>
-</ul>
-<p>对于<strong>GloVe</strong>算法，可以定义context和target为任意两个位置相近的单词，假设是左右各10词的距离，那么<script type="math/tex">X_{ij}</script>就是一个能够获取单词<script type="math/tex">i</script>和单词<script type="math/tex">j</script>彼此接近的频率计数器</p>
-<p><strong>GloVe</strong>模型做的就是进行优化，将差距进行最小化处理：</p>
-<script type="math/tex; mode=display">
-\text{mini}\text{mize}\sum_{i = 1}^{10,000}{\sum_{j = 1}^{10,000}}{f\left( X_{ij}
-\right)\left( \theta_{i}^{T}e_{j} + b_{i} + b_{j}^{'} - \log X_{ij} \right)^{2}}</script><p>$\theta_{i}^{T}e_{j}$即<script type="math/tex">\theta_{t}^{T}e_{c}</script>。对于<script type="math/tex">\theta_{t}^{T}e_{c}</script>，这两个单词同时出现的频率是多少受<script type="math/tex">X_{ij}</script>影响，若两个词的embedding vector越相近，同时出现的次数越多，则对应的loss越小</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f6fc2cec52f4ecb15567511aae822914.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f6fc2cec52f4ecb15567511aae822914.png" alt></a></p>
-<p>当<script type="math/tex">X_{ij}=0</script>时，权重因子<script type="math/tex">f(X_{ij})=0</script>。这种做法直接忽略了无任何相关性的context和target，只考虑<script type="math/tex">X_{ij}>0</script>的情况</p>
-<p>出现频率较大的单词相应的权重因子<script type="math/tex">f(X_{ij})</script>较大，出现频率较小的单词相应的权重因子<script type="math/tex">f(X_{ij})</script>较小一些</p>
-<p>因为<script type="math/tex">\theta</script>和<script type="math/tex">e</script>是完全对称的，所以<script type="math/tex">\theta_{i}</script>和<script type="math/tex">e_{j}</script>是对称的。因此训练算法的方法是一致地初始化<script type="math/tex">\theta</script>和<script type="math/tex">e</script>，然后使用梯度下降来最小化输出，当每个词都处理完之后取平均值：</p>
-<script type="math/tex; mode=display">
-e_{w}^{(final)}= \frac{e_{w} +\theta_{w}}{2}</script><p><strong>GloVe</strong>算法不能保证嵌入向量的独立组成部分：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ec4b604d619dd617f14c2a34945c075d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ec4b604d619dd617f14c2a34945c075d.png" alt></a></p>
-<p>通过上面的很多算法得到的词嵌入向量，无法保证词嵌入向量的每个独立分量是能够理解的。但能够确定是每个分量和所想的一些特征是有关联的，可能是一些我们能够理解的特征的组合而构成的一个组合分量</p>
-<p>使用上面的GloVe模型，从线性代数的角度解释如下：</p>
-<script type="math/tex; mode=display">
-\Theta_{i}^{T}e_{j} = \Theta_{i}^{T}A^{T}A^{-T}e_{j}=(A\Theta_{i})^{T}(A^{-T}e_{j})</script><p>加入的<script type="math/tex">A</script>项，可能构成任意的分量组合</p>
-<h2 id="2-9-情感分类（Sentiment-Classification）"><a href="#2-9-情感分类（Sentiment-Classification）" class="headerlink" title="2.9 情感分类（Sentiment Classification）"></a>2.9 情感分类（Sentiment Classification）</h2><p>情感分类任务就是看一段文本，然后分辨这个人是否喜欢他们在讨论的这个东西，最大的挑战就是可能标记的训练集没有那么多，但是有了词嵌入，即使只有中等大小标记的训练集，也能构建一个不错的情感分类器</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/bf6f5879d33ae4ef09b32f77df84948e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bf6f5879d33ae4ef09b32f77df84948e.png" alt></a></p>
-<blockquote>
-<p>输入<script type="math/tex">x</script>是一段文本，输出<script type="math/tex">y</script>是要预测的相应情感。比如一个餐馆评价的星级</p>
-</blockquote>
-<p>情感分类一个最大的挑战就是可能标记的训练集没有那么多。对于情感分类任务来说，训练集大小从10,000到100,000个单词都很常见，甚至有时会小于10,000个单词，采用了词嵌入能够带来更好的效果，尤其是只有很小的训练集</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ea844a0290e66d1c76a31e34b632dc0c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ea844a0290e66d1c76a31e34b632dc0c.png" alt></a></p>
-<p>给定四个词（”<strong>dessert is excellent</strong>“），通常用10,000个词的词汇表，找到相应的<strong>one-hot</strong>向量，再乘以嵌入矩阵<script type="math/tex">E</script>，<script type="math/tex">E</script>可以从一个很大的文本集里学习到，比如它可以从一亿个词或者一百亿个词里学习嵌入，然后用来提取单词<strong>the</strong>的嵌入向量<script type="math/tex">e_{8928}</script>，对<strong>dessert</strong>、<strong>is</strong>、<strong>excellent</strong>做同样的步骤</p>
-<p>然后取这些向量（编号2），如300维度的向量，通过平均值计算单元（编号3），求和并平均，再送进<strong>softmax</strong>分类器，然后输出<script type="math/tex">\hat y</script>。这个<strong>softmax</strong>能够输出5个可能结果的概率值，从一星到五星</p>
-<p>这个算法适用于任何长短的评论，因为即使评论是100个词长，也可以对这一百个词的特征向量求和取平均，得到一个300维的特征向量，然后送进<strong>softmax</strong>分类器</p>
-<p>但问题是没考虑词序，如负面的评价，”<strong>Completely lacking in good taste, good service, and good ambiance.</strong>“，<strong>good</strong>这个词出现了很多次，但算法忽略词序，仅仅把所有单词的词嵌入加起来或者平均下来，最后的特征向量会有很多<strong>good</strong>的表示，分类器很可能认为这是一个好的评论，尽管事实上这是一个差评，只有一星的评价</p>
-<p>为了解决这一问题，情感分类的另一种模型是RNN：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png" alt></a></p>
-<p>首先取这条评论，”<strong>Completely lacking in good taste, good service, and good ambiance.</strong>“，找出每一个<strong>one-hot</strong>向量，乘以词嵌入矩阵<script type="math/tex">E</script>，得到词嵌入表达<script type="math/tex">e</script>，然后把它们送进<strong>RNN</strong></p>
-<p><strong>RNN</strong>的工作就是在最后一步（编号1）计算一个特征表示，用来预测<script type="math/tex">\hat y</script>。这样的算法考虑词的顺序效果更好，能意识到”<strong>things are lacking in good taste</strong>“是个负面的评价，“<strong>not good</strong>”也是一个负面的评价。而不像原来的算法一样，只是把所有的加在一起得到一个大的向量，根本意识不到“<strong>not good</strong>”和 “<strong>good</strong>”不是一个意思，”<strong>lacking in good taste</strong>“也是如此，等等</p>
-<p>如果训练一个这样的算法，最后会得到一个很合适的情感分类的算法。由于词嵌入是在一个更大的数据集里训练的，这样会更好的泛化一些没有见过的新的单词。比如”<strong>Completely absent of good taste, good service, and good ambiance.</strong>“，即使<strong>absent</strong>这个词不在标记的训练集里</p>
-<p>如果是在一亿或者一百亿单词集里训练词嵌入，它仍然可以正确判断，并且泛化的很好，甚至这些词是在训练集中用于训练词嵌入，但不在专门做情感分类问题标记的训练集</p>
-<h2 id="2-10-词嵌入除偏（Debiasing-Word-Embeddings）"><a href="#2-10-词嵌入除偏（Debiasing-Word-Embeddings）" class="headerlink" title="2.10 词嵌入除偏（Debiasing Word Embeddings）"></a>2.10 词嵌入除偏（Debiasing Word Embeddings）</h2><p>根据训练模型所使用的文本，词嵌入能够反映出性别、种族、年龄、性取向等其他方面的偏见：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/25430afa93f24dc6caa6f85503bbad27.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/25430afa93f24dc6caa6f85503bbad27.png" alt></a></p>
-<p>假设已经完成一个词嵌入的学习，各个词的位置如图：</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/cf60f429ef532a2b3bbad3db98b054c5.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cf60f429ef532a2b3bbad3db98b054c5.png" alt></a></p>
-<p>首先做的事就是辨别出想要减少或想要消除的特定偏见的趋势</p>
-<p>怎样辨别出偏见相似的趋势：</p>
-<p>一、对于性别歧视，对所有性别对立的单词求差值，再平均：</p>
-<script type="math/tex; mode=display">
-bias\ direction=\frac1N ((e_{he}-e_{she})+(e_{male}-e_{female})+\cdots)</script><p>二、中和步骤，对于定义不确切的词可以将其处理一下，避免偏见。像<strong>doctor</strong>和<strong>babysitter</strong>使之在性别方面中立。将它们在这个轴（编号1）上进行处理，减少或是消除他们的性别歧视趋势的成分，即减少在水平方向上的距离（编号2方框内所示的投影）</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/4102795b004ff090ed83dc654f585852.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4102795b004ff090ed83dc654f585852.png" alt></a></p>
-<p>三、均衡步，<strong>babysitter</strong>和<strong>grandmother</strong>之间的距离或者说是相似度实际上是小于<strong>babysitter</strong>和<strong>grandfather</strong>之间的（编号1），因此这可能会加重不良状态，或者非预期的偏见，也就是说<strong>grandmothers</strong>相比于<strong>grandfathers</strong>最终更有可能输出<strong>babysitting</strong>。所以在最后的均衡步中，想要确保的是像<strong>grandmother</strong>和<strong>grandfather</strong>这样的词都能够有一致的相似度，或者说是相等的距离，做法是将<strong>grandmother</strong>和<strong>grandfather</strong>移至与中间轴线等距的一对点上（编号2），现在性别歧视的影响也就是这两个词与<strong>babysitter</strong>的距离就完全相同了（编号3）</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png" alt></a></p>
-<p>最后，掌握哪些单词需要中立化非常重要。一般来说，大部分英文单词，例如职业、身份等都需要中立化，消除embedding vector中性别这一维度的影响</p>
-
-          
+          <h2 id="2-1-词汇表征（Word-Representation）"><a href="#2-1-词汇表征（Word-Representation）" class="headerlink" title="2.1 词汇表征（Word Representation）"></a>2.1 词汇表征（Word Representation）</h2><p><strong>one-hot</strong>向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用<script type="math/tex">O_{5391}</script>,<script type="math/tex">O_{9853}</script> 等表示，<script type="math/tex">O</script>代表<strong>one-hot：</strong><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
