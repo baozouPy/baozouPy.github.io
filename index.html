@@ -573,7 +573,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T02:51:44Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T03:02:52Z">
                 2019-02-27
               </time>
             
@@ -681,107 +681,14 @@
 
       
         
-          
-            <h2 id="3-1-神经网络概述（Neural-Network-Overview）"><a href="#3-1-神经网络概述（Neural-Network-Overview）" class="headerlink" title="3.1 神经网络概述（Neural Network Overview）"></a>3.1 神经网络概述（Neural Network Overview）</h2><p><img src="/images/pasted-16.png" alt="upload successful"></p>
-<h2 id="3-2-神经网络的表示（Neural-Network-Representation-）"><a href="#3-2-神经网络的表示（Neural-Network-Representation-）" class="headerlink" title="3.2 神经网络的表示（Neural Network Representation ）"></a>3.2 神经网络的表示（Neural Network Representation ）</h2><p>单隐藏层神经网络就是典型的<strong>浅层（shallow）神经网络</strong></p>
-<p><img src="/images/pasted-17.png" alt="upload successful"></p>
-<p>单隐藏层神经网络也被称为两层神经网络（2 layer NN）</p>
-<p>第<script type="math/tex">l</script>层的权重<script type="math/tex">W^{[l]}</script>维度的行等于<script type="math/tex">l</script>层神经元的个数，列等于<script type="math/tex">l-1</script>层神经元的个数；第<script type="math/tex">i</script>层常数项<script type="math/tex">b^{[l]}</script>维度的行等于<script type="math/tex">l</script>层神经元的个数，列始终为1</p>
-<h2 id="3-3-计算一个神经网络的输出（Computing-a-Neural-Network’s-output-）"><a href="#3-3-计算一个神经网络的输出（Computing-a-Neural-Network’s-output-）" class="headerlink" title="3.3 计算一个神经网络的输出（Computing a Neural Network’s output ）"></a>3.3 计算一个神经网络的输出（Computing a Neural Network’s output ）</h2><p>两层神经网络可以看成是逻辑回归再重复计算一次</p>
-<p>逻辑回归的正向计算可以分解成计算z和a的两部分：</p>
-<script type="math/tex; mode=display">
-z=w^Tx+b</script><script type="math/tex; mode=display">
-a=\sigma(z)</script><p><img src="/images/pasted-18.png" alt="upload successful"></p>
-<p>两层神经网络，从输入层到隐藏层对应一次逻辑回归运算；从隐藏层到输出层对应一次逻辑回归运算</p>
-<script type="math/tex; mode=display">
-z^{[1]}=W^{[1]}x+b^{[1]}</script><script type="math/tex; mode=display">
-a^{[1]}=\sigma(z^{[1]})</script><script type="math/tex; mode=display">
-z^{[2]}=W^{[2]}a^{[1]}+b^{[2]}</script><script type="math/tex; mode=display">
-a^{[2]}=\sigma(z^{[2]})</script><p><img src="/images/pasted-19.png" alt="upload successful"></p>
-<h2 id="3-4-多样本向量化（Vectorizing-across-multiple-examples-）"><a href="#3-4-多样本向量化（Vectorizing-across-multiple-examples-）" class="headerlink" title="3.4 多样本向量化（Vectorizing across multiple examples ）"></a>3.4 多样本向量化（Vectorizing across multiple examples ）</h2><p>for循环来求解其正向输出：</p>
-<p>for i = 1 to m:</p>
-<script type="math/tex; mode=display">\begin{aligned}&z^{[1](i)}=W^{[1]}x^{(i)}+b^{[1]}\\&a^{[1](i)}=\sigma(z^{[1](i)})\\&z^{[2](i)}=W^{[2]}a^{[1](i)}+b^{[2]} \\&a^{[2](i)}=\sigma(z^{[2](i)})\end{aligned}</script><p>矩阵运算的形式：</p>
-<script type="math/tex; mode=display">
-Z^{[1]}=W^{[1]}X+b^{[1]}</script><script type="math/tex; mode=display">
-A^{[1]}=\sigma(Z^{[1]})</script><script type="math/tex; mode=display">
-Z^{[2]}=W^{[2]}A^{[1]}+b^{[2]}</script><script type="math/tex; mode=display">
-A^{[2]}=\sigma(Z^{[2]})</script><p>行表示神经元个数，列表示样本数目<script type="math/tex">m</script></p>
-<h2 id="3-5-激活函数（Activation-functions）"><a href="#3-5-激活函数（Activation-functions）" class="headerlink" title="3.5 激活函数（Activation functions）"></a>3.5 激活函数（Activation functions）</h2><ul>
-<li>sigmoid函数</li>
-</ul>
-<p><img src="/images/pasted-20.png" alt="upload successful"></p>
-<ul>
-<li>tanh函数</li>
-</ul>
-<p><img src="/images/pasted-21.png" alt="upload successful"></p>
-<ul>
-<li>ReLU函数</li>
-</ul>
-<p><img src="/images/pasted-22.png" alt="upload successful"></p>
-<ul>
-<li>Leaky ReLU函数</li>
-</ul>
-<p><img src="/images/pasted-23.png" alt="upload successful"></p>
-<p>对于隐藏层的激活函数，<script type="math/tex">tanh</script>函数要比<script type="math/tex">sigmoid</script>函数表现更好一些。因为<script type="math/tex">tanh</script>函数的取值范围在<script type="math/tex">[-1,+1]</script>之间，隐藏层的输出被限定在[<script type="math/tex">-1,+1]</script>之间，可以看成是在<script type="math/tex">0</script>值附近分布，均值为<script type="math/tex">0</script>。这样从隐藏层到输出层，数据起到了归一化（均值为<script type="math/tex">0</script>）的效果</p>
-<p>对于输出层的激活函数，因为二分类问题的输出取值为<script type="math/tex">\{0,+1\}</script>，所以一般会选择<script type="math/tex">sigmoid</script>作为激活函数</p>
-<p>选择<script type="math/tex">ReLU</script>作为激活函数能够保证<script type="math/tex">z</script>大于零时梯度始终为<script type="math/tex">1</script>，从而提高神经网络梯度下降算法运算速度。但当<script type="math/tex">z</script>小于零时，存在梯度为<script type="math/tex">0</script>的缺点</p>
-<script type="math/tex; mode=display">Leaky$$ $$ReLU$$激活函数，能够保证$$z$$小于零时梯度不为$$0</script><h2 id="3-6-为什么需要（-非线性激活函数？（why-need-a-nonlinear-activation-function-）"><a href="#3-6-为什么需要（-非线性激活函数？（why-need-a-nonlinear-activation-function-）" class="headerlink" title="3.6 为什么需要（ 非线性激活函数？（why need a nonlinear activation function?）"></a>3.6 为什么需要（ 非线性激活函数？（why need a nonlinear activation function?）</h2><p>假设所有的激活函数都是线性的，直接令激活函数<script type="math/tex">g(z)=z</script>，即<script type="math/tex">a=z</script></p>
-<script type="math/tex; mode=display">
-z^{[1]}=W^{[1]}x+b^{[1]}</script><script type="math/tex; mode=display">
-a^{[1]}=z^{[1]}</script><script type="math/tex; mode=display">
-z^{[2]}=W^{[2]}a^{[1]}+b^{[2]}</script><script type="math/tex; mode=display">
-a^{[2]}=z^{[2]}</script><script type="math/tex; mode=display">
-a^{[2]}=z^{[2]}=W^{[2]}a^{[1]}+b^{[2]}=W^{[2]}(W^{[1]}x+b^{[1]})+b^{[2]}=(W^{[2]}W^{[1]})x+(W^{[2]}b^{[1]}+b^{[2]})=W'x+b'</script><p>多层隐藏层的神经网络，如果使用线性函数作为激活函数，最终的输出仍然是输入<script type="math/tex">x</script>的线性模型。这样的话神经网络就没有任何作用了。因此，隐藏层的激活函数必须要是非线性的</p>
-<p>如果是预测问题而不是分类问题，输出<script type="math/tex">y</script>是连续的情况下，输出层的激活函数可以使用线性函数。如果输出<script type="math/tex">y</script>恒为正值，则也可以使用<script type="math/tex">ReLU</script>激活函数</p>
-<h2 id="3-7-激活函数的导数（Derivatives-of-activation-functions-）"><a href="#3-7-激活函数的导数（Derivatives-of-activation-functions-）" class="headerlink" title="3.7 激活函数的导数（Derivatives of activation functions ）"></a>3.7 激活函数的导数（Derivatives of activation functions ）</h2><p>$sigmoid$函数的导数：</p>
-<script type="math/tex; mode=display">
-g(z)=\frac{1}{1+e^{(-z)}}</script><script type="math/tex; mode=display">
-g'(z)=\frac{d}{dz}g(z)=g(z)(1-g(z))=a(1-a)</script><p>$tanh$函数的导数：</p>
-<script type="math/tex; mode=display">
-g(z)=\frac{e^{(z)}-e^{(-z)}}{e^{(z)}+e^{(-z)}}</script><script type="math/tex; mode=display">
-g'(z)=\frac{d}{dz}g(z)=1-(g(z))^2=1-a^2</script><p>$ReLU$函数的导数：</p>
-<script type="math/tex; mode=display">
-g(z)=max(0,z)</script><script type="math/tex; mode=display">
-x = \begin{cases}
-0 &\text{if } z < 0 \\
-1 &\text{if } z \geq 0
-\end{cases}</script><p>$Leaky ReLU$函数：</p>
-<script type="math/tex; mode=display">
-g(z)=max(0.01z,z)</script><script type="math/tex; mode=display">
-g'(z) = \begin{cases}
-0.01 &\text{if } z < 0 \\
-1 &\text{if } z \geq 0
-\end{cases}</script><h2 id="3-8-神经网络的梯度下降（Gradient-descent-for-neural-networks）"><a href="#3-8-神经网络的梯度下降（Gradient-descent-for-neural-networks）" class="headerlink" title="3.8 神经网络的梯度下降（Gradient descent for neural networks）"></a>3.8 神经网络的梯度下降（Gradient descent for neural networks）</h2><script type="math/tex; mode=display">
-dZ^{[2]}=A^{[2]}-Y</script><script type="math/tex; mode=display">
-dW^{[2]}=\frac1mdZ^{[2]}A^{[1]T}</script><script type="math/tex; mode=display">
-db^{[2]}=\frac1mnp.sum(dZ^{[2]},axis=1,keepdim=True)</script><script type="math/tex; mode=display">
-dZ^{[1]}=W^{[2]T}dZ^{[2]}\ast g'(Z^{[1]})</script><script type="math/tex; mode=display">
-dW^{[1]}=\frac1mdZ^{[1]}X^T</script><script type="math/tex; mode=display">
-db^{[1]}=\frac1mnp.sum(dZ^{[1]},axis=1,keepdim=True)</script><h2 id="3-9-（选修）直观理解反向传播（Backpropagation-intuition-）"><a href="#3-9-（选修）直观理解反向传播（Backpropagation-intuition-）" class="headerlink" title="3.9 （选修）直观理解反向传播（Backpropagation intuition ）"></a>3.9 （选修）直观理解反向传播（Backpropagation intuition ）</h2><p>单个训练样本反向过程可以根据梯度计算方法逐一推导：</p>
-<script type="math/tex; mode=display">
-dz^{[2]}=a^{[2]}-y</script><script type="math/tex; mode=display">
-dW^{[2]}=dz^{[2]}\cdot \frac{\partial z^{[2]}}{\partial W^{[2]}}=dz^{[2]}a^{[1]T}</script><script type="math/tex; mode=display">
-db^{[2]}=dz^{[2]}\cdot \frac{\partial z^{[2]}}{\partial b^{[2]}}=dz^{[2]}\cdot 1=dz^{[2]}</script><script type="math/tex; mode=display">
-dz^{[1]}=dz^{[2]}\cdot \frac{\partial z^{[2]}}{\partial a^{[1]}}\cdot \frac{\partial a^{[1]}}{\partial z^{[1]}}=W^{[2]T}dz^{[2]}\ast g^{[1]'}(z^{[1]})</script><script type="math/tex; mode=display">
-dW^{[1]}=dz^{[1]}\cdot \frac{\partial z^{[1]}}{\partial W^{[1]}}=dz^{[1]}x^T</script><script type="math/tex; mode=display">
-db^{[1]}=dz^{[1]}\cdot \frac{\partial z^{[1]}}{\partial b^{[1]}}=dz^{[1]}\cdot 1=dz^{[1]}</script><p><img src="/images/pasted-24.png" alt="upload successful"></p>
-<p>浅层神经网络（包含一个隐藏层），<script type="math/tex">m</script>个训练样本的正向传播过程和反向传播过程分别包含了<script type="math/tex">6</script>个表达式，其向量化矩阵形式如下图所示：</p>
-<p><img src="/images/pasted-25.png" alt="upload successful"></p>
-<h2 id="3-10-随机初始化（Random-Initialization）"><a href="#3-10-随机初始化（Random-Initialization）" class="headerlink" title="3.10 随机初始化（Random Initialization）"></a>3.10 随机初始化（Random Initialization）</h2><p>神经网络模型中的参数权重<script type="math/tex">W</script>不能全部初始化为零</p>
-<p><img src="/images/pasted-26.png" alt="upload successful"></p>
-<p>如果权重<script type="math/tex">W^{[1]}</script>和<script type="math/tex">W^{[2]}</script>都初始化为零，即：</p>
-<script type="math/tex; mode=display">
-W^{[1]}= \left[ \begin{matrix} 0 & 0 \\ 0 & 0 \end{matrix} \right]</script><script type="math/tex; mode=display">
-W^{[2]}= \left[ \begin{matrix} 0 & 0 \end{matrix} \right]</script><p>这样使得隐藏层第一个神经元的输出等于第二个神经元的输出，即<script type="math/tex">a_1^{[1]}=a_2^{[1]}</script>。经过推导得到<script type="math/tex">dz_1^{[1]}=dz_2^{[1]}</script>，<script type="math/tex">dW_1^{[1]}=dW_2^{[1]}</script>，这样的结果是隐藏层两个神经元对应的权重行向量<script type="math/tex">W_1^{[1]}</script>和<script type="math/tex">W_2^{[1]}</script>每次迭代更新都会得到完全相同的结果，<script type="math/tex">W_1^{[1]}</script>始终等于<script type="math/tex">W_2^{[1]}</script>，完全对称。这样隐藏层设置多个神经元就没有任何意义</p>
-<p>权重<script type="math/tex">W</script>全部初始化为零带来的问题称为<strong>symmetry breaking problem</strong></p>
-<p>随机初始化：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">W_1 = np.random.randn((<span class="number">2</span>,<span class="number">2</span>))*<span class="number">0.01</span></span><br><span class="line">b_1 = np.zero((<span class="number">2</span>,<span class="number">1</span>))</span><br><span class="line">W_2 = np.random.randn((<span class="number">1</span>,<span class="number">2</span>))*<span class="number">0.01</span></span><br><span class="line">b_2 = <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>让<script type="math/tex">W</script>比较小，是因为如果使用<script type="math/tex">sigmoid</script>函数或者<script type="math/tex">tanh</script>函数作为激活函数的话，<script type="math/tex">W</script>比较小，得到的<script type="math/tex">|z|</script>也比较小（靠近零点），而零点区域的梯度比较大，这样能大大提高梯度下降算法的更新速度，尽快找到全局最优解</p>
-<p>如果<script type="math/tex">W</script>较大，得到的<script type="math/tex">|z|</script>也比较大，附近曲线平缓，梯度较小，训练过程会慢很多</p>
-<p>如果激活函数是<script type="math/tex">ReLU</script>或者<script type="math/tex">Leaky</script> <script type="math/tex">ReLU</script>函数，则不需要考虑这个问题</p>
-<p>如果输出层是<script type="math/tex">sigmoid</script>函数，则对应的权重<script type="math/tex">W</script>最好初始化到比较小的值</p>
-
-          
+          <h2 id="3-1-神经网络概述（Neural-Network-Overview）"><a href="#3-1-神经网络概述（Neural-Network-Overview）" class="headerlink" title="3.1 神经网络概述（Neural Network Overview）"></a>3.1 神经网络概述（Neural Network Overview）</h2><p><img src="/images/pasted-16.png" alt="upload successful"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2467,7 +2374,7 @@ W^{[2]}= \left[ \begin{matrix} 0 & 0 \end{matrix} \right]</script><p>这样使�
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
