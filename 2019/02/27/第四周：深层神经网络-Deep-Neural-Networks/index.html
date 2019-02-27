@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://baozouai.com/images/pasted-31.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-32.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-33.png">
-<meta property="og:updated_time" content="2019-02-27T02:29:20.310Z">
+<meta property="og:updated_time" content="2019-02-27T02:31:04.784Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第四周：深层神经网络(Deep Neural Networks)">
 <meta name="twitter:description" content="4.1 深层神经网络（Deep L-layer neural network） $L-layer\quad NN$，则包含了L-1个隐藏层，最后的L层是输出层 $a^{[l]}$和W^{[l]}中的上标l都是从1开始的，l=1,\cdots,L 输入x记为a^{[0]}​​，把输出层\hat y记为a^{[L]}  $X$：(12288, 209)(with m=209 examples)">
@@ -363,7 +363,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T10:29:20+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T10:31:04+08:00">
                 2019-02-27
               </time>
             
@@ -526,29 +526,18 @@
 </tbody>
 </table>
 </div>
-<h2 id="4-2-前向传播和反向传播（Forward-and-backward-propagation）"><a href="#4-2-前向传播和反向传播（Forward-and-backward-propagation）" class="headerlink" title="4.2 前向传播和反向传播（Forward and backward propagation）"></a>4.2 前向传播和反向传播（Forward and backward propagation）</h2><h2 id="正向传播过程"><a href="#正向传播过程" class="headerlink" title="正向传播过程"></a>正向传播过程</h2><script type="math/tex; mode=display">
+<h2 id="4-2-前向传播和反向传播（Forward-and-backward-propagation）"><a href="#4-2-前向传播和反向传播（Forward-and-backward-propagation）" class="headerlink" title="4.2 前向传播和反向传播（Forward and backward propagation）"></a>4.2 前向传播和反向传播（Forward and backward propagation）</h2><h3 id="正向传播过程"><a href="#正向传播过程" class="headerlink" title="正向传播过程"></a>正向传播过程</h3><script type="math/tex; mode=display">
 z^{[l]}=W^{[l]}a^{[l-1]}+b^{[l]}</script><script type="math/tex; mode=display">
-a^{[l]}=g^{[l]}(z^{[l]})</script><script type="math/tex; mode=display">m$$个训练样本，向量化形式为：</script><p>Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}</p>
+a^{[l]}=g^{[l]}(z^{[l]})</script><p>$m$个训练样本，向量化形式为：</p>
 <script type="math/tex; mode=display">
-</script><p>A^{[l]}=g^{[l]}(Z^{[l]})</p>
+Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}</script><script type="math/tex; mode=display">
+A^{[l]}=g^{[l]}(Z^{[l]})</script><h3 id="反向传播过程"><a href="#反向传播过程" class="headerlink" title="反向传播过程"></a>反向传播过程</h3><script type="math/tex; mode=display">
+dz^{[l]}=da^{[l]}\ast g^{[l]'}(z^{[l]})</script><script type="math/tex; mode=display">
+dW^{[l]}=dz^{[l]}\cdot {a^{[l-1]}}^T</script><script type="math/tex; mode=display">
+db^{[l]}=dz^{[l]}</script><script type="math/tex; mode=display">
+da^{[l-1]}=W^{[l]T}\cdot dz^{[l]}</script><p>得到：</p>
 <script type="math/tex; mode=display">
-
-
-## 反向传播过程</script><p>dz^{[l]}=da^{[l]}\ast g^{[l]’}(z^{[l]})</p>
-<script type="math/tex; mode=display">
-</script><p>dW^{[l]}=dz^{[l]}\cdot {a^{[l-1]}}^T</p>
-<script type="math/tex; mode=display">
-</script><p>db^{[l]}=dz^{[l]}</p>
-<script type="math/tex; mode=display">
-</script><p>da^{[l-1]}=W^{[l]T}\cdot dz^{[l]}</p>
-<script type="math/tex; mode=display">
-
-
-得到：</script><p>dz^{[l]}=W^{[l+1]T}\cdot dz^{[l+1]}\ast g^{[l]’}(z^{[l]})</p>
-<script type="math/tex; mode=display">
-
-
-$$m$$个训练样本，向量化形式为：</script><p>dZ^{[l]}=dA^{[l]}\ast g^{[l]’}(Z^{[l]})</p>
+dz^{[l]}=W^{[l+1]T}\cdot dz^{[l+1]}\ast g^{[l]'}(z^{[l]})</script><script type="math/tex; mode=display">m$$个训练样本，向量化形式为：</script><p>dZ^{[l]}=dA^{[l]}\ast g^{[l]’}(Z^{[l]})</p>
 <script type="math/tex; mode=display">
 </script><p>dW^{[l]}=\frac1mdZ^{[l]}\cdot A^{[l-1]T}</p>
 <script type="math/tex; mode=display">
@@ -571,9 +560,9 @@ $$m$$个训练样本，向量化形式为：</script><p>dZ^{[l]}=dA^{[l]}\ast g^
 <script type="math/tex; mode=display">
 
 
-其中$$l=1,\cdots,L</script><h2 id="4-4-为什么使用深层表示？（Why-deep-representations-）"><a href="#4-4-为什么使用深层表示？（Why-deep-representations-）" class="headerlink" title="4.4 为什么使用深层表示？（Why deep representations?）"></a>4.4 为什么使用深层表示？（Why deep representations?）</h2><h2 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h2><p><img src="/images/pasted-30.png" alt="upload successful"><br>经过训练，神经网络第一层所做的事就是从原始图片中提取出人脸的轮廓与边缘，即<strong>边缘检测</strong>。这样每个神经元得到的是一些边缘信息。神经网络第二层所做的事情就是将前一层的边缘进行组合，组合成人脸一些局部特征，比如眼睛、鼻子、嘴巴等。再往后面，就将这些局部特征组合起来，融合成人脸的模样。</p>
+其中$$l=1,\cdots,L</script><h2 id="4-4-为什么使用深层表示？（Why-deep-representations-）"><a href="#4-4-为什么使用深层表示？（Why-deep-representations-）" class="headerlink" title="4.4 为什么使用深层表示？（Why deep representations?）"></a>4.4 为什么使用深层表示？（Why deep representations?）</h2><h3 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h3><p><img src="/images/pasted-30.png" alt="upload successful"><br>经过训练，神经网络第一层所做的事就是从原始图片中提取出人脸的轮廓与边缘，即<strong>边缘检测</strong>。这样每个神经元得到的是一些边缘信息。神经网络第二层所做的事情就是将前一层的边缘进行组合，组合成人脸一些局部特征，比如眼睛、鼻子、嘴巴等。再往后面，就将这些局部特征组合起来，融合成人脸的模样。</p>
 <p>随着层数由浅到深，神经网络提取的特征也是从边缘到局部特征到整体，由简单到复杂。如果隐藏层足够多，那么能够提取的特征就越丰富、越复杂，模型的准确率就会越高。</p>
-<h2 id="语音识别模型"><a href="#语音识别模型" class="headerlink" title="语音识别模型"></a>语音识别模型</h2><p>浅层的神经元能够检测一些简单的音调，较深的神经元能够检测出基本的音素，更深的神经元就能够检测出单词信息。如果网络够深，还能对短语、句子进行检测。</p>
+<h3 id="语音识别模型"><a href="#语音识别模型" class="headerlink" title="语音识别模型"></a>语音识别模型</h3><p>浅层的神经元能够检测一些简单的音调，较深的神经元能够检测出基本的音素，更深的神经元就能够检测出单词信息。如果网络够深，还能对短语、句子进行检测。</p>
 <p>神经网络从左到右，神经元提取的特征从简单到复杂。特征复杂度与神经网络层数成正相关。特征越来越复杂，功能也越来越强大</p>
 <p>深层网络另外一个优点:减少神经元个数，从而减少计算量</p>
 <p>使用电路理论，计算逻辑输出：</p>
@@ -864,7 +853,7 @@ y=x_1\oplus x_2\oplus x_3\oplus\cdots\oplus x_n</script><p>对于这个逻辑运
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-深层神经网络（Deep-L-layer-neural-network）"><span class="nav-number">1.</span> <span class="nav-text">4.1 深层神经网络（Deep L-layer neural network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-前向传播和反向传播（Forward-and-backward-propagation）"><span class="nav-number">2.</span> <span class="nav-text">4.2 前向传播和反向传播（Forward and backward propagation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正向传播过程"><span class="nav-number">3.</span> <span class="nav-text">正向传播过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-为什么使用深层表示？（Why-deep-representations-）"><span class="nav-number">4.</span> <span class="nav-text">4.4 为什么使用深层表示？（Why deep representations?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#人脸识别"><span class="nav-number">5.</span> <span class="nav-text">人脸识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语音识别模型"><span class="nav-number">6.</span> <span class="nav-text">语音识别模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-搭建神经网络块（Building-blocks-of-deep-neural-networks）"><span class="nav-number">7.</span> <span class="nav-text">4.5 搭建神经网络块（Building blocks of deep neural networks）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-参数-VS-超参数（Parameters-vs-Hyperparameters）"><span class="nav-number">8.</span> <span class="nav-text">4.6 参数 VS 超参数（Parameters vs Hyperparameters）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-深层神经网络（Deep-L-layer-neural-network）"><span class="nav-number">1.</span> <span class="nav-text">4.1 深层神经网络（Deep L-layer neural network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-前向传播和反向传播（Forward-and-backward-propagation）"><span class="nav-number">2.</span> <span class="nav-text">4.2 前向传播和反向传播（Forward and backward propagation）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正向传播过程"><span class="nav-number">2.1.</span> <span class="nav-text">正向传播过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向传播过程"><span class="nav-number">2.2.</span> <span class="nav-text">反向传播过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-为什么使用深层表示？（Why-deep-representations-）"><span class="nav-number">3.</span> <span class="nav-text">4.4 为什么使用深层表示？（Why deep representations?）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#人脸识别"><span class="nav-number">3.1.</span> <span class="nav-text">人脸识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语音识别模型"><span class="nav-number">3.2.</span> <span class="nav-text">语音识别模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-搭建神经网络块（Building-blocks-of-deep-neural-networks）"><span class="nav-number">4.</span> <span class="nav-text">4.5 搭建神经网络块（Building blocks of deep neural networks）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-参数-VS-超参数（Parameters-vs-Hyperparameters）"><span class="nav-number">5.</span> <span class="nav-text">4.6 参数 VS 超参数（Parameters vs Hyperparameters）</span></a></li></ol></div>
             
 
           </div>
