@@ -358,7 +358,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T07:09:04Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T07:14:05Z">
                 2019-02-27
               </time>
             
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  7.7k
+                  5.8k
                 </span>
               
 
@@ -423,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  28
+                  21
                 </span>
               
             </div>
@@ -544,10 +544,6 @@ arg\ max\ \frac{1}{T_y^{\alpha}}\sum_{t=1}^{T_y}\log P(\hat y^{< t>}|x,\hat y^{<
 <li>执行误差分析，得出束搜索算法和<strong>RNN</strong>模型出错的比例是多少。对开发集中每一个错误例子，即算法输出了比人工翻译更差的结果的情况，尝试确定是搜索算法出了问题，还是生成目标函数(束搜索算法使之最大化)的<strong>RNN</strong>模型出了问题。找到这两个部分中哪个是产生更多错误的原因</li>
 <li>只有当发现是束搜索算法造成了大部分错误时，才值得花费努力<strong>增大集束宽度B</strong>；如果发现是<strong>RNN</strong>模型出了更多错，那么可以进行更深层次的分析，来决定是需要<strong>增加正则化</strong>还是<strong>获取更多的训练数据</strong>，抑或是尝试一个<strong>不同的网络结构</strong></li>
 </ol>
-<p>集束搜索的误差分析（Error analysis in beam search）<br>束搜索算法是一种近似搜索算法（an approximate search algorithm），也被称作启发式搜索算法（a heuristic search algorithm），它不总是输出可能性最大的句子，它仅记录着B为前3或者10或是100种可能<br>人工标记为y∗。束搜索算法翻译结果标记为y^，是一个十分糟糕的翻译，改变了句子的原意：</p>
-<p>模型有两个主要部分，一个是神经网络模型，或说是序列到序列模型（sequence to sequence model），称作是RNN模型，另一部分是束搜索算法，以某个集束宽度B运行<br>RNN(循环神经网络)实际上是个编码器和解码器（the encoder and the decoder），它会计算P(y|x)。如对于句子：Jane visits Africa in September，将Jane visits Africa填入这里（上图编号1），忽略字母的大小写，后面也是一样，计算得到P(y∗|x)，P(y^|x) 同样如此，然后比较一下这两个值哪个更大</p>
-<p>若P(y∗|x) 大于P(y^|x)，可束搜索算法却选择了y^ ， 因此能够得出束搜索算法实际上不能给出使P(y|x)最大化的y值，因为束搜索算法的任务就是寻找一个y的值来使这项更大，但是它却选择了y^，而y∗实际上能得到更大的值。因此这种情况下束搜索算法出错<br>若P(y∗|x)小于或等于P(y^|x)，y∗ 是比 y^更好的翻译结果，不过根据RNN模型的结果，P(y∗) 是小于P(y^)的，即相比于y^，y∗成为输出的可能更小。因此在这种情况下是RNN模型出了问题<br>以上都忽略了长度归一化（length normalizations）的细节，如果用了某种长度归一化，那么要比较长度归一化后的最优化目标函数值</p>
-<p>误差分析过程：<br>先遍历开发集，找出算法产生的错误<br>假如P(y∗|x)的值为2 x 10−10，而P(y^|x)的值为 1 x10−10，得知束搜索算法实际上选择了比y∗可能性更低的y^，则束搜索算法出错，缩写为B<br>接着继续遍历第二个错误，若对于第二个例子是RNN模型出现了问题，用缩写R来代表RNN<br>接着遍历更多的例子，有时是束搜索算法出现了问题，有时是模型出现了问题，等等<br>执行误差分析，得出束搜索算法和RNN模型出错的比例是多少。对开发集中每一个错误例子，即算法输出了比人工翻译更差的结果的情况，尝试确定是搜索算法出了问题，还是生成目标函数(束搜索算法使之最大化)的RNN模型出了问题。找到这两个部分中哪个是产生更多错误的原因<br>只有当发现是束搜索算法造成了大部分错误时，才值得花费努力增大集束宽度B；如果发现是RNN模型出了更多错，那么可以进行更深层次的分析，来决定是需要增加正则化还是获取更多的训练数据，抑或是尝试一个不同的网络结构</p>
 <h2 id="3-6-Bleu-得分（选修）（Bleu-Score-optional-）"><a href="#3-6-Bleu-得分（选修）（Bleu-Score-optional-）" class="headerlink" title="3.6 Bleu 得分（选修）（Bleu Score (optional)）"></a>3.6 Bleu 得分（选修）（Bleu Score (optional)）</h2><p>机器翻译（<strong>machine translation</strong>）的一大难题是一个法语句子可以有多种英文翻译而且都同样很好，常见的解决办法是通过一个<strong>BLEU</strong>得分（<strong>the BLEU score</strong>）的东西来解决，BLEU得分是一个有用的单一实数评估指标，用于评估生成文本的算法，判断输出的结果是否与人工写出的参考文本的含义相似</p>
 <p>一般有多个人工翻译：</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5e854a803e36991a6e0dd4e33ecab930.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e854a803e36991a6e0dd4e33ecab930.png" alt></a></p>
@@ -576,37 +572,21 @@ p=BP\cdot exp(\frac1n\sum_{i=1}^np_i)</script><p>BLEU得分被用来评估许多
 <p>而注意力模型翻译得很像人类，一次翻译句子的一部分。且机器翻译系统只会翻译句子的一部分，不会有一个巨大的下倾（<strong>huge dip</strong>），这个下倾衡量了神经网络记忆一个长句子的能力</p>
 <p>对于句子里的每五个单词，使用双向的<strong>RNN</strong>（<strong>a bidirectional RNN</strong>），使用另一个<strong>RNN</strong>生成英文翻译：</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/3dcdd58eaa544a09e67eb892f8c732bf.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/3dcdd58eaa544a09e67eb892f8c732bf.png" alt></a></p>
-<script type="math/tex; mode=display">S^{<t>}$$由原语句附近单元共同决定，**注意力权重（attention weights）**$$\alpha^{<  t,t'>}$$ 表示尝试生成第$$t$$个英文词时应该花多少注意力在第$$t'$$个法语词上面。直到最终生成$$< EOS>$$。离得越近，**注意力权重**越大，相当于当前的注意力区域有个滑动窗。$$c$$表示编码器激活函数在注意力权重加权后的结果，将$$c$$输入到解码器用来生成翻译语句， 同时上一个时间步输出的翻译结果也加入
-
-
-
-## 3.8 注意力模型（Attention Model）
-
-注意力模型让一个神经网络只注意到一部分的输入句子。当它在生成句子的时候，更像人类翻译
-
-假定有一个输入句子，并使用双向的**RNN**，或者双向的**GRU**或者双向的**LSTM**，去计算每个词的特征：
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1e6b86a4e3690b4a0c6b8146ffa2f791.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1e6b86a4e3690b4a0c6b8146ffa2f791.png)
-
-用$$a^{<t{'}>}$$表示时间步$$t$$上的特征向量。用$$t{'}$$来索引法语句子里面的词，由于是双向RNN，每个$$a^{<t{'}>}$$：</script><p>a^{<t{'}>}=(a^{\rightarrow <t{'}>},a^{\leftarrow &lt;t{‘}&gt;})</t{'}></t{'}></p>
+<p>S^{<t>}$由原语句附近单元共同决定，<strong>注意力权重（attention weights）</strong><script type="math/tex">\alpha^{<  t,t'>}</script> 表示尝试生成第<script type="math/tex">t</script>个英文词时应该花多少注意力在第<script type="math/tex">t'</script>个法语词上面。直到最终生成<script type="math/tex">< EOS></script>。离得越近，<strong>注意力权重</strong>越大，相当于当前的注意力区域有个滑动窗。<script type="math/tex">c</script>表示编码器激活函数在注意力权重加权后的结果，将<script type="math/tex">c</script>输入到解码器用来生成翻译语句， 同时上一个时间步输出的翻译结果也加入</t></p>
+<h2 id="3-8-注意力模型（Attention-Model）"><a href="#3-8-注意力模型（Attention-Model）" class="headerlink" title="3.8 注意力模型（Attention Model）"></a>3.8 注意力模型（Attention Model）</h2><p>注意力模型让一个神经网络只注意到一部分的输入句子。当它在生成句子的时候，更像人类翻译</p>
+<p>假定有一个输入句子，并使用双向的<strong>RNN</strong>，或者双向的<strong>GRU</strong>或者双向的<strong>LSTM</strong>，去计算每个词的特征：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1e6b86a4e3690b4a0c6b8146ffa2f791.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1e6b86a4e3690b4a0c6b8146ffa2f791.png" alt></a></p>
+<p>用<script type="math/tex">a^{<t{'}>}</script>表示时间步<script type="math/tex">t</script>上的特征向量。用<script type="math/tex">t{'}</script>来索引法语句子里面的词，由于是双向RNN，每个<script type="math/tex">a^{<t{'}>}</script>：</p>
 <script type="math/tex; mode=display">
-
-
-注意力权重用$$\alpha$$表示，C是各个RNN神经元经过注意力权重得到的参数值。例如$$\alpha^{<1,t{'}>}$$表示机器翻译的第一个单词“jane”对应的第$$t{'}$$个RNN神经元，$$C^{<1>}$$表示机器翻译第一个单词“jane”对应的解码网络输入参数。满足：</script><p>\sum_{t{‘}}\alpha^{&lt;1,t{‘}&gt;}=1</p>
+a^{<t{'}>}=(a^{\rightarrow <t{'}>},a^{\leftarrow <t{'}>})</script><p>注意力权重用<script type="math/tex">\alpha</script>表示，C是各个RNN神经元经过注意力权重得到的参数值。例如<script type="math/tex">\alpha^{<1,t{'}>}</script>表示机器翻译的第一个单词“jane”对应的第<script type="math/tex">t{'}</script>个RNN神经元，<script type="math/tex">C^{<1>}</script>表示机器翻译第一个单词“jane”对应的解码网络输入参数。满足：</p>
 <script type="math/tex; mode=display">
-</script><p>C^{<1>}=\sum_{t{‘}}\alpha^{<1,t{'}>}\cdot a^{<t{'}>}</t{'}></1,t{'}></1></p>
+\sum_{t{'}}\alpha^{<1,t{'}>}=1</script><script type="math/tex; mode=display">
+C^{<1>}=\sum_{t{'}}\alpha^{<1,t{'}>}\cdot a^{<t{'}>}</script><p>用状态<script type="math/tex">S</script>表示生成翻译。<script type="math/tex">\alpha^{<t,t{'}>}</script>是输出<script type="math/tex">\hat y^{<t>}</script>在<script type="math/tex">t{'}</script>时对RNN单元花在<script type="math/tex">a^{< t{ '}>}</script>上的注意力权重因子。即在<script type="math/tex">t</script>处生成输出词应该花多少注意力在第<script type="math/tex">t{'}</script>个输入词上面</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b22dff4a3b1a4ea8c1ab201446e98889.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b22dff4a3b1a4ea8c1ab201446e98889.png" alt></a></p>
+<p>为了让<script type="math/tex">\alpha^{<t,t{'}>}</script>之和为1，利用softamx思想，引入参数<script type="math/tex">e^{<t,t{'}>}</script>，使得：</p>
 <script type="math/tex; mode=display">
-
-
-用状态$$S$$表示生成翻译。$$\alpha^{<t,t{'}>}$$是输出$$\hat y^{<t>}$$在$$t{'}$$时对RNN单元花在$$a^{< t{ '}>}$$上的注意力权重因子。即在$$t$$处生成输出词应该花多少注意力在第$$t{'}$$个输入词上面
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b22dff4a3b1a4ea8c1ab201446e98889.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b22dff4a3b1a4ea8c1ab201446e98889.png)
-
-为了让$$\alpha^{<t,t{'}>}$$之和为1，利用softamx思想，引入参数$$e^{<t,t{'}>}$$，使得：</script><p>a^{<t,t'>} = \frac{\text{exp}(e^{<t,t'>})}{\sum^{T_x}_{t’=1} \text{exp}(e^{&lt;t,t’&gt;})}</t,t'></t,t'></p>
-<script type="math/tex; mode=display">
-
-
-只要求出$$e^{<t,t{'}>}$$，就能得到$$\alpha^{<t,t{'}>}</script><p>如何求出<script type="math/tex">e^{<t,t{'}>}</script>：</p>
+a^{<t,t'>} = \frac{\text{exp}(e^{<t,t'>})}{\sum^{T_x}_{t'=1} \text{exp}(e^{<t,t'>})}</script><p>只要求出<script type="math/tex">e^{<t,t{'}>}</script>，就能得到<script type="math/tex">\alpha^{<t,t{'}>}</script></p>
+<p>如何求出<script type="math/tex">e^{<t,t{'}>}</script>：</p>
 <p>建立一个简单的神经网络</p>
 <p><img src="/images/pasted-166.png" alt="upload successful"></p>
 <p>输入<script type="math/tex">s^{<t-1>}</script>，即神经网络在上个时间步的状态和<script type="math/tex">a^{<t{'}>}</script>，训练一个很小的神经网络，利用反向传播算法、梯度下降算法迭代优化，学到一个正确的函数<script type="math/tex">e^{<t,t{'}>}</script> 和<script type="math/tex">\alpha^{<t,t{'}>}</script></p>
@@ -3134,7 +3114,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共66.3k字</span>
+  <span class="post-count">博客全站共64.4k字</span>
 </div>
 
         
