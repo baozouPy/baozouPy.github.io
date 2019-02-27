@@ -311,6 +311,317 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://baozouai.com/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="暴走">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暴走的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/" itemprop="url">第四周：深层神经网络(Deep Neural Networks)(Course 1)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T18:17:00Z">
+                2019-02-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T10:51:53+08:00">
+                2019-02-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/" class="leancloud_visitors" data-flag-title="第四周：深层神经网络(Deep Neural Networks)(Course 1)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        
+          
+            <h2 id="4-1-深层神经网络（Deep-L-layer-neural-network）"><a href="#4-1-深层神经网络（Deep-L-layer-neural-network）" class="headerlink" title="4.1 深层神经网络（Deep L-layer neural network）"></a>4.1 深层神经网络（Deep L-layer neural network）</h2><p><img src="/images/pasted-27.png" alt="upload successful"></p>
+<p>$L-layer\quad NN$，则包含了<script type="math/tex">L-1</script>个隐藏层，最后的<script type="math/tex">L</script>层是输出层</p>
+<p>$a^{[l]}$和<script type="math/tex">W^{[l]}</script>中的上标<script type="math/tex">l</script>都是从<script type="math/tex">1</script>开始的，<script type="math/tex">l=1,\cdots,L</script></p>
+<p>输入<script type="math/tex">x</script>记为<script type="math/tex">a^{[0]}</script>​​，把输出层<script type="math/tex">\hat y</script>记为<script type="math/tex">a^{[L]}</script></p>
+<p><img src="/images/pasted-28.png" alt="upload successful"></p>
+<p>$X$：<script type="math/tex">(12288, 209)</script>(with <script type="math/tex">m=209</script> examples)</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"><strong>Shape of W</strong></th>
+<th style="text-align:center"><strong>Shape of b</strong></th>
+<th style="text-align:center"><strong>Activation</strong></th>
+<th style="text-align:center"><strong>Shape of Activation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Layer 1</strong></td>
+<td style="text-align:center"><script type="math/tex">(n^{[1]},12288)</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[1]},1)</script></td>
+<td style="text-align:center"><script type="math/tex">Z^{[1]} = W^{[1]} X + b^{[1]}</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[1]},209)</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Layer 2</strong></td>
+<td style="text-align:center"><script type="math/tex">(n^{[2]}, n^{[1]})</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[2]},1)</script></td>
+<td style="text-align:center"><script type="math/tex">Z^{[2]} = W^{[2]} A^{[1]} + b^{[2]}</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[2]},209)</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><script type="math/tex">\vdots</script></td>
+<td style="text-align:center"><script type="math/tex">\vdots</script></td>
+<td style="text-align:center"><script type="math/tex">\vdots</script></td>
+<td style="text-align:center"><script type="math/tex">\vdots</script></td>
+<td style="text-align:center"><script type="math/tex">\vdots</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Layer L-1</strong></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L-1]}, n^{[L-2]})</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L-1]}, 1)</script></td>
+<td style="text-align:center"><script type="math/tex">Z^{[L-1]} = W^{[L-1]} A^{[L-2]} + b^{[L-1]}</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L-1]}, 209)</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Layer L</strong></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L]}, n^{[L-1]})</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L]}, 1)</script></td>
+<td style="text-align:center"><script type="math/tex">Z^{[L]} = W^{[L]} A^{[L-1]} + b^{[L]}</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L]}, 209)</script></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="4-2-前向传播和反向传播（Forward-and-backward-propagation）"><a href="#4-2-前向传播和反向传播（Forward-and-backward-propagation）" class="headerlink" title="4.2 前向传播和反向传播（Forward and backward propagation）"></a>4.2 前向传播和反向传播（Forward and backward propagation）</h2><h3 id="正向传播过程"><a href="#正向传播过程" class="headerlink" title="正向传播过程"></a>正向传播过程</h3><script type="math/tex; mode=display">
+z^{[l]}=W^{[l]}a^{[l-1]}+b^{[l]}</script><script type="math/tex; mode=display">
+a^{[l]}=g^{[l]}(z^{[l]})</script><p>$m$个训练样本，向量化形式为：</p>
+<script type="math/tex; mode=display">
+Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}</script><script type="math/tex; mode=display">
+A^{[l]}=g^{[l]}(Z^{[l]})</script><h3 id="反向传播过程"><a href="#反向传播过程" class="headerlink" title="反向传播过程"></a>反向传播过程</h3><script type="math/tex; mode=display">
+dz^{[l]}=da^{[l]}\ast g^{[l]'}(z^{[l]})</script><script type="math/tex; mode=display">
+dW^{[l]}=dz^{[l]}\cdot {a^{[l-1]}}^T</script><script type="math/tex; mode=display">
+db^{[l]}=dz^{[l]}</script><script type="math/tex; mode=display">
+da^{[l-1]}=W^{[l]T}\cdot dz^{[l]}</script><p>得到：</p>
+<script type="math/tex; mode=display">
+dz^{[l]}=W^{[l+1]T}\cdot dz^{[l+1]}\ast g^{[l]'}(z^{[l]})</script><p>$m$个训练样本，向量化形式为：</p>
+<script type="math/tex; mode=display">
+dZ^{[l]}=dA^{[l]}\ast g^{[l]'}(Z^{[l]})</script><script type="math/tex; mode=display">
+dW^{[l]}=\frac1mdZ^{[l]}\cdot A^{[l-1]T}</script><script type="math/tex; mode=display">
+db^{[l]}=\frac1mnp.sum(dZ^{[l]},axis=1,keepdim=True)</script><script type="math/tex; mode=display">
+dA^{[l-1]}=W^{[l]T}\cdot dZ^{[l]}</script><script type="math/tex; mode=display">
+dZ^{[l]}=W^{[l+1]T}\cdot dZ^{[l+1]}\ast g^{[l]'}(Z^{[l]})</script><p><img src="/images/pasted-29.png" alt="upload successful"></p>
+<h2 id="4-3-深层网络中的前向传播（Forward-propagation-in-a-Deep-Network-）"><a href="#4-3-深层网络中的前向传播（Forward-propagation-in-a-Deep-Network-）" class="headerlink" title="4.3 深层网络中的前向传播（Forward propagation in a Deep Network ）"></a>4.3 深层网络中的前向传播（Forward propagation in a Deep Network ）</h2><p>对于第<script type="math/tex">l</script>层，其正向传播过程的<script type="math/tex">Z^{[l]}</script>和<script type="math/tex">A^{[l]}</script>可以表示为：</p>
+<script type="math/tex; mode=display">
+Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}</script><script type="math/tex; mode=display">
+A^{[l]}=g^{[l]}(Z^{[l]})</script><p>其中<script type="math/tex">l=1,\cdots,L</script></p>
+<h2 id="4-4-为什么使用深层表示？（Why-deep-representations-）"><a href="#4-4-为什么使用深层表示？（Why-deep-representations-）" class="headerlink" title="4.4 为什么使用深层表示？（Why deep representations?）"></a>4.4 为什么使用深层表示？（Why deep representations?）</h2><h3 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h3><p><img src="/images/pasted-30.png" alt="upload successful"><br>经过训练，神经网络第一层所做的事就是从原始图片中提取出人脸的轮廓与边缘，即<strong>边缘检测</strong>。这样每个神经元得到的是一些边缘信息。神经网络第二层所做的事情就是将前一层的边缘进行组合，组合成人脸一些局部特征，比如眼睛、鼻子、嘴巴等。再往后面，就将这些局部特征组合起来，融合成人脸的模样。</p>
+<p>随着层数由浅到深，神经网络提取的特征也是从边缘到局部特征到整体，由简单到复杂。如果隐藏层足够多，那么能够提取的特征就越丰富、越复杂，模型的准确率就会越高。</p>
+<h3 id="语音识别模型"><a href="#语音识别模型" class="headerlink" title="语音识别模型"></a>语音识别模型</h3><p>浅层的神经元能够检测一些简单的音调，较深的神经元能够检测出基本的音素，更深的神经元就能够检测出单词信息。如果网络够深，还能对短语、句子进行检测。</p>
+<p>神经网络从左到右，神经元提取的特征从简单到复杂。特征复杂度与神经网络层数成正相关。特征越来越复杂，功能也越来越强大</p>
+<p>深层网络另外一个优点:减少神经元个数，从而减少计算量</p>
+<p>使用电路理论，计算逻辑输出：</p>
+<script type="math/tex; mode=display">
+y=x_1\oplus x_2\oplus x_3\oplus\cdots\oplus x_n</script><p>对于这个逻辑运算，深度网络的结构是每层将前一层的两两单元进行异或，最后得到一个输出</p>
+<p>整个深度网络的层数是<script type="math/tex">log_2(n)</script>，不包含输入层。总共使用的神经元个数为：</p>
+<script type="math/tex; mode=display">
+1+2+\cdots+2^{log_2(n)-1}=1\cdot\frac{1-2^{log_2(n)}}{1-2}=2^{log_2(n)}-1=n-1</script><p>输入个数是<script type="math/tex">n</script>，这种深层网络所需的神经元个数仅仅是<script type="math/tex">n-1</script>个</p>
+<p>如果不用深层网络，使用单个隐藏层，需要的神经元个数将是指数级别那么大。由于包含了所有的逻辑位（<script type="math/tex">0</script>和<script type="math/tex">1</script>），则需要<script type="math/tex">2^{n-1}</script>个神经元</p>
+<p>处理同一逻辑问题，深层网络所需的神经元个数比浅层网络要少很多</p>
+<h2 id="4-5-搭建神经网络块（Building-blocks-of-deep-neural-networks）"><a href="#4-5-搭建神经网络块（Building-blocks-of-deep-neural-networks）" class="headerlink" title="4.5 搭建神经网络块（Building blocks of deep neural networks）"></a>4.5 搭建神经网络块（Building blocks of deep neural networks）</h2><p>第<script type="math/tex">l</script>层的流程块图</p>
+<p><img src="/images/pasted-31.png" alt="upload successful"></p>
+<p>对于神经网络所有层，整体的流程块图正向传播过程和反向传播过程如下所示：</p>
+<p><img src="/images/pasted-32.png" alt="upload successful"></p>
+<p><img src="/images/pasted-33.png" alt="upload successful"></p>
+<h2 id="4-6-参数-VS-超参数（Parameters-vs-Hyperparameters）"><a href="#4-6-参数-VS-超参数（Parameters-vs-Hyperparameters）" class="headerlink" title="4.6 参数 VS 超参数（Parameters vs Hyperparameters）"></a>4.6 参数 VS 超参数（Parameters vs Hyperparameters）</h2><p>神经网络中的参数是<script type="math/tex">W^{[l]}</script>和<script type="math/tex">b^{[l]}</script></p>
+<p><strong>超参数</strong>则是例如学习速率<script type="math/tex">\alpha</script>，训练迭代次数<script type="math/tex">N</script>，神经网络层数<script type="math/tex">L</script>，各层神经元个数<script type="math/tex">n^{[l]}</script>，激活函数<script type="math/tex">g(z)</script>等</p>
+<p>叫做超参数的原因是它们决定了参数<script type="math/tex">W^{[l]}</script>和<script type="math/tex">b^{[l]}</script>的值</p>
+<p>如何设置最优的超参数：</p>
+<p>通常的做法是选择超参数一定范围内的值，分别代入神经网络进行训练，测试<strong>cost function</strong>随着迭代次数增加的变化，根据结果选择<strong>cost function</strong>最小时对应的超参数值</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+     
+  </div>
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+      
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://baozouai.com/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -330,7 +641,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/" itemprop="url">第三周：浅层神经网络(Shallow neural networks)</a></h1>
+                <a class="post-title-link" href="/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/" itemprop="url">第三周：浅层神经网络(Shallow neural networks)(Course 1)</a></h1>
         
 
         <div class="post-meta">
@@ -358,7 +669,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T02:25:03Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T02:51:44Z">
                 2019-02-27
               </time>
             
@@ -404,7 +715,7 @@
 
           
           
-             <span id="/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/" class="leancloud_visitors" data-flag-title="第三周：浅层神经网络(Shallow neural networks)">
+             <span id="/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/" class="leancloud_visitors" data-flag-title="第三周：浅层神经网络(Shallow neural networks)(Course 1)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1506,7 +1817,7 @@ W^{[2]}= \left[ \begin{matrix} 0 & 0 \end{matrix} \right]</script><p>这样使�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1621,7 +1932,7 @@ W^{[2]}= \left[ \begin{matrix} 0 & 0 \end{matrix} \right]</script><p>这样使�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共4.6k字</span>
+  <span class="post-count">博客全站共5.8k字</span>
 </div>
 
         
