@@ -100,6 +100,16 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/507c9081ee77c686bb96a009248087fd.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6a0b785dd54fcbc439bd82794eeefcf8.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/725eec5b76123bf45c9495e1231b6584.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/96e50aec6e1d7287e5bac70a0c4d92f4.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/748283d682db5be4855e61b90e96c427.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1bc0b442db9d5a1aa19dfe9a477a3c3e.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2689876529562b7d9a79bf868e7cbad7.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e854a803e36991a6e0dd4e33ecab930.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0bc25316900ccd1d4dd25a35ec7c45c4.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7f48951acf8ca7c7b63f6c4c455ada18.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0f9646d825a0c254376e094b48523ed3.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/59279ff91bb69a94280e6735eba8ab99.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/3dcdd58eaa544a09e67eb892f8c732bf.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-166.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fa6769127cd98ea0058f600449833a21.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8da3e9cf049139a8e4a78503bd72e7fd.png">
@@ -108,7 +118,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/28443f8b28afa63adb6cf89ce19c4f6d.png">
 <meta property="og:image" content="https://baozouai.com/assets/505import.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-167.png">
-<meta property="og:updated_time" content="2019-02-27T07:08:14.566Z">
+<meta property="og:updated_time" content="2019-02-27T07:09:04.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三周 序列模型和注意力机制（Sequence models &amp; Attention mechanism）(Course 5)">
 <meta name="twitter:description" content="3.1 基础模型（Basic Models）机器翻译用x^{} 到x^{&amp;lt; 5&amp;gt;}表示输入句子的单词，用y^{}到y^{}表示输出句子的单词：  首先，建立一个RNN编码网络（encoder network）（编号1），单元可以是GRU或LSTM。每次只向该网络中输入一个法语单词，将输入序列接收完毕后，这个RNN网络会输出一个向量来代表这个输入序列 之后建立一个解码网络（编号2），以编码网络的输出">
@@ -375,7 +385,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T15:08:14+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T15:09:04+08:00">
                 2019-02-27
               </time>
             
@@ -424,7 +434,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  8k
+                  7.7k
                 </span>
               
 
@@ -440,7 +450,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  30
+                  28
                 </span>
               
             </div>
@@ -527,141 +537,71 @@ arg\ max \sum_{t=1}^{T_y}\log P(\hat y^{<t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>
 <script type="math/tex; mode=display">
 arg\ max\ \frac{1}{T_y}\sum_{t=1}^{T_y}\log P(\hat y^{< t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script><p>在实践中，会用一个更柔和的方法（<strong>a softer approach</strong>），在<script type="math/tex">T_{y}</script>上加上指数<script type="math/tex">\alpha</script>：</p>
 <script type="math/tex; mode=display">
-arg\ max\ \frac{1}{T_y^{\alpha}}\sum_{t=1}^{T_y}\log P(\hat y^{< t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script><script type="math/tex; mode=display">\alpha$$可以等于0.7。如果$$\alpha$$等于1，就相当于完全用长度来归一化，如果$$\alpha$$等于0，$$T_{y}$$的0次幂就是1，就相当于完全没有归一化，$$\alpha$$就是算法另一个超参数（**hyper parameter**）
-
-总结一下如何运行束搜索算法：
-
-当运行束搜索时，会看到很多长度分别等于1、2、3...的句子等等，针对这些所有的可能的输出句子，取概率最大的几个句子，然后对这些句子计算目标函数$$arg\ max\ \frac{1}{T_y^{\alpha}}\sum_{t=1}^{T_y}\log P(\hat y^{<t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})$$，最后从经过评估的这些句子中挑选出在归一化的$$log$$ 概率目标函数上得分最高的一个，也叫作**归一化的对数似然目标函数**（**a normalized log likelihood objective**）
-
-如何选择束宽**B：**
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/96e50aec6e1d7287e5bac70a0c4d92f4.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/96e50aec6e1d7287e5bac70a0c4d92f4.png)
-
-* **B**越大，考虑的选择越多，找到的句子可能越好，但是算法的计算代价越大，因为要把很多的可能选择保存起来，内存占用增大
-* 如果用小的束宽**B**，结果会没那么好，因为在算法运行中，保存的选择更少，但是算法运行的更快，内存占用也小
-
-在产品中，经常可以看到把束宽设到10，当B很大的时候，性能提高会越来越少。对于很多应用来说，从束宽1，也就是贪心算法，到束宽为3、到10，会看到一个很大的改善。但是当束宽从1000增加到3000时，效果就没那么明显
-
-相对广度优先搜索（**BFS, Breadth First Search algorithms**），深度优先搜索（**DFS, Depth First Search**）这些精确的搜索算法（**exact search algorithms**），束搜索运行的更快，但是不能保证一定能找到argmax的准确的最大值
-
-
-## 3.5 集束搜索的误差分析（Error analysis in beam search）
-
-束搜索算法是一种**近似搜索算法**（**an approximate search algorithm**），也被称作**启发式搜索算法**（**a heuristic search algorithm**），它不总是输出可能性最大的句子，它仅记录着**B**为前3或者10或是100种可能
-
-人工标记为$$y^*$$。束搜索算法翻译结果标记为$$\hat y$$，是一个十分糟糕的翻译，改变了句子的原意：
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/748283d682db5be4855e61b90e96c427.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/748283d682db5be4855e61b90e96c427.png)
-
-模型有两个主要部分，一个是神经网络模型，或说是序列到序列模型（**sequence to sequence model**），称作是**RNN**模型，另一部分是束搜索算法，以某个集束宽度**B**运行
-
-**RNN**\(**循环神经网络**\)实际上是个编码器和解码器（**the encoder and the decoder**），它会计算$$P(y|x)$$。如对于句子：**Jane visits Africa in September**，将**Jane visits Africa**填入这里（上图编号1），忽略字母的大小写，后面也是一样，计算得到$$P(y^*|x)$$，$$P(\hat y|x)$$ 同样如此，然后比较一下这两个值哪个更大
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1bc0b442db9d5a1aa19dfe9a477a3c3e.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1bc0b442db9d5a1aa19dfe9a477a3c3e.png)
-
-* 若$$P(y^*|x)$$ 大于$$P(\hat y|x)$$，可束搜索算法却选择了$$\hat y$$ ， 因此能够得出束搜索算法实际上不能给出使$$P(y|x)$$最大化的$$y$$值，因为束搜索算法的任务就是寻找一个$$y$$的值来使这项更大，但是它却选择了$$\hat y$$，而$$y^*$$实际上能得到更大的值。因此这种情况下束搜索算法出错
-* 若$$P(y^*|x)$$小于或等于$$P(\hat y|x)$$，$$y^*$$ 是比 $$\hat y$$更好的翻译结果，不过根据RNN模型的结果，$$P(y^*)$$ 是小于$$P(\hat y)$$的，即相比于$$\hat y$$，$$y^*$$成为输出的可能更小。因此在这种情况下是**RNN**模型出了问题
-
-以上都忽略了长度归一化（**length normalizations**）的细节，如果用了某种长度归一化，那么要比较长度归一化后的最优化目标函数值
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2689876529562b7d9a79bf868e7cbad7.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2689876529562b7d9a79bf868e7cbad7.png)
-
-误差分析过程：
-
-1. 先遍历开发集，找出算法产生的错误
-2. 假如$$P(y^*|x)$$的值为2 x 10$$^{-10}$$，而$$P(\hat y|x)$$的值为 1 x10$$^{-10}$$，得知束搜索算法实际上选择了比$$y^*$$可能性更低的$$\hat y$$，则束搜索算法出错，缩写为**B**
-3. 接着继续遍历第二个错误，若对于第二个例子是**RNN**模型出现了问题，用缩写**R**来代表**RNN**
-4. 接着遍历更多的例子，有时是束搜索算法出现了问题，有时是模型出现了问题，等等
-5. 执行误差分析，得出束搜索算法和**RNN**模型出错的比例是多少。对开发集中每一个错误例子，即算法输出了比人工翻译更差的结果的情况，尝试确定是搜索算法出了问题，还是生成目标函数\(束搜索算法使之最大化\)的**RNN**模型出了问题。找到这两个部分中哪个是产生更多错误的原因
-6. 只有当发现是束搜索算法造成了大部分错误时，才值得花费努力**增大集束宽度B**；如果发现是**RNN**模型出了更多错，那么可以进行更深层次的分析，来决定是需要**增加正则化**还是**获取更多的训练数据**，抑或是尝试一个**不同的网络结构**
-
-
-
-
-集束搜索的误差分析（Error analysis in beam search）
-束搜索算法是一种近似搜索算法（an approximate search algorithm），也被称作启发式搜索算法（a heuristic search algorithm），它不总是输出可能性最大的句子，它仅记录着B为前3或者10或是100种可能
-人工标记为y∗。束搜索算法翻译结果标记为y^，是一个十分糟糕的翻译，改变了句子的原意：
-
-
-模型有两个主要部分，一个是神经网络模型，或说是序列到序列模型（sequence to sequence model），称作是RNN模型，另一部分是束搜索算法，以某个集束宽度B运行
-RNN(循环神经网络)实际上是个编码器和解码器（the encoder and the decoder），它会计算P(y|x)。如对于句子：Jane visits Africa in September，将Jane visits Africa填入这里（上图编号1），忽略字母的大小写，后面也是一样，计算得到P(y∗|x)，P(y^|x) 同样如此，然后比较一下这两个值哪个更大
-
-
-若P(y∗|x) 大于P(y^|x)，可束搜索算法却选择了y^ ， 因此能够得出束搜索算法实际上不能给出使P(y|x)最大化的y值，因为束搜索算法的任务就是寻找一个y的值来使这项更大，但是它却选择了y^，而y∗实际上能得到更大的值。因此这种情况下束搜索算法出错
-若P(y∗|x)小于或等于P(y^|x)，y∗ 是比 y^更好的翻译结果，不过根据RNN模型的结果，P(y∗) 是小于P(y^)的，即相比于y^，y∗成为输出的可能更小。因此在这种情况下是RNN模型出了问题
-以上都忽略了长度归一化（length normalizations）的细节，如果用了某种长度归一化，那么要比较长度归一化后的最优化目标函数值
-
-
-误差分析过程：
-先遍历开发集，找出算法产生的错误
-假如P(y∗|x)的值为2 x 10−10，而P(y^|x)的值为 1 x10−10，得知束搜索算法实际上选择了比y∗可能性更低的y^，则束搜索算法出错，缩写为B
-接着继续遍历第二个错误，若对于第二个例子是RNN模型出现了问题，用缩写R来代表RNN
-接着遍历更多的例子，有时是束搜索算法出现了问题，有时是模型出现了问题，等等
-执行误差分析，得出束搜索算法和RNN模型出错的比例是多少。对开发集中每一个错误例子，即算法输出了比人工翻译更差的结果的情况，尝试确定是搜索算法出了问题，还是生成目标函数(束搜索算法使之最大化)的RNN模型出了问题。找到这两个部分中哪个是产生更多错误的原因
-只有当发现是束搜索算法造成了大部分错误时，才值得花费努力增大集束宽度B；如果发现是RNN模型出了更多错，那么可以进行更深层次的分析，来决定是需要增加正则化还是获取更多的训练数据，抑或是尝试一个不同的网络结构
-
-## 3.6 Bleu 得分（选修）（Bleu Score (optional)）
-
-机器翻译（**machine translation**）的一大难题是一个法语句子可以有多种英文翻译而且都同样很好，常见的解决办法是通过一个**BLEU**得分（**the BLEU score**）的东西来解决，BLEU得分是一个有用的单一实数评估指标，用于评估生成文本的算法，判断输出的结果是否与人工写出的参考文本的含义相似
-
-一般有多个人工翻译：
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e854a803e36991a6e0dd4e33ecab930.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5e854a803e36991a6e0dd4e33ecab930.png)
-
-BLEU得分做的就是给定一个机器生成的翻译，它能够自动地计算一个分数来衡量机器翻译的好坏。只要机器生成的翻译与任何一个人工翻译的结果足够接近，那么它就会得到一个高的BLEU分数。**BLEU**代表**bilingual evaluation understudy**\(双语评估替补\)。且这些人工翻译的参考会包含在开发集或是测试集中
-
-假设机器翻译 \(**MT**\)的输出是：**the the the the the the the，**是一个十分糟糕的翻译。衡量机器翻译输出质量的方法之一是**观察输出结果的每一个词，看其是否出现在参考中**，这被称做是机器翻译的精确度（**a precision of the machine translation output**）。这个情况下，机器翻译输出了七个单词并且这七个词中的每一个都出现在了参考1或是参考2，因此输出的精确度就是7/7，分母为机器翻译单词数目，分子为相应单词是否出现在参考翻译中。但是，这种方法很不科学，并不可取
-
-改良后的精确度评估方法（**the modified precision measure**）：**把每一个单词的记分上限定为它在参考句子中出现的最多次数**。在参考1中，单词**the**出现了两次，在参考2中，单词**the**只出现了一次。单词**the**的得分上限为2。输出句子的得分为2/7，分母是7个词中单词**the**总共出现的次数，分子是单词**the**出现的计数，在达到**上限**时截断计数
-
-上述都只是关注单独的单词，在**BLEU**得分中，另外一种更科学的打分方法是**bleu score on bigrams（二元词组）**，bigram的意思就是相邻的两个单词
-
-定义**截取计数**（**the clipped count**），也就是**Count\_clip：**给算法设置得分上限，上限值为二元词组出现在参考1**或**2中的最大次数
-
-假定机器翻译输出了稍微好一点的翻译，对MT output进行分解，得到的bigrams及其出现在MT output中的次数count为：
-
-[
-![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0bc25316900ccd1d4dd25a35ec7c45c4.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0bc25316900ccd1d4dd25a35ec7c45c4.png)
-
-相应的bigrams precision为4/6也就是2/3，为二元词组改良后的精确度
-
-将改良后的一元词组精确度定义为$$P_1$$，$$P$$代表的是精确度。下标1的意思是一元词组，即考虑单独的词，$$P_n$$ 定义为$$n$$元词组精确度，用**n-gram**替代掉一元词组。即机器翻译输出中的$$n$$元词组的**countclip**之和除以$$n$$元词组的出现次数之和
-
-![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7f48951acf8ca7c7b63f6c4c455ada18.png)
-
-如果机器翻译输出与参考1或是参考2完全一致，那么所有的$$P_1$$、$$P_2$$等等的值，都会等于1.0
-
-最终的BLEU得分：
-
-将得到的$$P_1$$，$$P_2$$， $$P_3$$...$$P_n$$ 相加再取平均值
-
-BLEU得分被定义为：</script><p>p=exp (\frac{1}{n}\sum\limits_{i=1}^{n}{P_i})</p>
+arg\ max\ \frac{1}{T_y^{\alpha}}\sum_{t=1}^{T_y}\log P(\hat y^{< t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script><p>$\alpha$可以等于0.7。如果<script type="math/tex">\alpha</script>等于1，就相当于完全用长度来归一化，如果<script type="math/tex">\alpha</script>等于0，<script type="math/tex">T_{y}</script>的0次幂就是1，就相当于完全没有归一化，<script type="math/tex">\alpha</script>就是算法另一个超参数（<strong>hyper parameter</strong>）</p>
+<p>总结一下如何运行束搜索算法：</p>
+<p>当运行束搜索时，会看到很多长度分别等于1、2、3…的句子等等，针对这些所有的可能的输出句子，取概率最大的几个句子，然后对这些句子计算目标函数<script type="math/tex">arg\ max\ \frac{1}{T_y^{\alpha}}\sum_{t=1}^{T_y}\log P(\hat y^{<t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script>，最后从经过评估的这些句子中挑选出在归一化的<script type="math/tex">log</script> 概率目标函数上得分最高的一个，也叫作<strong>归一化的对数似然目标函数</strong>（<strong>a normalized log likelihood objective</strong>）</p>
+<p>如何选择束宽<strong>B：</strong></p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/96e50aec6e1d7287e5bac70a0c4d92f4.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/96e50aec6e1d7287e5bac70a0c4d92f4.png" alt></a></p>
+<ul>
+<li><strong>B</strong>越大，考虑的选择越多，找到的句子可能越好，但是算法的计算代价越大，因为要把很多的可能选择保存起来，内存占用增大</li>
+<li>如果用小的束宽<strong>B</strong>，结果会没那么好，因为在算法运行中，保存的选择更少，但是算法运行的更快，内存占用也小</li>
+</ul>
+<p>在产品中，经常可以看到把束宽设到10，当B很大的时候，性能提高会越来越少。对于很多应用来说，从束宽1，也就是贪心算法，到束宽为3、到10，会看到一个很大的改善。但是当束宽从1000增加到3000时，效果就没那么明显</p>
+<p>相对广度优先搜索（<strong>BFS, Breadth First Search algorithms</strong>），深度优先搜索（<strong>DFS, Depth First Search</strong>）这些精确的搜索算法（<strong>exact search algorithms</strong>），束搜索运行的更快，但是不能保证一定能找到argmax的准确的最大值</p>
+<h2 id="3-5-集束搜索的误差分析（Error-analysis-in-beam-search）"><a href="#3-5-集束搜索的误差分析（Error-analysis-in-beam-search）" class="headerlink" title="3.5 集束搜索的误差分析（Error analysis in beam search）"></a>3.5 集束搜索的误差分析（Error analysis in beam search）</h2><p>束搜索算法是一种<strong>近似搜索算法</strong>（<strong>an approximate search algorithm</strong>），也被称作<strong>启发式搜索算法</strong>（<strong>a heuristic search algorithm</strong>），它不总是输出可能性最大的句子，它仅记录着<strong>B</strong>为前3或者10或是100种可能</p>
+<p>人工标记为<script type="math/tex">y^*</script>。束搜索算法翻译结果标记为<script type="math/tex">\hat y</script>，是一个十分糟糕的翻译，改变了句子的原意：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/748283d682db5be4855e61b90e96c427.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/748283d682db5be4855e61b90e96c427.png" alt></a></p>
+<p>模型有两个主要部分，一个是神经网络模型，或说是序列到序列模型（<strong>sequence to sequence model</strong>），称作是<strong>RNN</strong>模型，另一部分是束搜索算法，以某个集束宽度<strong>B</strong>运行</p>
+<p><strong>RNN</strong>(<strong>循环神经网络</strong>)实际上是个编码器和解码器（<strong>the encoder and the decoder</strong>），它会计算<script type="math/tex">P(y|x)</script>。如对于句子：<strong>Jane visits Africa in September</strong>，将<strong>Jane visits Africa</strong>填入这里（上图编号1），忽略字母的大小写，后面也是一样，计算得到<script type="math/tex">P(y^*|x)</script>，<script type="math/tex">P(\hat y|x)</script> 同样如此，然后比较一下这两个值哪个更大</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1bc0b442db9d5a1aa19dfe9a477a3c3e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1bc0b442db9d5a1aa19dfe9a477a3c3e.png" alt></a></p>
+<ul>
+<li>若<script type="math/tex">P(y^*|x)</script> 大于<script type="math/tex">P(\hat y|x)</script>，可束搜索算法却选择了<script type="math/tex">\hat y</script> ， 因此能够得出束搜索算法实际上不能给出使<script type="math/tex">P(y|x)</script>最大化的<script type="math/tex">y</script>值，因为束搜索算法的任务就是寻找一个<script type="math/tex">y</script>的值来使这项更大，但是它却选择了<script type="math/tex">\hat y</script>，而<script type="math/tex">y^*</script>实际上能得到更大的值。因此这种情况下束搜索算法出错</li>
+<li>若<script type="math/tex">P(y^*|x)</script>小于或等于<script type="math/tex">P(\hat y|x)</script>，<script type="math/tex">y^*</script> 是比 <script type="math/tex">\hat y</script>更好的翻译结果，不过根据RNN模型的结果，<script type="math/tex">P(y^*)</script> 是小于<script type="math/tex">P(\hat y)</script>的，即相比于<script type="math/tex">\hat y</script>，<script type="math/tex">y^*</script>成为输出的可能更小。因此在这种情况下是<strong>RNN</strong>模型出了问题</li>
+</ul>
+<p>以上都忽略了长度归一化（<strong>length normalizations</strong>）的细节，如果用了某种长度归一化，那么要比较长度归一化后的最优化目标函数值</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2689876529562b7d9a79bf868e7cbad7.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2689876529562b7d9a79bf868e7cbad7.png" alt></a></p>
+<p>误差分析过程：</p>
+<ol>
+<li>先遍历开发集，找出算法产生的错误</li>
+<li>假如<script type="math/tex">P(y^*|x)</script>的值为2 x 10<script type="math/tex">^{-10}</script>，而<script type="math/tex">P(\hat y|x)</script>的值为 1 x10<script type="math/tex">^{-10}</script>，得知束搜索算法实际上选择了比<script type="math/tex">y^*</script>可能性更低的<script type="math/tex">\hat y</script>，则束搜索算法出错，缩写为<strong>B</strong></li>
+<li>接着继续遍历第二个错误，若对于第二个例子是<strong>RNN</strong>模型出现了问题，用缩写<strong>R</strong>来代表<strong>RNN</strong></li>
+<li>接着遍历更多的例子，有时是束搜索算法出现了问题，有时是模型出现了问题，等等</li>
+<li>执行误差分析，得出束搜索算法和<strong>RNN</strong>模型出错的比例是多少。对开发集中每一个错误例子，即算法输出了比人工翻译更差的结果的情况，尝试确定是搜索算法出了问题，还是生成目标函数(束搜索算法使之最大化)的<strong>RNN</strong>模型出了问题。找到这两个部分中哪个是产生更多错误的原因</li>
+<li>只有当发现是束搜索算法造成了大部分错误时，才值得花费努力<strong>增大集束宽度B</strong>；如果发现是<strong>RNN</strong>模型出了更多错，那么可以进行更深层次的分析，来决定是需要<strong>增加正则化</strong>还是<strong>获取更多的训练数据</strong>，抑或是尝试一个<strong>不同的网络结构</strong></li>
+</ol>
+<p>集束搜索的误差分析（Error analysis in beam search）<br>束搜索算法是一种近似搜索算法（an approximate search algorithm），也被称作启发式搜索算法（a heuristic search algorithm），它不总是输出可能性最大的句子，它仅记录着B为前3或者10或是100种可能<br>人工标记为y∗。束搜索算法翻译结果标记为y^，是一个十分糟糕的翻译，改变了句子的原意：</p>
+<p>模型有两个主要部分，一个是神经网络模型，或说是序列到序列模型（sequence to sequence model），称作是RNN模型，另一部分是束搜索算法，以某个集束宽度B运行<br>RNN(循环神经网络)实际上是个编码器和解码器（the encoder and the decoder），它会计算P(y|x)。如对于句子：Jane visits Africa in September，将Jane visits Africa填入这里（上图编号1），忽略字母的大小写，后面也是一样，计算得到P(y∗|x)，P(y^|x) 同样如此，然后比较一下这两个值哪个更大</p>
+<p>若P(y∗|x) 大于P(y^|x)，可束搜索算法却选择了y^ ， 因此能够得出束搜索算法实际上不能给出使P(y|x)最大化的y值，因为束搜索算法的任务就是寻找一个y的值来使这项更大，但是它却选择了y^，而y∗实际上能得到更大的值。因此这种情况下束搜索算法出错<br>若P(y∗|x)小于或等于P(y^|x)，y∗ 是比 y^更好的翻译结果，不过根据RNN模型的结果，P(y∗) 是小于P(y^)的，即相比于y^，y∗成为输出的可能更小。因此在这种情况下是RNN模型出了问题<br>以上都忽略了长度归一化（length normalizations）的细节，如果用了某种长度归一化，那么要比较长度归一化后的最优化目标函数值</p>
+<p>误差分析过程：<br>先遍历开发集，找出算法产生的错误<br>假如P(y∗|x)的值为2 x 10−10，而P(y^|x)的值为 1 x10−10，得知束搜索算法实际上选择了比y∗可能性更低的y^，则束搜索算法出错，缩写为B<br>接着继续遍历第二个错误，若对于第二个例子是RNN模型出现了问题，用缩写R来代表RNN<br>接着遍历更多的例子，有时是束搜索算法出现了问题，有时是模型出现了问题，等等<br>执行误差分析，得出束搜索算法和RNN模型出错的比例是多少。对开发集中每一个错误例子，即算法输出了比人工翻译更差的结果的情况，尝试确定是搜索算法出了问题，还是生成目标函数(束搜索算法使之最大化)的RNN模型出了问题。找到这两个部分中哪个是产生更多错误的原因<br>只有当发现是束搜索算法造成了大部分错误时，才值得花费努力增大集束宽度B；如果发现是RNN模型出了更多错，那么可以进行更深层次的分析，来决定是需要增加正则化还是获取更多的训练数据，抑或是尝试一个不同的网络结构</p>
+<h2 id="3-6-Bleu-得分（选修）（Bleu-Score-optional-）"><a href="#3-6-Bleu-得分（选修）（Bleu-Score-optional-）" class="headerlink" title="3.6 Bleu 得分（选修）（Bleu Score (optional)）"></a>3.6 Bleu 得分（选修）（Bleu Score (optional)）</h2><p>机器翻译（<strong>machine translation</strong>）的一大难题是一个法语句子可以有多种英文翻译而且都同样很好，常见的解决办法是通过一个<strong>BLEU</strong>得分（<strong>the BLEU score</strong>）的东西来解决，BLEU得分是一个有用的单一实数评估指标，用于评估生成文本的算法，判断输出的结果是否与人工写出的参考文本的含义相似</p>
+<p>一般有多个人工翻译：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5e854a803e36991a6e0dd4e33ecab930.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e854a803e36991a6e0dd4e33ecab930.png" alt></a></p>
+<p>BLEU得分做的就是给定一个机器生成的翻译，它能够自动地计算一个分数来衡量机器翻译的好坏。只要机器生成的翻译与任何一个人工翻译的结果足够接近，那么它就会得到一个高的BLEU分数。<strong>BLEU</strong>代表<strong>bilingual evaluation understudy</strong>(双语评估替补)。且这些人工翻译的参考会包含在开发集或是测试集中</p>
+<p>假设机器翻译 (<strong>MT</strong>)的输出是：<strong>the the the the the the the，</strong>是一个十分糟糕的翻译。衡量机器翻译输出质量的方法之一是<strong>观察输出结果的每一个词，看其是否出现在参考中</strong>，这被称做是机器翻译的精确度（<strong>a precision of the machine translation output</strong>）。这个情况下，机器翻译输出了七个单词并且这七个词中的每一个都出现在了参考1或是参考2，因此输出的精确度就是7/7，分母为机器翻译单词数目，分子为相应单词是否出现在参考翻译中。但是，这种方法很不科学，并不可取</p>
+<p>改良后的精确度评估方法（<strong>the modified precision measure</strong>）：<strong>把每一个单词的记分上限定为它在参考句子中出现的最多次数</strong>。在参考1中，单词<strong>the</strong>出现了两次，在参考2中，单词<strong>the</strong>只出现了一次。单词<strong>the</strong>的得分上限为2。输出句子的得分为2/7，分母是7个词中单词<strong>the</strong>总共出现的次数，分子是单词<strong>the</strong>出现的计数，在达到<strong>上限</strong>时截断计数</p>
+<p>上述都只是关注单独的单词，在<strong>BLEU</strong>得分中，另外一种更科学的打分方法是<strong>bleu score on bigrams（二元词组）</strong>，bigram的意思就是相邻的两个单词</p>
+<p>定义<strong>截取计数</strong>（<strong>the clipped count</strong>），也就是<strong>Count_clip：</strong>给算法设置得分上限，上限值为二元词组出现在参考1<strong>或</strong>2中的最大次数</p>
+<p>假定机器翻译输出了稍微好一点的翻译，对MT output进行分解，得到的bigrams及其出现在MT output中的次数count为：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0bc25316900ccd1d4dd25a35ec7c45c4.png" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0bc25316900ccd1d4dd25a35ec7c45c4.png" alt></a></p>
+<p>相应的bigrams precision为4/6也就是2/3，为二元词组改良后的精确度</p>
+<p>将改良后的一元词组精确度定义为<script type="math/tex">P_1</script>，<script type="math/tex">P</script>代表的是精确度。下标1的意思是一元词组，即考虑单独的词，<script type="math/tex">P_n</script> 定义为<script type="math/tex">n</script>元词组精确度，用<strong>n-gram</strong>替代掉一元词组。即机器翻译输出中的<script type="math/tex">n</script>元词组的<strong>countclip</strong>之和除以<script type="math/tex">n</script>元词组的出现次数之和</p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7f48951acf8ca7c7b63f6c4c455ada18.png" alt></p>
+<p>如果机器翻译输出与参考1或是参考2完全一致，那么所有的<script type="math/tex">P_1</script>、<script type="math/tex">P_2</script>等等的值，都会等于1.0</p>
+<p>最终的BLEU得分：</p>
+<p>将得到的<script type="math/tex">P_1</script>，<script type="math/tex">P_2</script>， <script type="math/tex">P_3</script>…<script type="math/tex">P_n</script> 相加再取平均值</p>
+<p>BLEU得分被定义为：</p>
 <script type="math/tex; mode=display">
-
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0f9646d825a0c254376e094b48523ed3.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0f9646d825a0c254376e094b48523ed3.png)
-
-然后用BP（“简短惩罚”brevity penalty） 的惩罚因子（the BP penalty）来调整。它能够惩罚输出了太短翻译结果的翻译系统：</script><p>p=BP\cdot exp(\frac1n\sum_{i=1}^np_i)</p>
+p=exp (\frac{1}{n}\sum\limits_{i=1}^{n}{P_i})</script><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0f9646d825a0c254376e094b48523ed3.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0f9646d825a0c254376e094b48523ed3.png" alt></a></p>
+<p>然后用BP（“简短惩罚”brevity penalty） 的惩罚因子（the BP penalty）来调整。它能够惩罚输出了太短翻译结果的翻译系统：</p>
 <script type="math/tex; mode=display">
-
-
-BLEU得分被用来评估许多生成文本的系统（systems that generate text），比如说机器翻译系统（machine translation systems），图像描述系统（image captioning systems）。不过它并没有用于语音识别（speech recognition）。因为在语音识别当中，通常只有一个答案
-
-## 3.7 注意力模型直观理解（Attention Model Intuition）
-
-给定一个很长的法语句子，在神经网络中，绿色的编码器要做的就是读整个句子，然后记忆整个句子，再在感知机中传递。紫色的神经网络，即解码网络（**the decoder network**）将生成英文翻译
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/59279ff91bb69a94280e6735eba8ab99.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/59279ff91bb69a94280e6735eba8ab99.png)
-
-对于短句子效果非常好，会有一个相对高的**Bleu**分（**Bleu score**），但是对于长句子而言，比如说大于30或者40词的句子，它的表现就会变差。**Bleu**评分随着单词数量变化，短的句子会难以翻译，因为很难得到所有词。对于长的句子，效果也不好，因为在神经网络中，记忆非常长句子是非常困难的。
-
-而注意力模型翻译得很像人类，一次翻译句子的一部分。且机器翻译系统只会翻译句子的一部分，不会有一个巨大的下倾（**huge dip**），这个下倾衡量了神经网络记忆一个长句子的能力
-
-对于句子里的每五个单词，使用双向的**RNN**（**a bidirectional RNN**），使用另一个**RNN**生成英文翻译：
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/3dcdd58eaa544a09e67eb892f8c732bf.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/3dcdd58eaa544a09e67eb892f8c732bf.png)
-
-$$S^{<t>}$$由原语句附近单元共同决定，**注意力权重（attention weights）**$$\alpha^{<  t,t'>}$$ 表示尝试生成第$$t$$个英文词时应该花多少注意力在第$$t'$$个法语词上面。直到最终生成$$< EOS>$$。离得越近，**注意力权重**越大，相当于当前的注意力区域有个滑动窗。$$c$$表示编码器激活函数在注意力权重加权后的结果，将$$c$$输入到解码器用来生成翻译语句， 同时上一个时间步输出的翻译结果也加入
+p=BP\cdot exp(\frac1n\sum_{i=1}^np_i)</script><p>BLEU得分被用来评估许多生成文本的系统（systems that generate text），比如说机器翻译系统（machine translation systems），图像描述系统（image captioning systems）。不过它并没有用于语音识别（speech recognition）。因为在语音识别当中，通常只有一个答案</p>
+<h2 id="3-7-注意力模型直观理解（Attention-Model-Intuition）"><a href="#3-7-注意力模型直观理解（Attention-Model-Intuition）" class="headerlink" title="3.7 注意力模型直观理解（Attention Model Intuition）"></a>3.7 注意力模型直观理解（Attention Model Intuition）</h2><p>给定一个很长的法语句子，在神经网络中，绿色的编码器要做的就是读整个句子，然后记忆整个句子，再在感知机中传递。紫色的神经网络，即解码网络（<strong>the decoder network</strong>）将生成英文翻译</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/59279ff91bb69a94280e6735eba8ab99.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/59279ff91bb69a94280e6735eba8ab99.png" alt></a></p>
+<p>对于短句子效果非常好，会有一个相对高的<strong>Bleu</strong>分（<strong>Bleu score</strong>），但是对于长句子而言，比如说大于30或者40词的句子，它的表现就会变差。<strong>Bleu</strong>评分随着单词数量变化，短的句子会难以翻译，因为很难得到所有词。对于长的句子，效果也不好，因为在神经网络中，记忆非常长句子是非常困难的。</p>
+<p>而注意力模型翻译得很像人类，一次翻译句子的一部分。且机器翻译系统只会翻译句子的一部分，不会有一个巨大的下倾（<strong>huge dip</strong>），这个下倾衡量了神经网络记忆一个长句子的能力</p>
+<p>对于句子里的每五个单词，使用双向的<strong>RNN</strong>（<strong>a bidirectional RNN</strong>），使用另一个<strong>RNN</strong>生成英文翻译：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/3dcdd58eaa544a09e67eb892f8c732bf.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/3dcdd58eaa544a09e67eb892f8c732bf.png" alt></a></p>
+<script type="math/tex; mode=display">S^{<t>}$$由原语句附近单元共同决定，**注意力权重（attention weights）**$$\alpha^{<  t,t'>}$$ 表示尝试生成第$$t$$个英文词时应该花多少注意力在第$$t'$$个法语词上面。直到最终生成$$< EOS>$$。离得越近，**注意力权重**越大，相当于当前的注意力区域有个滑动窗。$$c$$表示编码器激活函数在注意力权重加权后的结果，将$$c$$输入到解码器用来生成翻译语句， 同时上一个时间步输出的翻译结果也加入
 
 
 
@@ -995,7 +935,7 @@ ttt \_ h\_eee\_ \_ \_ \sqcup\_ \_ \_ qqq\_ \_ \cdots</script><p>下划线”_“
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-基础模型（Basic-Models）"><span class="nav-number">1.</span> <span class="nav-text">3.1 基础模型（Basic Models）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器翻译"><span class="nav-number">1.1.</span> <span class="nav-text">机器翻译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像描述"><span class="nav-number">1.2.</span> <span class="nav-text">图像描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-选择最可能的句子（Picking-the-most-likely-sentence）"><span class="nav-number">2.</span> <span class="nav-text">3.2 选择最可能的句子（Picking the most likely sentence）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-集束搜索（Beam-Search）"><span class="nav-number">3.</span> <span class="nav-text">3.3 集束搜索（Beam Search）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-改进集束搜索（Refinements-to-Beam-Search）"><span class="nav-number">4.</span> <span class="nav-text">3.4 改进集束搜索（Refinements to Beam Search）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9-语音识别（Speech-recognition）"><span class="nav-number">5.</span> <span class="nav-text">3.9 语音识别（Speech recognition）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10-触发字检测（Trigger-Word-Detection）"><span class="nav-number">6.</span> <span class="nav-text">3.10 触发字检测（Trigger Word Detection）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-基础模型（Basic-Models）"><span class="nav-number">1.</span> <span class="nav-text">3.1 基础模型（Basic Models）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器翻译"><span class="nav-number">1.1.</span> <span class="nav-text">机器翻译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像描述"><span class="nav-number">1.2.</span> <span class="nav-text">图像描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-选择最可能的句子（Picking-the-most-likely-sentence）"><span class="nav-number">2.</span> <span class="nav-text">3.2 选择最可能的句子（Picking the most likely sentence）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-集束搜索（Beam-Search）"><span class="nav-number">3.</span> <span class="nav-text">3.3 集束搜索（Beam Search）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-改进集束搜索（Refinements-to-Beam-Search）"><span class="nav-number">4.</span> <span class="nav-text">3.4 改进集束搜索（Refinements to Beam Search）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-集束搜索的误差分析（Error-analysis-in-beam-search）"><span class="nav-number">5.</span> <span class="nav-text">3.5 集束搜索的误差分析（Error analysis in beam search）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-Bleu-得分（选修）（Bleu-Score-optional-）"><span class="nav-number">6.</span> <span class="nav-text">3.6 Bleu 得分（选修）（Bleu Score (optional)）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-注意力模型直观理解（Attention-Model-Intuition）"><span class="nav-number">7.</span> <span class="nav-text">3.7 注意力模型直观理解（Attention Model Intuition）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9-语音识别（Speech-recognition）"><span class="nav-number">8.</span> <span class="nav-text">3.9 语音识别（Speech recognition）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10-触发字检测（Trigger-Word-Detection）"><span class="nav-number">9.</span> <span class="nav-text">3.10 触发字检测（Trigger Word Detection）</span></a></li></ol></div>
             
 
           </div>
@@ -1042,7 +982,7 @@ ttt \_ h\_eee\_ \_ \_ \sqcup\_ \_ \_ qqq\_ \_ \cdots</script><p>下划线”_“
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共66.5k字</span>
+  <span class="post-count">博客全站共66.3k字</span>
 </div>
 
         
