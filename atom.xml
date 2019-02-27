@@ -110,17 +110,11 @@
     <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95-Optimization-algorithms-Course-2/"/>
     <id>https://baozouai.com/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/</id>
     <published>2019-02-27T11:20:37.000Z</published>
-    <updated>2019-02-27T05:30:29.583Z</updated>
+    <updated>2019-02-27T05:32:18.643Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot;&gt;&lt;a href=&quot;#2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot; class=&quot;headerlink&quot; title=&quot;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&quot;&gt;&lt;/a&gt;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&lt;/h2&gt;&lt;p&gt;神经网络训练过程是同时对所有m个样本（称为batch）通过向量化计算方式进行的。如果m很大，训练速度会很慢，因为每次迭代都要对所有样本进进行求和运算和矩阵运算。这种梯度下降算法称为Batch Gradient Descent&lt;br&gt;
     
     </summary>
     
