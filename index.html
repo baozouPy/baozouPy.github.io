@@ -573,7 +573,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T03:49:12Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T03:51:04Z">
                 2019-02-27
               </time>
             
@@ -711,37 +711,27 @@
 J(w,b)=\frac1m\sum_{i=1}^mL(\hat y^{(i)},y^{(i)})+\frac{\lambda}{2m}||w||_2^2</script><script type="math/tex; mode=display">
 ||w||_2^2=\sum_{j=1}^{n_x}w_j^2=w^Tw</script><p>为什么不再加上参数<script type="math/tex">b</script>呢？因为通常<script type="math/tex">w</script>是一个高维参数矢量，几乎涵盖所有参数，已经可以表达高偏差问题，所以参数很大程度上由<script type="math/tex">w</script>决定，而<script type="math/tex">b</script>只是众多参数中的一个，改变<script type="math/tex">b</script>值对整体模型影响较小,所以通常省略不计,如果加了参数<script type="math/tex">b</script>，也没太大影响</p>
 <p><img src="http://www.ai-start.com/dl2017/images/84c4e19130a91a09120087dd704bbaa4.png" alt></p>
-<script type="math/tex; mode=display">L2$$正则化是最常见的正则化类型，$$L1$$正则化是正则项$$\frac{\lambda}{m}$$乘以$$\sum_{j=1}^{n^x}|w|$$，$$\sum_{j=1}^{n^x}|w|$$也被称为参数向量$$w$$的$$L1$$范数无论分母是，$$m$$还是$$2m$$，它都是一个比例常量</script><p>J(w,b)=\frac1m\sum_{i=1}^mL(\hat y^{(i)},y^{(i)})+\frac{\lambda}{2m}||w||_1</p>
+<p>$L2$正则化是最常见的正则化类型，<script type="math/tex">L1</script>正则化是正则项<script type="math/tex">\frac{\lambda}{m}</script>乘以<script type="math/tex">\sum_{j=1}^{n^x}|w|</script>，<script type="math/tex">\sum_{j=1}^{n^x}|w|</script>也被称为参数向量<script type="math/tex">w</script>的<script type="math/tex">L1</script>范数无论分母是，<script type="math/tex">m</script>还是<script type="math/tex">2m</script>，它都是一个比例常量</p>
 <script type="math/tex; mode=display">
-</script><p>||w||_1=\sum_{j=1}^{n_x}|w_j|</p>
+J(w,b)=\frac1m\sum_{i=1}^mL(\hat y^{(i)},y^{(i)})+\frac{\lambda}{2m}||w||_1</script><script type="math/tex; mode=display">
+||w||_1=\sum_{j=1}^{n_x}|w_j|</script><p>如果用的是<script type="math/tex">L1</script>正则化，<script type="math/tex">w</script>最终会是稀疏的，也就是说<script type="math/tex">w</script>向量中有很多0，虽然<script type="math/tex">L1</script>正则化使模型变得稀疏，却没有降低太多存储内存,实际上L1 regularization在解决high variance方面比L2 regularization并不更具优势。而且，L1的在微分求导方面比较复杂</p>
+<p>$\lambda$是正则化参数，可以设置<script type="math/tex">\lambda</script>为不同的值，在Dev set中进行验证，选择最佳的<script type="math/tex">\lambda</script>,通常使用验证集或交叉验证集来配置这个参数</p>
+<p>在深度学习模型中，L2 regularization的表达式为：</p>
 <script type="math/tex; mode=display">
-
-
-如果用的是$$L1$$正则化，$$w$$最终会是稀疏的，也就是说$$w$$向量中有很多0，虽然$$L1$$正则化使模型变得稀疏，却没有降低太多存储内存,实际上L1 regularization在解决high variance方面比L2 regularization并不更具优势。而且，L1的在微分求导方面比较复杂
-
-$$\lambda$$是正则化参数，可以设置$$\lambda$$为不同的值，在Dev set中进行验证，选择最佳的$$\lambda$$,通常使用验证集或交叉验证集来配置这个参数
-
-在深度学习模型中，L2 regularization的表达式为：</script><p>J(w^{[1]},b^{[1]},\cdots,w^{[L]},b^{[L]})=\frac1m\sum_{i=1}^mL(\hat y^{(i)},y^{(i)})+\frac{\lambda}{2m}\sum_{l=1}^L||w^{[l]}||^2</p>
+J(w^{[1]},b^{[1]},\cdots,w^{[L]},b^{[L]})=\frac1m\sum_{i=1}^mL(\hat y^{(i)},y^{(i)})+\frac{\lambda}{2m}\sum_{l=1}^L||w^{[l]}||^2</script><script type="math/tex; mode=display">
+||w^{[l]}||^2=\sum_{i=1}^{n^{[l]}}\sum_{j=1}^{n^{[l-1]}}(w_{ij}^{[l]})^2</script><p>$||w^{[l]}||^2$称为Frobenius范数，记为<script type="math/tex">||w^{[l]}||_F^2</script>。一个矩阵的Frobenius范数就是计算所有元素平方和再开方，如下所示：</p>
 <script type="math/tex; mode=display">
-</script><p>||w^{[l]}||^2=\sum_{i=1}^{n^{[l]}}\sum_{j=1}^{n^{[l-1]}}(w_{ij}^{[l]})^2</p>
+||A||_F=\sqrt {\sum_{i=1}^m\sum_{j=1}^n|a_{ij}|^2}</script><p>由于加入了正则化项，梯度下降算法中的<script type="math/tex">dw^{[l]}</script>计算表达式需要做如下修改：</p>
 <script type="math/tex; mode=display">
-
-
-$$||w^{[l]}||^2$$称为Frobenius范数，记为$$||w^{[l]}||_F^2$$。一个矩阵的Frobenius范数就是计算所有元素平方和再开方，如下所示：</script><p>||A||_F=\sqrt {\sum_{i=1}^m\sum_{j=1}^n|a_{ij}|^2}</p>
+dw^{[l]}=dw^{[l]}_{before}+\frac{\lambda}{m}w^{[l]}</script><script type="math/tex; mode=display">
+w^{[l]}:=w^{[l]}-\alpha\cdot dw^{[l]}</script><p>L2 regularization也被称做weight decay。这是因为，由于加上了正则项，<script type="math/tex">dw^{[l]}</script>有个增量，在更新<script type="math/tex">w^{[l]}</script>的时候，会多减去这个增量，使得<script type="math/tex">w^{[l]}</script>比没有正则项的值要小一些。不断迭代更新，不断地减小</p>
 <script type="math/tex; mode=display">
-
-
-由于加入了正则化项，梯度下降算法中的$$dw^{[l]}$$计算表达式需要做如下修改：</script><p>dw^{[l]}=dw^{[l]}_{before}+\frac{\lambda}{m}w^{[l]}</p>
-<script type="math/tex; mode=display">
-</script><p>w^{[l]}:=w^{[l]}-\alpha\cdot dw^{[l]}</p>
-<script type="math/tex; mode=display">
-
-
-L2 regularization也被称做weight decay。这是因为，由于加上了正则项，$$dw^{[l]}$$有个增量，在更新$$w^{[l]}$$的时候，会多减去这个增量，使得$$w^{[l]}$$比没有正则项的值要小一些。不断迭代更新，不断地减小</script><p>\begin{aligned}w^{[l]}<br>&amp;:=w^{[l]}-\alpha\cdot dw^{[l]}\\<br>&amp;=w^{[l]}-\alpha\cdot(dw^{[l]}_{before}+\frac{\lambda}{m}w^{[l]})\\<br>&amp;=(1-\alpha\frac{\lambda}{m})w^{[l]}-\alpha\cdot dw^{[l]}_{before}<br>\end{aligned}</p>
-<script type="math/tex; mode=display">
-
-
-其中，$$(1-\alpha\frac{\lambda}{m})<1</script><h2 id="1-5为什么正则化有利于预防过拟合呢？（Why-regularization-reduces-overfitting-）"><a href="#1-5为什么正则化有利于预防过拟合呢？（Why-regularization-reduces-overfitting-）" class="headerlink" title="1.5为什么正则化有利于预防过拟合呢？（Why regularization reduces overfitting?）"></a>1.5为什么正则化有利于预防过拟合呢？（Why regularization reduces overfitting?）</h2><p>如果正则化<script type="math/tex">\lambda</script>设置得足够大，权重矩阵<script type="math/tex">W</script>被设置为接近于0的值，直观理解就是把多隐藏单元的权重设为0，于是基本上消除了这些隐藏单元的许多影响。如果是这种情况，这个被大大简化了的神经网络会变成一个很小的网络，小到如同一个逻辑回归单元，可是深度却很大，它会使这个网络从过度拟合的状态更接近左图的高偏差状态。但是<script type="math/tex">\lambda</script>会存在一个中间值，于是会有一个接近“<strong>Just Right</strong>”的中间状态。</p>
+\begin{aligned}w^{[l]}
+&:=w^{[l]}-\alpha\cdot dw^{[l]}\\
+&=w^{[l]}-\alpha\cdot(dw^{[l]}_{before}+\frac{\lambda}{m}w^{[l]})\\
+&=(1-\alpha\frac{\lambda}{m})w^{[l]}-\alpha\cdot dw^{[l]}_{before}
+\end{aligned}</script><p>其中，<script type="math/tex">(1-\alpha\frac{\lambda}{m})<1</script></p>
+<h2 id="1-5为什么正则化有利于预防过拟合呢？（Why-regularization-reduces-overfitting-）"><a href="#1-5为什么正则化有利于预防过拟合呢？（Why-regularization-reduces-overfitting-）" class="headerlink" title="1.5为什么正则化有利于预防过拟合呢？（Why regularization reduces overfitting?）"></a>1.5为什么正则化有利于预防过拟合呢？（Why regularization reduces overfitting?）</h2><p>如果正则化<script type="math/tex">\lambda</script>设置得足够大，权重矩阵<script type="math/tex">W</script>被设置为接近于0的值，直观理解就是把多隐藏单元的权重设为0，于是基本上消除了这些隐藏单元的许多影响。如果是这种情况，这个被大大简化了的神经网络会变成一个很小的网络，小到如同一个逻辑回归单元，可是深度却很大，它会使这个网络从过度拟合的状态更接近左图的高偏差状态。但是<script type="math/tex">\lambda</script>会存在一个中间值，于是会有一个接近“<strong>Just Right</strong>”的中间状态。</p>
 <p><img src="http://www.ai-start.com/dl2017/images/2aafa244c3f184cc271b26d1d95d70c9.png" alt></p>
 <p>正则化为什么可以预防过拟合:</p>
 <p>假设激活函数是<script type="math/tex">tanh</script>函数。<script type="math/tex">tanh</script>函数的特点是在<script type="math/tex">z</script>接近零的区域，函数近似是线性的，而当<script type="math/tex">|z|</script>很大的时候，函数非线性且变化缓慢。当使用正则化，<script type="math/tex">\lambda</script>较大，即对权重<script type="math/tex">w^{[l]}</script>的惩罚较大，<script type="math/tex">w^{[l]}</script>减小。因为<script type="math/tex">z^{[l]}=w^{[l]}a^{[l]}+b^{[l]}</script>。当<script type="math/tex">w^{[l]}</script>减小的时候，<script type="math/tex">z^{[l]}</script>也会减小。则此时的<script type="math/tex">z^{[l]}</script>分布在<script type="math/tex">tanh</script>函数的近似线性区域。那么这个神经元起的作用就相当于是linear regression。如果每个神经元对应的权重<script type="math/tex">w^{[l]}</script>都比较小，那么整个神经网络模型相当于是多个linear regression的组合，即可看成一个linear network。得到的分类超平面就会比较简单，不会出现过拟合现象</p>
