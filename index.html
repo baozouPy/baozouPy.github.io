@@ -573,7 +573,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:55:50Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:58:58Z">
                 2019-02-27
               </time>
             
@@ -682,7 +682,7 @@
       
         
           
-            <h2 id="2-2-词汇表征（Word-Representation）"><a href="#2-2-词汇表征（Word-Representation）" class="headerlink" title="2.2 词汇表征（Word Representation）"></a>2.2 词汇表征（Word Representation）</h2><p><strong>one-hot</strong>向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用<script type="math/tex">O_{5391}</script>,<script type="math/tex">O_{9853}</script> 等表示，<script type="math/tex">O</script>代表<strong>one-hot：</strong></p>
+            <h2 id="2-1-词汇表征（Word-Representation）"><a href="#2-1-词汇表征（Word-Representation）" class="headerlink" title="2.1 词汇表征（Word Representation）"></a>2.1 词汇表征（Word Representation）</h2><p><strong>one-hot</strong>向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用<script type="math/tex">O_{5391}</script>,<script type="math/tex">O_{9853}</script> 等表示，<script type="math/tex">O</script>代表<strong>one-hot：</strong></p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/68d7c930146724f39782cb57d33161e9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/68d7c930146724f39782cb57d33161e9.png" alt></a></p>
 <p>缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强</p>
 <p>因为任何两个one-hot向量的内积都是0，例如king和queen，词性相近，但是单从one-hot编码上来看，内积为零，无法知道二者的相似性</p>
@@ -734,27 +734,19 @@ Find\ word\ w:argmax\ Sim(e_{w},e_{\text{king}} - e_{\text{man}} + e_{\text{woma
 Sim(u,v)=\frac{u^Tv}{||u||\cdot ||v||}</script><p>分子是<script type="math/tex">u</script>和<script type="math/tex">v</script>的内积。如果<script type="math/tex">u</script>和<script type="math/tex">v</script>非常相似，那么它们的内积将会很大，把整个式子叫做余弦相似度，是因为该式是<script type="math/tex">u</script>和<script type="math/tex">v</script>的夹角的余弦值</p>
 <p><strong>参考资料：</strong> 给定两个向量<script type="math/tex">u</script>和<script type="math/tex">v</script>，余弦相似度定义如下：</p>
 <script type="math/tex; mode=display">
-{CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta)</script><script type="math/tex; mode=display">u.v$$ 是两个向量的点积（或内积），$$||u||_2$$是向量$$u$$的范数（或长度）， $$\theta$$ 是向量$$u$$和$$v$$之间的角度。这种相似性取决于角度在向量$$u$$和$$v$$之间。如果向量$$u$$和$$v$$非常相似，它们的余弦相似性将接近1; 如果它们不相似，则余弦相似性将取较小的值
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/markdown/..\images\cosine_sim.png "osine\_si")](https://github.com/fengdu78/deeplearning_ai_books/blob/master/markdown/..\images\cosine_sim.png)
-
-> 两个向量之间角度的余弦是衡量它们有多相似的指标，角度越小，两个向量越相似
-
-还可以计算Euclidian distance来比较相似性，即$$||u-v||^2$$。距离越大，相似性越小
-
-## 2.4 嵌入矩阵（Embedding Matrix）
-
-当应用算法来学习词嵌入时，实际上是学习一个**嵌入矩阵**
-
-假设某个词汇库包含了10000个单词，每个单词包含的特征维度为300，那么表征所有单词的**embedding matrix**维度为300 x 10000，用$$E$$来表示。某单词$$w$$的one-hot向量表示为$$O_w$$，维度为10000 x 1
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ad1c7b1e85d39f56756c28787ccef892.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ad1c7b1e85d39f56756c28787ccef892.png)
-
-则该单词的嵌入向量\(embedding vector\)表达式为：</script><p>e_w=E\cdot O_w</p>
+{CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta)</script><p>$u.v$ 是两个向量的点积（或内积），<script type="math/tex">||u||_2</script>是向量<script type="math/tex">u</script>的范数（或长度）， <script type="math/tex">\theta</script> 是向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间的角度。这种相似性取决于角度在向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间。如果向量<script type="math/tex">u</script>和<script type="math/tex">v</script>非常相似，它们的余弦相似性将接近1; 如果它们不相似，则余弦相似性将取较小的值</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/markdown/..\images\cosine_sim.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/markdown/..\images\cosine_sim.png" alt title="osine\_si"></a></p>
+<blockquote>
+<p>两个向量之间角度的余弦是衡量它们有多相似的指标，角度越小，两个向量越相似</p>
+</blockquote>
+<p>还可以计算Euclidian distance来比较相似性，即<script type="math/tex">||u-v||^2</script>。距离越大，相似性越小</p>
+<h2 id="2-4-嵌入矩阵（Embedding-Matrix）"><a href="#2-4-嵌入矩阵（Embedding-Matrix）" class="headerlink" title="2.4 嵌入矩阵（Embedding Matrix）"></a>2.4 嵌入矩阵（Embedding Matrix）</h2><p>当应用算法来学习词嵌入时，实际上是学习一个<strong>嵌入矩阵</strong></p>
+<p>假设某个词汇库包含了10000个单词，每个单词包含的特征维度为300，那么表征所有单词的<strong>embedding matrix</strong>维度为300 x 10000，用<script type="math/tex">E</script>来表示。某单词<script type="math/tex">w</script>的one-hot向量表示为<script type="math/tex">O_w</script>，维度为10000 x 1</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ad1c7b1e85d39f56756c28787ccef892.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ad1c7b1e85d39f56756c28787ccef892.png" alt></a></p>
+<p>则该单词的嵌入向量(embedding vector)表达式为：</p>
 <script type="math/tex; mode=display">
-
-
-只要知道了embedding matrix$$ E$$，就能计算出所有单词的embedding vector $$e_w</script><p>不过上述这种矩阵乘积运算<script type="math/tex">E\cdot O_w</script>效率并不高，矩阵维度很大，且<script type="math/tex">O_w</script>大部分元素为零。通常做法是直接从<script type="math/tex">E</script>中选取第<script type="math/tex">w</script>列作为<script type="math/tex">e_w</script></p>
+e_w=E\cdot O_w</script><p>只要知道了embedding matrix<script type="math/tex">E</script>，就能计算出所有单词的embedding vector <script type="math/tex">e_w</script></p>
+<p>不过上述这种矩阵乘积运算<script type="math/tex">E\cdot O_w</script>效率并不高，矩阵维度很大，且<script type="math/tex">O_w</script>大部分元素为零。通常做法是直接从<script type="math/tex">E</script>中选取第<script type="math/tex">w</script>列作为<script type="math/tex">e_w</script></p>
 <h2 id="2-5-学习词嵌入（Learning-Word-Embeddings）"><a href="#2-5-学习词嵌入（Learning-Word-Embeddings）" class="headerlink" title="2.5 学习词嵌入（Learning Word Embeddings）"></a>2.5 学习词嵌入（Learning Word Embeddings）</h2><p>embedding matrix <script type="math/tex">E</script>可以通过构建自然语言模型，运用梯度下降算法得到。若输入样本是：</p>
 <p><strong>I want a glass of orange (juice).</strong></p>
 <p>通过这句话的前6个单词，预测最后的单词“juice”。<script type="math/tex">E</script>未知待求，每个单词可用embedding vector <script type="math/tex">e_w</script>表示。构建的神经网络模型结构如下图所示：</p>
@@ -2676,7 +2668,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:18:13Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:56:32Z">
                 2019-02-27
               </time>
             
@@ -2725,7 +2717,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  484
                 </span>
               
 
@@ -2763,7 +2755,19 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
       
         
           
-            
+            <h2 id="3-1-基础模型（Basic-Models）"><a href="#3-1-基础模型（Basic-Models）" class="headerlink" title="3.1 基础模型（Basic Models）"></a>3.1 基础模型（Basic Models）</h2><h3 id="机器翻译"><a href="#机器翻译" class="headerlink" title="机器翻译"></a>机器翻译</h3><p>用<script type="math/tex">x^{<1>}</script> 到<script type="math/tex">x^{< 5>}</script>表示输入句子的单词，用<script type="math/tex">y^{<1>}</script>到<script type="math/tex">y^{<6>}</script>表示输出句子的单词：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png" alt></a></p>
+<p>首先，建立一个<strong>RNN</strong>编码网络（<strong>encoder network</strong>）（编号1），单元可以是<strong>GRU</strong>或<strong>LSTM</strong>。每次只向该网络中输入一个法语单词，将输入序列接收完毕后，这个<strong>RNN</strong>网络会输出一个向量来代表这个输入序列</p>
+<p>之后建立一个解码网络（编号2），以编码网络的输出作为输入，之后它可以被训练为每次输出一个翻译后的单词，一直到它输出序列的结尾或者句子结尾标记</p>
+<p>在给出足够的法语和英语文本的情况下，训练模型，通过输入一个法语句子来输出对应的英语翻译，这个模型将会非常有效。这个模型简单地用一个编码网络来对输入的法语句子进行编码，然后用一个解码网络来生成对应的英语翻译</p>
+<h3 id="图像描述"><a href="#图像描述" class="headerlink" title="图像描述"></a>图像描述</h3><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b9492d18803ebe3853e936098f08661c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b9492d18803ebe3853e936098f08661c.png" alt></a></p>
+<blockquote>
+<p>给出猫的图片，能自动地输出该图片的描述：一只猫坐在椅子上</p>
+</blockquote>
+<p>通过输入图像来输出描述：</p>
+<p>将图片输入到卷积神经网络中（一个预训练的<strong>AlexNet</strong>结构）（编号2），然后让其学习图片的编码，或者学习图片的一系列特征。去掉最后的<strong>softmax</strong>单元（编号3），这个预训练的<strong>AlexNet</strong>结构会输出4096维的特征向量，向量表示的就是这只猫的图片，这个预训练网络可以是图像的编码网络</p>
+<p>接着把这个向量输入到<strong>RNN</strong>中（编号4），RNN要做的就是生成图像的描述，每次生成一个单词：输入一个描述输入的特征向量，然后让网络一个一个地输出单词序列</p>
+
           
         
       
@@ -2982,7 +2986,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共58.8k字</span>
+  <span class="post-count">博客全站共59.2k字</span>
 </div>
 
         

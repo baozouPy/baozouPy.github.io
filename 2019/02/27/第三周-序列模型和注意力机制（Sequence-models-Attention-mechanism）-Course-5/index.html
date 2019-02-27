@@ -82,18 +82,21 @@
 
 
 
-<meta name="description" content="你如果不忙着求生， 你就在忙着求死">
+<meta name="description" content="3.1 基础模型（Basic Models）机器翻译用x^{} 到x^{&amp;lt; 5&amp;gt;}表示输入句子的单词，用y^{}到y^{}表示输出句子的单词：  首先，建立一个RNN编码网络（encoder network）（编号1），单元可以是GRU或LSTM。每次只向该网络中输入一个法语单词，将输入序列接收完毕后，这个RNN网络会输出一个向量来代表这个输入序列 之后建立一个解码网络（编号2），以编码网络的输出">
 <meta name="keywords" content="Machine Learning&#x2F;Deep Learning&#x2F;Python&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第三周 序列模型和注意力机制（Sequence models &amp; Attention mechanism）(Course 5)">
 <meta property="og:url" content="https://baozouai.com/2019/02/27/第三周-序列模型和注意力机制（Sequence-models-Attention-mechanism）-Course-5/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="你如果不忙着求生， 你就在忙着求死">
+<meta property="og:description" content="3.1 基础模型（Basic Models）机器翻译用x^{} 到x^{&amp;lt; 5&amp;gt;}表示输入句子的单词，用y^{}到y^{}表示输出句子的单词：  首先，建立一个RNN编码网络（encoder network）（编号1），单元可以是GRU或LSTM。每次只向该网络中输入一个法语单词，将输入序列接收完毕后，这个RNN网络会输出一个向量来代表这个输入序列 之后建立一个解码网络（编号2），以编码网络的输出">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-27T06:18:13.906Z">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b9492d18803ebe3853e936098f08661c.png">
+<meta property="og:updated_time" content="2019-02-27T06:56:32.663Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三周 序列模型和注意力机制（Sequence models &amp; Attention mechanism）(Course 5)">
-<meta name="twitter:description" content="你如果不忙着求生， 你就在忙着求死">
+<meta name="twitter:description" content="3.1 基础模型（Basic Models）机器翻译用x^{} 到x^{&amp;lt; 5&amp;gt;}表示输入句子的单词，用y^{}到y^{}表示输出句子的单词：  首先，建立一个RNN编码网络（encoder network）（编号1），单元可以是GRU或LSTM。每次只向该网络中输入一个法语单词，将输入序列接收完毕后，这个RNN网络会输出一个向量来代表这个输入序列 之后建立一个解码网络（编号2），以编码网络的输出">
+<meta name="twitter:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png">
 
 
 
@@ -356,7 +359,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:18:13+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:56:32+08:00">
                 2019-02-27
               </time>
             
@@ -405,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  484
                 </span>
               
 
@@ -441,7 +444,19 @@
       
 
       
-        
+        <h2 id="3-1-基础模型（Basic-Models）"><a href="#3-1-基础模型（Basic-Models）" class="headerlink" title="3.1 基础模型（Basic Models）"></a>3.1 基础模型（Basic Models）</h2><h3 id="机器翻译"><a href="#机器翻译" class="headerlink" title="机器翻译"></a>机器翻译</h3><p>用<script type="math/tex">x^{<1>}</script> 到<script type="math/tex">x^{< 5>}</script>表示输入句子的单词，用<script type="math/tex">y^{<1>}</script>到<script type="math/tex">y^{<6>}</script>表示输出句子的单词：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png" alt></a></p>
+<p>首先，建立一个<strong>RNN</strong>编码网络（<strong>encoder network</strong>）（编号1），单元可以是<strong>GRU</strong>或<strong>LSTM</strong>。每次只向该网络中输入一个法语单词，将输入序列接收完毕后，这个<strong>RNN</strong>网络会输出一个向量来代表这个输入序列</p>
+<p>之后建立一个解码网络（编号2），以编码网络的输出作为输入，之后它可以被训练为每次输出一个翻译后的单词，一直到它输出序列的结尾或者句子结尾标记</p>
+<p>在给出足够的法语和英语文本的情况下，训练模型，通过输入一个法语句子来输出对应的英语翻译，这个模型将会非常有效。这个模型简单地用一个编码网络来对输入的法语句子进行编码，然后用一个解码网络来生成对应的英语翻译</p>
+<h3 id="图像描述"><a href="#图像描述" class="headerlink" title="图像描述"></a>图像描述</h3><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b9492d18803ebe3853e936098f08661c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b9492d18803ebe3853e936098f08661c.png" alt></a></p>
+<blockquote>
+<p>给出猫的图片，能自动地输出该图片的描述：一只猫坐在椅子上</p>
+</blockquote>
+<p>通过输入图像来输出描述：</p>
+<p>将图片输入到卷积神经网络中（一个预训练的<strong>AlexNet</strong>结构）（编号2），然后让其学习图片的编码，或者学习图片的一系列特征。去掉最后的<strong>softmax</strong>单元（编号3），这个预训练的<strong>AlexNet</strong>结构会输出4096维的特征向量，向量表示的就是这只猫的图片，这个预训练网络可以是图像的编码网络</p>
+<p>接着把这个向量输入到<strong>RNN</strong>中（编号4），RNN要做的就是生成图像的描述，每次生成一个单词：输入一个描述输入的特征向量，然后让网络一个一个地输出单词序列</p>
+
       
     </div>
     
@@ -586,8 +601,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
 
@@ -689,6 +713,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-基础模型（Basic-Models）"><span class="nav-number">1.</span> <span class="nav-text">3.1 基础模型（Basic Models）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器翻译"><span class="nav-number">1.1.</span> <span class="nav-text">机器翻译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像描述"><span class="nav-number">1.2.</span> <span class="nav-text">图像描述</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -729,7 +769,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共58.8k字</span>
+  <span class="post-count">博客全站共59.2k字</span>
 </div>
 
         
