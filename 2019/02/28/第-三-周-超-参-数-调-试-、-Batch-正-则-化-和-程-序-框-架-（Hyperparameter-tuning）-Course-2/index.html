@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://baozouai.com/images/pasted-83.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-84.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-85.png">
-<meta property="og:updated_time" content="2019-02-27T04:43:58.872Z">
+<meta property="og:updated_time" content="2019-02-27T04:45:15.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)">
 <meta name="twitter:description" content="3.1调试处理（Tuning process）深度神经网络需要调试的超参数（Hyperparameters）包括：  \alpha：学习因子 \beta：动量梯度下降因子 \beta_1,\beta_2,\varepsilon：Adam算法参数 #layers：神经网络层数 #hidden units：各隐藏层神经元个数 learning rate decay：学习因子下降参数 mini-batc">
@@ -372,7 +372,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T12:43:58+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T12:45:15+08:00">
                 2019-02-27
               </time>
             
@@ -549,7 +549,7 @@ z^{(i)}_{norm}=\frac{z^{(i)}-\mu}{\sqrt{\sigma^2+\varepsilon}}</script><p>m是�
 </ul>
 <p>经过Batch Norm的作用，整体流程如下：</p>
 <p><img src="/images/pasted-76.png" alt="upload successful">)</p>
-<p>Batch Norm对各隐藏层<script type="math/tex">Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}</script>有去均值的操作，Batch Norm 要做的就是将<script type="math/tex">z^{[l]}</script>归一化，结果成为均值为0，标准差为1的分布，再由<script type="math/tex">\beta</script> 和<script type="math/tex">\gamma</script> 进行重新的分布缩放，意味着无论<script type="math/tex">b^{[l]}</script> 值为多少，在这个过程中都会被减去，不会再起作用。所以常数项<script type="math/tex">b^{[l]}</script>可以消去，其数值效果完全可以由<script type="math/tex">\widetilde{z}}^{[l]</script>中的<script type="math/tex">\beta</script>来实现。在使用Batch Norm的时候，可以忽略各隐藏层的常数项<script type="math/tex">b^{[l]}</script>。在使用梯度下降算法时，分别对<script type="math/tex">W^{[l]}</script>,<script type="math/tex">\beta^{[l]}</script>和<script type="math/tex">\gamma^{[l]}</script>进行迭代更新</p>
+<p>Batch Norm对各隐藏层<script type="math/tex">Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}</script>有去均值的操作，Batch Norm 要做的就是将<script type="math/tex">z^{[l]}</script>归一化，结果成为均值为0，标准差为1的分布，再由<script type="math/tex">\beta</script> 和<script type="math/tex">\gamma</script> 进行重新的分布缩放，意味着无论<script type="math/tex">b^{[l]}</script> 值为多少，在这个过程中都会被减去，不会再起作用。所以常数项<script type="math/tex">b^{[l]}</script>可以消去，其数值效果完全可以由<script type="math/tex">\widetilde{z}^{[l]}</script>中的<script type="math/tex">\beta</script>来实现。在使用Batch Norm的时候，可以忽略各隐藏层的常数项<script type="math/tex">b^{[l]}</script>。在使用梯度下降算法时，分别对<script type="math/tex">W^{[l]}</script>,<script type="math/tex">\beta^{[l]}</script>和<script type="math/tex">\gamma^{[l]}</script>进行迭代更新</p>
 <p>除了传统的梯度下降算法之外，还可以使用动量梯度下降、RMSprop或者Adam等优化算法</p>
 <h2 id="3-6Batch-Norm-为什么奏效？（Why-does-Batch-Norm-work-）"><a href="#3-6Batch-Norm-为什么奏效？（Why-does-Batch-Norm-work-）" class="headerlink" title="3.6Batch Norm 为什么奏效？（Why does Batch Norm work?）"></a>3.6Batch Norm 为什么奏效？（Why does Batch Norm work?）</h2><h3 id="Batch-Norm-可以加速神经网络训练的原因："><a href="#Batch-Norm-可以加速神经网络训练的原因：" class="headerlink" title="Batch Norm 可以加速神经网络训练的原因："></a>Batch Norm 可以加速神经网络训练的原因：</h3><ul>
 <li>和输入层的输入特征进行归一化，从而改变Cost function的形状，使得每一次梯度下降都可以更快的接近函数的最小值点，从而加速模型训练过程的原理有相同的道理，只是Batch Norm是将各个隐藏层的激活函数的激活值进行的归一化，并调整到另外的分布</li>
