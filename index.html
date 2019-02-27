@@ -573,7 +573,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T03:41:59Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T03:43:13Z">
                 2019-02-27
               </time>
             
@@ -622,7 +622,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  689
+                  1.4k
                 </span>
               
 
@@ -638,7 +638,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -682,6 +682,23 @@
 <p><img src="/images/pasted-45.png" alt="upload successful"><br>没有测试集也不要紧，测试集的目的是对最终所选定的神经网络系统做出无偏估计，如果不需要无偏估计，也可以不设置测试集。所以如果只有验证集，没有测试集，要做的就是在训练集上训练，尝试不同的模型框架，在验证集上评估这些模型，然后迭代并选出适用的模型。因为验证集中已经涵盖测试集数据，其不再提供无偏性能评估</p>
 <p><img src="/images/pasted-46.png" alt="upload successful"></p>
 <p>搭建训练验证集和测试集能够加速神经网络的集成，也可以更有效地衡量算法的偏差和方差，从而更高效地选择合适方法来优化算法</p>
+<h2 id="1-2偏差，方差（Bias-Variance）"><a href="#1-2偏差，方差（Bias-Variance）" class="headerlink" title="1.2偏差，方差（Bias /Variance）"></a>1.2偏差，方差（Bias /Variance）</h2><p>在一个只有<script type="math/tex">x_1</script>和<script type="math/tex">x_2</script>两个特征的二维数据集中，可以绘制数据，将偏差和方差可视化。</p>
+<p><img src="http://www.ai-start.com/dl2017/images/05ac08b96177b5d0aaae7b7bfea64f3a.png" alt></p>
+<p>在多维空间数据中，绘制数据和可视化分割边界无法实现，但可以通过几个指标，来研究偏差和方差</p>
+<p><img src="http://www.ai-start.com/dl2017/images/2efd9728b5f07f914903dde309167a5d.png" alt></p>
+<p>理解偏差和方差的两个关键数据是<strong>训练集误差（Train set error）</strong>和<strong>验证集误差（Dev set error）</strong></p>
+<p>假定训练集误差是1%，验证集误差是11%，可以看出训练集设置得非常好，而验证集设置相对较差，可能过度拟合了训练集，验证集并没有充分利用交叉验证集的作用，这种情况称之为“高方差”。</p>
+<p>假设训练集误差是15%，验证集误差是16%，该案例中人的错误率几乎为0%，算法并没有在训练集中得到很好训练，如果训练数据的拟合度不高，就是数据欠拟合，这种算法偏差比较高。对于验证集产生的结果却是合理的，验证集中的错误率只比训练集的多了1%，这种算法偏差高，因为它甚至不能拟合训练集</p>
+<p>训练集误差是15%，偏差相当高，验证集的评估结果更糟糕，错误率达到30%，这种算法偏差高，因为它在训练集上结果不理想，而且方差也很高，这是方差偏差都很糟糕的情况</p>
+<p>训练集误差是0.5%，验证集误差是1%，猫咪分类器只有1%的错误率，偏差和方差都很低</p>
+<p>以上分析都是基于假设预测的，训练集和验证集数据来自相同分布，假设人眼辨别的错误率接近0%，一般来说，<strong>最优误差</strong>也被称为<strong>贝叶斯误差</strong>，最优误差接近0%，如果最优误差或贝叶斯误差非常高，比如15%。再看看这个分类器（训练误差15%，验证误差16%），15%的错误率对训练集来说也是非常合理的，偏差不高，方差也非常低</p>
+<p><img src="http://www.ai-start.com/dl2017/images/c61d149beecddb96f0f93944320cf639.png" alt></p>
+<p>偏差和方差都高：</p>
+<p><img src="http://www.ai-start.com/dl2017/images/6e86aa7d9b21b1a49bf4a084c7503527.png" alt></p>
+<blockquote>
+<p>这条曲线中间部分灵活性非常高，却过度拟合了这两个样本，这类分类器偏差很高，因为它几乎是线性的</p>
+</blockquote>
+<p>采用曲线函数或二次元函数会产生高方差，因为曲线灵活性太高以致拟合了这两个错误样本和中间这些活跃数据。但对于高维数据，有些数据区域偏差高，有些数据区域方差高，所以在高维数据中采用这种分类器看起来就不会那么牵强</p>
 
           
         
@@ -1214,7 +1231,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T11:35:14+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T03:35:14Z">
                 2019-02-27
               </time>
             
@@ -2141,7 +2158,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共6.5k字</span>
+  <span class="post-count">博客全站共7.2k字</span>
 </div>
 
         
