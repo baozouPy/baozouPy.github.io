@@ -358,7 +358,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:16:58+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:18:57Z">
                 2019-02-27
               </time>
             
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5k
+                  4.9k
                 </span>
               
 
@@ -445,7 +445,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  19
+                  18
                 </span>
               
             </div>
@@ -520,48 +520,27 @@ d( x^{( 1)},x^{( 2)}) =|| f( x^{( 1)}) - f( x^{( 2)})||_{2}^{2}</script><p>对�
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/6a701944309f6dce72d03f5070275d5f.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6a701944309f6dce72d03f5070275d5f.png" alt></a></p>
 <p>损失函数的定义基于三元图片组，即取这个和0的最大值：</p>
 <script type="math/tex; mode=display">
-L( A,P,N) = max(|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha,0)</script><script type="math/tex; mode=display">max$$函数的作用是只要$$|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha\leq0$$，损失函数就是0
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/16bd20003ac6e93b71abb565ac4fd98e.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/16bd20003ac6e93b71abb565ac4fd98e.png)
-
-如果$$|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha\leq0$$，最终会得到$$|| f(A) - f( P)||^{2} -|| f( A) - f( N)||^{2} +\alpha$$，即正的损失值。通过最小化这个损失函数达到的效果就是使这部分$$|| f( A) - f( P)||^{2} -||f( A) - f( N)||^{2} +\alpha$$成为0，或者小于等于0
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bb258e78602ca65b6556a502da731764.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/bb258e78602ca65b6556a502da731764.png)
-
-整个网络的代价函数是训练集中单个三元组损失的总和
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5d0ec945435eeb29f78463e38c58e90d.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5d0ec945435eeb29f78463e38c58e90d.png)
-
-如何选择三元组来形成训练集：如果从训练集中随机地选择$$A$$、$$P$$和$$N$$，遵守$$A$$和$$P$$是同一个人，而$$A$$和$$N$$是不同的人这一原则。那么约束条件（$$d(A,P) + \alpha \leq d(A,N)$$）很容易达到，因为随机选择的图片，$$A$$和$$N$$比$$A$$和$$P$$差别很大的概率很大，而且差距远大于$$\alpha$$，这样网络并不能从中学到什么
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8d010b8d7ee7011cf7f5d1889af0e4ce.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8d010b8d7ee7011cf7f5d1889af0e4ce.png)
-
-所以为了构建一个数据集，要做的就是尽可能选择难训练的三元组$$A$$、$$P$$和$$N$$：
-
-想要所有的三元组都满足条件（$$d(A,P) + a \leq d(A,N)$$），$$A$$、$$P$$和$$N$$的选择应使得$$d(A,P)$$很接近$$d(A,N)$$，即$$d(A,P) \approx d(A,N)$$，这样学习算法会竭尽全力使右边式子变大（$$d(A,N)$$），或者使左边式子（$$d(A,P)$$）变小，这样左右两边至少有一个$$\alpha$$的间隔。并且选择这样的三元组还可以增加学习算法的计算效率
-
-总结：
-
-训练三元组损失需要把训练集做成很多三元组，这就是一个三元组（编号1），有一个**Anchor**图片和**Positive**图片，这两个（**Anchor**和**Positive**）是同一个人，还有一张另一个人的**Negative**图片。这是另一组（编号2），其中**Anchor**和**Positive**图片是同一个人，但是**Anchor**和**Negative**不是同一个人，等等。
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/347cf0fc665abe47fa0999d8bf771d26.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/347cf0fc665abe47fa0999d8bf771d26.png)
-
-定义了这些包括$$A$$、$$P$$和$$N$$图片的数据集之后，还需要用梯度下降最小化代价函数$$J$$，这样做的效果就是反向传播到网络中的所有参数来学习到一种编码，使得如果两个图片是同一个人，那么它们的$$d$$就会很小，如果两个图片不是同一个人，它们的$$d$$ 就会很大
-## 4.5 面部验证与二分类（Face verification and binary classification）
-
-另一个训练神经网络的方法是选取一对神经网络，选取**Siamese**网络，使其同时计算这些嵌入，比如说128维的嵌入（编号1），或者更高维，然后将其输入到逻辑回归单元进行预测，如果是相同的人，那么输出是1，若是不同的人，输出是0。这就把人脸识别问题转换为一个二分类问题，训练这种系统时可以替换**Triplet loss**的方法
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c3bf61934da2f20a7d15e183c1d1d2ab.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c3bf61934da2f20a7d15e183c1d1d2ab.png)
-
-最后的逻辑回归单元怎么处理：
-
-比如说**sigmoid**函数应用到某些特征上，输出$$\hat y$$会变成：</script><p>\hat y = \sigma(\sum_{k = 1}^{128}{w_{i}| f( x^{( i)})_{k} - f( x^{( j)})_{k}| + b})</p>
+L( A,P,N) = max(|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha,0)</script><p>$max$函数的作用是只要<script type="math/tex">|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha\leq0</script>，损失函数就是0</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/16bd20003ac6e93b71abb565ac4fd98e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/16bd20003ac6e93b71abb565ac4fd98e.png" alt></a></p>
+<p>如果<script type="math/tex">|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha\leq0</script>，最终会得到<script type="math/tex">|| f(A) - f( P)||^{2} -|| f( A) - f( N)||^{2} +\alpha</script>，即正的损失值。通过最小化这个损失函数达到的效果就是使这部分<script type="math/tex">|| f( A) - f( P)||^{2} -||f( A) - f( N)||^{2} +\alpha</script>成为0，或者小于等于0</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/bb258e78602ca65b6556a502da731764.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bb258e78602ca65b6556a502da731764.png" alt></a></p>
+<p>整个网络的代价函数是训练集中单个三元组损失的总和</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5d0ec945435eeb29f78463e38c58e90d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5d0ec945435eeb29f78463e38c58e90d.png" alt></a></p>
+<p>如何选择三元组来形成训练集：如果从训练集中随机地选择<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>，遵守<script type="math/tex">A</script>和<script type="math/tex">P</script>是同一个人，而<script type="math/tex">A</script>和<script type="math/tex">N</script>是不同的人这一原则。那么约束条件（<script type="math/tex">d(A,P) + \alpha \leq d(A,N)</script>）很容易达到，因为随机选择的图片，<script type="math/tex">A</script>和<script type="math/tex">N</script>比<script type="math/tex">A</script>和<script type="math/tex">P</script>差别很大的概率很大，而且差距远大于<script type="math/tex">\alpha</script>，这样网络并不能从中学到什么</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8d010b8d7ee7011cf7f5d1889af0e4ce.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8d010b8d7ee7011cf7f5d1889af0e4ce.png" alt></a></p>
+<p>所以为了构建一个数据集，要做的就是尽可能选择难训练的三元组<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>：</p>
+<p>想要所有的三元组都满足条件（<script type="math/tex">d(A,P) + a \leq d(A,N)</script>），<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>的选择应使得<script type="math/tex">d(A,P)</script>很接近<script type="math/tex">d(A,N)</script>，即<script type="math/tex">d(A,P) \approx d(A,N)</script>，这样学习算法会竭尽全力使右边式子变大（<script type="math/tex">d(A,N)</script>），或者使左边式子（<script type="math/tex">d(A,P)</script>）变小，这样左右两边至少有一个<script type="math/tex">\alpha</script>的间隔。并且选择这样的三元组还可以增加学习算法的计算效率</p>
+<p>总结：</p>
+<p>训练三元组损失需要把训练集做成很多三元组，这就是一个三元组（编号1），有一个<strong>Anchor</strong>图片和<strong>Positive</strong>图片，这两个（<strong>Anchor</strong>和<strong>Positive</strong>）是同一个人，还有一张另一个人的<strong>Negative</strong>图片。这是另一组（编号2），其中<strong>Anchor</strong>和<strong>Positive</strong>图片是同一个人，但是<strong>Anchor</strong>和<strong>Negative</strong>不是同一个人，等等。</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/347cf0fc665abe47fa0999d8bf771d26.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/347cf0fc665abe47fa0999d8bf771d26.png" alt></a></p>
+<p>定义了这些包括<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>图片的数据集之后，还需要用梯度下降最小化代价函数<script type="math/tex">J</script>，这样做的效果就是反向传播到网络中的所有参数来学习到一种编码，使得如果两个图片是同一个人，那么它们的<script type="math/tex">d</script>就会很小，如果两个图片不是同一个人，它们的<script type="math/tex">d</script> 就会很大</p>
+<h2 id="4-5-面部验证与二分类（Face-verification-and-binary-classification）"><a href="#4-5-面部验证与二分类（Face-verification-and-binary-classification）" class="headerlink" title="4.5 面部验证与二分类（Face verification and binary classification）"></a>4.5 面部验证与二分类（Face verification and binary classification）</h2><p>另一个训练神经网络的方法是选取一对神经网络，选取<strong>Siamese</strong>网络，使其同时计算这些嵌入，比如说128维的嵌入（编号1），或者更高维，然后将其输入到逻辑回归单元进行预测，如果是相同的人，那么输出是1，若是不同的人，输出是0。这就把人脸识别问题转换为一个二分类问题，训练这种系统时可以替换<strong>Triplet loss</strong>的方法</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c3bf61934da2f20a7d15e183c1d1d2ab.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c3bf61934da2f20a7d15e183c1d1d2ab.png" alt></a></p>
+<p>最后的逻辑回归单元怎么处理：</p>
+<p>比如说<strong>sigmoid</strong>函数应用到某些特征上，输出<script type="math/tex">\hat y</script>会变成：</p>
 <script type="math/tex; mode=display">
-
-
-把这128个元素当作特征，然后把他们放入逻辑回归中，最后的逻辑回归可以增加参数$$w_{i}$$和$$b$$，就像普通的逻辑回归一样。然后在这128个单元上训练合适的权重，用来预测两张图片是否是一个人
-
-$$\hat y$$的另外一种表达式为：</script><p>\hat y=\sigma(\sum_{k=1}^Kw_k\frac{(f(x^{(i)})_k-f(x^{(j)})_k)^2}{f(x^{(i)})_k+f(x^{(j)})_k}+b)</p>
+\hat y = \sigma(\sum_{k = 1}^{128}{w_{i}\| f( x^{( i)})_{k} - f( x^{( j)})_{k}\| + b})</script><p>把这128个元素当作特征，然后把他们放入逻辑回归中，最后的逻辑回归可以增加参数<script type="math/tex">w_{i}</script>和<script type="math/tex">b</script>，就像普通的逻辑回归一样。然后在这128个单元上训练合适的权重，用来预测两张图片是否是一个人</p>
+<script type="math/tex; mode=display">\hat y$$的另外一种表达式为：</script><p>\hat y=\sigma(\sum_{k=1}^Kw_k\frac{(f(x^{(i)})_k-f(x^{(j)})_k)^2}{f(x^{(i)})_k+f(x^{(j)})_k}+b)</p>
 <script type="math/tex; mode=display">
 
 
@@ -2488,7 +2467,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://baozouai.com/2019/02/27/第一周-机器学习（ML）策略（1）（ML-strategy（1））-Course-3/">
+    <link itemprop="mainEntityOfPage" href="https://baozouai.com/2019/02/27/第三周-序列模型和注意力机制（Sequence-models-Attention-mechanism）-Course-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="暴走">
@@ -2507,7 +2486,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/27/第一周-机器学习（ML）策略（1）（ML-strategy（1））-Course-3/" itemprop="url">第一周 机器学习策略（1）（ML strategy（1））(Course 3)</a></h1>
+                <a class="post-title-link" href="/2019/02/27/第三周-序列模型和注意力机制（Sequence-models-Attention-mechanism）-Course-5/" itemprop="url">第三周 序列模型和注意力机制（Sequence models & Attention mechanism）(Course 5)</a></h1>
         
 
         <div class="post-meta">
@@ -2519,7 +2498,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T12:49:53Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T14:18:13Z">
                 2019-02-27
               </time>
             
@@ -2535,34 +2514,12 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T05:40:17Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:18:13+08:00">
                 2019-02-27
               </time>
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -2572,8 +2529,8 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/27/第一周-机器学习（ML）策略（1）（ML-strategy（1））-Course-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/第一周-机器学习（ML）策略（1）（ML-strategy（1））-Course-3/" itemprop="commentCount"></span>
+                <a href="/2019/02/27/第三周-序列模型和注意力机制（Sequence-models-Attention-mechanism）-Course-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/第三周-序列模型和注意力机制（Sequence-models-Attention-mechanism）-Course-5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2581,7 +2538,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 
           
           
-             <span id="/2019/02/27/第一周-机器学习（ML）策略（1）（ML-strategy（1））-Course-3/" class="leancloud_visitors" data-flag-title="第一周 机器学习策略（1）（ML strategy（1））(Course 3)">
+             <span id="/2019/02/27/第三周-序列模型和注意力机制（Sequence-models-Attention-mechanism）-Course-5/" class="leancloud_visitors" data-flag-title="第三周 序列模型和注意力机制（Sequence models & Attention mechanism）(Course 5)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2606,7 +2563,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.8k
+                  0
                 </span>
               
 
@@ -2622,7 +2579,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  14
+                  1
                 </span>
               
             </div>
@@ -2643,25 +2600,12 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 
       
         
-          <h2 id="1-1-为什么是-ML-策略？（Why-ML-Strategy-）"><a href="#1-1-为什么是-ML-策略？（Why-ML-Strategy-）" class="headerlink" title="1.1 为什么是 ML 策略？（Why ML Strategy?）"></a>1.1 为什么是 ML 策略？（Why ML Strategy?）</h2><p>当最初得到一个深度神经网络模型时，希望从很多方面来对它进行优化，例如：</p>
-<ul>
-<li><p><strong>Collect more data</strong></p>
-</li>
-<li><p><strong>Collect more diverse training set</strong></p>
-</li>
-<li><p><strong>Train algorithm longer with gradient descent</strong></p>
-</li>
-<li><p><strong>Try Adam instead of gradient descent</strong></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/27/第一周-机器学习（ML）策略（1）（ML-strategy（1））-Course-3/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            
+          
         
       
-    </li></ul></div>
+    </div>
     
     
     
@@ -2711,7 +2655,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://baozouai.com/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/">
+    <link itemprop="mainEntityOfPage" href="https://baozouai.com/2019/02/27/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="暴走">
@@ -2730,7 +2674,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/" itemprop="url">第二周：优化算法 (Optimization algorithms)(Course 2)</a></h1>
+                <a class="post-title-link" href="/2019/02/27/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" itemprop="url">第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)</a></h1>
         
 
         <div class="post-meta">
@@ -2742,7 +2686,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T11:20:37Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T14:17:58Z">
                 2019-02-27
               </time>
             
@@ -2758,34 +2702,12 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T05:39:24Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:17:58+08:00">
                 2019-02-27
               </time>
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -2795,8 +2717,8 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/" itemprop="commentCount"></span>
+                <a href="/2019/02/27/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2804,7 +2726,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 
           
           
-             <span id="/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/" class="leancloud_visitors" data-flag-title="第二周：优化算法 (Optimization algorithms)(Course 2)">
+             <span id="/2019/02/27/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" class="leancloud_visitors" data-flag-title="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2829,7 +2751,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.1k
+                  0
                 </span>
               
 
@@ -2845,7 +2767,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  1
                 </span>
               
             </div>
@@ -2866,17 +2788,12 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 
       
         
-          <h2 id="2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）"><a href="#2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）" class="headerlink" title="2.1 Mini-batch 梯度下降（Mini-batch gradient descent）"></a>2.1 Mini-batch 梯度下降（Mini-batch gradient descent）</h2><p>神经网络训练过程是同时对所有m个样本（称为batch）通过向量化计算方式进行的。如果m很大，训练速度会很慢，因为每次迭代都要对所有样本进进行求和运算和矩阵运算。这种梯度下降算法称为Batch Gradient Descent<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            
+          
         
       
-    </p></div>
+    </div>
     
     
     
@@ -2926,7 +2843,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://baozouai.com/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/">
+    <link itemprop="mainEntityOfPage" href="https://baozouai.com/2019/02/27/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="暴走">
@@ -2945,7 +2862,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/" itemprop="url">第一周：深度学习的实用层面(Practical aspects of Deep Learning)(Course 2)</a></h1>
+                <a class="post-title-link" href="/2019/02/27/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/" itemprop="url">第一周 循环序列模型（Recurrent Neural Networks）(Course 5)</a></h1>
         
 
         <div class="post-meta">
@@ -2957,7 +2874,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T11:20:37Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T14:17:39Z">
                 2019-02-27
               </time>
             
@@ -2973,34 +2890,12 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T05:37:39Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:17:39+08:00">
                 2019-02-27
               </time>
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -3010,8 +2905,8 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/" itemprop="commentCount"></span>
+                <a href="/2019/02/27/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -3019,7 +2914,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 
           
           
-             <span id="/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/" class="leancloud_visitors" data-flag-title="第一周：深度学习的实用层面(Practical aspects of Deep Learning)(Course 2)">
+             <span id="/2019/02/27/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/" class="leancloud_visitors" data-flag-title="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -3044,7 +2939,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.6k
+                  0
                 </span>
               
 
@@ -3060,7 +2955,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9
+                  1
                 </span>
               
             </div>
@@ -3081,22 +2976,12 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 
       
         
-          <h2 id="1-1-训练，验证，测试集（Train-Dev-Test-sets）"><a href="#1-1-训练，验证，测试集（Train-Dev-Test-sets）" class="headerlink" title="1.1 训练，验证，测试集（Train / Dev / Test sets）"></a>1.1 训练，验证，测试集（Train / Dev / Test sets）</h2><p>在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：</p>
-<ol>
-<li>神经网络分多少层</li>
-<li>每层含有多少个隐藏单元</li>
-<li>学习速率是多少</li>
-<li><p>各层采用哪些激活函数</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            
+          
         
       
-    </li></ol></div>
+    </div>
     
     
     
@@ -3196,7 +3081,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3311,7 +3196,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共47.4k字</span>
+  <span class="post-count">博客全站共47.2k字</span>
 </div>
 
         

@@ -100,6 +100,12 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/76d6eaae60caea5f2c4fcca0db226737.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/eadc17c7748d8d2c36d74fa95e317e0d.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6a701944309f6dce72d03f5070275d5f.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/16bd20003ac6e93b71abb565ac4fd98e.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bb258e78602ca65b6556a502da731764.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5d0ec945435eeb29f78463e38c58e90d.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8d010b8d7ee7011cf7f5d1889af0e4ce.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/347cf0fc665abe47fa0999d8bf771d26.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c3bf61934da2f20a7d15e183c1d1d2ab.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bb970476d7de45a473a1c98b8d87b23a.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6d489f040214efb27bf0f109874b3918.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1472cbf93948173ac314ceb4eb5e4c97.png">
@@ -127,7 +133,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/38e111b08f94c905ff97f627a4b986ff.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8323f5f9c33edb284eb038020f3ff7e7.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/49076b88b9ecbd1597f6ae37e8d87dc3.png">
-<meta property="og:updated_time" content="2019-02-27T06:16:58.619Z">
+<meta property="og:updated_time" content="2019-02-27T06:18:57.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第四周 特殊应用：人脸识别和神经风格转换（Special applications: Face recognition &amp;Neural style transfer）(Course 4)">
 <meta name="twitter:description" content="4.1 什么是人脸识别？（What is face recognition?） 人脸验证（face verification）问题：如果有一张输入图片以及某人的ID或者是名字，系统要做的是验证输入图片是否是这个人，也被称作1对1问题，只需要弄明白这个人是否和他声称的身份相符  人脸识别（face recognition）问题：（1对多问题（1:K））输入一张人脸图片，验证输出是否为K个模板中的某一">
@@ -378,7 +384,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T22:09:00Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T06:09:00+08:00">
                 2019-02-27
               </time>
             
@@ -394,7 +400,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:16:58Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:18:57+08:00">
                 2019-02-27
               </time>
             
@@ -465,7 +471,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5k
+                  4.9k
                 </span>
               
 
@@ -481,7 +487,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  19
+                  18
                 </span>
               
             </div>
@@ -554,48 +560,27 @@ d( x^{( 1)},x^{( 2)}) =|| f( x^{( 1)}) - f( x^{( 2)})||_{2}^{2}</script><p>对�
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/6a701944309f6dce72d03f5070275d5f.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6a701944309f6dce72d03f5070275d5f.png" alt></a></p>
 <p>损失函数的定义基于三元图片组，即取这个和0的最大值：</p>
 <script type="math/tex; mode=display">
-L( A,P,N) = max(|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha,0)</script><script type="math/tex; mode=display">max$$函数的作用是只要$$|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha\leq0$$，损失函数就是0
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/16bd20003ac6e93b71abb565ac4fd98e.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/16bd20003ac6e93b71abb565ac4fd98e.png)
-
-如果$$|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha\leq0$$，最终会得到$$|| f(A) - f( P)||^{2} -|| f( A) - f( N)||^{2} +\alpha$$，即正的损失值。通过最小化这个损失函数达到的效果就是使这部分$$|| f( A) - f( P)||^{2} -||f( A) - f( N)||^{2} +\alpha$$成为0，或者小于等于0
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bb258e78602ca65b6556a502da731764.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/bb258e78602ca65b6556a502da731764.png)
-
-整个网络的代价函数是训练集中单个三元组损失的总和
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5d0ec945435eeb29f78463e38c58e90d.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5d0ec945435eeb29f78463e38c58e90d.png)
-
-如何选择三元组来形成训练集：如果从训练集中随机地选择$$A$$、$$P$$和$$N$$，遵守$$A$$和$$P$$是同一个人，而$$A$$和$$N$$是不同的人这一原则。那么约束条件（$$d(A,P) + \alpha \leq d(A,N)$$）很容易达到，因为随机选择的图片，$$A$$和$$N$$比$$A$$和$$P$$差别很大的概率很大，而且差距远大于$$\alpha$$，这样网络并不能从中学到什么
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8d010b8d7ee7011cf7f5d1889af0e4ce.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8d010b8d7ee7011cf7f5d1889af0e4ce.png)
-
-所以为了构建一个数据集，要做的就是尽可能选择难训练的三元组$$A$$、$$P$$和$$N$$：
-
-想要所有的三元组都满足条件（$$d(A,P) + a \leq d(A,N)$$），$$A$$、$$P$$和$$N$$的选择应使得$$d(A,P)$$很接近$$d(A,N)$$，即$$d(A,P) \approx d(A,N)$$，这样学习算法会竭尽全力使右边式子变大（$$d(A,N)$$），或者使左边式子（$$d(A,P)$$）变小，这样左右两边至少有一个$$\alpha$$的间隔。并且选择这样的三元组还可以增加学习算法的计算效率
-
-总结：
-
-训练三元组损失需要把训练集做成很多三元组，这就是一个三元组（编号1），有一个**Anchor**图片和**Positive**图片，这两个（**Anchor**和**Positive**）是同一个人，还有一张另一个人的**Negative**图片。这是另一组（编号2），其中**Anchor**和**Positive**图片是同一个人，但是**Anchor**和**Negative**不是同一个人，等等。
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/347cf0fc665abe47fa0999d8bf771d26.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/347cf0fc665abe47fa0999d8bf771d26.png)
-
-定义了这些包括$$A$$、$$P$$和$$N$$图片的数据集之后，还需要用梯度下降最小化代价函数$$J$$，这样做的效果就是反向传播到网络中的所有参数来学习到一种编码，使得如果两个图片是同一个人，那么它们的$$d$$就会很小，如果两个图片不是同一个人，它们的$$d$$ 就会很大
-## 4.5 面部验证与二分类（Face verification and binary classification）
-
-另一个训练神经网络的方法是选取一对神经网络，选取**Siamese**网络，使其同时计算这些嵌入，比如说128维的嵌入（编号1），或者更高维，然后将其输入到逻辑回归单元进行预测，如果是相同的人，那么输出是1，若是不同的人，输出是0。这就把人脸识别问题转换为一个二分类问题，训练这种系统时可以替换**Triplet loss**的方法
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c3bf61934da2f20a7d15e183c1d1d2ab.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c3bf61934da2f20a7d15e183c1d1d2ab.png)
-
-最后的逻辑回归单元怎么处理：
-
-比如说**sigmoid**函数应用到某些特征上，输出$$\hat y$$会变成：</script><p>\hat y = \sigma(\sum_{k = 1}^{128}{w_{i}| f( x^{( i)})_{k} - f( x^{( j)})_{k}| + b})</p>
+L( A,P,N) = max(|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha,0)</script><p>$max$函数的作用是只要<script type="math/tex">|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha\leq0</script>，损失函数就是0</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/16bd20003ac6e93b71abb565ac4fd98e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/16bd20003ac6e93b71abb565ac4fd98e.png" alt></a></p>
+<p>如果<script type="math/tex">|| f( A) - f( P)||^{2} -|| f( A) - f( N)||^{2} + \alpha\leq0</script>，最终会得到<script type="math/tex">|| f(A) - f( P)||^{2} -|| f( A) - f( N)||^{2} +\alpha</script>，即正的损失值。通过最小化这个损失函数达到的效果就是使这部分<script type="math/tex">|| f( A) - f( P)||^{2} -||f( A) - f( N)||^{2} +\alpha</script>成为0，或者小于等于0</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/bb258e78602ca65b6556a502da731764.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bb258e78602ca65b6556a502da731764.png" alt></a></p>
+<p>整个网络的代价函数是训练集中单个三元组损失的总和</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5d0ec945435eeb29f78463e38c58e90d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5d0ec945435eeb29f78463e38c58e90d.png" alt></a></p>
+<p>如何选择三元组来形成训练集：如果从训练集中随机地选择<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>，遵守<script type="math/tex">A</script>和<script type="math/tex">P</script>是同一个人，而<script type="math/tex">A</script>和<script type="math/tex">N</script>是不同的人这一原则。那么约束条件（<script type="math/tex">d(A,P) + \alpha \leq d(A,N)</script>）很容易达到，因为随机选择的图片，<script type="math/tex">A</script>和<script type="math/tex">N</script>比<script type="math/tex">A</script>和<script type="math/tex">P</script>差别很大的概率很大，而且差距远大于<script type="math/tex">\alpha</script>，这样网络并不能从中学到什么</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8d010b8d7ee7011cf7f5d1889af0e4ce.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8d010b8d7ee7011cf7f5d1889af0e4ce.png" alt></a></p>
+<p>所以为了构建一个数据集，要做的就是尽可能选择难训练的三元组<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>：</p>
+<p>想要所有的三元组都满足条件（<script type="math/tex">d(A,P) + a \leq d(A,N)</script>），<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>的选择应使得<script type="math/tex">d(A,P)</script>很接近<script type="math/tex">d(A,N)</script>，即<script type="math/tex">d(A,P) \approx d(A,N)</script>，这样学习算法会竭尽全力使右边式子变大（<script type="math/tex">d(A,N)</script>），或者使左边式子（<script type="math/tex">d(A,P)</script>）变小，这样左右两边至少有一个<script type="math/tex">\alpha</script>的间隔。并且选择这样的三元组还可以增加学习算法的计算效率</p>
+<p>总结：</p>
+<p>训练三元组损失需要把训练集做成很多三元组，这就是一个三元组（编号1），有一个<strong>Anchor</strong>图片和<strong>Positive</strong>图片，这两个（<strong>Anchor</strong>和<strong>Positive</strong>）是同一个人，还有一张另一个人的<strong>Negative</strong>图片。这是另一组（编号2），其中<strong>Anchor</strong>和<strong>Positive</strong>图片是同一个人，但是<strong>Anchor</strong>和<strong>Negative</strong>不是同一个人，等等。</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/347cf0fc665abe47fa0999d8bf771d26.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/347cf0fc665abe47fa0999d8bf771d26.png" alt></a></p>
+<p>定义了这些包括<script type="math/tex">A</script>、<script type="math/tex">P</script>和<script type="math/tex">N</script>图片的数据集之后，还需要用梯度下降最小化代价函数<script type="math/tex">J</script>，这样做的效果就是反向传播到网络中的所有参数来学习到一种编码，使得如果两个图片是同一个人，那么它们的<script type="math/tex">d</script>就会很小，如果两个图片不是同一个人，它们的<script type="math/tex">d</script> 就会很大</p>
+<h2 id="4-5-面部验证与二分类（Face-verification-and-binary-classification）"><a href="#4-5-面部验证与二分类（Face-verification-and-binary-classification）" class="headerlink" title="4.5 面部验证与二分类（Face verification and binary classification）"></a>4.5 面部验证与二分类（Face verification and binary classification）</h2><p>另一个训练神经网络的方法是选取一对神经网络，选取<strong>Siamese</strong>网络，使其同时计算这些嵌入，比如说128维的嵌入（编号1），或者更高维，然后将其输入到逻辑回归单元进行预测，如果是相同的人，那么输出是1，若是不同的人，输出是0。这就把人脸识别问题转换为一个二分类问题，训练这种系统时可以替换<strong>Triplet loss</strong>的方法</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c3bf61934da2f20a7d15e183c1d1d2ab.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c3bf61934da2f20a7d15e183c1d1d2ab.png" alt></a></p>
+<p>最后的逻辑回归单元怎么处理：</p>
+<p>比如说<strong>sigmoid</strong>函数应用到某些特征上，输出<script type="math/tex">\hat y</script>会变成：</p>
 <script type="math/tex; mode=display">
-
-
-把这128个元素当作特征，然后把他们放入逻辑回归中，最后的逻辑回归可以增加参数$$w_{i}$$和$$b$$，就像普通的逻辑回归一样。然后在这128个单元上训练合适的权重，用来预测两张图片是否是一个人
-
-$$\hat y$$的另外一种表达式为：</script><p>\hat y=\sigma(\sum_{k=1}^Kw_k\frac{(f(x^{(i)})_k-f(x^{(j)})_k)^2}{f(x^{(i)})_k+f(x^{(j)})_k}+b)</p>
+\hat y = \sigma(\sum_{k = 1}^{128}{w_{i}\| f( x^{( i)})_{k} - f( x^{( j)})_{k}\| + b})</script><p>把这128个元素当作特征，然后把他们放入逻辑回归中，最后的逻辑回归可以增加参数<script type="math/tex">w_{i}</script>和<script type="math/tex">b</script>，就像普通的逻辑回归一样。然后在这128个单元上训练合适的权重，用来预测两张图片是否是一个人</p>
+<script type="math/tex; mode=display">\hat y$$的另外一种表达式为：</script><p>\hat y=\sigma(\sum_{k=1}^Kw_k\frac{(f(x^{(i)})_k-f(x^{(j)})_k)^2}{f(x^{(i)})_k+f(x^{(j)})_k}+b)</p>
 <script type="math/tex; mode=display">
 
 
@@ -887,7 +872,7 @@ $$\lambda^{[l]}$$表示累加过程中各层$$J^{[l]}_{style}(S,G)$$的权重系
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -971,7 +956,7 @@ $$\lambda^{[l]}$$表示累加过程中各层$$J^{[l]}_{style}(S,G)$$的权重系
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-什么是人脸识别？（What-is-face-recognition-）"><span class="nav-number">1.</span> <span class="nav-text">4.1 什么是人脸识别？（What is face recognition?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-One-Shot学习（One-shot-learning）"><span class="nav-number">2.</span> <span class="nav-text">4.2 One-Shot学习（One-shot learning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-Siamese-网络（Siamese-network）"><span class="nav-number">3.</span> <span class="nav-text">4.3 Siamese 网络（Siamese network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-Triplet-损失（Triplet-损失）"><span class="nav-number">4.</span> <span class="nav-text">4.4 Triplet 损失（Triplet 损失）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-什么是深度卷积网络？（What-are-deep-ConvNets-learning-）"><span class="nav-number">5.</span> <span class="nav-text">4.6 什么是深度卷积网络？（What are deep ConvNets learning?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7-代价函数（Cost-function）"><span class="nav-number">6.</span> <span class="nav-text">4.7 代价函数（Cost function）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-8-内容代价函数（Content-cost-function）"><span class="nav-number">7.</span> <span class="nav-text">4.8 内容代价函数（Content cost function）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-风格代价函数（Style-cost-function）"><span class="nav-number">8.</span> <span class="nav-text">4.9 风格代价函数（Style cost function）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-10-一维到三维推广（1D-and-3D-generalizations-of-models）"><span class="nav-number">9.</span> <span class="nav-text">4.10 一维到三维推广（1D and 3D generalizations of models）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1D卷积"><span class="nav-number">10.</span> <span class="nav-text">1D卷积</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3D卷积"><span class="nav-number">10.1.</span> <span class="nav-text">3D卷积</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-什么是人脸识别？（What-is-face-recognition-）"><span class="nav-number">1.</span> <span class="nav-text">4.1 什么是人脸识别？（What is face recognition?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-One-Shot学习（One-shot-learning）"><span class="nav-number">2.</span> <span class="nav-text">4.2 One-Shot学习（One-shot learning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-Siamese-网络（Siamese-network）"><span class="nav-number">3.</span> <span class="nav-text">4.3 Siamese 网络（Siamese network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-Triplet-损失（Triplet-损失）"><span class="nav-number">4.</span> <span class="nav-text">4.4 Triplet 损失（Triplet 损失）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-面部验证与二分类（Face-verification-and-binary-classification）"><span class="nav-number">5.</span> <span class="nav-text">4.5 面部验证与二分类（Face verification and binary classification）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-什么是深度卷积网络？（What-are-deep-ConvNets-learning-）"><span class="nav-number">6.</span> <span class="nav-text">4.6 什么是深度卷积网络？（What are deep ConvNets learning?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7-代价函数（Cost-function）"><span class="nav-number">7.</span> <span class="nav-text">4.7 代价函数（Cost function）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-8-内容代价函数（Content-cost-function）"><span class="nav-number">8.</span> <span class="nav-text">4.8 内容代价函数（Content cost function）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-风格代价函数（Style-cost-function）"><span class="nav-number">9.</span> <span class="nav-text">4.9 风格代价函数（Style cost function）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-10-一维到三维推广（1D-and-3D-generalizations-of-models）"><span class="nav-number">10.</span> <span class="nav-text">4.10 一维到三维推广（1D and 3D generalizations of models）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1D卷积"><span class="nav-number">11.</span> <span class="nav-text">1D卷积</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3D卷积"><span class="nav-number">11.1.</span> <span class="nav-text">3D卷积</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1018,7 +1003,7 @@ $$\lambda^{[l]}$$表示累加过程中各层$$J^{[l]}_{style}(S,G)$$的权重系
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共47.4k字</span>
+  <span class="post-count">博客全站共47.2k字</span>
 </div>
 
         
