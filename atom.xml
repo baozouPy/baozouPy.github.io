@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://baozouai.com/"/>
-  <updated>2019-02-27T05:26:45.389Z</updated>
+  <updated>2019-02-27T05:40:50.062Z</updated>
   <id>https://baozouai.com/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>第二周：机器学习策略（2）(ML Strategy (2))(Course 3)</title>
+    <link href="https://baozouai.com/2019/02/28/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AD%96%E7%95%A5%EF%BC%882%EF%BC%89-ML-Strategy-2-Course-2/"/>
+    <id>https://baozouai.com/2019/02/28/第二周：机器学习策略（2）-ML-Strategy-2-Course-2/</id>
+    <published>2019-02-27T21:08:00.000Z</published>
+    <updated>2019-02-27T05:40:50.062Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;2-1-进行误差分析（Carrying-out-error-analysis）&quot;&gt;&lt;a href=&quot;#2-1-进行误差分析（Carrying-out-error-analysis）&quot; class=&quot;headerlink&quot; title=&quot;2.1 进行误差分析（Carrying out error analysis）&quot;&gt;&lt;/a&gt;2.1 进行误差分析（Carrying out error analysis）&lt;/h2&gt;&lt;p&gt;如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为&lt;strong&gt;错误分析&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)</title>
     <link href="https://baozouai.com/2019/02/28/%E7%AC%AC-%E4%B8%89-%E5%91%A8-%E8%B6%85-%E5%8F%82-%E6%95%B0-%E8%B0%83-%E8%AF%95-%E3%80%81-Batch-%E6%AD%A3-%E5%88%99-%E5%8C%96-%E5%92%8C-%E7%A8%8B-%E5%BA%8F-%E6%A1%86-%E6%9E%B6-%EF%BC%88Hyperparameter-tuning%EF%BC%89-Course-2/"/>
     <id>https://baozouai.com/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/</id>
     <published>2019-02-27T20:22:00.000Z</published>
-    <updated>2019-02-27T05:26:45.389Z</updated>
+    <updated>2019-02-27T05:39:52.207Z</updated>
     
     <summary type="html">
     
@@ -46,47 +66,11 @@
   </entry>
   
   <entry>
-    <title>第四周：深层神经网络(Deep Neural Networks)(Course 1)</title>
-    <link href="https://baozouai.com/2019/02/28/%E7%AC%AC%E5%9B%9B%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-Deep-Neural-Networks/"/>
-    <id>https://baozouai.com/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/</id>
-    <published>2019-02-27T18:17:00.000Z</published>
-    <updated>2019-02-27T03:00:53.619Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;4-1-深层神经网络（Deep-L-layer-neural-network）&quot;&gt;&lt;a href=&quot;#4-1-深层神经网络（Deep-L-layer-neural-network）&quot; class=&quot;headerlink&quot; title=&quot;4.1 深层神经网络（Deep L-layer neural network）&quot;&gt;&lt;/a&gt;4.1 深层神经网络（Deep L-layer neural network）&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/images/pasted-27.png&quot; alt=&quot;upload successful&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第二周：机器学习策略（2）(ML Strategy (2))(Course 3)</title>
-    <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AD%96%E7%95%A5%EF%BC%882%EF%BC%89-ML-Strategy-2-Course-2/"/>
-    <id>https://baozouai.com/2019/02/27/第二周：机器学习策略（2）-ML-Strategy-2-Course-2/</id>
-    <published>2019-02-27T13:08:33.000Z</published>
-    <updated>2019-02-27T05:27:57.267Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;2-1-进行误差分析（Carrying-out-error-analysis）&quot;&gt;&lt;a href=&quot;#2-1-进行误差分析（Carrying-out-error-analysis）&quot; class=&quot;headerlink&quot; title=&quot;2.1 进行误差分析（Carrying out error analysis）&quot;&gt;&lt;/a&gt;2.1 进行误差分析（Carrying out error analysis）&lt;/h2&gt;&lt;p&gt;如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为&lt;strong&gt;错误分析&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>第一周 机器学习策略（1）（ML strategy（1））(Course 3)</title>
     <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88ML%EF%BC%89%E7%AD%96%E7%95%A5%EF%BC%881%EF%BC%89%EF%BC%88ML-strategy%EF%BC%881%EF%BC%89%EF%BC%89-Course-3/"/>
     <id>https://baozouai.com/2019/02/27/第一周-机器学习（ML）策略（1）（ML-strategy（1））-Course-3/</id>
     <published>2019-02-27T12:49:53.000Z</published>
-    <updated>2019-02-27T05:28:45.564Z</updated>
+    <updated>2019-02-27T05:40:17.069Z</updated>
     
     <summary type="html">
     
@@ -102,6 +86,10 @@
     
     </summary>
     
+      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -110,7 +98,7 @@
     <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95-Optimization-algorithms-Course-2/"/>
     <id>https://baozouai.com/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/</id>
     <published>2019-02-27T11:20:37.000Z</published>
-    <updated>2019-02-27T05:32:18.643Z</updated>
+    <updated>2019-02-27T05:39:24.809Z</updated>
     
     <summary type="html">
     
@@ -118,6 +106,10 @@
     
     </summary>
     
+      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -126,7 +118,7 @@
     <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B1%82%E9%9D%A2-Practical-aspects-of-Deep-Learning-Course-2/"/>
     <id>https://baozouai.com/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/</id>
     <published>2019-02-27T11:20:37.000Z</published>
-    <updated>2019-02-27T05:29:41.850Z</updated>
+    <updated>2019-02-27T05:37:39.868Z</updated>
     
     <summary type="html">
     
@@ -139,6 +131,10 @@
     
     </summary>
     
+      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -147,7 +143,7 @@
     <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%89%E5%91%A8%EF%BC%9A%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-Shallow-neural-networks/"/>
     <id>https://baozouai.com/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/</id>
     <published>2019-02-27T08:54:10.000Z</published>
-    <updated>2019-02-27T03:02:52.965Z</updated>
+    <updated>2019-02-27T05:38:57.095Z</updated>
     
     <summary type="html">
     
@@ -188,7 +184,7 @@
     <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80-Basics-of-Neural-Network-programming/"/>
     <id>https://baozouai.com/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/</id>
     <published>2019-02-26T23:39:42.000Z</published>
-    <updated>2019-02-27T00:52:37.928Z</updated>
+    <updated>2019-02-27T05:38:39.187Z</updated>
     
     <summary type="html">
     
@@ -196,6 +192,8 @@
 &lt;p&gt;二分类就是输出y只有{0,1}两个离散值（也有{-1,1}的情况）&lt;br&gt;
     
     </summary>
+    
+      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
       <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
@@ -207,7 +205,7 @@
     <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E9%97%A8%E8%AF%BE-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%92%8C%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-Neural-Networks-and-Deep-Learning/"/>
     <id>https://baozouai.com/2019/02/27/第一门课-神经网络和深度学习-Neural-Networks-and-Deep-Learning/</id>
     <published>2019-02-26T23:32:07.000Z</published>
-    <updated>2019-02-27T05:31:12.421Z</updated>
+    <updated>2019-02-27T05:38:12.327Z</updated>
     
     <summary type="html">
     
@@ -216,6 +214,10 @@
     
     </summary>
     
+      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
