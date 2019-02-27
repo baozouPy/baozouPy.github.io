@@ -135,7 +135,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png">
-<meta property="og:updated_time" content="2019-02-27T05:59:58.532Z">
+<meta property="og:updated_time" content="2019-02-27T06:02:12.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4)">
 <meta name="twitter:description" content="2.1 经典网络（Classic networks）LeNet-5LeNet-5可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。该LeNet模型总共包含了大约6万个参数，典型的LeNet-5结构包含CONV layer，POOL layer和FC layer，顺序一般是CONV layer-&amp;gt;POOL layer-&amp;gt;CONV layer-&amp;gt;POOL">
@@ -386,7 +386,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T21:54:00Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T05:54:00+08:00">
                 2019-02-27
               </time>
             
@@ -402,7 +402,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T05:59:58Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:02:12+08:00">
                 2019-02-27
               </time>
             
@@ -534,7 +534,8 @@
 z^{[l+1]}=W^{[l+1]}a^{[l]}+b^{[l+1]}</script><script type="math/tex; mode=display">
 a^{[l+1]}=g(z^{[l+1]})</script><script type="math/tex; mode=display">
 z^{[l+2]}=W^{[l+2]}a^{[l+1]}+b^{[l+2]}</script><script type="math/tex; mode=display">
-a^{[l+2]}=g(z^{[l+2]}+a^{[l]})</script><script type="math/tex; mode=display">a^{[l]}$$直接隔层与下一层的线性输出相连，$$a^{[l]}$$插入的时机是在线性激活之后，**ReLU**激活之前，与$$z^{[l+2]}$$共同通过激活函数（ReLU）输出$$a^{[l+2]}</script><p>这种模型结构对于训练非常深的神经网络效果很好。非Residual Networks称为Plain Network</p>
+a^{[l+2]}=g(z^{[l+2]}+a^{[l]})</script><p>$a^{[l]}$直接隔层与下一层的线性输出相连，<script type="math/tex">a^{[l]}</script>插入的时机是在线性激活之后，<strong>ReLU</strong>激活之前，与<script type="math/tex">z^{[l+2]}</script>共同通过激活函数（ReLU）输出<script type="math/tex">a^{[l+2]}</script></p>
+<p>这种模型结构对于训练非常深的神经网络效果很好。非Residual Networks称为Plain Network</p>
 <p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/131e538bb527859430280becd65b049b.png" alt></a></p>
 <blockquote>
 <p>Residual Network的结构</p>
@@ -851,7 +852,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
