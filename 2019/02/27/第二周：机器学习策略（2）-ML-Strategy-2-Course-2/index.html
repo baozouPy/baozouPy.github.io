@@ -82,13 +82,13 @@
 
 
 
-<meta name="description" content="2.1进行误差分析（Carrying out error analysis）如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为错误分析">
+<meta name="description" content="2.1 进行误差分析（Carrying out error analysis）如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为错误分析">
 <meta name="keywords" content="Machine Learning&#x2F;Deep Learning&#x2F;Python&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二周：机器学习策略（2）(ML Strategy (2))(Course 3)">
 <meta property="og:url" content="https://baozouai.com/2019/02/27/第二周：机器学习策略（2）-ML-Strategy-2-Course-2/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="2.1进行误差分析（Carrying out error analysis）如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为错误分析">
+<meta property="og:description" content="2.1 进行误差分析（Carrying out error analysis）如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为错误分析">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://baozouai.com/images/pasted-119.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-120.png">
@@ -154,10 +154,10 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b73c65c89f8af6e000369e12f0303409.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/93e5f8097f3246be83f704e468e72d76.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-140.png">
-<meta property="og:updated_time" content="2019-02-27T05:23:43.008Z">
+<meta property="og:updated_time" content="2019-02-27T05:27:57.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周：机器学习策略（2）(ML Strategy (2))(Course 3)">
-<meta name="twitter:description" content="2.1进行误差分析（Carrying out error analysis）如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为错误分析">
+<meta name="twitter:description" content="2.1 进行误差分析（Carrying out error analysis）如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为错误分析">
 <meta name="twitter:image" content="https://baozouai.com/images/pasted-119.png">
 
 
@@ -421,7 +421,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T13:23:43+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T13:27:57+08:00">
                 2019-02-27
               </time>
             
@@ -506,7 +506,7 @@
       
 
       
-        <h2 id="2-1进行误差分析（Carrying-out-error-analysis）"><a href="#2-1进行误差分析（Carrying-out-error-analysis）" class="headerlink" title="2.1进行误差分析（Carrying out error analysis）"></a>2.1进行误差分析（Carrying out error analysis）</h2><p>如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为<strong>错误分析</strong><br><a id="more"></a><br>假设正在调试猫分类器，取得了90%准确率，相当于10%错误，注意到算法将一些狗分类为猫，需要对模型的一些部分做相应调整，才能更好地提升分类的精度</p>
+        <h2 id="2-1-进行误差分析（Carrying-out-error-analysis）"><a href="#2-1-进行误差分析（Carrying-out-error-analysis）" class="headerlink" title="2.1 进行误差分析（Carrying out error analysis）"></a>2.1 进行误差分析（Carrying out error analysis）</h2><p>如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为<strong>错误分析</strong><br><a id="more"></a><br>假设正在调试猫分类器，取得了90%准确率，相当于10%错误，注意到算法将一些狗分类为猫，需要对模型的一些部分做相应调整，才能更好地提升分类的精度</p>
 <p><img src="/images/pasted-119.png" alt="upload successful"></p>
 <p><strong>收集错误样例</strong>：</p>
 <p>在开发集（测试集）中，获取大约100个错误标记的例子，然后手动检查，一次只看一个，看看开发集里有多少错误标记的样本是狗</p>
@@ -528,7 +528,7 @@
 <p>可以把团队可以分成两个团队，其中一个改善大猫的识别，另一个改善模糊图片的识别</p>
 <p><strong>总结：</strong></p>
 <p>进行错误分析，应该找一组错误样本，可能在开发集或者测试集，观察错误标记的样本，看看<strong>假阳性（false positives）</strong>和<strong>假阴性（false negatives）</strong>，统计属于不同错误类型的错误数量。在这个过程中，可能会得到启发，归纳出新的错误类型，通过统计不同错误标记类型的百分比，可以发现哪些问题需要优先解决</p>
-<h2 id="2-2清楚标注错误的数据（Cleaning-up-Incorrectly-labeled-data）"><a href="#2-2清楚标注错误的数据（Cleaning-up-Incorrectly-labeled-data）" class="headerlink" title="2.2清楚标注错误的数据（Cleaning up Incorrectly labeled data）"></a>2.2清楚标注错误的数据（Cleaning up Incorrectly labeled data）</h2><p>监督学习问题的数据由输入<script type="math/tex">x</script>和输出标签<script type="math/tex">y</script> 构成，如果发现有些输出标签 <script type="math/tex">y</script> 是错的，是否值得花时间去修正这些标签？</p>
+<h2 id="2-2-清楚标注错误的数据（Cleaning-up-Incorrectly-labeled-data）"><a href="#2-2-清楚标注错误的数据（Cleaning-up-Incorrectly-labeled-data）" class="headerlink" title="2.2 清楚标注错误的数据（Cleaning up Incorrectly labeled data）"></a>2.2 清楚标注错误的数据（Cleaning up Incorrectly labeled data）</h2><p>监督学习问题的数据由输入<script type="math/tex">x</script>和输出标签<script type="math/tex">y</script> 构成，如果发现有些输出标签 <script type="math/tex">y</script> 是错的，是否值得花时间去修正这些标签？</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/56f907e76f4fc8f589f1930128f77a98.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/56f907e76f4fc8f589f1930128f77a98.png" alt></a></p>
 <p>倒数第二不是猫，是标记错误的样本。“标记错误的样本”表示学习算法输出了错误的 <script type="math/tex">y</script> 值，如果数据有一些标记错误的样本，该怎么办？</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/a9cd24c7602100aaa8fb69eb03a3c47c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a9cd24c7602100aaa8fb69eb03a3c47c.png" alt></a></p>
@@ -563,7 +563,7 @@
 <li>构造实际系统时，需要更多的人工错误分析，更多的人类见解来架构这些系统</li>
 <li>搭建机器学习系统时，花时间亲自检查数据非常值得，可以帮你找到需要优先处理的任务，然后确定应该优先尝试哪些想法，或者哪些方向</li>
 </ul>
-<h2 id="2-3快速搭建你的第一个系统，并进行迭代（Build-your-first-system-quickly-then-iterate）"><a href="#2-3快速搭建你的第一个系统，并进行迭代（Build-your-first-system-quickly-then-iterate）" class="headerlink" title="2.3快速搭建你的第一个系统，并进行迭代（Build your first system quickly, then iterate）"></a>2.3快速搭建你的第一个系统，并进行迭代（Build your first system quickly, then iterate）</h2><p>如果正在开发全新的机器学习应用，应该尽快建立第一个系统原型，然后快速迭代</p>
+<h2 id="2-3-快速搭建你的第一个系统，并进行迭代（Build-your-first-system-quickly-then-iterate）"><a href="#2-3-快速搭建你的第一个系统，并进行迭代（Build-your-first-system-quickly-then-iterate）" class="headerlink" title="2.3 快速搭建你的第一个系统，并进行迭代（Build your first system quickly, then iterate）"></a>2.3 快速搭建你的第一个系统，并进行迭代（Build your first system quickly, then iterate）</h2><p>如果正在开发全新的机器学习应用，应该尽快建立第一个系统原型，然后快速迭代</p>
 <p>改进语音识别系统特定的技术:</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/9a5fd355b0d3a39a021ded507178343d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9a5fd355b0d3a39a021ded507178343d.png" alt></a></p>
 <p>对于几乎所有的机器学习程序可能会有50个不同的方向可以前进，并且每个方向都是相对合理的可以改善系统。但挑战在于如何选择一个方向集中精力处理。如果想搭建全新的机器学习程序，就是快速搭好第一个系统，然后开始迭代。首先快速设立开发集和测试集还有指标，决定目标所在，如果目标定错，之后改也可以。但一定要设立某个目标，然后马上搭好一个机器学习系统原型，找到训练集训练一下，看算法表现如何，在开发集测试集，评估指标表现如何。当建立第一个系统后，就可以马上用到偏差方差分析和错误分析，来确定下一步优先做什么。如果错误分析到大部分的错误来源是说话人远离麦克风，就有很好的理由去集中精力研究这些技术，所谓远场语音识别的技术，就是处理说话人离麦克风很远的情况</p>
@@ -571,7 +571,7 @@
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/4307a97cb4f2e2d6abc7b8ff28b0ca87.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4307a97cb4f2e2d6abc7b8ff28b0ca87.png" alt></a></p>
 <p>当这个领域有很多可以借鉴的学术文献，处理的问题和要解决的几乎完全相同，比如人脸识别有很多学术文献，如果搭建一个人脸识别设备，可以从现有大量学术文献为基础出发，一开始就搭建比较复杂的系统。但如果第一次处理某个新问题，还是构建一些快速而粗糙的实现，然后用来找到改善系统要优先处理的方向</p>
 <p><img src="/images/pasted-123.png" alt="upload successful"></p>
-<h2 id="2-4在不同的划分上进行训练并测试（Training-and-testing-on-different-distributions）"><a href="#2-4在不同的划分上进行训练并测试（Training-and-testing-on-different-distributions）" class="headerlink" title="2.4在不同的划分上进行训练并测试（Training and testing on different distributions）"></a>2.4在不同的划分上进行训练并测试（Training and testing on different distributions）</h2><h3 id="猫咪识别"><a href="#猫咪识别" class="headerlink" title="猫咪识别"></a>猫咪识别</h3><p>假设只收集到10,000张用户上传的照片和超过20万张网上下载的高清猫图：</p>
+<h2 id="2-4-在不同的划分上进行训练并测试（Training-and-testing-on-different-distributions）"><a href="#2-4-在不同的划分上进行训练并测试（Training-and-testing-on-different-distributions）" class="headerlink" title="2.4 在不同的划分上进行训练并测试（Training and testing on different distributions）"></a>2.4 在不同的划分上进行训练并测试（Training and testing on different distributions）</h2><h3 id="猫咪识别"><a href="#猫咪识别" class="headerlink" title="猫咪识别"></a>猫咪识别</h3><p>假设只收集到10,000张用户上传的照片和超过20万张网上下载的高清猫图：</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/9a6cbca750b289408a25789e224aeefc.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9a6cbca750b289408a25789e224aeefc.png" alt></a></p>
 <p><strong>做法一</strong>：将两组数据合并在一起，把这21万张照片随机分配到训练、开发和测试集中。假设已经确定开发集和测试集各包含2500个样本，训练集有205000个样本。</p>
 <ul>
@@ -592,7 +592,7 @@
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ca34742f5f0b19239de5779dc80ad4d9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ca34742f5f0b19239de5779dc80ad4d9.png" alt></a></p>
 <p><img src="/images/pasted-124.png" alt="upload successful"></p>
 <p><img src="/images/pasted-125.png" alt="upload successful"></p>
-<h2 id="2-5不匹配数据划分的偏差和方差（Bias-and-Variance-with-mismatched-data-distributions）"><a href="#2-5不匹配数据划分的偏差和方差（Bias-and-Variance-with-mismatched-data-distributions）" class="headerlink" title="2.5不匹配数据划分的偏差和方差（Bias and Variance with mismatched data distributions）"></a>2.5不匹配数据划分的偏差和方差（Bias and Variance with mismatched data distributions）</h2><p>当训练集和开发集、测试集不同分布时，分析偏差和方差的方式：</p>
+<h2 id="2-5-不匹配数据划分的偏差和方差（Bias-and-Variance-with-mismatched-data-distributions）"><a href="#2-5-不匹配数据划分的偏差和方差（Bias-and-Variance-with-mismatched-data-distributions）" class="headerlink" title="2.5 不匹配数据划分的偏差和方差（Bias and Variance with mismatched data distributions）"></a>2.5 不匹配数据划分的偏差和方差（Bias and Variance with mismatched data distributions）</h2><p>当训练集和开发集、测试集不同分布时，分析偏差和方差的方式：</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5cbede5222b199f84dc491e0550435b6.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5cbede5222b199f84dc491e0550435b6.png" alt></a></p>
 <p>分析的问题在于，当看训练误差，再看开发误差，有两件事变了，很难确认这增加的9%误差率有多少是因为：</p>
 <ul>
@@ -634,7 +634,7 @@
 <p><img src="/images/pasted-127.png" alt="upload successful"></p>
 <p><img src="/images/pasted-128.png" alt="upload successful"></p>
 <p><img src="/images/pasted-129.png" alt="upload successful"></p>
-<h2 id="2-6定位数据不匹配（Addressing-data-mismatch）"><a href="#2-6定位数据不匹配（Addressing-data-mismatch）" class="headerlink" title="2.6定位数据不匹配（Addressing data mismatch）"></a>2.6定位数据不匹配（Addressing data mismatch）</h2><p>解决train set与dev/test set样本分布不一致的两条建议：</p>
+<h2 id="2-6-定位数据不匹配（Addressing-data-mismatch）"><a href="#2-6-定位数据不匹配（Addressing-data-mismatch）" class="headerlink" title="2.6 定位数据不匹配（Addressing data mismatch）"></a>2.6 定位数据不匹配（Addressing data mismatch）</h2><p>解决train set与dev/test set样本分布不一致的两条建议：</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/019a324b983247e11da7ad373426b756.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/019a324b983247e11da7ad373426b756.png" alt></a></p>
 <p>为了让训练数据更接近开发集，可以人工合成数据（<strong>artificial data synthesis</strong>）。例如说话人识别问题，实际应用场合（dev/test set）是包含背景噪声的，而训练样本train set很可能没有背景噪声。为了让train set与dev/test set分布一致，可以在train set上人工添加背景噪声，合成类似实际场景的声音。这样会让模型训练的效果更准确。但是不能给每段语音都增加同一段背景噪声，会出现对背景噪音过拟合，这就是人工数据合成需要注意的地方</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e8e1e932abb7a0bb44cab6403657321d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e8e1e932abb7a0bb44cab6403657321d.png" alt></a></p>
@@ -642,7 +642,7 @@
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/cfd503f877d21d96821a81293ab0fdeb.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cfd503f877d21d96821a81293ab0fdeb.png" alt></a></p>
 <p>如果只合成这些车中很小的子集，学习算法可能会对合成的这一个小子集过拟合</p>
 <p><img src="/images/pasted-130.png" alt="upload successful"></p>
-<h2 id="2-7迁移学习（Transfer-learning）"><a href="#2-7迁移学习（Transfer-learning）" class="headerlink" title="2.7迁移学习（Transfer learning）"></a>2.7迁移学习（Transfer learning）</h2><p>将已经训练好的模型的一部分知识（网络结构）直接应用到另一个类似模型中去。比如已经训练好一个猫类识别的神经网络模型，直接把该模型中的一部分网络结构应用到使用X光片预测疾病的模型中去，这种学习方法被称为<strong>迁移学习（Transfer Learning）</strong></p>
+<h2 id="2-7-迁移学习（Transfer-learning）"><a href="#2-7-迁移学习（Transfer-learning）" class="headerlink" title="2.7 迁移学习（Transfer learning）"></a>2.7 迁移学习（Transfer learning）</h2><p>将已经训练好的模型的一部分知识（网络结构）直接应用到另一个类似模型中去。比如已经训练好一个猫类识别的神经网络模型，直接把该模型中的一部分网络结构应用到使用X光片预测疾病的模型中去，这种学习方法被称为<strong>迁移学习（Transfer Learning）</strong></p>
 <p>如果已经有一个训练好的神经网络用来做图像识别。想要构建另一个X光片进行诊断的模型。迁移学习的做法是无需重新构建新的模型，而是利用之前的神经网络模型，只改变样本输入、输出以及输出层的权重系数<script type="math/tex">W^{[L]},\ b^{[L]}</script>，即对新的样本(X,Y)，重新训练输出层权重系数<script type="math/tex">W^{[L]},\ b^{[L]}</script>，其它层所有的权重系数<script type="math/tex">W^{[L]},\ b^{[L]}</script>保持不变</p>
 <p><img src="/images/pasted-131.png" alt="upload successful"></p>
 <ul>
@@ -668,7 +668,7 @@
 <p><img src="/images/pasted-133.png" alt="upload successful"></p>
 <p><img src="/images/pasted-134.png" alt="upload successful"></p>
 <p><img src="/images/pasted-135.png" alt="upload successful"></p>
-<h2 id="2-8多任务学习（Multi-task-learning）"><a href="#2-8多任务学习（Multi-task-learning）" class="headerlink" title="2.8多任务学习（Multi-task learning）"></a>2.8多任务学习（Multi-task learning）</h2><p>在迁移学习中，步骤是串行的，从任务<script type="math/tex">A</script>里学习然后只是迁移到任务<script type="math/tex">B</script>。在多任务学习中是同时开始学习的，试图让单个神经网络同时做几件事情，希望每个任务都能帮到其他所有任务</p>
+<h2 id="2-8-多任务学习（Multi-task-learning）"><a href="#2-8-多任务学习（Multi-task-learning）" class="headerlink" title="2.8 多任务学习（Multi-task learning）"></a>2.8 多任务学习（Multi-task learning）</h2><p>在迁移学习中，步骤是串行的，从任务<script type="math/tex">A</script>里学习然后只是迁移到任务<script type="math/tex">B</script>。在多任务学习中是同时开始学习的，试图让单个神经网络同时做几件事情，希望每个任务都能帮到其他所有任务</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/a4e496893ed0fb928300f59f26f89cf1.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a4e496893ed0fb928300f59f26f89cf1.png" alt></a></p>
 <p>假设无人驾驶需要同时检测行人、车辆、停车标志，还有交通灯各种其他东西</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f82865ea25c1f62b7e1981df0609a3e2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f82865ea25c1f62b7e1981df0609a3e2.png" alt></a></p>
@@ -708,7 +708,7 @@ L(\hat y_{j}^{(i)},y_{j}^{(i)}) = - y_{j}^{(i)}\log\hat y_{j}^{(i)} - (1 - y_{j}
 <p><img src="/images/pasted-136.png" alt="upload successful"></p>
 <p><img src="/images/pasted-137.png" alt="upload successful"></p>
 <p><img src="/images/pasted-138.png" alt="upload successful"></p>
-<h2 id="2-9什么是端到端的深度学习？（What-is-end-to-end-deep-learning-）"><a href="#2-9什么是端到端的深度学习？（What-is-end-to-end-deep-learning-）" class="headerlink" title="2.9什么是端到端的深度学习？（What is end-to-end deep learning?）"></a>2.9什么是端到端的深度学习？（What is end-to-end deep learning?）</h2><p>以前有一些数据处理系统或者学习系统需要多个阶段的处理。端到端深度学习就是忽略所有这些不同的阶段，用单个神经网络代替它</p>
+<h2 id="2-9-什么是端到端的深度学习？（What-is-end-to-end-deep-learning-）"><a href="#2-9-什么是端到端的深度学习？（What-is-end-to-end-deep-learning-）" class="headerlink" title="2.9 什么是端到端的深度学习？（What is end-to-end deep learning?）"></a>2.9 什么是端到端的深度学习？（What is end-to-end deep learning?）</h2><p>以前有一些数据处理系统或者学习系统需要多个阶段的处理。端到端深度学习就是忽略所有这些不同的阶段，用单个神经网络代替它</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/925b9078df981f43f5c573833d0aa9ff.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/925b9078df981f43f5c573833d0aa9ff.png" alt></a></p>
 <h3 id="语音识别"><a href="#语音识别" class="headerlink" title="语音识别"></a>语音识别</h3><p>目标是输入<script type="math/tex">x</script>，比如说一段音频，然后把它映射到一个输出<script type="math/tex">y</script>，就是这段音频的听写文本:</p>
 <ul>
@@ -739,7 +739,7 @@ L(\hat y_{j}^{(i)},y_{j}^{(i)}) = - y_{j}^{(i)}\log\hat y_{j}^{(i)} - (1 - y_{j}
 </ul>
 <h3 id="机器翻译"><a href="#机器翻译" class="headerlink" title="机器翻译"></a>机器翻译</h3><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/188a6112bc3e3065f5ddfca87d8c9064.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/188a6112bc3e3065f5ddfca87d8c9064.png" alt></a></p>
 <p>传统上机器翻译系统也有一个很复杂的流水线，比如英语机翻得到文本，然后做文本分析，基本上要从文本中提取一些特征之类的，经过很多步骤，最后会将英文文本翻译成法文。因为对于机器翻译来说有很多(英文,法文)的数据对，端到端深度学习在机器翻译领域非常好用</p>
-<h2 id="2-10是否要使用端到端的深度学习？（Whether-to-use-end-to-end-learning-）"><a href="#2-10是否要使用端到端的深度学习？（Whether-to-use-end-to-end-learning-）" class="headerlink" title="2.10是否要使用端到端的深度学习？（Whether to use end-to-end learning?）"></a>2.10是否要使用端到端的深度学习？（Whether to use end-to-end learning?）</h2><h3 id="端到端学习的优点"><a href="#端到端学习的优点" class="headerlink" title="端到端学习的优点"></a>端到端学习的优点</h3><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2211e8807cc6d4c2c0941625e2de4860.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2211e8807cc6d4c2c0941625e2de4860.png" alt></a></p>
+<h2 id="2-10-是否要使用端到端的深度学习？（Whether-to-use-end-to-end-learning-）"><a href="#2-10-是否要使用端到端的深度学习？（Whether-to-use-end-to-end-learning-）" class="headerlink" title="2.10 是否要使用端到端的深度学习？（Whether to use end-to-end learning?）"></a>2.10 是否要使用端到端的深度学习？（Whether to use end-to-end learning?）</h2><h3 id="端到端学习的优点"><a href="#端到端学习的优点" class="headerlink" title="端到端学习的优点"></a>端到端学习的优点</h3><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2211e8807cc6d4c2c0941625e2de4860.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2211e8807cc6d4c2c0941625e2de4860.png" alt></a></p>
 <ul>
 <li><p><strong>端到端学习只是让数据说话</strong>。如果有足够多的<script type="math/tex">(x,y)</script>数据，不管从<script type="math/tex">x</script>到<script type="math/tex">y</script>最适合的函数映射是什么，如果训练一个足够大的神经网络，希望这个神经网络能自己搞清楚。使用纯机器学习方法，直接从<script type="math/tex">x</script>到<script type="math/tex">y</script>输入去训练神经网络，可能更能够捕获数据中的任何统计信息，而不是被迫引入人类的成见。例如在语音识别领域，早期的识别系统有这个音位概念，如果让学习算法学习它想学习的任意表示方式，而不是强迫使用音位作为表示方式，其整体表现可能会更好</p>
 </li>
@@ -1021,7 +1021,7 @@ L(\hat y_{j}^{(i)},y_{j}^{(i)}) = - y_{j}^{(i)}\log\hat y_{j}^{(i)} - (1 - y_{j}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1进行误差分析（Carrying-out-error-analysis）"><span class="nav-number">1.</span> <span class="nav-text">2.1进行误差分析（Carrying out error analysis）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2清楚标注错误的数据（Cleaning-up-Incorrectly-labeled-data）"><span class="nav-number">2.</span> <span class="nav-text">2.2清楚标注错误的数据（Cleaning up Incorrectly labeled data）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3快速搭建你的第一个系统，并进行迭代（Build-your-first-system-quickly-then-iterate）"><span class="nav-number">3.</span> <span class="nav-text">2.3快速搭建你的第一个系统，并进行迭代（Build your first system quickly, then iterate）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4在不同的划分上进行训练并测试（Training-and-testing-on-different-distributions）"><span class="nav-number">4.</span> <span class="nav-text">2.4在不同的划分上进行训练并测试（Training and testing on different distributions）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#猫咪识别"><span class="nav-number">4.1.</span> <span class="nav-text">猫咪识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语音激活后视镜"><span class="nav-number">4.2.</span> <span class="nav-text">语音激活后视镜</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5不匹配数据划分的偏差和方差（Bias-and-Variance-with-mismatched-data-distributions）"><span class="nav-number">5.</span> <span class="nav-text">2.5不匹配数据划分的偏差和方差（Bias and Variance with mismatched data distributions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6定位数据不匹配（Addressing-data-mismatch）"><span class="nav-number">6.</span> <span class="nav-text">2.6定位数据不匹配（Addressing data mismatch）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7迁移学习（Transfer-learning）"><span class="nav-number">7.</span> <span class="nav-text">2.7迁移学习（Transfer learning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8多任务学习（Multi-task-learning）"><span class="nav-number">8.</span> <span class="nav-text">2.8多任务学习（Multi-task learning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9什么是端到端的深度学习？（What-is-end-to-end-deep-learning-）"><span class="nav-number">9.</span> <span class="nav-text">2.9什么是端到端的深度学习？（What is end-to-end deep learning?）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语音识别"><span class="nav-number">9.1.</span> <span class="nav-text">语音识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#门禁识别系统"><span class="nav-number">9.2.</span> <span class="nav-text">门禁识别系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器翻译"><span class="nav-number">9.3.</span> <span class="nav-text">机器翻译</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-10是否要使用端到端的深度学习？（Whether-to-use-end-to-end-learning-）"><span class="nav-number">10.</span> <span class="nav-text">2.10是否要使用端到端的深度学习？（Whether to use end-to-end learning?）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#端到端学习的优点"><span class="nav-number">10.1.</span> <span class="nav-text">端到端学习的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端到端学习的缺点"><span class="nav-number">10.2.</span> <span class="nav-text">端到端学习的缺点</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-进行误差分析（Carrying-out-error-analysis）"><span class="nav-number">1.</span> <span class="nav-text">2.1 进行误差分析（Carrying out error analysis）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-清楚标注错误的数据（Cleaning-up-Incorrectly-labeled-data）"><span class="nav-number">2.</span> <span class="nav-text">2.2 清楚标注错误的数据（Cleaning up Incorrectly labeled data）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-快速搭建你的第一个系统，并进行迭代（Build-your-first-system-quickly-then-iterate）"><span class="nav-number">3.</span> <span class="nav-text">2.3 快速搭建你的第一个系统，并进行迭代（Build your first system quickly, then iterate）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-在不同的划分上进行训练并测试（Training-and-testing-on-different-distributions）"><span class="nav-number">4.</span> <span class="nav-text">2.4 在不同的划分上进行训练并测试（Training and testing on different distributions）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#猫咪识别"><span class="nav-number">4.1.</span> <span class="nav-text">猫咪识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语音激活后视镜"><span class="nav-number">4.2.</span> <span class="nav-text">语音激活后视镜</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-不匹配数据划分的偏差和方差（Bias-and-Variance-with-mismatched-data-distributions）"><span class="nav-number">5.</span> <span class="nav-text">2.5 不匹配数据划分的偏差和方差（Bias and Variance with mismatched data distributions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-定位数据不匹配（Addressing-data-mismatch）"><span class="nav-number">6.</span> <span class="nav-text">2.6 定位数据不匹配（Addressing data mismatch）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-迁移学习（Transfer-learning）"><span class="nav-number">7.</span> <span class="nav-text">2.7 迁移学习（Transfer learning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-多任务学习（Multi-task-learning）"><span class="nav-number">8.</span> <span class="nav-text">2.8 多任务学习（Multi-task learning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9-什么是端到端的深度学习？（What-is-end-to-end-deep-learning-）"><span class="nav-number">9.</span> <span class="nav-text">2.9 什么是端到端的深度学习？（What is end-to-end deep learning?）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语音识别"><span class="nav-number">9.1.</span> <span class="nav-text">语音识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#门禁识别系统"><span class="nav-number">9.2.</span> <span class="nav-text">门禁识别系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器翻译"><span class="nav-number">9.3.</span> <span class="nav-text">机器翻译</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-10-是否要使用端到端的深度学习？（Whether-to-use-end-to-end-learning-）"><span class="nav-number">10.</span> <span class="nav-text">2.10 是否要使用端到端的深度学习？（Whether to use end-to-end learning?）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#端到端学习的优点"><span class="nav-number">10.1.</span> <span class="nav-text">端到端学习的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端到端学习的缺点"><span class="nav-number">10.2.</span> <span class="nav-text">端到端学习的缺点</span></a></li></ol></li></ol></div>
             
 
           </div>
