@@ -573,7 +573,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T03:28:24Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T03:41:59Z">
                 2019-02-27
               </time>
             
@@ -622,7 +622,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  689
                 </span>
               
 
@@ -638,7 +638,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -660,7 +660,29 @@
       
         
           
-            
+            <h2 id="1-1训练，验证，测试集（Train-Dev-Test-sets）"><a href="#1-1训练，验证，测试集（Train-Dev-Test-sets）" class="headerlink" title="1.1训练，验证，测试集（Train / Dev / Test sets）"></a>1.1训练，验证，测试集（Train / Dev / Test sets）</h2><p>在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：</p>
+<ol>
+<li>神经网络分多少层</li>
+<li>每层含有多少个隐藏单元</li>
+<li>学习速率是多少</li>
+<li>各层采用哪些激活函数</li>
+</ol>
+<p>循环迭代的过程是这样的：</p>
+<ol>
+<li>先有个想法Idea，先选择初始的参数值，构建神经网络模型结构</li>
+<li>然后通过代码Code的形式，实现这个神经网络；</li>
+<li>通过实验Experiment验证这些参数对应的神经网络的表现性能。</li>
+<li>根据验证结果，对参数进行适当的调整优化，再进行下一次的Idea-&gt;Code-&gt;Experiment循环。通过很多次的循环，不断调整参数，选定最佳的参数值，从而让神经网络性能最优化</li>
+</ol>
+<p><img src="/images/pasted-42.png" alt="upload successful"><br>在机器学习发展的小数据量时代，常见做法是将所有数据三七分，就是的70%训练集，30%测试集，如果没有明确设置验证集，也可以按照60%训练，20%验证和20%测试集来划分</p>
+<p><img src="/images/pasted-43.png" alt="upload successful"></p>
+<p>在大数据时代，数据量可能是百万级别，验证集和测试集占数据总量的比例会趋向于变得更小。因为验证集的目的就是验证不同的算法，检验哪种算法更有效，因此，验证集要足够大才能评估，比如2个甚至10个不同算法，并迅速判断出哪种算法更有效。可能不需要拿出20%的数据作为验证集</p>
+<p>数据量过百万的应用，训练集可以占到99.5%，验证和测试集各占0.25%，或者验证集占0.4%，测试集占0.1%</p>
+<p><img src="/images/pasted-44.png" alt="upload successful"><br>确保验证集和测试集的数据来自同一分布</p>
+<p><img src="/images/pasted-45.png" alt="upload successful"><br>没有测试集也不要紧，测试集的目的是对最终所选定的神经网络系统做出无偏估计，如果不需要无偏估计，也可以不设置测试集。所以如果只有验证集，没有测试集，要做的就是在训练集上训练，尝试不同的模型框架，在验证集上评估这些模型，然后迭代并选出适用的模型。因为验证集中已经涵盖测试集数据，其不再提供无偏性能评估</p>
+<p><img src="/images/pasted-46.png" alt="upload successful"></p>
+<p>搭建训练验证集和测试集能够加速神经网络的集成，也可以更有效地衡量算法的偏差和方差，从而更高效地选择合适方法来优化算法</p>
+
           
         
       
@@ -1096,6 +1118,194 @@
         
       
     </p></div>
+    
+    
+    
+
+    
+
+    <div>
+     
+  </div>
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+      
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://baozouai.com/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="暴走">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暴走的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T03:27:44Z">
+                2019-02-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T11:35:14+08:00">
+                2019-02-27
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/" class="leancloud_visitors" data-flag-title>
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
     
     
     
@@ -1816,7 +2026,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1931,7 +2141,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5.8k字</span>
+  <span class="post-count">博客全站共6.5k字</span>
 </div>
 
         

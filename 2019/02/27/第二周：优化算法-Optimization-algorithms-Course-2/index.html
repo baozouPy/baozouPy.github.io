@@ -82,18 +82,24 @@
 
 
 
-<meta name="description" content="你如果不忙着求生， 你就在忙着求死">
+<meta name="description" content="1.1训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数  循环迭代的过程是这样的：  先有个想法Idea，先选择初始的参数值，构建神经网络模型结构 然后通过代码Code的形">
 <meta name="keywords" content="Machine Learning&#x2F;Deep Learning&#x2F;Python&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二周：优化算法 (Optimization algorithms)(Course 2)">
 <meta property="og:url" content="https://baozouai.com/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="你如果不忙着求生， 你就在忙着求死">
+<meta property="og:description" content="1.1训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数  循环迭代的过程是这样的：  先有个想法Idea，先选择初始的参数值，构建神经网络模型结构 然后通过代码Code的形">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-27T03:28:24.772Z">
+<meta property="og:image" content="https://baozouai.com/images/pasted-42.png">
+<meta property="og:image" content="https://baozouai.com/images/pasted-43.png">
+<meta property="og:image" content="https://baozouai.com/images/pasted-44.png">
+<meta property="og:image" content="https://baozouai.com/images/pasted-45.png">
+<meta property="og:image" content="https://baozouai.com/images/pasted-46.png">
+<meta property="og:updated_time" content="2019-02-27T03:41:59.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周：优化算法 (Optimization algorithms)(Course 2)">
-<meta name="twitter:description" content="你如果不忙着求生， 你就在忙着求死">
+<meta name="twitter:description" content="1.1训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数  循环迭代的过程是这样的：  先有个想法Idea，先选择初始的参数值，构建神经网络模型结构 然后通过代码Code的形">
+<meta name="twitter:image" content="https://baozouai.com/images/pasted-42.png">
 
 
 
@@ -356,7 +362,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T11:28:24+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T11:41:59+08:00">
                 2019-02-27
               </time>
             
@@ -405,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  689
                 </span>
               
 
@@ -421,7 +427,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -441,7 +447,29 @@
       
 
       
-        
+        <h2 id="1-1训练，验证，测试集（Train-Dev-Test-sets）"><a href="#1-1训练，验证，测试集（Train-Dev-Test-sets）" class="headerlink" title="1.1训练，验证，测试集（Train / Dev / Test sets）"></a>1.1训练，验证，测试集（Train / Dev / Test sets）</h2><p>在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：</p>
+<ol>
+<li>神经网络分多少层</li>
+<li>每层含有多少个隐藏单元</li>
+<li>学习速率是多少</li>
+<li>各层采用哪些激活函数</li>
+</ol>
+<p>循环迭代的过程是这样的：</p>
+<ol>
+<li>先有个想法Idea，先选择初始的参数值，构建神经网络模型结构</li>
+<li>然后通过代码Code的形式，实现这个神经网络；</li>
+<li>通过实验Experiment验证这些参数对应的神经网络的表现性能。</li>
+<li>根据验证结果，对参数进行适当的调整优化，再进行下一次的Idea-&gt;Code-&gt;Experiment循环。通过很多次的循环，不断调整参数，选定最佳的参数值，从而让神经网络性能最优化</li>
+</ol>
+<p><img src="/images/pasted-42.png" alt="upload successful"><br>在机器学习发展的小数据量时代，常见做法是将所有数据三七分，就是的70%训练集，30%测试集，如果没有明确设置验证集，也可以按照60%训练，20%验证和20%测试集来划分</p>
+<p><img src="/images/pasted-43.png" alt="upload successful"></p>
+<p>在大数据时代，数据量可能是百万级别，验证集和测试集占数据总量的比例会趋向于变得更小。因为验证集的目的就是验证不同的算法，检验哪种算法更有效，因此，验证集要足够大才能评估，比如2个甚至10个不同算法，并迅速判断出哪种算法更有效。可能不需要拿出20%的数据作为验证集</p>
+<p>数据量过百万的应用，训练集可以占到99.5%，验证和测试集各占0.25%，或者验证集占0.4%，测试集占0.1%</p>
+<p><img src="/images/pasted-44.png" alt="upload successful"><br>确保验证集和测试集的数据来自同一分布</p>
+<p><img src="/images/pasted-45.png" alt="upload successful"><br>没有测试集也不要紧，测试集的目的是对最终所选定的神经网络系统做出无偏估计，如果不需要无偏估计，也可以不设置测试集。所以如果只有验证集，没有测试集，要做的就是在训练集上训练，尝试不同的模型框架，在验证集上评估这些模型，然后迭代并选出适用的模型。因为验证集中已经涵盖测试集数据，其不再提供无偏性能评估</p>
+<p><img src="/images/pasted-46.png" alt="upload successful"></p>
+<p>搭建训练验证集和测试集能够加速神经网络的集成，也可以更有效地衡量算法的偏差和方差，从而更高效地选择合适方法来优化算法</p>
+
       
     </div>
     
@@ -586,8 +614,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
 
@@ -614,7 +651,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -689,6 +726,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1训练，验证，测试集（Train-Dev-Test-sets）"><span class="nav-number">1.</span> <span class="nav-text">1.1训练，验证，测试集（Train / Dev / Test sets）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -729,7 +782,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5.8k字</span>
+  <span class="post-count">博客全站共6.5k字</span>
 </div>
 
         
