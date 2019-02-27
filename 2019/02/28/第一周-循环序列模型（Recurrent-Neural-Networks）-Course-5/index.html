@@ -108,11 +108,16 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac5d647140997ba713c376fb097ea0e2.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1521560729.png">
 <meta property="og:image" content="https://baozouai.com/assets/501import.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c1df3f793dcb1ec681db6757b4974cee.png">
+<meta property="og:image" content="https://baozouai.com/images/pasted-164.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/94e871edbd87337937ce374e71d56e42.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/LSTM.png">
+<meta property="og:image" content="https://baozouai.com/images/pasted-165.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/48c787912f7f8daee638dd311583d6cf.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/053831ff43d039bd5e734df96d8794cb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8378c2bfe73e1ac9f85d6aa79b71b5eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/455863a3c8c2dfaa0e5474bfa2c6824d.png">
-<meta property="og:updated_time" content="2019-02-27T06:45:10.007Z">
+<meta property="og:updated_time" content="2019-02-27T06:45:50.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
 <meta name="twitter:description" content="1.1 为什么选择序列模型？（Why Sequence Models?）语音识别：给定一个输入音频片段 X，要求输出对应的文字记录 Y。输入和输出数据都是序列模型，因为 X是一个按时播放的音频片段，输出 Y是一系列单词">
@@ -379,7 +384,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:45:10+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:45:50+08:00">
                 2019-02-27
               </time>
             
@@ -450,7 +455,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5.1k
+                  5k
                 </span>
               
 
@@ -642,80 +647,39 @@ c^{<t>}=\Gamma_u*\tilde c^{<t>}+(1-\Gamma_u)*c^{<t-1>}</script><p>$c^{<t-1>}=a^{
 \Gamma_u=\sigma(W_u[c^{<t-1>},x^{<t>}]+b_u)</script><script type="math/tex; mode=display">
 \Gamma_r=\sigma(W_r[c^{<t-1>},x^{<t>}]+b_r)</script><script type="math/tex; mode=display">
 c^{<t>}=\Gamma_u*\tilde c^{<t>}+(1-\Gamma_u)*c^{<t-1>}</script><script type="math/tex; mode=display">
-a^{<t>}=c^{<t>}</script><script type="math/tex; mode=display">\Gamma_{r}$$门：计算出的下一个$$c^{<t>}$$的候选值$${\tilde{c}}^{<t>}$$跟$$c^{<t-1>}$$有多大的相关性
-
-$c^{<t>}$可以是一个向量（编号1），如果有100维的隐藏的激活值，那么$$c^{<t>}$$、$${\tilde{c}}^{<t>}$$、$$\Gamma_{u}$$还有画在框中的其他值也是100维
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c1df3f793dcb1ec681db6757b4974cee.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c1df3f793dcb1ec681db6757b4974cee.png)
-
-$*$实际上就是元素对应的乘积（$$c^{<t>}=\Gamma_u*\tilde c^{<t>}+(1-\Gamma_u)*c^{<t-1>}$$），若$$\Gamma_{u}$$（$$\Gamma_u=\sigma(W_u[c^{<t-1>},x^{<t>}]+b_u)$$）是一个100维的向量，而里面的值**几乎**都是0或者1，则这100维的记忆细胞$$c^{<t>}$$（$$c^{<t>}=a^{<t>}$$，编号1）就是要更新的比特
-
-
-
-## 1.10 长短期记忆（LSTM（long short term memory）unit）
-
-LSTM是另一种更强大的解决梯度消失问题的方法。它对应的RNN隐藏层单元结构如下图所示：
-
-
-![upload successful](/images/pasted-164.png)
-
-相应的表达式为：</script><p>\tilde c^{<t>}=tanh(W_c[a^{<t-1>},x^{<t>}]+b_c)</t></t-1></t></p>
+a^{<t>}=c^{<t>}</script><p>$\Gamma_{r}$门：计算出的下一个<script type="math/tex">c^{<t>}</script>的候选值<script type="math/tex">{\tilde{c}}^{<t>}</script>跟<script type="math/tex">c^{<t-1>}</script>有多大的相关性</p>
+<p>$c^{<t>}$可以是一个向量（编号1），如果有100维的隐藏的激活值，那么<script type="math/tex">c^{<t>}</script>、<script type="math/tex">{\tilde{c}}^{<t>}</script>、<script type="math/tex">\Gamma_{u}</script>还有画在框中的其他值也是100维</t></p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c1df3f793dcb1ec681db6757b4974cee.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c1df3f793dcb1ec681db6757b4974cee.png" alt></a></p>
+<p>$<em>$实际上就是元素对应的乘积（$$c^{<t>}=\Gamma_u</t></em>\tilde c^{<t>}+(1-\Gamma_u)<em>c^{<t-1>}<script type="math/tex">），若</script>\Gamma_{u}<script type="math/tex">（</script>\Gamma_u=\sigma(W_u[c^{<t-1>},x^{<t>}]+b_u)$$）是一个100维的向量，而里面的值<em>*几乎</em></t></t-1></t-1></em>都是0或者1，则这100维的记忆细胞<script type="math/tex">c^{<t>}</script>（<script type="math/tex">c^{<t>}=a^{<t>}</script>，编号1）就是要更新的比特</t></p>
+<h2 id="1-10-长短期记忆（LSTM（long-short-term-memory）unit）"><a href="#1-10-长短期记忆（LSTM（long-short-term-memory）unit）" class="headerlink" title="1.10 长短期记忆（LSTM（long short term memory）unit）"></a>1.10 长短期记忆（LSTM（long short term memory）unit）</h2><p>LSTM是另一种更强大的解决梯度消失问题的方法。它对应的RNN隐藏层单元结构如下图所示：</p>
+<p><img src="/images/pasted-164.png" alt="upload successful"></p>
+<p>相应的表达式为：</p>
 <script type="math/tex; mode=display">
-</script><p>\Gamma_u=\sigma(W_u[a^{<t-1>},x^{<t>}]+b_u)</t></t-1></p>
+\tilde c^{<t>}=tanh(W_c[a^{<t-1>},x^{<t>}]+b_c)</script><script type="math/tex; mode=display">
+\Gamma_u=\sigma(W_u[a^{<t-1>},x^{<t>}]+b_u)</script><script type="math/tex; mode=display">
+\Gamma_f=\sigma(W_f[a^{<t-1>},x^{<t>}]+b_f)</script><script type="math/tex; mode=display">
+\Gamma_o=\sigma(W_o[a^{<t-1>},x^{<t>}]+b_o)</script><script type="math/tex; mode=display">
+c^{<t>}=\Gamma_u*\tilde c^{<t>}+\Gamma_f*c^{<t-1>}</script><script type="math/tex; mode=display">
+a^{<t>}=\Gamma_o*c^{<t>}</script><p>LSTM包含三个gates：<script type="math/tex">\Gamma_u,\Gamma_f,\Gamma_o</script>，分别对应update gate，forget gate和output gate</p>
+<p>在<strong>LSTM</strong>中不再有<script type="math/tex">a^{<t>} = c^{<t>}</script>的情况</p>
+<p>红线显示了只要正确地设置了遗忘门和更新门，<strong>LSTM</strong>很容易把<script type="math/tex">c^{<0>}</script>的值一直往下传递到右边，比如<script type="math/tex">c^{<3>} = c^{<0>}</script>。这就是为什么<strong>LSTM</strong>和<strong>GRU</strong>非常擅长于长时间记忆某个值</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/94e871edbd87337937ce374e71d56e42.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/94e871edbd87337937ce374e71d56e42.png" alt></a></p>
+<p>“<strong>窥视孔连接</strong>”（<strong>peephole connection</strong>）:门值不仅取决于<script type="math/tex">a^{<t-1>}</script>和<script type="math/tex">x^{<t>}</script>，也取决于上一个记忆细胞的值（<script type="math/tex">c^{<t-1>}</script>），即<script type="math/tex">c^{<t-1>}</script>也能影响门值</p>
+<p>如果考虑<script type="math/tex">c^{<t-1>}</script>对<script type="math/tex">\Gamma_u,\Gamma_f,\Gamma_o</script>的影响，可加入“窥视孔连接”，对LSTM的表达式进行修改：</p>
 <script type="math/tex; mode=display">
-</script><p>\Gamma_f=\sigma(W_f[a^{<t-1>},x^{<t>}]+b_f)</t></t-1></p>
-<script type="math/tex; mode=display">
-</script><p>\Gamma_o=\sigma(W_o[a^{<t-1>},x^{<t>}]+b_o)</t></t-1></p>
-<script type="math/tex; mode=display">
-</script><p>c^{<t>}=\Gamma_u<em>\tilde c^{<t>}+\Gamma_f</t></em>c^{<t-1>}</t-1></t></p>
-<script type="math/tex; mode=display">
-</script><p>a^{<t>}=\Gamma_o*c^{<t>}</t></t></p>
-<script type="math/tex; mode=display">
-
-
-LSTM包含三个gates：$$\Gamma_u,\Gamma_f,\Gamma_o$$，分别对应update gate，forget gate和output gate
-
-在**LSTM**中不再有$$a^{<t>} = c^{<t>}$$的情况
-
-红线显示了只要正确地设置了遗忘门和更新门，**LSTM**很容易把$$c^{<0>}$$的值一直往下传递到右边，比如$$c^{<3>} = c^{<0>}$$。这就是为什么**LSTM**和**GRU**非常擅长于长时间记忆某个值
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/94e871edbd87337937ce374e71d56e42.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/94e871edbd87337937ce374e71d56e42.png)
-
-“**窥视孔连接**”（**peephole connection**）:门值不仅取决于$$a^{<t-1>}$$和$$x^{<t>}$$，也取决于上一个记忆细胞的值（$$c^{<t-1>}$$），即$$c^{<t-1>}$$也能影响门值
-
-如果考虑$$c^{<t-1>}$$对$$\Gamma_u,\Gamma_f,\Gamma_o$$的影响，可加入“窥视孔连接”，对LSTM的表达式进行修改：</script><p>\tilde c^{<t>}=tanh(W_c[a^{<t-1>},x^{<t>}]+b_c)</t></t-1></t></p>
-<script type="math/tex; mode=display">
-</script><p>\Gamma_u=\sigma(W_u[a^{<t-1>},x^{<t>},c^{<t-1>}]+b_u)</t-1></t></t-1></p>
-<script type="math/tex; mode=display">
-</script><p>\Gamma_f=\sigma(W_f[a^{<t-1>},x^{<t>},c^{<t-1>}]+b_f)</t-1></t></t-1></p>
-<script type="math/tex; mode=display">
-</script><p>\Gamma_o=\sigma(W_o[a^{<t-1>},x^{<t>},c^{<t-1>}]+b_o)</t-1></t></t-1></p>
-<script type="math/tex; mode=display">
-</script><p>c^{<t>}=\Gamma_u<em>\tilde c^{<t>}+\Gamma_f</t></em>c^{<t-1>}</t-1></t></p>
-<script type="math/tex; mode=display">
-</script><p>a^{<t>}=\Gamma_o*c^{<t>}</t></t></p>
-<script type="math/tex; mode=display">
-
-
-**LSTM**主要的区别：比如（上图编号13）有一个100维的隐藏记忆细胞单元，第$$i$$个$$c^{<t-1>}$$的元素只会影响第$$i$$个元素对应的那个门，所以关系是一对一的，并不是任意这100维的$$c^{<t-1>}$$可以影响所有的门元素
-
-**LSTM**前向传播图：
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/LSTM.png "ST")](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/LSTM.png)
-
-
-
-
-![upload successful](/images/pasted-165.png)
-**GRU**：模型简单，更容易创建一个更大的网络，只有两个门，在计算上运行得更快，且可以扩大模型的规模
-
-**LSTM：**更加强大和灵活，因为它有三个门而不是两个
-
-## 1.11 双向循环神经网络（Bidirectional RNN）
-
-双向**RNN**模型在序列的某点处不仅可以获取之前的信息，还可以获取未来的信息
-
-用只有4个单词的句子，$$x^{<1>}$$到$$x^{<4>}$$。这个网络有一个前向的循环单元$$a^{\rightarrow <1>}$$，$$a^{\rightarrow <2>}$$，$$a^{\rightarrow <3>}$$，$$a^{\rightarrow <4>}$$，这四个循环单元都有一个当前输入$$x$$输入进去，得到预测的$$\hat y^{<1>}$$，$$\hat y^{<2>}$$，$$\hat y^{<3>}$$和$$\hat y^{<4>}</script><p>再增加一个反向循环层：<script type="math/tex">a^{\leftarrow <1>}</script>，<script type="math/tex">a^{\leftarrow <2>}</script>，<script type="math/tex">a^{\leftarrow <3>}</script>，<script type="math/tex">a^{\leftarrow <4>}</script></p>
+\tilde c^{<t>}=tanh(W_c[a^{<t-1>},x^{<t>}]+b_c)</script><script type="math/tex; mode=display">
+\Gamma_u=\sigma(W_u[a^{<t-1>},x^{<t>},c^{<t-1>}]+b_u)</script><script type="math/tex; mode=display">
+\Gamma_f=\sigma(W_f[a^{<t-1>},x^{<t>},c^{<t-1>}]+b_f)</script><script type="math/tex; mode=display">
+\Gamma_o=\sigma(W_o[a^{<t-1>},x^{<t>},c^{<t-1>}]+b_o)</script><script type="math/tex; mode=display">
+c^{<t>}=\Gamma_u*\tilde c^{<t>}+\Gamma_f*c^{<t-1>}</script><script type="math/tex; mode=display">
+a^{<t>}=\Gamma_o*c^{<t>}</script><p><strong>LSTM</strong>主要的区别：比如（上图编号13）有一个100维的隐藏记忆细胞单元，第<script type="math/tex">i</script>个<script type="math/tex">c^{<t-1>}</script>的元素只会影响第<script type="math/tex">i</script>个元素对应的那个门，所以关系是一对一的，并不是任意这100维的<script type="math/tex">c^{<t-1>}</script>可以影响所有的门元素</p>
+<p><strong>LSTM</strong>前向传播图：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/LSTM.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/LSTM.png" alt title="ST"></a></p>
+<p><img src="/images/pasted-165.png" alt="upload successful"><br><strong>GRU</strong>：模型简单，更容易创建一个更大的网络，只有两个门，在计算上运行得更快，且可以扩大模型的规模</p>
+<p><strong>LSTM：</strong>更加强大和灵活，因为它有三个门而不是两个</p>
+<h2 id="1-11-双向循环神经网络（Bidirectional-RNN）"><a href="#1-11-双向循环神经网络（Bidirectional-RNN）" class="headerlink" title="1.11 双向循环神经网络（Bidirectional RNN）"></a>1.11 双向循环神经网络（Bidirectional RNN）</h2><p>双向<strong>RNN</strong>模型在序列的某点处不仅可以获取之前的信息，还可以获取未来的信息</p>
+<p>用只有4个单词的句子，<script type="math/tex">x^{<1>}</script>到<script type="math/tex">x^{<4>}</script>。这个网络有一个前向的循环单元<script type="math/tex">a^{\rightarrow <1>}</script>，<script type="math/tex">a^{\rightarrow <2>}</script>，<script type="math/tex">a^{\rightarrow <3>}</script>，<script type="math/tex">a^{\rightarrow <4>}</script>，这四个循环单元都有一个当前输入<script type="math/tex">x</script>输入进去，得到预测的<script type="math/tex">\hat y^{<1>}</script>，<script type="math/tex">\hat y^{<2>}</script>，<script type="math/tex">\hat y^{<3>}</script>和<script type="math/tex">\hat y^{<4>}</script></p>
+<p>再增加一个反向循环层：<script type="math/tex">a^{\leftarrow <1>}</script>，<script type="math/tex">a^{\leftarrow <2>}</script>，<script type="math/tex">a^{\leftarrow <3>}</script>，<script type="math/tex">a^{\leftarrow <4>}</script></p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/48c787912f7f8daee638dd311583d6cf.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/48c787912f7f8daee638dd311583d6cf.png" alt></a></p>
 <p>给定一个输入序列<script type="math/tex">x^{<1>}</script>到<script type="math/tex">x^{<4>}</script>，这个序列先后计算前向的<script type="math/tex">a^{\rightarrow <1>}</script>，<script type="math/tex">a^{\rightarrow <2>}</script>，<script type="math/tex">a^{\rightarrow <3>}</script>，<script type="math/tex">a^{\rightarrow <4>}</script>，而反向序列从<script type="math/tex">a^{\leftarrow <4>}</script>开始，计算完了反向的<script type="math/tex">a^{\leftarrow <4>}</script>，可以用这些激活值计算反向<script type="math/tex">a^{\leftarrow <3>},a^{\leftarrow <2>},a^{\leftarrow <1>}</script></p>
 <p>值得注意的是计算的是网络激活值，这不是反向传播而是前向的传播，图中前向传播一部分计算是从左到右，一部分计算是从右到左。把所有激活值都计算完了就可以计算预测结果</p>
@@ -1003,7 +967,7 @@ a^{[l]<t>}=g(W_a^{[l]}[a^{[l]<t-1>},a^{[l-1]<t>}]+b_a^{[l]})</script><p>对于<s
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-为什么选择序列模型？（Why-Sequence-Models-）"><span class="nav-number">1.</span> <span class="nav-text">1.1 为什么选择序列模型？（Why Sequence Models?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-数学符号（Notation）"><span class="nav-number">2.</span> <span class="nav-text">1.2 数学符号（Notation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-循环神经网络模型（Recurrent-Neural-Network-Model）"><span class="nav-number">3.</span> <span class="nav-text">1.3 循环神经网络模型（Recurrent Neural Network Model）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-通过时间的反向传播（Backpropagation-through-time）"><span class="nav-number">4.</span> <span class="nav-text">1.4 通过时间的反向传播（Backpropagation through time）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-不同类型的循环神经网络（Different-types-of-RNNs）"><span class="nav-number">5.</span> <span class="nav-text">1.5 不同类型的循环神经网络（Different types of RNNs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-语言模型和序列生成（Language-model-and-sequence-generation）"><span class="nav-number">6.</span> <span class="nav-text">1.6 语言模型和序列生成（Language model and sequence generation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-对新序列采样（Sampling-novel-sequences）"><span class="nav-number">7.</span> <span class="nav-text">1.7 对新序列采样（Sampling novel sequences）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于词汇的RNN模型"><span class="nav-number">7.1.</span> <span class="nav-text">基于词汇的RNN模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于字符的RNN结构"><span class="nav-number">7.2.</span> <span class="nav-text">基于字符的RNN结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-循环神经网络的梯度消失（Vanishing-gradients-withRNNs）"><span class="nav-number">8.</span> <span class="nav-text">1.8 循环神经网络的梯度消失（Vanishing gradients withRNNs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-GRU单元（Gated-Recurrent-Unit（GRU））"><span class="nav-number">9.</span> <span class="nav-text">1.9 GRU单元（Gated Recurrent Unit（GRU））</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简化的GRU模型"><span class="nav-number">9.1.</span> <span class="nav-text">简化的GRU模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整的GRU"><span class="nav-number">9.2.</span> <span class="nav-text">完整的GRU</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-深层循环神经网络（Deep-RNNs）"><span class="nav-number">10.</span> <span class="nav-text">1.12 深层循环神经网络（Deep RNNs）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-为什么选择序列模型？（Why-Sequence-Models-）"><span class="nav-number">1.</span> <span class="nav-text">1.1 为什么选择序列模型？（Why Sequence Models?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-数学符号（Notation）"><span class="nav-number">2.</span> <span class="nav-text">1.2 数学符号（Notation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-循环神经网络模型（Recurrent-Neural-Network-Model）"><span class="nav-number">3.</span> <span class="nav-text">1.3 循环神经网络模型（Recurrent Neural Network Model）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-通过时间的反向传播（Backpropagation-through-time）"><span class="nav-number">4.</span> <span class="nav-text">1.4 通过时间的反向传播（Backpropagation through time）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-不同类型的循环神经网络（Different-types-of-RNNs）"><span class="nav-number">5.</span> <span class="nav-text">1.5 不同类型的循环神经网络（Different types of RNNs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-语言模型和序列生成（Language-model-and-sequence-generation）"><span class="nav-number">6.</span> <span class="nav-text">1.6 语言模型和序列生成（Language model and sequence generation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-对新序列采样（Sampling-novel-sequences）"><span class="nav-number">7.</span> <span class="nav-text">1.7 对新序列采样（Sampling novel sequences）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于词汇的RNN模型"><span class="nav-number">7.1.</span> <span class="nav-text">基于词汇的RNN模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于字符的RNN结构"><span class="nav-number">7.2.</span> <span class="nav-text">基于字符的RNN结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-循环神经网络的梯度消失（Vanishing-gradients-withRNNs）"><span class="nav-number">8.</span> <span class="nav-text">1.8 循环神经网络的梯度消失（Vanishing gradients withRNNs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-GRU单元（Gated-Recurrent-Unit（GRU））"><span class="nav-number">9.</span> <span class="nav-text">1.9 GRU单元（Gated Recurrent Unit（GRU））</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简化的GRU模型"><span class="nav-number">9.1.</span> <span class="nav-text">简化的GRU模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整的GRU"><span class="nav-number">9.2.</span> <span class="nav-text">完整的GRU</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-长短期记忆（LSTM（long-short-term-memory）unit）"><span class="nav-number">10.</span> <span class="nav-text">1.10 长短期记忆（LSTM（long short term memory）unit）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11-双向循环神经网络（Bidirectional-RNN）"><span class="nav-number">11.</span> <span class="nav-text">1.11 双向循环神经网络（Bidirectional RNN）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-深层循环神经网络（Deep-RNNs）"><span class="nav-number">12.</span> <span class="nav-text">1.12 深层循环神经网络（Deep RNNs）</span></a></li></ol></div>
             
 
           </div>
@@ -1050,7 +1014,7 @@ a^{[l]<t>}=g(W_a^{[l]}[a^{[l]<t-1>},a^{[l-1]<t>}]+b_a^{[l]})</script><p>对于<s
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共53k字</span>
+  <span class="post-count">博客全站共52.9k字</span>
 </div>
 
         
