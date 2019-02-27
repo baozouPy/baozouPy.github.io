@@ -82,13 +82,13 @@
 
 
 
-<meta name="description" content="4.1 深层神经网络（Deep L-layer neural network） L-layer\quad NN$$，则包含了$$L-1$$个隐藏层，最后的$$L$$层是输出层  $$a^{[l]}$$和$$W^{[l]}$$中的上标$$l$$都是从$$1$$开始的，$$l=1,\cdots,L输入x记为a^{[0]}​​，把输出层\hat y记为a^{[L]}  X$$：$$(12288, 209">
+<meta name="description" content="4.1 深层神经网络（Deep L-layer neural network） $L-layer\quad NN$，则包含了L-1个隐藏层，最后的L层是输出层 $a^{[l]}$和W^{[l]}中的上标l都是从1开始的，l=1,\cdots,L 输入x记为a^{[0]}​​，把输出层\hat y记为a^{[L]}  $X$：(12288, 209)(with m=209 examples)">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第四周：深层神经网络(Deep Neural Networks)">
 <meta property="og:url" content="https://baozouai.com/2019/02/27/第四周：深层神经网络-Deep-Neural-Networks/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="4.1 深层神经网络（Deep L-layer neural network） L-layer\quad NN$$，则包含了$$L-1$$个隐藏层，最后的$$L$$层是输出层  $$a^{[l]}$$和$$W^{[l]}$$中的上标$$l$$都是从$$1$$开始的，$$l=1,\cdots,L输入x记为a^{[0]}​​，把输出层\hat y记为a^{[L]}  X$$：$$(12288, 209">
+<meta property="og:description" content="4.1 深层神经网络（Deep L-layer neural network） $L-layer\quad NN$，则包含了L-1个隐藏层，最后的L层是输出层 $a^{[l]}$和W^{[l]}中的上标l都是从1开始的，l=1,\cdots,L 输入x记为a^{[0]}​​，把输出层\hat y记为a^{[L]}  $X$：(12288, 209)(with m=209 examples)">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://baozouai.com/images/pasted-27.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-28.png">
@@ -96,10 +96,10 @@
 <meta property="og:image" content="https://baozouai.com/images/pasted-31.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-32.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-33.png">
-<meta property="og:updated_time" content="2019-02-27T02:25:17.459Z">
+<meta property="og:updated_time" content="2019-02-27T02:29:20.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第四周：深层神经网络(Deep Neural Networks)">
-<meta name="twitter:description" content="4.1 深层神经网络（Deep L-layer neural network） L-layer\quad NN$$，则包含了$$L-1$$个隐藏层，最后的$$L$$层是输出层  $$a^{[l]}$$和$$W^{[l]}$$中的上标$$l$$都是从$$1$$开始的，$$l=1,\cdots,L输入x记为a^{[0]}​​，把输出层\hat y记为a^{[L]}  X$$：$$(12288, 209">
+<meta name="twitter:description" content="4.1 深层神经网络（Deep L-layer neural network） $L-layer\quad NN$，则包含了L-1个隐藏层，最后的L层是输出层 $a^{[l]}$和W^{[l]}中的上标l都是从1开始的，l=1,\cdots,L 输入x记为a^{[0]}​​，把输出层\hat y记为a^{[L]}  $X$：(12288, 209)(with m=209 examples)">
 <meta name="twitter:image" content="https://baozouai.com/images/pasted-27.png">
 
 
@@ -363,7 +363,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T10:25:17+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T10:29:20+08:00">
                 2019-02-27
               </time>
             
@@ -471,30 +471,64 @@
 
       
         <h2 id="4-1-深层神经网络（Deep-L-layer-neural-network）"><a href="#4-1-深层神经网络（Deep-L-layer-neural-network）" class="headerlink" title="4.1 深层神经网络（Deep L-layer neural network）"></a>4.1 深层神经网络（Deep L-layer neural network）</h2><p><img src="/images/pasted-27.png" alt="upload successful"></p>
-<script type="math/tex; mode=display">L-layer\quad NN$$，则包含了$$L-1$$个隐藏层，最后的$$L$$层是输出层
-
-$$a^{[l]}$$和$$W^{[l]}$$中的上标$$l$$都是从$$1$$开始的，$$l=1,\cdots,L</script><p>输入<script type="math/tex">x</script>记为<script type="math/tex">a^{[0]}</script>​​，把输出层<script type="math/tex">\hat y</script>记为<script type="math/tex">a^{[L]}</script></p>
+<p>$L-layer\quad NN$，则包含了<script type="math/tex">L-1</script>个隐藏层，最后的<script type="math/tex">L</script>层是输出层</p>
+<p>$a^{[l]}$和<script type="math/tex">W^{[l]}</script>中的上标<script type="math/tex">l</script>都是从<script type="math/tex">1</script>开始的，<script type="math/tex">l=1,\cdots,L</script></p>
+<p>输入<script type="math/tex">x</script>记为<script type="math/tex">a^{[0]}</script>​​，把输出层<script type="math/tex">\hat y</script>记为<script type="math/tex">a^{[L]}</script></p>
 <p><img src="/images/pasted-28.png" alt="upload successful"></p>
-<script type="math/tex; mode=display">X$$：$$(12288, 209)$$\(with $$m=209$$ examples\)
-
-| | **Shape of W** | **Shape of b** | **Activation** | **Shape of Activation** |
-| :---: | :---: | :---: | :---: | :---: |
-| **Layer 1** | $$(n^{[1]},12288)$$ | $$(n^{[1]},1)$$ | $$Z^{[1]} = W^{[1]} X + b^{[1]}$$ | $$(n^{[1]},209)$$ |
-| **Layer 2** | $$(n^{[2]}, n^{[1]})$$ | $$(n^{[2]},1)$$ | $$Z^{[2]} = W^{[2]} A^{[1]} + b^{[2]}$$ | $$(n^{[2]},209)$$ |
-| $$\vdots$$ | $$\vdots$$ | $$\vdots$$ | $$\vdots$$ | $$\vdots$$ |
-| **Layer L-1** | $$(n^{[L-1]}, n^{[L-2]})$$ | $$(n^{[L-1]}, 1)$$ | $$Z^{[L-1]} = W^{[L-1]} A^{[L-2]} + b^{[L-1]}$$ | $$(n^{[L-1]}, 209)$$ |
-| **Layer L** | $$(n^{[L]}, n^{[L-1]})$$ | $$(n^{[L]}, 1)$$ | $$Z^{[L]} = W^{[L]} A^{[L-1]} + b^{[L]}$$ | $$(n^{[L]}, 209)$$ |
-
-
-## 4.2 前向传播和反向传播（Forward and backward propagation）
-
-## 正向传播过程</script><p>z^{[l]}=W^{[l]}a^{[l-1]}+b^{[l]}</p>
-<script type="math/tex; mode=display">
-</script><p>a^{[l]}=g^{[l]}(z^{[l]})</p>
-<script type="math/tex; mode=display">
-
-
-$$m$$个训练样本，向量化形式为：</script><p>Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}</p>
+<p>$X$：<script type="math/tex">(12288, 209)</script>(with <script type="math/tex">m=209</script> examples)</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"><strong>Shape of W</strong></th>
+<th style="text-align:center"><strong>Shape of b</strong></th>
+<th style="text-align:center"><strong>Activation</strong></th>
+<th style="text-align:center"><strong>Shape of Activation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Layer 1</strong></td>
+<td style="text-align:center"><script type="math/tex">(n^{[1]},12288)</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[1]},1)</script></td>
+<td style="text-align:center"><script type="math/tex">Z^{[1]} = W^{[1]} X + b^{[1]}</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[1]},209)</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Layer 2</strong></td>
+<td style="text-align:center"><script type="math/tex">(n^{[2]}, n^{[1]})</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[2]},1)</script></td>
+<td style="text-align:center"><script type="math/tex">Z^{[2]} = W^{[2]} A^{[1]} + b^{[2]}</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[2]},209)</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><script type="math/tex">\vdots</script></td>
+<td style="text-align:center"><script type="math/tex">\vdots</script></td>
+<td style="text-align:center"><script type="math/tex">\vdots</script></td>
+<td style="text-align:center"><script type="math/tex">\vdots</script></td>
+<td style="text-align:center"><script type="math/tex">\vdots</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Layer L-1</strong></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L-1]}, n^{[L-2]})</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L-1]}, 1)</script></td>
+<td style="text-align:center"><script type="math/tex">Z^{[L-1]} = W^{[L-1]} A^{[L-2]} + b^{[L-1]}</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L-1]}, 209)</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Layer L</strong></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L]}, n^{[L-1]})</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L]}, 1)</script></td>
+<td style="text-align:center"><script type="math/tex">Z^{[L]} = W^{[L]} A^{[L-1]} + b^{[L]}</script></td>
+<td style="text-align:center"><script type="math/tex">(n^{[L]}, 209)</script></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="4-2-前向传播和反向传播（Forward-and-backward-propagation）"><a href="#4-2-前向传播和反向传播（Forward-and-backward-propagation）" class="headerlink" title="4.2 前向传播和反向传播（Forward and backward propagation）"></a>4.2 前向传播和反向传播（Forward and backward propagation）</h2><h2 id="正向传播过程"><a href="#正向传播过程" class="headerlink" title="正向传播过程"></a>正向传播过程</h2><script type="math/tex; mode=display">
+z^{[l]}=W^{[l]}a^{[l-1]}+b^{[l]}</script><script type="math/tex; mode=display">
+a^{[l]}=g^{[l]}(z^{[l]})</script><script type="math/tex; mode=display">m$$个训练样本，向量化形式为：</script><p>Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}</p>
 <script type="math/tex; mode=display">
 </script><p>A^{[l]}=g^{[l]}(Z^{[l]})</p>
 <script type="math/tex; mode=display">
@@ -830,7 +864,7 @@ y=x_1\oplus x_2\oplus x_3\oplus\cdots\oplus x_n</script><p>对于这个逻辑运
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-深层神经网络（Deep-L-layer-neural-network）"><span class="nav-number">1.</span> <span class="nav-text">4.1 深层神经网络（Deep L-layer neural network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-为什么使用深层表示？（Why-deep-representations-）"><span class="nav-number">2.</span> <span class="nav-text">4.4 为什么使用深层表示？（Why deep representations?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#人脸识别"><span class="nav-number">3.</span> <span class="nav-text">人脸识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语音识别模型"><span class="nav-number">4.</span> <span class="nav-text">语音识别模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-搭建神经网络块（Building-blocks-of-deep-neural-networks）"><span class="nav-number">5.</span> <span class="nav-text">4.5 搭建神经网络块（Building blocks of deep neural networks）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-参数-VS-超参数（Parameters-vs-Hyperparameters）"><span class="nav-number">6.</span> <span class="nav-text">4.6 参数 VS 超参数（Parameters vs Hyperparameters）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-深层神经网络（Deep-L-layer-neural-network）"><span class="nav-number">1.</span> <span class="nav-text">4.1 深层神经网络（Deep L-layer neural network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-前向传播和反向传播（Forward-and-backward-propagation）"><span class="nav-number">2.</span> <span class="nav-text">4.2 前向传播和反向传播（Forward and backward propagation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正向传播过程"><span class="nav-number">3.</span> <span class="nav-text">正向传播过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-为什么使用深层表示？（Why-deep-representations-）"><span class="nav-number">4.</span> <span class="nav-text">4.4 为什么使用深层表示？（Why deep representations?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#人脸识别"><span class="nav-number">5.</span> <span class="nav-text">人脸识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语音识别模型"><span class="nav-number">6.</span> <span class="nav-text">语音识别模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-搭建神经网络块（Building-blocks-of-deep-neural-networks）"><span class="nav-number">7.</span> <span class="nav-text">4.5 搭建神经网络块（Building blocks of deep neural networks）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-参数-VS-超参数（Parameters-vs-Hyperparameters）"><span class="nav-number">8.</span> <span class="nav-text">4.6 参数 VS 超参数（Parameters vs Hyperparameters）</span></a></li></ol></div>
             
 
           </div>
