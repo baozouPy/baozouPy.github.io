@@ -117,7 +117,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/053831ff43d039bd5e734df96d8794cb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8378c2bfe73e1ac9f85d6aa79b71b5eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/455863a3c8c2dfaa0e5474bfa2c6824d.png">
-<meta property="og:updated_time" content="2019-02-27T06:45:50.310Z">
+<meta property="og:updated_time" content="2019-02-27T06:47:07.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
 <meta name="twitter:description" content="1.1 为什么选择序列模型？（Why Sequence Models?）语音识别：给定一个输入音频片段 X，要求输出对应的文字记录 Y。输入和输出数据都是序列模型，因为 X是一个按时播放的音频片段，输出 Y是一系列单词">
@@ -384,7 +384,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:45:50+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:47:07+08:00">
                 2019-02-27
               </time>
             
@@ -648,7 +648,7 @@ c^{<t>}=\Gamma_u*\tilde c^{<t>}+(1-\Gamma_u)*c^{<t-1>}</script><p>$c^{<t-1>}=a^{
 \Gamma_r=\sigma(W_r[c^{<t-1>},x^{<t>}]+b_r)</script><script type="math/tex; mode=display">
 c^{<t>}=\Gamma_u*\tilde c^{<t>}+(1-\Gamma_u)*c^{<t-1>}</script><script type="math/tex; mode=display">
 a^{<t>}=c^{<t>}</script><p>$\Gamma_{r}$门：计算出的下一个<script type="math/tex">c^{<t>}</script>的候选值<script type="math/tex">{\tilde{c}}^{<t>}</script>跟<script type="math/tex">c^{<t-1>}</script>有多大的相关性</p>
-<p>$c^{<t>}$可以是一个向量（编号1），如果有100维的隐藏的激活值，那么<script type="math/tex">c^{<t>}</script>、<script type="math/tex">{\tilde{c}}^{<t>}</script>、<script type="math/tex">\Gamma_{u}</script>还有画在框中的其他值也是100维</t></p>
+<p>$c^{&lt; t&gt;}$可以是一个向量（编号1），如果有100维的隐藏的激活值，那么<script type="math/tex">c^{<t>}</script>、<script type="math/tex">{\tilde{c}}^{<t>}</script>、<script type="math/tex">\Gamma_{u}</script>还有画在框中的其他值也是100维</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c1df3f793dcb1ec681db6757b4974cee.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c1df3f793dcb1ec681db6757b4974cee.png" alt></a></p>
 <p>$<em>$实际上就是元素对应的乘积（$$c^{<t>}=\Gamma_u</t></em>\tilde c^{<t>}+(1-\Gamma_u)<em>c^{<t-1>}<script type="math/tex">），若</script>\Gamma_{u}<script type="math/tex">（</script>\Gamma_u=\sigma(W_u[c^{<t-1>},x^{<t>}]+b_u)$$）是一个100维的向量，而里面的值<em>*几乎</em></t></t-1></t-1></em>都是0或者1，则这100维的记忆细胞<script type="math/tex">c^{<t>}</script>（<script type="math/tex">c^{<t>}=a^{<t>}</script>，编号1）就是要更新的比特</t></p>
 <h2 id="1-10-长短期记忆（LSTM（long-short-term-memory）unit）"><a href="#1-10-长短期记忆（LSTM（long-short-term-memory）unit）" class="headerlink" title="1.10 长短期记忆（LSTM（long short term memory）unit）"></a>1.10 长短期记忆（LSTM（long short term memory）unit）</h2><p>LSTM是另一种更强大的解决梯度消失问题的方法。它对应的RNN隐藏层单元结构如下图所示：</p>
