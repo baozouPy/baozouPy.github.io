@@ -112,7 +112,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/053831ff43d039bd5e734df96d8794cb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8378c2bfe73e1ac9f85d6aa79b71b5eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/455863a3c8c2dfaa0e5474bfa2c6824d.png">
-<meta property="og:updated_time" content="2019-02-27T06:43:28.574Z">
+<meta property="og:updated_time" content="2019-02-27T06:44:28.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
 <meta name="twitter:description" content="1.1 为什么选择序列模型？（Why Sequence Models?）语音识别：给定一个输入音频片段 X，要求输出对应的文字记录 Y。输入和输出数据都是序列模型，因为 X是一个按时播放的音频片段，输出 Y是一系列单词">
@@ -379,7 +379,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:43:28+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:44:28+08:00">
                 2019-02-27
               </time>
             
@@ -635,23 +635,14 @@ a^{<t>}=tanh(W_a[a^{<t-1>},x^{<t>}]+b_a)</script><p>为了解决梯度消失问�
 <script type="math/tex; mode=display">
 \tilde c^{<t>}=tanh(W_c[c^{<t-1>},x^{<t>}]+b_c)</script><script type="math/tex; mode=display">
 \Gamma_u=\sigma(W_u[c^{<t-1>},x^{<t>}]+b_u)</script><script type="math/tex; mode=display">
-c^{<t>}=\Gamma_u*\tilde c^{<t>}+(1-\Gamma_u)*c^{<t-1>}</script><script type="math/tex; mode=display">c^{<t-1>}=a^{<t-1>}$$，$$c^{<t>}=a^{<t>}$$。符号$$c$$表示记忆细胞的值，$$a$$表示输出的激活值，$$\tilde c^{<t>}$$是个候选值，替代了c的值，$$\Gamma_u$$（0到1）意为gate，**u**表示“**update**”，当$$\Gamma_u=1$$时，代表更新；当$$\Gamma_u=0$$时，代表记忆，保留之前的模块输出。$$\Gamma_u$$能够保证RNN模型中跨度很大的依赖关系不受影响，消除梯度消失问题
-
-### 完整的GRU
-
-完整的GRU添加了另外一个gate，即$$\Gamma_r$$，表达式如下：</script><p>\tilde c^{<t>}=tanh(W_c[\Gamma_r*c^{<t-1>},x^{<t>}]+b_c)</t></t-1></t></p>
+c^{<t>}=\Gamma_u*\tilde c^{<t>}+(1-\Gamma_u)*c^{<t-1>}</script><p>$c^{<t-1>}=a^{<t-1>}$，<script type="math/tex">c^{<t>}=a^{<t>}</script>。符号<script type="math/tex">c</script>表示记忆细胞的值，<script type="math/tex">a</script>表示输出的激活值，<script type="math/tex">\tilde c^{<t>}</script>是个候选值，替代了c的值，<script type="math/tex">\Gamma_u</script>（0到1）意为gate，<strong>u</strong>表示“<strong>update</strong>”，当<script type="math/tex">\Gamma_u=1</script>时，代表更新；当<script type="math/tex">\Gamma_u=0</script>时，代表记忆，保留之前的模块输出。<script type="math/tex">\Gamma_u</script>能够保证RNN模型中跨度很大的依赖关系不受影响，消除梯度消失问题</t-1></t-1></p>
+<h3 id="完整的GRU"><a href="#完整的GRU" class="headerlink" title="完整的GRU"></a>完整的GRU</h3><p>完整的GRU添加了另外一个gate，即<script type="math/tex">\Gamma_r</script>，表达式如下：</p>
 <script type="math/tex; mode=display">
-</script><p>\Gamma_u=\sigma(W_u[c^{<t-1>},x^{<t>}]+b_u)</t></t-1></p>
-<script type="math/tex; mode=display">
-</script><p>\Gamma_r=\sigma(W_r[c^{<t-1>},x^{<t>}]+b_r)</t></t-1></p>
-<script type="math/tex; mode=display">
-</script><p>c^{<t>}=\Gamma_u<em>\tilde c^{<t>}+(1-\Gamma_u)</t></em>c^{<t-1>}</t-1></t></p>
-<script type="math/tex; mode=display">
-</script><p>a^{<t>}=c^{<t>}</t></t></p>
-<script type="math/tex; mode=display">
-
-
-$$\Gamma_{r}$$门：计算出的下一个$$c^{<t>}$$的候选值$${\tilde{c}}^{<t>}$$跟$$c^{<t-1>}$$有多大的相关性
+\tilde c^{<t>}=tanh(W_c[\Gamma_r*c^{<t-1>},x^{<t>}]+b_c)</script><script type="math/tex; mode=display">
+\Gamma_u=\sigma(W_u[c^{<t-1>},x^{<t>}]+b_u)</script><script type="math/tex; mode=display">
+\Gamma_r=\sigma(W_r[c^{<t-1>},x^{<t>}]+b_r)</script><script type="math/tex; mode=display">
+c^{<t>}=\Gamma_u*\tilde c^{<t>}+(1-\Gamma_u)*c^{<t-1>}</script><script type="math/tex; mode=display">
+a^{<t>}=c^{<t>}</script><script type="math/tex; mode=display">\Gamma_{r}$$门：计算出的下一个$$c^{<t>}$$的候选值$${\tilde{c}}^{<t>}$$跟$$c^{<t-1>}$$有多大的相关性
 
 $c^{<t>}$可以是一个向量（编号1），如果有100维的隐藏的激活值，那么$$c^{<t>}$$、$${\tilde{c}}^{<t>}$$、$$\Gamma_{u}$$还有画在框中的其他值也是100维
 
@@ -1012,7 +1003,7 @@ a^{[l]<t>}=g(W_a^{[l]}[a^{[l]<t-1>},a^{[l-1]<t>}]+b_a^{[l]})</script><p>对于<s
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-为什么选择序列模型？（Why-Sequence-Models-）"><span class="nav-number">1.</span> <span class="nav-text">1.1 为什么选择序列模型？（Why Sequence Models?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-数学符号（Notation）"><span class="nav-number">2.</span> <span class="nav-text">1.2 数学符号（Notation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-循环神经网络模型（Recurrent-Neural-Network-Model）"><span class="nav-number">3.</span> <span class="nav-text">1.3 循环神经网络模型（Recurrent Neural Network Model）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-通过时间的反向传播（Backpropagation-through-time）"><span class="nav-number">4.</span> <span class="nav-text">1.4 通过时间的反向传播（Backpropagation through time）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-不同类型的循环神经网络（Different-types-of-RNNs）"><span class="nav-number">5.</span> <span class="nav-text">1.5 不同类型的循环神经网络（Different types of RNNs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-语言模型和序列生成（Language-model-and-sequence-generation）"><span class="nav-number">6.</span> <span class="nav-text">1.6 语言模型和序列生成（Language model and sequence generation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-对新序列采样（Sampling-novel-sequences）"><span class="nav-number">7.</span> <span class="nav-text">1.7 对新序列采样（Sampling novel sequences）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于词汇的RNN模型"><span class="nav-number">7.1.</span> <span class="nav-text">基于词汇的RNN模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于字符的RNN结构"><span class="nav-number">7.2.</span> <span class="nav-text">基于字符的RNN结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-循环神经网络的梯度消失（Vanishing-gradients-withRNNs）"><span class="nav-number">8.</span> <span class="nav-text">1.8 循环神经网络的梯度消失（Vanishing gradients withRNNs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-GRU单元（Gated-Recurrent-Unit（GRU））"><span class="nav-number">9.</span> <span class="nav-text">1.9 GRU单元（Gated Recurrent Unit（GRU））</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简化的GRU模型"><span class="nav-number">9.1.</span> <span class="nav-text">简化的GRU模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-深层循环神经网络（Deep-RNNs）"><span class="nav-number">10.</span> <span class="nav-text">1.12 深层循环神经网络（Deep RNNs）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-为什么选择序列模型？（Why-Sequence-Models-）"><span class="nav-number">1.</span> <span class="nav-text">1.1 为什么选择序列模型？（Why Sequence Models?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-数学符号（Notation）"><span class="nav-number">2.</span> <span class="nav-text">1.2 数学符号（Notation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-循环神经网络模型（Recurrent-Neural-Network-Model）"><span class="nav-number">3.</span> <span class="nav-text">1.3 循环神经网络模型（Recurrent Neural Network Model）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-通过时间的反向传播（Backpropagation-through-time）"><span class="nav-number">4.</span> <span class="nav-text">1.4 通过时间的反向传播（Backpropagation through time）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-不同类型的循环神经网络（Different-types-of-RNNs）"><span class="nav-number">5.</span> <span class="nav-text">1.5 不同类型的循环神经网络（Different types of RNNs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-语言模型和序列生成（Language-model-and-sequence-generation）"><span class="nav-number">6.</span> <span class="nav-text">1.6 语言模型和序列生成（Language model and sequence generation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-对新序列采样（Sampling-novel-sequences）"><span class="nav-number">7.</span> <span class="nav-text">1.7 对新序列采样（Sampling novel sequences）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于词汇的RNN模型"><span class="nav-number">7.1.</span> <span class="nav-text">基于词汇的RNN模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于字符的RNN结构"><span class="nav-number">7.2.</span> <span class="nav-text">基于字符的RNN结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-循环神经网络的梯度消失（Vanishing-gradients-withRNNs）"><span class="nav-number">8.</span> <span class="nav-text">1.8 循环神经网络的梯度消失（Vanishing gradients withRNNs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-GRU单元（Gated-Recurrent-Unit（GRU））"><span class="nav-number">9.</span> <span class="nav-text">1.9 GRU单元（Gated Recurrent Unit（GRU））</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简化的GRU模型"><span class="nav-number">9.1.</span> <span class="nav-text">简化的GRU模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整的GRU"><span class="nav-number">9.2.</span> <span class="nav-text">完整的GRU</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-深层循环神经网络（Deep-RNNs）"><span class="nav-number">10.</span> <span class="nav-text">1.12 深层循环神经网络（Deep RNNs）</span></a></li></ol></div>
             
 
           </div>
