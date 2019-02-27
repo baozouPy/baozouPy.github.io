@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>暴走的技术博客</title>
-  <icon>https://www.gravatar.com/avatar/97247acaa80562646767878bdb1f84d0</icon>
+  <icon>https://www.gravatar.com/avatar/305a9f3fd1e1b86e4bcca2052a8ab203</icon>
   <subtitle>The people who are crazy enough to change the world are the ones who do！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://baozouai.github.io/"/>
+  <link href="https://baozouai.com/"/>
   <updated>2019-02-26T15:31:18.831Z</updated>
-  <id>https://baozouai.github.io/</id>
+  <id>https://baozouai.com/</id>
   
   <author>
     <name>暴走</name>
-    <email>baoou140690@mail.com</email>
+    <email>baoouai@mail.com</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
     <title>DeepLearning.ai深度学习课程笔记</title>
-    <link href="https://baozouai.github.io/2019/02/27/DeepLearning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    <id>https://baozouai.github.io/2019/02/27/DeepLearning-ai深度学习课程笔记/</id>
+    <link href="https://baozouai.com/2019/02/27/DeepLearning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    <id>https://baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/</id>
     <published>2019-02-27T06:11:00.000Z</published>
     <updated>2019-02-26T15:31:18.831Z</updated>
     
@@ -30,19 +30,19 @@
     
     </summary>
     
-      <category term="深度学习" scheme="https://baozouai.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="深度学习" scheme="https://baozouai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
-    <title>第二周：神经网络的编程基础(Basics of Neural Network programming)</title>
-    <link href="https://baozouai.github.io/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80-Basics-of-Neural-Network-programming/"/>
-    <id>https://baozouai.github.io/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/</id>
+    <title>第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)</title>
+    <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80-Basics-of-Neural-Network-programming/"/>
+    <id>https://baozouai.com/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/</id>
     <published>2019-02-26T23:39:42.000Z</published>
-    <updated>2019-02-26T16:55:52.498Z</updated>
+    <updated>2019-02-27T00:52:37.928Z</updated>
     
     <summary type="html">
     
@@ -52,20 +52,20 @@
     </summary>
     
     
-      <category term="深度学习" scheme="https://baozouai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
-    <title>第一门课 神经网络和深度学习(Neural-Networks-and-Deep-Learning)</title>
-    <link href="https://baozouai.github.io/2019/02/27/%E7%AC%AC%E4%B8%80%E9%97%A8%E8%AF%BE-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%92%8C%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-Neural-Networks-and-Deep-Learning/"/>
-    <id>https://baozouai.github.io/2019/02/27/第一门课-神经网络和深度学习-Neural-Networks-and-Deep-Learning/</id>
+    <title>第一周：深度学习引言(Introduction to Deep Learning)(Course 1)</title>
+    <link href="https://baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E9%97%A8%E8%AF%BE-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%92%8C%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-Neural-Networks-and-Deep-Learning/"/>
+    <id>https://baozouai.com/2019/02/27/第一门课-神经网络和深度学习-Neural-Networks-and-Deep-Learning/</id>
     <published>2019-02-26T23:32:07.000Z</published>
-    <updated>2019-02-26T16:12:05.629Z</updated>
+    <updated>2019-02-27T00:53:15.073Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;第一周：深度学习引言-Introduction-to-Deep-Learning&quot;&gt;&lt;a href=&quot;#第一周：深度学习引言-Introduction-to-Deep-Learning&quot; class=&quot;headerlink&quot; title=&quot;第一周：深度学习引言(Introduction to Deep Learning)&quot;&gt;&lt;/a&gt;第一周：深度学习引言(Introduction to Deep Learning)&lt;/h1&gt;&lt;h2 id=&quot;1-1-神经网络的监督学习-Supervised-Learning-with-Neural-Networks&quot;&gt;&lt;a href=&quot;#1-1-神经网络的监督学习-Supervised-Learning-with-Neural-Networks&quot; class=&quot;headerlink&quot; title=&quot;1.1 神经网络的监督学习(Supervised Learning with Neural Networks)&quot;&gt;&lt;/a&gt;1.1 神经网络的监督学习(Supervised Learning with Neural Networks)&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/images/pasted-0.png&quot; alt=&quot;upload successful&quot;&gt;&lt;/p&gt;
+      &lt;h2 id=&quot;1-1-神经网络的监督学习-Supervised-Learning-with-Neural-Networks&quot;&gt;&lt;a href=&quot;#1-1-神经网络的监督学习-Supervised-Learning-with-Neural-Networks&quot; class=&quot;headerlink&quot; title=&quot;1.1 神经网络的监督学习(Supervised Learning with Neural Networks)&quot;&gt;&lt;/a&gt;1.1 神经网络的监督学习(Supervised Learning with Neural Networks)&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/images/pasted-0.png&quot; alt=&quot;upload successful&quot;&gt;&lt;/p&gt;
 &lt;p&gt;一般的&lt;strong&gt;监督式学习&lt;/strong&gt;（房价预测和线上广告问题），只要使用标准的神经网络模型就可以&lt;br&gt;
     
     </summary>
@@ -75,8 +75,8 @@
   
   <entry>
     <title>Machine Learning</title>
-    <link href="https://baozouai.github.io/2019/02/23/machine%20learning/"/>
-    <id>https://baozouai.github.io/2019/02/23/machine learning/</id>
+    <link href="https://baozouai.com/2019/02/23/machine%20learning/"/>
+    <id>https://baozouai.com/2019/02/23/machine learning/</id>
     <published>2019-02-23T13:06:11.566Z</published>
     <updated>2019-02-26T15:07:17.058Z</updated>
     
@@ -86,18 +86,18 @@
     
     </summary>
     
-      <category term="机器学习" scheme="https://baozouai.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="https://baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="深度学习" scheme="https://baozouai.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="Python" scheme="https://baozouai.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Python/"/>
+      <category term="Python" scheme="https://baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Python/"/>
     
     
-      <category term="深度学习" scheme="https://baozouai.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="Python" scheme="https://baozouai.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://baozouai.com/tags/Python/"/>
     
-      <category term="机器学习" scheme="https://baozouai.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="https://baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
