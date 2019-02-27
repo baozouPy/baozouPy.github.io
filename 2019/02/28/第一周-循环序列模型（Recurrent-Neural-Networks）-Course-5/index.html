@@ -106,7 +106,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/053831ff43d039bd5e734df96d8794cb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8378c2bfe73e1ac9f85d6aa79b71b5eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/455863a3c8c2dfaa0e5474bfa2c6824d.png">
-<meta property="og:updated_time" content="2019-02-27T06:35:35.047Z">
+<meta property="og:updated_time" content="2019-02-27T06:37:19.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
 <meta name="twitter:description" content="1.1 为什么选择序列模型？（Why Sequence Models?）语音识别：给定一个输入音频片段 X，要求输出对应的文字记录 Y。输入和输出数据都是序列模型，因为 X是一个按时播放的音频片段，输出 Y是一系列单词">
@@ -373,7 +373,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:35:35+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:37:19+08:00">
                 2019-02-27
               </time>
             
@@ -495,7 +495,8 @@
 y=[1\ \ 1\ \ 0\ \ 1\ \ 1\ \ 0\ \ 0\ \ 0\ \ 0]^T</script><p>$y^{<t>}$表示序列对应位置的输出，<script type="math/tex">T_y</script>表示输出序列长度，<script type="math/tex">1\leq t\leq T_y</script></t></p>
 <p>对于输入<script type="math/tex">x</script>，表示为：</p>
 <script type="math/tex; mode=display">
-[x^{<1>}\ \ x^{<2>}\ \ x^{<3>}\ \ x^{<4>}\ \ x^{<5>}\ \ x^{<6>}\ \ x^{<7>}\ \ x^{<8>}\ \ x^{<9>}]</script><script type="math/tex; mode=display">x^{<t>}$$表示序列对应位置的输入，$$T_x$$表示输入序列长度。此例中$$T_x=T_y$$，但是也存在$$T_x\neq T_y</script><p>如何表示每个<script type="math/tex">x^{<t>}</script>：</p>
+[x^{<1>}\ \ x^{<2>}\ \ x^{<3>}\ \ x^{<4>}\ \ x^{<5>}\ \ x^{<6>}\ \ x^{<7>}\ \ x^{<8>}\ \ x^{<9>}]</script><p>$x^{<t>}$表示序列对应位置的输入，<script type="math/tex">T_x</script>表示输入序列长度。此例中<script type="math/tex">T_x=T_y</script>，但是也存在<script type="math/tex">T_x\neq T_y</script></t></p>
+<p>如何表示每个<script type="math/tex">x^{<t>}</script>：</p>
 <p>建立一个词汇库vocabulary，尽可能包含更多的词汇。例如一个包含10000个词汇的词汇库为：</p>
 <script type="math/tex; mode=display">
 \left[
