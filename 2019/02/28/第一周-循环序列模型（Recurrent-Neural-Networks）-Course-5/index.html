@@ -102,11 +102,16 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/rnn_cell_backprop.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1daa38085604dd04e91ebc5e609d1179.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-161.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8b901fc8fcab9e16b1fe26b92f4ec546.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1d31771da8ced333968541fbbf67e6f1.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8fb1c4afe30b7a0ede26522b355068ba.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac5d647140997ba713c376fb097ea0e2.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1521560729.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/48c787912f7f8daee638dd311583d6cf.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/053831ff43d039bd5e734df96d8794cb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8378c2bfe73e1ac9f85d6aa79b71b5eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/455863a3c8c2dfaa0e5474bfa2c6824d.png">
-<meta property="og:updated_time" content="2019-02-27T06:41:07.288Z">
+<meta property="og:updated_time" content="2019-02-27T06:42:35.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
 <meta name="twitter:description" content="1.1 为什么选择序列模型？（Why Sequence Models?）语音识别：给定一个输入音频片段 X，要求输出对应的文字记录 Y。输入和输出数据都是序列模型，因为 X是一个按时播放的音频片段，输出 Y是一系列单词">
@@ -373,7 +378,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:41:07+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:42:35+08:00">
                 2019-02-27
               </time>
             
@@ -444,7 +449,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5.2k
+                  5.1k
                 </span>
               
 
@@ -460,7 +465,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  20
+                  19
                 </span>
               
             </div>
@@ -582,92 +587,46 @@ P(y^{<1>},y^{<2>},\cdots,y^{<T_y>})</script><p>如何使用RNN构建语言模型
 <p>每句话结束末尾，需要加上<strong>&lt; EOS &gt;</strong>作为语句结束符。若语句中有词汇表中没有的单词，用<strong>&lt; UNK &gt;</strong>表示。假设单词“Mau”不在词汇表中，则上面这句话可表示为：</p>
 <p><strong>The Egyptian &lt; UNK &gt; is a bread of cat. &lt; EOS &gt;</strong></p>
 <p>准备好训练集并对语料库进行切分词等处理之后，接下来构建相应的RNN模型：</p>
-<p><img src="/images/pasted-161.png" alt="upload successful"></p>
-<script type="math/tex; mode=display">x^{<1>}$$和$$a^{<0>}$$均为零向量。Softmax输出层$$\hat y^{<1>}$$表示出现该语句第一个单词的概率，softmax输出层$$\hat y^{<2>}$$表示在第一个单词基础上出现第二个单词的概率，即条件概率，以此类推，最后是出现**&lt; EOS &gt;**的条件概率
-
-单个元素的softmax loss function为：</script><p>L^{<t>}(\hat y^{<t>},y^{<t>})=-\sum_iy_i^{<t>}log \hat y_i^{<t>}</t></t></t></t></t></p>
+<p><img src="/images/pasted-161.png" alt="upload successful"><br>$x^{<1>}$和<script type="math/tex">a^{<0>}</script>均为零向量。Softmax输出层<script type="math/tex">\hat y^{<1>}</script>表示出现该语句第一个单词的概率，softmax输出层<script type="math/tex">\hat y^{<2>}</script>表示在第一个单词基础上出现第二个单词的概率，即条件概率，以此类推，最后是出现<strong>&lt; EOS &gt;</strong>的条件概率</1></p>
+<p>单个元素的softmax loss function为：</p>
 <script type="math/tex; mode=display">
-
-
-> 这是softmax Loss Function ，注意与1.4 binary classification 的 Loss Function区别
-
-该样本所有元素的Loss function为：</script><p>L(\hat y,y)=\sum_tL^{<t>}(\hat y^{<t>},y^{<t>})</t></t></t></p>
+L^{<t>}(\hat y^{<t>},y^{<t>})=-\sum_iy_i^{<t>}log\ \hat y_i^{<t>}</script><blockquote>
+<p>这是softmax Loss Function ，注意与1.4 binary classification 的 Loss Function区别</p>
+</blockquote>
+<p>该样本所有元素的Loss function为：</p>
 <script type="math/tex; mode=display">
-
-
-对语料库的每条语句进行RNN模型训练，最终得到的模型可以根据给出语句的前几个单词预测其余部分，将语句补充完整。例如给出**“Cats average 15”**，RNN模型可能预测完整的语句是**“Cats average 15 hours of sleep a day.”**
-
-整个语句出现的概率等于语句中所有元素出现的条件概率乘积。例如某个语句包含$$y^{<1>},y^{<2>},y^{<3>}$$，则整个语句出现的概率为：</script><p>P(y^{<1>},y^{<2>},y^{<3>})=P(y^{<1>})\cdot P(y^{<2>}|y^{<1>})\cdot P(y^{<3>}|y^{<1>},y^{<2>})</2></1></3></1></2></1></3></2></1></p>
+L(\hat y,y)=\sum_tL^{<t>}(\hat y^{<t>},y^{<t>})</script><p>对语料库的每条语句进行RNN模型训练，最终得到的模型可以根据给出语句的前几个单词预测其余部分，将语句补充完整。例如给出<strong>“Cats average 15”</strong>，RNN模型可能预测完整的语句是<strong>“Cats average 15 hours of sleep a day.”</strong></p>
+<p>整个语句出现的概率等于语句中所有元素出现的条件概率乘积。例如某个语句包含<script type="math/tex">y^{<1>},y^{<2>},y^{<3>}</script>，则整个语句出现的概率为：</p>
 <script type="math/tex; mode=display">
-
-
-
-
-
-## 1.7 对新序列采样（Sampling novel sequences）
-
-### 基于词汇的RNN模型
-
-序列模型模拟了任意特定单词序列的概率，要做的是对这些概率分布进行采样来生成一个新的单词序列。编号1所示的网络已经被上方所展示的结构训练过，编号2是进行采样
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8b901fc8fcab9e16b1fe26b92f4ec546.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8b901fc8fcab9e16b1fe26b92f4ec546.png)
-
-第一步要做的是对想要模型生成的第一个词进行采样，输入$$x^{<1>} =0$$，$$a^{<0>} =0$$，第一个时间步得到的是所有可能的输出，是经过**softmax**层后得到的概率，然后根据这个**softmax**的分布进行随机采样。对这个向量使用`np.random.choice`，来根据向量中这些概率的分布进行采样，就能对第一个词进行采样
-
-然后继续下一个时间步，$$\hat y^{<1>}$$作为输入（编号4），然后**softmax**层就会预测$$\hat y^{<2>}$$是什么。假如第一个词进行抽样后得到的是**The**，现在要计算出在第一词是**The**的情况下，第二个词应该是什么（编号5），然后再用采样函数来对$$\hat y^{<2>}$$进行采样
-
-即无论得到什么样的用**one-hot**码表示的选择结果，都把它传递到下一个时间步，然后进行采样，直到最后一个时间步
-
-怎样知道一个句子结束：
-
-* 如果代表句子结尾的标识在字典中，可以一直进行采样直到得到**EOS**标识（编号6），代表着已经抵达结尾，可以停止采样
-* 如果字典中没有这个词，可以决定从20个或100个或其他个单词进行采样，然后一直将采样进行下去直到达到所设定的时间步。不过这种过程有时候会产生一些未知标识（编号7），如果要确保算法不会输出这种标识，要做的是拒绝采样过程中产生任何未知的标识，一旦出现就继续在剩下的词中进行重采样，直到得到一个不是未知标识的词
-
-这就是如何从**RNN**语言模型中生成一个随机选择的句子。以上所建立的是基于词汇的**RNN**模型，意思就是字典中的词都是英语单词（下图编号1）
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1d31771da8ced333968541fbbf67e6f1.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1d31771da8ced333968541fbbf67e6f1.png)
-
-### 基于字符的**RNN**结构
-
-用以上字符组成字典（上图编号2所示）
-
-序列$$\hat y^{<1>}$$，$$\hat y^{<2>}$$，$$\hat y^{<3>}$$在训练数据中是单独的字符，对于“**Cats average 15 hours of sleep a day.**”，**C**是$$\hat y^{<1>}$$，**a**就是$$\hat y^{<2>}$$，**t**就是$$\hat y^{<3>}$$等等
-
-优点：
-
-不必担心会出现未知的标识，基于字符的语言模型会将**Mau**这样的序列也视为可能性非零的序列。而基于词汇的语言模型，如果**Mau**不在字典中，只能当作未知标识**UNK**
-
-缺点：
-
-最后会得到太多太长的序列，基于字符的语言模型在捕捉句子中的依赖关系也就是句子较前部分如何影响较后部分不如基于词汇的语言模型那样可以捕捉长范围的关系，并且基于字符的语言模型训练起来计算成本比较高
-
-## 1.8 循环神经网络的梯度消失（Vanishing gradients withRNNs）
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8fb1c4afe30b7a0ede26522b355068ba.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8fb1c4afe30b7a0ede26522b355068ba.png)
-
-编号1**cat**是单数，应该用**was，**编号2 **cats**是复数，用**were**
-
-这个例子中的句子有长期的依赖，最前面的单词对句子后面的单词有影响。但基本的**RNN**模型（编号3）不擅长捕获长期依赖效应
-
-**RNN**反向传播很困难，会有梯度消失的问题，后面层的输出误差（编号6）很难影响前面层（编号7）的计算。即很难让一个神经网络能够意识到它要记住看到的是单数名词还是复数名词，然后在序列后面生成依赖单复数形式的**was**或者**were**。且在英语里面中间的内容（编号8）可以任意长，所以基本的**RNN**模型会有很多局部影响，输出$$\hat y^{<3>}$$主要受附近的值（编号10）的影响，编号6所示的输出很难受到序列靠前的输入（编号10）的影响，因为不管输出是什么，对的还是错的，这个区域都很难反向传播到序列的前面部分，也因此网络很难调整序列前面的计算
-
-在反向传播的时候，随着层数的增多，梯度不仅可能指数型的下降，也可能指数型的上升。梯度消失在训练**RNN**时是首要的问题，不过梯度爆炸也会出现，但是梯度爆炸很明显，因为指数级大的梯度会让参数变得极其大，以至于网络参数崩溃。参数大到崩溃会看到很多**NaN**，或者不是数字的情况，这意味着网络计算出现了数值溢出
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac5d647140997ba713c376fb097ea0e2.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ac5d647140997ba713c376fb097ea0e2.png)
-
-解决方法：用**梯度修剪**。梯度向量如果大于某个阈值，缩放梯度向量，保证不会太大
-
-## 1.9 GRU单元（Gated Recurrent Unit（GRU））
-
-门控循环单元：改变了**RNN**的隐藏层，使其可以更好地捕捉深层连接，并改善了梯度消失问题
-
-### 简化的GRU模型
-
-**RNN**隐藏层的单元的可视化：
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1521560729.png "1521560729")](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1521560729.png)
-
-$$a^{<t>}$$表达式为：</script><p>a^{<t>}=tanh(W_a[a^{<t-1>},x^{<t>}]+b_a)</t></t-1></t></p>
+P(y^{<1>},y^{<2>},y^{<3>})=P(y^{<1>})\cdot P(y^{<2>}|y^{<1>})\cdot P(y^{<3>}|y^{<1>},y^{<2>})</script><h2 id="1-7-对新序列采样（Sampling-novel-sequences）"><a href="#1-7-对新序列采样（Sampling-novel-sequences）" class="headerlink" title="1.7 对新序列采样（Sampling novel sequences）"></a>1.7 对新序列采样（Sampling novel sequences）</h2><h3 id="基于词汇的RNN模型"><a href="#基于词汇的RNN模型" class="headerlink" title="基于词汇的RNN模型"></a>基于词汇的RNN模型</h3><p>序列模型模拟了任意特定单词序列的概率，要做的是对这些概率分布进行采样来生成一个新的单词序列。编号1所示的网络已经被上方所展示的结构训练过，编号2是进行采样</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8b901fc8fcab9e16b1fe26b92f4ec546.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8b901fc8fcab9e16b1fe26b92f4ec546.png" alt></a></p>
+<p>第一步要做的是对想要模型生成的第一个词进行采样，输入<script type="math/tex">x^{<1>} =0</script>，<script type="math/tex">a^{<0>} =0</script>，第一个时间步得到的是所有可能的输出，是经过<strong>softmax</strong>层后得到的概率，然后根据这个<strong>softmax</strong>的分布进行随机采样。对这个向量使用<code>np.random.choice</code>，来根据向量中这些概率的分布进行采样，就能对第一个词进行采样</p>
+<p>然后继续下一个时间步，<script type="math/tex">\hat y^{<1>}</script>作为输入（编号4），然后<strong>softmax</strong>层就会预测<script type="math/tex">\hat y^{<2>}</script>是什么。假如第一个词进行抽样后得到的是<strong>The</strong>，现在要计算出在第一词是<strong>The</strong>的情况下，第二个词应该是什么（编号5），然后再用采样函数来对<script type="math/tex">\hat y^{<2>}</script>进行采样</p>
+<p>即无论得到什么样的用<strong>one-hot</strong>码表示的选择结果，都把它传递到下一个时间步，然后进行采样，直到最后一个时间步</p>
+<p>怎样知道一个句子结束：</p>
+<ul>
+<li>如果代表句子结尾的标识在字典中，可以一直进行采样直到得到<strong>EOS</strong>标识（编号6），代表着已经抵达结尾，可以停止采样</li>
+<li>如果字典中没有这个词，可以决定从20个或100个或其他个单词进行采样，然后一直将采样进行下去直到达到所设定的时间步。不过这种过程有时候会产生一些未知标识（编号7），如果要确保算法不会输出这种标识，要做的是拒绝采样过程中产生任何未知的标识，一旦出现就继续在剩下的词中进行重采样，直到得到一个不是未知标识的词</li>
+</ul>
+<p>这就是如何从<strong>RNN</strong>语言模型中生成一个随机选择的句子。以上所建立的是基于词汇的<strong>RNN</strong>模型，意思就是字典中的词都是英语单词（下图编号1）</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1d31771da8ced333968541fbbf67e6f1.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1d31771da8ced333968541fbbf67e6f1.png" alt></a></p>
+<h3 id="基于字符的RNN结构"><a href="#基于字符的RNN结构" class="headerlink" title="基于字符的RNN结构"></a>基于字符的<strong>RNN</strong>结构</h3><p>用以上字符组成字典（上图编号2所示）</p>
+<p>序列<script type="math/tex">\hat y^{<1>}</script>，<script type="math/tex">\hat y^{<2>}</script>，<script type="math/tex">\hat y^{<3>}</script>在训练数据中是单独的字符，对于“<strong>Cats average 15 hours of sleep a day.</strong>”，<strong>C</strong>是<script type="math/tex">\hat y^{<1>}</script>，<strong>a</strong>就是<script type="math/tex">\hat y^{<2>}</script>，<strong>t</strong>就是<script type="math/tex">\hat y^{<3>}</script>等等</p>
+<p>优点：</p>
+<p>不必担心会出现未知的标识，基于字符的语言模型会将<strong>Mau</strong>这样的序列也视为可能性非零的序列。而基于词汇的语言模型，如果<strong>Mau</strong>不在字典中，只能当作未知标识<strong>UNK</strong></p>
+<p>缺点：</p>
+<p>最后会得到太多太长的序列，基于字符的语言模型在捕捉句子中的依赖关系也就是句子较前部分如何影响较后部分不如基于词汇的语言模型那样可以捕捉长范围的关系，并且基于字符的语言模型训练起来计算成本比较高</p>
+<h2 id="1-8-循环神经网络的梯度消失（Vanishing-gradients-withRNNs）"><a href="#1-8-循环神经网络的梯度消失（Vanishing-gradients-withRNNs）" class="headerlink" title="1.8 循环神经网络的梯度消失（Vanishing gradients withRNNs）"></a>1.8 循环神经网络的梯度消失（Vanishing gradients withRNNs）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8fb1c4afe30b7a0ede26522b355068ba.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8fb1c4afe30b7a0ede26522b355068ba.png" alt></a></p>
+<p>编号1<strong>cat</strong>是单数，应该用<strong>was，</strong>编号2 <strong>cats</strong>是复数，用<strong>were</strong></p>
+<p>这个例子中的句子有长期的依赖，最前面的单词对句子后面的单词有影响。但基本的<strong>RNN</strong>模型（编号3）不擅长捕获长期依赖效应</p>
+<p><strong>RNN</strong>反向传播很困难，会有梯度消失的问题，后面层的输出误差（编号6）很难影响前面层（编号7）的计算。即很难让一个神经网络能够意识到它要记住看到的是单数名词还是复数名词，然后在序列后面生成依赖单复数形式的<strong>was</strong>或者<strong>were</strong>。且在英语里面中间的内容（编号8）可以任意长，所以基本的<strong>RNN</strong>模型会有很多局部影响，输出<script type="math/tex">\hat y^{<3>}</script>主要受附近的值（编号10）的影响，编号6所示的输出很难受到序列靠前的输入（编号10）的影响，因为不管输出是什么，对的还是错的，这个区域都很难反向传播到序列的前面部分，也因此网络很难调整序列前面的计算</p>
+<p>在反向传播的时候，随着层数的增多，梯度不仅可能指数型的下降，也可能指数型的上升。梯度消失在训练<strong>RNN</strong>时是首要的问题，不过梯度爆炸也会出现，但是梯度爆炸很明显，因为指数级大的梯度会让参数变得极其大，以至于网络参数崩溃。参数大到崩溃会看到很多<strong>NaN</strong>，或者不是数字的情况，这意味着网络计算出现了数值溢出</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ac5d647140997ba713c376fb097ea0e2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac5d647140997ba713c376fb097ea0e2.png" alt></a></p>
+<p>解决方法：用<strong>梯度修剪</strong>。梯度向量如果大于某个阈值，缩放梯度向量，保证不会太大</p>
+<h2 id="1-9-GRU单元（Gated-Recurrent-Unit（GRU））"><a href="#1-9-GRU单元（Gated-Recurrent-Unit（GRU））" class="headerlink" title="1.9 GRU单元（Gated Recurrent Unit（GRU））"></a>1.9 GRU单元（Gated Recurrent Unit（GRU））</h2><p>门控循环单元：改变了<strong>RNN</strong>的隐藏层，使其可以更好地捕捉深层连接，并改善了梯度消失问题</p>
+<h3 id="简化的GRU模型"><a href="#简化的GRU模型" class="headerlink" title="简化的GRU模型"></a>简化的GRU模型</h3><p><strong>RNN</strong>隐藏层的单元的可视化：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/1521560729.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1521560729.png" alt title="1521560729"></a></p>
+<script type="math/tex; mode=display">a^{<t>}$$表达式为：</script><p>a^{<t>}=tanh(W_a[a^{<t-1>},x^{<t>}]+b_a)</t></t-1></t></p>
 <script type="math/tex; mode=display">
 
 
@@ -1060,7 +1019,7 @@ a^{[l]<t>}=g(W_a^{[l]}[a^{[l]<t-1>},a^{[l-1]<t>}]+b_a^{[l]})</script><p>对于<s
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-为什么选择序列模型？（Why-Sequence-Models-）"><span class="nav-number">1.</span> <span class="nav-text">1.1 为什么选择序列模型？（Why Sequence Models?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-数学符号（Notation）"><span class="nav-number">2.</span> <span class="nav-text">1.2 数学符号（Notation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-循环神经网络模型（Recurrent-Neural-Network-Model）"><span class="nav-number">3.</span> <span class="nav-text">1.3 循环神经网络模型（Recurrent Neural Network Model）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-通过时间的反向传播（Backpropagation-through-time）"><span class="nav-number">4.</span> <span class="nav-text">1.4 通过时间的反向传播（Backpropagation through time）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-不同类型的循环神经网络（Different-types-of-RNNs）"><span class="nav-number">5.</span> <span class="nav-text">1.5 不同类型的循环神经网络（Different types of RNNs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-语言模型和序列生成（Language-model-and-sequence-generation）"><span class="nav-number">6.</span> <span class="nav-text">1.6 语言模型和序列生成（Language model and sequence generation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-深层循环神经网络（Deep-RNNs）"><span class="nav-number">7.</span> <span class="nav-text">1.12 深层循环神经网络（Deep RNNs）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-为什么选择序列模型？（Why-Sequence-Models-）"><span class="nav-number">1.</span> <span class="nav-text">1.1 为什么选择序列模型？（Why Sequence Models?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-数学符号（Notation）"><span class="nav-number">2.</span> <span class="nav-text">1.2 数学符号（Notation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-循环神经网络模型（Recurrent-Neural-Network-Model）"><span class="nav-number">3.</span> <span class="nav-text">1.3 循环神经网络模型（Recurrent Neural Network Model）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-通过时间的反向传播（Backpropagation-through-time）"><span class="nav-number">4.</span> <span class="nav-text">1.4 通过时间的反向传播（Backpropagation through time）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-不同类型的循环神经网络（Different-types-of-RNNs）"><span class="nav-number">5.</span> <span class="nav-text">1.5 不同类型的循环神经网络（Different types of RNNs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-语言模型和序列生成（Language-model-and-sequence-generation）"><span class="nav-number">6.</span> <span class="nav-text">1.6 语言模型和序列生成（Language model and sequence generation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-对新序列采样（Sampling-novel-sequences）"><span class="nav-number">7.</span> <span class="nav-text">1.7 对新序列采样（Sampling novel sequences）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于词汇的RNN模型"><span class="nav-number">7.1.</span> <span class="nav-text">基于词汇的RNN模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于字符的RNN结构"><span class="nav-number">7.2.</span> <span class="nav-text">基于字符的RNN结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-循环神经网络的梯度消失（Vanishing-gradients-withRNNs）"><span class="nav-number">8.</span> <span class="nav-text">1.8 循环神经网络的梯度消失（Vanishing gradients withRNNs）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-GRU单元（Gated-Recurrent-Unit（GRU））"><span class="nav-number">9.</span> <span class="nav-text">1.9 GRU单元（Gated Recurrent Unit（GRU））</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简化的GRU模型"><span class="nav-number">9.1.</span> <span class="nav-text">简化的GRU模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-深层循环神经网络（Deep-RNNs）"><span class="nav-number">10.</span> <span class="nav-text">1.12 深层循环神经网络（Deep RNNs）</span></a></li></ol></div>
             
 
           </div>
@@ -1107,7 +1066,7 @@ a^{[l]<t>}=g(W_a^{[l]}[a^{[l]<t-1>},a^{[l-1]<t>}]+b_a^{[l]})</script><p>对于<s
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共53.1k字</span>
+  <span class="post-count">博客全站共53k字</span>
 </div>
 
         
