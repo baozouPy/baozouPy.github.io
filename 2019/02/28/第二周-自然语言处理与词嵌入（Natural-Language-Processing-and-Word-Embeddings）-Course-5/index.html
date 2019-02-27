@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Python, 深度学习, 机器学习, machine learning, deeplearning">
+  <meta name="keywords" content="深度学习,">
 
 
 
@@ -82,17 +82,28 @@
 
 
 
-<meta name="description" content="你如果不忙着求生， 你就在忙着求死">
-<meta name="keywords" content="Machine Learning&#x2F;Deep Learning&#x2F;Python&#x2F;">
-<meta property="og:type" content="website">
-<meta property="og:title" content="暴走的技术博客">
-<meta property="og:url" content="https://baozouai.com/categories/深度学习/index.html">
+<meta name="description" content="2.2 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：  缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强 因为任何两个one-hot">
+<meta name="keywords" content="深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
+<meta property="og:url" content="https://baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="你如果不忙着求生， 你就在忙着求死">
+<meta property="og:description" content="2.2 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：  缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强 因为任何两个one-hot">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/68d7c930146724f39782cb57d33161e9.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ce30c9ae7912bdb3562199bf85eca1cd.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/59fb45cfdf7faa53571ec7b921b78358.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b4bf4b0cdcef0c9d021707c47d5aecda.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8a1d58b7ade17208053c10728b2bf3b6.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/43943c791844cc7f077f6c6f98f1f629.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/12242657bd982acd1d80570cc090b4fe.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5a42eea162ddc75a1d37520618b4bcd2.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/markdown/..\images\cosine_sim.png">
+<meta property="og:updated_time" content="2019-02-27T06:48:28.479Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="暴走的技术博客">
-<meta name="twitter:description" content="你如果不忙着求生， 你就在忙着求死">
+<meta name="twitter:title" content="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
+<meta name="twitter:description" content="2.2 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：  缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强 因为任何两个one-hot">
+<meta name="twitter:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/68d7c930146724f39782cb57d33161e9.png">
 
 
 
@@ -122,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://baozouai.com/categories/深度学习/">
+  <link rel="canonical" href="https://baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/">
 
 
 
 
 
-  <title>分类: 深度学习  | 暴走的技术博客</title>
+  <title>第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5) | 暴走的技术博客</title>
   
 
 
@@ -159,7 +170,7 @@
 
 
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -295,53 +306,345 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>深度学习 <small>分类</small>
-        </h1>
-      </div>
+  
 
       
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="暴走">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暴走的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" itemprop="url">
-              
-                <span itemprop="name">第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-27T22:17:00Z" content="2019-02-27">
-          02-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T22:17:00Z">
+                2019-02-27
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:48:28Z">
+                2019-02-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习 </span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" class="leancloud_visitors" data-flag-title="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        <h2 id="2-2-词汇表征（Word-Representation）"><a href="#2-2-词汇表征（Word-Representation）" class="headerlink" title="2.2 词汇表征（Word Representation）"></a>2.2 词汇表征（Word Representation）</h2><p><strong>one-hot</strong>向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用<script type="math/tex">O_{5391}</script>,<script type="math/tex">O_{9853}</script> 等表示，<script type="math/tex">O</script>代表<strong>one-hot：</strong></p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/68d7c930146724f39782cb57d33161e9.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/68d7c930146724f39782cb57d33161e9.png" alt></a></p>
+<p>缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强</p>
+<p>因为任何两个one-hot向量的内积都是0，例如king和queen，词性相近，但是单从one-hot编码上来看，内积为零，无法知道二者的相似性</p>
+<p>因此用<strong>特征表征（Featurized representation）</strong>的方法对每个单词进行编码。也就是使用一个特征向量表征单词，特征向量的每个元素都是对该单词某一特征的量化描述，量化范围可以是[-1,1]之间，而单词使用这种高维特征表示时，就叫做<strong>词嵌入（word embedding）， </strong>词嵌入可以让算法自动的理解一些类似的词，比如男人对女人，国王对王后：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ce30c9ae7912bdb3562199bf85eca1cd.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ce30c9ae7912bdb3562199bf85eca1cd.png" alt></a></p>
+<blockquote>
+<p>以上举例的特征实际上并不是手工设计的，而是算法（word embedding）学习而来；而且这些学习的特征，可能并不具有良好的解释性，但无论如何，算法都可以快速找到哪些单词是类似的</p>
+</blockquote>
+<p>特征向量的长度依情况而定，特征元素越多则对单词表征得越全面。这里的特征向量长度设定为300。使用特征表征之后，词汇表中的每个单词都可以使用对应的300 x 1的向量来表示，该向量的每个元素表示该单词对应的某个特征值。每个单词用e+词汇表索引的方式标记，例如<script type="math/tex">e_{5391}</script>，<script type="math/tex">e_{9853}</script>，<script type="math/tex">e_{4914}</script>，<script type="math/tex">e_{7157}</script>，<script type="math/tex">e_{456}</script>，<script type="math/tex">e_{6257}</script></p>
+<p>用这种表示方法来表示<strong>apple</strong>和<strong>orange</strong>这些词，那么<strong>apple</strong>和<strong>orange</strong>的这种表示肯定会非常相似，可能有些特征不太一样，如颜色口味，但总的来说<strong>apple</strong>和<strong>orange</strong>的大部分特征实际上都一样，或者说都有相似的值。这样对于已经知道<strong>orange juice</strong>的算法很大几率上也会明白<strong>apple juice</strong>这个东西，这样对于不同的单词算法会泛化的更好</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/59fb45cfdf7faa53571ec7b921b78358.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/59fb45cfdf7faa53571ec7b921b78358.png" alt></a></p>
+<p>如果能够学习到一个300维的特征向量，或者说300维的<strong>词嵌入</strong>，把这300维的数据嵌入到一个二维空间里，就可以可视化了。常用的可视化算法是<strong>t-SNE算法</strong>，会发现<strong>man</strong>和<strong>woman</strong>这些词聚集在一块，<strong>king</strong>和<strong>queen</strong>聚集在一块等等</p>
+<p>在对这些概念可视化的时候，词嵌入算法对于相近的概念，学到的特征也比较类似，最终把它们映射为相似的特征向量</p>
+<h2 id="2-2-使用词嵌入（Using-Word-Embeddings）"><a href="#2-2-使用词嵌入（Using-Word-Embeddings）" class="headerlink" title="2.2 使用词嵌入（Using Word Embeddings）"></a>2.2 使用词嵌入（Using Word Embeddings）</h2><p>之前Named entity识别的例子（即找出语句中的人名），每个单词采用的是one-hot编码。RNN模型能确定<strong>Sally Johnson</strong>是一个人名而不是一个公司名，是因为“orange farmer”是份职业，很明显“Sally Johnson”是一个人名（输出1）</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/b4bf4b0cdcef0c9d021707c47d5aecda.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b4bf4b0cdcef0c9d021707c47d5aecda.png" alt></a></p>
+<p>如果用特征化表示方法，即用<strong>词嵌入</strong>作为输入训练好的模型，如果一个新的输入：“<strong>Robert Lin is an apple farmer.</strong>”，因为知道<strong>orange</strong>和<strong>apple</strong>很相近，那么算法很容易就知道<strong>Robert Lin</strong>也是一个人的名字</p>
+<p><strong>featurized representation</strong>的优点是可以减少训练样本的数目，前提是对海量单词建立特征向量表述。即使训练样本不够多，测试时遇到陌生单词，例如“durian cultivator”，根据之前海量词汇特征向量就判断出“durian”也是一种水果，与“apple”类似，而“cultivator”与“farmer”也很相似。从而得到与“durian cultivator”对应的应该也是一个人名。这种做法将单词用不同的特征来表示，即使是训练样本中没有的单词，也可以根据word embedding的结果得到与其词性相近的单词，从而得到与该单词相近的结果，有效减少了训练样本的数量</p>
+<p>词嵌入能够达到这种效果，原因是学习词嵌入的算法会考察非常大的文本集</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8a1d58b7ade17208053c10728b2bf3b6.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8a1d58b7ade17208053c10728b2bf3b6.png" alt></a></p>
+<p>词嵌入做迁移学习的步骤：</p>
+<ol>
+<li>先从大量的文本集中学习词嵌入，或者下载网上预训练好的词嵌入模型</li>
+<li>用这些词嵌入模型迁移到新的只有少量标注训练集的任务中，比如用300维的词嵌入来表示单词。好处就是可以用更低维度的特征向量代替原来的10000维的<strong>one-hot</strong>向量。尽管<strong>one-hot</strong>向量很快计算，但学到的用于词嵌入的300维的向量会更加紧凑</li>
+<li>当在新的任务上训练模型，而在命名实体识别任务上只有少量的标记数据集，可以选择要不要继续微调，用新的数据调整词嵌入。但实际中只有第二步中有很大的数据集才会这样做，如果标记的数据集不是很大，通常不会在微调词嵌入上费力气</li>
+</ol>
+<p>当任务的训练集相对较小时，词嵌入的作用最明显，所以它广泛用于<strong>NLP</strong>领域</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/43943c791844cc7f077f6c6f98f1f629.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/43943c791844cc7f077f6c6f98f1f629.png" alt></a></p>
+<p>词嵌入和人脸编码有很多相似性，训练了一个<strong>Siamese</strong>网络结构，这个网络会学习不同人脸的一个128维表示，然后通过比较编码结果来判断两个图片是否是同一个人脸，在人脸识别领域用编码指代向量<script type="math/tex">f(x^{\left(i \right)})</script>，<script type="math/tex">f(x^{\left( j\right)})</script>，词嵌入的意思和这个差不多</p>
+<p>人脸识别领域和词嵌入不同就是：</p>
+<ul>
+<li>在人脸识别中训练一个网络，任给一个人脸照片，甚至是没有见过的照片，神经网络都会计算出相应的一个编码结果</li>
+<li>学习词嵌入则是有一个固定的词汇表，比如10000个单词，学习向量<script type="math/tex">e_{1}</script>到<script type="math/tex">e_{10000}</script>，学习一个固定的编码，即每一个词汇表的单词的固定嵌入</li>
+<li>人脸识别中的算法未来可能涉及到海量的人脸照片，而自然语言处理有一个固定的词汇表，没有出现过的单词就记为未知单词</li>
+</ul>
+<h2 id="2-3-词嵌入的特性（Properties-of-Word-Embeddings）"><a href="#2-3-词嵌入的特性（Properties-of-Word-Embeddings）" class="headerlink" title="2.3 词嵌入的特性（Properties of Word Embeddings）"></a>2.3 词嵌入的特性（Properties of Word Embeddings）</h2><p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/12242657bd982acd1d80570cc090b4fe.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/12242657bd982acd1d80570cc090b4fe.png" alt></a></p>
+<p>该例中，假设用的是四维的嵌入向量，假如向量<script type="math/tex">e_{\text{man}}</script>和<script type="math/tex">e_{\text{woman}}</script>、<script type="math/tex">e_{\text{king}}</script>和<script type="math/tex">e_{\text{queen}}</script> 分别进行减法运算，相减结果表明，“Man”与“Woman”的主要区别是性别，“King”与“Queen”也是一样</p>
+<p>所以当算法被问及<strong>man</strong>对<strong>woman</strong>相当于<strong>king</strong>对什么时，算法所做的就是计算<script type="math/tex">e_{\text{man}}-e_{\text{woman}}</script>，然后找出一个向量也就是找出一个词，使得：</p>
+<script type="math/tex; mode=display">
+e_{\text{man}}-e_{\text{woman}}\approx e_{\text{king}} - e_{?}</script><p>即当这个新词是<strong>queen</strong>时，式子的左边会近似地等于右边</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/5a42eea162ddc75a1d37520618b4bcd2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5a42eea162ddc75a1d37520618b4bcd2.png" alt></a></p>
+<p>在图中，词嵌入向量在一个可能有300维的空间里，箭头代表的是向量在<strong>gender</strong>（<strong>性别</strong>）这一维的差，为了得出类比推理，计算当<strong>man</strong>对于<strong>woman</strong>，<strong>king</strong>对于什么，要做的就是找到单词<strong>w</strong>来使得</p>
+<script type="math/tex; mode=display">
+e_{\text{man}}-e_{\text{woman}}\approx e_{\text{king}} - e_{w}</script><p>等式成立，即找到单词<strong>w</strong>来最大化<script type="math/tex">e_{w}</script>与<script type="math/tex">e_{\text{king}} - e_{\text{man}} + e_{\text{woman}}</script>的相似度，即</p>
+<script type="math/tex; mode=display">
+Find\ word\ w:argmax\ Sim(e_{w},e_{\text{king}} - e_{\text{man}} + e_{\text{woman}})</script><p>即把<script type="math/tex">e_{w}</script>全部放到等式的一边，另一边是<script type="math/tex">e_{\text{king}}- e_{\text{man}} + e_{\text{woman}}</script>。应用相似度函数，通过方程找到一个使得相似度最大的单词，如果结果理想的话会得到单词<strong>queen</strong></p>
+<p><strong>t-SNE算法</strong>所做的就是把这些300维的数据用一种非线性的方式映射到2维平面上，可以得知<strong>t-SNE</strong>中这种映射很复杂而且很非线性。在大多数情况下，由于<strong>t-SNE</strong>的非线性映射，不能总是期望使等式成立的关系会像左边那样成一个平行四边形</p>
+<p>关于相似函数，比较常用的是余弦相似度，假如在向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间定义相似度：</p>
+<script type="math/tex; mode=display">
+Sim(u,v)=\frac{u^Tv}{||u||\cdot ||v||}</script><p>分子是<script type="math/tex">u</script>和<script type="math/tex">v</script>的内积。如果<script type="math/tex">u</script>和<script type="math/tex">v</script>非常相似，那么它们的内积将会很大，把整个式子叫做余弦相似度，是因为该式是<script type="math/tex">u</script>和<script type="math/tex">v</script>的夹角的余弦值</p>
+<p><strong>参考资料：</strong> 给定两个向量<script type="math/tex">u</script>和<script type="math/tex">v</script>，余弦相似度定义如下：</p>
+<script type="math/tex; mode=display">
+{CosineSimilarity(u, v)} = \frac {u . v} {||u||_2 ||v||_2} = cos(\theta)</script><p><script type="math/tex">u.v</script> 是两个向量的点积（或内积），<script type="math/tex">||u||_2</script>是向量<script type="math/tex">u</script>的范数（或长度）， <script type="math/tex">\theta</script> 是向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间的角度。这种相似性取决于角度在向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间。如果向量<script type="math/tex">u</script>和<script type="math/tex">v</script>非常相似，它们的余弦相似性将接近1; 如果它们不相似，则余弦相似性将取较小的值</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/markdown/..\images\cosine_sim.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/markdown/..\images\cosine_sim.png" alt title="osine\_si"></a></p>
+<blockquote>
+<p>两个向量之间角度的余弦是衡量它们有多相似的指标，角度越小，两个向量越相似</p>
+</blockquote>
+<p>还可以计算Euclidian distance来比较相似性，即<script type="math/tex">||u-v||^2</script>。距离越大，相似性越小</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    <div>
+     
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+     
+  </div>
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i>
+
+ 深度学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/28/第四周-特殊应用：人脸识别和神经风格转换（Special-applications-Face-recognition-Neural-style-transfer）-Course-4/" rel="next" title="第四周 特殊应用：人脸识别和神经风格转换（Special applications: Face recognition &Neural style transfer）(Course 4)">
+                <i class="fa fa-chevron-left"></i> 第四周 特殊应用：人脸识别和神经风格转换（Special applications: Face recognition &Neural style transfer）(Course 4)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/28/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/" rel="prev" title="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
+                第一周 循环序列模型（Recurrent Neural Networks）(Course 5) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -349,6 +652,16 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" data-title="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)" data-url="https://baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/">
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -371,8 +684,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
 
@@ -473,6 +795,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-词汇表征（Word-Representation）"><span class="nav-number">1.</span> <span class="nav-text">2.2 词汇表征（Word Representation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-使用词嵌入（Using-Word-Embeddings）"><span class="nav-number">2.</span> <span class="nav-text">2.2 使用词嵌入（Using Word Embeddings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-词嵌入的特性（Properties-of-Word-Embeddings）"><span class="nav-number">3.</span> <span class="nav-text">2.3 词嵌入的特性（Properties of Word Embeddings）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -635,6 +973,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
