@@ -112,7 +112,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/70e282d4d1abb86fd15ff7b175f4e579.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4102795b004ff090ed83dc654f585852.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png">
-<meta property="og:updated_time" content="2019-02-27T06:58:58.384Z">
+<meta property="og:updated_time" content="2019-02-27T07:00:06.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
 <meta name="twitter:description" content="2.1 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：  缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强 因为任何两个one-hot">
@@ -379,7 +379,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:58:58+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T15:00:06+08:00">
                 2019-02-27
               </time>
             
@@ -582,7 +582,8 @@ e_w=E\cdot O_w</script><p>只要知道了embedding matrix<script type="math/tex"
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0800c19895cbf1a360379b5dc5493902.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0800c19895cbf1a360379b5dc5493902.png" alt></a></p>
 <p>训练的过程是构建自然语言模型，经过softmax单元的输出为：</p>
 <script type="math/tex; mode=display">
-\hat y=\frac{e^{\theta_t^T\cdot e_c}}{\sum_{j=1}^{10000}e^{\theta_j^T\cdot e_c}}</script><script type="math/tex; mode=display">\theta_t$$为target对应的参数，$$e_c$$为context的embedding vector，且$$e_c=E\cdot O_c</script><p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4ebf216a59d46efa2136f72b51fd49bd.png" alt></a></p>
+\hat y=\frac{e^{\theta_t^T\cdot e_c}}{\sum_{j=1}^{10000}e^{\theta_j^T\cdot e_c}}</script><p>$\theta_t$为target对应的参数，<script type="math/tex">e_c</script>为context的embedding vector，且<script type="math/tex">e_c=E\cdot O_c</script></p>
+<p><a href="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4ebf216a59d46efa2136f72b51fd49bd.png" alt></a></p>
 <p>相应的loss function为：</p>
 <script type="math/tex; mode=display">
 L(\hat y,y)=-\sum_{i=1}^{10000}y_ilog\ \hat y_i</script><blockquote>
@@ -1036,7 +1037,7 @@ P(w_{i}) = \frac{f( w_{i})^{\frac{3}{4}}}{\sum_{j = 1}^{10,000}{f( w_{j} )^{\fra
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共59.2k字</span>
+  <span class="post-count">博客全站共60.2k字</span>
 </div>
 
         

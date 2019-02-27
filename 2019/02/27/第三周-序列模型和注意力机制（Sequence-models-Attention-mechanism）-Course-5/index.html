@@ -92,7 +92,10 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b9492d18803ebe3853e936098f08661c.png">
-<meta property="og:updated_time" content="2019-02-27T06:56:32.663Z">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a8b8c64483ee84d57135829ab025da53.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fd97f885fe1e6e1a7c70bb965595210a.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c50a0e8948bbdb9a1d23f2f8a768bf5c.png">
+<meta property="og:updated_time" content="2019-02-27T06:59:33.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三周 序列模型和注意力机制（Sequence models &amp; Attention mechanism）(Course 5)">
 <meta name="twitter:description" content="3.1 基础模型（Basic Models）机器翻译用x^{} 到x^{&amp;lt; 5&amp;gt;}表示输入句子的单词，用y^{}到y^{}表示输出句子的单词：  首先，建立一个RNN编码网络（encoder network）（编号1），单元可以是GRU或LSTM。每次只向该网络中输入一个法语单词，将输入序列接收完毕后，这个RNN网络会输出一个向量来代表这个输入序列 之后建立一个解码网络（编号2），以编码网络的输出">
@@ -359,7 +362,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:56:32+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:59:33+08:00">
                 2019-02-27
               </time>
             
@@ -408,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  484
+                  1.5k
                 </span>
               
 
@@ -424,7 +427,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -456,6 +459,25 @@
 <p>通过输入图像来输出描述：</p>
 <p>将图片输入到卷积神经网络中（一个预训练的<strong>AlexNet</strong>结构）（编号2），然后让其学习图片的编码，或者学习图片的一系列特征。去掉最后的<strong>softmax</strong>单元（编号3），这个预训练的<strong>AlexNet</strong>结构会输出4096维的特征向量，向量表示的就是这只猫的图片，这个预训练网络可以是图像的编码网络</p>
 <p>接着把这个向量输入到<strong>RNN</strong>中（编号4），RNN要做的就是生成图像的描述，每次生成一个单词：输入一个描述输入的特征向量，然后让网络一个一个地输出单词序列</p>
+<h2 id="3-2-选择最可能的句子（Picking-the-most-likely-sentence）"><a href="#3-2-选择最可能的句子（Picking-the-most-likely-sentence）" class="headerlink" title="3.2 选择最可能的句子（Picking the most likely sentence）"></a>3.2 选择最可能的句子（Picking the most likely sentence）</h2><p><strong>seq2seq</strong>机器翻译模型和第一周所用的语言模型之间有很多相似的地方，但也有许多重要的区别：</p>
+<p>可以把机器翻译想成是建立一个条件语言模型，能够估计句子的可能性</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/a8b8c64483ee84d57135829ab025da53.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a8b8c64483ee84d57135829ab025da53.png" alt></a></p>
+<p>绿色（编号2）表示<strong>encoder</strong>网络，紫色（编号3）表示<strong>decoder</strong>网络。不同在于语言模型总是以零向量（编号4）开始，而<strong>encoder</strong>网络会计算出一系列向量（编号2）来表示输入的句子，以这个向量作为输入，这叫做条件语言模型（<strong>conditional language model</strong>）</p>
+<p>相比语言模型输出任意句子的概率，翻译模型会输出句子的英文翻译（编号5），这取决于输入的法语句子（编号6）。即估计一个英文翻译的概率，比如估计”<strong>Jane is visiting Africa in September.</strong>“翻译的概率，这句翻译是取决于法语句子，”<strong>Jane visite I’Afrique en septembre.</strong>“，这就是英语句子相对于输入的法语句子的可能性，是一个条件语言模型</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/fd97f885fe1e6e1a7c70bb965595210a.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fd97f885fe1e6e1a7c70bb965595210a.png" alt></a></p>
+<blockquote>
+<p>模型将法语翻译成英文，通过输入的法语句子模型将会告诉你各种英文翻译所对应的可能性</p>
+</blockquote>
+<script type="math/tex; mode=display">x$$是法语句子"**Jane visite l'Afrique en septembre.**"，它将告诉你不同的英语翻译所对应的概率：从这个分布中进行取样得到$$P(y|x)$$，但不是从得到的分布中进行随机取样，而是要找到一个英语句子$$y$$（编号1），使得条件概率最大化：</script><p>max P(y^{<1>},y^{<2>},\cdots,y^{<t_y>}|x^{<1>},x^{<2>},\cdots,x^{<t_x>})</t_x></2></1></t_y></2></1></p>
+<p>$$</p>
+<p>而解决这种问题最通用的算法就是束搜索(<strong>Beam Search</strong>)</p>
+<p>为什么不用贪心搜索(<strong>Greedy Search</strong>)：</p>
+<p>贪心搜索生成第一个词的分布以后，将会根据条件语言模型挑选出最有可能的第一个词进入机器翻译模型中，在挑选出第一个词之后将会继续挑选出最有可能的第二个词……这种算法就叫做贪心搜索，但是真正需要的是一次性挑选出整个单词序列，从<script type="math/tex">y^{<1>}</script>、<script type="math/tex">y^{<2>}</script>到<script type="math/tex">y^{<T_{y}>}</script>来使得整体的概率最大化。所以贪心算法先挑出最好的第一个词，在这之后再挑最好的第二词，然后再挑第三个，这种方法并不管用</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/c50a0e8948bbdb9a1d23f2f8a768bf5c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c50a0e8948bbdb9a1d23f2f8a768bf5c.png" alt></a></p>
+<p>第一串（编号1）翻译明显比第二个（编号2）好，但如果贪心算法挑选出了”<strong>Jane is</strong>“作为前两个词，因为在英语中<strong>going</strong>更加常见，于是对于法语句子来说”<strong>Jane is going</strong>“相比”<strong>Jane is visiting</strong>“会有更高的概率作为法语的翻译，所以如果仅仅根据前两个词来估计第三个词的可能性，得到的更可能是<strong>going</strong>，最终得到一个欠佳的句子</p>
+<p>当想得到单词序列<script type="math/tex">y^{<1>}</script>、<script type="math/tex">y^{<2>}</script>一直到最后一个词总体的概率时，一次仅仅挑选一个词并不是最佳的选择。如果字典中有10,000个单词，翻译有10个词，可能的组合就有10,000的10次方这么多，从这样大一个字典中来挑选单词，句子数量非常巨大，大大增加了运算成本，降低运算速度，不可能去计算每一种组合的可能性</p>
+<p>所以最常用的办法就是用一个近似的搜索算法，它会尽力地将挑选出句子<script type="math/tex">y</script>使得条件概率最大化，尽管不能保证找到的<script type="math/tex">y</script>值一定可以使概率最大化</p>
+<p>机器翻译模型和之前的语言模型一个主要的区别就是：相比之前的模型随机地生成句子，该模型是找到最有可能的翻译</p>
 
       
     </div>
@@ -722,7 +744,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-基础模型（Basic-Models）"><span class="nav-number">1.</span> <span class="nav-text">3.1 基础模型（Basic Models）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器翻译"><span class="nav-number">1.1.</span> <span class="nav-text">机器翻译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像描述"><span class="nav-number">1.2.</span> <span class="nav-text">图像描述</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-基础模型（Basic-Models）"><span class="nav-number">1.</span> <span class="nav-text">3.1 基础模型（Basic Models）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器翻译"><span class="nav-number">1.1.</span> <span class="nav-text">机器翻译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像描述"><span class="nav-number">1.2.</span> <span class="nav-text">图像描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-选择最可能的句子（Picking-the-most-likely-sentence）"><span class="nav-number">2.</span> <span class="nav-text">3.2 选择最可能的句子（Picking the most likely sentence）</span></a></li></ol></div>
             
 
           </div>
@@ -769,7 +791,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共59.2k字</span>
+  <span class="post-count">博客全站共60.2k字</span>
 </div>
 
         
