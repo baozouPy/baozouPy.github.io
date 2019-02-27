@@ -62,7 +62,7 @@
 
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico  /16X16小图?v=6.0.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png  /16X16小图?v=6.0.0">
 
 
 
@@ -112,15 +112,15 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/3dcdd58eaa544a09e67eb892f8c732bf.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1e6b86a4e3690b4a0c6b8146ffa2f791.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b22dff4a3b1a4ea8c1ab201446e98889.png">
-<meta property="og:image" content="https://baozouai.com/images/pasted-166.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-166.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fa6769127cd98ea0058f600449833a21.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8da3e9cf049139a8e4a78503bd72e7fd.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4130b85a0694549f02bdf60f7c47a3d7.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8f409fc3980b0be00dca49bf4fac2659.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/28443f8b28afa63adb6cf89ce19c4f6d.png">
 <meta property="og:image" content="https://baozouai.com/assets/505import.png">
-<meta property="og:image" content="https://baozouai.com/images/pasted-167.png">
-<meta property="og:updated_time" content="2019-02-27T07:18:19.192Z">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-167.png">
+<meta property="og:updated_time" content="2019-02-27T15:44:20.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三周 序列模型和注意力机制（Sequence models &amp; Attention mechanism）(Course 5)">
 <meta name="twitter:description" content="3.1 基础模型（Basic Models）机器翻译用x^{} 到x^{&amp;lt; 5&amp;gt;}表示输入句子的单词，用y^{}到y^{}表示输出句子的单词：">
@@ -387,7 +387,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T15:18:19+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T23:44:20+08:00">
                 2019-02-27
               </time>
             
@@ -614,7 +614,7 @@ C^{<1>}=\sum_{t{'}}\alpha^{<1,t{'}>}\cdot a^{<t{'}>}</script><p>用状态<script
 a^{<t,t'>} = \frac{\text{exp}(e^{<t,t'>})}{\sum^{T_x}_{t'=1} \text{exp}(e^{<t,t'>})}</script><p>只要求出<script type="math/tex">e^{<t,t{'}>}</script>，就能得到<script type="math/tex">\alpha^{<t,t{'}>}</script></p>
 <p>如何求出<script type="math/tex">e^{<t,t{'}>}</script>：</p>
 <p>建立一个简单的神经网络</p>
-<p><img src="/images/pasted-166.png" alt="upload successful"></p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-166.png" alt="upload successful"></p>
 <p>输入<script type="math/tex">s^{<t-1>}</script>，即神经网络在上个时间步的状态和<script type="math/tex">a^{<t{'}>}</script>，训练一个很小的神经网络，利用反向传播算法、梯度下降算法迭代优化，学到一个正确的函数<script type="math/tex">e^{<t,t{'}>}</script> 和<script type="math/tex">\alpha^{<t,t{'}>}</script></p>
 <p>缺点：计算量较大，<script type="math/tex">T_x</script>个输入单词和<script type="math/tex">T_y</script>个输出单词的注意力参数的总数是<script type="math/tex">T_x\times T_y</script>，但是在机器翻译的应用上，输入和输出的句子一般不会太长，消耗还是可以接受</p>
 <p>注意力模型在图像捕捉方面也有应用。比如图片加标题（<strong>image captioning</strong>），即看一张图，写下这张图的标题</p>
@@ -645,7 +645,7 @@ ttt \_ h\_eee\_ \_ \_ \sqcup\_ \_ \_ qqq\_ \_ \cdots</script><p>下划线”_“
 <p>假如音频片段中的这一点是某人刚刚说完一个触发字，比如”<strong>Alexa</strong>“，那么在这一点之前，可以在训练集中把目标标签都设为0，在这个点之后把目标标签设为1。假如在一段时间之后，触发字又被说了一次，那么就可以再次在这个点之后把目标标签设为1</p>
 <p>不过该算法一个明显的缺点：它构建了一个很不平衡的训练集（<strong>a very imbalanced training set</strong>），0的数量比1多太多</p>
 <p>解决方法：在输出变回0之前，多次输出1，或说在固定的一段时间内输出多个1，就稍微提高了1与0的比例，即在音频片段中，触发字刚被说完之后，就把多个目标标签设为1</p>
-<p><img src="/images/pasted-167.png" alt="upload successful"></p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-167.png" alt="upload successful"></p>
 
       
     </div>

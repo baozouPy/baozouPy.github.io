@@ -62,7 +62,7 @@
 
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico  /16X16小图?v=6.0.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png  /16X16小图?v=6.0.0">
 
 
 
@@ -94,8 +94,8 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/92575493ecd20003b0b76ac51de0efbb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a645bff2623ba6f30f01fbc6e3149484.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/781ddc74bcc8da430c99b196d0c4c6d4.png">
-<meta property="og:image" content="https://baozouai.com/images/pasted-149.png">
-<meta property="og:image" content="https://baozouai.com/images/pasted-150.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-149.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-150.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0a29aeae65a311c56675ad8f1fec2824.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f0a8471f869d8062ba59598c418da7fb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/131e538bb527859430280becd65b049b.png">
@@ -116,8 +116,8 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5b3df2904b9d8dc51bd99ccb45ac9f5b.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1fec66d984a3c8c47ff459775d411e71.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7d160f6eab22e4b9544b28b44da686a6.png">
-<meta property="og:image" content="https://baozouai.com/images/pasted-151.png">
-<meta property="og:image" content="https://baozouai.com/images/pasted-152.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-151.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-152.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8f0e69f085991cfc74726983418f6569.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac520bf9e9facfc026db46b187b513bd.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e7079af956d884d6184c4bde62271175.png">
@@ -135,7 +135,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png">
-<meta property="og:updated_time" content="2019-02-27T06:24:06.999Z">
+<meta property="og:updated_time" content="2019-02-27T15:43:30.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4)">
 <meta name="twitter:description" content="2.1 经典网络（Classic networks）LeNet-5LeNet-5可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。该LeNet模型总共包含了大约6万个参数，典型的LeNet-5结构包含CONV layer，POOL layer和FC layer，顺序一般是CONV layer-&amp;gt;POOL layer-&amp;gt;CONV layer-&amp;gt;POOL">
@@ -402,7 +402,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:24:06+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T23:43:30+08:00">
                 2019-02-27
               </time>
             
@@ -519,9 +519,9 @@
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/781ddc74bcc8da430c99b196d0c4c6d4.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/781ddc74bcc8da430c99b196d0c4c6d4.png" alt></a></p>
 <p>假设要识别这个图像，在最开始的两层用64个3×3的过滤器对输入图像进行卷积，输出结果是224×224×64，因为使用了<strong>same</strong>卷积，通道数量也一样</p>
 <p>接下来创建一个池化层，池化层将输入图像进行压缩，减少到112×112×64。然后又是若干个卷积层，使用128个过滤器，以及一些<strong>same</strong>卷积，输出112×112×128。然后进行池化，池化后的结果是56×56×128。再用256个相同的过滤器进行三次卷积操作，然后再池化，然后再卷积三次，再池化。如此进行几轮操作后，将最后得到的7×7×512的特征图进行全连接操作，得到4096个单元，然后进行<strong>softmax</strong>激活，输出从1000个对象中识别的结果</p>
-<p><img src="/images/pasted-149.png" alt="upload successful"></p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-149.png" alt="upload successful"></p>
 <p><strong>VGG-16</strong>的数字16指在这个网络中有13个卷积层和3个全链接层</p>
-<p><img src="/images/pasted-150.png" alt="upload successful"></p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-150.png" alt="upload successful"></p>
 <p>总共包含约1.38亿个参数，这种网络结构很规整，都是几个卷积层后面跟着可以压缩图像大小的池化层，池化层缩小图像的高度和宽度。同时，卷积层的过滤器数量变化存在一定的规律，由64翻倍变成128，再到256和512。主要缺点是需要训练的特征数量非常巨大</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/0a29aeae65a311c56675ad8f1fec2824.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0a29aeae65a311c56675ad8f1fec2824.png" alt></a></p>
 <p>随着网络的加深，图像的高度和宽度都在以一定的规律不断缩小，每次池化后刚好缩小一半，而通道数量在不断增加，而且刚好也是在每组卷积操作后增加一倍。即图像缩小的比例和通道数增加的比例是有规律的</p>
@@ -600,11 +600,11 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 </ul>
 <p>只要合理构建瓶颈层，既可以显著缩小表示层规模，又不会降低网络性能，从而节省了计算</p>
 <h2 id="2-6-Inception-网络（Inception-network）"><a href="#2-6-Inception-网络（Inception-network）" class="headerlink" title="2.6 Inception 网络（Inception network）"></a>2.6 Inception 网络（Inception network）</h2><p>引入1x1 Convolution后的Inception module如下图所示：</p>
-<p><img src="/images/pasted-151.png" alt="upload successful"></p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-151.png" alt="upload successful"></p>
 <p><strong>Inception</strong>模块会将之前层的激活或者输出作为它的输入，为了能在最后将这些输出都连接起来，会使用<strong>same</strong>类型的<strong>padding</strong>来池化，使得输出的高和宽依然是28×28，这样才能将它与其他输出连接起来。如果进行了最大池化，即便用了<strong>same padding</strong>，3×3的过滤器，<strong>stride</strong>为1，其输出将会是28×28×192，其通道数与输入（通道数）相同。要做的是再加上一个1×1的卷积层，将通道的数量缩小到28×28×32，避免了最后输出时，池化层占据所有的通道</p>
 <p>最后把得到的各个层的通道都加起来，得到一个28×28×256的输出。这就是一个<strong>Inception</strong>模块</p>
 <p><strong>Inception</strong>网络只是很多在不同的位置重复组成的网络：</p>
-<p><img src="/images/pasted-152.png" alt="upload successful"></p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-152.png" alt="upload successful"></p>
 <p>中间隐藏层也可以作为输出层Softmax，确保了即便是隐藏单元和中间层也参与了特征计算，也能预测图片的分类，起到一种调整的效果，有利于防止发生过拟合</p>
 <h2 id="2-7-迁移学习（Transfer-Learning）"><a href="#2-7-迁移学习（Transfer-Learning）" class="headerlink" title="2.7 迁移学习（Transfer Learning）"></a>2.7 迁移学习（Transfer Learning）</h2><p>训练集很小的情况：</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/8f0e69f085991cfc74726983418f6569.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8f0e69f085991cfc74726983418f6569.png" alt></a></p>
