@@ -110,9 +110,16 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f36df292b7444e9b7379fa7c14626fa2.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b05dd0362a19496bb0ad91b8494e374c.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/70e282d4d1abb86fd15ff7b175f4e579.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f6fc2cec52f4ecb15567511aae822914.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ec4b604d619dd617f14c2a34945c075d.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bf6f5879d33ae4ef09b32f77df84948e.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ea844a0290e66d1c76a31e34b632dc0c.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/25430afa93f24dc6caa6f85503bbad27.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cf60f429ef532a2b3bbad3db98b054c5.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4102795b004ff090ed83dc654f585852.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png">
-<meta property="og:updated_time" content="2019-02-27T07:00:06.832Z">
+<meta property="og:updated_time" content="2019-02-27T07:02:03.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
 <meta name="twitter:description" content="2.1 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：  缺点是把每个词孤立起来，使得算法对相关词的泛化能力不强 因为任何两个one-hot">
@@ -379,7 +386,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T15:00:06+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T15:02:03+08:00">
                 2019-02-27
               </time>
             
@@ -450,7 +457,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6.5k
+                  6.3k
                 </span>
               
 
@@ -466,7 +473,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  24
+                  23
                 </span>
               
             </div>
@@ -638,80 +645,44 @@ P(w_{i}) = \frac{f( w_{i})^{\frac{3}{4}}}{\sum_{j = 1}^{10,000}{f( w_{j} )^{\fra
 <p><strong>GloVe</strong>模型做的就是进行优化，将差距进行最小化处理：</p>
 <script type="math/tex; mode=display">
 \text{mini}\text{mize}\sum_{i = 1}^{10,000}{\sum_{j = 1}^{10,000}}{f\left( X_{ij}
-\right)\left( \theta_{i}^{T}e_{j} + b_{i} + b_{j}^{'} - \log X_{ij} \right)^{2}}</script><script type="math/tex; mode=display">\theta_{i}^{T}e_{j}$$即$$\theta_{t}^{T}e_{c}$$。对于$$\theta_{t}^{T}e_{c}$$，这两个单词同时出现的频率是多少受$$X_{ij}$$影响，若两个词的embedding vector越相近，同时出现的次数越多，则对应的loss越小
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f6fc2cec52f4ecb15567511aae822914.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f6fc2cec52f4ecb15567511aae822914.png)
-
-当$$X_{ij}=0$$时，权重因子$$f(X_{ij})=0$$。这种做法直接忽略了无任何相关性的context和target，只考虑$$X_{ij}>0$$的情况
-
-出现频率较大的单词相应的权重因子$$f(X_{ij})$$较大，出现频率较小的单词相应的权重因子$$f(X_{ij})$$较小一些
-
-因为$$\theta$$和$$e$$是完全对称的，所以$$\theta_{i}$$和$$e_{j}$$是对称的。因此训练算法的方法是一致地初始化$$\theta$$和$$e$$，然后使用梯度下降来最小化输出，当每个词都处理完之后取平均值：</script><p>e_{w}^{(final)}= \frac{e_{w} +\theta_{w}}{2}</p>
+\right)\left( \theta_{i}^{T}e_{j} + b_{i} + b_{j}^{'} - \log X_{ij} \right)^{2}}</script><p>$\theta_{i}^{T}e_{j}$即<script type="math/tex">\theta_{t}^{T}e_{c}</script>。对于<script type="math/tex">\theta_{t}^{T}e_{c}</script>，这两个单词同时出现的频率是多少受<script type="math/tex">X_{ij}</script>影响，若两个词的embedding vector越相近，同时出现的次数越多，则对应的loss越小</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/f6fc2cec52f4ecb15567511aae822914.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f6fc2cec52f4ecb15567511aae822914.png" alt></a></p>
+<p>当<script type="math/tex">X_{ij}=0</script>时，权重因子<script type="math/tex">f(X_{ij})=0</script>。这种做法直接忽略了无任何相关性的context和target，只考虑<script type="math/tex">X_{ij}>0</script>的情况</p>
+<p>出现频率较大的单词相应的权重因子<script type="math/tex">f(X_{ij})</script>较大，出现频率较小的单词相应的权重因子<script type="math/tex">f(X_{ij})</script>较小一些</p>
+<p>因为<script type="math/tex">\theta</script>和<script type="math/tex">e</script>是完全对称的，所以<script type="math/tex">\theta_{i}</script>和<script type="math/tex">e_{j}</script>是对称的。因此训练算法的方法是一致地初始化<script type="math/tex">\theta</script>和<script type="math/tex">e</script>，然后使用梯度下降来最小化输出，当每个词都处理完之后取平均值：</p>
 <script type="math/tex; mode=display">
-
-
-**GloVe**算法不能保证嵌入向量的独立组成部分：
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ec4b604d619dd617f14c2a34945c075d.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ec4b604d619dd617f14c2a34945c075d.png)
-
-通过上面的很多算法得到的词嵌入向量，无法保证词嵌入向量的每个独立分量是能够理解的。但能够确定是每个分量和所想的一些特征是有关联的，可能是一些我们能够理解的特征的组合而构成的一个组合分量
-
-使用上面的GloVe模型，从线性代数的角度解释如下：</script><p>\Theta_{i}^{T}e_{j} = \Theta_{i}^{T}A^{T}A^{-T}e_{j}=(A\Theta_{i})^{T}(A^{-T}e_{j})</p>
+e_{w}^{(final)}= \frac{e_{w} +\theta_{w}}{2}</script><p><strong>GloVe</strong>算法不能保证嵌入向量的独立组成部分：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ec4b604d619dd617f14c2a34945c075d.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ec4b604d619dd617f14c2a34945c075d.png" alt></a></p>
+<p>通过上面的很多算法得到的词嵌入向量，无法保证词嵌入向量的每个独立分量是能够理解的。但能够确定是每个分量和所想的一些特征是有关联的，可能是一些我们能够理解的特征的组合而构成的一个组合分量</p>
+<p>使用上面的GloVe模型，从线性代数的角度解释如下：</p>
 <script type="math/tex; mode=display">
-
-
-加入的$$A$$项，可能构成任意的分量组合
-
-
-## 2.9 情感分类（Sentiment Classification）
-
-情感分类任务就是看一段文本，然后分辨这个人是否喜欢他们在讨论的这个东西，最大的挑战就是可能标记的训练集没有那么多，但是有了词嵌入，即使只有中等大小标记的训练集，也能构建一个不错的情感分类器
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bf6f5879d33ae4ef09b32f77df84948e.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/bf6f5879d33ae4ef09b32f77df84948e.png)
-
-> 输入$$x$$是一段文本，输出$$y$$是要预测的相应情感。比如一个餐馆评价的星级
-
-情感分类一个最大的挑战就是可能标记的训练集没有那么多。对于情感分类任务来说，训练集大小从10,000到100,000个单词都很常见，甚至有时会小于10,000个单词，采用了词嵌入能够带来更好的效果，尤其是只有很小的训练集
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ea844a0290e66d1c76a31e34b632dc0c.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ea844a0290e66d1c76a31e34b632dc0c.png)
-
-给定四个词（"**dessert is excellent**"），通常用10,000个词的词汇表，找到相应的**one-hot**向量，再乘以嵌入矩阵$$E$$，$$E$$可以从一个很大的文本集里学习到，比如它可以从一亿个词或者一百亿个词里学习嵌入，然后用来提取单词**the**的嵌入向量$$e_{8928}$$，对**dessert**、**is**、**excellent**做同样的步骤
-
-然后取这些向量（编号2），如300维度的向量，通过平均值计算单元（编号3），求和并平均，再送进**softmax**分类器，然后输出$$\hat y$$。这个**softmax**能够输出5个可能结果的概率值，从一星到五星
-
-这个算法适用于任何长短的评论，因为即使评论是100个词长，也可以对这一百个词的特征向量求和取平均，得到一个300维的特征向量，然后送进**softmax**分类器
-
-但问题是没考虑词序，如负面的评价，"**Completely lacking in good taste, good service, and good ambiance.**"，**good**这个词出现了很多次，但算法忽略词序，仅仅把所有单词的词嵌入加起来或者平均下来，最后的特征向量会有很多**good**的表示，分类器很可能认为这是一个好的评论，尽管事实上这是一个差评，只有一星的评价
-
-为了解决这一问题，情感分类的另一种模型是RNN：
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png)
-
-首先取这条评论，"**Completely lacking in good taste, good service, and good ambiance.**"，找出每一个**one-hot**向量，乘以词嵌入矩阵$$E$$，得到词嵌入表达$$e$$，然后把它们送进**RNN**
-
-**RNN**的工作就是在最后一步（编号1）计算一个特征表示，用来预测$$\hat y$$。这样的算法考虑词的顺序效果更好，能意识到"**things are lacking in good taste**"是个负面的评价，“**not good**”也是一个负面的评价。而不像原来的算法一样，只是把所有的加在一起得到一个大的向量，根本意识不到“**not good**”和 “**good**”不是一个意思，"**lacking in good taste**"也是如此，等等
-
-如果训练一个这样的算法，最后会得到一个很合适的情感分类的算法。由于词嵌入是在一个更大的数据集里训练的，这样会更好的泛化一些没有见过的新的单词。比如"**Completely absent of good taste, good service, and good ambiance.**"，即使**absent**这个词不在标记的训练集里
-
-如果是在一亿或者一百亿单词集里训练词嵌入，它仍然可以正确判断，并且泛化的很好，甚至这些词是在训练集中用于训练词嵌入，但不在专门做情感分类问题标记的训练集
-
-## 2.10 词嵌入除偏（Debiasing Word Embeddings）
-
-根据训练模型所使用的文本，词嵌入能够反映出性别、种族、年龄、性取向等其他方面的偏见：
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/25430afa93f24dc6caa6f85503bbad27.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/25430afa93f24dc6caa6f85503bbad27.png)
-
-假设已经完成一个词嵌入的学习，各个词的位置如图：
-
-[![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cf60f429ef532a2b3bbad3db98b054c5.png)](https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/cf60f429ef532a2b3bbad3db98b054c5.png)
-
-首先做的事就是辨别出想要减少或想要消除的特定偏见的趋势
-
-怎样辨别出偏见相似的趋势：
-
-一、对于性别歧视，对所有性别对立的单词求差值，再平均：</script><p>bias direction=\frac1N ((e_{he}-e_{she})+(e_{male}-e_{female})+\cdots)</p>
-<p>$$</p>
-<p>二、中和步骤，对于定义不确切的词可以将其处理一下，避免偏见。像<strong>doctor</strong>和<strong>babysitter</strong>使之在性别方面中立。将它们在这个轴（编号1）上进行处理，减少或是消除他们的性别歧视趋势的成分，即减少在水平方向上的距离（编号2方框内所示的投影）</p>
+\Theta_{i}^{T}e_{j} = \Theta_{i}^{T}A^{T}A^{-T}e_{j}=(A\Theta_{i})^{T}(A^{-T}e_{j})</script><p>加入的<script type="math/tex">A</script>项，可能构成任意的分量组合</p>
+<h2 id="2-9-情感分类（Sentiment-Classification）"><a href="#2-9-情感分类（Sentiment-Classification）" class="headerlink" title="2.9 情感分类（Sentiment Classification）"></a>2.9 情感分类（Sentiment Classification）</h2><p>情感分类任务就是看一段文本，然后分辨这个人是否喜欢他们在讨论的这个东西，最大的挑战就是可能标记的训练集没有那么多，但是有了词嵌入，即使只有中等大小标记的训练集，也能构建一个不错的情感分类器</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/bf6f5879d33ae4ef09b32f77df84948e.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bf6f5879d33ae4ef09b32f77df84948e.png" alt></a></p>
+<blockquote>
+<p>输入<script type="math/tex">x</script>是一段文本，输出<script type="math/tex">y</script>是要预测的相应情感。比如一个餐馆评价的星级</p>
+</blockquote>
+<p>情感分类一个最大的挑战就是可能标记的训练集没有那么多。对于情感分类任务来说，训练集大小从10,000到100,000个单词都很常见，甚至有时会小于10,000个单词，采用了词嵌入能够带来更好的效果，尤其是只有很小的训练集</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ea844a0290e66d1c76a31e34b632dc0c.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ea844a0290e66d1c76a31e34b632dc0c.png" alt></a></p>
+<p>给定四个词（”<strong>dessert is excellent</strong>“），通常用10,000个词的词汇表，找到相应的<strong>one-hot</strong>向量，再乘以嵌入矩阵<script type="math/tex">E</script>，<script type="math/tex">E</script>可以从一个很大的文本集里学习到，比如它可以从一亿个词或者一百亿个词里学习嵌入，然后用来提取单词<strong>the</strong>的嵌入向量<script type="math/tex">e_{8928}</script>，对<strong>dessert</strong>、<strong>is</strong>、<strong>excellent</strong>做同样的步骤</p>
+<p>然后取这些向量（编号2），如300维度的向量，通过平均值计算单元（编号3），求和并平均，再送进<strong>softmax</strong>分类器，然后输出<script type="math/tex">\hat y</script>。这个<strong>softmax</strong>能够输出5个可能结果的概率值，从一星到五星</p>
+<p>这个算法适用于任何长短的评论，因为即使评论是100个词长，也可以对这一百个词的特征向量求和取平均，得到一个300维的特征向量，然后送进<strong>softmax</strong>分类器</p>
+<p>但问题是没考虑词序，如负面的评价，”<strong>Completely lacking in good taste, good service, and good ambiance.</strong>“，<strong>good</strong>这个词出现了很多次，但算法忽略词序，仅仅把所有单词的词嵌入加起来或者平均下来，最后的特征向量会有很多<strong>good</strong>的表示，分类器很可能认为这是一个好的评论，尽管事实上这是一个差评，只有一星的评价</p>
+<p>为了解决这一问题，情感分类的另一种模型是RNN：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png" alt></a></p>
+<p>首先取这条评论，”<strong>Completely lacking in good taste, good service, and good ambiance.</strong>“，找出每一个<strong>one-hot</strong>向量，乘以词嵌入矩阵<script type="math/tex">E</script>，得到词嵌入表达<script type="math/tex">e</script>，然后把它们送进<strong>RNN</strong></p>
+<p><strong>RNN</strong>的工作就是在最后一步（编号1）计算一个特征表示，用来预测<script type="math/tex">\hat y</script>。这样的算法考虑词的顺序效果更好，能意识到”<strong>things are lacking in good taste</strong>“是个负面的评价，“<strong>not good</strong>”也是一个负面的评价。而不像原来的算法一样，只是把所有的加在一起得到一个大的向量，根本意识不到“<strong>not good</strong>”和 “<strong>good</strong>”不是一个意思，”<strong>lacking in good taste</strong>“也是如此，等等</p>
+<p>如果训练一个这样的算法，最后会得到一个很合适的情感分类的算法。由于词嵌入是在一个更大的数据集里训练的，这样会更好的泛化一些没有见过的新的单词。比如”<strong>Completely absent of good taste, good service, and good ambiance.</strong>“，即使<strong>absent</strong>这个词不在标记的训练集里</p>
+<p>如果是在一亿或者一百亿单词集里训练词嵌入，它仍然可以正确判断，并且泛化的很好，甚至这些词是在训练集中用于训练词嵌入，但不在专门做情感分类问题标记的训练集</p>
+<h2 id="2-10-词嵌入除偏（Debiasing-Word-Embeddings）"><a href="#2-10-词嵌入除偏（Debiasing-Word-Embeddings）" class="headerlink" title="2.10 词嵌入除偏（Debiasing Word Embeddings）"></a>2.10 词嵌入除偏（Debiasing Word Embeddings）</h2><p>根据训练模型所使用的文本，词嵌入能够反映出性别、种族、年龄、性取向等其他方面的偏见：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/25430afa93f24dc6caa6f85503bbad27.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/25430afa93f24dc6caa6f85503bbad27.png" alt></a></p>
+<p>假设已经完成一个词嵌入的学习，各个词的位置如图：</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/cf60f429ef532a2b3bbad3db98b054c5.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cf60f429ef532a2b3bbad3db98b054c5.png" alt></a></p>
+<p>首先做的事就是辨别出想要减少或想要消除的特定偏见的趋势</p>
+<p>怎样辨别出偏见相似的趋势：</p>
+<p>一、对于性别歧视，对所有性别对立的单词求差值，再平均：</p>
+<script type="math/tex; mode=display">
+bias\ direction=\frac1N ((e_{he}-e_{she})+(e_{male}-e_{female})+\cdots)</script><p>二、中和步骤，对于定义不确切的词可以将其处理一下，避免偏见。像<strong>doctor</strong>和<strong>babysitter</strong>使之在性别方面中立。将它们在这个轴（编号1）上进行处理，减少或是消除他们的性别歧视趋势的成分，即减少在水平方向上的距离（编号2方框内所示的投影）</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/4102795b004ff090ed83dc654f585852.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4102795b004ff090ed83dc654f585852.png" alt></a></p>
 <p>三、均衡步，<strong>babysitter</strong>和<strong>grandmother</strong>之间的距离或者说是相似度实际上是小于<strong>babysitter</strong>和<strong>grandfather</strong>之间的（编号1），因此这可能会加重不良状态，或者非预期的偏见，也就是说<strong>grandmothers</strong>相比于<strong>grandfathers</strong>最终更有可能输出<strong>babysitting</strong>。所以在最后的均衡步中，想要确保的是像<strong>grandmother</strong>和<strong>grandfather</strong>这样的词都能够有一致的相似度，或者说是相等的距离，做法是将<strong>grandmother</strong>和<strong>grandfather</strong>移至与中间轴线等距的一对点上（编号2），现在性别歧视的影响也就是这两个词与<strong>babysitter</strong>的距离就完全相同了（编号3）</p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png" alt></a></p>
@@ -990,7 +961,7 @@ P(w_{i}) = \frac{f( w_{i})^{\frac{3}{4}}}{\sum_{j = 1}^{10,000}{f( w_{j} )^{\fra
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-词汇表征（Word-Representation）"><span class="nav-number">1.</span> <span class="nav-text">2.1 词汇表征（Word Representation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-使用词嵌入（Using-Word-Embeddings）"><span class="nav-number">2.</span> <span class="nav-text">2.2 使用词嵌入（Using Word Embeddings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-词嵌入的特性（Properties-of-Word-Embeddings）"><span class="nav-number">3.</span> <span class="nav-text">2.3 词嵌入的特性（Properties of Word Embeddings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-嵌入矩阵（Embedding-Matrix）"><span class="nav-number">4.</span> <span class="nav-text">2.4 嵌入矩阵（Embedding Matrix）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-学习词嵌入（Learning-Word-Embeddings）"><span class="nav-number">5.</span> <span class="nav-text">2.5 学习词嵌入（Learning Word Embeddings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-Word2Vec"><span class="nav-number">6.</span> <span class="nav-text">2.6 Word2Vec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-负采样（Negative-Sampling）"><span class="nav-number">7.</span> <span class="nav-text">2.7 负采样（Negative Sampling）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-GloVe-词向量（GloVe-Word-Vectors）"><span class="nav-number">8.</span> <span class="nav-text">2.8 GloVe 词向量（GloVe Word Vectors）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-词汇表征（Word-Representation）"><span class="nav-number">1.</span> <span class="nav-text">2.1 词汇表征（Word Representation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-使用词嵌入（Using-Word-Embeddings）"><span class="nav-number">2.</span> <span class="nav-text">2.2 使用词嵌入（Using Word Embeddings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-词嵌入的特性（Properties-of-Word-Embeddings）"><span class="nav-number">3.</span> <span class="nav-text">2.3 词嵌入的特性（Properties of Word Embeddings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-嵌入矩阵（Embedding-Matrix）"><span class="nav-number">4.</span> <span class="nav-text">2.4 嵌入矩阵（Embedding Matrix）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-学习词嵌入（Learning-Word-Embeddings）"><span class="nav-number">5.</span> <span class="nav-text">2.5 学习词嵌入（Learning Word Embeddings）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-Word2Vec"><span class="nav-number">6.</span> <span class="nav-text">2.6 Word2Vec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-负采样（Negative-Sampling）"><span class="nav-number">7.</span> <span class="nav-text">2.7 负采样（Negative Sampling）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-GloVe-词向量（GloVe-Word-Vectors）"><span class="nav-number">8.</span> <span class="nav-text">2.8 GloVe 词向量（GloVe Word Vectors）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9-情感分类（Sentiment-Classification）"><span class="nav-number">9.</span> <span class="nav-text">2.9 情感分类（Sentiment Classification）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-10-词嵌入除偏（Debiasing-Word-Embeddings）"><span class="nav-number">10.</span> <span class="nav-text">2.10 词嵌入除偏（Debiasing Word Embeddings）</span></a></li></ol></div>
             
 
           </div>
@@ -1037,7 +1008,7 @@ P(w_{i}) = \frac{f( w_{i})^{\frac{3}{4}}}{\sum_{j = 1}^{10,000}{f( w_{j} )^{\fra
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共60.2k字</span>
+  <span class="post-count">博客全站共62k字</span>
 </div>
 
         
