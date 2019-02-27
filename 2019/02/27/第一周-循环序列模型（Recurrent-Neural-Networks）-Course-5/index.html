@@ -82,18 +82,20 @@
 
 
 
-<meta name="description" content="你如果不忙着求生， 你就在忙着求死">
+<meta name="description" content="#为什么选择序列模型？（Why Sequence Models?） 语音识别：给定一个输入音频片段 X，要求输出对应的文字记录 Y。输入和输出数据都是序列模型，因为 X是一个按时播放的音频片段，输出 Y是一系列单词 音乐生成问题：只有输出数据 Y是序列，而输入数据可以是空集，也可以是个单一的整数，这个数可能指代想要生成的音乐风格，或者想要生成的那首曲子的头几个音符 处理情感分类：输入数据 X是序列">
 <meta name="keywords" content="Machine Learning&#x2F;Deep Learning&#x2F;Python&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
 <meta property="og:url" content="https://baozouai.com/2019/02/27/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="你如果不忙着求生， 你就在忙着求死">
+<meta property="og:description" content="#为什么选择序列模型？（Why Sequence Models?） 语音识别：给定一个输入音频片段 X，要求输出对应的文字记录 Y。输入和输出数据都是序列模型，因为 X是一个按时播放的音频片段，输出 Y是一系列单词 音乐生成问题：只有输出数据 Y是序列，而输入数据可以是空集，也可以是个单一的整数，这个数可能指代想要生成的音乐风格，或者想要生成的那首曲子的头几个音符 处理情感分类：输入数据 X是序列">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-27T06:17:39.149Z">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ae2970d80a119cd341ef31c684bfac49.png">
+<meta property="og:updated_time" content="2019-02-27T06:19:25.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
-<meta name="twitter:description" content="你如果不忙着求生， 你就在忙着求死">
+<meta name="twitter:description" content="#为什么选择序列模型？（Why Sequence Models?） 语音识别：给定一个输入音频片段 X，要求输出对应的文字记录 Y。输入和输出数据都是序列模型，因为 X是一个按时播放的音频片段，输出 Y是一系列单词 音乐生成问题：只有输出数据 Y是序列，而输入数据可以是空集，也可以是个单一的整数，这个数可能指代想要生成的音乐风格，或者想要生成的那首曲子的头几个音符 处理情感分类：输入数据 X是序列">
+<meta name="twitter:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ae2970d80a119cd341ef31c684bfac49.png">
 
 
 
@@ -340,7 +342,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T14:17:39Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T22:17:39+08:00">
                 2019-02-27
               </time>
             
@@ -356,7 +358,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T06:17:39Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T14:19:25+08:00">
                 2019-02-27
               </time>
             
@@ -405,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  425
                 </span>
               
 
@@ -441,7 +443,17 @@
       
 
       
-        
+        <p>#<br>为什么选择序列模型？（Why Sequence Models?）</p>
+<p>语音识别：给定一个输入音频片段 <script type="math/tex">X</script>，要求输出对应的文字记录 <script type="math/tex">Y</script>。输入和输出数据都是序列模型，因为 <script type="math/tex">X</script>是一个按时播放的音频片段，输出 <script type="math/tex">Y</script>是一系列单词</p>
+<p>音乐生成问题：只有输出数据 <script type="math/tex">Y</script>是序列，而输入数据可以是空集，也可以是个单一的整数，这个数可能指代想要生成的音乐风格，或者想要生成的那首曲子的头几个音符</p>
+<p>处理情感分类：输入数据 <script type="math/tex">X</script>是序列，会得到类似这样的输入：“<strong>There is nothing to like in this movie.</strong>”，你认为这句评论对应几星？</p>
+<p><strong>DNA</strong>序列分析：<strong>DNA</strong>用<strong>A</strong>、<strong>C</strong>、<strong>G</strong>、<strong>T</strong>四个字母来表示。给定一段<strong>DNA</strong>序列，能够标记出哪部分是匹配某种蛋白质？</p>
+<p>机器翻译：输入句：“<strong>Voulez-vou chante avecmoi?</strong>”（法语：要和我一起唱么？），要求输出另一种语言的翻译结果</p>
+<p>视频行为识别：得到一系列视频帧，要求识别其中的行为</p>
+<p>命名实体识别：给定一个句子，要求识别出句中的人名</p>
+<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ae2970d80a119cd341ef31c684bfac49.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ae2970d80a119cd341ef31c684bfac49.png" alt></a></p>
+<p>这些问题都可以被称作使用标签数据 <script type="math/tex">(X,Y)</script>作为训练集的监督学习。但序列问题有很多不同类型。有些问题里，输入数据 <script type="math/tex">X</script>和输出数据<script type="math/tex">Y</script>都是序列，但就算在那种情况下，<script type="math/tex">X</script>和<script type="math/tex">Y</script>有时也会不一样长。或者像上图编号1和编号2所示的<script type="math/tex">X</script>和<script type="math/tex">Y</script>有相同的数据长度。在另一些问题里，只有 <script type="math/tex">X</script>或者只有<script type="math/tex">Y</script>是序列</p>
+
       
     </div>
     
@@ -729,7 +741,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共47.2k字</span>
+  <span class="post-count">博客全站共47.7k字</span>
 </div>
 
         
