@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://baozouai.com/images/pasted-83.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-84.png">
 <meta property="og:image" content="https://baozouai.com/images/pasted-85.png">
-<meta property="og:updated_time" content="2019-02-27T04:36:11.975Z">
+<meta property="og:updated_time" content="2019-02-27T04:43:58.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)">
 <meta name="twitter:description" content="3.1调试处理（Tuning process）深度神经网络需要调试的超参数（Hyperparameters）包括：  \alpha：学习因子 \beta：动量梯度下降因子 \beta_1,\beta_2,\varepsilon：Adam算法参数 #layers：神经网络层数 #hidden units：各隐藏层神经元个数 learning rate decay：学习因子下降参数 mini-batc">
@@ -356,7 +356,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T20:22:00Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T04:22:00+08:00">
                 2019-02-27
               </time>
             
@@ -372,7 +372,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T04:36:11Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T12:43:58+08:00">
                 2019-02-27
               </time>
             
@@ -538,7 +538,7 @@ z^{(i)}_{norm}=\frac{z^{(i)}-\mu}{\sqrt{\sigma^2+\varepsilon}}</script><p>m是�
 <li><p>在每一个<script type="math/tex">X^t</script> 上进行前向传播（forward prop）的计算：</p>
 </li>
 <li><p>在每个隐藏层都用 Batch Norm 将<script type="math/tex">z^{[l]}</script>替换为</p>
-<script type="math/tex; mode=display">\widetilde{z}}^{[l]</script></li>
+<script type="math/tex; mode=display">\widetilde{z}^{[l]}</script></li>
 <li><p>使用反向传播（Back prop）计算各个参数的梯度：<script type="math/tex">dw^{[l]},d\gamma^{[l]},d\beta^{[l]}</script></p>
 </li>
 <li><p>更新参数：</p>
@@ -651,8 +651,7 @@ softmax classifier的反向传播过程:
 
 ![upload successful](/images/pasted-89.png)
 
-所有m个训练样本：</script><p>dZ^{[L]}=A^{[L]}-Y</p>
-<p>$$</p>
+所有m个训练样本：</script><p>dZ^{[L]}=A^{[L]}-Y<br>$$</p>
 
       
     </div>
