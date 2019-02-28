@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.baozouai.com/photos/index.html</loc>
+    
+    <lastmod>2019-02-28T13:53:28.308Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.baozouai.com/photos/photoslist.json</loc>
     
     <lastmod>2019-02-28T13:51:53.038Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://www.baozouai.com/photos/video.html</loc>
     
     <lastmod>2019-02-28T12:30:39.863Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.baozouai.com/photos/index.html</loc>
-    
-    <lastmod>2019-02-28T12:10:58.925Z</lastmod>
     
   </url>
   
