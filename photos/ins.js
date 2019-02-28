@@ -119,8 +119,8 @@
     var data = res.list[j].arr;
     var liTmpl = "";
     for (var i = 0, len = data.link.length; i < len; i++) {
-        var minSrc = 'http://pnmg3tqmr.bkt.clouddn.com/' + data.link[i];
-      var src = 'http://pnmg3tqmr.bkt.clouddn.com/' + data.link[i];
+        var minSrc = 'http://pnmg3tqmr.bkt.clouddn.com/photos/' + data.link[i];
+      var src = 'http://pnmg3tqmr.bkt.clouddn.com/photos/' + data.link[i];
       var type = data.type[i];
       var target = src + (type === 'video' ? '.mp4' : '.jpg');
       src += '';
