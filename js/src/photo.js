@@ -25,8 +25,8 @@ photo ={
             li += '<div class="card" style="width:250px">' +
                     '<div class="ImageInCard" style="height:'+ 250 * imageY / imageX + 'px">' +
                     //href 和 src 的链接地址是相册照片外部链接，也可以放博客目录里
-                      '<a data-fancybox="gallery" href="http://pnmg3tqmr.bkt.clouddn.com/' + imgNameWithPattern + '?raw=true" data-caption="' + imgName + '">' +
-                        '<img src="http://pnmg3tqmr.bkt.clouddn.com/bg.png' + imgNameWithPattern + '?raw=true"/>' +
+                      '<a data-fancybox="gallery" href="http://photo.qizhenjun.com/' + imgNameWithPattern + '?raw=true" data-caption="' + imgName + '">' +
+                        '<img src="http://photo.qizhenjun.com/' + imgNameWithPattern + '?raw=true"/>' +
                       '</a>' +
                     '</div>' +
                     // '<div class="TextInCard">' + imgName + '</div>' +  //图片下显示文件名作为说明的功能
