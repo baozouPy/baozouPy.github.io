@@ -1,11 +1,11 @@
 photo ={
     page: 1,
     //offset 用于设置照片数量的上限
-    offset: 20,
+    offset: 100,
     init: function () {
         var that = this;
-        //这里设置的是刚才生成的 json 文件路径,注意自己的域名地址
-        $.getJSON("/myblog/photos/photoslist.json", function (data) {
+        //这里设置的是刚才生成的 json 文件路径
+        $.getJSON("/photos/photoslist.json", function (data) {
             that.render(that.page, data);
             //that.scroll(data);
         });
