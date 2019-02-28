@@ -47,15 +47,9 @@
 
 
 
+  
 
-  
-+
 
-  
-  
-    
-  
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
 
 
 
@@ -90,15 +84,18 @@
 
 
 
+<meta name="description" content="Photos     图片正在加载中…      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($sc">
 <meta name="keywords" content="Machine Learning&#x2F;Deep Learning&#x2F;Python&#x2F;">
 <meta property="og:type" content="website">
-<meta property="og:title" content="暴走的技术博客">
+<meta property="og:title" content="照片">
 <meta property="og:url" content="https://www.baozouai.com/photos/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
+<meta property="og:description" content="Photos     图片正在加载中…      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($sc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-28T15:39:49.050Z">
+<meta property="og:updated_time" content="2019-02-28T16:53:19.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="暴走的技术博客">
+<meta name="twitter:title" content="照片">
+<meta name="twitter:description" content="Photos     图片正在加载中…      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($sc">
 
 
 
@@ -109,7 +106,7 @@
     scheme: 'Pisces',
     version: '6.0.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
@@ -134,7 +131,7 @@
 
 
 
-  <title> | 暴走的技术博客</title>
+  <title>照片 | 暴走的技术博客</title>
   
 
 
@@ -157,6 +154,46 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+  </div>
 
   
   
@@ -318,7 +355,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h2 class="post-title" itemprop="name headline"></h2>
+	<h2 class="post-title" itemprop="name headline">照片</h2>
 
 
 
@@ -330,16 +367,7 @@
       <div class="post-body">
         
         
-          <!--
---- Created by water
---- 2019/02/28
--->
-<!--相册布局-->
-<div class="instagram">
-    <section class="archives album">
-        <ul class="img-box-ul"></ul>
-    </section>
-</div>
+      <div class="ImageGrid"></div>
         
       </div>
       
@@ -360,7 +388,7 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="photos/index.html" data-title data-url="https://www.baozouai.com/photos/index.html">
+      <div class="ds-thread" data-thread-key="photos/index.html" data-title="照片" data-url="https://www.baozouai.com/photos/index.html">
       </div>
     </div>
 
@@ -578,8 +606,6 @@
 
 
 
-  
-
 
   
 
@@ -620,11 +646,6 @@
 
   
   
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
@@ -637,6 +658,10 @@
   <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/minigrid.min.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/photo.js?v=6.0.0"></script>
 
 
   
