@@ -2046,7 +2046,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff4600;
+  background: #d017cd;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2832,7 +2832,7 @@ img:hover {
   overflow: hidden;
   padding: 0;
   width: 240px;
-  background: none;
+  background: rgba(255,255,255,0.7);
   box-shadow: initial;
   border-radius: initial;
 }
@@ -2916,7 +2916,7 @@ img:hover {
   float: left;
   margin-top: 300px;
   width: 240px;
-  background: none;
+  background: rgba(255,255,255,0.7);
   box-shadow: none;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -2970,7 +2970,7 @@ header.post-header {
   width: auto !important;
 }
 .container .main-inner {
-  width: 90%;
+  width: 85%;
 }
 .content-wrap {
   width: calc(100% - 260px);
@@ -3115,7 +3115,7 @@ header.post-header {
   box-sizing: border-box;
   width: 240px;
   color: #555;
-  background: none;
+  background: rgba(255,255,255,0.7);
   box-shadow: initial;
   border-radius: initial;
   opacity: 0;
@@ -3274,7 +3274,7 @@ header.post-header {
 }
 .main-inner {
   background: #fff;
-  opacity: 0.9;
+  opacity: 1;
 }
 @media screen and (min-width: 1200px) {
   body {
