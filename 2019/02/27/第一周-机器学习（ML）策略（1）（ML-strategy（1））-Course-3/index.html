@@ -132,7 +132,7 @@
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-116.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-117.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-118.png">
-<meta property="og:updated_time" content="2019-02-27T15:43:01.015Z">
+<meta property="og:updated_time" content="2019-03-02T12:11:46.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 机器学习策略（1）（ML strategy（1））(Course 3)">
 <meta name="twitter:description" content="1.1 为什么是 ML 策略？（Why ML Strategy?）当最初得到一个深度神经网络模型时，希望从很多方面来对它进行优化，例如：  Collect more data  Collect more diverse training set  Train algorithm longer with gradient descent  Try Adam instead of gradient d">
@@ -434,8 +434,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T23:43:01+08:00">
-                2019-02-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T20:11:46+08:00">
+                2019-03-02
               </time>
             
           </span>
@@ -676,12 +676,12 @@ w^{(i)}=\begin{cases}
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-107.png" alt="upload successful"></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-108.png" alt="upload successful"></p>
 <h2 id="1-9-可避免偏差（Avoidable-bias）"><a href="#1-9-可避免偏差（Avoidable-bias）" class="headerlink" title="1.9 可避免偏差（Avoidable bias）"></a>1.9 可避免偏差（Avoidable bias）</h2><p>猫分类器:</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/bbeeddabb1800e91b1460deade38e756.png" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bbeeddabb1800e91b1460deade38e756.png" alt></a></p>
+<p><a href="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/bbeeddabb1800e91b1460deade38e756.png" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bbeeddabb1800e91b1460deade38e756.png" alt></a></p>
 <p>人类具有近乎完美的准确度，人类水平的错误是1%,如果学习算法达到8%的训练错误率和10%的开发错误率，算法在训练集上的表现和人类水平的表现有很大差距，说明算法对训练集的拟合并不好。从减少偏差和方差这个角度看，把重点放在减少偏差上。比如训练更大的神经网络，跑久一点梯度下降，试试能不能在训练集上做得更好</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/e94444af122172eecf5df8bdca435d1d.png" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e94444af122172eecf5df8bdca435d1d.png" alt></a></p>
+<p><a href="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/e94444af122172eecf5df8bdca435d1d.png" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e94444af122172eecf5df8bdca435d1d.png" alt></a></p>
 <p>同样的训练错误率和开发错误率，假设人类水平错误实际上是7.5%，系统在训练集上的表现还好，只比人类的表现差一点。在第二个例子中，应专注减少学习算法的方差，可以试试正则化，让开发错误率更接近训练错误率</p>
 <p>用人类水平的错误率估计或代替贝叶斯错误率或贝叶斯最优错误率，对于计算机视觉任务而言，这样替代相当合理，因为人类非常擅长计算机视觉任务，人类能做到的水平和贝叶斯错误率相差不远</p>
-<p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/ac8eb51425d5dbf663d050398f7e8af8.png" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac8eb51425d5dbf663d050398f7e8af8.png" alt></a></p>
+<p><a href="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/ac8eb51425d5dbf663d050398f7e8af8.png" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac8eb51425d5dbf663d050398f7e8af8.png" alt></a></p>
 <p>左边的例子8%的训练错误率真的很高，可以把它降到1%，减少偏差的手段可能有效。右边的例子中，如果认为贝叶斯错误率是7.5%，这里使用人类水平错误率来替代贝叶斯错误率，就知道没有太多改善的空间了，不能继续减少训练错误率，训练误差和开发误差之间有更多的改进空间，可以将这个2%的差距缩小一点，使用减少方差的手段，比如正则化，或者收集更多的训练数据</p>
 <p>贝叶斯错误率或者对贝叶斯错误率的估计和训练错误率之间的差值称为<strong>可避免偏差</strong></p>
 <p>理论上是不可能超过贝叶斯错误率的，除非过拟合</p>
