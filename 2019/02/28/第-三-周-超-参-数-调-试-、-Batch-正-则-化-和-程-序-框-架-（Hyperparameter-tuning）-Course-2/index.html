@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css">
+
+
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-next.png?v=6.0.0">
+
+
+
+
+
+
+  <meta name="keywords" content="深度学习,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="暴走的技术博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="3.1 调试处理（Tuning process）深度神经网络需要调试的超参数（Hyperparameters）包括：  \alpha：学习因子 \beta：动量梯度下降因子 \beta_1,\beta_2,\varepsilon：Adam算法参数 #layers：神经网络层数 #hidden units：各隐藏层神经元个数 learning rate decay：学习因子下降参数 mini-bat">
+<meta name="keywords" content="深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)">
+<meta property="og:url" content="https://www.baozouai.com/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/index.html">
+<meta property="og:site_name" content="暴走的技术博客">
+<meta property="og:description" content="3.1 调试处理（Tuning process）深度神经网络需要调试的超参数（Hyperparameters）包括：  \alpha：学习因子 \beta：动量梯度下降因子 \beta_1,\beta_2,\varepsilon：Adam算法参数 #layers：神经网络层数 #hidden units：各隐藏层神经元个数 learning rate decay：学习因子下降参数 mini-bat">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-69.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-70.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-71.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-72.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-73.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-74.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-76.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-77.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-78.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-79.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-80.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-81.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-83.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-84.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-85.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-86.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-87.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-88.png">
+<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-89.png">
+<meta property="og:updated_time" content="2019-02-27T15:42:39.176Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)">
+<meta name="twitter:description" content="3.1 调试处理（Tuning process）深度神经网络需要调试的超参数（Hyperparameters）包括：  \alpha：学习因子 \beta：动量梯度下降因子 \beta_1,\beta_2,\varepsilon：Adam算法参数 #layers：神经网络层数 #hidden units：各隐藏层神经元个数 learning rate decay：学习因子下降参数 mini-bat">
+<meta name="twitter:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-69.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.baozouai.com/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/">
+
+
+
+
+
+  <title>第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2) | 暴走的技术博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8a46909e912a122ce69d3b5e9a8dc661";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/baozouai" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">暴走的技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">The people who are crazy enough to change the world are the ones who do！</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera-retro"></i> <br>
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-movies">
+          <a href="/movies" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-film"></i> <br>
+            
+            电影
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+    
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+      
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="暴走">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暴走的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T04:22:00+08:00">
+                2019-02-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T23:42:39+08:00">
+                2019-02-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/" class="leancloud_visitors" data-flag-title="第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        <h2 id="3-1-调试处理（Tuning-process）"><a href="#3-1-调试处理（Tuning-process）" class="headerlink" title="3.1 调试处理（Tuning process）"></a>3.1 调试处理（Tuning process）</h2><p>深度神经网络需要调试的超参数（Hyperparameters）包括：</p>
+<ul>
+<li><script type="math/tex">\alpha</script><strong>：学习因子</strong></li>
+<li><script type="math/tex">\beta</script><strong>：动量梯度下降因子</strong></li>
+<li><script type="math/tex">\beta_1,\beta_2,\varepsilon</script><strong>：Adam算法参数</strong></li>
+<li><strong>#layers：神经网络层数</strong></li>
+<li><strong>#hidden units：各隐藏层神经元个数</strong></li>
+<li><strong>learning rate decay：学习因子下降参数</strong></li>
+<li><strong>mini-batch size：批量训练样本包含的样本个数</strong></li>
+</ul>
+<a id="more"></a>
+<p>学习因子<script type="math/tex">\alpha</script>是最重要的超参数，也是需要重点调试的超参数。动量梯度下降因子<script type="math/tex">\beta</script>、各隐藏层神经元个数#hidden units和mini-batch size的重要性仅次于,然后就是神经网络层数#layers和学习因子下降参数learning rate decay。最后，Adam算法的三个参数<script type="math/tex">\beta_1,\beta_2,\varepsilon</script>一般常设置为0.9，0.999和<script type="math/tex">10^{-8}</script></p>
+<p>传统的机器学习中，对每个参数等距离选取任意个数的点，分别使用不同点对应的参数组合进行训练，最后根据验证集上的表现好坏来选定最佳的参数。例如有两个待调试的参数，分别在每个参数上选取5个点，这样构成了5x5=25中参数组合：</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-69.png" alt="upload successful"></p>
+<blockquote>
+<p>这种做法在参数比较少的时候效果较好</p>
+</blockquote>
+<p>深度神经网络模型中是使用随机选择。随机选择25个点，作为待调试的超参数：</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-70.png" alt="upload successful">)</p>
+<p>随机化选择参数是为了尽可能地得到更多种参数组合。如果使用均匀采样，每个参数只有5种情况；而使用随机采样的话，每个参数有25种可能的情况，更可能得到最佳的参数组合</p>
+<p>另外一个好处是对重要性不同的参数之间的选择效果更好。假设hyperparameter1为<script type="math/tex">\alpha</script>，hyperparameter2为<script type="math/tex">\varepsilon</script>，显然二者的重要性是不一样的。如果使用第一种均匀采样的方法，<script type="math/tex">\varepsilon</script>的影响很小，相当于只选择了5个<script type="math/tex">\alpha</script>值。而如果使用第二种随机采样的方法，<script type="math/tex">\varepsilon</script>和<script type="math/tex">\alpha</script>都有可能选择25种不同值。这大大增加了<script type="math/tex">\alpha</script>调试的个数，更有可能选择到最优值</p>
+<p>在实际应用中完全不知道哪个参数更加重要的情况下，随机采样的方式能有效解决这一问题，但是均匀采样做不到这点</p>
+<p>随机采样之后，可能得到某些区域模型的表现较好。为了得到更精确的最佳参数，继续对选定的区域进行由粗到细的采样（coarse to fine sampling scheme）。就是放大表现较好的区域，对此区域做更密集的随机采样</p>
+<p>如对下图中右下角的方形区域再做25点的随机采样，以获得最佳参数：</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-71.png" alt="upload successful"></p>
+<h2 id="3-2-为超参数选择合适的范围（Using-an-appropriate-scale-to-pick-hyperparameters）"><a href="#3-2-为超参数选择合适的范围（Using-an-appropriate-scale-to-pick-hyperparameters）" class="headerlink" title="3.2 为超参数选择合适的范围（Using an appropriate scale to pick hyperparameters）"></a>3.2 为超参数选择合适的范围（Using an appropriate scale to pick hyperparameters）</h2><p>随机取值并不是在有效范围内的随机均匀取值，而是选择合适的标尺，用于探究这些超参数</p>
+<p>对于超参数#layers和#hidden units，都是正整数，是可以进行均匀随机采样的，即超参数每次变化的尺度都是一致</p>
+<p>对于某些超参数，可能需要非均匀随机采样（即非均匀刻度尺）。例如超参数<script type="math/tex">\alpha</script>，待调范围是[0.0001, 1]。如果使用均匀随机采样，90%的采样点分布在[0.1, 1]之间，只有10%分布在[0.0001, 0.1]之间。而最佳的<script type="math/tex">\alpha</script>值可能主要分布在[0.0001, 0.1]之间，因此更应在区间[0.0001, 0.1]内细分更多刻度</p>
+<p>通常的做法是将linear scale转换为log scale，将均匀尺度转化为非均匀尺度，然后再在log scale下进行均匀采样。这样，[0.0001, 0.001]，[0.001, 0.01]，[0.01, 0.1]，[0.1, 1]各个区间内随机采样的超参数个数基本一致，扩大了之前[0.0001, 0.1]区间内采样值个数</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-72.png" alt="upload successful"></p>
+<p>如果线性区间为[a, b]，令m=log(a)，n=log(b)，则对应的log区间为[m,n]。对log区间的[m,n]进行随机均匀采样，得到的采样值r，最后反推到线性区间，即<script type="math/tex">10^r</script>.<script type="math/tex">10^r</script>是最终采样的超参数。代码为：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">m = np.log10(a)</span><br><span class="line">n = np.log10(b)</span><br><span class="line">r = np.random.rand()</span><br><span class="line">r = m + (n-m)*r</span><br><span class="line">r = np.power(<span class="number">10</span>,r)</span><br></pre></td></tr></table></figure>
+<p>动量梯度因子<script type="math/tex">\beta</script>在超参数调试也需要进行非均匀采样。一般<script type="math/tex">\beta</script>的取值范围在[0.9, 0.999]之间，1−<script type="math/tex">\beta</script>的取值范围在[0.001, 0.1]。那么直接对1−<script type="math/tex">\beta</script>在[0.001, 0.1]区间内进行log变换</p>
+<p>为什么<script type="math/tex">\beta</script>也需要向<script type="math/tex">\alpha</script>那样做非均匀采样：</p>
+<p>假设<script type="math/tex">\beta</script>从0.9000变化为0.9005，那么<script type="math/tex">\frac{1}{1-\beta}</script>基本没有变化。但假设β从0.9990变化为0.9995，那么<script type="math/tex">\frac{1}{1-\beta}</script>前后差别1000。<script type="math/tex">\beta</script>越接近1，指数加权平均的个数越多，变化越大。所以对<script type="math/tex">\beta</script>接近1的区间，应该采集得更密集一些</p>
+<h2 id="3-3-超参数训练的实践：-Pandas-VS-Caviar（Hyperparameters-tuning-in-practice-Pandas-vs-Caviar）"><a href="#3-3-超参数训练的实践：-Pandas-VS-Caviar（Hyperparameters-tuning-in-practice-Pandas-vs-Caviar）" class="headerlink" title="3.3 超参数训练的实践： Pandas VS Caviar（Hyperparameters tuning in practice: Pandas vs. Caviar）"></a>3.3 超参数训练的实践： Pandas VS Caviar（Hyperparameters tuning in practice: Pandas vs. Caviar）</h2><p>经过调试选择完最佳的超参数不是一成不变的，一段时间之后（例如一个月），需要根据新的数据和实际情况，再次调试超参数，以获得实时的最佳模型</p>
+<p>在训练深度神经网络时，一种情况是有庞大的数据组，但没有许多计算资源或足够的 CPU 和<br>GPU 的前提下，只能对一个模型进行训练，调试不同的超参数，使得这个模型有最佳的表现。称之为Babysitting one model。另外一种情况是可以对多个模型同时进行训练，每个模型上调试不同的超参数，根据表现情况，选择最佳的模型。称之为Training many models in parallel</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-73.png" alt="upload successful"></p>
+<p>第一种情况只使用一个模型，类比做Panda approach；第二种情况同时训练多个模型，类比做Caviar approach。使用哪种模型是由计算资源、计算能力所决定的。一般来说，对于非常复杂或者数据量很大的模型，使用Panda approach更多一些</p>
+<h2 id="3-4-归一化网络的激活函数（-Normalizing-activations-in-a-network）"><a href="#3-4-归一化网络的激活函数（-Normalizing-activations-in-a-network）" class="headerlink" title="3.4 归一化网络的激活函数（ Normalizing activations in a network）"></a>3.4 归一化网络的激活函数（ Normalizing activations in a network）</h2><p>在神经网络中，第<script type="math/tex">l</script>层隐藏层的输入就是第<script type="math/tex">l-1</script>层隐藏层的输出<script type="math/tex">A^{[l-1]}</script>。对<script type="math/tex">A^{[l-1]}</script>进行标准化处理，从原理上来说可以提高<script type="math/tex">W^{[l]}</script>和<script type="math/tex">b^{[l]}</script>的训练速度和准确度。这种对各隐藏层的标准化处理就是Batch Normalization。一般是对<script type="math/tex">Z^{[l-1]}</script>进行标准化处理而不是<script type="math/tex">A^{[l-1]}</script></p>
+<p>Batch Normalization对第<script type="math/tex">l</script>层隐藏层的输入<script type="math/tex">Z^{[l-1]}</script>做如下标准化处理，忽略上标<script type="math/tex">[l-1]</script>：</p>
+<script type="math/tex; mode=display">
+\mu=\frac1m\sum_iz^{(i)}</script><script type="math/tex; mode=display">
+\sigma^2=\frac1m\sum_i(z_i-\mu)^2</script><script type="math/tex; mode=display">
+z^{(i)}_{norm}=\frac{z^{(i)}-\mu}{\sqrt{\sigma^2+\varepsilon}}</script><p>m是单个mini-batch包含样本个数，ε是为了防止分母为零，可取值<script type="math/tex">10^{-8}</script>。使得该隐藏层的所有输入<script type="math/tex">z^{(i)}</script>均值为0，方差为1</p>
+<p>大部分情况下并不希望所有的<script type="math/tex">z^{(i)}</script>均值都为0，方差都为1，也不太合理。通常需要对<script type="math/tex">z^{(i)}</script>进行进一步处理：</p>
+<script type="math/tex; mode=display">
+\tilde z^{(i)}=\gamma\cdot z^{(i)}_{norm}+\beta</script><p>$\gamma$和<script type="math/tex">\beta</script>是learnable parameters，可以通过梯度下降等算法求得。<script type="math/tex">\gamma</script>和<script type="math/tex">\beta</script>是让<script type="math/tex">\tilde z^{(i)}</script>的均值和方差为任意值，只需调整其值。如：</p>
+<script type="math/tex; mode=display">
+\gamma=\sqrt{\sigma^2+\varepsilon},\ \ \beta=u</script><p>则<script type="math/tex">\tilde z^{(i)}=z^{(i)}</script>，即identity function。设置<script type="math/tex">\gamma</script>和<script type="math/tex">\beta</script>为不同的值，可以得到任意的均值和方差</p>
+<p>通过Batch Normalization，对隐藏层的各个<script type="math/tex">z^{[l](i)}</script>进行标准化处理，得到<script type="math/tex">\tilde z^{[l](i)}</script>，替代<script type="math/tex">z^{[l](i)}</script></p>
+<p>输入的标准化处理Normalizing inputs和隐藏层的标准化处理Batch Normalization是有区别的。Normalizing inputs使所有输入的均值为0，方差为1。而Batch Normalization可使各隐藏层输入的均值和方差为任意值。从激活函数的角度来说，如果各隐藏层的输入均值在靠近0的区域即处于激活函数的线性区域，这样不利于训练好的非线性神经网络，得到的模型效果也不会太好</p>
+<h2 id="3-5-将-Batch-Norm-拟合进神经网络（Fitting-Batch-Norm-into-a-neural-network）"><a href="#3-5-将-Batch-Norm-拟合进神经网络（Fitting-Batch-Norm-into-a-neural-network）" class="headerlink" title="3.5 将 Batch Norm 拟合进神经网络（Fitting Batch Norm into a neural network）"></a>3.5 将 Batch Norm 拟合进神经网络（Fitting Batch Norm into a neural network）</h2><p>前向传播的计算流程：</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-74.png" alt="upload successful"></p>
+<p><strong>实现梯度下降：</strong></p>
+<p>for t = 1 … num （这里num 为Mini Batch 的数量）：</p>
+<ul>
+<li><p>在每一个<script type="math/tex">X^t</script> 上进行前向传播（forward prop）的计算：</p>
+</li>
+<li><p>在每个隐藏层都用 Batch Norm 将<script type="math/tex">z^{[l]}</script>替换为</p>
+<script type="math/tex; mode=display">\widetilde{z}^{[l]}</script></li>
+<li><p>使用反向传播（Back prop）计算各个参数的梯度：<script type="math/tex">dw^{[l]},d\gamma^{[l]},d\beta^{[l]}</script></p>
+</li>
+<li><p>更新参数：</p>
+</li>
+<li><script type="math/tex; mode=display">w^{[l]}:=w^{[l]}-\alpha dw^{[l]}</script></li>
+<li><script type="math/tex; mode=display">\gamma^{[l]}:=\gamma^{[l]}-\alpha d\gamma^{[l]}</script></li>
+<li><script type="math/tex; mode=display">\beta^{[l]}:=\beta^{[l]}-\alpha d\beta^{[l]}</script></li>
+</ul>
+<p>经过Batch Norm的作用，整体流程如下：</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-76.png" alt="upload successful">)</p>
+<p>Batch Norm对各隐藏层<script type="math/tex">Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}</script>有去均值的操作，Batch Norm 要做的就是将<script type="math/tex">z^{[l]}</script>归一化，结果成为均值为0，标准差为1的分布，再由<script type="math/tex">\beta</script> 和<script type="math/tex">\gamma</script> 进行重新的分布缩放，意味着无论<script type="math/tex">b^{[l]}</script> 值为多少，在这个过程中都会被减去，不会再起作用。所以常数项<script type="math/tex">b^{[l]}</script>可以消去，其数值效果完全可以由<script type="math/tex">\widetilde{z}^{[l]}</script>中的<script type="math/tex">\beta</script>来实现。在使用Batch Norm的时候，可以忽略各隐藏层的常数项<script type="math/tex">b^{[l]}</script>。在使用梯度下降算法时，分别对<script type="math/tex">W^{[l]}</script>,<script type="math/tex">\beta^{[l]}</script>和<script type="math/tex">\gamma^{[l]}</script>进行迭代更新</p>
+<p>除了传统的梯度下降算法之外，还可以使用动量梯度下降、RMSprop或者Adam等优化算法</p>
+<h2 id="3-6-Batch-Norm-为什么奏效？（Why-does-Batch-Norm-work-）"><a href="#3-6-Batch-Norm-为什么奏效？（Why-does-Batch-Norm-work-）" class="headerlink" title="3.6 Batch Norm 为什么奏效？（Why does Batch Norm work?）"></a>3.6 Batch Norm 为什么奏效？（Why does Batch Norm work?）</h2><h3 id="Batch-Norm-可以加速神经网络训练的原因："><a href="#Batch-Norm-可以加速神经网络训练的原因：" class="headerlink" title="Batch Norm 可以加速神经网络训练的原因："></a>Batch Norm 可以加速神经网络训练的原因：</h3><ul>
+<li>和输入层的输入特征进行归一化，从而改变Cost function的形状，使得每一次梯度下降都可以更快的接近函数的最小值点，从而加速模型训练过程的原理有相同的道理，只是Batch Norm是将各个隐藏层的激活函数的激活值进行的归一化，并调整到另外的分布</li>
+<li>Batch Norm 可以使权重比网络更滞后或者更深层</li>
+</ul>
+<h4 id="判别是否是猫的分类问题："><a href="#判别是否是猫的分类问题：" class="headerlink" title="判别是否是猫的分类问题："></a>判别是否是猫的分类问题：</h4><p>假设第一训练样本的集合中的猫均是黑猫，而第二个训练样本集合中的猫是各种颜色的猫。如果将第二个训练样本直接输入到用第一个训练样本集合训练出的模型进行分类判别，在很大程度上无法保证能够得到很好的判别结果</p>
+<p>因为训练样本不具有一般性（即不是所有的猫都是黑猫），第一个训练集合中均是黑猫，而第二个训练集合中各色猫均有，虽然都是猫，但是很大程度上样本的分布情况是不同的，无法保证模型可以仅仅通过黑色猫的样本就可以完美的找到完整的决策边界</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-77.png" alt="upload successful"></p>
+<p>这种训练样本（黑猫）和测试样本（猫）分布的变化称之为<strong>covariate shift</strong>。如下图所示：</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-78.png" alt="upload successful"></p>
+<p>深度神经网络中，covariate shift会导致模型预测效果变差，重新训练的模型各隐藏层的<script type="math/tex">W^{[l]}</script>和<script type="math/tex">B^{[l]}</script>均产生偏移、变化。而Batch Norm的作用恰恰是减小covariate shift的影响，让模型变得更加健壮，鲁棒性更强</p>
+<p>使用深层神经网络，使用Batch Norm，该模型对花猫的识别能力应该也是不错</p>
+<h3 id="Batch-Norm-解决Covariate-shift的问题"><a href="#Batch-Norm-解决Covariate-shift的问题" class="headerlink" title="Batch Norm 解决Covariate shift的问题"></a>Batch Norm 解决Covariate shift的问题</h3><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-79.png" alt="upload successful">)</p>
+<p>网络的目的是通过不断的训练，最后输出一个更加接近于真实值的<script type="math/tex">\hat y</script>，以第2个隐藏层为输入来看：</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-80.png" alt="upload successful"><br><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-81.png" alt="upload successful"></p>
+<p>对于后面的神经网络，是以第二层隐层的输出值<script type="math/tex">a^{[2]}</script>作为输入特征的，通过前向传播得到最终的<script type="math/tex">\hat y</script>，但是网络还有前面两层，由于训练过程，参数<script type="math/tex">w^{[1]},w^{[2]}</script>是不断变化的，对于后面的网络，<script type="math/tex">a^{[2]}</script>的值也是处于不断变化之中，所以就有了Covariate shift的问题</p>
+<p>如果对<script type="math/tex">z^{[2]}</script>使用了Batch Norm，即使其值不断的变化，其均值和方差却会保持。Batch Norm的作用是限制前层的参数更新导致对后面网络数值分布程度的影响，使得输入后层的数值变得更加稳定。Batch Norm减少了各层<script type="math/tex">W^{[l]},B^{[l]}</script>之间的耦合性，让各层更加独立，实现自我训练学习的效果。如果输入发生covariate shift，Batch Norm的作用是对个隐藏层输出<script type="math/tex">Z^{[l]}</script>进行均值和方差的归一化处理，让<script type="math/tex">W^{[l]},B^{[l]}</script>更加稳定，使得原来的模型也有不错的表现</p>
+<p>Batch Norm 削弱了前层参数与后层参数之间的联系，使得网络的每层都可以自己进行学习，相对其他层有一定的独立性，有助于加速整个网络的学习</p>
+<h2 id="Batch-Norm-正则化效果"><a href="#Batch-Norm-正则化效果" class="headerlink" title="Batch Norm 正则化效果"></a>Batch Norm 正则化效果</h2><ul>
+<li>使用Mini-batch梯度下降，每次计算均值和偏差都是在一个Mini-batch上进行计算，而不是在整个数据样集上。这样在均值和偏差上带来一些比较小的噪声。那么用均值和偏差计算得到的<script type="math/tex">\widetilde{z}^{[l]}</script>也将会加入一定的噪声</li>
+<li>和Dropout相似，其在每个隐藏层的激活值上加入了一些噪声，（Dropout以一定的概率给神经元乘上0或者1）。Batch Norm 也有轻微的正则化效果</li>
+<li>如果使用Batch Norm ，使用大的Mini-batch如256，相比使用小的Mini-batch如64，会引入更少的噪声，会减少正则化的效果</li>
+<li>Batch Norm的正则化效果比较微弱，正则化不是Batch Norm的主要功能</li>
+</ul>
+<h2 id="3-7-测试时的-Batch-Norm（Batch-Norm-at-test-time）"><a href="#3-7-测试时的-Batch-Norm（Batch-Norm-at-test-time）" class="headerlink" title="3.7 测试时的 Batch Norm（Batch Norm at test time）"></a>3.7 测试时的 Batch Norm（Batch Norm at test time）</h2><p>训练过程中Batch Norm的主要过程：</p>
+<script type="math/tex; mode=display">
+\mu=\frac1m\sum_iz^{(i)}</script><script type="math/tex; mode=display">
+\sigma^2=\frac1m\sum_i(z^{(i)}-\mu)^2</script><script type="math/tex; mode=display">
+z_{norm}^{(i)}=\frac{z^{(i)}-\mu}{\sqrt{\sigma^2+\varepsilon}}</script><script type="math/tex; mode=display">
+\tilde z^{(i)}=\gamma\cdot z^{(i)}_{norm}+\beta</script><p>$\mu$和<script type="math/tex">\sigma^2</script>是对单个mini-batch中所有m个样本求得的。在测试过程中，如果只有一个样本，求其均值和方差是没有意义的，就需要对<script type="math/tex">\mu</script>和<script type="math/tex">\sigma^2</script>进行估计。实际应用是使用指数加权平均（exponentially weighted average）的方法来预测测试过程单个样本的<script type="math/tex">\mu</script>和<script type="math/tex">\sigma^2</script></p>
+<p>对于第<script type="math/tex">l</script>层隐藏层，在训练的过程中, ，对于训练集的Mini-batch，考虑所有mini-batch在该隐藏层下的<script type="math/tex">\mu^{[l]}</script>和<script type="math/tex">{\sigma^{2}}^{[l]}</script>，使用指数加权平均，当训练结束的时候，得到指数加权平均后当前单个样本的<script type="math/tex">\mu^{[l]}</script>和<script type="math/tex">{\sigma^{2}}^{[l]}</script>,这些值直接用于Batch Norm公式的计算，用以对测试样本进行预测，再利用训练过程得到的<script type="math/tex">\gamma</script>和<script type="math/tex">\beta</script>计算出各层的<script type="math/tex">\tilde z^{(i)}</script>值</p>
+<h2 id="3-8-Softmax-回归（Softmax-regression）"><a href="#3-8-Softmax-回归（Softmax-regression）" class="headerlink" title="3.8 Softmax 回归（Softmax regression）"></a>3.8 Softmax 回归（Softmax regression）</h2><p>Softmax 回归，能在识别多种分类中的一个时做出预测，对于多分类问题，用C表示种类个数，神经网络中输出层就有C个神经元，即<script type="math/tex">n^{[L]}=C</script>，每个神经元的输出依次对应属于该类的概率，即<script type="math/tex">P(y=c|x)</script>，处理多分类问题一般使用Softmax回归模型</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-83.png" alt="upload successful"></p>
+<blockquote>
+<p>把猫做类 1，狗为类 2，小鸡 是类 3， 如果不属于以上任何一类， 就分到“其它”或者“以上均不符合”这一类，叫 做类 0</p>
+</blockquote>
+<p>用大写C表示输入会被分入的类别总个数,当有 4 个分类时，指示类别的数字，就是从 0 到C − 1( 0、 1、 2、 3)</p>
+<p>Softmax回归模型输出层的激活函数：</p>
+<script type="math/tex; mode=display">
+z^{[L]}=W^{[L]}a^{[L-1]}+b^{[L]}</script><script type="math/tex; mode=display">
+a^{[L]}_i=\frac{e^{z^{[L]}_i}}{\sum_{i=1}^Ce^{z^{[L]}_i}}</script><p>输出层每个神经元的输出<script type="math/tex">a^{[L]}_i</script>对应属于该类的概率，满足：</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^Ca^{[L]}_i=1</script><p>所有的<script type="math/tex">a^{[L]}_i</script>，即<script type="math/tex">\hat y</script>，维度为(C, 1)</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-84.png" alt="upload successful"></p>
+<p>在没有隐藏隐藏层的时候，直接对Softmax层输入样本的特点，则在不同数量的类别下，Sotfmax层的作用：</p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-85.png" alt="upload successful"></p>
+<p>图中的颜色显示了 Softmax 分类器的输出的阈值，输入的着色是基于三种输出中概率最高的那种，任何两个分类之间的决策边界都是线性的</p>
+<p>如果使用神经网络，特别是深层神经网络，可以得到更复杂、更精确的非线性模型</p>
+<h2 id="3-9-训练一个-Softmax-分类器（Training-a-Softmax-classifier）"><a href="#3-9-训练一个-Softmax-分类器（Training-a-Softmax-classifier）" class="headerlink" title="3.9 训练一个 Softmax 分类器（Training a Softmax classifier）"></a>3.9 训练一个 Softmax 分类器（Training a Softmax classifier）</h2><p>C=4，某个样本的预测输出<script type="math/tex">\hat y</script>和真实输出<script type="math/tex">y</script>：</p>
+<script type="math/tex; mode=display">
+\hat y=\left[
+\begin{matrix}
+0.3 \\
+0.2 \\
+0.1 \\
+0.4
+\end{matrix}
+\right]</script><script type="math/tex; mode=display">
+y=\left[
+\begin{matrix}
+0 \\
+1 \\
+0 \\
+0
+\end{matrix}
+\right]</script><p>从<script type="math/tex">\hat y</script>值来看，<script type="math/tex">P(y=4|x)=0.4</script>，概率最大，而真实样本属于第2类，该预测效果不佳</p>
+<p>定义softmax classifier的loss function为：</p>
+<script type="math/tex; mode=display">
+L(\hat y,y)=-\sum_{j=1}^4y_j\cdot log\ \hat y_j</script><p>$L(\hat y,y)$简化为：</p>
+<script type="math/tex; mode=display">
+L(\hat y,y)=-y_2\cdot log\ \hat y_2=-log\ \hat y_2</script><p>让<script type="math/tex">L(\hat y,y)</script>更小，就应该让<script type="math/tex">\hat y_2</script>越大越好。<script type="math/tex">\hat y_2</script>反映的是概率</p>
+<p>m个样本的cost function为：</p>
+<script type="math/tex; mode=display">
+J=\frac{1}{m}\sum_{i=1}^mL(\hat y,y)</script><p>预测输出向量<script type="math/tex">A^{[L]}</script>即<script type="math/tex">\hat Y</script>的维度为(4, m)</p>
+<p>softmax classifier的反向传播过程:</p>
+<p>先推导<script type="math/tex">dZ^{[L]}</script>：</p>
+<script type="math/tex; mode=display">
+da^{[L]}=-\frac{1}{a^{[L]}}</script><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-86.png" alt="upload successful"></p>
+<script type="math/tex; mode=display">
+\frac{\partial a^{[L]}}{\partial z^{[L]}}=\frac{\partial}{\partial z^{[L]}}\cdot (\frac{e^{z^{[L]}_i}}{\sum_{i=1}^Ce^{z^{[L]}_i}})=a^{[L]}\cdot (1-a^{[L]})</script><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-87.png" alt="upload successful"></p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-88.png" alt="upload successful"></p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-89.png" alt="upload successful"></p>
+<p>所有m个训练样本：</p>
+<script type="math/tex; mode=display">
+dZ^{[L]}=A^{[L]}-Y</script>
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+     
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+     
+  </div>
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>有钱能使鬼写作 л̵ʱªʱªʱª (ᕑᗢᓫา∗)˒</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="暴走 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpeg" alt="暴走 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i>
+
+ 深度学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/" rel="next" title="第四周：深层神经网络(Deep Neural Networks)(Course 1)">
+                <i class="fa fa-chevron-left"></i> 第四周：深层神经网络(Deep Neural Networks)(Course 1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/28/第二周：机器学习策略（2）-ML-Strategy-2-Course-2/" rel="prev" title="第二周：机器学习策略（2）(ML Strategy (2))(Course 3)">
+                第二周：机器学习策略（2）(ML Strategy (2))(Course 3) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/" data-title="第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)" data-url="https://www.baozouai.com/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+
+
+            
+              <img class="site-author-image" itemprop="image" src="/img/avatar.png" alt="暴走">
+            
+
+
+              <p class="site-author-name" itemprop="name">暴走</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<div class="aplayer" data-id="D89A1236EF4D99ED641FFD846F1A23AF" data-server="kugou " data-type="song" data-autoplay="false" data-mode="single"></div>
+<br>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/baozouai" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:baozouai@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-调试处理（Tuning-process）"><span class="nav-number">1.</span> <span class="nav-text">3.1 调试处理（Tuning process）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-为超参数选择合适的范围（Using-an-appropriate-scale-to-pick-hyperparameters）"><span class="nav-number">2.</span> <span class="nav-text">3.2 为超参数选择合适的范围（Using an appropriate scale to pick hyperparameters）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-超参数训练的实践：-Pandas-VS-Caviar（Hyperparameters-tuning-in-practice-Pandas-vs-Caviar）"><span class="nav-number">3.</span> <span class="nav-text">3.3 超参数训练的实践： Pandas VS Caviar（Hyperparameters tuning in practice: Pandas vs. Caviar）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-归一化网络的激活函数（-Normalizing-activations-in-a-network）"><span class="nav-number">4.</span> <span class="nav-text">3.4 归一化网络的激活函数（ Normalizing activations in a network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-将-Batch-Norm-拟合进神经网络（Fitting-Batch-Norm-into-a-neural-network）"><span class="nav-number">5.</span> <span class="nav-text">3.5 将 Batch Norm 拟合进神经网络（Fitting Batch Norm into a neural network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-Batch-Norm-为什么奏效？（Why-does-Batch-Norm-work-）"><span class="nav-number">6.</span> <span class="nav-text">3.6 Batch Norm 为什么奏效？（Why does Batch Norm work?）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Batch-Norm-可以加速神经网络训练的原因："><span class="nav-number">6.1.</span> <span class="nav-text">Batch Norm 可以加速神经网络训练的原因：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#判别是否是猫的分类问题："><span class="nav-number">6.1.1.</span> <span class="nav-text">判别是否是猫的分类问题：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Batch-Norm-解决Covariate-shift的问题"><span class="nav-number">6.2.</span> <span class="nav-text">Batch Norm 解决Covariate shift的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Batch-Norm-正则化效果"><span class="nav-number">7.</span> <span class="nav-text">Batch Norm 正则化效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-测试时的-Batch-Norm（Batch-Norm-at-test-time）"><span class="nav-number">8.</span> <span class="nav-text">3.7 测试时的 Batch Norm（Batch Norm at test time）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-Softmax-回归（Softmax-regression）"><span class="nav-number">9.</span> <span class="nav-text">3.8 Softmax 回归（Softmax regression）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9-训练一个-Softmax-分类器（Training-a-Softmax-classifier）"><span class="nav-number">10.</span> <span class="nav-text">3.9 训练一个 Softmax 分类器（Training a Softmax classifier）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">暴走</span>
+
+  
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共64.3k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+    
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+  <script type="text/javascript" color="255,0,0" opacity="0.5" zindex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"notes-iissnan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("S5fCBBMaimjEzLztiJKSBnbL-gzGzoHsz", "m3rlGieJoVqNqhc9YbnO52cM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.0.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.0.0"></script>
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":100,"height":150},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
