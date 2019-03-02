@@ -152,7 +152,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/838a6aeb35865f9cfecac8dc593b565b.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e78e4465af892d0965e2b0863263ef8c.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e6ed1aa3263107d4e189dd75adc060b4.png">
-<meta property="og:updated_time" content="2019-03-02T08:40:41.179Z">
+<meta property="og:updated_time" content="2019-03-02T14:43:22.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三周 目标检测（Object detection)(Course 4)">
 <meta name="twitter:description" content="3.1 目标定位（Object localization）">
@@ -454,7 +454,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T16:40:41+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T22:43:22+08:00">
                 2019-03-02
               </time>
             
@@ -581,10 +581,10 @@ L\left(\hat{y},y \right) = \left( \hat{y_1} - y_{1} \right)^{2} + \left(\hat{y_2
 <p>1.首先选定一个特定大小的窗口，将红色小方块输入卷积神经网络，卷积网络开始判断红色方框内有没有汽车</p>
 <p>[<br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2ac2ab6dcdcc0fe26a9833ff9da49bd2.png" alt></p>
 <p>2.滑动窗口目标检测算法继续处理第二个图像，红色方框稍向右滑动之后的区域，并输入给卷积网络，再次运行卷积网络，然后处理第三个图像，依次重复操作，直到这个窗口滑过图像的每一个角落</p>
-<p>[<br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c55f22f302899d5f9d77bef958465660.png" alt></p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c55f22f302899d5f9d77bef958465660.png" alt></p>
 <p>思路是以固定步幅移动窗口，遍历图像的每个区域，把这些剪切后的小图像输入卷积网络，对每个位置按0或1进行分类</p>
 <p>3.重复上述操作，选择一个更大的窗口，截取更大的区域，并输入给卷积神经网络处理，输出0或1</p>
-<p>[<br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/34507c03fbda16049faeb3caf075fe50.png" alt></p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/34507c03fbda16049faeb3caf075fe50.png" alt></p>
 <p>4.再以某个固定步幅滑动窗口，重复以上操作，遍历整个图像，输出结果</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f2b6d5bfedc5298160bc2628544e315c.png" alt></p>
 <p>5.第三次重复操作，选用更大的窗口</p>

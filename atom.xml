@@ -103,7 +103,7 @@
     <link href="https://www.baozouai.com/2019/02/28/%E7%AC%AC%E4%B8%89%E5%91%A8-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%EF%BC%88Object-detection-Course-4/"/>
     <id>https://www.baozouai.com/2019/02/28/第三周-目标检测（Object-detection-Course-4/</id>
     <published>2019-02-27T22:01:00.000Z</published>
-    <updated>2019-03-02T08:40:41.179Z</updated>
+    <updated>2019-03-02T14:43:22.874Z</updated>
     
     <summary type="html">
     
@@ -256,6 +256,26 @@
   </entry>
   
   <entry>
+    <title>第二周：优化算法 (Optimization algorithms)(Course 2)</title>
+    <link href="https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95-Optimization-algorithms-Course-2/"/>
+    <id>https://www.baozouai.com/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/</id>
+    <published>2019-02-27T11:20:37.000Z</published>
+    <updated>2019-02-27T15:42:22.759Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot;&gt;&lt;a href=&quot;#2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot; class=&quot;headerlink&quot; title=&quot;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&quot;&gt;&lt;/a&gt;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&lt;/h2&gt;&lt;p&gt;神经网络训练过程是同时对所有m个样本（称为batch）通过向量化计算方式进行的。如果m很大，训练速度会很慢，因为每次迭代都要对所有样本进进行求和运算和矩阵运算。这种梯度下降算法称为Batch Gradient Descent&lt;br&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>第一周：深度学习的实用层面(Practical aspects of Deep Learning)(Course 2)</title>
     <link href="https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B1%82%E9%9D%A2-Practical-aspects-of-Deep-Learning-Course-2/"/>
     <id>https://www.baozouai.com/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/</id>
@@ -270,26 +290,6 @@
 &lt;li&gt;每层含有多少个隐藏单元&lt;/li&gt;
 &lt;li&gt;学习速率是多少&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;各层采用哪些激活函数&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第二周：优化算法 (Optimization algorithms)(Course 2)</title>
-    <link href="https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95-Optimization-algorithms-Course-2/"/>
-    <id>https://www.baozouai.com/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/</id>
-    <published>2019-02-27T11:20:37.000Z</published>
-    <updated>2019-02-27T15:42:22.759Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot;&gt;&lt;a href=&quot;#2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot; class=&quot;headerlink&quot; title=&quot;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&quot;&gt;&lt;/a&gt;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&lt;/h2&gt;&lt;p&gt;神经网络训练过程是同时对所有m个样本（称为batch）通过向量化计算方式进行的。如果m很大，训练速度会很慢，因为每次迭代都要对所有样本进进行求和运算和矩阵运算。这种梯度下降算法称为Batch Gradient Descent&lt;br&gt;
     
     </summary>
     
