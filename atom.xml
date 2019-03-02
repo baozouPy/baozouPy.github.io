@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.baozouai.com/"/>
-  <updated>2019-03-02T09:18:16.622Z</updated>
+  <updated>2019-03-02T12:06:30.019Z</updated>
   <id>https://www.baozouai.com/</id>
   
   <author>
@@ -21,12 +21,12 @@
     <link href="https://www.baozouai.com/2019/02/28/%E7%AC%AC%E4%B8%89%E5%91%A8-%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%EF%BC%88Sequence-models-Attention-mechanism%EF%BC%89-Course-5/"/>
     <id>https://www.baozouai.com/2019/02/28/第三周-序列模型和注意力机制（Sequence-models-Attention-mechanism）-Course-5/</id>
     <published>2019-02-27T22:18:00.000Z</published>
-    <updated>2019-03-02T09:18:16.622Z</updated>
+    <updated>2019-03-02T12:06:30.019Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;3-1-基础模型（Basic-Models）&quot;&gt;&lt;a href=&quot;#3-1-基础模型（Basic-Models）&quot; class=&quot;headerlink&quot; title=&quot;3.1 基础模型（Basic Models）&quot;&gt;&lt;/a&gt;3.1 基础模型（Basic Models）&lt;/h2&gt;&lt;h3 id=&quot;机器翻译&quot;&gt;&lt;a href=&quot;#机器翻译&quot; class=&quot;headerlink&quot; title=&quot;机器翻译&quot;&gt;&lt;/a&gt;机器翻译&lt;/h3&gt;&lt;p&gt;用&lt;script type=&quot;math/tex&quot;&gt;x^{&lt;1&gt;}&lt;/script&gt; 到&lt;script type=&quot;math/tex&quot;&gt;x^{&lt; 5&gt;}&lt;/script&gt;表示输入句子的单词，用&lt;script type=&quot;math/tex&quot;&gt;y^{&lt;1&gt;}&lt;/script&gt;到&lt;script type=&quot;math/tex&quot;&gt;y^{&lt;6&gt;}&lt;/script&gt;表示输出句子的单词：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png&quot; alt&gt;&lt;br&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/2d41c0090fd3d71e6f28eade62b7c97b.png&quot; alt&gt;&lt;br&gt;
     
     </summary>
     
