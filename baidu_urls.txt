@@ -1,6 +1,11 @@
+https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-3/
+https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-5/
+https://www.baozouai.com/2019/03/04/福机器学习笔记-Week-4/
+https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-1/
+https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-2/
 https://www.baozouai.com/2019/02/28/第三周-序列模型和注意力机制（Sequence-models-Attention-mechanism）-Course-5/
-https://www.baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/
 https://www.baozouai.com/2019/02/28/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/
+https://www.baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/
 https://www.baozouai.com/2019/02/28/第四周-特殊应用：人脸识别和神经风格转换（Special-applications-Face-recognition-Neural-style-transfer）-Course-4/
 https://www.baozouai.com/2019/02/28/第三周-目标检测（Object-detection-Course-4/
 https://www.baozouai.com/2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/
@@ -15,4 +20,3 @@ https://www.baozouai.com/2019/02/27/第三周：浅层神经网络-Shallow-neura
 https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/
 https://www.baozouai.com/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/
 https://www.baozouai.com/2019/02/27/第一门课-神经网络和深度学习-Neural-Networks-and-Deep-Learning/
-https://www.baozouai.com/2019/02/23/machine learning/

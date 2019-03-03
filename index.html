@@ -365,6 +365,1636 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="暴走">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暴走的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/04/斯坦福机器学习笔记-Week-3/" itemprop="url">斯坦福机器学习笔记(Week  3)</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T11:52:00Z">
+                2019-03-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T20:04:23+08:00">
+                2019-03-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/04/斯坦福机器学习笔记-Week-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/03/04/斯坦福机器学习笔记-Week-3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/04/斯坦福机器学习笔记-Week-3/" class="leancloud_visitors" data-flag-title="斯坦福机器学习笔记(Week  3)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        
+          
+            <h2 id="四-、逻辑回归-Logistic-Regression）"><a href="#四-、逻辑回归-Logistic-Regression）" class="headerlink" title="四 、逻辑回归( Logistic Regression）"></a>四 、逻辑回归( Logistic Regression）</h2><h3 id="4-1-分类问题"><a href="#4-1-分类问题" class="headerlink" title="4.1 分类问题"></a>4.1 分类问题</h3><p>将<strong>因变量</strong>(dependant variable)可能属于的两个类分别称为<strong>负向类</strong>（negativeclass）和<strong>正向类</strong>（positiveclass），则因变量y∈{0,1}</p>
+<p>其中 0 表示负向类，1 表示正向类</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/55import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/56import.png" alt></p>
+<p>逻辑回归算法是分类算法，性质是：它的输出值永远在 0 到 1 之间</p>
+<h3 id="4-2-假说表示"><a href="#4-2-假说表示" class="headerlink" title="4.2 假说表示"></a>4.2 假说表示</h3><p>逻辑回归模型的假设是：</p>
+<script type="math/tex; mode=display">
+h_\theta(x)=g(\theta^TX)</script><p>其中：</p>
+<p>X代表特征向量</p>
+<p>g代表<strong>逻辑函数</strong>（逻辑函数）是一个常用的逻辑函数为S形函数（Sigmoid函数）</p>
+<p>公式为：</p>
+<script type="math/tex; mode=display">
+g(z)=\frac{1}{1+e^{-z}}</script><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span><span class="params">(z)</span>:</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span> / (<span class="number">1</span> + np.exp(-z))</span><br></pre></td></tr></table></figure>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/11import.png" alt></p>
+<p>逻辑回归模型的假设：</p>
+<script type="math/tex; mode=display">
+h_\theta(x)=\frac{1}{1+e^{-\theta^TX}}</script><p>$h_\theta(x)$的作用是，对于给定的输入变量，根据选择的参数计算输出变量=1的可能性（估计的概率），即：</p>
+<script type="math/tex; mode=display">
+h_\theta(x)=P(y=1|x;\theta)</script><p>例如，如果对于给定的x，通过已经确定的参数计算得出<script type="math/tex">h_\theta(x)</script>= 0.7，则表示有70％的几率y为正向类，相应地y为负向类的几率1-0.7 = 0.3</p>
+<h3 id="4-3决策边界"><a href="#4-3决策边界" class="headerlink" title="4.3决策边界"></a>4.3决策边界</h3><p>参数<script type="math/tex">\theta</script>是向量[-3 1 1]。当<script type="math/tex">-3+x_1+x_2</script>大于等于0，即<script type="math/tex">x_1+x_2</script>大于等于3时，模型将预测y = 1绘制直线<script type="math/tex">x_1+x_2</script>= 3，这条线便是模型的分界线，称为<strong>决策边界</strong>，将预测为1的区域和预测为0的区域分隔开</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/67import.png" alt></p>
+<p>需要用曲线才能分隔y = 0的区域和y = 1的区域：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/68import.png" alt></p>
+<p>假设参数：$h_\theta(x)=g(\theta_0+\theta_1x_1+\theta_2x_2+\theta_3x_2^2+\theta_4x_2^2)$是[-1 0 0 1 1]，则得到的判定边界恰好是圆点在原点且半径为1的圆形</p>
+<p>可以用非常复杂的模型来适应非常复杂形状的<strong>决策边界</strong></p>
+<p><strong>决策边界</strong>不是训练集的属性，而是假设本身及其参数的属性</p>
+<h3 id="4-4-代价函数"><a href="#4-4-代价函数" class="headerlink" title="4.4 代价函数"></a>4.4 代价函数</h3><p>线性回归模型，定义的代价函数是所有模型误差的平方和</p>
+<p>当将<script type="math/tex">h_\theta(x)\frac{1}{1+e^{-\theta^Tx}}</script>代入到这样定义了的代价函数中时，得到的代价函数将是一个非凸函数（non-convex function）</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/57import.png" alt></p>
+<p>代价函数有许多局部最小值，这将影响梯度下降算法寻找全局最小值</p>
+<p>重新定义逻辑回归的代价函数为：</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{m}\sum_{i=1}^{m}Cost(h_\theta(x^{(i)}),y^{(i)})</script><p>其中</p>
+<script type="math/tex; mode=display">
+Cost(h_\theta(x),y) =\begin{cases}
+-log(h_\theta(x)) &\text{if } \quad y=1\\
+-log(1-h_\theta(x)) &\text{if } \quad y=0
+\end{cases}.</script><p>当实际的 y=1 且<script type="math/tex">h_\theta(x)</script>也为 1 时误差为0，当y=1 但<script type="math/tex">h_\theta(x)</script>不为 1 时误差随着<script type="math/tex">h_\theta(x)</script>的变小而变大</p>
+<p>当实际的 y=0 且<script type="math/tex">h_\theta(x)</script>也为0 时代价为 0，当 y=0 但<script type="math/tex">h_\theta(x)</script>不为 0 时误差随着<script type="math/tex">h_\theta(x)</script>的变大而变大</p>
+<p>简化如下：</p>
+<script type="math/tex; mode=display">
+Cost(h_\theta(x),y)=-ylog(h_\theta(x))-(1-y)log(1-h_\theta(x))</script><p>代入代价函数得到：</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{m}\sum_{i=1}^{m}[-y^{(i)}log(h_\theta(x^{(i)}))-(1-y^{(i)})*log(1-h_\theta(x^{(i)}))]</script><p>即：</p>
+<script type="math/tex; mode=display">
+J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]</script><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cost</span><span class="params">(theta,X,y)</span>:</span></span><br><span class="line">theta=np.matrix(theta)</span><br><span class="line">y=np.matrix(y)</span><br><span class="line">first=np.multiply(-y,np.log(sigmoid(X*theta.T)))</span><br><span class="line">second=np.multiply((<span class="number">1</span>-y),np.log(<span class="number">1</span>-sigmoid(X*theta.T)))</span><br><span class="line"><span class="keyword">return</span> np.sum(first-second)/(len(X))</span><br></pre></td></tr></table></figure>
+<p>用梯度下降算法来求得能使代价函数最小的参数:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Repeat&\quad \{\\
+\theta_j&=\theta_j-\alpha\frac{\partial }{\partial \theta_j}J(\theta)\\
+(&simultaneously\quad update\quad all\quad \theta_j)\\\}
+\end{aligned}</script><p>求导后得到：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Repeat&\quad \{\\
+\theta_j&=\theta_j-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\\
+(&simultaneously\quad update\quad all\quad \theta_j)\\\}
+\end{aligned}</script><p>代价函数<script type="math/tex">J(\theta)</script>会是一个凸函数，并且没有局部最优值</p>
+<p>推导过程：</p>
+<script type="math/tex; mode=display">
+J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]</script><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/64import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/65import.png" alt></p>
+<p>注：虽然得到的梯度下降算法表面上看上去与线性回归的梯度下降算法一样，但是这里的<script type="math/tex">h_\theta(x)=g(\theta^TX)</script>与线性回归中不同，所以实际上是不一样的。在运行梯度下降算法之前，进行特征缩放依旧是非常必要的</p>
+<h3 id="4-5-简化的成本函数和梯度下降"><a href="#4-5-简化的成本函数和梯度下降" class="headerlink" title="4.5 简化的成本函数和梯度下降"></a>4.5 简化的成本函数和梯度下降</h3><p>逻辑回归的代价函数：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Cost(h_\theta(x),y)=&-ylog(h_\theta(x))-(1-y)log(1-h_\theta(x)) \\ =&-\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]
+\end{aligned}</script><p>最小化代价函数的方法，是使用<strong>梯度下降法(gradient descent)</strong></p>
+<p>代价函数：</p>
+<script type="math/tex; mode=display">
+J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]</script><p>要最小化这个关于<script type="math/tex">\theta</script>的函数值，这是通常用的梯度下降法的模板</p>
+<p>求导后得到：</p>
+<p>线性回归假设函数：</p>
+<script type="math/tex; mode=display">
+h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n</script><p>逻辑函数假设函数： </p>
+<script type="math/tex; mode=display">
+h_\theta(x)=\frac{1}{1+e^{-\theta^TX}}</script><p>即使更新参数的规则看起来基本相同，但由于假设的定义发生了变化，所以逻辑函数的梯度下降，跟线性回归的梯度下降实际上是两个完全不同的东西</p>
+<p>如果特征范围差距很大的话，应用特征缩放的方法，让逻辑回归中的梯度下降收敛更快</p>
+<h3 id="4-6-高级优化"><a href="#4-6-高级优化" class="headerlink" title="4.6 高级优化"></a>4.6 高级优化</h3><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/18import.png" alt></p>
+<p>更高级的优化算法:共轭梯度法 BFGS (变尺度法) 和 L-BFGS (限制变尺度法)</p>
+<p>优点：</p>
+<ol>
+<li>不需要手动选择学习率 <script type="math/tex">\alpha</script></li>
+<li>算法有一个智能的内部循环,称为<strong>线性搜索(line search)算法</strong>，可以自动尝试不同的学习速率 <script type="math/tex">\alpha</script>，并自动选择一个好的学习速率 <script type="math/tex">\alpha</script>，甚至可以为每次迭代选择不同的学习速率</li>
+</ol>
+<h3 id="4-7-多类别分类：一对-多"><a href="#4-7-多类别分类：一对-多" class="headerlink" title="4.7 多类别分类：一对 多"></a>4.7 多类别分类：一对 多</h3><p>多类分类问题，数据集看起来像这样：</p>
+<p>用三种不同的符号来代表三个类别</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/20import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/21import.png" alt></p>
+<p>用三角形表示 y=1，方框表示 y=2，叉叉表示 y=3</p>
+<p>下面要做的就是使用一个训练集，将其分成三个二元分类问题</p>
+<p>创建一个新的”伪”训练集，类型 2 和类型 3 定为负类，类型 1 设定为正类</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/22import.png" alt></p>
+<p>三角形是正样本，圆形代表负样本，设置三角形的值为 1，圆形的值为 0</p>
+<p>要拟合出一个合适的分类器</p>
+<p>训练一个标准的逻辑回归分类器：</p>
+<p>将多个类中的一个类标记为正向类（y=1），然后将其他所有类都标记为负向类，这个模型记作<script type="math/tex">h_\theta^{(1)}(x)</script>选择另一个类标记为正向类（y=2），再将其它类都标记为负向类，将这个模型记作<script type="math/tex">h_\theta^{(2)}(x)</script>,依此类推</p>
+<p>最后得到一系列的模型简记为：</p>
+<script type="math/tex; mode=display">
+h_\theta^{(i)}(x)=p(y=i|x;\theta),i=(1,2,3,...k)</script><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/23import.png" alt></p>
+<p>最后，在需要做预测时，将所有的分类机都运行一遍，然后对每一个输入变量，都选择最高可能性的输出变量</p>
+<p>现在要做的就是训练这个逻辑回归分类器：<script type="math/tex">h_\theta^{(i)}(x)</script>，其中 i 对应每一个可能的 y=i，最后，为了做出预测，给出输入一个新的 x 值，用这个做预测要做的就是在三个分类器里面输入 x，然后选择一个让<script type="math/tex">h_\theta^{(i)}(x)</script>最大的 i，即<img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/878import.png" alt></p>
+<h2 id="五-、正则化-Regularization）"><a href="#五-、正则化-Regularization）" class="headerlink" title="五 、正则化( Regularization）"></a>五 、正则化( Regularization）</h2><h3 id="5-1-过拟合的问题"><a href="#5-1-过拟合的问题" class="headerlink" title="5.1 过拟合的问题"></a>5.1 过拟合的问题</h3><p>回归问题的例子：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/24import.png" alt></p>
+<p>第一个模型是一个线性模型，欠拟合或高偏离，不能很好地适应训练集第三个模型是一个四次方的模型，过拟合或高方差过于强调拟合原始数据，而丢失了算法的本质：预测新数据</p>
+<p>分类问题中也存在这样的问题：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/25import.png" alt></p>
+<p>以多项式理解，x 的次数越高，拟合的越好，但相应的预测的能力就可能变差发现了过拟合问题，应该如何</p>
+<p>处理？</p>
+<ol>
+<li>丢弃一些不能帮助正确预测的特征。可以是手工选择保留哪些特征，或者使用一些模型选择的算法来帮忙（例如 PCA）</li>
+<li>正则化。 保留所有的特征，但是减少参数的大小（magnitude）</li>
+</ol>
+<h3 id="5-2-代价函数"><a href="#5-2-代价函数" class="headerlink" title="5.2 代价函数"></a>5.2 代价函数</h3><p>上面的回归问题中如果模型是：</p>
+<script type="math/tex; mode=display">
+h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+\theta_3x_3+\theta_4x_4</script><script type="math/tex; mode=display">
+h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+\theta_3x_3+\theta_4x_4</script><p>高次项导致了过拟合的产生，如果能让这些高次项的系数接近于 0 的话，就能很好的拟合</p>
+<p>要做的就是在一定程度上减小这些参数<script type="math/tex">\theta</script>的值，这就是正则化的基本方法</p>
+<p>在<script type="math/tex">\theta_3,\theta_4</script>设置一点惩罚。尝试最小化代价时也需要将这个惩罚纳入考虑中，并最终导致选择较小的一些<script type="math/tex">\theta_3,\theta_4</script></p>
+<p>修改后的代价函数如下：</p>
+<script type="math/tex; mode=display">
+min_\theta\frac{1}{2m}[\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2+1000\theta_3^2+10000\theta_4^2]</script><p>假如有非常多的特征，但并不知道哪些特征要惩罚，对所有的特征进行惩罚，让代价函数最优化的软件来选择这些惩罚的程度。</p>
+<p>这样的结果是得到了一个较为简单的能防止过拟合问题的假设：</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{2m}[\sum_{i=1}^m(h_\theta(x^{(i)})-y{(i)})^2+\lambda\sum_{j=1}^n\theta_j^2]</script><p>即为正则化线性回归的代价函数</p>
+<p>λ 又称为正则化参数（Regularization Parameter），右边的项称为正则化项</p>
+<p>注：根据惯例，不对<script type="math/tex">\theta_0</script> 进行惩罚</p>
+<p>经过正则化处理的模型与原模型的可能对比如下图所示：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/26import.png" alt></p>
+<p>如果选择的正则化参数<script type="math/tex">\lambda</script> 过大，则会把所有的参数都最小化了，导致模型变成<script type="math/tex">h_\theta(x)=\theta_0</script>也就是上图中红色直线所示的情况，造成欠拟合</p>
+<p>为什么增加的一项<script type="math/tex">\lambda \sum_{j=1}^{n}\theta_j</script>可以使<script type="math/tex">\theta</script>的值减小：</p>
+<p>如果令<script type="math/tex">\lambda</script>的值很大的话，为了使 Cost Function 尽可能的小，所有的<script type="math/tex">\theta</script>值（不包括<script type="math/tex">\theta_0</script>）都会在一定程度上减小</p>
+<p>若<script type="math/tex">\lambda</script>的值太大了，那么<script type="math/tex">\theta</script>（不包括<script type="math/tex">\theta_0</script> ）都会趋近于 0，所得到的只能是一条平行于 x 轴的直线。</p>
+<p>对于正则化，要取一个合理的<script type="math/tex">\lambda</script>的值，才能更好的应用正则化<script type="math/tex">\theta</script></p>
+<h3 id="5-3-正则化线性回归"><a href="#5-3-正则化线性回归" class="headerlink" title="5.3 正则化线性回归"></a>5.3 正则化线性回归</h3><p>正则化线性回归的代价函数为：</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{2m}[\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2+\lambda\sum_{j=1}^n\theta_j^2]</script><p>如果使用梯度下降法令这个代价函数最小化，因为未对<script type="math/tex">\theta_0</script>进行正则化，所以梯度下降算法将分两种情形：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+
+
+
+Repeat \quad until \quad converagence\{\\
+\theta_0&=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^{m}[h_\theta(x^{(i)})-y^{(i)}]x_0^{(i)}\\
+\theta_j&=\theta_j-\alpha\frac{1}{m}\sum_{i=1}^{m}[h_\theta(x^{(i)})-y^{(i)}]x_j^{(i)}+\frac{\lambda}{m}\theta_j\\\}
+\end{aligned}</script><p>对上面的算法中 j=1,2,…,n 时的更新式子进行调整可得：</p>
+<script type="math/tex; mode=display">
+\theta_j:=\theta_j(1-\alpha\frac{\lambda}{m})-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)}))x_j^{(i)}</script><p>可以看出，正则化线性回归的梯度下降算法的变化在于，每次都在原有算法更新规则的基础上令<script type="math/tex">\theta</script>值减少了一个额外的值</p>
+<h3 id="5-4-正则化的逻辑回归模型"><a href="#5-4-正则化的逻辑回归模型" class="headerlink" title="5.4 正则化的逻辑回归模型"></a>5.4 正则化的逻辑回归模型</h3><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/85import.png" alt></p>
+<p>给代价函数增加一个正则化的表达式，得到代价函数：</p>
+<script type="math/tex; mode=display">
+J(\theta)=\frac{1}{m}\sum_{i=1}^{m}[-y^{(i)}log(h_\theta(x^{(i)}))-(1-y^{(i)})log(1-h_\theta(x^{(i)}))]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2</script><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">costReg</span><span class="params">(theta, X, y, learningRate)</span>:</span></span><br><span class="line">theta = np.matrix(theta)</span><br><span class="line">X = np.matrix(X)</span><br><span class="line">y = np.matrix(y)</span><br><span class="line">first = np.multiply(-y, np.log(sigmoid(X * theta.T)))</span><br><span class="line">second = np.multiply((<span class="number">1</span> - y), np.log(<span class="number">1</span> - sigmoid(X * theta.T)))</span><br><span class="line">reg = (learningRate / <span class="number">2</span> * len(X)) *</span><br><span class="line">np.sum(np.power(theta[:,<span class="number">1</span>:theta.shape[<span class="number">1</span>]], <span class="number">2</span>))</span><br><span class="line"><span class="keyword">return</span> np.sum(first - second) / (len(X)) + reg</span><br></pre></td></tr></table></figure>
+<p>最小化该代价函数，通过求导，得出梯度下降算法为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Repeat \quad until \quad converagence\{\\
+\theta_0&=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^{m}[h_\theta(x^{(i)})-y^{(i)}]x_0^{(i)}\\
+\theta_j&=\theta_j-\alpha[\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\frac{\lambda}{m}\theta_j]\\
+for& \quad j=1,2,...n\\\}
+\end{aligned}</script><p>注：看上去同线性回归一样，但是知道<script type="math/tex">h_\theta(x)=g(\theta^TX)</script>，所以与线性回归不同</p>
+<p>注意：</p>
+<ol>
+<li>虽然正则化的逻辑回归中的梯度下降和正则化的线性回归中的表达式看起来一样，但由于两者<script type="math/tex">h_\theta(x)</script>的不同,所以还是有很大差别</li>
+<li><script type="math/tex">\theta_0</script>不参与其中的任何一个正则化</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+     
+  </div>
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+      
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="暴走">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暴走的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/04/斯坦福机器学习笔记-Week-5/" itemprop="url">斯坦福机器学习笔记(Week  5)</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T04:05:00Z">
+                2019-03-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T20:11:36+08:00">
+                2019-03-03
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/04/斯坦福机器学习笔记-Week-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/03/04/斯坦福机器学习笔记-Week-5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/04/斯坦福机器学习笔记-Week-5/" class="leancloud_visitors" data-flag-title="斯坦福机器学习笔记(Week  5)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        
+          
+            <h2 id="七、神经网络的学习-Neural-Networks-Learning"><a href="#七、神经网络的学习-Neural-Networks-Learning" class="headerlink" title="七、神经网络的学习( Neural Networks: Learning)"></a>七、神经网络的学习( Neural Networks: Learning)</h2><h3 id="7-1-代价函数"><a href="#7-1-代价函数" class="headerlink" title="7.1 代价函数"></a>7.1 代价函数</h3><p>假设神经网络的训练样本有 <script type="math/tex">m</script>个，每个包含一组输入 <script type="math/tex">x</script>和一组输出信号 <script type="math/tex">y</script>，<script type="math/tex">L</script> 表示神经网络结构总层数，<script type="math/tex">S_l</script>表示第<script type="math/tex">l</script>层的单元个数，<script type="math/tex">S_L</script>代表最后一层中处理单元的个数</p>
+<p>将神经网络的分类定义为两种情况：</p>
+<ul>
+<li><p>二类分类：<script type="math/tex">S_L = 1, y=0\quad or \quad1</script>表示哪一类；</p>
+</li>
+<li><p>K 类分类：<script type="math/tex">S_L = K,y_i=1</script>表示分到第 i 类（K &gt; 2）</p>
+</li>
+</ul>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/100import.png" alt></p>
+<p>逻辑回归问题中代价函数为：</p>
+<script type="math/tex; mode=display">
+J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2</script><p>在逻辑回归中，只有一个输出变量，又称<strong>标量（scalar）</strong>，也只有一个因变量 y，但是在神经网络中，可以有很多输出变量，<script type="math/tex">h_\theta(x)</script>是一个维度为 K 的向量,训练集中的因变量也是同样维度的一个向量，因此代价函数会比逻辑回归更加复杂一些:</p>
+<script type="math/tex; mode=display">
+h_\theta(x)\in \mathbb{R}^K,\quad(h_\theta(x))_i = i^{th}\quad output</script><script type="math/tex; mode=display">
+J(\Theta) = - \frac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[y^{(i)}_k \log ((h_\Theta (x^{(i)}))_k) + (1 - y^{(i)}_k)\log (1 - (h_\Theta(x^{(i)}))_k)\right] + \frac{\lambda}{2m}\sum_{l=1}^{L-1} \sum_{i=1}^{S_l} \sum_{j=1}^{S_{l+1}} ( \Theta_{j,i}^{(l)})^2</script><p>对于每一行特征，都会给出<script type="math/tex">k</script>个预测，基本上可以利用循环，对每一行特征都预测 <script type="math/tex">K</script>个不同结果，然后利用循环在 <script type="math/tex">K</script>个预测中选择可能性最高的一个，将其与<script type="math/tex">y</script>中的实际数据进行比较</p>
+<p>正则化的那一项只是排除了每一层<script type="math/tex">\theta_0</script>后，每一层的<script type="math/tex">\theta</script> 矩阵的和。最里层的循环j 循环所有的行（由<script type="math/tex">S_{l+1}</script>层的激活单元数决定），循环<script type="math/tex">i</script> 则循环所有的列，由该层(<script type="math/tex">S_l</script>层）的激活单元数所决定。即：</p>
+<p>$h_\theta(x)$与真实值之间的距离为每个样本—每个类输出的加和，对参数进行<strong>regularization</strong> 的 <strong>bias </strong>项处理所有参数的平方和</p>
+<h3 id="7-2-反向传播算法"><a href="#7-2-反向传播算法" class="headerlink" title="7.2 反向传播算法"></a>7.2 反向传播算法</h3><p>为了计算代价函数的偏导数<script type="math/tex">\frac{\partial }{\partial \Theta_{ij}^{(l)}}J(\Theta)</script>,需要采用一种反向传播算法，也就是首先计算最后一层的误差，然后再一层一层反向求出各层的误差，直到倒数第二层</p>
+<p>假设训练集只有一个实例<script type="math/tex">(x^{(1)} , y^{(1)})</script>,神经网络是一个四层的神经网络，其中<script type="math/tex">K = 4,S_L = 4,L =4</script></p>
+<p>前向传播算法：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+a^{(1)} &= x\\\\
+z^{(2)} &= \Theta^{(1)}a^{(1)} \\\\
+a^{(2)} &= g(z^{(2)})\quad(add\quad a_0^{(2)}) \\\\
+z^{(3)} &= \Theta^{(2)}a^{(2)} \\\\
+a^{(3)} &= g(z^{(3)}) \quad(add\quad a_0^{(3)}) \\\\
+z^{(4)} &= \Theta^{(3)}a^{(3)} \\\\
+a^{(4)} &= h_\Theta(x) = g(z^{(4)})
+\end{aligned}</script><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/i1mport.png" alt></p>
+<p>从最后一层的误差开始计算，误差是<strong>激活单元</strong>的预测<script type="math/tex">(a_j^{(4)})</script>与实际值<script type="math/tex">(y_j)</script>之间的误差，（j=1:K）</p>
+<p>用<script type="math/tex">\delta</script>来表示误差，则：</p>
+<script type="math/tex; mode=display">
+\delta^{(4)} = a^{(4)}- y</script><p>各层的预测误差为向量</p>
+<script type="math/tex; mode=display">
+\delta^{(l)} =
+\begin{cases}
+a^{(l)} - y & \text{l=L}\\
+(\Theta^{(l)})^T\delta^{(l+1)} .*g'(z^{(l)}) & \text{l=2,3,...,L-1}
+\end{cases}</script><script type="math/tex; mode=display">
+g'(z^{(l)}) = a^{(l)} .* (1-a^{(l)})</script><p>$(\Theta^{(l)})^T\delta^{(l+1)}$是权重导致的误差的和</p>
+<p>利用这个误差值来计算前一层的误差：</p>
+<script type="math/tex; mode=display">
+\delta^{(3)} = (\Theta^{(3)})^T\delta^{(4)}.*g'(z^{(3)})</script><script type="math/tex; mode=display">
+\delta^{(2)} = (\Theta^{(2)})^T\delta^{(3)}.*g'(z^{(2)})</script><p>第一层是输入变量，不存在误差</p>
+<p>计算代价函数的偏导数:</p>
+<p>假设<script type="math/tex">\lambda=0</script>，不做任何正则化处理时有：</p>
+<script type="math/tex; mode=display">
+\frac{\partial }{\partial \Theta_{ij}^{(l)}}J(\Theta)=a_j^{(l)}\delta_i^{(l+1)}</script><p>$l$代表目前所计算的是第几层</p>
+<p>$j$ 代表目前计算层中的激活单元的下标，也将是下一层的第<script type="math/tex">j</script>个输入变量的下标</p>
+<p>$i$ 代表下一层中误差单元的下标，是受到权重矩阵中第<script type="math/tex">i</script>行影响的下一层中的误差单元的下标</p>
+<p>如果考虑正则化处理，并且训练集是一个特征矩阵而非向量。在上面的特殊情况中，需要计算每一层的误差单元来计算代价函数的偏导数。在更为一般的情况中，同样需要计算每一层的误差单元，但是需要为整个训练集计算误差单元，此时的误差单元也是一个矩阵，用<script type="math/tex">\vartriangle_{ij}^{(l)}</script> 来表示这个误差矩阵。第<script type="math/tex">l</script>层的第<script type="math/tex">i</script>个激活单元受到第<script type="math/tex">j</script>个参数影响而导致的误差</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2733904-4b97e1e93d6f55df.png" alt></p>
+<p>算法表示为：</p>
+<p>假定有训练集<script type="math/tex">{(x^{(1)}, y^{(1)}),...,(x^{(m)},y^{(m)})}</script>，使用了反向传播的神经网络训练过程如下：</p>
+<p>1.for all <script type="math/tex">l,i,j</script>，初始化权值梯度<script type="math/tex">\Delta^{(l)}</script>:</p>
+<script type="math/tex; mode=display">
+\Delta_{ij}^{(l)} = 0</script><p>2.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&for\quad i =1\quad to\quad m\\
+\{\\
+&\text{令}a^{(1)} = x^{i} \\
+
+& \text{执行前向传播算法,计算各层的激活向量:}a^{(l)}\quad l =1,2,3,...L \\
+
+& \text{计算输出层的误差向量:}\delta^{(L)} = a^{(L)} - y^{(i)} \\
+
+& \text{反向依次计算其他层误差向量:}\delta^{(L-1)},\delta^{(L-2)},...,\delta^{(2)} \text{求} \Delta_{ij}^{(l) := \Delta_{ij}^{(l)}+a_j^{(l)}\delta_i^{(l+1)}} \\
+\}
+\end{aligned}</script><p>即首先用正向传播方法计算出每一层的激活单元，利用训练集的结果与神经网络预测的结果求出最后一层的误差，然后利用该误差运用反向传播法计算出直至第二层的所有误差</p>
+<p>3.求出了各层权值的更新增量<script type="math/tex">\vartriangle_{ij}^{(l)}</script>之后，便可以计算代价函数的偏导数:</p>
+<script type="math/tex; mode=display">
+D^{(l)}_{i,j} =
+\begin{cases}
+\dfrac{1}{m}\Delta^{(l)}_{i,j} + \lambda\Theta^{(l)}_{i,j},&\text{if } j \neq 0 \\
+\frac{1}{m}\Delta_{ij}^{(l)}& \text{if }j = 0
+\end{cases}</script><p>4.更新各层的权值矩阵<script type="math/tex">\Theta^{(l)}</script>，其中<script type="math/tex">\alpha</script>为学习率：</p>
+<script type="math/tex; mode=display">
+\Theta^{(l)} = \Theta^{(l)} + \alpha D^{(l)}</script><h3 id="7-3-反向传播算法的直观理解"><a href="#7-3-反向传播算法的直观理解" class="headerlink" title="7.3 反向传播算法的直观理解"></a>7.3 反向传播算法的直观理解</h3><p>前向传播算法：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/102import.png" alt></p>
+<p>反向传播算法做的是：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/105import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/109import.png" alt></p>
+<h3 id="7-4-实现注意：展开参数"><a href="#7-4-实现注意：展开参数" class="headerlink" title="7.4 实现注意：展开参数"></a>7.4 实现注意：展开参数</h3><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/112import.png" alt></p>
+<p>代价函数只支持传递<strong>向量</strong>作为参数，需要先将矩阵元素平铺开为一个长向量：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">thetaVector = np.r_[Theta1.reshape(<span class="number">-1</span>,<span class="number">1</span>), Theta2.reshape(<span class="number">-1</span>,<span class="number">1</span>), Theta3.reshape(<span class="number">-1</span>,<span class="number">1</span>)]</span><br><span class="line">deltaVector = np.r_[ D1.reshape(<span class="number">-1</span>,<span class="number">1</span>), D2.reshape(<span class="number">-1</span>,<span class="number">1</span>), D3.reshape(<span class="number">-1</span>,<span class="number">1</span>) ]</span><br></pre></td></tr></table></figure>
+<p>还原：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line">Theta1 = thetaVector[<span class="number">0</span>:<span class="number">110</span>].reshape(<span class="number">10</span>,<span class="number">11</span>)</span><br><span class="line">Theta2 = thetaVector[<span class="number">110</span>:<span class="number">220</span>].reshape(<span class="number">10</span>,<span class="number">11</span>)</span><br><span class="line">Theta3 = thetaVector[<span class="number">220</span>:<span class="number">231</span>].reshape(<span class="number">1</span>,<span class="number">11</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="7-5-梯度检验"><a href="#7-5-梯度检验" class="headerlink" title="7.5 梯度检验"></a>7.5 梯度检验</h3><p>对梯度的估计采用的方法是在代价函数上沿着切线的方向选择离两个非常近的点然后计算两个点的平均值用以估计梯度。即对于某个特定的<script type="math/tex">\theta</script> ，计算出在<script type="math/tex">\theta-\varepsilon</script>处和<script type="math/tex">\theta+\varepsilon</script>的代价值（<script type="math/tex">\varepsilon</script>是一个非常小的值，通常选取0.001），然后求两个代价的平均，用以估计在 <script type="math/tex">\theta</script>处的代价值</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/114import.png" alt></p>
+<p>斜边的斜率可以近似等于蓝色线段的斜率，可以通过求取红色斜边的斜率来近似<script type="math/tex">\frac{d}{d\Theta}J(\Theta)</script>:</p>
+<script type="math/tex; mode=display">
+\frac{d}{d\Theta}J(\Theta) \approx \frac{J(\Theta+\epsilon)-J(\Theta-\epsilon)}{2\epsilon}</script><p>当<script type="math/tex">\theta</script>是一个向量时，则需要对偏导数进行检验。因为代价函数的偏导数检验只针对一个参数的改变进行检验</p>
+<p>包含有梯度校验的<script type="math/tex">BP</script>算法如下：</p>
+<p>1.首先由反向传播算法获得展开的<script type="math/tex">DVec</script>:</p>
+<script type="math/tex; mode=display">
+DVec = [D^{(1)},D^{(2)},D^{(3)},...D^{(n)}]</script><p>2计算梯度近似<script type="math/tex">gradApprox</script>,对<script type="math/tex">\theta_j</script>进行检验,<script type="math/tex">\theta_j</script>是 <script type="math/tex">\Theta_j</script> 的展开:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+
+& \dfrac{\partial}{\partial\theta_j}J(\theta) \approx \dfrac{J(\theta_1, ..., \theta_j + \epsilon, ..., \theta_n) - J(\theta_1, ..., \theta_j - \epsilon, ..., \theta_n)}{2\epsilon},\text{for j=1 to n} \\
+
+& gradApprox = [\dfrac{\partial}{\partial\theta_1}J(\theta), \dfrac{\partial}{\partial\theta_2}J(\theta), ..., \dfrac{\partial}{\partial\theta_n}J(\theta)]
+\end{aligned}</script><p>3.比较<script type="math/tex">gradApprox</script>与<script type="math/tex">DVec</script>的相似程度（比如可以用<a href="https://zh.wikipedia.org/wiki/欧几里得距离" target="_blank" rel="noopener">欧氏距离</a>）：</p>
+<script type="math/tex; mode=display">
+gradApprox \approx DVec</script><p>如果上式成立，则证明网络中<script type="math/tex">BP</script>算法有效，此时关闭梯度校验算法（因为梯度的近似计算效率很慢），继续网络的训练过程。</p>
+<p>根据上面的算法，计算出的偏导数存储在矩阵<script type="math/tex">D_{ij}^{(l)}</script>中。检验时，要将该矩阵展开成为向量，同时也将<script type="math/tex">\theta</script>矩阵展开为向量，针对每一个<script type="math/tex">\theta</script>都计算一个近似的梯度值，将这些值存储于一个近似梯度矩阵中，最终将得出的这个矩阵同<script type="math/tex">D_{ij}^{(l)}</script>进行比较</p>
+<h3 id="7-6-随机初始化"><a href="#7-6-随机初始化" class="headerlink" title="7.6 随机初始化"></a>7.6 随机初始化</h3><h4 id="0-值初始化"><a href="#0-值初始化" class="headerlink" title="0 值初始化"></a>0 值初始化</h4><p>在逻辑回归中，通常会初始化所有权值为0，假如在如下的神经网络也采用0 值初始化：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/875import.png" alt></p>
+<p>则可以得到：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+& a_1^{(2)} = a_2^{(2)} \\
+& \text{则} \delta_1^{(2)} = \delta_2^{(2)} \\
+& \text{则} \frac{\partial}{\partial \Theta_{01}^{(1)}}J(\Theta) = \frac{\partial}{\partial \Theta_{02}^{(1)}}J(\Theta) \\
+& \text{则更新后的权值:}\Theta_{01}^{(1)} = \Theta_{02}^{(1)}
+\end{aligned}</script><p>每次迭代，所有权值的数值都一样，意味着隐含层的神经元激活值也将一样无论隐含层层数有多少，各层的神经元有多少，由于各层的神经元激活值大小一样，也就相当于各层只有一个有效神经元（特征），这就失去了神经网络进行特征扩展和优化的本意</p>
+<h4 id="随机初始化"><a href="#随机初始化" class="headerlink" title="随机初始化"></a>随机初始化</h4><p>固定值初始化将会使神经网络丧失其特性，因此，对于各层的权值矩阵，采用随机初始化策略。</p>
+<p>随机值产生的区间定义为<script type="math/tex">[-\varepsilon ,+\varepsilon ]</script>，并假定：</p>
+<script type="math/tex; mode=display">
+\Theta^{(1)} \in R^{10 \times 11}, \Theta^{(2)} \in R^{1 \times 11}</script><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line">Theta1 = np.random.rand(<span class="number">10</span>,<span class="number">11</span>) * (<span class="number">2</span> * INIT_EPSILON) - INIT_EPSILON</span><br><span class="line">Theta2 = np.random.rand(<span class="number">1</span>,<span class="number">11</span>) * (<span class="number">2</span> * INIT_EPSILON) - INIT_EPSILON</span><br></pre></td></tr></table></figure>
+<h3 id="7-7-综合起来"><a href="#7-7-综合起来" class="headerlink" title="7.7 综合起来"></a>7.7 综合起来</h3><p>使用神经网络时的步骤：</p>
+<p>网络结构：第一件要做的事是选择网络结构，即决定选择多少层以及决定每层分别有多少个单元。</p>
+<p>第一层的单元数即训练集的特征数量。最后一层的单元数是训练集的结果的类的数量。</p>
+<p>如果隐藏层数大于 1，确保每个隐藏层的单元个数相同，通常情况下隐藏层单元的个数越多越好</p>
+<p>真正要决定的是隐藏层的层数和每个中间层的单元数</p>
+<p>训练神经网络：</p>
+<ol>
+<li><p>参数的随机初始化</p>
+</li>
+<li><p>利用正向传播方法计算所有的 <script type="math/tex">h_\theta(x)</script></p>
+</li>
+<li><p>编写计算代价函数 <script type="math/tex">J</script> 的代码</p>
+</li>
+<li><p>利用反向传播方法计算所有偏导数</p>
+</li>
+<li><p>利用数值检验方法检验这些偏导数</p>
+</li>
+<li><p>使用优化算法来最小化代价函数</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+     
+  </div>
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+      
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/03/04/福机器学习笔记-Week-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="暴走">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暴走的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/04/福机器学习笔记-Week-4/" itemprop="url">斯坦福机器学习笔记(Week  4)</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T03:44:00Z">
+                2019-03-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T19:54:23+08:00">
+                2019-03-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/04/福机器学习笔记-Week-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/03/04/福机器学习笔记-Week-4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/04/福机器学习笔记-Week-4/" class="leancloud_visitors" data-flag-title="斯坦福机器学习笔记(Week  4)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        
+          
+            <h2 id="六、神经网络：表述-Neural-Networks-Representation"><a href="#六、神经网络：表述-Neural-Networks-Representation" class="headerlink" title="六、神经网络：表述( Neural Networks: Representation)"></a>六、神经网络：表述( Neural Networks: Representation)</h2><h3 id="6-1-非线性假设"><a href="#6-1-非线性假设" class="headerlink" title="6.1 非线性假设"></a>6.1 非线性假设</h3><p>无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大</p>
+<p>训练一个模型来识别视觉对象（例如识别一张图片上是否是一辆汽车），一种方法是用很多汽车的图片和很多非汽车的图片，用这些图片上一个个像素的值（饱和度或亮度）来作为特征</p>
+<p>假如只选用灰度图片，每个像素则只有一个值（而非 RGB 值），可以选取图片上的两个不同位置上的两个像素，然后训练一个逻辑回归算法利用这两个像素的值来判断图片上是否是汽车：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/88import.png" alt></p>
+<p>假使采用的都是 50x50 像素的小图片，并且将所有的像素视为特征，则会有2500 个特征，如果要进一步将两两特征组合构成一个多项式模型，则会有约2500 ²/2个（接近 3 百万个）特征。</p>
+<p>普通的逻辑回归模型，不能有效地处理这么多的特征，这时候需要神经网络</p>
+<h3 id="6-2-模型表示"><a href="#6-2-模型表示" class="headerlink" title="6.2 模型表示"></a>6.2 模型表示</h3><p>神经网络模型建立在很多神经元之上，每一个神经元又是一个个学习模型。这些神经元（也叫<strong>激活单元</strong>，<strong>activation unit</strong>）采纳一些特征作为输出，并且根据本身的模型提供一个输出。在神经网络中，参数又被称为<strong>权重（weight）</strong></p>
+<p>下图是一个以逻辑回归模型作为自身学习模型的神经元示例：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/86import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/87import.png" alt></p>
+<p>$x_1,x_2,x_3$是<strong>输入单元（input units）</strong>，将原始数据输入给它们</p>
+<p>$a_1,a_2,a_3$是<strong>中间单元</strong>，负责将数据进行处理，然后呈递到下一层，最后是<strong>输出单元</strong>，负责计算<script type="math/tex">h_\theta(x)</script></p>
+<p>神经网络模型是许多逻辑单元按照不同层级组织起来的网络，每一层的输出变量都是下一层的输入变量</p>
+<p>下图为一个 3 层的神经网络，第一层是<strong>输入层（Input Layer）</strong>，最后一层是<strong>输出层（Output Layer）</strong>，中间一层是<strong>隐藏层（Hidden Layers）</strong>。</p>
+<p>为每一层都增加一个<strong>偏差单位（bias unit）</strong>：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/89import.png" alt></p>
+<p>$a_i^{(j)}$ 代表第<script type="math/tex">j</script>层的第<script type="math/tex">i</script>个<strong>激活单元</strong>。</p>
+<p>$\theta^{(j)}$代表从第<script type="math/tex">j</script>层映射到第<script type="math/tex">j+1</script>层时的<strong>权重</strong>的矩阵。</p>
+<p>其尺寸为：以第<script type="math/tex">j+1</script>层的<strong>激活单元</strong>数量为行数，以第<script type="math/tex">j</script>层的<strong>激活单元</strong>数加<strong>一</strong>为列数的矩阵。</p>
+<p>上图所示的模型，<strong>激活单元</strong>和输出分别表达为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+
+&a_1^{(2)} = g(\theta_{10}^{(1)}x_0 + \theta_{11}^{(1)}x_1 + \theta_{12}^{(1)}x_2 + \theta_{13}^{(1)}x_3)\\\quad \\ &a_2^{(2)} = g(\theta_{20}^{(1)}x_0 + \theta_{21}^{(1)}x_1 + \theta_{22}^{(1)}x_2 + \theta_{23}^{(1)}x_3)\\\quad \\&a_3^{(2)} = g(\theta_{30}^{(1)}x_0 + \theta_{31}^{(1)}x_1 + \theta_{32}^{(1)}x_2 + \theta_{33}^{(1)}x_3)\\\quad \\
+&h_\theta(x) = g(\theta_{10}^{(2)}a_0^{(2)} + \theta_{11}^{(2)}a_1^{(2)} + \theta_{12}^{(2)}a_2^{(2)} + \theta_{13}^{(2)}a_3^{(2)})
+\end{aligned}</script><p>每一个<script type="math/tex">a</script>都是由上一层所有的<script type="math/tex">x</script>和每一个<script type="math/tex">x</script>所对应的<script type="math/tex">\theta</script>决定的</p>
+<p>这样从左到右的算法称为<strong>前向传播算法( FORWARD PROPAGATION )</strong></p>
+<p>$x,\theta,a$分别用矩阵表示：</p>
+<script type="math/tex; mode=display">
+X = \begin{bmatrix}
+x_0\\
+x_1\\
+x_2\\
+x_3
+\end{bmatrix} , \theta = \begin{bmatrix}
+\theta_{10}&...&...&...\\
+...&...&...&...\\
+...&...&...&\theta_{33}
+
+
+\end{bmatrix} , a =
+\begin{bmatrix}
+a_0\\
+a_1\\
+a_2\\
+a_3
+\end{bmatrix}</script><p>可以得到 <script type="math/tex">\theta\cdot X = a</script></p>
+<p>计算第二层的值：</p>
+<script type="math/tex; mode=display">
+x
+= \begin{bmatrix} x_0\\
+x_1\\
+x_2\\
+
+x_3
+\end{bmatrix}\quad\quad
+z^{(2)} = \begin{bmatrix}
+z_1^{(2)} \\
+z_2^{(2)} \\
+z_3^{(2)}
+\end{bmatrix}</script><script type="math/tex; mode=display">
+g\begin{pmatrix}\begin{bmatrix}
+\theta_{10}^{(1)} & \theta_{11}^{(1)} & \theta_{12}^{(1)}&\theta_{13}^{(1)}
+\\ \theta_{20}^{(1)}&\theta_{21}^{(1)}&\theta_{22}^{(1)}&\theta_{23}^{(1)}
+\\ \theta_{30}^{(1)}
+&\theta_{31}^{(1)}
+&\theta_{32}^{(1)}
+&\theta_{33}^{(1)}
+
+\end{bmatrix}\times\begin{bmatrix}
+x_0
+\\ x_1 \\ x_2 \\ x_3
+\end{bmatrix}\end{pmatrix} = g\begin{pmatrix}\begin{bmatrix}
+\theta_{10}^{(1)}x_0+\theta_{11}^{(1)}x_1+\theta_{12}^{(1)}x_2+\theta_{13}^{(1)}x_3
+\\ \theta_{20}^{(1)}x_0+\theta_{21}^{(1)}x_1+\theta_{22}^{(1)}x_2+\theta_{23}^{(1)}x_3
+\\ \theta_{30}^{(1)}x_0
++\theta_{31}^{(1)}x_1
++\theta_{32}^{(1)}x_2
++\theta_{33}^{(1)}x_3
+
+\end{bmatrix}\end{pmatrix} = \begin{bmatrix}
+a_1^{(2)} \\ a_2^{(2)} \\ a_3^{(2)}
+\end{bmatrix}</script><p>令<script type="math/tex">z^{(2)} = \theta^{(1)}x</script>, 则 <script type="math/tex">a^{(2)} = g(z^{(2)})</script>, 计算后添加 <script type="math/tex">a_0^{(2)} = 1</script></p>
+<p>计算输出的值为：</p>
+<script type="math/tex; mode=display">
+g\begin{pmatrix}\begin{bmatrix}
+
+\theta_{10}^{(2)}
+&\theta_{11}^{(2)}
+&\theta_{12}^{(2)}
+&\theta_{13}^{(2)}
+
+\end{bmatrix}\times\begin{bmatrix}
+a_0^{(2)}
+\\ a_1^{(2)} \\ a_2^{(2)} \\ a_3^{(2)}
+\end{bmatrix}\end{pmatrix} = g\begin{pmatrix}
+\theta_{10}^{(2)}a_0^{(2)}
++\theta_{11}^{(2)}a_1^{(2)}
++\theta_{12}^{(2)}a_2^{(2)}
++\theta_{13}^{(2)}a_3^{(2)}
+\end{pmatrix} =
+h_\theta(x)</script><p>令 <script type="math/tex">z^{(3)} = \theta^{(2)}a^{(2)}</script>, 则 <script type="math/tex">h_\theta(x) =a^{(3)} = g(z^{(3)})</script></p>
+<p>如果要对整个训练集进行计算，需要将训练集特征矩阵进行转置，使得同一个实例的特征都在同一列里。</p>
+<p>即：</p>
+<script type="math/tex; mode=display">
+z^{(2)} = \theta^{(1)}\times X^T</script><script type="math/tex; mode=display">
+a^{(2)} = g(z^{(2)})</script><p>把左半部分遮住：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/90import.png" alt></p>
+<p>右半部分其实就是以<script type="math/tex">a_0,a_1,a_2,a_3</script>, 按照 Logistic Regression 的方式输出<script type="math/tex">h_\theta(x)</script>:</p>
+<script type="math/tex; mode=display">
+h_\theta(x) = g\begin{pmatrix}
+\theta_{10}^{(2)}a_0^{(2)} +
+\theta_{11}^{(2)}a_1^{(2)}+
+\theta_{12}^{(2)}a_2^{(2)} +
+\theta_{13}^{(2)}a_3^{(2)}
+\end{pmatrix}</script><p>神经网络就像是 <strong>logistic regression</strong>，只不过把 <strong>logistic regression</strong> 中的输入向量<script type="math/tex">[x_1 \sim x_3]</script>变成了中间</p>
+<p>层的<script type="math/tex">[a_1^{(2)} \sim a_3^{(2)}]</script>, 即:</p>
+<script type="math/tex; mode=display">
+h_\theta(x) = g\begin{pmatrix}
+\theta_{0}^{(2)}a_0^{(2)} +
+\theta_{1}^{(2)}a_1^{(2)}+
+\theta_{2}^{(2)}a_2^{(2)} +
+\theta_{3}^{(2)}a_3^{(2)}
+\end{pmatrix}</script><p>把<script type="math/tex">a_0,a_1,a_2,a_3</script>看成更为高级的特征值，也就是<script type="math/tex">x_0,x_1,x_2,x_3</script>的进化体，并且它们是由<script type="math/tex">x</script>与<script type="math/tex">\theta</script>决定的，因为是梯度下降的，所以<script type="math/tex">a</script>是变化的，并且变得越来越厉害，所以这些更高级的特征值远比仅仅将<script type="math/tex">x</script>次方厉害，也能更好的预测新数据。这就是神经网络相比于逻辑回归和线性回归的优势</p>
+<h3 id="6-3-样本和直观理解"><a href="#6-3-样本和直观理解" class="headerlink" title="6.3 样本和直观理解"></a>6.3 样本和直观理解</h3><h4 id="I"><a href="#I" class="headerlink" title="I"></a>I</h4><p>神经网络中，单层神经元（无中间层）的计算可用来表示逻辑运算，比如逻辑AND、逻辑或 OR</p>
+<p>逻辑与 AND:下图中左半部分是神经网络的设计与 output 层表达式，右边上部分是 sigmod 函数，下半部分是真值表</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/91import.png" alt></p>
+<p>其中<script type="math/tex">\theta_0 = -30, \theta_1 =20, \theta_2 = 20</script></p>
+<p>输出函数<script type="math/tex">h_\theta(x)</script>:</p>
+<script type="math/tex; mode=display">
+h_\theta(x) = g(-30 + 20x_1 + 20x_2)</script><script type="math/tex; mode=display">g(x)$$的图像是：
+
+![](https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/92import.png)
+
+![](https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/93import.png)
+
+所以：$$h_\theta(x) \approx x_1\quad AND \quad x_2</script><p>OR 函数：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/94import.png" alt></p>
+<p>OR 与 AND 整体一样，区别只在于的取值不同</p>
+<h4 id="II"><a href="#II" class="headerlink" title="II"></a>II</h4><p><strong>二元逻辑运算符（BINARY LOGICAL OPERATORS）</strong>当输入特征为<strong>布尔值（0 或 1）</strong>时，可以用一个单一的<strong>激活层</strong>作为<strong>二元逻辑运算符</strong>，为了表示不同的运算符，需要选择不同的<strong>权重</strong></p>
+<p>下图的神经元（两个权重分别为 10，-20）可以被视为作用等同于<strong>逻辑非（NOT）</strong>：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/95import.png" alt></p>
+<p>利用<strong>神经元</strong>来组合成更为复杂的<strong>神经网络</strong>以实现更复杂的运算</p>
+<p><strong>XNOR</strong> 功能（输入的两个值必须一样，均为 1 或均为 0），即:</p>
+<script type="math/tex; mode=display">
+XNOR = (x_1 \quad AND\quad x_2)\quad OR \quad((NOTx_1) \quad AND\quad (NOTx_2))</script><p>表达 <script type="math/tex">(NOTx_1) \quad AND\quad (NOTx_2)</script>部分的神经元:</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/96import.png" alt></p>
+<p>将表示 AND 的神经元和表示 <script type="math/tex">(NOTx_1) \quad AND\quad (NOTx_2)</script>的神经元以及表示OR的神经元进行组合：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/97import.png" alt></p>
+<p>得到了一个能实现 XNOR 运算符功能的神经网络</p>
+<p>这种方法可以逐渐构造出越来越复杂的函数，也能得到更加厉害的特征值</p>
+<h3 id="6-4-多类分类"><a href="#6-4-多类分类" class="headerlink" title="6.4 多类分类"></a>6.4 多类分类</h3><p>输入向量 x 有三个维度，两个中间层，输出层 4 个神经元分别用来表示 4 类，也就是每一个数据在输出层都会出现<script type="math/tex">[a\quad b\quad c\quad d]^T</script>,且 a,b,c,d 中仅有一个为 1，表示当前类</p>
+<p>该神经网络的可能结构示例：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/98import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/99import.png" alt></p>
+<p>神经网络算法的输出结果为四种可能情形之一：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1\\ 0
+\\ 0
+\\ 0
+
+\end{bmatrix}, \begin{bmatrix}
+0\\ 1
+\\ 0
+\\ 0
+
+\end{bmatrix}\begin{bmatrix}
+0\\ 0
+\\ 1
+\\ 0
+
+\end{bmatrix},\begin{bmatrix}
+0\\ 0
+\\ 0
+\\ 1
+
+\end{bmatrix}</script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+     
+  </div>
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+      
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="暴走">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暴走的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/04/斯坦福机器学习笔记-Week-1/" itemprop="url">斯坦福机器学习笔记(Week  1)</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T03:19:00Z">
+                2019-03-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T11:30:10Z">
+                2019-03-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/04/斯坦福机器学习笔记-Week-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/03/04/斯坦福机器学习笔记-Week-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/04/斯坦福机器学习笔记-Week-1/" class="leancloud_visitors" data-flag-title="斯坦福机器学习笔记(Week  1)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        
+          
+            <h2 id="一-、引言"><a href="#一-、引言" class="headerlink" title="一 、引言"></a>一 、引言</h2><h3 id="1-1-Supervised-Learning-amp-Uupervised-Learning"><a href="#1-1-Supervised-Learning-amp-Uupervised-Learning" class="headerlink" title="1.1 Supervised Learning&amp;Uupervised Learning"></a>1.1 Supervised Learning&amp;Uupervised Learning</h3><h4 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h4><p>监督学习，其基本思想是我们数据集中的每个样本都有相应的“正确答案”，再根据这些样本作出预测回归（regression）问题，即通过回归来推出一个连续的输出分类（classification）问题，其目标是推出一组离散的结果</p>
+<p>垃圾邮件问题。如果有标记好的数据，区别好是垃圾还是非垃圾邮件，把这个当作监督学习问题</p>
+<h4 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h4><p>针对数据集，无监督学习就能判断出数据有两个不同的聚集簇，叫做聚类算法无监督学习，是学习策略，交给算法大量的数据，让算法从数据中找出某种结构</p>
+<p>细分市场，可以当作无监督学习，因为只是拿到算法数据，再让算法去自动地发现细分市场</p>
+<h2 id="二-、单变量线性回归-Linear-Regression-with-One-Variable"><a href="#二-、单变量线性回归-Linear-Regression-with-One-Variable" class="headerlink" title="二 、单变量线性回归 ( Linear Regression with One Variable)"></a>二 、单变量线性回归 ( Linear Regression with One Variable)</h2><h3 id="2-1模型表示"><a href="#2-1模型表示" class="headerlink" title="2.1模型表示"></a>2.1模型表示</h3><p>在监督学习中我们有一个数据集，这个数据集被称训练集</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/3import.png" alt></p>
+<p>将<strong>训练集</strong>“喂”给<strong>学习算法</strong>，进而学习得到一个假设<strong>h</strong>，然后将要预测的房屋的尺寸作为输入变量输入给<strong>h</strong>，预测出该房屋的交易价格作为输出变量输出为结果一种可能的表达方式为：<script type="math/tex">h_\theta(x)=\theta_0+\theta_1x</script>，因为只含有一个特征/输入变量，因此这样的问题叫作<strong>单变量线性回归问题</strong></p>
+<h3 id="2-2代价函数"><a href="#2-2代价函数" class="headerlink" title="2.2代价函数"></a>2.2代价函数</h3><p>模型所预测的值与训练集中实际值之间的差距（下图中蓝线所指）就是<strong>建模误差</strong></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/14import.png" alt></p>
+<p>目标便是选择出可以使得建模误差的平方和能够最小的模型参数。即使得代价函数<script type="math/tex">J(\theta_0,\theta_1)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2</script>最小</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/15import.png" alt></p>
+<p>看出可以在三维空间中存在一个使得<script type="math/tex">J(\theta_0,\theta_1)</script>最小的点</p>
+<p><strong>代价函数</strong>也被称作<strong>平方误差函数</strong>，有时也被称为<strong>平方误差代价函数</strong></p>
+<h3 id="2-3代价函数的直观理解"><a href="#2-3代价函数的直观理解" class="headerlink" title="2.3代价函数的直观理解"></a>2.3代价函数的直观理解</h3><script type="math/tex; mode=display">
+\begin{aligned}
+Hypothesis:\\h_\theta(x)&=\theta_0+\theta_1x\\Parameters:\\\theta_0,\theta_1\\Cost\quad Function:\\J(\theta_0,\theta_1)&=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2\\Goal:\quad minimize\quad J(\theta_0,\theta_1)
+\end{aligned}</script><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/2import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/75import.png" alt></p>
+<h3 id="2-4梯度下降"><a href="#2-4梯度下降" class="headerlink" title="2.4梯度下降"></a>2.4梯度下降</h3><p>梯度下降背后的思想是：开始时随机选择一个参数的组合<script type="math/tex">(\theta_0,\theta_1,......\theta_n)</script>，计算代价函数，然后寻找下一个能让代价函数值下降最多的参数组合。直到到一个局部最小值（local minimum），因为并没有尝试完所有的参数组合，所以不能确定得到的局部最小值是否便是全局最小值（global minimum），选择不同的初始参数组合，可能会找到不同的局部最小值</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/80import.png" alt></p>
+<p><strong>批量梯度下降（batch gradient descent）算法</strong>的公式为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Repeat \quad until \quad converagence\{\\&\theta_j:=\theta_j-\alpha\frac{\partial }{\partial \theta_j}J(\theta_0,\theta_1)\quad \\&(for\quad j=0 \quad and \quad j=1 )\\\}
+\end{aligned}</script><p>其中<script type="math/tex">\alpha</script>是<strong>学习率（learning rate）</strong>，它决定了沿着能让<strong>代价函数</strong>下降程度</p>
+<p>最大的方向向下迈出的步子有多大，在<strong>批量梯度下降</strong>中，每一次都同时让所有的参数减去<strong>学习速率</strong>乘以<strong>代价函数</strong>的导数</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/12import.png" alt></p>
+<p>如果<script type="math/tex">\alpha</script>太小的话，需要很多步才能到达全局最低点</p>
+<p>如果<script type="math/tex">\alpha</script>太大，它会导致无法收敛，甚至发散</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/13import.png" alt></p>
+<h3 id="2-5梯度下降的线性回归"><a href="#2-5梯度下降的线性回归" class="headerlink" title="2.5梯度下降的线性回归"></a>2.5梯度下降的线性回归</h3><p><strong>梯度下降算法</strong>和<strong>线性回归算法</strong>比较如图：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/4import.png" alt></p>
+<script type="math/tex; mode=display">
+\frac{\partial }{\partial \theta_j}J(\theta_0,\theta_1)=\frac{\partial }{\partial \theta_j}\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)}-y^{(i)})^2</script><p>j=0 时：</p>
+<script type="math/tex; mode=display">
+\frac{\partial }{\partial \theta_0}J(\theta_0,\theta_1)=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})</script><p>j=1 时：</p>
+<script type="math/tex; mode=display">
+\frac{\partial }{\partial \theta_1}J(\theta_0,\theta_1)=\frac{1}{m}\sum_{i=1}^{m}((h_\theta(x^{(i)})-y^{(i)})x^{(i)})</script><p>算法改写成：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Repeat\quad \{\\\theta_0=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)}),\\\theta_1=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^{m}((h_\theta(x^{(i)})-y^{(i)})x^{(i)})\\\}
+\end{aligned}</script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+     
+  </div>
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+      
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="暴走">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暴走的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/04/斯坦福机器学习笔记-Week-2/" itemprop="url">斯坦福机器学习笔记(Week  2)</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T19:31:05Z">
+                2019-03-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T19:43:47+08:00">
+                2019-03-03
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/04/斯坦福机器学习笔记-Week-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/03/04/斯坦福机器学习笔记-Week-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/04/斯坦福机器学习笔记-Week-2/" class="leancloud_visitors" data-flag-title="斯坦福机器学习笔记(Week  2)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  906
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        
+          
+            <h2 id="三-、多变量线性回归-Linear-Regression-with-Multiple-Variables"><a href="#三-、多变量线性回归-Linear-Regression-with-Multiple-Variables" class="headerlink" title="三 、多变量线性回归( Linear Regression with Multiple Variables)"></a>三 、多变量线性回归( Linear Regression with Multiple Variables)</h2><h3 id="3-1-多变量梯度下降"><a href="#3-1-多变量梯度下降" class="headerlink" title="3.1 多变量梯度下降"></a>3.1 多变量梯度下降</h3><p>在多变量线性回归中的代价函数是所有建模误差的平方和，即：</p>
+<script type="math/tex; mode=display">
+
+J(\theta_0,\theta_1,...\theta_n)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2</script><script type="math/tex; mode=display">
+
+h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n</script><p>多变量线性回归的批量梯度下降算法为：</p>
+<script type="math/tex; mode=display">
+
+\frac{\partial }{\partial \theta_j}J(\theta_j)=0</script><script type="math/tex; mode=display">
+\begin{aligned}
+
+Repeat&\quad \{\\
+\theta_j&=\theta_j-\alpha\frac{\partial }{\partial \theta_j}J(\theta_0,\theta_1,...\theta_n)\\
+(&simultaneously\quad update\quad all\quad \theta_j)\\
+\}&
+\end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned}
+Repeat&\quad\{\\
+\theta_j&=\theta_j-\alpha\frac{\partial }{\partial \theta_j}\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2\\
+\}
+\end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned}
+
+
+Repeat&\quad \{\\
+\theta_j&=\theta_j-\alpha\frac{1}{m}\sum_{i=1}^{m}((h_\theta(x^{(i)})-y^{(i)})x_j^{(i)})\\
+(&simultaneously\quad update\quad all\quad \theta_j\quad for\quad j=0,1,...n)\\
+\}
+\end{aligned}</script><p>当<script type="math/tex">n >= 1</script>时：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\theta_0=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^{m}((h_\theta(x^{(i)})-y^{(i)})x_0^{(i)})\\
+\theta_1=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^{m}((h_\theta(x^{(i)})-y^{(i)})x_1^{(i)})\\
+\theta_2=\theta_2-\alpha\frac{1}{m}\sum_{i=1}^{m}((h_\theta(x^{(i)})-y^{(i)})x_2^{(i)})
+\end{aligned}</script><p>开始随机选择一系列的参数值，计算所有的预测结果后，再给所有的参数一个新的值，如此循环直到收敛</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeCost</span><span class="params">(X,y,theta)</span>:</span></span><br><span class="line"></span><br><span class="line">inner=np.power(((np.dot(theta.T, X), -y),<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> np.sum(inner)/(<span class="number">2</span>*len(X))</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-梯度下降法实践"><a href="#3-2-梯度下降法实践" class="headerlink" title="3.2 梯度下降法实践"></a>3.2 梯度下降法实践</h3><h4 id="特征缩放"><a href="#特征缩放" class="headerlink" title="特征缩放"></a>特征缩放</h4><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//6import.png" alt></p>
+<p>最简单的方法是令：</p>
+<script type="math/tex; mode=display">
+x_n=\frac{x_n-\mu_n}{S_n}</script><p>其中<script type="math/tex">\mu_n</script>是平均值，<script type="math/tex">S_n</script>是标准差</p>
+<h4 id="学习率"><a href="#学习率" class="headerlink" title="学习率"></a>学习率</h4><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//7import.png" alt></p>
+<p>通常可以考虑尝试些学习率：</p>
+<p>$\alpha$ = 0.01，0.03，0.1，0.3，1，3，10</p>
+<h3 id="3-3-特征和多项式回归"><a href="#3-3-特征和多项式回归" class="headerlink" title="3.3 特征和多项式回归"></a>3.3 特征和多项式回归</h3><p>线性回归并不适用于所有数据，有时需要曲线来适应数据，比如一个二次方模型：</p>
+<script type="math/tex; mode=display">
+h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2^2</script><p>或者三次方模型：</p>
+<script type="math/tex; mode=display">
+h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2^2+\theta_3x_3^2</script><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//8import.png" alt></p>
+<p>令：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+x_2=x_2^2\\x_3=x_3^3
+\end{aligned}</script><p>从而将模型转化为线性回归模型</p>
+<p>根据函数图形特性，还可以使：</p>
+<script type="math/tex; mode=display">
+h_\theta(x)=\theta_0+\theta_1(size)+\theta_2(size)^2</script><p>或者</p>
+<script type="math/tex; mode=display">
+h_\theta(x)=\theta_0+\theta_1(size)+\theta_2{\sqrt{size}}</script><p>注：如果采用多项式回归模型，在运行梯度下降算法前，特征缩放非常有必要</p>
+<h3 id="3-4-正规方程"><a href="#3-4-正规方程" class="headerlink" title="3.4 正规方程"></a>3.4 正规方程</h3><p>正规方程是通过求解下面的方程来找出使得代价函数最小的参数的：</p>
+<script type="math/tex; mode=display">
+\frac{\partial }{\partial \theta_j}J(\theta_j)=0</script><p>假设训练集特征矩阵为 X（包含了<script type="math/tex">X_0</script>并且训练集结果为向量 y，则利用正规方程解出向量：</p>
+<script type="math/tex; mode=display">
+\theta=(X^TX)^{-1}X^Ty</script><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//9import.png" alt></p>
+<p>运用正规方程方法求解参数：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//10import.png" alt></p>
+<p>注：对于那些不可逆的矩阵（通常是因为特征之间不独立，如同时包含英尺为单位的尺寸和米为单位的尺寸两个特征，也有可能是特征数量大于训练集的数量），正规方程方法是不能用的</p>
+<p>梯度下降与正规方程的比较：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">梯度下降</th>
+<th style="text-align:center">正规方程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">需要选择学习率 <script type="math/tex">\alpha</script></td>
+<td style="text-align:center">不需要</td>
+</tr>
+<tr>
+<td style="text-align:center">需要多次迭代</td>
+<td style="text-align:center">一次运算得出</td>
+</tr>
+<tr>
+<td style="text-align:center">当特征数量 n 大时也能较好适用</td>
+<td style="text-align:center">需要计算<script type="math/tex">(X^TX)^{-1}</script>，如果特征数量 n 较大则运算代价大，因为矩阵逆的计算时间复杂度为<script type="math/tex">O(n^3)</script>,通常来说当n小于 10000 时还是可以接受的</td>
+</tr>
+<tr>
+<td style="text-align:center">适用于各种类型的模型</td>
+<td style="text-align:center">只适用于线性模型，不适合逻辑回归模型</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>只要特征变量数量小于一万，通常使用标准方程法，而不使用梯度下降法</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalEqn</span><span class="params">(X, y)</span>:</span></span><br><span class="line"></span><br><span class="line">theta = np.linalg.inv(X.T@X)@X.T@y <span class="comment">#X.T@X 等价于 X.T.dot(X)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> theta</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+     
+  </div>
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+      
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/28/第三周-序列模型和注意力机制（Sequence-models-Attention-mechanism）-Course-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -581,221 +2211,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="暴走">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="暴走的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" itemprop="url">第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T22:17:00Z">
-                2019-02-27
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T12:07:56Z">
-                2019-03-02
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习 </span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" class="leancloud_visitors" data-flag-title="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  6.3k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  23
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-
-      
-        
-          <h2 id="2-1-词汇表征（Word-Representation）"><a href="#2-1-词汇表征（Word-Representation）" class="headerlink" title="2.1 词汇表征（Word Representation）"></a>2.1 词汇表征（Word Representation）</h2><p><strong>one-hot</strong>向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用<script type="math/tex">O_{5391}</script>,<script type="math/tex">O_{9853}</script> 等表示，<script type="math/tex">O</script>代表<strong>one-hot：</strong><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    <div>
-     
-  </div>
-
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-      
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/28/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -955,6 +2370,221 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/28/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    <div>
+     
+  </div>
+
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+      
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="暴走">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/img/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="暴走的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" itemprop="url">第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T22:17:00Z">
+                2019-02-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T12:07:56Z">
+                2019-03-02
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习 </span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" class="leancloud_visitors" data-flag-title="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  23
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+      
+        
+          <h2 id="2-1-词汇表征（Word-Representation）"><a href="#2-1-词汇表征（Word-Representation）" class="headerlink" title="2.1 词汇表征（Word Representation）"></a>2.1 词汇表征（Word Representation）</h2><p><strong>one-hot</strong>向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用<script type="math/tex">O_{5391}</script>,<script type="math/tex">O_{9853}</script> 等表示，<script type="math/tex">O</script>代表<strong>one-hot：</strong><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1406,1097 +3036,11 @@
 
 
     
-      
-
-  
-
-      
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="暴走">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="暴走的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/" itemprop="url">第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4)</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T21:54:00Z">
-                2019-02-27
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T08:44:18Z">
-                2019-03-02
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/" class="leancloud_visitors" data-flag-title="第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  5.5k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  20
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-
-      
-        
-          <h2 id="2-1-经典网络（Classic-networks）"><a href="#2-1-经典网络（Classic-networks）" class="headerlink" title="2.1 经典网络（Classic networks）"></a>2.1 经典网络（Classic networks）</h2><h3 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h3><p><strong>LeNet-5</strong>可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。该LeNet模型总共包含了大约6万个参数，典型的LeNet-5结构包含CONV layer，POOL layer和FC layer，顺序一般是CONV layer-&gt;POOL layer-&gt;CONV layer-&gt;POOL layer-&gt;FC layer-&gt;FC layer-&gt;OUTPUT layer，即<script type="math/tex">\hat y</script>：</p>
-<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e59b38c9b2942a407b49da84677dae9.png" alt><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    <div>
-     
-  </div>
-
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-      
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/28/第一周-卷积神经网络（Foundations-of-Convolutional-Neural-Networks）-Course-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="暴走">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="暴走的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/28/第一周-卷积神经网络（Foundations-of-Convolutional-Neural-Networks）-Course-4/" itemprop="url">第一周 卷积神经网络（Foundations of Convolutional Neural Networks）(Course 4)</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T21:43:00Z">
-                2019-02-27
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T12:11:14Z">
-                2019-03-02
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/02/28/第一周-卷积神经网络（Foundations-of-Convolutional-Neural-Networks）-Course-4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/28/第一周-卷积神经网络（Foundations-of-Convolutional-Neural-Networks）-Course-4/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/02/28/第一周-卷积神经网络（Foundations-of-Convolutional-Neural-Networks）-Course-4/" class="leancloud_visitors" data-flag-title="第一周 卷积神经网络（Foundations of Convolutional Neural Networks）(Course 4)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  4.9k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  18
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-
-      
-        
-          <h2 id="1-1-计算机视觉（Computer-vision）"><a href="#1-1-计算机视觉（Computer-vision）" class="headerlink" title="1.1 计算机视觉（Computer vision）"></a>1.1 计算机视觉（Computer vision）</h2><p>图片分类，或图片识别：</p>
-<p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/373615de4e30035c662958ce39115fb4.png" alt><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/28/第一周-卷积神经网络（Foundations-of-Convolutional-Neural-Networks）-Course-4/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    <div>
-     
-  </div>
-
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-      
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/28/第二周：机器学习策略（2）-ML-Strategy-2-Course-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="暴走">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="暴走的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/28/第二周：机器学习策略（2）-ML-Strategy-2-Course-2/" itemprop="url">第二周：机器学习策略（2）(ML Strategy (2))(Course 3)</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T21:08:00Z">
-                2019-02-27
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T08:49:05Z">
-                2019-03-02
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/02/28/第二周：机器学习策略（2）-ML-Strategy-2-Course-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/28/第二周：机器学习策略（2）-ML-Strategy-2-Course-2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/02/28/第二周：机器学习策略（2）-ML-Strategy-2-Course-2/" class="leancloud_visitors" data-flag-title="第二周：机器学习策略（2）(ML Strategy (2))(Course 3)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  7.3k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  25
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-
-      
-        
-          <h2 id="2-1-进行误差分析（Carrying-out-error-analysis）"><a href="#2-1-进行误差分析（Carrying-out-error-analysis）" class="headerlink" title="2.1 进行误差分析（Carrying out error analysis）"></a>2.1 进行误差分析（Carrying out error analysis）</h2><p>如果希望让学习算法能够胜任人类能做的任务，但学习算法还没有达到人类的表现，那么人工检查一下算法犯的错误可以了解接下来应该做什么，这个过程称为<strong>错误分析</strong><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/28/第二周：机器学习策略（2）-ML-Strategy-2-Course-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    <div>
-     
-  </div>
-
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-      
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="暴走">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="暴走的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/" itemprop="url">第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T20:22:00Z">
-                2019-02-27
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T15:42:39Z">
-                2019-02-27
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/" class="leancloud_visitors" data-flag-title="第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  4.4k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  17
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-
-      
-        
-          <h2 id="3-1-调试处理（Tuning-process）"><a href="#3-1-调试处理（Tuning-process）" class="headerlink" title="3.1 调试处理（Tuning process）"></a>3.1 调试处理（Tuning process）</h2><p>深度神经网络需要调试的超参数（Hyperparameters）包括：</p>
-<ul>
-<li><script type="math/tex">\alpha</script><strong>：学习因子</strong></li>
-<li><script type="math/tex">\beta</script><strong>：动量梯度下降因子</strong></li>
-<li><script type="math/tex">\beta_1,\beta_2,\varepsilon</script><strong>：Adam算法参数</strong></li>
-<li><strong>#layers：神经网络层数</strong></li>
-<li><strong>#hidden units：各隐藏层神经元个数</strong></li>
-<li><strong>learning rate decay：学习因子下降参数</strong></li>
-<li><strong>mini-batch size：批量训练样本包含的样本个数</strong></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/28/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    <div>
-     
-  </div>
-
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-      
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="暴走">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/img/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="暴走的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/" itemprop="url">第四周：深层神经网络(Deep Neural Networks)(Course 1)</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T18:17:00Z">
-                2019-02-27
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-28T03:37:32Z">
-                2019-02-28
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/" class="leancloud_visitors" data-flag-title="第四周：深层神经网络(Deep Neural Networks)(Course 1)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.2k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-
-      
-        
-          <h2 id="4-1-深层神经网络（Deep-L-layer-neural-network）"><a href="#4-1-深层神经网络（Deep-L-layer-neural-network）" class="headerlink" title="4.1 深层神经网络（Deep L-layer neural network）"></a>4.1 深层神经网络（Deep L-layer neural network）</h2><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-27.png" alt="upload successful"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    <div>
-     
-  </div>
-
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2556,7 +3100,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2567,7 +3111,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2578,7 +3122,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2672,7 +3216,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共64.3k字</span>
+  <span class="post-count">博客全站共74k字</span>
 </div>
 
         
@@ -2698,7 +3242,9 @@
     
     
     
-
+<!-- 代码块复制功能 -->
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   </div>
 
   
