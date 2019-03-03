@@ -101,13 +101,13 @@
 
 
 
-<meta name="description" content="七、神经网络的学习( Neural Networks: Learning)7.1 代价函数假设神经网络的训练样本有 m个，每个包含一组输入 x和一组输出信号 y，L 表示神经网络结构总层数，S_l表示第l层的单元个数，S_L代表最后一层中处理单元的个数 将神经网络的分类定义为两种情况：  二类分类：S_L = 1, y=0\quad or \quad1表示哪一类；  K 类分类：S_L = K,y">
+<meta name="description" content="七、神经网络的学习( Neural Networks: Learning)7.1 代价函数假设神经网络的训练样本有 m个，每个包含一组输入 x和一组输出信号 y，L 表示神经网络结构总层数，S_l表示第l层的单元个数，S_L代表最后一层中处理单元的个数">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="斯坦福机器学习笔记(Week  5)">
 <meta property="og:url" content="https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-5/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="七、神经网络的学习( Neural Networks: Learning)7.1 代价函数假设神经网络的训练样本有 m个，每个包含一组输入 x和一组输出信号 y，L 表示神经网络结构总层数，S_l表示第l层的单元个数，S_L代表最后一层中处理单元的个数 将神经网络的分类定义为两种情况：  二类分类：S_L = 1, y=0\quad or \quad1表示哪一类；  K 类分类：S_L = K,y">
+<meta property="og:description" content="七、神经网络的学习( Neural Networks: Learning)7.1 代价函数假设神经网络的训练样本有 m个，每个包含一组输入 x和一组输出信号 y，L 表示神经网络结构总层数，S_l表示第l层的单元个数，S_L代表最后一层中处理单元的个数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/100import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/i1mport.png">
@@ -118,10 +118,10 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/112import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/114import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/875import.png">
-<meta property="og:updated_time" content="2019-03-03T12:11:36.704Z">
+<meta property="og:updated_time" content="2019-03-03T12:20:43.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福机器学习笔记(Week  5)">
-<meta name="twitter:description" content="七、神经网络的学习( Neural Networks: Learning)7.1 代价函数假设神经网络的训练样本有 m个，每个包含一组输入 x和一组输出信号 y，L 表示神经网络结构总层数，S_l表示第l层的单元个数，S_L代表最后一层中处理单元的个数 将神经网络的分类定义为两种情况：  二类分类：S_L = 1, y=0\quad or \quad1表示哪一类；  K 类分类：S_L = K,y">
+<meta name="twitter:description" content="七、神经网络的学习( Neural Networks: Learning)7.1 代价函数假设神经网络的训练样本有 m个，每个包含一组输入 x和一组输出信号 y，L 表示神经网络结构总层数，S_l表示第l层的单元个数，S_L代表最后一层中处理单元的个数">
 <meta name="twitter:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/100import.png">
 
 
@@ -404,7 +404,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T04:05:00Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T12:05:00+08:00">
                 2019-03-04
               </time>
             
@@ -420,7 +420,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T12:11:36Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T20:20:43+08:00">
                 2019-03-03
               </time>
             
@@ -506,6 +506,7 @@
 
       
         <h2 id="七、神经网络的学习-Neural-Networks-Learning"><a href="#七、神经网络的学习-Neural-Networks-Learning" class="headerlink" title="七、神经网络的学习( Neural Networks: Learning)"></a>七、神经网络的学习( Neural Networks: Learning)</h2><h3 id="7-1-代价函数"><a href="#7-1-代价函数" class="headerlink" title="7.1 代价函数"></a>7.1 代价函数</h3><p>假设神经网络的训练样本有 <script type="math/tex">m</script>个，每个包含一组输入 <script type="math/tex">x</script>和一组输出信号 <script type="math/tex">y</script>，<script type="math/tex">L</script> 表示神经网络结构总层数，<script type="math/tex">S_l</script>表示第<script type="math/tex">l</script>层的单元个数，<script type="math/tex">S_L</script>代表最后一层中处理单元的个数</p>
+<a id="more"></a>
 <p>将神经网络的分类定义为两种情况：</p>
 <ul>
 <li><p>二类分类：<script type="math/tex">S_L = 1, y=0\quad or \quad1</script>表示哪一类；</p>

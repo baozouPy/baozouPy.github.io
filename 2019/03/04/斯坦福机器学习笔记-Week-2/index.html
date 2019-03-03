@@ -101,23 +101,23 @@
 
 
 
-<meta name="description" content="三 、多变量线性回归( Linear Regression with Multiple Variables)3.1 多变量梯度下降在多变量线性回归中的代价函数是所有建模误差的平方和，即：   J(\theta_0,\theta_1,...\theta_n)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2  h_\theta(x)=\t">
+<meta name="description" content="三 、多变量线性回归( Linear Regression with Multiple Variables)3.1 多变量梯度下降在多变量线性回归中的代价函数是所有建模误差的平方和，即：  J(\theta_0,\theta_1,...\theta_n)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2 h_\theta(x)=\the">
 <meta name="keywords" content="Machine Learning&#x2F;Deep Learning&#x2F;Python&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="斯坦福机器学习笔记(Week  2)">
 <meta property="og:url" content="https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-2/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="三 、多变量线性回归( Linear Regression with Multiple Variables)3.1 多变量梯度下降在多变量线性回归中的代价函数是所有建模误差的平方和，即：   J(\theta_0,\theta_1,...\theta_n)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2  h_\theta(x)=\t">
+<meta property="og:description" content="三 、多变量线性回归( Linear Regression with Multiple Variables)3.1 多变量梯度下降在多变量线性回归中的代价函数是所有建模误差的平方和，即：  J(\theta_0,\theta_1,...\theta_n)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2 h_\theta(x)=\the">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//6import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//7import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//8import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//9import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//10import.png">
-<meta property="og:updated_time" content="2019-03-03T11:43:47.207Z">
+<meta property="og:updated_time" content="2019-03-03T12:21:16.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福机器学习笔记(Week  2)">
-<meta name="twitter:description" content="三 、多变量线性回归( Linear Regression with Multiple Variables)3.1 多变量梯度下降在多变量线性回归中的代价函数是所有建模误差的平方和，即：   J(\theta_0,\theta_1,...\theta_n)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2  h_\theta(x)=\t">
+<meta name="twitter:description" content="三 、多变量线性回归( Linear Regression with Multiple Variables)3.1 多变量梯度下降在多变量线性回归中的代价函数是所有建模误差的平方和，即：  J(\theta_0,\theta_1,...\theta_n)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2 h_\theta(x)=\the">
 <meta name="twitter:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//6import.png">
 
 
@@ -400,7 +400,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T19:31:05Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T03:31:05+08:00">
                 2019-03-03
               </time>
             
@@ -416,7 +416,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T11:43:47Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T20:21:16+08:00">
                 2019-03-03
               </time>
             
@@ -503,12 +503,10 @@
       
         <h2 id="三-、多变量线性回归-Linear-Regression-with-Multiple-Variables"><a href="#三-、多变量线性回归-Linear-Regression-with-Multiple-Variables" class="headerlink" title="三 、多变量线性回归( Linear Regression with Multiple Variables)"></a>三 、多变量线性回归( Linear Regression with Multiple Variables)</h2><h3 id="3-1-多变量梯度下降"><a href="#3-1-多变量梯度下降" class="headerlink" title="3.1 多变量梯度下降"></a>3.1 多变量梯度下降</h3><p>在多变量线性回归中的代价函数是所有建模误差的平方和，即：</p>
 <script type="math/tex; mode=display">
-
 J(\theta_0,\theta_1,...\theta_n)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2</script><script type="math/tex; mode=display">
-
-h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n</script><p>多变量线性回归的批量梯度下降算法为：</p>
+h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n</script><a id="more"></a>
+<p>多变量线性回归的批量梯度下降算法为：</p>
 <script type="math/tex; mode=display">
-
 \frac{\partial }{\partial \theta_j}J(\theta_j)=0</script><script type="math/tex; mode=display">
 \begin{aligned}
 

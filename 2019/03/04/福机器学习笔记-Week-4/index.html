@@ -101,13 +101,13 @@
 
 
 
-<meta name="description" content="六、神经网络：表述( Neural Networks: Representation)6.1 非线性假设无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大 训练一个模型来识别视觉对象（例如识别一张图片上是否是一辆汽车），一种方法是用很多汽车的图片和很多非汽车的图片，用这些图片上一个个像素的值（饱和度或亮度）来作为特征 假如只选用灰度图片，每个像素则只有一个值（而非 R">
+<meta name="description" content="六、神经网络：表述( Neural Networks: Representation)6.1 非线性假设无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="斯坦福机器学习笔记(Week  4)">
 <meta property="og:url" content="https://www.baozouai.com/2019/03/04/福机器学习笔记-Week-4/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="六、神经网络：表述( Neural Networks: Representation)6.1 非线性假设无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大 训练一个模型来识别视觉对象（例如识别一张图片上是否是一辆汽车），一种方法是用很多汽车的图片和很多非汽车的图片，用这些图片上一个个像素的值（饱和度或亮度）来作为特征 假如只选用灰度图片，每个像素则只有一个值（而非 R">
+<meta property="og:description" content="六、神经网络：表述( Neural Networks: Representation)6.1 非线性假设无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/88import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/86import.png">
@@ -121,10 +121,10 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/97import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/98import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/99import.png">
-<meta property="og:updated_time" content="2019-03-03T11:54:23.533Z">
+<meta property="og:updated_time" content="2019-03-03T12:21:00.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福机器学习笔记(Week  4)">
-<meta name="twitter:description" content="六、神经网络：表述( Neural Networks: Representation)6.1 非线性假设无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大 训练一个模型来识别视觉对象（例如识别一张图片上是否是一辆汽车），一种方法是用很多汽车的图片和很多非汽车的图片，用这些图片上一个个像素的值（饱和度或亮度）来作为特征 假如只选用灰度图片，每个像素则只有一个值（而非 R">
+<meta name="twitter:description" content="六、神经网络：表述( Neural Networks: Representation)6.1 非线性假设无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大">
 <meta name="twitter:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/88import.png">
 
 
@@ -407,7 +407,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T03:44:00Z">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T11:44:00+08:00">
                 2019-03-04
               </time>
             
@@ -423,7 +423,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T11:54:23Z">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T20:21:00+08:00">
                 2019-03-03
               </time>
             
@@ -531,6 +531,7 @@
 
       
         <h2 id="六、神经网络：表述-Neural-Networks-Representation"><a href="#六、神经网络：表述-Neural-Networks-Representation" class="headerlink" title="六、神经网络：表述( Neural Networks: Representation)"></a>六、神经网络：表述( Neural Networks: Representation)</h2><h3 id="6-1-非线性假设"><a href="#6-1-非线性假设" class="headerlink" title="6.1 非线性假设"></a>6.1 非线性假设</h3><p>无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大</p>
+<a id="more"></a>
 <p>训练一个模型来识别视觉对象（例如识别一张图片上是否是一辆汽车），一种方法是用很多汽车的图片和很多非汽车的图片，用这些图片上一个个像素的值（饱和度或亮度）来作为特征</p>
 <p>假如只选用灰度图片，每个像素则只有一个值（而非 RGB 值），可以选取图片上的两个不同位置上的两个像素，然后训练一个逻辑回归算法利用这两个像素的值来判断图片上是否是汽车：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/88import.png" alt></p>
