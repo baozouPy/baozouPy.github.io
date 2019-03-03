@@ -151,7 +151,6 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/49b7d68a17e89dd109f96efecc223f5a.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e001f5f3d2afa76a1c3710bd60bcad00.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2e357b5b92122660c550dcfb0901519c.png">
-<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/347cf0fc665abe47fa0999d8bf771d26.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e94aa7ea75300ea4692682b179834bb4.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/322b15fe615c739ebd1d36b669748618.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/36ff927836cfcd7fee9413e2d34757d8.png">
@@ -161,7 +160,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/838a6aeb35865f9cfecac8dc593b565b.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e78e4465af892d0965e2b0863263ef8c.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e6ed1aa3263107d4e189dd75adc060b4.png">
-<meta property="og:updated_time" content="2019-03-03T02:26:42.249Z">
+<meta property="og:updated_time" content="2019-03-03T03:28:03.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三周 目标检测（Object detection)(Course 4)">
 <meta name="twitter:description" content="3.1 目标定位（Object localization）">
@@ -463,7 +462,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T10:26:42+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T11:28:03+08:00">
                 2019-03-03
               </time>
             
@@ -685,7 +684,7 @@ L\left(\hat{y},y \right) = \left( \hat{y_1} - y_{1} \right)^{2} + \left(\hat{y_2
 y= \begin{bmatrix} p_{c} & b_{x} & b_{y} &b_{h} & b_{w} & c_{1} & c_{2} & c_{3} & p_{c} & b_{x} & b_{y} & b_{h} & b_{w} &c_{1} & c_{2} & c_{3} \end{bmatrix}^{T}</script><p>前面的<script type="math/tex">p_{c},b_{x},b_{y},b_{h},b_{w},c_{1},c_{2},c_{3}</script>（绿色方框标记的参数）是和<strong>anchor box 1</strong>关联的8个参数，后面的8个参数（橙色方框标记的元素）是和<strong>anchor box 2</strong>相关联</p>
 <p>行人：<script type="math/tex">p_{c}= 1,b_{x},b_{y},b_{h},b_{w},c_{1} = 1,c_{2} = 0,c_{3} = 0</script></p>
 <p>车子的边界框更像<strong>anchor box 2</strong>，(<script type="math/tex">p_{c}= 1,b_{x},b_{y},b_{h},b_{w},c_{1} = 0,c_{2} = 1,c_{3} = 0</script>)</p>
-<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/347cf0fc665abe47fa0999d8bf771d26.png" alt><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e94aa7ea75300ea4692682b179834bb4.png" alt></p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e94aa7ea75300ea4692682b179834bb4.png" alt></p>
 <p>现在每个对象都分配到对象中点所在的格子中，以及分配到和对象形状交并比最高的<strong>anchor box</strong>中。然后观察哪个<strong>anchor box</strong>和实际边界框（编号1，红色框）的交并比更高</p>
 <p>编号1对应同时有车和行人，编号3对应只有车：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/322b15fe615c739ebd1d36b669748618.png" alt></p>
@@ -693,7 +692,7 @@ y= \begin{bmatrix} p_{c} & b_{x} & b_{y} &b_{h} & b_{w} & c_{1} & c_{2} & c_{3} 
 <p>怎么选择<strong>anchor box：</strong></p>
 <ul>
 <li>一般手工指定<strong>anchor box</strong>形状，可以选择5到10个<strong>anchor box</strong>形状，覆盖到想要检测的对象的各种形状</li>
-<li>更高级的是使用<strong>k-平均算法</strong>，将两类对象形状聚类，选择最具有代表性的一组<strong>anchor box</strong></li>
+<li>更高级的是使用<strong>k-means算法</strong>，将两类对象形状聚类，选择最具有代表性的一组<strong>anchor box</strong></li>
 </ul>
 <h2 id="3-9-YOLO-算法（Putting-it-together-YOLO-algorithm）"><a href="#3-9-YOLO-算法（Putting-it-together-YOLO-algorithm）" class="headerlink" title="3.9 YOLO 算法（Putting it together: YOLO algorithm）"></a>3.9 YOLO 算法（Putting it together: YOLO algorithm）</h2><p>假设要在图片中检测行人、汽车，同时使用两种不同的Anchor box</p>
 <p><strong>训练集：</strong></p>
@@ -704,11 +703,11 @@ y= \begin{bmatrix} p_{c} & b_{x} & b_{y} &b_{h} & b_{w} & c_{1} & c_{2} & c_{3} 
 <li><p>对不同格子中的小图，定义目标输出向量Y</p>
 </li>
 </ul>
-<p>[<br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/36ff927836cfcd7fee9413e2d34757d8.png" alt></p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/36ff927836cfcd7fee9413e2d34757d8.png" alt></p>
 <p>编号2目标向量<script type="math/tex">y =\begin{bmatrix} 0 & ? & ? & ? & ? & ? & ? & ? & 1 & b_{x} & b_{y} & b_{h} &b_{w} & 0 & 1 & 0 \end{bmatrix}^{T}</script>，假设训练集中对于车子有一个边界框（编号3），水平方向更长一点，红框和<strong>anchor box 2</strong>的交并比更高，车子和向量的下半部分相关</p>
 <p><strong>模型预测：</strong></p>
 <p>输入与训练集中相同大小的图片，然后训练一个卷积网络，遍历9个格子，得到每个格子中不同的输出结果：<script type="math/tex">3\times3\times2\times8</script></p>
-<p>[<br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e23084f4a75246f08ea4cedef55f60ab.png" alt><br><strong>运行非最大值抑制（NMS）：</strong></p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e23084f4a75246f08ea4cedef55f60ab.png" alt><br><strong>运行非最大值抑制（NMS）：</strong></p>
 <ol>
 <li>假设使用了2个Anchor box，每一个网格都会得到预测输出的2个bounding boxes，其中一个<script type="math/tex">P_{c}</script>比较高</li>
 <li>抛弃概率<script type="math/tex">P_{c}</script>值低的预测bounding boxes</li>
@@ -716,13 +715,13 @@ y= \begin{bmatrix} p_{c} & b_{x} & b_{y} &b_{h} & b_{w} & c_{1} & c_{2} & c_{3} 
 </ol>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/23256c4b7b28d62d34a744f5fb5e9c3b.png" alt></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/66f8cf8e55eadc1ac01f773515bfbc45.png" alt></p>
-<p>如果有三个对象检测类别，希望检测行人，汽车和摩托车：对于每个类别单独运行非极大值抑制，处理预测结果所属类别的边界框，用非极大值抑制来处理行人类别、车子类别、摩托车类别，运行三次来得到最终的预测结果</p>
-<h2 id="3-10-候选区域（选修）（Region-proposals-Optional-）"><a href="#3-10-候选区域（选修）（Region-proposals-Optional-）" class="headerlink" title="3.10 候选区域（选修）（Region proposals (Optional)）"></a>3.10 候选区域（选修）（Region proposals (Optional)）</h2><p>滑动窗法会对原始图片的每个区域都进行扫描，即使是一些空白的或明显没有目标的区域，这样会降低算法运行效率，耗费时间</p>
+<p>如果有三个对象检测类别，希望检测行人，汽车和摩托车：对于每个类别单独运行非极大值抑制，处理预测结果所属类别的边界框，用非极大值抑制来处理行人、车子、摩托车类别，运行三次来得到最终的预测结果</p>
+<h2 id="3-10-候选区域（选修）（Region-proposals-Optional-）"><a href="#3-10-候选区域（选修）（Region-proposals-Optional-）" class="headerlink" title="3.10 候选区域（选修）（Region proposals (Optional)）"></a>3.10 候选区域（选修）（Region proposals (Optional)）</h2><p>滑动窗法会对原始图片的每个区域都进行扫描，即使是一些空白的或明显没有目标的区域，这样会<strong>降低算法运行效率，耗费时间</strong></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/838a6aeb35865f9cfecac8dc593b565b.png" alt></p>
-<p><strong>R-CNN</strong>算法，即带区域的卷积网络，或者带区域的<strong>CNN</strong>。这个算法尝试选出一些区域，在少数窗口上运行卷积网络分类器</p>
-<p>选出候选区域的方法是运行图像分割算法，找出各个尺度的色块，然后在色块上运行分类器，即首先得到候选区域，然后再分类</p>
+<p><strong>R-CNN</strong>算法，即带区域的卷积网络，或者带区域的<strong>CNN</strong>。这个算法尝试选出一些区域，在<strong>少数窗口</strong>上运行卷积网络分类器</p>
+<p>选出候选区域的方法是运行<strong>图像分割算法</strong>，找出各个尺度的色块，然后在色块上运行分类器，即<strong>首先得到候选区域，然后再分类</strong></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e78e4465af892d0965e2b0863263ef8c.png" alt></p>
-<p><strong>R-CNN</strong>算法很慢，基本的<strong>R-CNN</strong>算法是使用某种算法求出候选区域，然后对每个候选区域运行一下分类器，每个区域会输出一个标签，有没有车子、行人、摩托车？并输出一个边界框，就能在确实存在对象的区域得到一个精确的边界框</p>
+<p><strong>R-CNN</strong>算法<strong>很慢</strong>，基本的<strong>R-CNN</strong>算法是使用某种算法求出候选区域，然后对每个候选区域运行一下分类器，每个区域会输出一个标签，有没有车子、行人、摩托车？并输出一个边界框，就能在确实存在对象的区域得到一个精确的边界框</p>
 <p><strong>R-CNN</strong>算法不会直接信任输入的边界框，也会输出一个边界框<script type="math/tex">b_{x}</script>，<script type="math/tex">b_{y}</script>，<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>，这样得到的边界框比较精确，比单纯使用图像分割算法给出的色块边界要好</p>
 <p><strong>Fast R-CNN</strong>算法基本上是<strong>R-CNN</strong>算法，最初的算法是逐一对区域分类，快速<strong>R-CNN</strong>用的是滑动窗法的一个卷积实现，和<strong>3.4 卷积的滑动窗口实现</strong>的相似，显著提升了<strong>R-CNN</strong>的速度，问题是得到候选区域的聚类步骤仍然非常缓慢</p>
 <p>更快的<strong>R-CNN</strong>算法（<strong>Faster R-CNN</strong>），使用的是卷积神经网络，而不是更传统的分割算法来获得候选区域色块，比<strong>Fast R-CNN</strong>算法快得多</p>
