@@ -3,7 +3,7 @@ var OriginTitile = document.title;
 var titleTime;
 document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
-        $('[rel="icon"]').attr('href', "/img/TEP.ico");
+        $('[rel="icon"]').attr('href', "/favicon128.ico");
         document.title = ' 辣鸡博客崩溃啦！(ÒωÓױ)呃！！！！';
         clearTimeout(titleTime);
     }
