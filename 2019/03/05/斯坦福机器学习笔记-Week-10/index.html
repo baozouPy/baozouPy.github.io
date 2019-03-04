@@ -101,13 +101,13 @@
 
 
 
-<meta name="description" content="十五、大规模机器学习(Large Scale Machine Learning)15.1 大型数据集的学习如果有一个低方差的模型，增加数据集的规模可以获得更好的结果 应该怎样应对一个有 100 万条记录的训练集？首先应该做的事是去检查一个这么大规模的训练集是否真的必要，也许只用 1000个训练集也能获得较好的效果，可以绘制学习曲线 来帮助判断：  15.2 随机梯度下降法批量梯度下降法（Batch">
+<meta name="description" content="十五、大规模机器学习(Large Scale Machine Learning)15.1 大型数据集的学习如果有一个低方差的模型，增加数据集的规模可以获得更好的结果">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="斯坦福机器学习笔记(Week 10)">
 <meta property="og:url" content="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-10/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="十五、大规模机器学习(Large Scale Machine Learning)15.1 大型数据集的学习如果有一个低方差的模型，增加数据集的规模可以获得更好的结果 应该怎样应对一个有 100 万条记录的训练集？首先应该做的事是去检查一个这么大规模的训练集是否真的必要，也许只用 1000个训练集也能获得较好的效果，可以绘制学习曲线 来帮助判断：  15.2 随机梯度下降法批量梯度下降法（Batch">
+<meta property="og:description" content="十五、大规模机器学习(Large Scale Machine Learning)15.1 大型数据集的学习如果有一个低方差的模型，增加数据集的规模可以获得更好的结果">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/147import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/321`import.png">
@@ -136,10 +136,10 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1`2import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/3`import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/34`import.png">
-<meta property="og:updated_time" content="2019-03-04T05:35:03.977Z">
+<meta property="og:updated_time" content="2019-03-04T05:43:40.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福机器学习笔记(Week 10)">
-<meta name="twitter:description" content="十五、大规模机器学习(Large Scale Machine Learning)15.1 大型数据集的学习如果有一个低方差的模型，增加数据集的规模可以获得更好的结果 应该怎样应对一个有 100 万条记录的训练集？首先应该做的事是去检查一个这么大规模的训练集是否真的必要，也许只用 1000个训练集也能获得较好的效果，可以绘制学习曲线 来帮助判断：  15.2 随机梯度下降法批量梯度下降法（Batch">
+<meta name="twitter:description" content="十五、大规模机器学习(Large Scale Machine Learning)15.1 大型数据集的学习如果有一个低方差的模型，增加数据集的规模可以获得更好的结果">
 <meta name="twitter:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/147import.png">
 
 
@@ -438,7 +438,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T13:35:03+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T13:43:40+08:00">
                 2019-03-04
               </time>
             
@@ -546,6 +546,7 @@
 
       
         <h2 id="十五、大规模机器学习-Large-Scale-Machine-Learning"><a href="#十五、大规模机器学习-Large-Scale-Machine-Learning" class="headerlink" title="十五、大规模机器学习(Large Scale Machine Learning)"></a>十五、大规模机器学习(Large Scale Machine Learning)</h2><h3 id="15-1-大型数据集的学习"><a href="#15-1-大型数据集的学习" class="headerlink" title="15.1 大型数据集的学习"></a>15.1 大型数据集的学习</h3><p>如果有一个低方差的模型，增加数据集的规模可以获得更好的结果</p>
+<a id="more"></a>
 <h4 id="应该怎样应对一个有-100-万条记录的训练集？"><a href="#应该怎样应对一个有-100-万条记录的训练集？" class="headerlink" title="应该怎样应对一个有 100 万条记录的训练集？"></a>应该怎样应对一个有 100 万条记录的训练集？</h4><p>首先应该做的事是去检查一个这么大规模的训练集是否真的必要，也许只用 1000个训练集也能获得较好的效果，可以绘制学习曲线</p>
 <p>来帮助判断：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/147import.png" alt></p>
@@ -938,7 +939,7 @@ temp_j^{(4)} &= \sum_{i=301}^{400}(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

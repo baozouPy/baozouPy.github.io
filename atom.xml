@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.baozouai.com/"/>
-  <updated>2019-03-04T05:04:55.693Z</updated>
+  <updated>2019-03-04T05:44:16.104Z</updated>
   <id>https://www.baozouai.com/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-7/"/>
     <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-7/</id>
     <published>2019-03-05T04:57:00.000Z</published>
-    <updated>2019-03-04T05:04:55.693Z</updated>
+    <updated>2019-03-04T05:44:16.104Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;十、支持向量机-Support-Vector-Machines&quot;&gt;&lt;a href=&quot;#十、支持向量机-Support-Vector-Machines&quot; class=&quot;headerlink&quot; title=&quot;十、支持向量机( Support Vector Machines)&quot;&gt;&lt;/a&gt;十、支持向量机( Support Vector Machines)&lt;/h2&gt;&lt;h3 id=&quot;10-1-优化目标&quot;&gt;&lt;a href=&quot;#10-1-优化目标&quot; class=&quot;headerlink&quot; title=&quot;10.1 优化目标&quot;&gt;&lt;/a&gt;10.1 优化目标&lt;/h3&gt;&lt;h4 id=&quot;代价函数&quot;&gt;&lt;a href=&quot;#代价函数&quot; class=&quot;headerlink&quot; title=&quot;代价函数&quot;&gt;&lt;/a&gt;代价函数&lt;/h4&gt;
     
     </summary>
     
@@ -47,17 +41,11 @@
     <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-9/"/>
     <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-9/</id>
     <published>2019-03-04T21:20:00.000Z</published>
-    <updated>2019-03-04T05:28:14.952Z</updated>
+    <updated>2019-03-04T05:43:49.168Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;十三、异常检测-Anomaly-Detection&quot;&gt;&lt;a href=&quot;#十三、异常检测-Anomaly-Detection&quot; class=&quot;headerlink&quot; title=&quot;十三、异常检测(Anomaly Detection)&quot;&gt;&lt;/a&gt;十三、异常检测(Anomaly Detection)&lt;/h2&gt;&lt;h3 id=&quot;13-1-问题的动机&quot;&gt;&lt;a href=&quot;#13-1-问题的动机&quot; class=&quot;headerlink&quot; title=&quot;13.1 问题的动机&quot;&gt;&lt;/a&gt;13.1 问题的动机&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;异常检测&lt;/strong&gt;是机器学习算法的一个常见应用。这种算法的一个有趣之处在于：它虽然主要用于非监督学习问题，但从某些角度看，它又类似于一些监督学习问题&lt;/p&gt;
     
     </summary>
     
@@ -73,17 +61,11 @@
     <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-10/"/>
     <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-10/</id>
     <published>2019-03-04T21:20:00.000Z</published>
-    <updated>2019-03-04T05:35:03.977Z</updated>
+    <updated>2019-03-04T05:43:40.990Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;十五、大规模机器学习-Large-Scale-Machine-Learning&quot;&gt;&lt;a href=&quot;#十五、大规模机器学习-Large-Scale-Machine-Learning&quot; class=&quot;headerlink&quot; title=&quot;十五、大规模机器学习(Large Scale Machine Learning)&quot;&gt;&lt;/a&gt;十五、大规模机器学习(Large Scale Machine Learning)&lt;/h2&gt;&lt;h3 id=&quot;15-1-大型数据集的学习&quot;&gt;&lt;a href=&quot;#15-1-大型数据集的学习&quot; class=&quot;headerlink&quot; title=&quot;15.1 大型数据集的学习&quot;&gt;&lt;/a&gt;15.1 大型数据集的学习&lt;/h3&gt;&lt;p&gt;如果有一个低方差的模型，增加数据集的规模可以获得更好的结果&lt;/p&gt;
     
     </summary>
     
@@ -99,17 +81,11 @@
     <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-8/"/>
     <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-8/</id>
     <published>2019-03-04T21:05:00.000Z</published>
-    <updated>2019-03-04T05:18:58.686Z</updated>
+    <updated>2019-03-04T05:43:58.917Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;十一、聚类-Clustering&quot;&gt;&lt;a href=&quot;#十一、聚类-Clustering&quot; class=&quot;headerlink&quot; title=&quot;十一、聚类(Clustering)&quot;&gt;&lt;/a&gt;十一、聚类(Clustering)&lt;/h2&gt;&lt;h3 id=&quot;11-1-无监督学习：简介&quot;&gt;&lt;a href=&quot;#11-1-无监督学习：简介&quot; class=&quot;headerlink&quot; title=&quot;11.1 无监督学习：简介&quot;&gt;&lt;/a&gt;11.1 无监督学习：简介&lt;/h3&gt;&lt;p&gt;在无监督学习中，需要将一系列无标签的训练数据，输入到一个算法中，让计算机学习无标签数据，找到这个数据的内在结构&lt;/p&gt;
     
     </summary>
     
@@ -125,17 +101,11 @@
     <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-6/"/>
     <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-6/</id>
     <published>2019-03-04T19:18:00.000Z</published>
-    <updated>2019-03-04T03:31:52.701Z</updated>
+    <updated>2019-03-04T05:44:24.715Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          
-        
-      
+      &lt;h2 id=&quot;八、应用机器学习的建议-Advice-for-Applying-Machine-Learning&quot;&gt;&lt;a href=&quot;#八、应用机器学习的建议-Advice-for-Applying-Machine-Learning&quot; class=&quot;headerlink&quot; title=&quot;八、应用机器学习的建议(Advice for Applying Machine Learning)&quot;&gt;&lt;/a&gt;八、应用机器学习的建议(Advice for Applying Machine Learning)&lt;/h2&gt;&lt;h3 id=&quot;8-1-决定下一步做什么&quot;&gt;&lt;a href=&quot;#8-1-决定下一步做什么&quot; class=&quot;headerlink&quot; title=&quot;8.1 决定下一步做什么&quot;&gt;&lt;/a&gt;8.1 决定下一步做什么&lt;/h3&gt;&lt;p&gt;当运用训练好了的模型来预测未知数据的时候发现有较大的误差，下一步可以做什么？&lt;/p&gt;
     
     </summary>
     
@@ -160,24 +130,6 @@
     </summary>
     
       <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>斯坦福机器学习笔记(Week  5)</title>
-    <link href="https://www.baozouai.com/2019/03/04/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-5/"/>
-    <id>https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-5/</id>
-    <published>2019-03-04T04:05:00.000Z</published>
-    <updated>2019-03-03T12:20:43.366Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;七、神经网络的学习-Neural-Networks-Learning&quot;&gt;&lt;a href=&quot;#七、神经网络的学习-Neural-Networks-Learning&quot; class=&quot;headerlink&quot; title=&quot;七、神经网络的学习( Neural Networks: Learning)&quot;&gt;&lt;/a&gt;七、神经网络的学习( Neural Networks: Learning)&lt;/h2&gt;&lt;h3 id=&quot;7-1-代价函数&quot;&gt;&lt;a href=&quot;#7-1-代价函数&quot; class=&quot;headerlink&quot; title=&quot;7.1 代价函数&quot;&gt;&lt;/a&gt;7.1 代价函数&lt;/h3&gt;&lt;p&gt;假设神经网络的训练样本有 &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;个，每个包含一组输入 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;和一组输出信号 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;，&lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; 表示神经网络结构总层数，&lt;script type=&quot;math/tex&quot;&gt;S_l&lt;/script&gt;表示第&lt;script type=&quot;math/tex&quot;&gt;l&lt;/script&gt;层的单元个数，&lt;script type=&quot;math/tex&quot;&gt;S_L&lt;/script&gt;代表最后一层中处理单元的个数&lt;/p&gt;
-    
-    </summary>
     
     
       <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
@@ -229,7 +181,7 @@
     <link href="https://www.baozouai.com/2019/03/04/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-2/"/>
     <id>https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-2/</id>
     <published>2019-03-03T19:31:05.000Z</published>
-    <updated>2019-03-03T12:21:16.525Z</updated>
+    <updated>2019-03-04T05:39:52.535Z</updated>
     
     <summary type="html">
     
@@ -240,6 +192,32 @@ h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n&lt;/sc
     
     </summary>
     
+      <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>斯坦福机器学习笔记(Week  5)</title>
+    <link href="https://www.baozouai.com/2019/03/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-5/"/>
+    <id>https://www.baozouai.com/2019/03/03/斯坦福机器学习笔记-Week-5/</id>
+    <published>2019-03-03T12:05:29.438Z</published>
+    <updated>2019-03-04T05:39:15.090Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;七、神经网络的学习-Neural-Networks-Learning&quot;&gt;&lt;a href=&quot;#七、神经网络的学习-Neural-Networks-Learning&quot; class=&quot;headerlink&quot; title=&quot;七、神经网络的学习( Neural Networks: Learning)&quot;&gt;&lt;/a&gt;七、神经网络的学习( Neural Networks: Learning)&lt;/h2&gt;&lt;h3 id=&quot;7-1-代价函数&quot;&gt;&lt;a href=&quot;#7-1-代价函数&quot; class=&quot;headerlink&quot; title=&quot;7.1 代价函数&quot;&gt;&lt;/a&gt;7.1 代价函数&lt;/h3&gt;&lt;p&gt;假设神经网络的训练样本有 &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;个，每个包含一组输入 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;和一组输出信号 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;，&lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; 表示神经网络结构总层数，&lt;script type=&quot;math/tex&quot;&gt;S_l&lt;/script&gt;表示第&lt;script type=&quot;math/tex&quot;&gt;l&lt;/script&gt;层的单元个数，&lt;script type=&quot;math/tex&quot;&gt;S_L&lt;/script&gt;代表最后一层中处理单元的个数&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="[object Object]" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/object-Object/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -289,7 +267,7 @@ h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n&lt;/sc
     <link href="https://www.baozouai.com/2019/02/28/%E7%AC%AC%E4%BA%8C%E5%91%A8-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%8D%E5%B5%8C%E5%85%A5%EF%BC%88Natural-Language-Processing-and-Word-Embeddings%EF%BC%89-Course-5/"/>
     <id>https://www.baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/</id>
     <published>2019-02-27T22:17:00.000Z</published>
-    <updated>2019-03-02T12:07:56.111Z</updated>
+    <updated>2019-03-04T05:40:23.237Z</updated>
     
     <summary type="html">
     
@@ -297,7 +275,7 @@ h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n&lt;/sc
     
     </summary>
     
-      <category term="深度学习 " scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
       <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
@@ -330,13 +308,15 @@ h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n&lt;/sc
     <link href="https://www.baozouai.com/2019/02/28/%E7%AC%AC%E4%B8%89%E5%91%A8-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%EF%BC%88Object-detection-Course-4/"/>
     <id>https://www.baozouai.com/2019/02/28/第三周-目标检测（Object-detection-Course-4/</id>
     <published>2019-02-27T22:01:00.000Z</published>
-    <updated>2019-03-03T03:28:03.133Z</updated>
+    <updated>2019-03-04T05:41:36.383Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;3-1-目标定位（Object-localization）&quot;&gt;&lt;a href=&quot;#3-1-目标定位（Object-localization）&quot; class=&quot;headerlink&quot; title=&quot;3.1 目标定位（Object localization）&quot;&gt;&lt;/a&gt;3.1 目标定位（Object localization）&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0107af10b33fcb955cc3c588dfb78d49.png&quot; alt&gt;&lt;br&gt;
     
     </summary>
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
       <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
