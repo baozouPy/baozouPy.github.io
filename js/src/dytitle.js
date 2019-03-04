@@ -8,7 +8,7 @@ document.addEventListener('visibilitychange', function () {
         clearTimeout(titleTime);
     }
     else {
-        $('[rel="icon"]').attr('href', "/favicon.ico");
+        $('[rel="icon"]').attr('href', "/favicon128.ico");
         document.title = ' 又好了 ( /) V (\ ) 嘻嘻~' + OriginTitile;
         titleTime = setTimeout(function () {
             document.title = OriginTitile;
