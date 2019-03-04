@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="深度学习,">
+  <meta name="keywords" content="机器学习,">
 
 
 
@@ -101,27 +101,33 @@
 
 
 
-<meta name="description" content="笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出">
-<meta name="keywords" content="深度学习">
+<meta name="description" content="八、应用机器学习的建议(Advice for Applying Machine Learning)8.1 决定下一步做什么当运用训练好了的模型来预测未知数据的时候发现有较大的误差，下一步可以做什么？ 获得更多的训练实例——通常是有效的，但代价较大，下面的方法也可能有效，可考虑先采用下面的几种方法。  尝试减少特征的数量  尝试获得更多的特征  尝试增加多项式特征  尝试减少正则化程度 \lambd">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DeepLearning.ai深度学习课程笔记">
-<meta property="og:url" content="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/index.html">
+<meta property="og:title" content="斯坦福机器学习笔记(Week 6)">
+<meta property="og:url" content="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-6/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出">
+<meta property="og:description" content="八、应用机器学习的建议(Advice for Applying Machine Learning)8.1 决定下一步做什么当运用训练好了的模型来预测未知数据的时候发现有较大的误差，下一步可以做什么？ 获得更多的训练实例——通常是有效的，但代价较大，下面的方法也可能有效，可考虑先采用下面的几种方法。  尝试减少特征的数量  尝试获得更多的特征  尝试增加多项式特征  尝试减少正则化程度 \lambd">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%E6%8D%95%E8%8E%B7_%E5%89%AF%E6%9C%AC11.png">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/343rsrimport.png">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0001.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0002.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Structuring%20Machine%20Learning%20Projects-1.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Convolutional%20Neural%20Networks-1.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Sequence%20Models-1.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Deep%20Learning.ai-1.jpg">
-<meta property="og:updated_time" content="2019-02-26T15:31:18.831Z">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/115import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/120import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/116import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/117import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/118import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/正规化过拟合与欠拟合.jpg">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1231import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/122import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/123import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/124import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/125import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/126import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/150import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1122import.png">
+<meta property="og:updated_time" content="2019-03-04T03:31:52.701Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DeepLearning.ai深度学习课程笔记">
-<meta name="twitter:description" content="笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出">
-<meta name="twitter:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%E6%8D%95%E8%8E%B7_%E5%89%AF%E6%9C%AC11.png">
+<meta name="twitter:title" content="斯坦福机器学习笔记(Week 6)">
+<meta name="twitter:description" content="八、应用机器学习的建议(Advice for Applying Machine Learning)8.1 决定下一步做什么当运用训练好了的模型来预测未知数据的时候发现有较大的误差，下一步可以做什么？ 获得更多的训练实例——通常是有效的，但代价较大，下面的方法也可能有效，可考虑先采用下面的几种方法。  尝试减少特征的数量  尝试获得更多的特征  尝试增加多项式特征  尝试减少正则化程度 \lambd">
+<meta name="twitter:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/115import.png">
 
 
 
@@ -151,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/">
+  <link rel="canonical" href="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-6/">
 
 
 
 
 
-  <title>DeepLearning.ai深度学习课程笔记 | 暴走的技术博客</title>
+  <title>斯坦福机器学习笔记(Week 6) | 暴走的技术博客</title>
   
 
 
@@ -374,7 +380,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/">
+    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="暴走">
@@ -391,7 +397,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">DeepLearning.ai深度学习课程笔记</h2>
+          <h2 class="post-title" itemprop="name headline">斯坦福机器学习笔记(Week 6)</h2>
         
 
         <div class="post-meta">
@@ -403,8 +409,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T14:11:00+08:00">
-                2019-02-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T03:18:00+08:00">
+                2019-03-04
               </time>
             
 
@@ -419,8 +425,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-26T23:31:18+08:00">
-                2019-02-26
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T11:31:52+08:00">
+                2019-03-04
               </time>
             
           </span>
@@ -438,8 +444,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -456,8 +462,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/27/DeepLearning-ai深度学习课程笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/DeepLearning-ai深度学习课程笔记/" itemprop="commentCount"></span>
+                <a href="/2019/03/05/斯坦福机器学习笔记-Week-6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/03/05/斯坦福机器学习笔记-Week-6/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -465,7 +471,7 @@
 
           
           
-             <span id="/2019/02/27/DeepLearning-ai深度学习课程笔记/" class="leancloud_visitors" data-flag-title="DeepLearning.ai深度学习课程笔记">
+             <span id="/2019/03/05/斯坦福机器学习笔记-Week-6/" class="leancloud_visitors" data-flag-title="斯坦福机器学习笔记(Week 6)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -490,7 +496,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  3.2k
                 </span>
               
 
@@ -506,7 +512,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  11
                 </span>
               
             </div>
@@ -526,37 +532,226 @@
       
 
       
-        <p>笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出</p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%E6%8D%95%E8%8E%B7_%E5%89%AF%E6%9C%AC11.png" alt><br><a id="more"></a><br><strong>Andrew Ng（吴恩达）的公开信：</strong></p>
-<p>朋友们，</p>
-<p>我在做三个全新的<strong>AI</strong>项目。现在，我十分兴奋地宣布其中的第一个：<strong>deeplearning.ai</strong>，一个立志于扩散<strong>AI</strong>知识的项目。该项目在<strong>Coursera</strong>上发布了一系列深度学习课程，这些课程将帮助你掌握深度学习、对它高效地应用，并打造属于你自己的<strong>AI</strong>事业。</p>
-<p><strong>AI是新一轮电力革命</strong></p>
-<p>就像一百年前电力改造了每个主流行业，当今的<strong>AI</strong>技术在做着相同的事。好几个大型科技公司都设立了<strong>AI</strong>部门，用<strong>AI</strong>革新他们的业务。接下来的几年里，各个行业、规模大小各不相同的公司也都会意识到——-在由<strong>AI</strong>驱动的未来，他们必须成为其中的一份子。</p>
-<p><strong>创建由AI驱动的社会</strong></p>
-<p>我希望，我们可以建立一个由<strong>AI</strong>驱动的社会：让每个人看得起病，给每个孩子个性化的教育，让所有人都能坐上价格亲民的自动驾驶汽车，并向男人和女人提供有意义的工作。总而言之，是一个让每个人的生活变得更好的社会。</p>
-<p>但是，任何一个公司都不可能单独完成这些任务。就像现在每一个计算机专业的毕业生都知道怎么用云，将来，每个程序员也必须懂得怎么用<strong>AI</strong>。用深度学习改善人类生活的方法有数百万种，社会也需要数百万个人——即来自世界各国的你们，来创造出了不起的<strong>AI</strong>系统。不管你是加州的一个软件工程师，一名中国的研究员，还是印度的<strong>ML</strong>工程师，我希望都能用深度学习来解决世界上的各种挑战。</p>
-<p><strong>你会学到什么</strong></p>
-<p>任何一个掌握了机器学习基础知识的人，都可以学习这五门系列课程，它们组成了<strong>Coursera</strong>的全新深度学习专业。</p>
-<p>你会学到深度学习的基础，理解如何创建神经网络，学习怎么成功地领导机器学习项目。你会学习卷积神经网络、<strong>RNNs</strong>、<strong>LSTM</strong>、<strong>Adam</strong>、<strong>Dropout</strong>、<strong>BatchNorm</strong>、<strong>Xavier/He initialization</strong>以及更多。学习过程中，你会接触到医疗、自动驾驶、读手语、音乐生成、自然语言处理的案例。</p>
-<p>你不仅会掌握深度学习理论，还会看到它是怎样在行业应用落地的。你会在<strong>Python</strong>和<strong>TensorFlow</strong>里试验这些想法，你还会听到各位深度学习领袖人物的意见，他们会分享各自的学习经历，并提供职业规划建议。</p>
-<p>当你拿到<strong>Coursera</strong>的深度学习专业证书，就可以自信得把“深度学习”四个字写进你的简历。</p>
-<p><strong>加入我，建立一个由AI驱动的社会</strong></p>
-<p>从2011年到现在，已经有180万人加入了我的机器学习课程。当时，我和四名斯坦福的学生发布了这门课程，它随即成为了<strong>Coursera</strong>的第一门公开课。那之后，我受到你们之中许多人的启发——当我看到你们是如何努力地理解机器学习，开发优秀的<strong>AI</strong>系统，并开启令人惊艳的事业。</p>
-<p>我希望深度学习专业能帮助你们实现更了不起的事，让你们为社<br>会贡献更多，在职业道路上走得更远。</p>
-<p>我希望大家和我一道，建立一个由<strong>AI</strong>驱动的社会。</p>
-<p>我会通知大家另外两个项目的进展，并不断探索，为全世界<strong>AI</strong>社区的每一个人提供更多支持的途径。</p>
-<p>Sincerely，</p>
-<p>吴恩达</p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/343rsrimport.png" alt></p>
-<blockquote>
-<p>吴恩达与<strong>deeplearning.ai</strong>团队</p>
-</blockquote>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0001.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0002.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Structuring%20Machine%20Learning%20Projects-1.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Convolutional%20Neural%20Networks-1.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Sequence%20Models-1.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Deep%20Learning.ai-1.jpg" alt></p>
+        <h2 id="八、应用机器学习的建议-Advice-for-Applying-Machine-Learning"><a href="#八、应用机器学习的建议-Advice-for-Applying-Machine-Learning" class="headerlink" title="八、应用机器学习的建议(Advice for Applying Machine Learning)"></a>八、应用机器学习的建议(Advice for Applying Machine Learning)</h2><h3 id="8-1-决定下一步做什么"><a href="#8-1-决定下一步做什么" class="headerlink" title="8.1 决定下一步做什么"></a>8.1 决定下一步做什么</h3><p>当运用训练好了的模型来预测未知数据的时候发现有较大的误差，下一步可以做什么？</p>
+<p>获得更多的训练实例——通常是有效的，但代价较大，下面的方法也可能有效，可考虑先采用下面的几种方法。</p>
+<ol>
+<li><p>尝试减少特征的数量</p>
+</li>
+<li><p>尝试获得更多的特征</p>
+</li>
+<li><p>尝试增加多项式特征</p>
+</li>
+<li><p>尝试减少正则化程度 <script type="math/tex">\lambda</script></p>
+</li>
+<li><p>尝试增加正则化程度 <script type="math/tex">\lambda</script></p>
+</li>
+</ol>
+<p>不应该随机选择上面的某种方法来改进算法，而是运用一些机器学习诊断法来知道上面哪些方法对算法是有效的</p>
+<h3 id="8-2-评估一个假设"><a href="#8-2-评估一个假设" class="headerlink" title="8.2 评估一个假设"></a>8.2 评估一个假设</h3><p>为了检验算法是否过拟合，将数据分成训练集和测试集，通常用 70%的数据作为训练集，用剩下30%的数据作为测试集。很重要的一点是训练集和测试集均要含有各种类型的数据，通常要对数据进行“洗牌”，然后再分成训练集和测试集</p>
+<p>引入如下符号：</p>
+<ul>
+<li><script type="math/tex">(x^{(1)},y^{(1)})</script>：训练样本</li>
+<li><script type="math/tex">(x_{test}^{(1)},y_{test}^{(1)})</script>：测试样本</li>
+<li><script type="math/tex">m</script>：训练集样本容量</li>
+<li><script type="math/tex">m_{test}</script>：测试集样本容量</li>
+</ul>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/115import.png" alt></p>
+<p>测试集评估：</p>
+<p>通过训练集让模型学习得出其参数后，对测试集运用该模型，有两种方式计算误差：</p>
+<p>1.对于线性回归模型，利用测试集数据计算代价函数 <script type="math/tex">J</script></p>
+<script type="math/tex; mode=display">
+J_{test} = \frac{1}{2m_{test}}\sum_{i=1}^{m_{test}}(h_{\theta}(x_{test}^{(i)})-y_{test}^{(i)})^2</script><p>2.对于逻辑回归模型，测试集的代价函数为：</p>
+<script type="math/tex; mode=display">
+J_{test}(\theta)=-\frac{1}{m_{test}}\sum\limits_{i=1}^{m_{test}}[y_{test}^{(i)}logh_\theta(x_{test}^{(i)})+(1-y_{test}^{(i)})log(1-h_\theta(x_{test}^{(i)}))]</script><p>由于逻辑回归处理的是 0/1 分类问题，其预测结果只有正确与错误之分，所以引入<strong>误分率（Misclassification Error）,</strong>对于每一个测试集实例，计算<strong>：</strong></p>
+<script type="math/tex; mode=display">
+err(h_\theta(x),y)=
+\begin{cases} 1,&\text{if} h_\theta(x) \geq 0.5,y=0 \quad or \quad h_\theta(x) \lt 0.5,y=1 \\
+0, & \text{otherwise}
+\end{cases}</script><p>然后对计算结果求平均,则逻辑回归中的测试误差可以表示为：</p>
+<script type="math/tex; mode=display">
+Test_{error} = \frac{1}{m_{test}}\sum\limits_{1}^{m_{test}}err(h_\theta(x_{test}^{(i)}),y_{test}^{(i)})</script><h3 id="8-3-模型选择和交叉验证集"><a href="#8-3-模型选择和交叉验证集" class="headerlink" title="8.3 模型选择和交叉验证集"></a>8.3 模型选择和交叉验证集</h3><ul>
+<li><strong>训练集</strong>：60%，确定参数<script type="math/tex">\theta</script></li>
+<li><p><strong>交叉验证集</strong>：20%，进行模型选择</p>
+</li>
+<li><p><strong>测试集</strong>：20%，评价模型预测能力</p>
+</li>
+</ul>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/120import.png" alt></p>
+<p>模型选择的方法为：</p>
+<ol>
+<li><p>使用训练集训练出 10 个模型</p>
+</li>
+<li><p>用 10 个模型分别对交叉验证集计算得出交叉验证误差（代价函数的值）</p>
+</li>
+<li><p>选取代价函数值最小的模型</p>
+</li>
+<li><p>用步骤 3 中选出的模型对测试集计算得出推广误差（代价函数的值）</p>
+</li>
+</ol>
+<p>三者的误差函数如下：</p>
+<ul>
+<li><strong>训练集误差</strong>：</li>
+</ul>
+<script type="math/tex; mode=display">
+J_{train}(\theta) = \frac{1}{2m}\sum\limits_{i=1}^{m_{train}}(h_\theta(x_{train}^{(i)})-y_{train}^{(i)})^2</script><ul>
+<li><strong>交叉验证集误差：</strong></li>
+</ul>
+<script type="math/tex; mode=display">
+J_{cv}(\theta) = \frac{1}{2m}\sum\limits_{i=1}^{m_{cv}}(h_\theta(x_{cv}^{(i)})-y_{cv}^{(i)})^2</script><ul>
+<li><strong>测试集误差：</strong></li>
+</ul>
+<script type="math/tex; mode=display">
+J_{test}(\theta) = \frac{1}{2m}\sum\limits_{i=1}^{m_{test}}(h_\theta(x_{test}^{(i)})-y_{test}^{(i)})^2</script><h3 id="8-4-偏差与方差"><a href="#8-4-偏差与方差" class="headerlink" title="8.4 偏差与方差"></a>8.4 偏差与方差</h3><p>在机器学习中，<strong>偏差（bias）</strong>反映了模型无法描述数据规律，而<strong>方差（variance）</strong>反映了模型对训练集过度敏感，而丢失了数据规律</p>
+<h4 id="多项式回归中偏差与方差"><a href="#多项式回归中偏差与方差" class="headerlink" title="多项式回归中偏差与方差"></a>多项式回归中偏差与方差</h4><p>当运行一个学习算法时，如果这个算法的表现不理想，多半是出现两种情况：要么是偏差比较大，要么是方差比较大。即出现的情况要么是<strong>欠拟合</strong>，要么是<strong>过拟合</strong>问题</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/116import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/117import.png" alt></p>
+<p>对于训练集，当<script type="math/tex">d</script>较小时，模型拟合程度低，误差较大；随着<script type="math/tex">d</script>的增长，拟合程度提高，误差减小</p>
+<p>对于交叉验证集，当<script type="math/tex">d</script>较小时，模型拟合程度低，误差较大；但是随着<script type="math/tex">d</script>的增长，误差呈现先减小后增大的趋势，转折点是模型开始过拟合训练数据集的时候</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/118import.png" alt></p>
+<p>训练集误差和交叉验证集误差近似时：偏差/欠拟合</p>
+<p>交叉验证集误差远大于训练集误差时：方差/过拟合</p>
+<h3 id="8-5-正则化和偏差-方差"><a href="#8-5-正则化和偏差-方差" class="headerlink" title="8.5 正则化和偏差/方差"></a>8.5 正则化和偏差/方差</h3><p><strong>正规化（Regularization）</strong>解决过拟合问题：</p>
+<p>$\lambda$取值越大，对参数<script type="math/tex">\theta</script>的惩罚力度就越大，能够帮助解决<strong>过拟合</strong>问题，如果惩罚过重，也会造成<strong>欠拟合</strong>问题，即会出现<strong>高偏差</strong>。如果<script type="math/tex">\lambda</script>取值较小，则意味着没有惩罚<script type="math/tex">\theta</script>，也就不能解决<strong>过拟合</strong>问题，会出现<strong>高方差</strong>：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/正规化过拟合与欠拟合.jpg" alt></p>
+<hr>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1231import.png" alt></p>
+<p>选择 <script type="math/tex">\lambda</script> 的方法为：</p>
+<ol>
+<li><p>使用训练集训练出 12 个不同程度<strong>正则化</strong>的模型</p>
+</li>
+<li><p>用 12 模型分别对<strong>交叉验证集</strong>计算得出<strong>交叉验证误差 </strong></p>
+</li>
+<li><p>选择得出交叉验证误差<strong>最小</strong>的模型</p>
+</li>
+<li><p>运用步骤 3 中选出模型对测试集计算得出推广误差，也可以同时将训练集和交叉验证集模型的代价函</p>
+</li>
+</ol>
+<p>数误差与<script type="math/tex">\lambda</script>的值绘制在一张图表上：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/122import.png" alt></p>
+<ul>
+<li><p>当<script type="math/tex">\lambda</script>较小时，训练集误差较小（过拟合），而交叉验证集误差较大</p>
+</li>
+<li><p>随着<script type="math/tex">\lambda</script>的增加，训练集误差不断增加（欠拟合），而交叉验证集误差则是先减小后增加</p>
+</li>
+</ul>
+<h3 id="8-6-学习曲线"><a href="#8-6-学习曲线" class="headerlink" title="8.6 学习曲线"></a>8.6 学习曲线</h3><p><strong>学习曲线</strong>是将<strong>训练集误差</strong>和<strong>交叉验证集误差</strong>作为训练集实例数量（m）的函数绘制的图表</p>
+<p>当训练较少行数据的时候，训练的模型将能够非常完美地适应较少的训练数据，但是训练出来的模型却不能很好地适应<strong>交叉验证集数据</strong>或<strong>测试集数据</strong></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/123import.png" alt></p>
+<p>利用学习曲线识别高偏差/欠拟合：用一条直线来适应下面的数据，可以看出，无论训练集有多么大误差都不会有太大改观：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/124import.png" alt></p>
+<p>在高偏差/欠拟合的情况下，增加数据到训练集不一定能有帮助</p>
+<p>利用学习曲线识别高方差/过拟合： 假设使用一个非常高次的多项式模型，并且正则化非常小，可以看出，当交叉验证集误差远大于训练集误差时，往训练集增加更多数据可以提高模型的效果</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/125import.png" alt></p>
+<p>在高方差/过拟合的情况下，增加更多数据到训练集可能可以提高算法效果</p>
+<h3 id="8-7-决定下一步做什么"><a href="#8-7-决定下一步做什么" class="headerlink" title="8.7 决定下一步做什么"></a>8.7 决定下一步做什么</h3><p>降低预测误差，即提高预测精度，往往会采用这些手段：</p>
+<ol>
+<li><p>获得更多的训练实例——解决高方差</p>
+</li>
+<li><p>尝试减少特征的数量——解决高方差</p>
+</li>
+<li><p>尝试获得更多的特征——解决高偏差</p>
+</li>
+<li><p>尝试增加多项式特征——解决高偏差</p>
+</li>
+<li><p>尝试减小正则化程度 <script type="math/tex">\lambda</script>——解决高偏差</p>
+</li>
+<li><p>尝试增加正则化程度 <script type="math/tex">\lambda</script>——解决高方差</p>
+</li>
+</ol>
+<h4 id="神经网络的方差和偏差"><a href="#神经网络的方差和偏差" class="headerlink" title="神经网络的方差和偏差"></a>神经网络的方差和偏差</h4><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/126import.png" alt></p>
+<p>使用较小的神经网络，类似于<strong>参数较少</strong>的情况，容易导致<strong>高偏差</strong>和<strong>欠拟合</strong>，但计算代价较小</p>
+<p>使用较大的神经网络，类似于<strong>参数较多</strong>的情况，容易导致<strong>高方差</strong>和<strong>过拟合</strong>，虽然计算代价比较大，但是可以通过正则化手段来调整而更加适应数据</p>
+<p>通常选择较大的神经网络并采用<strong>正则化</strong>处理会比采用较小的神经网络效果要好,对于神经网络中的<strong>隐藏层</strong>的层数的选择，通常从一层开始逐渐增加层数，为了更好地作选择，可以把数据分为<strong>训练集</strong>、<strong>交叉验证集</strong>和<strong>测试集</strong>，针对不同<strong>隐藏层层数</strong>的神经网络训练神经网络， 然后选择<strong>交叉验证集</strong>代价<strong>最小</strong>的神经网络</p>
+<h2 id="九、机器学习系统的设计-Machine-Learning-System-Design"><a href="#九、机器学习系统的设计-Machine-Learning-System-Design" class="headerlink" title="九、机器学习系统的设计(Machine Learning System Design)"></a>九、机器学习系统的设计(Machine Learning System Design)</h2><h3 id="9-1-首先要做什么"><a href="#9-1-首先要做什么" class="headerlink" title="9.1 首先要做什么"></a>9.1 首先要做什么</h3><p>令向量<script type="math/tex">x</script>表示垃圾邮件的特征向量，该向量包含了 100 个按字母序排序的单词特征，这些单词通常为垃圾邮件常出现的词汇：discount，deal，now 等等：</p>
+<script type="math/tex; mode=display">
+x_j =
+\begin{cases}
+1 & \text{第 j 个单词出现} \\
+0 & \text{未出现}
+\end{cases}</script><p>令<script type="math/tex">y</script>标签表示该邮件是否是垃圾邮件：</p>
+<script type="math/tex; mode=display">
+y =
+\begin{cases}
+1 & \text{x是垃圾邮件} \\
+0 & \text{x不是垃圾邮件}
+\end{cases}</script><p>那么垃圾邮件分类就是一个 <strong>0/1 分类</strong>问题，可以用<strong>逻辑回归</strong>完成</p>
+<p>如何降低分类错误率：</p>
+<ol>
+<li><p>收集更多的数据，有更多的垃圾邮件和非垃圾邮件的样本</p>
+</li>
+<li><p>基于邮件的路由信息开发一系列复杂的特征</p>
+</li>
+<li><p>基于邮件的正文信息开发一系列复杂的特征，包括考虑截词的处理</p>
+</li>
+<li><p>为探测刻意的拼写错误（把 watch 写成 w4tch）开发复杂的算法</p>
+</li>
+</ol>
+<h3 id="9-2-误差分析"><a href="#9-2-误差分析" class="headerlink" title="9.2 误差分析"></a>9.2 误差分析</h3><p>构建一个学习算法的推荐方法为：</p>
+<ol>
+<li><p>从一个简单的能快速实现的算法开始，实现该算法并用<strong>交叉验证集</strong>数据测试这个算法</p>
+</li>
+<li><p>绘制学习曲线，确定面临的问题是<strong>高偏差</strong>还是<strong>高方差，</strong>决定是添加更多特征，或者增加更多数据，还是其他选择</p>
+</li>
+<li><p>进行误差分析：人工检查交叉验证集算法中产生预测误差的实例，看看这些实例是否有某种系统化的趋势</p>
+</li>
+</ol>
+<p>假定交叉验证集有 500 个样本，即<script type="math/tex">m_{cv}=500</script>，模型错分了其中 100 个样本，通过下述手段进行错误分析：</p>
+<ol>
+<li>需要知道哪些邮件被错分了，是假冒伪劣的推销邮件？医药邮件？还是钓鱼邮件？</li>
+<li>需要知道提供什么线索（特征）能帮助模型区分出这些邮件？</li>
+</ol>
+<p>例如，在这 100 个错分样本中，发现有 53 个样本是钓鱼邮件，就需要考虑为模型注入识别的钓鱼邮件的能力。在这 53 封钓鱼邮件中，故意使用错误拼写的邮件有 5 封，来源可疑（发送人可疑）的邮件有16 封，使用了大量煽动性标点符号的邮件有 32 封</p>
+<p>对于识别钓鱼邮件来说，更适合将煽动性标点符号添加为特征，而不用再考虑去识别错误拼写</p>
+<h3 id="9-3-查准率（Precision）和-召回率（Recall）"><a href="#9-3-查准率（Precision）和-召回率（Recall）" class="headerlink" title="9.3 查准率（Precision）和 召回率（Recall）"></a>9.3 查准率（Precision）和 召回率（Recall）</h3><p>将算法预测的结果分成四种情况：</p>
+<ol>
+<li><p>正确肯定（True Positive,TP）：预测为真，实际为真</p>
+</li>
+<li><p>正确否定（True Negative,TN）：预测为假，实际为假</p>
+</li>
+<li><p>错误肯定（False Positive,FP）：预测为真，实际为假</p>
+</li>
+<li><p>错误否定（False Negative,FN）：预测为假，实际为真</p>
+</li>
+</ol>
+<h4 id="查准率（Precision）："><a href="#查准率（Precision）：" class="headerlink" title="查准率（Precision）："></a>查准率（Precision）：</h4><script type="math/tex; mode=display">
+Precision = \frac{TruePos}{PredicatedPos} = \frac{TruePos}{TruePos+FalsePos}</script><p>例，在所有预测有恶性肿瘤的病人中，实际上有恶性肿瘤的病人的百分比，越高越好</p>
+<h4 id="召回率（Recall）："><a href="#召回率（Recall）：" class="headerlink" title="召回率（Recall）："></a>召回率（Recall）：</h4><script type="math/tex; mode=display">
+Recall = \frac{TruePos}{ActualPos} = \frac{TruePos}{TruePos+FalseNeg}</script><p>例，在所有实际上有恶性肿瘤的病人中，成功预测有恶性肿瘤的病人的百分比，越高越好</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">实际1</th>
+<th style="text-align:center">实际0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">预测1</td>
+<td style="text-align:center">True Positive</td>
+<td style="text-align:center">False Positive</td>
+</tr>
+<tr>
+<td style="text-align:center">预测0</td>
+<td style="text-align:center">False Negative</td>
+<td style="text-align:center">True Negative</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="9-4-查准率和召回率之间的权衡"><a href="#9-4-查准率和召回率之间的权衡" class="headerlink" title="9.4 查准率和召回率之间的权衡"></a>9.4 查准率和召回率之间的权衡</h3><p>如果希望在非常确信的情况下预测为真（肿瘤为恶性），即希望更高的<strong>查准率</strong>，可以使用比 0.5 更大的阀值，如 0.7，0.9。这样会减少错误预测病人为恶性肿瘤的情况，同时却会增加未能成功预测肿瘤为恶性的情况。如果希望提高<strong>召回率</strong>，尽可能地让所有有可能是恶性肿瘤的病人都得到进一步地检查、诊断，可以使用比 0.5 更小的阀值，如 0.3。</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/150import.png" alt></p>
+<p>选择阀值的方法：计算 <strong>F 1 值（F1 Score）</strong></p>
+<script type="math/tex; mode=display">
+F_1 Score = 2\frac{PR}{P+R}</script><p>分子是<strong>查准率</strong>和<strong>召回率</strong>的乘积，只有二者都较高时，<script type="math/tex">F_1Score</script>才会较高，特别地：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F_1 Score &= 0, \quad \text{if P=0 or R=0} \\
+F_1 Score &= 1, \quad \text{if P=1 and R=1}
+\end{aligned}</script><h3 id="机器学习的数据"><a href="#机器学习的数据" class="headerlink" title="机器学习的数据"></a>机器学习的数据</h3><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1122import.png" alt></p>
+<p>什么时候采用大规模的数据集：</p>
+<p>一定要保证模型拥有足够的参数（线索），对于线性回归/逻辑回归来说，就是具备足够多的特征，而对于神经网络来说，就是更多的隐藏单元。这样，足够多的特征避免了<strong>高偏差</strong>（欠拟合）问题，而足够大数据集避免了多特征容易引起的<strong>高方差</strong>（过拟合）问题。</p>
 
       
     </div>
@@ -614,9 +809,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i>
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i>
 
- 深度学习</a>
+ 机器学习</a>
           
         </div>
       
@@ -629,8 +824,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/" rel="next" title="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)">
-                <i class="fa fa-chevron-left"></i> 第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)
+              <a href="/2019/03/04/斯坦福机器学习笔记-Week-3/" rel="next" title="斯坦福机器学习笔记(Week  3)">
+                <i class="fa fa-chevron-left"></i> 斯坦福机器学习笔记(Week  3)
               </a>
             
           </div>
@@ -639,8 +834,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/" rel="prev" title="第三周：浅层神经网络(Shallow neural networks)(Course 1)">
-                第三周：浅层神经网络(Shallow neural networks)(Course 1) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/05/斯坦福机器学习笔记-Week-8/" rel="prev" title="斯坦福机器学习笔记(Week 8)">
+                斯坦福机器学习笔记(Week 8) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -710,7 +905,7 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2019/02/27/DeepLearning-ai深度学习课程笔记/" data-title="DeepLearning.ai深度学习课程笔记" data-url="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/">
+      <div class="ds-thread" data-thread-key="2019/03/05/斯坦福机器学习笔记-Week-6/" data-title="斯坦福机器学习笔记(Week 6)" data-url="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-6/">
       </div>
     </div>
 
@@ -739,8 +934,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
 
@@ -835,6 +1039,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#八、应用机器学习的建议-Advice-for-Applying-Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">八、应用机器学习的建议(Advice for Applying Machine Learning)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-决定下一步做什么"><span class="nav-number">1.1.</span> <span class="nav-text">8.1 决定下一步做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-评估一个假设"><span class="nav-number">1.2.</span> <span class="nav-text">8.2 评估一个假设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-模型选择和交叉验证集"><span class="nav-number">1.3.</span> <span class="nav-text">8.3 模型选择和交叉验证集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-偏差与方差"><span class="nav-number">1.4.</span> <span class="nav-text">8.4 偏差与方差</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多项式回归中偏差与方差"><span class="nav-number">1.4.1.</span> <span class="nav-text">多项式回归中偏差与方差</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-正则化和偏差-方差"><span class="nav-number">1.5.</span> <span class="nav-text">8.5 正则化和偏差/方差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-6-学习曲线"><span class="nav-number">1.6.</span> <span class="nav-text">8.6 学习曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-决定下一步做什么"><span class="nav-number">1.7.</span> <span class="nav-text">8.7 决定下一步做什么</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#神经网络的方差和偏差"><span class="nav-number">1.7.1.</span> <span class="nav-text">神经网络的方差和偏差</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、机器学习系统的设计-Machine-Learning-System-Design"><span class="nav-number">2.</span> <span class="nav-text">九、机器学习系统的设计(Machine Learning System Design)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-首先要做什么"><span class="nav-number">2.1.</span> <span class="nav-text">9.1 首先要做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-误差分析"><span class="nav-number">2.2.</span> <span class="nav-text">9.2 误差分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-查准率（Precision）和-召回率（Recall）"><span class="nav-number">2.3.</span> <span class="nav-text">9.3 查准率（Precision）和 召回率（Recall）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查准率（Precision）："><span class="nav-number">2.3.1.</span> <span class="nav-text">查准率（Precision）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#召回率（Recall）："><span class="nav-number">2.3.2.</span> <span class="nav-text">召回率（Recall）：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-查准率和召回率之间的权衡"><span class="nav-number">2.4.</span> <span class="nav-text">9.4 查准率和召回率之间的权衡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习的数据"><span class="nav-number">2.5.</span> <span class="nav-text">机器学习的数据</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1501,6 +1721,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

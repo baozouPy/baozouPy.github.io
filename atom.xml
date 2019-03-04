@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.baozouai.com/"/>
-  <updated>2019-03-03T12:20:51.242Z</updated>
+  <updated>2019-03-04T05:04:55.693Z</updated>
   <id>https://www.baozouai.com/</id>
   
   <author>
@@ -15,6 +15,136 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>斯坦福机器学习笔记(Week 7)</title>
+    <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-7/"/>
+    <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-7/</id>
+    <published>2019-03-05T04:57:00.000Z</published>
+    <updated>2019-03-04T05:04:55.693Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>斯坦福机器学习笔记(Week 9)</title>
+    <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-9/"/>
+    <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-9/</id>
+    <published>2019-03-04T21:20:00.000Z</published>
+    <updated>2019-03-04T05:28:14.952Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>斯坦福机器学习笔记(Week 10)</title>
+    <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-10/"/>
+    <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-10/</id>
+    <published>2019-03-04T21:20:00.000Z</published>
+    <updated>2019-03-04T05:35:03.977Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>斯坦福机器学习笔记(Week 8)</title>
+    <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-8/"/>
+    <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-8/</id>
+    <published>2019-03-04T21:05:00.000Z</published>
+    <updated>2019-03-04T05:18:58.686Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>斯坦福机器学习笔记(Week 6)</title>
+    <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-6/"/>
+    <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-6/</id>
+    <published>2019-03-04T19:18:00.000Z</published>
+    <updated>2019-03-04T03:31:52.701Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>斯坦福机器学习笔记(Week  3)</title>
@@ -135,26 +265,6 @@ h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n&lt;/sc
   </entry>
   
   <entry>
-    <title>第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)</title>
-    <link href="https://www.baozouai.com/2019/02/28/%E7%AC%AC%E4%BA%8C%E5%91%A8-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%8D%E5%B5%8C%E5%85%A5%EF%BC%88Natural-Language-Processing-and-Word-Embeddings%EF%BC%89-Course-5/"/>
-    <id>https://www.baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/</id>
-    <published>2019-02-27T22:17:00.000Z</published>
-    <updated>2019-03-02T12:07:56.111Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;2-1-词汇表征（Word-Representation）&quot;&gt;&lt;a href=&quot;#2-1-词汇表征（Word-Representation）&quot; class=&quot;headerlink&quot; title=&quot;2.1 词汇表征（Word Representation）&quot;&gt;&lt;/a&gt;2.1 词汇表征（Word Representation）&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;one-hot&lt;/strong&gt;向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用&lt;script type=&quot;math/tex&quot;&gt;O_{5391}&lt;/script&gt;,&lt;script type=&quot;math/tex&quot;&gt;O_{9853}&lt;/script&gt; 等表示，&lt;script type=&quot;math/tex&quot;&gt;O&lt;/script&gt;代表&lt;strong&gt;one-hot：&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="深度学习 " scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>第一周 循环序列模型（Recurrent Neural Networks）(Course 5)</title>
     <link href="https://www.baozouai.com/2019/02/28/%E7%AC%AC%E4%B8%80%E5%91%A8-%E5%BE%AA%E7%8E%AF%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B%EF%BC%88Recurrent-Neural-Networks%EF%BC%89-Course-5/"/>
     <id>https://www.baozouai.com/2019/02/28/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/</id>
@@ -168,6 +278,26 @@ h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n&lt;/sc
     </summary>
     
       <category term="深度学习" scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)</title>
+    <link href="https://www.baozouai.com/2019/02/28/%E7%AC%AC%E4%BA%8C%E5%91%A8-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%8D%E5%B5%8C%E5%85%A5%EF%BC%88Natural-Language-Processing-and-Word-Embeddings%EF%BC%89-Course-5/"/>
+    <id>https://www.baozouai.com/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/</id>
+    <published>2019-02-27T22:17:00.000Z</published>
+    <updated>2019-03-02T12:07:56.111Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;2-1-词汇表征（Word-Representation）&quot;&gt;&lt;a href=&quot;#2-1-词汇表征（Word-Representation）&quot; class=&quot;headerlink&quot; title=&quot;2.1 词汇表征（Word Representation）&quot;&gt;&lt;/a&gt;2.1 词汇表征（Word Representation）&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;one-hot&lt;/strong&gt;向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用&lt;script type=&quot;math/tex&quot;&gt;O_{5391}&lt;/script&gt;,&lt;script type=&quot;math/tex&quot;&gt;O_{9853}&lt;/script&gt; 等表示，&lt;script type=&quot;math/tex&quot;&gt;O&lt;/script&gt;代表&lt;strong&gt;one-hot：&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="深度学习 " scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
       <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
@@ -218,7 +348,7 @@ h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n&lt;/sc
     <link href="https://www.baozouai.com/2019/02/28/%E7%AC%AC%E4%BA%8C%E5%91%A8-%E6%B7%B1%E5%BA%A6%E5%8D%B7%E7%A7%AF%E7%BD%91%E7%BB%9C%EF%BC%9A%E5%AE%9E%E4%BE%8B%E6%8E%A2%E7%A9%B6%EF%BC%88Deep-convolutional-models-case-studies%EF%BC%89-Course-4/"/>
     <id>https://www.baozouai.com/2019/02/28/第二周-深度卷积网络：实例探究（Deep-convolutional-models-case-studies）-Course-4/</id>
     <published>2019-02-27T21:54:00.000Z</published>
-    <updated>2019-03-04T01:51:46.622Z</updated>
+    <updated>2019-03-04T03:47:14.041Z</updated>
     
     <summary type="html">
     
@@ -314,120 +444,6 @@ h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n&lt;/sc
     <summary type="html">
     
       &lt;h2 id=&quot;4-1-深层神经网络（Deep-L-layer-neural-network）&quot;&gt;&lt;a href=&quot;#4-1-深层神经网络（Deep-L-layer-neural-network）&quot; class=&quot;headerlink&quot; title=&quot;4.1 深层神经网络（Deep L-layer neural network）&quot;&gt;&lt;/a&gt;4.1 深层神经网络（Deep L-layer neural network）&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://pnlb0i3oh.bkt.clouddn.com/pasted-27.png&quot; alt=&quot;upload successful&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一周 机器学习策略（1）（ML strategy（1））(Course 3)</title>
-    <link href="https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88ML%EF%BC%89%E7%AD%96%E7%95%A5%EF%BC%881%EF%BC%89%EF%BC%88ML-strategy%EF%BC%881%EF%BC%89%EF%BC%89-Course-3/"/>
-    <id>https://www.baozouai.com/2019/02/27/第一周-机器学习（ML）策略（1）（ML-strategy（1））-Course-3/</id>
-    <published>2019-02-27T12:49:53.000Z</published>
-    <updated>2019-03-02T12:11:46.479Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-1-为什么是-ML-策略？（Why-ML-Strategy-）&quot;&gt;&lt;a href=&quot;#1-1-为什么是-ML-策略？（Why-ML-Strategy-）&quot; class=&quot;headerlink&quot; title=&quot;1.1 为什么是 ML 策略？（Why ML Strategy?）&quot;&gt;&lt;/a&gt;1.1 为什么是 ML 策略？（Why ML Strategy?）&lt;/h2&gt;&lt;p&gt;当最初得到一个深度神经网络模型时，希望从很多方面来对它进行优化，例如：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Collect more data&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Collect more diverse training set&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Train algorithm longer with gradient descent&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Try Adam instead of gradient descent&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第二周：优化算法 (Optimization algorithms)(Course 2)</title>
-    <link href="https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95-Optimization-algorithms-Course-2/"/>
-    <id>https://www.baozouai.com/2019/02/27/第二周：优化算法-Optimization-algorithms-Course-2/</id>
-    <published>2019-02-27T11:20:37.000Z</published>
-    <updated>2019-02-27T15:42:22.759Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot;&gt;&lt;a href=&quot;#2-1-Mini-batch-梯度下降（Mini-batch-gradient-descent）&quot; class=&quot;headerlink&quot; title=&quot;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&quot;&gt;&lt;/a&gt;2.1 Mini-batch 梯度下降（Mini-batch gradient descent）&lt;/h2&gt;&lt;p&gt;神经网络训练过程是同时对所有m个样本（称为batch）通过向量化计算方式进行的。如果m很大，训练速度会很慢，因为每次迭代都要对所有样本进进行求和运算和矩阵运算。这种梯度下降算法称为Batch Gradient Descent&lt;br&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一周：深度学习的实用层面(Practical aspects of Deep Learning)(Course 2)</title>
-    <link href="https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B1%82%E9%9D%A2-Practical-aspects-of-Deep-Learning-Course-2/"/>
-    <id>https://www.baozouai.com/2019/02/27/第一周：深度学习的实用层面-Practical-aspects-of-Deep-Learning-Course-2/</id>
-    <published>2019-02-27T11:20:37.000Z</published>
-    <updated>2019-02-27T15:42:05.398Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-1-训练，验证，测试集（Train-Dev-Test-sets）&quot;&gt;&lt;a href=&quot;#1-1-训练，验证，测试集（Train-Dev-Test-sets）&quot; class=&quot;headerlink&quot; title=&quot;1.1 训练，验证，测试集（Train / Dev / Test sets）&quot;&gt;&lt;/a&gt;1.1 训练，验证，测试集（Train / Dev / Test sets）&lt;/h2&gt;&lt;p&gt;在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;神经网络分多少层&lt;/li&gt;
-&lt;li&gt;每层含有多少个隐藏单元&lt;/li&gt;
-&lt;li&gt;学习速率是多少&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;各层采用哪些激活函数&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第三周：浅层神经网络(Shallow neural networks)(Course 1)</title>
-    <link href="https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%89%E5%91%A8%EF%BC%9A%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-Shallow-neural-networks/"/>
-    <id>https://www.baozouai.com/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/</id>
-    <published>2019-02-27T08:54:10.000Z</published>
-    <updated>2019-02-27T15:41:00.445Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;3-1-神经网络概述（Neural-Network-Overview）&quot;&gt;&lt;a href=&quot;#3-1-神经网络概述（Neural-Network-Overview）&quot; class=&quot;headerlink&quot; title=&quot;3.1 神经网络概述（Neural Network Overview）&quot;&gt;&lt;/a&gt;3.1 神经网络概述（Neural Network Overview）&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://pnlb0i3oh.bkt.clouddn.com/pasted-16.png&quot; alt=&quot;upload successful&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="https://www.baozouai.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DeepLearning.ai深度学习课程笔记</title>
-    <link href="https://www.baozouai.com/2019/02/27/DeepLearning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    <id>https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/</id>
-    <published>2019-02-27T06:11:00.000Z</published>
-    <updated>2019-02-26T15:31:18.831Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%E6%8D%95%E8%8E%B7_%E5%89%AF%E6%9C%AC11.png&quot; alt&gt;&lt;br&gt;
     
     </summary>
     

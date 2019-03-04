@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="深度学习,">
+  <meta name="keywords" content="机器学习,">
 
 
 
@@ -101,27 +101,33 @@
 
 
 
-<meta name="description" content="笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出">
-<meta name="keywords" content="深度学习">
+<meta name="description" content="十、支持向量机( Support Vector Machines)10.1 优化目标代价函数在逻辑回归中，预测函数为：  h_{\theta}(x) = \frac{1}{1+e^{-\theta^T x}}代价函数为：  cost = -(ylog(h_{\theta}(x))+(1-y)log(1-h_{\theta}(x)))当y=1时，代价函数就为：  cost = -log(h_{\th">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DeepLearning.ai深度学习课程笔记">
-<meta property="og:url" content="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/index.html">
+<meta property="og:title" content="斯坦福机器学习笔记(Week 7)">
+<meta property="og:url" content="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-7/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出">
+<meta property="og:description" content="十、支持向量机( Support Vector Machines)10.1 优化目标代价函数在逻辑回归中，预测函数为：  h_{\theta}(x) = \frac{1}{1+e^{-\theta^T x}}代价函数为：  cost = -(ylog(h_{\theta}(x))+(1-y)log(1-h_{\theta}(x)))当y=1时，代价函数就为：  cost = -log(h_{\th">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%E6%8D%95%E8%8E%B7_%E5%89%AF%E6%9C%AC11.png">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/343rsrimport.png">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0001.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0002.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Structuring%20Machine%20Learning%20Projects-1.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Convolutional%20Neural%20Networks-1.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Sequence%20Models-1.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Deep%20Learning.ai-1.jpg">
-<meta property="og:updated_time" content="2019-02-26T15:31:18.831Z">
+<meta property="og:image" content="https://yoyoyohamapi.gitbooks.io/mit-ml/content/SVM/attachments/cost1z.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/12112import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/2312import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/2351import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1212import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/321import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/432import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/456import.png">
+<meta property="og:image" content="https://yoyoyohamapi.gitbooks.io/mit-ml/content/SVM/attachments/landmarks.jpg">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/130import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/129import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/876import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/987import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/999import.png">
+<meta property="og:updated_time" content="2019-03-04T05:04:55.693Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DeepLearning.ai深度学习课程笔记">
-<meta name="twitter:description" content="笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出">
-<meta name="twitter:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%E6%8D%95%E8%8E%B7_%E5%89%AF%E6%9C%AC11.png">
+<meta name="twitter:title" content="斯坦福机器学习笔记(Week 7)">
+<meta name="twitter:description" content="十、支持向量机( Support Vector Machines)10.1 优化目标代价函数在逻辑回归中，预测函数为：  h_{\theta}(x) = \frac{1}{1+e^{-\theta^T x}}代价函数为：  cost = -(ylog(h_{\theta}(x))+(1-y)log(1-h_{\theta}(x)))当y=1时，代价函数就为：  cost = -log(h_{\th">
+<meta name="twitter:image" content="https://yoyoyohamapi.gitbooks.io/mit-ml/content/SVM/attachments/cost1z.png">
 
 
 
@@ -151,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/">
+  <link rel="canonical" href="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-7/">
 
 
 
 
 
-  <title>DeepLearning.ai深度学习课程笔记 | 暴走的技术博客</title>
+  <title>斯坦福机器学习笔记(Week 7) | 暴走的技术博客</title>
   
 
 
@@ -374,7 +380,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/">
+    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="暴走">
@@ -391,7 +397,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">DeepLearning.ai深度学习课程笔记</h2>
+          <h2 class="post-title" itemprop="name headline">斯坦福机器学习笔记(Week 7)</h2>
         
 
         <div class="post-meta">
@@ -403,8 +409,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T14:11:00+08:00">
-                2019-02-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T12:57:00+08:00">
+                2019-03-05
               </time>
             
 
@@ -419,8 +425,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-26T23:31:18+08:00">
-                2019-02-26
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T13:04:55+08:00">
+                2019-03-04
               </time>
             
           </span>
@@ -438,8 +444,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -456,8 +462,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/27/DeepLearning-ai深度学习课程笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/DeepLearning-ai深度学习课程笔记/" itemprop="commentCount"></span>
+                <a href="/2019/03/05/斯坦福机器学习笔记-Week-7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/03/05/斯坦福机器学习笔记-Week-7/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -465,7 +471,7 @@
 
           
           
-             <span id="/2019/02/27/DeepLearning-ai深度学习课程笔记/" class="leancloud_visitors" data-flag-title="DeepLearning.ai深度学习课程笔记">
+             <span id="/2019/03/05/斯坦福机器学习笔记-Week-7/" class="leancloud_visitors" data-flag-title="斯坦福机器学习笔记(Week 7)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -490,7 +496,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  2.9k
                 </span>
               
 
@@ -506,7 +512,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  11
                 </span>
               
             </div>
@@ -526,37 +532,170 @@
       
 
       
-        <p>笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出</p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%E6%8D%95%E8%8E%B7_%E5%89%AF%E6%9C%AC11.png" alt><br><a id="more"></a><br><strong>Andrew Ng（吴恩达）的公开信：</strong></p>
-<p>朋友们，</p>
-<p>我在做三个全新的<strong>AI</strong>项目。现在，我十分兴奋地宣布其中的第一个：<strong>deeplearning.ai</strong>，一个立志于扩散<strong>AI</strong>知识的项目。该项目在<strong>Coursera</strong>上发布了一系列深度学习课程，这些课程将帮助你掌握深度学习、对它高效地应用，并打造属于你自己的<strong>AI</strong>事业。</p>
-<p><strong>AI是新一轮电力革命</strong></p>
-<p>就像一百年前电力改造了每个主流行业，当今的<strong>AI</strong>技术在做着相同的事。好几个大型科技公司都设立了<strong>AI</strong>部门，用<strong>AI</strong>革新他们的业务。接下来的几年里，各个行业、规模大小各不相同的公司也都会意识到——-在由<strong>AI</strong>驱动的未来，他们必须成为其中的一份子。</p>
-<p><strong>创建由AI驱动的社会</strong></p>
-<p>我希望，我们可以建立一个由<strong>AI</strong>驱动的社会：让每个人看得起病，给每个孩子个性化的教育，让所有人都能坐上价格亲民的自动驾驶汽车，并向男人和女人提供有意义的工作。总而言之，是一个让每个人的生活变得更好的社会。</p>
-<p>但是，任何一个公司都不可能单独完成这些任务。就像现在每一个计算机专业的毕业生都知道怎么用云，将来，每个程序员也必须懂得怎么用<strong>AI</strong>。用深度学习改善人类生活的方法有数百万种，社会也需要数百万个人——即来自世界各国的你们，来创造出了不起的<strong>AI</strong>系统。不管你是加州的一个软件工程师，一名中国的研究员，还是印度的<strong>ML</strong>工程师，我希望都能用深度学习来解决世界上的各种挑战。</p>
-<p><strong>你会学到什么</strong></p>
-<p>任何一个掌握了机器学习基础知识的人，都可以学习这五门系列课程，它们组成了<strong>Coursera</strong>的全新深度学习专业。</p>
-<p>你会学到深度学习的基础，理解如何创建神经网络，学习怎么成功地领导机器学习项目。你会学习卷积神经网络、<strong>RNNs</strong>、<strong>LSTM</strong>、<strong>Adam</strong>、<strong>Dropout</strong>、<strong>BatchNorm</strong>、<strong>Xavier/He initialization</strong>以及更多。学习过程中，你会接触到医疗、自动驾驶、读手语、音乐生成、自然语言处理的案例。</p>
-<p>你不仅会掌握深度学习理论，还会看到它是怎样在行业应用落地的。你会在<strong>Python</strong>和<strong>TensorFlow</strong>里试验这些想法，你还会听到各位深度学习领袖人物的意见，他们会分享各自的学习经历，并提供职业规划建议。</p>
-<p>当你拿到<strong>Coursera</strong>的深度学习专业证书，就可以自信得把“深度学习”四个字写进你的简历。</p>
-<p><strong>加入我，建立一个由AI驱动的社会</strong></p>
-<p>从2011年到现在，已经有180万人加入了我的机器学习课程。当时，我和四名斯坦福的学生发布了这门课程，它随即成为了<strong>Coursera</strong>的第一门公开课。那之后，我受到你们之中许多人的启发——当我看到你们是如何努力地理解机器学习，开发优秀的<strong>AI</strong>系统，并开启令人惊艳的事业。</p>
-<p>我希望深度学习专业能帮助你们实现更了不起的事，让你们为社<br>会贡献更多，在职业道路上走得更远。</p>
-<p>我希望大家和我一道，建立一个由<strong>AI</strong>驱动的社会。</p>
-<p>我会通知大家另外两个项目的进展，并不断探索，为全世界<strong>AI</strong>社区的每一个人提供更多支持的途径。</p>
-<p>Sincerely，</p>
-<p>吴恩达</p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/343rsrimport.png" alt></p>
+        <h2 id="十、支持向量机-Support-Vector-Machines"><a href="#十、支持向量机-Support-Vector-Machines" class="headerlink" title="十、支持向量机( Support Vector Machines)"></a>十、支持向量机( Support Vector Machines)</h2><h3 id="10-1-优化目标"><a href="#10-1-优化目标" class="headerlink" title="10.1 优化目标"></a>10.1 优化目标</h3><h4 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h4><p>在逻辑回归中，预测函数为：</p>
+<script type="math/tex; mode=display">
+h_{\theta}(x) = \frac{1}{1+e^{-\theta^T x}}</script><p>代价函数为：</p>
+<script type="math/tex; mode=display">
+cost = -(ylog(h_{\theta}(x))+(1-y)log(1-h_{\theta}(x)))</script><p>当<script type="math/tex">y=1</script>时，代价函数就为：</p>
+<script type="math/tex; mode=display">
+cost = -log(h_{\theta}(x) )
+= -log\frac{1}{1+e^{-z}}, \quad z=\theta^T x</script><p>此时，代价函数随<script type="math/tex">z</script>的变化曲线如下图：</p>
+<p><img src="https://yoyoyohamapi.gitbooks.io/mit-ml/content/SVM/attachments/cost1z.png" alt></p>
+<p>当<script type="math/tex">y=1</script>时，随着<script type="math/tex">z</script>取值变大，预测代价变小，因此，逻辑回归想要在面对正样本<script type="math/tex">y=1</script>时，获得足够高的预精度，就希望<script type="math/tex">z=\theta^T x \gg 0</script>。而 SVM 则将上图的曲线拉直为下图中的折线，构成了<script type="math/tex">y=1</script>时的代价函数曲线<script type="math/tex">cost_1(z)</script>:</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/12112import.png" alt></p>
+<p>当<script type="math/tex">y=1</script>时，为了预测精度足够高，SVM 希望<script type="math/tex">\theta^T x \geq 1</script></p>
+<p>在<script type="math/tex">y = 0</script>时，SVM 定义了代价函数<script type="math/tex">cost_0(z)</script>，为了预测精度足够高，SVM 希望<script type="math/tex">\theta^T x \leq -1</script>：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/2312import.png" alt></p>
+<h4 id="最小化预测代价"><a href="#最小化预测代价" class="headerlink" title="最小化预测代价"></a>最小化预测代价</h4><p>SVM定义其最小化预测代价的过程为：</p>
+<script type="math/tex; mode=display">
+\min\limits_{\theta}C[\sum\limits_{i=1}^{m}y^{(i)}cost_1(\theta^Tx^{(i)})+(1-y^{(i)})cost_0(\theta^Tx^{(i)})]+\frac{1}{2}\sum\limits_{j=1}^{n}\theta_j^2</script><p>而在逻辑回归中，最小化预测代价的过程为：</p>
+<script type="math/tex; mode=display">
+\min\limits_{\theta}\frac{1}{m}[\sum\limits_{i=1}^{m}y^{(i)}(-logh_\theta(x^{(i)}))+(1-y^{(i)})(-log(1-h_\theta(x^{(i)})))] + \frac{\lambda}{2m}\sum\limits_{j=1}^{n}\theta_j^2</script><p>可以将逻辑回归的代价函数简要描述为：</p>
+<script type="math/tex; mode=display">
+cost = A+\lambda B</script><p>SVM 的代价函数描述为：</p>
+<script type="math/tex; mode=display">
+cost = CA+B</script><p>在逻辑回归中，通过正规化参数<script type="math/tex">\lambda</script>调节<script type="math/tex">A</script>、<script type="math/tex">B</script>所占的权重，且<script type="math/tex">A</script>的权重与<script type="math/tex">\lambda</script>取值成<strong>反比。</strong>而在 SVM 中，则通过参数<script type="math/tex">C</script>调节<script type="math/tex">A</script>、<script type="math/tex">B</script>所占的权重，且<script type="math/tex">A</script>权重与<script type="math/tex">C</script>的取值成反比。即参数<script type="math/tex">C</script>可以被认为是扮演了<script type="math/tex">\frac{1}{\lambda}</script>的角色</p>
+<h4 id="预测函数"><a href="#预测函数" class="headerlink" title="预测函数"></a>预测函数</h4><p>当训练得到<script type="math/tex">\theta</script>之后，可以代入下面的 SVM 预测函数进行预测：</p>
+<script type="math/tex; mode=display">
+h_\theta(x) =
+\begin{cases}
+1,\quad \text{if } \theta^T x {\geq 0} \\
+0,\quad \text{otherwise}
+\end{cases}</script><h3 id="10-2-大间距分类器"><a href="#10-2-大间距分类器" class="headerlink" title="10.2 大间距分类器"></a>10.2 大间距分类器</h3><p><strong>SVM</strong> 最小化代价函数过程为：</p>
+<script type="math/tex; mode=display">
+\min\limits_{\theta}C[\sum\limits_{i=1}^{m}y^{(i)}cost_1(\theta^Tx^{(i)})+(1-y^{(i)})cost_0(\theta^Tx^{(i)})]+\frac{1}{2}\sum\limits_{j=1}^{n}\theta_j^2</script><p>当<script type="math/tex">y^{(i)}=1</script>时，<strong>SVM</strong> 希望<script type="math/tex">\theta^Tx^{(i)} \geq 1</script>；而当<script type="math/tex">y^{(i)}=0</script>时，<strong>SVM</strong> 希望<script type="math/tex">\theta^Tx^{(i)} \leq -1</script></p>
+<p>最小化代价函数的过程就可以描述为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+& \min\frac{1}{2}\sum\limits_{j=1}^{n}\theta_j^2 \\
+\text{s.t}. \quad &\theta^T x^{(i)} \geq 1 &\text{if } y^{(i)}=1 \\
+& \theta^T x^{(i)} \leq -1 &\text{if } y^{(i)}=0
+\end{aligned}</script><p><strong>SVM</strong> 最终找出的<strong>决策边界</strong>会是下图中黑色直线所示的<strong>决策边界</strong>，而不是绿色或者紫色的<strong>决策边界</strong>。该<strong>决策边界</strong>保持了与正、负样本都足够大的距离，这个距离叫做支持向量机的<strong>间距</strong>。因此，<strong>SVM</strong> 是典型的<strong>大间距分类器（Large margin classifier）</strong></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/2351import.png" alt></p>
+<p>回顾 <script type="math/tex">C=1/\lambda</script>：</p>
+<p>$C$ 较大时，相当于 <script type="math/tex">\lambda</script> 较小，可能会导致过拟合，高方差。</p>
+<p>$C$ 较小时，相当于 <script type="math/tex">\lambda</script> 较大，可能会导致欠拟合，高偏差。</p>
+<h4 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h4><p>假定有两个 2 维向量：</p>
+<script type="math/tex; mode=display">
+u=\left(\begin{matrix}u_1 \\ u_2\end{matrix}\right),v=\left(\begin{matrix}v_1 \\ v_2\end{matrix}\right)</script><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1212import.png" alt></p>
+<p>内积为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+u^Tv &= p \cdot ||u|| \\
+&= u_1v_1+u_2v_2
+\end{aligned}</script><p>$||u||$为<script type="math/tex">u</script>的范数，也是<script type="math/tex">u</script>的长度</p>
+<p>假定<script type="math/tex">\theta=\left(\begin{matrix}\theta_1 \\ \theta_2\end{matrix}\right)</script>，且令<script type="math/tex">\theta_0 = 0</script>，以使得向量<script type="math/tex">\theta</script>过原点，则：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\min\limits_\theta\frac{1}{2}\sum\limits_{j=1}^{2}\theta_j^2 &=\min\limits_\theta\frac{1}{2}(\theta_1^2+\theta_2^2) \\
+&=\min\limits_\theta\frac{1}{2}(\sqrt{\theta_1^2+\theta_2^2})^2 \\
+&=\min\limits_\theta\frac{1}{2}||\theta||^2
+\end{aligned}</script><p>由向量内积公式可得：</p>
+<script type="math/tex; mode=display">
+\theta^T x^{(i)} = p^{(i)}\cdot||\theta||</script><p>$p^{(i)}$为特征向量<script type="math/tex">x^{(i)}</script>在<script type="math/tex">\theta</script>上的投影：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/321import.png" alt></p>
+<p>当<script type="math/tex">y^{(i)}=1</script>时，希望<script type="math/tex">\theta^T x^{(i)} \geq 1</script>，亦即希望<script type="math/tex">p^{(i)}\cdot||\theta|| \geq 1</script>，此时考虑两种情况：</p>
+<p>1.<script type="math/tex">p^{(i)}</script>很小，则需要<script type="math/tex">||\theta||</script>很大，这与<script type="math/tex">\min\limits_\theta\frac{1}{2}||\theta||^2</script>矛盾</p>
+<p>2.<script type="math/tex">p^{(i)}</script>很大，如下图所示，即样本与决策边界的距离足够大，才能在既要<script type="math/tex">||\theta||</script>足够小的情况下，又能有</p>
+<p>$\theta^Tx^{(i)} \geq 1$，保证预测精度够高。这解释了为什么 <strong>SVM</strong> 的模型会具有<strong>大间距分类器</strong>的性质</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/432import.png" alt></p>
+<h3 id="10-3-核函数"><a href="#10-3-核函数" class="headerlink" title="10.3 核函数"></a>10.3 核函数</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/456import.png" alt></p>
+<p>在逻辑回归中，会通过多项式扩展来处理<strong>非线性</strong>分类问题：</p>
+<script type="math/tex; mode=display">
+h_\theta(x) = \theta_0+\theta_1x_1+\theta_2x_2+\theta_3x_1x_2+\theta_4x_1^2+\theta_5x_2^2+\cdots</script><p>假设令：</p>
+<script type="math/tex; mode=display">
+f_1=x_1,f_2=x_2,f_3=x_1x_2,f_4=x_1^2,f_5=x_2^2</script><p>则预测函数为：</p>
+<script type="math/tex; mode=display">
+h_\theta(x) = \theta_0+\theta_1f_1+\theta_2f_2+\theta_3f_3+\cdots</script><p>但多项式回归所带来的高阶项不一定作用明显，针对这一问题，SVM不会引入高阶项来作为新的特征，而是会选择一些<strong>标记点（landmark）</strong>，并将样本<script type="math/tex">x</script>与标记点<script type="math/tex">l^{(i)}</script>的<strong>相似程度</strong>作为新的训练特征<script type="math/tex">f_i</script>：</p>
+<script type="math/tex; mode=display">
+f_i = similarity(x, l^{(i)})</script><p><img src="https://yoyoyohamapi.gitbooks.io/mit-ml/content/SVM/attachments/landmarks.jpg" alt></p>
+<p>距离度量的方式就称之为<strong>核函数（Kernel）</strong>，最常见的核函数是<strong>高斯核函数（Gaussian Kernel）</strong>：</p>
+<script type="math/tex; mode=display">
+f_i = exp(-\frac{||x-l^{(i)}||^2}{2\sigma ^2})</script><p>其中：</p>
+<script type="math/tex; mode=display">
+||x-l^{(i)}||^2 = \sum_{j=1}^{n}(x_j-l_j^{(i)})^2</script><p>为实例 <script type="math/tex">x</script>中所有特征与地标<script type="math/tex">l^{(i)}</script>之间的距离的和</p>
+<p><strong>注：这个函数与正态分布没什么实际上的关系，只是看上去像而已</strong></p>
+<p>在高斯核中，注意到：</p>
+<ul>
+<li>如果样本与标记点足够接近，即<script type="math/tex">x \approx l^{(i)}</script>，则：</li>
+</ul>
+<script type="math/tex; mode=display">
+f \approx exp(-\frac{0^2}{2\sigma ^2}) \approx 1</script><ul>
+<li>如果样本远离标记点，则：</li>
+</ul>
+<script type="math/tex; mode=display">
+f \approx exp(-\frac{(\text{large number})^2}{2\sigma ^2}) \approx 0</script><p>假设训练实例含有两个特征<script type="math/tex">[x_1\quad x_2 ]</script>,给定地标<script type="math/tex">l^{(1)}</script>与不同的<script type="math/tex">\sigma</script>值，见下图：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/130import.png" alt></p>
 <blockquote>
-<p>吴恩达与<strong>deeplearning.ai</strong>团队</p>
+<p><strong>在使用高斯核函数前，需要做特征缩放（feature scaling），以使 SVM 同等程度地关注到不同的特征</strong></p>
 </blockquote>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0001.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0002.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Structuring%20Machine%20Learning%20Projects-1.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Convolutional%20Neural%20Networks-1.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Sequence%20Models-1.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Deep%20Learning.ai-1.jpg" alt></p>
+<p>水平面的坐标为 <script type="math/tex">x_1</script> ，<script type="math/tex">x_2</script> ,而垂直坐标轴代表 <script type="math/tex">f</script>。只有当 <script type="math/tex">x</script> 与 <script type="math/tex">l^{ (1)}</script> 重合时<script type="math/tex">f</script>才具有最大值。随着<script type="math/tex">x</script>的改变<script type="math/tex">f</script>值改变的速率受到<script type="math/tex">\sigma ^2</script>的控制</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/129import.png" alt></p>
+<p>图中红色的封闭曲线所表示的范围，是依据一个单一的训练实例和选取的地标所得出的判定边界，在预测时，采用的特征不是训练实例本身的特征，而是通过核函数计算出的新特征<script type="math/tex">f _1 ,f_ 2 ,f _3</script></p>
+<h4 id="标记点选取"><a href="#标记点选取" class="headerlink" title="标记点选取"></a>标记点选取</h4><p>假定有如下的数据集：</p>
+<script type="math/tex; mode=display">
+(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),(x^{(3)},y^{(3)}) \cdots (x^{(m)},y^{(m)})</script><p>将每个样本作为一个标记点：</p>
+<script type="math/tex; mode=display">
+l^{(1)}=x^{(1)},l^{(2)}=x^{(2)},l^{(3)}=x^{(3)} \cdots l^{(m)}=x^{(m)}</script><p>对于样本<script type="math/tex">(x^{(i)}, y^{(i)})</script>，计算其与各个标记点的距离：</p>
+<script type="math/tex; mode=display">
+f_1^{(i)}=sim(x^{(i)},l^{(1)})</script><script type="math/tex; mode=display">
+f_2^{(i)}=sim(x^{(i)},l^{(2)})</script><script type="math/tex; mode=display">
+\vdots</script><script type="math/tex; mode=display">
+f_i^{(i)}=sim(x^{(i)},l^{(i)})=exp(-\frac{0^2}{2\sigma ^2})=1</script><script type="math/tex; mode=display">
+\vdots</script><script type="math/tex; mode=display">
+f_m^{(i)}=sim(x^{(i)},l^{(m)})</script><p>得到新的特征向量：<script type="math/tex">f \in R^{m+1}</script></p>
+<script type="math/tex; mode=display">
+f=\left(\begin{matrix}f_0 \\ f_1 \\ f_2 \\ \vdots \\ f_m \end{matrix}\right) \quad \text{其中} f_0=1</script><p>将核函数运用到支持向量机中，修改支持向量机假设为：</p>
+<p>给定<script type="math/tex">x</script>，计算新特征<script type="math/tex">f</script>，当<script type="math/tex">\theta ^T f>=0</script>时，预测<script type="math/tex">y=1</script>，否则反之。 相应地修改代价函数为：</p>
+<script type="math/tex; mode=display">
+\min\limits_{\theta}C\big[\sum\limits_{i=1}^{m}(y^{(i)}cost_1(\theta^Tf^{(i)})+(1-y^{(i)})cost_0(\theta^Tf^{(i)}))\big]+\frac{1}{2}\sum\limits_{j=1}^{n=m}\theta_j^2</script><p>在计算<script type="math/tex">\sum\limits_{j=1}^{n=m}\theta_j^2=\theta^T\theta</script>时，用<script type="math/tex">\theta^T M\theta</script>代替<script type="math/tex">\theta ^T \theta</script>，其中<script type="math/tex">M</script>是根据选择的核函数而不同的一个矩阵。这样做的原因是为了简化计算。理论上讲，也可以在逻辑回归中使用核函数，但是上面使用<script type="math/tex">M</script>来简化计算的方法不适用于逻辑回归，因为计算将非常耗费时间</p>
+<p>支持向量机也可以不使用核函数，不使用核函数又称为<strong>线性核函数（linear kernel）</strong>，当不采用非常复杂的函数，或者训练集特征非常多而实例非常少的时候，可以采用这种不带核函数的支持向量机</p>
+<p>支持向量机的两个参数<script type="math/tex">C</script>和<script type="math/tex">\sigma</script>的影响：</p>
+<p>$C=1/\lambda$</p>
+<ul>
+<li><p>C 较大时，相当于<script type="math/tex">\lambda</script>较小，可能会导致过拟合，高方差</p>
+</li>
+<li><p>C 较小时，相当于<script type="math/tex">\lambda</script>较大，可能会导致欠拟合，高偏差</p>
+</li>
+<li><p><script type="math/tex">\sigma</script>较大时，可能会导致低方差，高偏差</p>
+</li>
+<li><p><script type="math/tex">\sigma</script>较小时，可能会导致低偏差，高方差</p>
+</li>
+</ul>
+<h3 id="10-4-使用支持向量机"><a href="#10-4-使用支持向量机" class="headerlink" title="10.4 使用支持向量机"></a>10.4 使用支持向量机</h3><p>选择支持向量机的原因主要在于它的代价函数是<strong>凸函数</strong>，不存在<strong>局部最小值</strong></p>
+<h4 id="使用流行库"><a href="#使用流行库" class="headerlink" title="使用流行库"></a>使用流行库</h4><p>作为当今最为流行的分类算法之一，SVM 已经拥有了不少优秀的实现库，如<strong>libsvm</strong>等，因此，不需要自己手动实现 SVM（一个能用于生产环境的 SVM 模型并非课程中介绍的那么简单）</p>
+<p>在使用这些库时，通常需要声明 SVM 的两个关键部分：</p>
+<ul>
+<li>参数<script type="math/tex">C</script>的选择</li>
+<li>选择内核参数或想要使用的相似函数，其中一个选择是：选择不需要任何内核参数，没有内核参数的理念，也叫<strong>线性核函数</strong>。</li>
+</ul>
+<p>核函数的选择：</p>
+<ul>
+<li><p>当特征维度<script type="math/tex">n</script>较高，而样本规模<script type="math/tex">m</script>较小时，<strong>不宜使用核函数</strong>，否则容易引起过拟合</p>
+</li>
+<li><p>当特征维度<script type="math/tex">n</script>较低，而样本规模<script type="math/tex">m</script>足够大时，考虑使用<strong>高斯核函数</strong>。不过在使用高斯核函数前，需要进行<strong>特征缩放（feature scaling）</strong>。另外，当核函数的参数<script type="math/tex">\sigma</script><strong>较大</strong>时，特征<script type="math/tex">f_i</script>较为平缓，即各个样本的特征差异变小，此时会造成<strong>欠拟合（高偏差，低方差）</strong>：</p>
+</li>
+</ul>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/876import.png" alt></p>
+<p>当<script type="math/tex">\sigma</script><strong>较小</strong>时，特征<script type="math/tex">f_i</script>曲线变化剧烈，即各个样本的特征差异变大，此时会造成<strong>过拟合（低偏差，高方差）</strong>：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/987import.png" alt></p>
+<blockquote>
+<p>不是所有的相似度评估手段都能被用作SVM核函数，他们需要满足Mercer 理论</p>
+</blockquote>
+<h4 id="多分类问题"><a href="#多分类问题" class="headerlink" title="多分类问题"></a>多分类问题</h4><p>流行的SVM库已经内置了多分类相关的 api，如果其不支持多分类，则与逻辑回归一样，使用 One-vs-All策略来进行多分类：</p>
+<ol>
+<li><p>轮流选中某一类型<script type="math/tex">i</script>，将其视为正样本，即 “1” 分类，剩下样本都看做是负样本，即 “0” 分类</p>
+</li>
+<li><p>训练 SVM 得到参数<script type="math/tex">\theta^{(1)}, \theta^{(2)}, ..., \theta^{(K)}</script>，即总共获得了<script type="math/tex">K-1</script>个决策边界</p>
+</li>
+</ol>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/999import.png" alt></p>
+<h2 id="分类模型的选择"><a href="#分类模型的选择" class="headerlink" title="分类模型的选择"></a>分类模型的选择</h2><p>分类模型有：（1）逻辑回归；（2）神经网络；（3）SVM</p>
+<p>考虑特征维度<script type="math/tex">n</script>及样本规模<script type="math/tex">m</script>普遍使用的准则：</p>
+<p>(1)如果相较于 <script type="math/tex">m</script> 而言，<script type="math/tex">n</script> 要大许多，即训练集数据量不够支持训练一个复杂的非线性模型，就选用<strong>逻辑回归</strong>模型或者<strong>不带核函数</strong>的支持向量机。</p>
+<p>(2)如果 <script type="math/tex">n</script> 较小，<script type="math/tex">m</script> 大小中等，例如 <script type="math/tex">n</script> 在 <script type="math/tex">1-1000</script> 之间，而 <script type="math/tex">m</script> 在 <script type="math/tex">10-10000</script> 之间，使用<strong>高斯核函数</strong>的支持向量机</p>
+<p>(3)如果 <script type="math/tex">n</script> 较小，而 <script type="math/tex">m</script> 较大，例如 <script type="math/tex">n</script> 在 <script type="math/tex">1-1000</script> 之间，而 <script type="math/tex">m</script> 大于 <script type="math/tex">50000</script>，则使用支持向量机会非常慢，解决方案是创造、增加更多的特征（比如通过多项式扩展），然后使用<strong>逻辑回归</strong>或<strong>不带核函数</strong>的支持向量机</p>
+<p>神经网络对于上述情形都有不错的适应性，但是计算性能上较慢</p>
 
       
     </div>
@@ -614,9 +753,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i>
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i>
 
- 深度学习</a>
+ 机器学习</a>
           
         </div>
       
@@ -629,8 +768,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/" rel="next" title="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)">
-                <i class="fa fa-chevron-left"></i> 第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)
+              <a href="/2019/03/05/斯坦福机器学习笔记-Week-9/" rel="next" title="斯坦福机器学习笔记(Week 9)">
+                <i class="fa fa-chevron-left"></i> 斯坦福机器学习笔记(Week 9)
               </a>
             
           </div>
@@ -638,10 +777,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/" rel="prev" title="第三周：浅层神经网络(Shallow neural networks)(Course 1)">
-                第三周：浅层神经网络(Shallow neural networks)(Course 1) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -710,7 +845,7 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2019/02/27/DeepLearning-ai深度学习课程笔记/" data-title="DeepLearning.ai深度学习课程笔记" data-url="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/">
+      <div class="ds-thread" data-thread-key="2019/03/05/斯坦福机器学习笔记-Week-7/" data-title="斯坦福机器学习笔记(Week 7)" data-url="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-7/">
       </div>
     </div>
 
@@ -739,8 +874,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
 
@@ -835,6 +979,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#十、支持向量机-Support-Vector-Machines"><span class="nav-number">1.</span> <span class="nav-text">十、支持向量机( Support Vector Machines)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-优化目标"><span class="nav-number">1.1.</span> <span class="nav-text">10.1 优化目标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代价函数"><span class="nav-number">1.1.1.</span> <span class="nav-text">代价函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小化预测代价"><span class="nav-number">1.1.2.</span> <span class="nav-text">最小化预测代价</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预测函数"><span class="nav-number">1.1.3.</span> <span class="nav-text">预测函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-大间距分类器"><span class="nav-number">1.2.</span> <span class="nav-text">10.2 大间距分类器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#推导"><span class="nav-number">1.2.1.</span> <span class="nav-text">推导</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-3-核函数"><span class="nav-number">1.3.</span> <span class="nav-text">10.3 核函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">1.3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记点选取"><span class="nav-number">1.3.2.</span> <span class="nav-text">标记点选取</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-4-使用支持向量机"><span class="nav-number">1.4.</span> <span class="nav-text">10.4 使用支持向量机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用流行库"><span class="nav-number">1.4.1.</span> <span class="nav-text">使用流行库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多分类问题"><span class="nav-number">1.4.2.</span> <span class="nav-text">多分类问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类模型的选择"><span class="nav-number">2.</span> <span class="nav-text">分类模型的选择</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1501,6 +1661,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

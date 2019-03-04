@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="深度学习,">
+  <meta name="keywords" content="机器学习,">
 
 
 
@@ -101,27 +101,46 @@
 
 
 
-<meta name="description" content="笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出">
-<meta name="keywords" content="深度学习">
+<meta name="description" content="十五、大规模机器学习(Large Scale Machine Learning)15.1 大型数据集的学习如果有一个低方差的模型，增加数据集的规模可以获得更好的结果 应该怎样应对一个有 100 万条记录的训练集？首先应该做的事是去检查一个这么大规模的训练集是否真的必要，也许只用 1000个训练集也能获得较好的效果，可以绘制学习曲线 来帮助判断：  15.2 随机梯度下降法批量梯度下降法（Batch">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DeepLearning.ai深度学习课程笔记">
-<meta property="og:url" content="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/index.html">
+<meta property="og:title" content="斯坦福机器学习笔记(Week 10)">
+<meta property="og:url" content="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-10/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出">
+<meta property="og:description" content="十五、大规模机器学习(Large Scale Machine Learning)15.1 大型数据集的学习如果有一个低方差的模型，增加数据集的规模可以获得更好的结果 应该怎样应对一个有 100 万条记录的训练集？首先应该做的事是去检查一个这么大规模的训练集是否真的必要，也许只用 1000个训练集也能获得较好的效果，可以绘制学习曲线 来帮助判断：  15.2 随机梯度下降法批量梯度下降法（Batch">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%E6%8D%95%E8%8E%B7_%E5%89%AF%E6%9C%AC11.png">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/343rsrimport.png">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0001.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0002.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Structuring%20Machine%20Learning%20Projects-1.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Convolutional%20Neural%20Networks-1.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Sequence%20Models-1.jpg">
-<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Deep%20Learning.ai-1.jpg">
-<meta property="og:updated_time" content="2019-02-26T15:31:18.831Z">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/147import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/321`import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/232323232323import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1278import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/112232import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/11123import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/148import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/111111import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/232323import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/11212import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/564import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/2112import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/112443import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/334567import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/234222import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/contenthttps://baozou.gitbooks.io/-stanford-machine-learning/content/assets/149import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/22222import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/12368import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/12`import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/12`1import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/11`import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1`import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1`1import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/22`import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1`2import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/3`import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/34`import.png">
+<meta property="og:updated_time" content="2019-03-04T05:35:03.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DeepLearning.ai深度学习课程笔记">
-<meta name="twitter:description" content="笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出">
-<meta name="twitter:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%E6%8D%95%E8%8E%B7_%E5%89%AF%E6%9C%AC11.png">
+<meta name="twitter:title" content="斯坦福机器学习笔记(Week 10)">
+<meta name="twitter:description" content="十五、大规模机器学习(Large Scale Machine Learning)15.1 大型数据集的学习如果有一个低方差的模型，增加数据集的规模可以获得更好的结果 应该怎样应对一个有 100 万条记录的训练集？首先应该做的事是去检查一个这么大规模的训练集是否真的必要，也许只用 1000个训练集也能获得较好的效果，可以绘制学习曲线 来帮助判断：  15.2 随机梯度下降法批量梯度下降法（Batch">
+<meta name="twitter:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/147import.png">
 
 
 
@@ -151,13 +170,13 @@
 
 
 
-  <link rel="canonical" href="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/">
+  <link rel="canonical" href="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-10/">
 
 
 
 
 
-  <title>DeepLearning.ai深度学习课程笔记 | 暴走的技术博客</title>
+  <title>斯坦福机器学习笔记(Week 10) | 暴走的技术博客</title>
   
 
 
@@ -374,7 +393,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/">
+    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="暴走">
@@ -391,7 +410,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">DeepLearning.ai深度学习课程笔记</h2>
+          <h2 class="post-title" itemprop="name headline">斯坦福机器学习笔记(Week 10)</h2>
         
 
         <div class="post-meta">
@@ -403,8 +422,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T14:11:00+08:00">
-                2019-02-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T05:20:00+08:00">
+                2019-03-04
               </time>
             
 
@@ -419,8 +438,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-26T23:31:18+08:00">
-                2019-02-26
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T13:35:03+08:00">
+                2019-03-04
               </time>
             
           </span>
@@ -438,8 +457,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -456,8 +475,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/27/DeepLearning-ai深度学习课程笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/DeepLearning-ai深度学习课程笔记/" itemprop="commentCount"></span>
+                <a href="/2019/03/05/斯坦福机器学习笔记-Week-10/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/03/05/斯坦福机器学习笔记-Week-10/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -465,7 +484,7 @@
 
           
           
-             <span id="/2019/02/27/DeepLearning-ai深度学习课程笔记/" class="leancloud_visitors" data-flag-title="DeepLearning.ai深度学习课程笔记">
+             <span id="/2019/03/05/斯坦福机器学习笔记-Week-10/" class="leancloud_visitors" data-flag-title="斯坦福机器学习笔记(Week 10)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -490,7 +509,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  2.7k
                 </span>
               
 
@@ -506,7 +525,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  10
                 </span>
               
             </div>
@@ -526,37 +545,169 @@
       
 
       
-        <p>笔记中没有涵盖所有的视频内容，主要是我不懂或者觉得比较重要的内容，学生我水平有限，如笔记中有知识点、公式、代码错误，还烦请指出</p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%E6%8D%95%E8%8E%B7_%E5%89%AF%E6%9C%AC11.png" alt><br><a id="more"></a><br><strong>Andrew Ng（吴恩达）的公开信：</strong></p>
-<p>朋友们，</p>
-<p>我在做三个全新的<strong>AI</strong>项目。现在，我十分兴奋地宣布其中的第一个：<strong>deeplearning.ai</strong>，一个立志于扩散<strong>AI</strong>知识的项目。该项目在<strong>Coursera</strong>上发布了一系列深度学习课程，这些课程将帮助你掌握深度学习、对它高效地应用，并打造属于你自己的<strong>AI</strong>事业。</p>
-<p><strong>AI是新一轮电力革命</strong></p>
-<p>就像一百年前电力改造了每个主流行业，当今的<strong>AI</strong>技术在做着相同的事。好几个大型科技公司都设立了<strong>AI</strong>部门，用<strong>AI</strong>革新他们的业务。接下来的几年里，各个行业、规模大小各不相同的公司也都会意识到——-在由<strong>AI</strong>驱动的未来，他们必须成为其中的一份子。</p>
-<p><strong>创建由AI驱动的社会</strong></p>
-<p>我希望，我们可以建立一个由<strong>AI</strong>驱动的社会：让每个人看得起病，给每个孩子个性化的教育，让所有人都能坐上价格亲民的自动驾驶汽车，并向男人和女人提供有意义的工作。总而言之，是一个让每个人的生活变得更好的社会。</p>
-<p>但是，任何一个公司都不可能单独完成这些任务。就像现在每一个计算机专业的毕业生都知道怎么用云，将来，每个程序员也必须懂得怎么用<strong>AI</strong>。用深度学习改善人类生活的方法有数百万种，社会也需要数百万个人——即来自世界各国的你们，来创造出了不起的<strong>AI</strong>系统。不管你是加州的一个软件工程师，一名中国的研究员，还是印度的<strong>ML</strong>工程师，我希望都能用深度学习来解决世界上的各种挑战。</p>
-<p><strong>你会学到什么</strong></p>
-<p>任何一个掌握了机器学习基础知识的人，都可以学习这五门系列课程，它们组成了<strong>Coursera</strong>的全新深度学习专业。</p>
-<p>你会学到深度学习的基础，理解如何创建神经网络，学习怎么成功地领导机器学习项目。你会学习卷积神经网络、<strong>RNNs</strong>、<strong>LSTM</strong>、<strong>Adam</strong>、<strong>Dropout</strong>、<strong>BatchNorm</strong>、<strong>Xavier/He initialization</strong>以及更多。学习过程中，你会接触到医疗、自动驾驶、读手语、音乐生成、自然语言处理的案例。</p>
-<p>你不仅会掌握深度学习理论，还会看到它是怎样在行业应用落地的。你会在<strong>Python</strong>和<strong>TensorFlow</strong>里试验这些想法，你还会听到各位深度学习领袖人物的意见，他们会分享各自的学习经历，并提供职业规划建议。</p>
-<p>当你拿到<strong>Coursera</strong>的深度学习专业证书，就可以自信得把“深度学习”四个字写进你的简历。</p>
-<p><strong>加入我，建立一个由AI驱动的社会</strong></p>
-<p>从2011年到现在，已经有180万人加入了我的机器学习课程。当时，我和四名斯坦福的学生发布了这门课程，它随即成为了<strong>Coursera</strong>的第一门公开课。那之后，我受到你们之中许多人的启发——当我看到你们是如何努力地理解机器学习，开发优秀的<strong>AI</strong>系统，并开启令人惊艳的事业。</p>
-<p>我希望深度学习专业能帮助你们实现更了不起的事，让你们为社<br>会贡献更多，在职业道路上走得更远。</p>
-<p>我希望大家和我一道，建立一个由<strong>AI</strong>驱动的社会。</p>
-<p>我会通知大家另外两个项目的进展，并不断探索，为全世界<strong>AI</strong>社区的每一个人提供更多支持的途径。</p>
-<p>Sincerely，</p>
-<p>吴恩达</p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/343rsrimport.png" alt></p>
+        <h2 id="十五、大规模机器学习-Large-Scale-Machine-Learning"><a href="#十五、大规模机器学习-Large-Scale-Machine-Learning" class="headerlink" title="十五、大规模机器学习(Large Scale Machine Learning)"></a>十五、大规模机器学习(Large Scale Machine Learning)</h2><h3 id="15-1-大型数据集的学习"><a href="#15-1-大型数据集的学习" class="headerlink" title="15.1 大型数据集的学习"></a>15.1 大型数据集的学习</h3><p>如果有一个低方差的模型，增加数据集的规模可以获得更好的结果</p>
+<h4 id="应该怎样应对一个有-100-万条记录的训练集？"><a href="#应该怎样应对一个有-100-万条记录的训练集？" class="headerlink" title="应该怎样应对一个有 100 万条记录的训练集？"></a>应该怎样应对一个有 100 万条记录的训练集？</h4><p>首先应该做的事是去检查一个这么大规模的训练集是否真的必要，也许只用 1000个训练集也能获得较好的效果，可以绘制学习曲线</p>
+<p>来帮助判断：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/147import.png" alt></p>
+<h3 id="15-2-随机梯度下降法"><a href="#15-2-随机梯度下降法" class="headerlink" title="15.2 随机梯度下降法"></a>15.2 随机梯度下降法</h3><h4 id="批量梯度下降法（Batch-gradient-descent）"><a href="#批量梯度下降法（Batch-gradient-descent）" class="headerlink" title="批量梯度下降法（Batch gradient descent）"></a>批量梯度下降法（Batch gradient descent）</h4><script type="math/tex; mode=display">
+\begin{aligned}
+&\text{重复直到收敛:} \\
+& \quad \theta_j = \theta_j - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)},
+\quad for\quad j=0,\cdots ,n
+\end{aligned}</script><p>每更新一个参数<script type="math/tex">\theta_j</script>都遍历一遍样本集，在<script type="math/tex">m</script>很大时，该算法就显得比较低效。但是，批量梯度下降法能找到全局最优解：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/321`import.png" alt></p>
+<h4 id="随机梯度下降法（Stochastic-gradient-descent）"><a href="#随机梯度下降法（Stochastic-gradient-descent）" class="headerlink" title="随机梯度下降法（Stochastic gradient descent）"></a>随机梯度下降法（Stochastic gradient descent）</h4><p>针对大数据集，引入了随机梯度下降法，该算法的执行过程为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\text{重复直到收敛:} \\
+& \quad for\quad i=1,\cdots,m: \\
+& \quad \quad \theta_j = \theta_j - \alpha(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)},
+\quad for\quad j=1,\cdots,,n
+\end{aligned}</script><p>相较于批量梯度下降法，随机梯度下降法每次更新<script type="math/tex">\theta_j</script>只会用当前遍历的样本。虽然外层循环仍需要遍历所有样本，但是，往往在样本尚未遍历完时就已经收敛，因此，面临大数据集时，随机梯度下降法性能卓越</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/232323232323import.png" alt></p>
+<p>相较于批量梯度下降法，随机梯度下降法的曲线很曲折，倾向于找到局部最优解而不是全局最优解</p>
+<h3 id="15-3-小批量梯度下降"><a href="#15-3-小批量梯度下降" class="headerlink" title="15.3 小批量梯度下降"></a>15.3 小批量梯度下降</h3><p>小批量梯度下降算法是介于批量梯度下降算法和随机梯度下降算法之间的算法</p>
+<p>每计算<script type="math/tex">b</script>次训练实例，便更新一次参数<script type="math/tex">\theta</script>,假定 <script type="math/tex">b=10,m=1000</script>,小批量梯度下降法的工作过程如下：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\text{重复直到收敛:} \\
+& \quad for\quad i=1,11,21,\cdots,991: \\
+& \quad \quad \theta_j = \theta_j - \alpha\frac{1}{10}\sum_{k=i}^{i+9}(h_\theta(x^{(k)})-y^{(k)})x_j^{(k)},
+\quad for\quad j=0,...,n
+\end{aligned}</script><p>通常令<script type="math/tex">b</script>在<script type="math/tex">2-100</script>之间。好处在于可以用向量化的方式来循环<script type="math/tex">b</script>个训练实例</p>
+<h3 id="15-4-随机梯度下降收敛"><a href="#15-4-随机梯度下降收敛" class="headerlink" title="15.4 随机梯度下降收敛"></a>15.4 随机梯度下降收敛</h3><p>通常需要绘制调试曲线来监控随机梯度的工作过程是否正确</p>
+<p>在随机梯度下降中，每一次更新<script type="math/tex">\theta</script>之前都计算一次代价，然后每<script type="math/tex">X</script>次迭代后，求出这<script type="math/tex">X</script>次对训练实例计算代价的平均值，然后绘制这些平均值与<script type="math/tex">X</script>次迭代的次数之间的函数图表</p>
+<p>假定误差定义为:</p>
+<script type="math/tex; mode=display">
+cost(\theta, (x^{(i)}, y^{(i)})) = \frac{1}{2}(h_\theta(x^{(i)})-y^{(i)})^2</script><p>则每完成 1000 次迭代，即遍历了 1000 个样本，求取平均误差并进行绘制，得到误差随迭代次数的变化曲线：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1278import.png" alt></p>
+<p>遇到下面的曲线并不意味着学习率出了问题，有可能是平均间隔取的太小：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/112232import.png" alt></p>
+<p>增加<script type="math/tex">X</script>来使得函数更加平缓，也许便能看出下降的趋势：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/11123import.png" alt></p>
+<p>可能函数图表仍然是颠簸不平且不下降的（如洋红色线所示），那么模型本身可能存在一些错误</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/148import.png" alt></p>
+<p>如果面临明显上升态势的曲线，就要考虑降低学习率<script type="math/tex">\alpha</script>：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/111111import.png" alt></p>
+<p>学习率<script type="math/tex">\alpha</script>可以随着迭代次数进行优化:</p>
+<script type="math/tex; mode=display">
+\alpha = \frac{constant1} {iterationNumber + constant2}</script><p>随着迭代次数的增多，下降步调就会放缓，避免出现抖动：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/232323import.png" alt></p>
 <blockquote>
-<p>吴恩达与<strong>deeplearning.ai</strong>团队</p>
+<p>随机梯度下降法工作前，需要先乱序数据集，使得遍历样本的过程更加分散</p>
 </blockquote>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0001.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/0002.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Structuring%20Machine%20Learning%20Projects-1.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Convolutional%20Neural%20Networks-1.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Sequence%20Models-1.jpg" alt></p>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Deep%20Learning.ai-1.jpg" alt></p>
+<p>随着不断地靠近全局最小值，通过减小学习率，迫使算法收敛而非在最小值附近徘徊。 但是通常不需要这样做便能有非常好的效果了，对<script type="math/tex">\alpha</script>进行调整所耗费的计算通常不值得</p>
+<h3 id="15-5-在线学习"><a href="#15-5-在线学习" class="headerlink" title="15.5 在线学习"></a>15.5 在线学习</h3><p><strong>在线学习算法指的是对数据流而非离线的静态数据集的学习</strong></p>
+<p>在线学习的算法与随机梯度下降算法有些类似：对单一的实例进行学习，而非对一个提前定义的训练集进行循环，唯一的区别的是不会使用一个固定的数据集，而是获取一个用户样本，从那个样本中学习，然后丢弃那个样本并继续下去，如果某一种应用有一个连续的数据流，这样的算法可能会非常值得考虑</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+& \text{Repeat forever (as long as the webside is running) \{ } \\
+& \quad \text{获得关于该用户的样本} (x,y),\text{使用该样本更新} \theta: \\
+& \quad \quad \theta_j= \theta_j - \alpha(h_\theta(x)-y) x_j , \quad \text{for j=0,...,n}\\\}
+\end{aligned}</script><p>一旦对一个数据的学习完成了，便可以丢弃该数据，不需要再存储它了。这种方式的好处在于，算法可以很好适应用户的倾向性，针对用户的当前行为不断地更新模型以适应该用户</p>
+<p>优点：如果有一个变化的用户群，又或者尝试预测的事情在缓慢变化，就像用户的品味在缓慢变化，在线学习算法可以慢慢地调试学习到的假设，将其调节更新到最新的用户行为</p>
+<h3 id="15-6-映射化简和数据并行"><a href="#15-6-映射化简和数据并行" class="headerlink" title="15.6 映射化简和数据并行"></a>15.6 映射化简和数据并行</h3><p><strong>将数据集分配给多台计算机，让每一台计算机处理数据集的一个子集，然后将计算的结果汇总再求和，这样的方法叫做映射简化</strong></p>
+<p>如果任何学习算法能够表达为：对训练集的函数的求和</p>
+<p>那么便能将这个任务分配给多台计算机（或者同一台计算机的不同 CPU 核心），以达到加速处理的目的</p>
+<p>假定有 <script type="math/tex">400</script> 个训练实例，可以将批量梯度下降的求和任务分配给 <script type="math/tex">4</script>台计算机进行处理：</p>
+<ol>
+<li>首先通过 <strong>Map （映射）</strong>过程来并行计算式中的求和项，每个机器被分配到 <strong>100</strong>个样本进行计算：</li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{aligned}
+temp_j^{(1)} &= \sum_{i=1}^{100}(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \\
+temp_j^{(2)} &= \sum_{i=101}^{200}(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \\
+temp_j^{(3)} &= \sum_{i=201}^{300}(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \\
+temp_j^{(4)} &= \sum_{i=301}^{400}(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}
+\end{aligned}</script><ol>
+<li>通过 <strong>Reduce（规约）</strong>操作进行求和：</li>
+</ol>
+<script type="math/tex; mode=display">
+\theta_j = \theta_j - \alpha\frac{1}{400}(temp_j^{(1)}+temp_j^{(2)}+temp_j^{(3)}+temp_j^{(4)})</script><ul>
+<li>使用多台机器进行 <strong>Map Reduce</strong>，此时，<strong>Map</strong> 任务被分配到多个机器完成：</li>
+</ul>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/11212import.png" alt></p>
+<ul>
+<li>使用单机多核心进行 <strong>Map Reduce</strong>，此时，<strong>Map</strong> 任务被分配到多个 <strong>CPU</strong> 核心完成：</li>
+</ul>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/564import.png" alt></p>
+<h2 id="十六、应用实例：图片-文字识别-Application-Example-Photo-OCR"><a href="#十六、应用实例：图片-文字识别-Application-Example-Photo-OCR" class="headerlink" title="十六、应用实例：图片 文字识别(Application Example: Photo OCR)"></a>十六、应用实例：图片 文字识别(Application Example: Photo OCR)</h2><h3 id="16-1-问题描述和流程图"><a href="#16-1-问题描述和流程图" class="headerlink" title="16.1 问题描述和流程图"></a>16.1 问题描述和流程图</h3><p>图像文字识别应用所作的事是，从一张给定的图片中识别文字</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/2112import.png" alt></p>
+<p>为了完成这样的工作，需要采取如下步骤：</p>
+<p>1.文本检测：获得包含了文本的文本框</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/112443import.png" alt></p>
+<p>2.字符分割：从文本框中分割出各个字符</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/334567import.png" alt></p>
+<p>3.字符分类（识别）：字符分割中得到的只是一个个字符图形，在字符分类阶段，才能真正知道该字符类别。</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/234222import.png" alt></p>
+<p>可以用任务流程图来表达这个问题，每一项任务可以由一个单独的小队来负责解决：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/contenthttps://baozou.gitbooks.io/-stanford-machine-learning/content/assets/149import.png" alt></p>
+<h3 id="16-2-滑动窗口"><a href="#16-2-滑动窗口" class="headerlink" title="16.2 滑动窗口"></a>16.2 滑动窗口</h3><p><strong>滑动窗口是一项用来从图像中抽取对象的技术</strong></p>
+<h4 id="文本检测中的滑动窗口"><a href="#文本检测中的滑动窗口" class="headerlink" title="文本检测中的滑动窗口"></a>文本检测中的滑动窗口</h4><p>在<strong>文本检测</strong>阶段，首先定义正、负样本，正样本图像描述了含有文本的图像，负样本描述了不含文本的图像：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/22222import.png" alt></p>
+<p>通过在原图像沿行、列滑动定义好的窗口，并让窗口内图像与正负样本进行比较：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/12368import.png" alt></p>
+<p>当窗口遍历过整幅图像后，获得原图像对应的掩膜，高亮度的区域都为疑似文本框的区域：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/12`import.png" alt></p>
+<p>掩膜中的文本框断断续续的，因此还考虑使用<a href="https://zh.wikipedia.org/wiki/数学形态学#.E8.86.A8.E8.83.80" target="_blank" rel="noopener">形态学膨胀</a>操作来让文本框更加完整：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/12`1import.png" alt></p>
+<h4 id="字符分割中的滑动窗口"><a href="#字符分割中的滑动窗口" class="headerlink" title="字符分割中的滑动窗口"></a>字符分割中的滑动窗口</h4><p>在文本检测阶段，滑动窗口是分别沿着行、列进行扫描的，因此是 <script type="math/tex">2</script> 维的扫描过程。而在<strong>字符分割</strong>过程中，同样将使用到滑动窗口技术，只是这次将窗口的高度设置为与文本框等高，只进行 <script type="math/tex">1</script>维的行扫描：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/11`import.png" alt></p>
+<p>同样需要定义正负样本，来让窗口知道哪些是字符，哪些包含了字符的分界：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1`import.png" alt></p>
+<h3 id="16-3-获取大量数据和人工数据"><a href="#16-3-获取大量数据和人工数据" class="headerlink" title="16.3 获取大量数据和人工数据"></a>16.3 获取大量数据和人工数据</h3><p>如果模型是低方差的，那么获得更多的数据用于训练模型，是能够有更好的效果的</p>
+<p>在<strong>字符识别</strong>阶段，为了更好的完成分类识别任务，需要给系统提供尽可能多的训练图像，如果手头上拥有的图像不多，就需要人工合成更多的数据</p>
+<h4 id="从零开始创造实例"><a href="#从零开始创造实例" class="headerlink" title="从零开始创造实例"></a>从零开始创造实例</h4><p>例如，收集不同的字体，并为每种字体的每个字符加上随机背景，就可以人工扩展大量的字符图像：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1`1import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/22`import.png" alt></p>
+<h4 id="修改已有的数据"><a href="#修改已有的数据" class="headerlink" title="修改已有的数据"></a>修改已有的数据</h4><p>只要实际数据有可能和经过这样处理后的数据类似，便可以用这样的方法来创造大量的数据</p>
+<p>通过扭曲字符形状来合成新数据，这也会帮助机器更好地处理发生过形态变化的图像：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1`2import.png" alt></p>
+<p>为数据加上随机噪声一般不会提升模型训练质量：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/3`import.png" alt></p>
+<p>获得更多数据的几种方法：</p>
+<ol>
+<li>人工数据合成</li>
+<li>手动收集、标记数据</li>
+<li>众包</li>
+</ol>
+<h3 id="16-4-上限分析：接下来要做的工作是什么"><a href="#16-4-上限分析：接下来要做的工作是什么" class="headerlink" title="16.4 上限分析：接下来要做的工作是什么"></a>16.4 上限分析：接下来要做的工作是什么</h3><p>上限分析，就是假定某个组件及其前面组件的精度都达到了 100%，即该组件完美地完成了任务，达到了上限，那么此时整个系统的<strong>精度能提升多少</strong></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/34`import.png" alt></p>
+<p>假定整个系统的精度是 72%，令文本检测的精度是 100%（比如人工利用 PS 来定位图片中的文本框），此时，整个系统的精度能提升到 89%。即，如果付出足够多的精力来优化文本检测，那么理想情况下，能将系统的精度提升 17%：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">组件</th>
+<th style="text-align:center">流水线精度</th>
+<th style="text-align:center">精度提升</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">整个系统</td>
+<td style="text-align:center">72%</td>
+<td style="text-align:center">—</td>
+</tr>
+<tr>
+<td style="text-align:center">文本检测</td>
+<td style="text-align:center">89%</td>
+<td style="text-align:center">17%</td>
+</tr>
+<tr>
+<td style="text-align:center">字符分割</td>
+<td style="text-align:center">90%</td>
+<td style="text-align:center">1%</td>
+</tr>
+<tr>
+<td style="text-align:center">字符识别</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">10%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>可以看出，最值得花费精力的步骤是文本检测，最不值得花费精力的是字符分割，即便完成了 100% 的分割，最多也就对系统提升1%</p>
 
       
     </div>
@@ -614,9 +765,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i>
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i>
 
- 深度学习</a>
+ 机器学习</a>
           
         </div>
       
@@ -629,8 +780,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/" rel="next" title="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)">
-                <i class="fa fa-chevron-left"></i> 第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)
+              <a href="/2019/03/05/斯坦福机器学习笔记-Week-8/" rel="next" title="斯坦福机器学习笔记(Week 8)">
+                <i class="fa fa-chevron-left"></i> 斯坦福机器学习笔记(Week 8)
               </a>
             
           </div>
@@ -639,8 +790,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/27/第三周：浅层神经网络-Shallow-neural-networks/" rel="prev" title="第三周：浅层神经网络(Shallow neural networks)(Course 1)">
-                第三周：浅层神经网络(Shallow neural networks)(Course 1) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/05/斯坦福机器学习笔记-Week-9/" rel="prev" title="斯坦福机器学习笔记(Week 9)">
+                斯坦福机器学习笔记(Week 9) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -710,7 +861,7 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2019/02/27/DeepLearning-ai深度学习课程笔记/" data-title="DeepLearning.ai深度学习课程笔记" data-url="https://www.baozouai.com/2019/02/27/DeepLearning-ai深度学习课程笔记/">
+      <div class="ds-thread" data-thread-key="2019/03/05/斯坦福机器学习笔记-Week-10/" data-title="斯坦福机器学习笔记(Week 10)" data-url="https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-10/">
       </div>
     </div>
 
@@ -739,8 +890,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
 
@@ -835,6 +995,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#十五、大规模机器学习-Large-Scale-Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">十五、大规模机器学习(Large Scale Machine Learning)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#15-1-大型数据集的学习"><span class="nav-number">1.1.</span> <span class="nav-text">15.1 大型数据集的学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#应该怎样应对一个有-100-万条记录的训练集？"><span class="nav-number">1.1.1.</span> <span class="nav-text">应该怎样应对一个有 100 万条记录的训练集？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-2-随机梯度下降法"><span class="nav-number">1.2.</span> <span class="nav-text">15.2 随机梯度下降法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#批量梯度下降法（Batch-gradient-descent）"><span class="nav-number">1.2.1.</span> <span class="nav-text">批量梯度下降法（Batch gradient descent）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#随机梯度下降法（Stochastic-gradient-descent）"><span class="nav-number">1.2.2.</span> <span class="nav-text">随机梯度下降法（Stochastic gradient descent）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-3-小批量梯度下降"><span class="nav-number">1.3.</span> <span class="nav-text">15.3 小批量梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-4-随机梯度下降收敛"><span class="nav-number">1.4.</span> <span class="nav-text">15.4 随机梯度下降收敛</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-5-在线学习"><span class="nav-number">1.5.</span> <span class="nav-text">15.5 在线学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-6-映射化简和数据并行"><span class="nav-number">1.6.</span> <span class="nav-text">15.6 映射化简和数据并行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十六、应用实例：图片-文字识别-Application-Example-Photo-OCR"><span class="nav-number">2.</span> <span class="nav-text">十六、应用实例：图片 文字识别(Application Example: Photo OCR)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-1-问题描述和流程图"><span class="nav-number">2.1.</span> <span class="nav-text">16.1 问题描述和流程图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-滑动窗口"><span class="nav-number">2.2.</span> <span class="nav-text">16.2 滑动窗口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文本检测中的滑动窗口"><span class="nav-number">2.2.1.</span> <span class="nav-text">文本检测中的滑动窗口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符分割中的滑动窗口"><span class="nav-number">2.2.2.</span> <span class="nav-text">字符分割中的滑动窗口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-3-获取大量数据和人工数据"><span class="nav-number">2.3.</span> <span class="nav-text">16.3 获取大量数据和人工数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从零开始创造实例"><span class="nav-number">2.3.1.</span> <span class="nav-text">从零开始创造实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改已有的数据"><span class="nav-number">2.3.2.</span> <span class="nav-text">修改已有的数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-4-上限分析：接下来要做的工作是什么"><span class="nav-number">2.4.</span> <span class="nav-text">16.4 上限分析：接下来要做的工作是什么</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1501,6 +1677,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

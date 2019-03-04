@@ -154,7 +154,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png">
-<meta property="og:updated_time" content="2019-03-04T01:51:46.622Z">
+<meta property="og:updated_time" content="2019-03-04T03:47:14.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4)">
 <meta name="twitter:description" content="2.1 经典网络（Classic networks）LeNet-5LeNet-5可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。该LeNet模型总共包含了大约6万个参数，典型的LeNet-5结构包含CONV layer，POOL layer和FC layer，顺序一般是CONV layer-&amp;gt;POOL layer-&amp;gt;CONV layer-&amp;gt;POOL">
@@ -456,7 +456,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T09:51:46+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T11:47:14+08:00">
                 2019-03-04
               </time>
             
@@ -641,15 +641,15 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <p>1×1卷积层给神经网络添加了一个非线性函数，从而减少或保持输入层中的通道数量不变，也可以增加通道数量</p>
 <h2 id="2-5-谷歌-Inception-网络简介（Inception-network-motivation）"><a href="#2-5-谷歌-Inception-网络简介（Inception-network-motivation）" class="headerlink" title="2.5 谷歌 Inception 网络简介（Inception network motivation）"></a>2.5 谷歌 Inception 网络简介（Inception network motivation）</h2><p><strong>Inception</strong>网络或<strong>Inception</strong>层的作用是<strong>代替人工来确定卷积层中的过滤器类型，或者确定是否需要创建卷积层或池化层</strong></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/99f8fc7dbe7cd0726f5271aae11b9872.png" alt></p>
-<p>基本思想是<strong>Inception</strong>网络在单层网络上可以使用多个不同尺寸的filters，进行same convolutions，把各filter下得到的输出拼接起来。还可以将CONV layer与POOL layer混合，同时实现各种效果，但是要注意使用same pool。Inception Network不需要人为决定使用哪个过滤器或者是否需要池化，它使用不同尺寸的filters并将CONV和POOL混合起来，将所有功能输出组合拼接，再由神经网络本身去学习参数并选择最好的模块</p>
-<p>Inception Network在提升性能的同时，会带来计算量大的问题：</p>
+<p>基本思想是<strong>Inception</strong>网络在单层网络上可以使用多个不同尺寸的filters，进行<strong>same convolutions</strong>，把各filter下得到的输出拼接起来。还可以将CONV layer与POOL layer混合，同时实现各种效果，但是要注意使用<strong>same pool</strong>。Inception Network<strong>不需人为决定</strong>使用哪个过滤器或者是否需要池化，它使用不同尺寸的filters并将CONV和POOL混合起来，将所有功能输出组合拼接，再由神经网络本身去学习参数并选择最好的模块</p>
+<p>Inception Network在提升性能的同时，会带来<strong>计算量大</strong>的问题：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/27894eae037f4fd859d33ebdda1cac9a.png" alt></p>
 <p>乘法运算的总次数为每个输出值所需要执行的乘法运算次数（5×5×192）乘以输出值个数（28×28×32），结果等于1.2亿。</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5b3df2904b9d8dc51bd99ccb45ac9f5b.png" alt></p>
-<p>为此，引入1x1 Convolutions来减少计算量，对于输入层，使用1×1卷积把输入值从192个通道减少到16个通道。然后对这个较小层运行5×5卷积，得到最终输出</p>
+<p>为此，引入<strong>1x1 Convolutions</strong>来减少计算量，对于输入层，使用1×1卷积把输入值从192个通道减少到16个通道。然后对这个较小层运行5×5卷积，得到最终输出</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/1fec66d984a3c8c47ff459775d411e71.png" alt></p>
-<p>把该1x1 Convolution称为“瓶颈层”（bottleneck layer），瓶颈层是网络中最小的部分，即先缩小网络，然后再扩大</p>
-<p>引入bottleneck layer之后，第一个卷积层计算成本：1×1×192×输出28×28×16，相乘结果约等于240万，第二个卷积层的计算成本是：28×28×32×5×5×16，计算结果为1000万，总次数是1204万，计算成本从1.2亿下降到了原来的十分之一</p>
+<p>把该1x1 Convolution称为<strong>“瓶颈层”（bottleneck layer）</strong>，<strong>瓶颈层是网络中最小的部分，即先缩小网络，然后再扩大</strong></p>
+<p>引入bottleneck layer之后，第一个卷积层计算成本：（1×1×192）×（28×28×16），相乘结果约等于240万，第二个卷积层的计算成本是：（28×28×32）×（5×5×16），计算结果为1000万，总次数是1204万，计算成本从1.2亿下降到了原来的十分之一</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7d160f6eab22e4b9544b28b44da686a6.png" alt></p>
 <p>总结：</p>
 <ul>
@@ -663,19 +663,19 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <p>最后把得到的各个层的通道都加起来，得到一个28×28×256的输出。这就是一个<strong>Inception</strong>模块</p>
 <p><strong>Inception</strong>网络只是很多在不同的位置重复组成的网络：</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-152.png" alt="upload successful"></p>
-<p>中间隐藏层也可以作为输出层Softmax，确保了即便是隐藏单元和中间层也参与了特征计算，也能预测图片的分类，起到一种调整的效果，有利于防止发生过拟合</p>
+<p>中间隐藏层也可以作为输出层Softmax，确保了即便是隐藏单元和中间层也参与了特征计算，也能预测图片的分类，起到一种调整的效果，<strong>有利于防止发生过拟合</strong></p>
 <h2 id="2-7-迁移学习（Transfer-Learning）"><a href="#2-7-迁移学习（Transfer-Learning）" class="headerlink" title="2.7 迁移学习（Transfer Learning）"></a>2.7 迁移学习（Transfer Learning）</h2><p>训练集很小的情况：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8f0e69f085991cfc74726983418f6569.png" alt></p>
 <p>建议：从网上下载一些神经网络开源的实现，不仅把代码下载下来，也把权重下载下来。然后去掉<strong>Softmax</strong>层，创建自己的<strong>Softmax</strong>单元，用来输出<strong>Tigger</strong>、<strong>Misty</strong>和<strong>neither</strong>三个类别。把所有的层看作是冻结的，冻结网络中所有层的参数，只需要训练和<strong>Softmax</strong>层有关的参数。这个<strong>Softmax</strong>层有三种可能的输出，<strong>Tigger</strong>、<strong>Misty</strong>或者<strong>Neither</strong>。</p>
-<p>通过使用其他人预训练的权重，很可能得到很好的性能，即使只有一个小的数据集。大多数深度学习框架会有<code>trainableParameter=0</code>的参数，对于前面的层，可以设置这个参数。为了不训练这些权重，会有<code>freeze=1</code>的参数。只需要训练<strong>softmax</strong>层的权重，把前面这些层的权重都冻结</p>
+<p>通过使用其他人预训练的权重，很可能得到很好的性能，即使只有一个小的数据集。大多数深度学习框架会有<code>trainableParameter=0</code>的参数，对于前面的层，可以设置这个参数。为了不训练这些权重，会有<code>freeze=1</code>的参数。<strong>只需要训练softmax层的权重，把前面这些层的权重都冻结</strong></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac520bf9e9facfc026db46b187b513bd.png" alt></p>
-<p>由于前面的层都冻结了，相当于一个固定的函数，因此不需要改变和训练它，取输入图像<script type="math/tex">X</script>，然后把它映射到<strong>softmax</strong>前一层的激活函数。能加速训练的技巧是如果先计算这一层（紫色箭头标记），计算特征或者激活值，然后把它们存到硬盘里。所做的就是用这个固定的函数，在这个神经网络的前半部分（<strong>softmax</strong>层之前的所有层视为一个固定映射），取任意输入图像<script type="math/tex">X</script>，然后计算它的某个特征向量，这样训练的就是一个很浅的<strong>softmax</strong>模型，用这个特征向量来做预测。对计算有用的一步就是对训练集中所有样本的这一层的激活值进行预计算，然后存储到硬盘里，在此之上训练<strong>softmax</strong>分类器。存储到硬盘或者说预计算方法的优点是不需要每次遍历训练集再重新计算这个激活值</p>
-<p>更大的训练集：应该冻结更少的层，然后训练后面的层。如果输出层的类别不同，那么需要构建自己的输出单元，<strong>Tigger</strong>、<strong>Misty</strong>或者<strong>Neither</strong>三个类别。可以取后面几层的权重，用作初始化，然后从这里开始梯度下降</p>
+<p>由于前面的层都冻结了，相当于一个固定的函数，因此不需要改变和训练它，取输入图像<script type="math/tex">X</script>，然后把它映射到<strong>softmax</strong>前一层的激活函数。能加速训练的技巧是如果先计算这一层（紫色箭头标记），计算特征或者激活值，然后把它们存到硬盘里。所做的就是用这个固定的函数，在这个神经网络的前半部分（<strong>softmax</strong>层之前的所有层视为一个固定映射），取任意输入图像<script type="math/tex">X</script>，然后计算它的某个特征向量，这样训练的就是一个很浅的<strong>softmax</strong>模型，用这个特征向量来做预测。对计算有用的一步就是对训练集中所有样本的这一层的激活值进行预计算，然后存储到硬盘里，在此之上训练<strong>softmax</strong>分类器。存储到硬盘或者说预计算方法的优点是<strong>不需要每次遍历训练集再重新计算这个激活值</strong></p>
+<p>更大的训练集：<strong>应该冻结更少的层</strong>，然后训练后面的层。如果输出层的类别不同，那么需要构建自己的输出单元，<strong>Tigger</strong>、<strong>Misty</strong>或者<strong>Neither</strong>三个类别。可以取后面几层的权重，用作<strong>初始化</strong>，然后从这里开始梯度下降</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e7079af956d884d6184c4bde62271175.png" alt></p>
-<p>也可以直接去掉这几层，换成自己的隐藏单元和<strong>softmax</strong>输出层，如果有越来越多的数据，那么需要冻结的层数就越少，能够训练的层数就越多。如果有一个更大的数据集，那么不要单单训练一个<strong>softmax</strong>单元，而是考虑训练中等大小的网络，包含最终要用的网络的后面几层</p>
+<p>也可以直接去掉这几层，换成自己的隐藏单元和<strong>softmax</strong>输出层，如果有越来越多的数据，那么需要<strong>冻结的层数就越少，能够训练的层数就越多</strong>。如果有一个更大的数据集，那么不要单单训练一个<strong>softmax</strong>单元，而是考虑训练中等大小的网络，包含最终要用的网络的后面几层</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7cf0e18b739684106548cbbf0c1dd500.png" alt></p>
-<p>如果有大量数据：应该做的就是用开源的网络和它的权重，把所有的权重当作初始化，然后训练整个网络</p>
-<p>如果有越多的标定的数据，可以训练越多的层。极端情况下，可以用下载的权重只作为初始化，用它们来代替随机初始化，接着用梯度下降训练，更新网络所有层的所有权重</p>
+<p>如果有大量数据：应该做的就是用开源的网络和它的权重，把所有的权重<strong>当作初始化</strong>，然后训练整个网络</p>
+<p>如果有越多的标定的数据，可以训练越多的层。极端情况下，可以<strong>用下载的权重只作为初始化，用它们来代替随机初始化，接着用梯度下降训练，更新网络所有层的所有权重</strong></p>
 <h2 id="2-8-数据扩充（Data-augmentation）"><a href="#2-8-数据扩充（Data-augmentation）" class="headerlink" title="2.8 数据扩充（Data augmentation）"></a>2.8 数据扩充（Data augmentation）</h2><p>当下计算机视觉的主要问题是没有办法得到充足的数据</p>
 <p>最简单的数据扩充方法就是垂直镜像对称</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f92337ae2e50a0896d42d45cc7951e43.png" alt></p>
@@ -941,7 +941,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1073,7 +1073,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共74k字</span>
+  <span class="post-count">博客全站共90k字</span>
 </div>
 
         
