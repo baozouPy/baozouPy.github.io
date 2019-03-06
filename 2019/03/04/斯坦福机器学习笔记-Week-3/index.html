@@ -122,12 +122,11 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/21import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/22import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/23import.png">
-<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/878import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/24import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/25import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/26import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/85import.png">
-<meta property="og:updated_time" content="2019-03-05T16:28:51.117Z">
+<meta property="og:updated_time" content="2019-03-06T12:46:22.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福机器学习笔记(Week  3)">
 <meta name="twitter:description" content="四 、逻辑回归( Logistic Regression）4.1 分类问题将因变量(dependant variable)可能属于的两个类分别称为负向类（negative class）和正向类（positive class），则因变量y∈{0,1}">
@@ -429,8 +428,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-06T00:28:51+08:00">
-                2019-03-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-06T20:46:22+08:00">
+                2019-03-06
               </time>
             
           </span>
@@ -500,7 +499,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.2k
+                  3.1k
                 </span>
               
 
@@ -634,27 +633,26 @@ h_\theta(x)=\frac{1}{1+e^{-\theta^TX}}</script><p>即使更新参数的规则看
 <p>三角形是正样本，圆形代表负样本，设置三角形的值为 1，圆形的值为 0</p>
 <p>要拟合出一个合适的分类器</p>
 <p>训练一个标准的逻辑回归分类器：</p>
-<p>将多个类中的一个类标记为正向类（y=1），然后将其他所有类都标记为负向类，这个模型记作<script type="math/tex">h_\theta^{(1)}(x)</script>选择另一个类标记为正向类（y=2），再将其它类都标记为负向类，将这个模型记作<script type="math/tex">h_\theta^{(2)}(x)</script>,依此类推</p>
+<p>将多个类中的一个类标记为正向类（y=1），然后将其他所有类都标记为负向类，这个模型记作<script type="math/tex">h_\theta^{(1)}(x)</script>，选择另一个类标记为正向类（y=2），再将其它类都标记为负向类，将这个模型记作<script type="math/tex">h_\theta^{(2)}(x)</script>,依此类推</p>
 <p>最后得到一系列的模型简记为：</p>
 <script type="math/tex; mode=display">
 h_\theta^{(i)}(x)=p(y=i|x;\theta),i=(1,2,3,...k)</script><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/23import.png" alt></p>
 <p>最后，在需要做预测时，将所有的分类机都运行一遍，然后对每一个输入变量，都选择最高可能性的输出变量</p>
-<p>现在要做的就是训练这个逻辑回归分类器：<script type="math/tex">h_\theta^{(i)}(x)</script>，其中 i 对应每一个可能的 y=i，最后，为了做出预测，给出输入一个新的 x 值，用这个做预测要做的就是在三个分类器里面输入 x，然后选择一个让<script type="math/tex">h_\theta^{(i)}(x)</script>最大的 i，即<img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/878import.png" alt></p>
+<p>现在要做的就是训练这个逻辑回归分类器：<script type="math/tex">h_\theta^{(i)}(x)​</script>，其中 i 对应每一个可能的 y=i，最后，为了做出预测，输入一个新的 x 值，用这个做预测，要做的就是在三个分类器里面输入 x，然后选择一个让<script type="math/tex">h_\theta^{(i)}(x)​</script>最大的 i，即<script type="math/tex">\underset{\ \ \ \ i}{max \ h^{(i)}(x)}​</script></p>
 <h1 id="五-、正则化-Regularization）"><a href="#五-、正则化-Regularization）" class="headerlink" title="五 、正则化( Regularization）"></a>五 、正则化( Regularization）</h1><h2 id="5-1-过拟合的问题"><a href="#5-1-过拟合的问题" class="headerlink" title="5.1 过拟合的问题"></a>5.1 过拟合的问题</h2><p>回归问题的例子：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/24import.png" alt></p>
-<p>第一个模型是一个线性模型，欠拟合或高偏离，不能很好地适应训练集第三个模型是一个四次方的模型，过拟合或高方差过于强调拟合原始数据，而丢失了算法的本质：预测新数据</p>
+<p>第一个模型是一个线性模型，欠拟合或高偏离，不能很好地适应训练集，第三个模型是一个四次方的模型，过拟合或高方差，过于强调拟合原始数据，而丢失了算法的本质：预测新数据</p>
 <p>分类问题中也存在这样的问题：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/25import.png" alt></p>
-<p>以多项式理解，x 的次数越高，拟合的越好，但相应的预测的能力就可能变差发现了过拟合问题，应该如何</p>
-<p>处理？</p>
+<p>以多项式理解，x 的次数越高，拟合的越好，但相应的预测的能力就可能变差</p>
+<p>发现了过拟合问题，应该如何处理？</p>
 <ol>
-<li>丢弃一些不能帮助正确预测的特征。可以是手工选择保留哪些特征，或者使用一些模型选择的算法来帮忙（例如 PCA）</li>
-<li>正则化。 保留所有的特征，但是减少参数的大小（magnitude）</li>
+<li><strong>丢弃一些不能帮助正确预测的特征</strong>。可以是手工选择保留哪些特征，或者使用一些模型选择的算法来帮忙（例如 PCA）</li>
+<li><strong>正则化</strong>。 保留所有的特征，但是减少参数的大小（magnitude）</li>
 </ol>
 <h2 id="5-2-代价函数"><a href="#5-2-代价函数" class="headerlink" title="5.2 代价函数"></a>5.2 代价函数</h2><p>上面的回归问题中如果模型是：</p>
 <script type="math/tex; mode=display">
-h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+\theta_3x_3+\theta_4x_4</script><script type="math/tex; mode=display">
-h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+\theta_3x_3+\theta_4x_4</script><p>高次项导致了过拟合的产生，如果能让这些高次项的系数接近于 0 的话，就能很好的拟合</p>
+h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+\theta_3x_3+\theta_4x_4</script><p>高次项导致了过拟合的产生，如果能<strong>让这些高次项的系数接近于 0</strong> 的话，就能很好的拟合</p>
 <p>要做的就是在一定程度上减小这些参数<script type="math/tex">\theta</script>的值，这就是正则化的基本方法</p>
 <p>在<script type="math/tex">\theta_3,\theta_4</script>设置一点惩罚。尝试最小化代价时也需要将这个惩罚纳入考虑中，并最终导致选择较小的一些<script type="math/tex">\theta_3,\theta_4</script></p>
 <p>修改后的代价函数如下：</p>
@@ -667,14 +665,14 @@ J(\theta)=\frac{1}{2m}[\sum_{i=1}^m(h_\theta(x^{(i)})-y{(i)})^2+\lambda\sum_{j=1
 <p>注：根据惯例，不对<script type="math/tex">\theta_0</script> 进行惩罚</p>
 <p>经过正则化处理的模型与原模型的可能对比如下图所示：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/26import.png" alt></p>
-<p>如果选择的正则化参数<script type="math/tex">\lambda</script> 过大，则会把所有的参数都最小化了，导致模型变成<script type="math/tex">h_\theta(x)=\theta_0</script>也就是上图中红色直线所示的情况，造成欠拟合</p>
+<p>如果选择的正则化参数<script type="math/tex">\lambda</script> 过大，则会把所有的参数都最小化了，导致模型变成<script type="math/tex">h_\theta(x)=\theta_0</script>，也就是上图中红色直线所示的情况，造成欠拟合</p>
 <p>为什么增加的一项<script type="math/tex">\lambda \sum_{j=1}^{n}\theta_j</script>可以使<script type="math/tex">\theta</script>的值减小：</p>
 <p>如果令<script type="math/tex">\lambda</script>的值很大的话，为了使 Cost Function 尽可能的小，所有的<script type="math/tex">\theta</script>值（不包括<script type="math/tex">\theta_0</script>）都会在一定程度上减小</p>
 <p>若<script type="math/tex">\lambda</script>的值太大了，那么<script type="math/tex">\theta</script>（不包括<script type="math/tex">\theta_0</script> ）都会趋近于 0，所得到的只能是一条平行于 x 轴的直线。</p>
 <p>对于正则化，要取一个合理的<script type="math/tex">\lambda</script>的值，才能更好的应用正则化<script type="math/tex">\theta</script></p>
 <h2 id="5-3-正则化线性回归"><a href="#5-3-正则化线性回归" class="headerlink" title="5.3 正则化线性回归"></a>5.3 正则化线性回归</h2><p>正则化线性回归的代价函数为：</p>
 <script type="math/tex; mode=display">
-J(\theta)=\frac{1}{2m}[\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2+\lambda\sum_{j=1}^n\theta_j^2]</script><p>如果使用梯度下降法令这个代价函数最小化，因为未对<script type="math/tex">\theta_0</script>进行正则化，所以梯度下降算法将分两种情形：</p>
+J(\theta)=\frac{1}{2m}[\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2+\lambda\sum_{j=1}^n\theta_j^2]</script><p>如果使用梯度下降法令这个代价函数最小化，因为未对<script type="math/tex">\theta_0​</script>进行正则化，所以梯度下降算法将分两种情形：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 
@@ -682,14 +680,14 @@ J(\theta)=\frac{1}{2m}[\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2+\lambda\sum_{j=
 
 Repeat \quad until \quad converagence\{\\
 \theta_0&=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^{m}[h_\theta(x^{(i)})-y^{(i)}]x_0^{(i)}\\
-\theta_j&=\theta_j-\alpha\frac{1}{m}\sum_{i=1}^{m}[h_\theta(x^{(i)})-y^{(i)}]x_j^{(i)}+\frac{\lambda}{m}\theta_j\\\}
+\theta_j&=\theta_j-\alpha\frac{1}{m}[\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\lambda\theta_j]\\\}
 \end{aligned}</script><p>对上面的算法中 j=1,2,…,n 时的更新式子进行调整可得：</p>
 <script type="math/tex; mode=display">
-\theta_j:=\theta_j(1-\alpha\frac{\lambda}{m})-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)}))x_j^{(i)}</script><p>可以看出，正则化线性回归的梯度下降算法的变化在于，每次都在原有算法更新规则的基础上令<script type="math/tex">\theta</script>值减少了一个额外的值</p>
+\theta_j:=\theta_j(1-\alpha\frac{\lambda}{m})-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)}))x_j^{(i)}</script><p>可以看出，正则化线性回归的梯度下降算法的变化在于，<strong>每次都在原有算法更新规则的基础上令<script type="math/tex">\theta</script>值减少了一个额外的值</strong></p>
 <h2 id="5-4-正则化的逻辑回归模型"><a href="#5-4-正则化的逻辑回归模型" class="headerlink" title="5.4 正则化的逻辑回归模型"></a>5.4 正则化的逻辑回归模型</h2><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/85import.png" alt></p>
 <p>给代价函数增加一个正则化的表达式，得到代价函数：</p>
 <script type="math/tex; mode=display">
-J(\theta)=\frac{1}{m}\sum_{i=1}^{m}[-y^{(i)}log(h_\theta(x^{(i)}))-(1-y^{(i)})log(1-h_\theta(x^{(i)}))]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2</script><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">costReg</span><span class="params">(theta, X, y, learningRate)</span>:</span></span><br><span class="line">theta = np.matrix(theta)</span><br><span class="line">X = np.matrix(X)</span><br><span class="line">y = np.matrix(y)</span><br><span class="line">first = np.multiply(-y, np.log(sigmoid(X * theta.T)))</span><br><span class="line">second = np.multiply((<span class="number">1</span> - y), np.log(<span class="number">1</span> - sigmoid(X * theta.T)))</span><br><span class="line">reg = (learningRate / <span class="number">2</span> * len(X)) *</span><br><span class="line">np.sum(np.power(theta[:,<span class="number">1</span>:theta.shape[<span class="number">1</span>]], <span class="number">2</span>))</span><br><span class="line"><span class="keyword">return</span> np.sum(first - second) / (len(X)) + reg</span><br></pre></td></tr></table></figure>
+J(\theta)=\frac{1}{m}\sum_{i=1}^{m}[-y^{(i)}log(h_\theta(x^{(i)}))-(1-y^{(i)})log(1-h_\theta(x^{(i)}))]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2</script><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">costReg</span><span class="params">(theta, X, y, learningRate)</span>:</span></span><br><span class="line">    first = np.multiply(-y, np.log(sigmoid(np.dot(X, theta.T)))</span><br><span class="line">    second = np.multiply((<span class="number">1</span> - y), np.log(<span class="number">1</span> - sigmoid(np.dot(X, theta.T)))</span><br><span class="line">    reg = (learningRate / <span class="number">2</span> * len(X)) * np.sum(np.power(theta[:,<span class="number">1</span>:theta.shape[<span class="number">1</span>]], <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">return</span> np.sum(first - second) / (len(X)) + reg</span><br></pre></td></tr></table></figure>
 <p>最小化该代价函数，通过求导，得出梯度下降算法为：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
@@ -697,8 +695,7 @@ Repeat \quad until \quad converagence\{\\
 \theta_0&=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^{m}[h_\theta(x^{(i)})-y^{(i)}]x_0^{(i)}\\
 \theta_j&=\theta_j-\alpha[\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\frac{\lambda}{m}\theta_j]\\
 for& \quad j=1,2,...n\\\}
-\end{aligned}</script><p>注：看上去同线性回归一样，但是知道<script type="math/tex">h_\theta(x)=g(\theta^TX)</script>，所以与线性回归不同</p>
-<p>注意：</p>
+\end{aligned}</script><p>注意：</p>
 <ol>
 <li>虽然正则化的逻辑回归中的梯度下降和正则化的线性回归中的表达式看起来一样，但由于两者<script type="math/tex">h_\theta(x)</script>的不同,所以还是有很大差别</li>
 <li><script type="math/tex">\theta_0</script>不参与其中的任何一个正则化</li>
