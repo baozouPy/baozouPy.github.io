@@ -131,7 +131,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/3dcdd58eaa544a09e67eb892f8c732bf.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/1e6b86a4e3690b4a0c6b8146ffa2f791.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/b22dff4a3b1a4ea8c1ab201446e98889.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-166.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/504import.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fa6769127cd98ea0058f600449833a21.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/8da3e9cf049139a8e4a78503bd72e7fd.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/4130b85a0694549f02bdf60f7c47a3d7.png">
@@ -139,7 +139,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/28443f8b28afa63adb6cf89ce19c4f6d.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/f2da69f9fa6462c8e591e79db452f6c1.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-167.png">
-<meta property="og:updated_time" content="2019-03-02T12:06:30.019Z">
+<meta property="og:updated_time" content="2019-03-04T13:35:51.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三周 序列模型和注意力机制（Sequence models &amp; Attention mechanism）(Course 5)">
 <meta name="twitter:description" content="3.1 基础模型（Basic Models）机器翻译用x^{} 到x^{&amp;lt; 5&amp;gt;}表示输入句子的单词，用y^{}到y^{}表示输出句子的单词：">
@@ -441,8 +441,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T20:06:30+08:00">
-                2019-03-02
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T21:35:51+08:00">
+                2019-03-04
               </time>
             
           </span>
@@ -690,7 +690,7 @@ C^{<1>}=\sum_{t{'}}\alpha^{<1,t{'}>}\cdot a^{<t{'}>}</script><p>用状态<script
 a^{<t,t'>} = \frac{\text{exp}(e^{<t,t'>})}{\sum^{T_x}_{t'=1} \text{exp}(e^{<t,t'>})}</script><p>只要求出<script type="math/tex">e^{<t,t{'}>}</script>，就能得到<script type="math/tex">\alpha^{<t,t{'}>}</script></p>
 <p>如何求出<script type="math/tex">e^{<t,t{'}>}</script>：</p>
 <p>建立一个简单的神经网络</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-166.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/504import.png" alt></p>
 <p>输入<script type="math/tex">s^{<t-1>}</script>，即神经网络在上个时间步的状态和<script type="math/tex">a^{<t{'}>}</script>，训练一个很小的神经网络，利用反向传播算法、梯度下降算法迭代优化，学到一个正确的函数<script type="math/tex">e^{<t,t{'}>}</script> 和<script type="math/tex">\alpha^{<t,t{'}>}</script></p>
 <p>缺点：计算量较大，<script type="math/tex">T_x</script>个输入单词和<script type="math/tex">T_y</script>个输出单词的注意力参数的总数是<script type="math/tex">T_x\times T_y</script>，但是在机器翻译的应用上，输入和输出的句子一般不会太长，消耗还是可以接受</p>
 <p>注意力模型在图像捕捉方面也有应用。比如图片加标题（<strong>image captioning</strong>），即看一张图，写下这张图的标题</p>
@@ -794,8 +794,8 @@ ttt \_ h\_eee\_ \_ \_ \sqcup\_ \_ \_ qqq\_ \_ \cdots</script><p>下划线”_“
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/28/第二周-自然语言处理与词嵌入（Natural-Language-Processing-and-Word-Embeddings）-Course-5/" rel="next" title="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
-                <i class="fa fa-chevron-left"></i> 第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)
+              <a href="/2019/02/28/第一周-循环序列模型（Recurrent-Neural-Networks）-Course-5/" rel="next" title="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
+                <i class="fa fa-chevron-left"></i> 第一周 循环序列模型（Recurrent Neural Networks）(Course 5)
               </a>
             
           </div>
@@ -941,7 +941,7 @@ ttt \_ h\_eee\_ \_ \_ \sqcup\_ \_ \_ qqq\_ \_ \cdots</script><p>下划线”_“
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -952,7 +952,7 @@ ttt \_ h\_eee\_ \_ \_ \sqcup\_ \_ \_ qqq\_ \_ \cdots</script><p>下划线”_“
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -963,7 +963,7 @@ ttt \_ h\_eee\_ \_ \_ \sqcup\_ \_ \_ qqq\_ \_ \cdots</script><p>下划线”_“
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1073,7 +1073,7 @@ ttt \_ h\_eee\_ \_ \_ \sqcup\_ \_ \_ qqq\_ \_ \cdots</script><p>下划线”_“
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共90k字</span>
+  <span class="post-count">博客全站共95k字</span>
 </div>
 
         

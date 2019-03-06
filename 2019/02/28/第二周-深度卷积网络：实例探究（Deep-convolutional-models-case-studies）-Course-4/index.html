@@ -154,7 +154,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png">
-<meta property="og:updated_time" content="2019-03-04T03:47:14.041Z">
+<meta property="og:updated_time" content="2019-03-04T15:09:41.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 深度卷积网络：实例探究（Deep convolutional models: case studies）(Course 4)">
 <meta name="twitter:description" content="2.1 经典网络（Classic networks）LeNet-5LeNet-5可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。该LeNet模型总共包含了大约6万个参数，典型的LeNet-5结构包含CONV layer，POOL layer和FC layer，顺序一般是CONV layer-&amp;gt;POOL layer-&amp;gt;CONV layer-&amp;gt;POOL">
@@ -456,7 +456,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T11:47:14+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T23:09:41+08:00">
                 2019-03-04
               </time>
             
@@ -695,33 +695,36 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <p>常用的实现数据扩充的方法是使用一个线程或者是多线程来加载数据，实现变形失真，然后传给其他的线程或者其他进程，来训练编号2和这个编号1，可以并行实现</p>
 <p>在数据扩充过程中也有一些超参数，比如说颜色变化了多少，以及随机裁剪的时候使用的参数</p>
 <h2 id="2-9-计算机视觉现状（The-state-of-computer-vision）"><a href="#2-9-计算机视觉现状（The-state-of-computer-vision）" class="headerlink" title="2.9 计算机视觉现状（The state of computer vision）"></a>2.9 计算机视觉现状（The state of computer vision）</h2><p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7e51335f705120b35fa4ed5444ec5cda.png" alt></p>
-<p>大部分机器学习问题是介于少量数据和大量数据范围之间的。</p>
+<p>大部分机器学习问题是<strong>介于少量数据和大量数据范围之间</strong></p>
 <ul>
 <li>语音识别有很大数量的数据</li>
 <li>虽然现在图像识别或图像分类方面有相当大的数据集，但因为图像识别是一个复杂的问题，通过分析像素并识别出它是什么，即使在线数据集非常大，如超过一百万张图片，仍然希望能有更多的数据</li>
 <li>物体检测拥有的数据更少</li>
 <li>图像识别是如何看图片的问题，并且告诉你这张图是不是猫，而对象检测则是看一幅图，画一个框，告诉你图片里的物体，比如汽车等等。因为获取边框的成本比标记对象的成本更高，所以进行对象检测的数据往往比图像识别数据要少</li>
 </ul>
-<p>当有很多数据时，倾向于使用更简单的算法和更少的手工工程，只要有一个大型的神经网络，甚至一个更简单的架构，就可以去学习它想学习的东西</p>
+<p>当有很多数据时，倾向于使用<strong>更简单的算法和更少的手工工程</strong>，只要有一个大型的神经网络，甚至一个更简单的架构，就可以去学习它想学习的东西</p>
 <p>当没有那么多的数据时，更多的是手工工程</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e6701cf4129576648941bfd593a13c77.png" alt></p>
 <p>对机器学习应用时，通常学习算法有两种知识来源：</p>
 <ul>
-<li>一个来源是被标记的数据，像<script type="math/tex">(x,y)</script>应用在监督学习</li>
-<li>第二个来源是手工工程，有很多方法去建立一个手工工程系统，它可以是源于精心设计的特征，手工精心设计的网络体系结构或者是系统的其他组件。当没有太多标签数据时，只需要更多地考虑手工工程</li>
+<li>一个来源是<strong>被标记的数据</strong>，像<script type="math/tex">(x,y)</script>应用在监督学习</li>
+<li>第二个来源是<strong>手工工程</strong>，有很多方法去建立一个手工工程系统，它可以是源于精心设计的特征，手工精心设计的网络体系结构或者是系统的其他组件。当没有太多标签数据时，只需要更多地考虑手工工程</li>
 </ul>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c87f6cc9ec9c45ad57a049b6baf0b86d.png" alt></p>
 <p>在基准研究和比赛中，下面的tips可能会有较好的表现：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png" alt></p>
 <ul>
-<li>集成，意味着想好了要的神经网络之后，可以独立训练几个神经网络，并平均它们的输出。比如说随机初始化三个、五个或者七个神经网络，然后训练所有这些网络，对输出<script type="math/tex">\hat y</script>进行平均计算，而不要平均权重，可能会在基准上提高1%，2%或者更好。但因为集成意味着要对每张图片进行测试，可能需要在从3到15个不同的网络中运行一个图像，会让运行时间变慢</li>
-<li><strong>Multi-crop at test time</strong>，<strong>Multi-crop</strong>是一种将数据扩充应用到测试图像中的一种形式，在测试图片的多种版本上运行分类器，输出平均结果</li>
+<li><strong>集成</strong>，意味着想好了要的神经网络之后，可以独立训练几个神经网络，并平均它们的输出。比如说随机初始化三个、五个或者七个神经网络，然后训练所有这些网络，对输出<script type="math/tex">\hat y</script>进行平均计算，而不要平均权重，可能会在基准上提高1%，2%或者更好。但因为集成意味着要对<strong>每张图片进行测试</strong>，可能需要从3到15个不同的网络中运行一个图像，会让运行时间<strong>变慢</strong></li>
+<li><strong>Multi-crop at test time</strong>，<strong>Multi-crop</strong>是一种将数据扩充应用到测试图像中的一种形式，<strong>在测试图片的多种版本上运行分类器，输出平均结果</strong></li>
 </ul>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png" alt></p>
 <p>如把猫的图片复制四遍，包括两个镜像版本。如取中心的<strong>crop</strong>，然后取四个角落的<strong>crop，</strong>通过分类器来运行它</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png" alt></p>
 <p>编号1和编号3是中心<strong>crop</strong>，编号2和编号4是四个角落的<strong>crop</strong>。把这些加起来会有10种不同的图像的<strong>crop</strong>，命名为<strong>10-crop</strong>。通过分类器来运行这十张图片，然后对结果进行平均</p>
-<p>集成的一个大问题是需要保持所有这些不同的神经网络，占用了更多的计算机内存。<strong>multi-crop</strong>，只保留一个网络，不会占用太多的内存，但仍然会让运行时间变慢</p>
+<ul>
+<li>集成的一个大问题是需要保持所有这些不同的神经网络，占用了更多的计算机内存</li>
+<li><strong>multi-crop</strong>，只保留一个网络，不会占用太多的内存，但仍然会让运行时间变慢</li>
+</ul>
 
       
     </div>
@@ -941,7 +944,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -952,7 +955,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -963,7 +966,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1073,7 +1076,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共90k字</span>
+  <span class="post-count">博客全站共95k字</span>
 </div>
 
         

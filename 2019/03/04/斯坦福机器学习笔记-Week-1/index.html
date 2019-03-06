@@ -119,7 +119,7 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/12import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/13import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/4import.png">
-<meta property="og:updated_time" content="2019-03-03T12:21:39.534Z">
+<meta property="og:updated_time" content="2019-03-05T00:08:52.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福机器学习笔记(Week  1)">
 <meta name="twitter:description" content="一 、引言1.1 Supervised Learning&amp;amp;Uupervised Learning监督学习监督学习，其基本思想是我们数据集中的每个样本都有相应的“正确答案”，再根据这些样本作出预测回归（regression）问题，即通过回归来推出一个连续的输出分类（classification）问题，其目标是推出一组离散的结果">
@@ -421,8 +421,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T20:21:39+08:00">
-                2019-03-03
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-05T08:08:52+08:00">
+                2019-03-05
               </time>
             
           </span>
@@ -528,42 +528,41 @@
       
 
       
-        <h2 id="一-、引言"><a href="#一-、引言" class="headerlink" title="一 、引言"></a>一 、引言</h2><h3 id="1-1-Supervised-Learning-amp-Uupervised-Learning"><a href="#1-1-Supervised-Learning-amp-Uupervised-Learning" class="headerlink" title="1.1 Supervised Learning&amp;Uupervised Learning"></a>1.1 Supervised Learning&amp;Uupervised Learning</h3><h4 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h4><p>监督学习，其基本思想是我们数据集中的每个样本都有相应的“正确答案”，再根据这些样本作出预测回归（regression）问题，即通过回归来推出一个连续的输出分类（classification）问题，其目标是推出一组离散的结果</p>
+        <h1 id="一-、引言"><a href="#一-、引言" class="headerlink" title="一 、引言"></a>一 、引言</h1><h2 id="1-1-Supervised-Learning-amp-Uupervised-Learning"><a href="#1-1-Supervised-Learning-amp-Uupervised-Learning" class="headerlink" title="1.1 Supervised Learning&amp;Uupervised Learning"></a>1.1 Supervised Learning&amp;Uupervised Learning</h2><h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><p>监督学习，其基本思想是我们数据集中的每个样本都有相应的“正确答案”，再根据这些样本作出预测回归（regression）问题，即通过回归来推出一个连续的输出分类（classification）问题，其目标是推出一组离散的结果</p>
 <a id="more"></a>
 <p>垃圾邮件问题。如果有标记好的数据，区别好是垃圾还是非垃圾邮件，把这个当作监督学习问题</p>
-<h4 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h4><p>针对数据集，无监督学习就能判断出数据有两个不同的聚集簇，叫做聚类算法无监督学习，是学习策略，交给算法大量的数据，让算法从数据中找出某种结构</p>
+<h3 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h3><p>针对数据集，无监督学习就能判断出数据有两个不同的聚集簇，叫做聚类算法无监督学习，是学习策略，交给算法大量的数据，让算法从数据中找出某种结构</p>
 <p>细分市场，可以当作无监督学习，因为只是拿到算法数据，再让算法去自动地发现细分市场</p>
-<h2 id="二-、单变量线性回归-Linear-Regression-with-One-Variable"><a href="#二-、单变量线性回归-Linear-Regression-with-One-Variable" class="headerlink" title="二 、单变量线性回归 ( Linear Regression with One Variable)"></a>二 、单变量线性回归 ( Linear Regression with One Variable)</h2><h3 id="2-1模型表示"><a href="#2-1模型表示" class="headerlink" title="2.1模型表示"></a>2.1模型表示</h3><p>在监督学习中我们有一个数据集，这个数据集被称训练集</p>
+<h1 id="二-、单变量线性回归-Linear-Regression-with-One-Variable"><a href="#二-、单变量线性回归-Linear-Regression-with-One-Variable" class="headerlink" title="二 、单变量线性回归 ( Linear Regression with One Variable)"></a>二 、单变量线性回归 ( Linear Regression with One Variable)</h1><h2 id="2-1-模型表示"><a href="#2-1-模型表示" class="headerlink" title="2.1 模型表示"></a>2.1 模型表示</h2><p>在监督学习中我们有一个数据集，这个数据集被称训练集</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/3import.png" alt></p>
 <p>将<strong>训练集</strong>“喂”给<strong>学习算法</strong>，进而学习得到一个假设<strong>h</strong>，然后将要预测的房屋的尺寸作为输入变量输入给<strong>h</strong>，预测出该房屋的交易价格作为输出变量输出为结果一种可能的表达方式为：<script type="math/tex">h_\theta(x)=\theta_0+\theta_1x</script>，因为只含有一个特征/输入变量，因此这样的问题叫作<strong>单变量线性回归问题</strong></p>
-<h3 id="2-2代价函数"><a href="#2-2代价函数" class="headerlink" title="2.2代价函数"></a>2.2代价函数</h3><p>模型所预测的值与训练集中实际值之间的差距（下图中蓝线所指）就是<strong>建模误差</strong></p>
+<h2 id="2-2-代价函数"><a href="#2-2-代价函数" class="headerlink" title="2.2 代价函数"></a>2.2 代价函数</h2><p>模型所预测的值与训练集中实际值之间的差距（下图中蓝线所指）就是<strong>建模误差</strong></p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/14import.png" alt></p>
 <p>目标便是选择出可以使得建模误差的平方和能够最小的模型参数。即使得代价函数<script type="math/tex">J(\theta_0,\theta_1)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2</script>最小</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/15import.png" alt></p>
-<p>看出可以在三维空间中存在一个使得<script type="math/tex">J(\theta_0,\theta_1)</script>最小的点</p>
+<p>可以看出在三维空间中存在一个使得<script type="math/tex">J(\theta_0,\theta_1)</script>最小的点</p>
 <p><strong>代价函数</strong>也被称作<strong>平方误差函数</strong>，有时也被称为<strong>平方误差代价函数</strong></p>
-<h3 id="2-3代价函数的直观理解"><a href="#2-3代价函数的直观理解" class="headerlink" title="2.3代价函数的直观理解"></a>2.3代价函数的直观理解</h3><script type="math/tex; mode=display">
+<h2 id="2-3-代价函数的直观理解"><a href="#2-3-代价函数的直观理解" class="headerlink" title="2.3 代价函数的直观理解"></a>2.3 代价函数的直观理解</h2><script type="math/tex; mode=display">
 \begin{aligned}
 Hypothesis:\\h_\theta(x)&=\theta_0+\theta_1x\\Parameters:\\\theta_0,\theta_1\\Cost\quad Function:\\J(\theta_0,\theta_1)&=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2\\Goal:\quad minimize\quad J(\theta_0,\theta_1)
 \end{aligned}</script><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1import.png" alt></p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/2import.png" alt></p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/75import.png" alt></p>
-<h3 id="2-4梯度下降"><a href="#2-4梯度下降" class="headerlink" title="2.4梯度下降"></a>2.4梯度下降</h3><p>梯度下降背后的思想是：开始时随机选择一个参数的组合<script type="math/tex">(\theta_0,\theta_1,......\theta_n)</script>，计算代价函数，然后寻找下一个能让代价函数值下降最多的参数组合。直到到一个局部最小值（local minimum），因为并没有尝试完所有的参数组合，所以不能确定得到的局部最小值是否便是全局最小值（global minimum），选择不同的初始参数组合，可能会找到不同的局部最小值</p>
+<h2 id="2-4-梯度下降"><a href="#2-4-梯度下降" class="headerlink" title="2.4 梯度下降"></a>2.4 梯度下降</h2><p>梯度下降背后的思想是：开始时<strong>随机</strong>选择一个参数的组合<script type="math/tex">(\theta_0,\theta_1,......\theta_n)​</script>，计算代价函数，然后寻找下一个能让代价函数值下降最多的参数组合。直到到一个<strong>局部最小值（local minimum）</strong>，因为并没有尝试完所有的参数组合，所以不能确定得到的局部最小值是否便是<strong>全局最小值（global minimum）</strong>，选择不同的初始参数组合，可能会找到不同的局部最小值</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/80import.png" alt></p>
 <p><strong>批量梯度下降（batch gradient descent）算法</strong>的公式为：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 Repeat \quad until \quad converagence\{\\&\theta_j:=\theta_j-\alpha\frac{\partial }{\partial \theta_j}J(\theta_0,\theta_1)\quad \\&(for\quad j=0 \quad and \quad j=1 )\\\}
-\end{aligned}</script><p>其中<script type="math/tex">\alpha</script>是<strong>学习率（learning rate）</strong>，它决定了沿着能让<strong>代价函数</strong>下降程度</p>
-<p>最大的方向向下迈出的步子有多大，在<strong>批量梯度下降</strong>中，每一次都同时让所有的参数减去<strong>学习速率</strong>乘以<strong>代价函数</strong>的导数</p>
+\end{aligned}</script><p>其中<script type="math/tex">\alpha</script>是<strong>学习率（learning rate）</strong>，它决定了沿着能让<strong>代价函数</strong>下降程度最大的方向迈出的步子有多大，在<strong>批量梯度下降</strong>中，每一次都同时让所有的参数减去<strong>学习速率</strong>乘以<strong>代价函数</strong>的导数</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/12import.png" alt></p>
 <p>如果<script type="math/tex">\alpha</script>太小的话，需要很多步才能到达全局最低点</p>
 <p>如果<script type="math/tex">\alpha</script>太大，它会导致无法收敛，甚至发散</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/13import.png" alt></p>
-<h3 id="2-5梯度下降的线性回归"><a href="#2-5梯度下降的线性回归" class="headerlink" title="2.5梯度下降的线性回归"></a>2.5梯度下降的线性回归</h3><p><strong>梯度下降算法</strong>和<strong>线性回归算法</strong>比较如图：</p>
+<h2 id="2-5-梯度下降的线性回归"><a href="#2-5-梯度下降的线性回归" class="headerlink" title="2.5 梯度下降的线性回归"></a>2.5 梯度下降的线性回归</h2><p><strong>梯度下降算法</strong>和<strong>线性回归算法</strong>比较如图：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/4import.png" alt></p>
 <script type="math/tex; mode=display">
-\frac{\partial }{\partial \theta_j}J(\theta_0,\theta_1)=\frac{\partial }{\partial \theta_j}\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)}-y^{(i)})^2</script><p>j=0 时：</p>
+\frac{\partial }{\partial \theta_j}J(\theta_0,\theta_1)=\frac{\partial }{\partial \theta_j}\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2</script><p>j=0 时：</p>
 <script type="math/tex; mode=display">
 \frac{\partial }{\partial \theta_0}J(\theta_0,\theta_1)=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})</script><p>j=1 时：</p>
 <script type="math/tex; mode=display">
@@ -790,7 +789,7 @@ Repeat\quad \{\\\theta_0=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -801,7 +800,7 @@ Repeat\quad \{\\\theta_0=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -812,7 +811,7 @@ Repeat\quad \{\\\theta_0=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -868,7 +867,7 @@ Repeat\quad \{\\\theta_0=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-、引言"><span class="nav-number">1.</span> <span class="nav-text">一 、引言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Supervised-Learning-amp-Uupervised-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Supervised Learning&amp;Uupervised Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#监督学习"><span class="nav-number">1.1.1.</span> <span class="nav-text">监督学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督学习"><span class="nav-number">1.1.2.</span> <span class="nav-text">无监督学习</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-、单变量线性回归-Linear-Regression-with-One-Variable"><span class="nav-number">2.</span> <span class="nav-text">二 、单变量线性回归 ( Linear Regression with One Variable)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1模型表示"><span class="nav-number">2.1.</span> <span class="nav-text">2.1模型表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2代价函数"><span class="nav-number">2.2.</span> <span class="nav-text">2.2代价函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3代价函数的直观理解"><span class="nav-number">2.3.</span> <span class="nav-text">2.3代价函数的直观理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4梯度下降"><span class="nav-number">2.4.</span> <span class="nav-text">2.4梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5梯度下降的线性回归"><span class="nav-number">2.5.</span> <span class="nav-text">2.5梯度下降的线性回归</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-、引言"><span class="nav-number">1.</span> <span class="nav-text">一 、引言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Supervised-Learning-amp-Uupervised-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Supervised Learning&amp;Uupervised Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习"><span class="nav-number">1.1.1.</span> <span class="nav-text">监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无监督学习"><span class="nav-number">1.1.2.</span> <span class="nav-text">无监督学习</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-、单变量线性回归-Linear-Regression-with-One-Variable"><span class="nav-number">2.</span> <span class="nav-text">二 、单变量线性回归 ( Linear Regression with One Variable)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-模型表示"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 模型表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-代价函数"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 代价函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-代价函数的直观理解"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 代价函数的直观理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-梯度下降"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-梯度下降的线性回归"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 梯度下降的线性回归</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -922,7 +921,7 @@ Repeat\quad \{\\\theta_0=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共90k字</span>
+  <span class="post-count">博客全站共95k字</span>
 </div>
 
         

@@ -114,7 +114,7 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//8import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//9import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//10import.png">
-<meta property="og:updated_time" content="2019-03-04T05:39:52.535Z">
+<meta property="og:updated_time" content="2019-03-05T00:35:01.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福机器学习笔记(Week  2)">
 <meta name="twitter:description" content="三 、多变量线性回归( Linear Regression with Multiple Variables)3.1 多变量梯度下降在多变量线性回归中的代价函数是所有建模误差的平方和，即：  J(\theta_0,\theta_1,...\theta_n)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2 h_\theta(x)=\the">
@@ -416,8 +416,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T13:39:52+08:00">
-                2019-03-04
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-05T08:35:01+08:00">
+                2019-03-05
               </time>
             
           </span>
@@ -487,7 +487,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  906
+                  905
                 </span>
               
 
@@ -523,7 +523,7 @@
       
 
       
-        <h2 id="三-、多变量线性回归-Linear-Regression-with-Multiple-Variables"><a href="#三-、多变量线性回归-Linear-Regression-with-Multiple-Variables" class="headerlink" title="三 、多变量线性回归( Linear Regression with Multiple Variables)"></a>三 、多变量线性回归( Linear Regression with Multiple Variables)</h2><h3 id="3-1-多变量梯度下降"><a href="#3-1-多变量梯度下降" class="headerlink" title="3.1 多变量梯度下降"></a>3.1 多变量梯度下降</h3><p>在多变量线性回归中的代价函数是所有建模误差的平方和，即：</p>
+        <h1 id="三-、多变量线性回归-Linear-Regression-with-Multiple-Variables"><a href="#三-、多变量线性回归-Linear-Regression-with-Multiple-Variables" class="headerlink" title="三 、多变量线性回归( Linear Regression with Multiple Variables)"></a>三 、多变量线性回归( Linear Regression with Multiple Variables)</h1><h2 id="3-1-多变量梯度下降"><a href="#3-1-多变量梯度下降" class="headerlink" title="3.1 多变量梯度下降"></a>3.1 多变量梯度下降</h2><p>在多变量线性回归中的代价函数是所有建模误差的平方和，即：</p>
 <script type="math/tex; mode=display">
 J(\theta_0,\theta_1,...\theta_n)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2</script><script type="math/tex; mode=display">
 h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n</script><a id="more"></a>
@@ -556,15 +556,15 @@ Repeat&\quad \{\\
 \theta_1=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^{m}((h_\theta(x^{(i)})-y^{(i)})x_1^{(i)})\\
 \theta_2=\theta_2-\alpha\frac{1}{m}\sum_{i=1}^{m}((h_\theta(x^{(i)})-y^{(i)})x_2^{(i)})
 \end{aligned}</script><p>开始随机选择一系列的参数值，计算所有的预测结果后，再给所有的参数一个新的值，如此循环直到收敛</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeCost</span><span class="params">(X,y,theta)</span>:</span></span><br><span class="line"></span><br><span class="line">inner=np.power(((np.dot(theta.T, X), -y),<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> np.sum(inner)/(<span class="number">2</span>*len(X))</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-梯度下降法实践"><a href="#3-2-梯度下降法实践" class="headerlink" title="3.2 梯度下降法实践"></a>3.2 梯度下降法实践</h3><h4 id="特征缩放"><a href="#特征缩放" class="headerlink" title="特征缩放"></a>特征缩放</h4><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//6import.png" alt></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computeCost</span><span class="params">(X,y,theta)</span>:</span></span><br><span class="line"></span><br><span class="line">	inner=np.power((np.dot(theta.T, X) - y), <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> np.sum(inner)/(<span class="number">2</span>*len(X))</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-梯度下降法实践"><a href="#3-2-梯度下降法实践" class="headerlink" title="3.2 梯度下降法实践"></a>3.2 梯度下降法实践</h2><h3 id="特征缩放"><a href="#特征缩放" class="headerlink" title="特征缩放"></a>特征缩放</h3><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//6import.png" alt></p>
 <p>最简单的方法是令：</p>
 <script type="math/tex; mode=display">
 x_n=\frac{x_n-\mu_n}{S_n}</script><p>其中<script type="math/tex">\mu_n</script>是平均值，<script type="math/tex">S_n</script>是标准差</p>
-<h4 id="学习率"><a href="#学习率" class="headerlink" title="学习率"></a>学习率</h4><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//7import.png" alt></p>
+<h3 id="学习率"><a href="#学习率" class="headerlink" title="学习率"></a>学习率</h3><p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets//7import.png" alt></p>
 <p>通常可以考虑尝试些学习率：</p>
 <p>$\alpha$ = 0.01，0.03，0.1，0.3，1，3，10</p>
-<h3 id="3-3-特征和多项式回归"><a href="#3-3-特征和多项式回归" class="headerlink" title="3.3 特征和多项式回归"></a>3.3 特征和多项式回归</h3><p>线性回归并不适用于所有数据，有时需要曲线来适应数据，比如一个二次方模型：</p>
+<h2 id="3-3-特征和多项式回归"><a href="#3-3-特征和多项式回归" class="headerlink" title="3.3 特征和多项式回归"></a>3.3 特征和多项式回归</h2><p>线性回归并不适用于所有数据，有时需要曲线来适应数据，比如一个二次方模型：</p>
 <script type="math/tex; mode=display">
 h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2^2</script><p>或者三次方模型：</p>
 <script type="math/tex; mode=display">
@@ -578,8 +578,8 @@ x_2=x_2^2\\x_3=x_3^3
 <script type="math/tex; mode=display">
 h_\theta(x)=\theta_0+\theta_1(size)+\theta_2(size)^2</script><p>或者</p>
 <script type="math/tex; mode=display">
-h_\theta(x)=\theta_0+\theta_1(size)+\theta_2{\sqrt{size}}</script><p>注：如果采用多项式回归模型，在运行梯度下降算法前，特征缩放非常有必要</p>
-<h3 id="3-4-正规方程"><a href="#3-4-正规方程" class="headerlink" title="3.4 正规方程"></a>3.4 正规方程</h3><p>正规方程是通过求解下面的方程来找出使得代价函数最小的参数的：</p>
+h_\theta(x)=\theta_0+\theta_1(size)+\theta_2{\sqrt{size}}</script><p>注：如果采用多项式回归模型，在运行梯度下降算法前，<strong>特征缩放非常有必要</strong></p>
+<h2 id="3-4-正规方程"><a href="#3-4-正规方程" class="headerlink" title="3.4 正规方程"></a>3.4 正规方程</h2><p>正规方程是通过求解下面的方程来找出<strong>使得代价函数最小的参数</strong>：</p>
 <script type="math/tex; mode=display">
 \frac{\partial }{\partial \theta_j}J(\theta_j)=0</script><p>假设训练集特征矩阵为 X（包含了<script type="math/tex">X_0</script>并且训练集结果为向量 y，则利用正规方程解出向量：</p>
 <script type="math/tex; mode=display">
@@ -610,14 +610,14 @@ h_\theta(x)=\theta_0+\theta_1(size)+\theta_2{\sqrt{size}}</script><p>注：如�
 <td style="text-align:center">需要计算<script type="math/tex">(X^TX)^{-1}</script>，如果特征数量 n 较大则运算代价大，因为矩阵逆的计算时间复杂度为<script type="math/tex">O(n^3)</script>,通常来说当n小于 10000 时还是可以接受的</td>
 </tr>
 <tr>
-<td style="text-align:center">适用于各种类型的模型</td>
-<td style="text-align:center">只适用于线性模型，不适合逻辑回归模型</td>
+<td style="text-align:center"><strong>适用于各种类型的模型</strong></td>
+<td style="text-align:center"><strong>只适用于线性模型，不适合逻辑回归模型</strong></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>只要特征变量数量小于一万，通常使用标准方程法，而不使用梯度下降法</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalEqn</span><span class="params">(X, y)</span>:</span></span><br><span class="line"></span><br><span class="line">theta = np.linalg.inv(X.T@X)@X.T@y <span class="comment">#X.T@X 等价于 X.T.dot(X)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> theta</span><br></pre></td></tr></table></figure>
+<p><strong>只要特征变量数量小于一万，通常使用标准方程法，而不使用梯度下降法</strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalEqn</span><span class="params">(X, y)</span>:</span></span><br><span class="line"></span><br><span class="line"> theta = np.linalg.inv(X.T@X)@X.T@y <span class="comment">#X.T@X 等价于 X.T.dot(X)</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> theta</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -837,7 +837,7 @@ h_\theta(x)=\theta_0+\theta_1(size)+\theta_2{\sqrt{size}}</script><p>注：如�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -848,7 +848,7 @@ h_\theta(x)=\theta_0+\theta_1(size)+\theta_2{\sqrt{size}}</script><p>注：如�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -859,7 +859,7 @@ h_\theta(x)=\theta_0+\theta_1(size)+\theta_2{\sqrt{size}}</script><p>注：如�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -915,7 +915,7 @@ h_\theta(x)=\theta_0+\theta_1(size)+\theta_2{\sqrt{size}}</script><p>注：如�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#三-、多变量线性回归-Linear-Regression-with-Multiple-Variables"><span class="nav-number">1.</span> <span class="nav-text">三 、多变量线性回归( Linear Regression with Multiple Variables)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-多变量梯度下降"><span class="nav-number">1.1.</span> <span class="nav-text">3.1 多变量梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-梯度下降法实践"><span class="nav-number">1.2.</span> <span class="nav-text">3.2 梯度下降法实践</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特征缩放"><span class="nav-number">1.2.1.</span> <span class="nav-text">特征缩放</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#学习率"><span class="nav-number">1.2.2.</span> <span class="nav-text">学习率</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-特征和多项式回归"><span class="nav-number">1.3.</span> <span class="nav-text">3.3 特征和多项式回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-正规方程"><span class="nav-number">1.4.</span> <span class="nav-text">3.4 正规方程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#三-、多变量线性回归-Linear-Regression-with-Multiple-Variables"><span class="nav-number">1.</span> <span class="nav-text">三 、多变量线性回归( Linear Regression with Multiple Variables)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-多变量梯度下降"><span class="nav-number">1.1.</span> <span class="nav-text">3.1 多变量梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-梯度下降法实践"><span class="nav-number">1.2.</span> <span class="nav-text">3.2 梯度下降法实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特征缩放"><span class="nav-number">1.2.1.</span> <span class="nav-text">特征缩放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习率"><span class="nav-number">1.2.2.</span> <span class="nav-text">学习率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-特征和多项式回归"><span class="nav-number">1.3.</span> <span class="nav-text">3.3 特征和多项式回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-正规方程"><span class="nav-number">1.4.</span> <span class="nav-text">3.4 正规方程</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -969,7 +969,7 @@ h_\theta(x)=\theta_0+\theta_1(size)+\theta_2{\sqrt{size}}</script><p>注：如�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共90k字</span>
+  <span class="post-count">博客全站共95k字</span>
 </div>
 
         
