@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>暴走的技术博客</title>
-  <icon>https://www.gravatar.com/avatar/305a9f3fd1e1b86e4bcca2052a8ab203</icon>
+  <icon>https://www.gravatar.com/avatar/acff382748c9c0abc984c8029f90b7b4</icon>
   <subtitle>The people who are crazy enough to change the world are the ones who do！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -11,7 +11,7 @@
   
   <author>
     <name>暴走</name>
-    <email>baoouai@mail.com</email>
+    <email>baoouai@gmail.com</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
