@@ -115,13 +115,15 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/89import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/90import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/91import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/92import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/93import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/94import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/95import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/96import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/97import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/98import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/99import.png">
-<meta property="og:updated_time" content="2019-03-03T12:21:00.468Z">
+<meta property="og:updated_time" content="2019-03-07T11:09:25.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福机器学习笔记(Week  4)">
 <meta name="twitter:description" content="六、神经网络：表述( Neural Networks: Representation)6.1 非线性假设无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大">
@@ -423,8 +425,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T20:21:00+08:00">
-                2019-03-03
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-07T19:09:25+08:00">
+                2019-03-07
               </time>
             
           </span>
@@ -494,7 +496,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k
+                  1.9k
                 </span>
               
 
@@ -530,14 +532,14 @@
       
 
       
-        <h2 id="六、神经网络：表述-Neural-Networks-Representation"><a href="#六、神经网络：表述-Neural-Networks-Representation" class="headerlink" title="六、神经网络：表述( Neural Networks: Representation)"></a>六、神经网络：表述( Neural Networks: Representation)</h2><h3 id="6-1-非线性假设"><a href="#6-1-非线性假设" class="headerlink" title="6.1 非线性假设"></a>6.1 非线性假设</h3><p>无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大</p>
+        <h1 id="六、神经网络：表述-Neural-Networks-Representation"><a href="#六、神经网络：表述-Neural-Networks-Representation" class="headerlink" title="六、神经网络：表述( Neural Networks: Representation)"></a>六、神经网络：表述( Neural Networks: Representation)</h1><h2 id="6-1-非线性假设"><a href="#6-1-非线性假设" class="headerlink" title="6.1 非线性假设"></a>6.1 非线性假设</h2><p>无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大</p>
 <a id="more"></a>
 <p>训练一个模型来识别视觉对象（例如识别一张图片上是否是一辆汽车），一种方法是用很多汽车的图片和很多非汽车的图片，用这些图片上一个个像素的值（饱和度或亮度）来作为特征</p>
 <p>假如只选用灰度图片，每个像素则只有一个值（而非 RGB 值），可以选取图片上的两个不同位置上的两个像素，然后训练一个逻辑回归算法利用这两个像素的值来判断图片上是否是汽车：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/88import.png" alt></p>
 <p>假使采用的都是 50x50 像素的小图片，并且将所有的像素视为特征，则会有2500 个特征，如果要进一步将两两特征组合构成一个多项式模型，则会有约2500 ²/2个（接近 3 百万个）特征。</p>
 <p>普通的逻辑回归模型，不能有效地处理这么多的特征，这时候需要神经网络</p>
-<h3 id="6-2-模型表示"><a href="#6-2-模型表示" class="headerlink" title="6.2 模型表示"></a>6.2 模型表示</h3><p>神经网络模型建立在很多神经元之上，每一个神经元又是一个个学习模型。这些神经元（也叫<strong>激活单元</strong>，<strong>activation unit</strong>）采纳一些特征作为输出，并且根据本身的模型提供一个输出。在神经网络中，参数又被称为<strong>权重（weight）</strong></p>
+<h2 id="6-2-模型表示"><a href="#6-2-模型表示" class="headerlink" title="6.2 模型表示"></a>6.2 模型表示</h2><p>神经网络模型建立在很多神经元之上，每一个神经元又是一个个学习模型。这些神经元（也叫<strong>激活单元</strong>，<strong>activation unit</strong>）采纳一些特征作为输出，并且根据本身的模型提供一个输出。在神经网络中，参数又被称为<strong>权重（weight）</strong></p>
 <p>下图是一个以逻辑回归模型作为自身学习模型的神经元示例：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/86import.png" alt></p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/87import.png" alt></p>
@@ -646,31 +648,28 @@ h_\theta(x) = g\begin{pmatrix}
 \theta_{11}^{(2)}a_1^{(2)}+
 \theta_{12}^{(2)}a_2^{(2)} +
 \theta_{13}^{(2)}a_3^{(2)}
-\end{pmatrix}</script><p>神经网络就像是 <strong>logistic regression</strong>，只不过把 <strong>logistic regression</strong> 中的输入向量<script type="math/tex">[x_1 \sim x_3]</script>变成了中间</p>
-<p>层的<script type="math/tex">[a_1^{(2)} \sim a_3^{(2)}]</script>, 即:</p>
+\end{pmatrix}</script><p>神经网络就像是 <strong>logistic regression</strong>，只不过把 <strong>logistic regression</strong> 中的输入向量<script type="math/tex">[x_1 \sim x_3]</script>变成了中间层的<script type="math/tex">[a_1^{(2)} \sim a_3^{(2)}]</script>, 即:</p>
 <script type="math/tex; mode=display">
 h_\theta(x) = g\begin{pmatrix}
 \theta_{0}^{(2)}a_0^{(2)} +
 \theta_{1}^{(2)}a_1^{(2)}+
 \theta_{2}^{(2)}a_2^{(2)} +
 \theta_{3}^{(2)}a_3^{(2)}
-\end{pmatrix}</script><p>把<script type="math/tex">a_0,a_1,a_2,a_3</script>看成更为高级的特征值，也就是<script type="math/tex">x_0,x_1,x_2,x_3</script>的进化体，并且它们是由<script type="math/tex">x</script>与<script type="math/tex">\theta</script>决定的，因为是梯度下降的，所以<script type="math/tex">a</script>是变化的，并且变得越来越厉害，所以这些更高级的特征值远比仅仅将<script type="math/tex">x</script>次方厉害，也能更好的预测新数据。这就是神经网络相比于逻辑回归和线性回归的优势</p>
-<h3 id="6-3-样本和直观理解"><a href="#6-3-样本和直观理解" class="headerlink" title="6.3 样本和直观理解"></a>6.3 样本和直观理解</h3><h4 id="I"><a href="#I" class="headerlink" title="I"></a>I</h4><p>神经网络中，单层神经元（无中间层）的计算可用来表示逻辑运算，比如逻辑AND、逻辑或 OR</p>
+\end{pmatrix}</script><p>把<script type="math/tex">a_0,a_1,a_2,a_3</script>看成更为高级的特征值，也就是<script type="math/tex">x_0,x_1,x_2,x_3</script>的进化体，并且它们是由<script type="math/tex">x</script>与<script type="math/tex">\theta</script>决定的，因为是梯度下降的，所以<script type="math/tex">a</script>是变化的，并且变得越来越厉害，所以<strong>这些更高级的特征值远比仅仅将<script type="math/tex">x</script>次方厉害，也能更好的预测新数据</strong>。这就是神经网络相比于逻辑回归和线性回归的优势</p>
+<h2 id="6-3-样本和直观理解"><a href="#6-3-样本和直观理解" class="headerlink" title="6.3 样本和直观理解"></a>6.3 样本和直观理解</h2><h3 id="I"><a href="#I" class="headerlink" title="I"></a>I</h3><p>神经网络中，单层神经元（无中间层）的计算可用来表示逻辑运算，比如逻辑AND、逻辑或 OR</p>
 <p>逻辑与 AND:下图中左半部分是神经网络的设计与 output 层表达式，右边上部分是 sigmod 函数，下半部分是真值表</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/91import.png" alt></p>
 <p>其中<script type="math/tex">\theta_0 = -30, \theta_1 =20, \theta_2 = 20</script></p>
 <p>输出函数<script type="math/tex">h_\theta(x)</script>:</p>
 <script type="math/tex; mode=display">
-h_\theta(x) = g(-30 + 20x_1 + 20x_2)</script><script type="math/tex; mode=display">g(x)$$的图像是：
-
-![](https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/92import.png)
-
-![](https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/93import.png)
-
-所以：$$h_\theta(x) \approx x_1\quad AND \quad x_2</script><p>OR 函数：</p>
+h_\theta(x) = g(-30 + 20x_1 + 20x_2)</script><p>$g(x)$的图像是：</p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/92import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/93import.png" alt></p>
+<p>所以：<script type="math/tex">h_\theta(x) \approx x_1\quad AND \quad x_2</script></p>
+<p>OR 函数：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/94import.png" alt></p>
 <p>OR 与 AND 整体一样，区别只在于的取值不同</p>
-<h4 id="II"><a href="#II" class="headerlink" title="II"></a>II</h4><p><strong>二元逻辑运算符（BINARY LOGICAL OPERATORS）</strong>当输入特征为<strong>布尔值（0 或 1）</strong>时，可以用一个单一的<strong>激活层</strong>作为<strong>二元逻辑运算符</strong>，为了表示不同的运算符，需要选择不同的<strong>权重</strong></p>
+<h3 id="II"><a href="#II" class="headerlink" title="II"></a>II</h3><p><strong>二元逻辑运算符（BINARY LOGICAL OPERATORS）</strong>当输入特征为<strong>布尔值（0 或 1）</strong>时，可以用一个单一的<strong>激活层</strong>作为<strong>二元逻辑运算符</strong>，为了表示不同的运算符，需要选择不同的<strong>权重</strong></p>
 <p>下图的神经元（两个权重分别为 10，-20）可以被视为作用等同于<strong>逻辑非（NOT）</strong>：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/95import.png" alt></p>
 <p>利用<strong>神经元</strong>来组合成更为复杂的<strong>神经网络</strong>以实现更复杂的运算</p>
@@ -682,7 +681,7 @@ XNOR = (x_1 \quad AND\quad x_2)\quad OR \quad((NOTx_1) \quad AND\quad (NOTx_2))<
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/97import.png" alt></p>
 <p>得到了一个能实现 XNOR 运算符功能的神经网络</p>
 <p>这种方法可以逐渐构造出越来越复杂的函数，也能得到更加厉害的特征值</p>
-<h3 id="6-4-多类分类"><a href="#6-4-多类分类" class="headerlink" title="6.4 多类分类"></a>6.4 多类分类</h3><p>输入向量 x 有三个维度，两个中间层，输出层 4 个神经元分别用来表示 4 类，也就是每一个数据在输出层都会出现<script type="math/tex">[a\quad b\quad c\quad d]^T</script>,且 a,b,c,d 中仅有一个为 1，表示当前类</p>
+<h2 id="6-4-多类分类"><a href="#6-4-多类分类" class="headerlink" title="6.4 多类分类"></a>6.4 多类分类</h2><p>输入向量 x 有三个维度，两个中间层，输出层 4 个神经元分别用来表示 4 类，也就是每一个数据在输出层都会出现<script type="math/tex">[a\quad b\quad c\quad d]^T</script>,且 a,b,c,d 中仅有一个为 1，表示当前类</p>
 <p>该神经网络的可能结构示例：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/98import.png" alt></p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/99import.png" alt></p>
@@ -1005,7 +1004,7 @@ XNOR = (x_1 \quad AND\quad x_2)\quad OR \quad((NOTx_1) \quad AND\quad (NOTx_2))<
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#六、神经网络：表述-Neural-Networks-Representation"><span class="nav-number">1.</span> <span class="nav-text">六、神经网络：表述( Neural Networks: Representation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-非线性假设"><span class="nav-number">1.1.</span> <span class="nav-text">6.1 非线性假设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-模型表示"><span class="nav-number">1.2.</span> <span class="nav-text">6.2 模型表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-样本和直观理解"><span class="nav-number">1.3.</span> <span class="nav-text">6.3 样本和直观理解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#I"><span class="nav-number">1.3.1.</span> <span class="nav-text">I</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#II"><span class="nav-number">1.3.2.</span> <span class="nav-text">II</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-多类分类"><span class="nav-number">1.4.</span> <span class="nav-text">6.4 多类分类</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#六、神经网络：表述-Neural-Networks-Representation"><span class="nav-number">1.</span> <span class="nav-text">六、神经网络：表述( Neural Networks: Representation)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-非线性假设"><span class="nav-number">1.1.</span> <span class="nav-text">6.1 非线性假设</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-模型表示"><span class="nav-number">1.2.</span> <span class="nav-text">6.2 模型表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-样本和直观理解"><span class="nav-number">1.3.</span> <span class="nav-text">6.3 样本和直观理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#I"><span class="nav-number">1.3.1.</span> <span class="nav-text">I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II"><span class="nav-number">1.3.2.</span> <span class="nav-text">II</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-多类分类"><span class="nav-number">1.4.</span> <span class="nav-text">6.4 多类分类</span></a></li></ol></li></ol></div>
             
 
           </div>

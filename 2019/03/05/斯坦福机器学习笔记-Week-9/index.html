@@ -126,7 +126,7 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/2322234import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/145import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/146import.png">
-<meta property="og:updated_time" content="2019-03-04T05:43:49.168Z">
+<meta property="og:updated_time" content="2019-03-07T11:22:02.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福机器学习笔记(Week 9)">
 <meta name="twitter:description" content="十三、异常检测(Anomaly Detection)13.1 问题的动机异常检测是机器学习算法的一个常见应用。这种算法的一个有趣之处在于：它虽然主要用于非监督学习问题，但从某些角度看，它又类似于一些监督学习问题">
@@ -428,8 +428,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T13:43:49+08:00">
-                2019-03-04
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-07T19:22:02+08:00">
+                2019-03-07
               </time>
             
           </span>
@@ -535,9 +535,9 @@
       
 
       
-        <h2 id="十三、异常检测-Anomaly-Detection"><a href="#十三、异常检测-Anomaly-Detection" class="headerlink" title="十三、异常检测(Anomaly Detection)"></a>十三、异常检测(Anomaly Detection)</h2><h3 id="13-1-问题的动机"><a href="#13-1-问题的动机" class="headerlink" title="13.1 问题的动机"></a>13.1 问题的动机</h3><p><strong>异常检测</strong>是机器学习算法的一个常见应用。这种算法的一个有趣之处在于：它虽然主要用于非监督学习问题，但从某些角度看，它又类似于一些监督学习问题</p>
+        <h1 id="十三、异常检测-Anomaly-Detection"><a href="#十三、异常检测-Anomaly-Detection" class="headerlink" title="十三、异常检测(Anomaly Detection)"></a>十三、异常检测(Anomaly Detection)</h1><h2 id="13-1-问题的动机"><a href="#13-1-问题的动机" class="headerlink" title="13.1 问题的动机"></a>13.1 问题的动机</h2><p><strong>异常检测</strong>是机器学习算法的一个常见应用。这种算法的一个有趣之处在于：它虽然主要用于非监督学习问题，但从某些角度看，它又类似于一些监督学习问题</p>
 <a id="more"></a>
-<h4 id="飞机引擎-QA-质量控制测试"><a href="#飞机引擎-QA-质量控制测试" class="headerlink" title="飞机引擎 QA(质量控制测试)"></a>飞机引擎 QA(质量控制测试)</h4><p>飞机引擎的一些特征变量作为这个测试的一部分，比如引擎运转时产生的热量，或者引擎的振动等等</p>
+<h3 id="飞机引擎-QA-质量控制测试"><a href="#飞机引擎-QA-质量控制测试" class="headerlink" title="飞机引擎 QA(质量控制测试)"></a>飞机引擎 QA(质量控制测试)</h3><p>飞机引擎的一些特征变量作为这个测试的一部分，比如引擎运转时产生的热量，或者引擎的振动等等</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/141import.png" alt></p>
 <p>数据集绘制成图表：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/121311212import.png" alt></p>
@@ -557,9 +557,9 @@
 x=
 \begin{cases} \text{异常样本}, \text{if } p(x)< \epsilon \\
 \text{正常样本}, \text{otherwise}
-\end{cases}</script><h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><h5 id="识别欺骗"><a href="#识别欺骗" class="headerlink" title="识别欺骗"></a>识别欺骗</h5><p>例如在线采集而来的有关用户的数据，一个特征向量中可能会包含如：用户多久登录一次，访问过的页面，在论坛发布的帖子数量，甚至是打字速度等。尝试根据这些特征构建一个模型，可以用这个模型来识别那些不符合该模式的用户</p>
-<h5 id="检测一个数据中心"><a href="#检测一个数据中心" class="headerlink" title="检测一个数据中心"></a>检测一个数据中心</h5><p>特征可能包含：内存使用情况，被访问的磁盘数量，CPU 的负载，网络的通信量等。根据这些特征可以构建一个模型，用来判断某些计算机是不是有可能出错</p>
-<h3 id="13-2-高斯分布"><a href="#13-2-高斯分布" class="headerlink" title="13.2 高斯分布"></a>13.2 高斯分布</h3><p>变量<script type="math/tex">x</script> 符合高斯分布<script type="math/tex">X \sim N(\mu,\sigma^2)</script>则其概率密度函数为：</p>
+\end{cases}</script><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="识别欺骗"><a href="#识别欺骗" class="headerlink" title="识别欺骗"></a>识别欺骗</h4><p>例如在线采集而来的有关用户的数据，一个特征向量中可能会包含如：用户多久登录一次，访问过的页面，在论坛发布的帖子数量，甚至是打字速度等。尝试根据这些特征构建一个模型，可以用这个模型来识别那些不符合该模式的用户</p>
+<h4 id="检测一个数据中心"><a href="#检测一个数据中心" class="headerlink" title="检测一个数据中心"></a>检测一个数据中心</h4><p>特征可能包含：内存使用情况，被访问的磁盘数量，CPU 的负载，网络的通信量等。根据这些特征可以构建一个模型，用来判断某些计算机是不是有可能出错</p>
+<h2 id="13-2-高斯分布"><a href="#13-2-高斯分布" class="headerlink" title="13.2 高斯分布"></a>13.2 高斯分布</h2><p>变量<script type="math/tex">x</script> 符合高斯分布<script type="math/tex">X \sim N(\mu,\sigma^2)</script>则其概率密度函数为：</p>
 <script type="math/tex; mode=display">
 p(x; \mu, \sigma^2)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}</script><p><img src="https://yoyoyohamapi.gitbooks.io/mit-ml/content/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/attachments/%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83%E6%A8%A1%E5%9E%8B.png" alt></p>
 <script type="math/tex; mode=display">
@@ -568,7 +568,7 @@ p(x; \mu, \sigma^2)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}<
 \sigma^2_j &= \frac{1}{m}\sum\limits_{i=1}^m(x_j^{(i)}-\mu_j)^2
 \end{aligned}</script><p>高斯分布样例：</p>
 <p><img src="https://yoyoyohamapi.gitbooks.io/mit-ml/content/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/attachments/%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83%E5%8F%82%E6%95%B0%E5%8F%96%E5%80%BC.png" alt></p>
-<h3 id="13-3-算法"><a href="#13-3-算法" class="headerlink" title="13.3 算法"></a>13.3 算法</h3><p>异常检测算法：</p>
+<h2 id="13-3-算法"><a href="#13-3-算法" class="headerlink" title="13.3 算法"></a>13.3 算法</h2><p>异常检测算法：</p>
 <ol>
 <li>对于给定的数据集<script type="math/tex">{x^{(1)},x^{(2)},\cdots,x^{(m)}}, x \in R^n</script>,针对每一个特征计算<script type="math/tex">\mu</script>和<script type="math/tex">\sigma^2</script>的估计值:</li>
 </ol>
@@ -592,7 +592,7 @@ p(x) &= p(x_1;\mu_1, \sigma^2_1)p(x_2;\mu_2, \sigma^2_2) \cdots p(x_n;\mu_n, \si
 <p>下面的三维图表表示的是密度估计函数，<script type="math/tex">z</script> 轴为根据两个特征的值所估计<script type="math/tex">p(x)</script>值：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/1323import.png" alt></p>
 <p>选择一个<script type="math/tex">\epsilon</script>，将<script type="math/tex">p(x)=\epsilon</script>作为判定边界，当<script type="math/tex">p(x)>\epsilon</script>时预测数据为正常数据，否则则为异常</p>
-<h3 id="13-4-开发和评价一个异常检测系统"><a href="#13-4-开发和评价一个异常检测系统" class="headerlink" title="13.4 开发和评价一个异常检测系统"></a>13.4 开发和评价一个异常检测系统</h3><p>当开发一个异常检测系统时，从带标记（异常或正常）的数据着手，选择一部分正常数据用于构建<strong>训练集</strong>，用剩下的正常数据和异常数据混合的数据构成<strong>交叉检验集</strong>和<strong>测试集</strong></p>
+<h2 id="13-4-开发和评价一个异常检测系统"><a href="#13-4-开发和评价一个异常检测系统" class="headerlink" title="13.4 开发和评价一个异常检测系统"></a>13.4 开发和评价一个异常检测系统</h2><p>当开发一个异常检测系统时，从带标记（异常或正常）的数据着手，选择一部分正常数据用于构建<strong>训练集</strong>，用剩下的正常数据和异常数据混合的数据构成<strong>交叉检验集</strong>和<strong>测试集</strong></p>
 <p>例如：有 10000 台正常引擎的数据，有 20 台异常引擎的数据。 分配如下：</p>
 <ul>
 <li><p>6000 台正常引擎的数据作为训练集</p>
@@ -609,7 +609,7 @@ p(x) &= p(x_1;\mu_1, \sigma^2_1)p(x_2;\mu_2, \sigma^2_2) \cdots p(x_n;\mu_n, \si
 <li>对交叉检验集，尝试使用不同的<script type="math/tex">\epsilon</script>值作为阀值，并预测数据是否异常，根据<script type="math/tex">F1</script>值或者查准率与召回率的比例来选择<script type="math/tex">\epsilon</script></li>
 <li>选出<script type="math/tex">\epsilon</script>后，针对测试集进行预测，计算异常检验系统的<script type="math/tex">F1</script>值，或者查准率与召回率之比</li>
 </ol>
-<h3 id="13-5-异常检测与监督学习对比"><a href="#13-5-异常检测与监督学习对比" class="headerlink" title="13.5 异常检测与监督学习对比"></a>13.5 异常检测与监督学习对比</h3><div class="table-container">
+<h2 id="13-5-异常检测与监督学习对比"><a href="#13-5-异常检测与监督学习对比" class="headerlink" title="13.5 异常检测与监督学习对比"></a>13.5 异常检测与监督学习对比</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -658,7 +658,7 @@ p(x) &= p(x_1;\mu_1, \sigma^2_1)p(x_2;\mu_2, \sigma^2_2) \cdots p(x_n;\mu_n, \si
 </tbody>
 </table>
 </div>
-<h3 id="13-6-选择特征"><a href="#13-6-选择特征" class="headerlink" title="13.6 选择特征"></a>13.6 选择特征</h3><p>如果数据的分布不是高斯分布，异常检测算法也能够工作，但是最好还是将数据转换成高斯分布，例如使用对数函数：<script type="math/tex">x = log(x+c)</script>，其中 <script type="math/tex">c</script>为非负常数； 或者<script type="math/tex">x = x^c</script>， <script type="math/tex">c</script> 为 <script type="math/tex">0-1</script> 之间的一个分数</p>
+<h2 id="13-6-选择特征"><a href="#13-6-选择特征" class="headerlink" title="13.6 选择特征"></a>13.6 选择特征</h2><p>如果数据的分布不是高斯分布，异常检测算法也能够工作，但是最好还是将数据转换成高斯分布，例如使用对数函数：<script type="math/tex">x = log(x+c)</script>，其中 <script type="math/tex">c</script>为非负常数； 或者<script type="math/tex">x = x^c</script>， <script type="math/tex">c</script> 为 <script type="math/tex">0-1</script> 之间的一个分数</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/143import.png" alt></p>
 <p>误差分析：</p>
 <p>一个常见的问题是一些异常的数据可能也会有较高的<script type="math/tex">p(x)</script>值，因而被算法认为是正常的。这种情况下误差分析能够分析那些被算法错误预测为正常的数据，观察能否找出一些问题。可能能从问题中发现需要增加一些新的特征，增加这些新特征后获得的新算法能够更好地进行异常检测</p>
@@ -666,14 +666,14 @@ p(x) &= p(x_1;\mu_1, \sigma^2_1)p(x_2;\mu_2, \sigma^2_2) \cdots p(x_n;\mu_n, \si
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/144import.png" alt></p>
 <p>通常可以通过将一些相关的特征进行组合，来获得一些新的更好的特征（异常数据的该特征值异常地大或小）</p>
 <p>在检测数据中心的计算机状况的例子中，用 CPU负载与网络通信量的比例作为一个新的特征，如果该值异常地大，便有可能意味着该服务器是陷入了一些问题中</p>
-<h3 id="13-7-多元高斯分布"><a href="#13-7-多元高斯分布" class="headerlink" title="13.7 多元高斯分布"></a>13.7 多元高斯分布</h3><h4 id="服务器运转监控的问题"><a href="#服务器运转监控的问题" class="headerlink" title="服务器运转监控的问题"></a>服务器运转监控的问题</h4><p>假使有两个相关的特征，而且这两个特征的值域范围比较宽，这种情况下，一般的高斯分布模型可能不能很好地识别异常数据。其原因在于，一般的高斯分布模型尝试的是去同时抓住两个特征的偏差，因此创造出一个比较大的判定边界。</p>
+<h2 id="13-7-多元高斯分布"><a href="#13-7-多元高斯分布" class="headerlink" title="13.7 多元高斯分布"></a>13.7 多元高斯分布</h2><h3 id="服务器运转监控的问题"><a href="#服务器运转监控的问题" class="headerlink" title="服务器运转监控的问题"></a>服务器运转监控的问题</h3><p>假使有两个相关的特征，而且这两个特征的值域范围比较宽，这种情况下，一般的高斯分布模型可能不能很好地识别异常数据。其原因在于，一般的高斯分布模型尝试的是去同时抓住两个特征的偏差，因此创造出一个比较大的判定边界。</p>
 <p>下图中是两个相关特征，洋红色的线（根据 <script type="math/tex">\varepsilon</script> 的不同其范围可大可小）是一般的高斯分布模型获得的判定边界，很明显绿色的 x 所代表的数据点很可能是异常值，但是其<script type="math/tex">p (x )</script>值却仍然在正常范围内。多元高斯分布将创建像图中蓝色曲线所示的判定边界：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/422import.png" alt></p>
 <p>在一般的高斯分布模型中，计算<script type="math/tex">p (x )</script>的方法是： 通过分别计算每个特征对应的几率然后将其累乘起来，在多元高斯分布模型中，将构建特征的协方差矩阵，用所有的特征一起来计算<script type="math/tex">p (x )</script></p>
-<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>多元高斯分布模型被定义为：</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>多元高斯分布模型被定义为：</p>
 <script type="math/tex; mode=display">
 p(x;\mu,\Sigma)=\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^\frac{1}{2}}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))</script><p>$\mu$表示<strong>样本均值</strong>，<script type="math/tex">\Sigma</script>表示<strong>样本协方差矩阵</strong></p>
-<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><ul>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
 <li>改变<script type="math/tex">\Sigma</script><strong>主对角线</strong>的数值可以进行不同方向的宽度拉伸：</li>
 </ul>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/121111import.png" alt></p>
@@ -686,7 +686,7 @@ p(x;\mu,\Sigma)=\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^\frac{1}{2}}exp(-\frac{1}{
 <li>改变<script type="math/tex">\mu</script>可以对分布图像进行位移：</li>
 </ul>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/3312wimport.png" alt></p>
-<h4 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h4><p><strong>多元高斯分布</strong>的异常检测算法流程如下：</p>
+<h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><p><strong>多元高斯分布</strong>的异常检测算法流程如下：</p>
 <ol>
 <li><p>选择一些足够反映异常样本的特征<script type="math/tex">x_j</script></p>
 </li>
@@ -704,7 +704,7 @@ p(x;\mu,\Sigma)=\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^\frac{1}{2}}exp(-\frac{1}{
 p(x)=\frac{1}{(2\pi)^{\frac{n}{2}}|\Sigma|^\frac{1}{2}}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))</script><ol>
 <li>如果<script type="math/tex">p(x)< \varepsilon</script>，则认为样本<script type="math/tex">x</script>是异常样本</li>
 </ol>
-<h4 id="多元高斯分布模型与一般高斯分布模型的差异"><a href="#多元高斯分布模型与一般高斯分布模型的差异" class="headerlink" title="多元高斯分布模型与一般高斯分布模型的差异"></a>多元高斯分布模型与一般高斯分布模型的差异</h4><p>一般的高斯分布模型只是多元高斯分布模型的一个<strong>约束</strong>，它将多元高斯分布的等高线约束到了如下所示同轴分布（概率密度的等高线是沿着轴向的）：</p>
+<h3 id="多元高斯分布模型与一般高斯分布模型的差异"><a href="#多元高斯分布模型与一般高斯分布模型的差异" class="headerlink" title="多元高斯分布模型与一般高斯分布模型的差异"></a>多元高斯分布模型与一般高斯分布模型的差异</h3><p>一般的高斯分布模型只是多元高斯分布模型的一个<strong>约束</strong>，它将多元高斯分布的等高线约束到了如下所示同轴分布（概率密度的等高线是沿着轴向的）：</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/2322234import.png" alt></p>
 <p>一般高斯模型：</p>
 <ul>
@@ -722,7 +722,7 @@ p(x) &= p(x_1;\mu_1, \sigma^2_1)p(x_2;\mu_2, \sigma^2_2) \cdots p(x_n;\mu_n, \si
 <li>需要<script type="math/tex">\Sigma</script>可逆，亦即需要 <script type="math/tex">m>n</script> ，通常需要<script type="math/tex">m>10n</script>且各个特征不能线性相关，如不能存在 <script type="math/tex">x_2=3x_1</script> 或者<script type="math/tex">x_3=x_1+2x_2</script></li>
 <li><script type="math/tex; mode=display">p(x)=\frac{1}{(2\pi)^{\frac{n}{2}}\Sigma^\frac{1}{2}}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))</script></li>
 </ul>
-<h2 id="十四、推荐系统-Recommender-Systems"><a href="#十四、推荐系统-Recommender-Systems" class="headerlink" title="十四、推荐系统( Recommender Systems)"></a>十四、推荐系统( Recommender Systems)</h2><h3 id="14-1-问题形式化"><a href="#14-1-问题形式化" class="headerlink" title="14.1 问题形式化"></a>14.1 问题形式化</h3><p>对机器学习来说，特征是很重要的，选择的特征，将对学习算法的性能有很大的影响</p>
+<h1 id="十四、推荐系统-Recommender-Systems"><a href="#十四、推荐系统-Recommender-Systems" class="headerlink" title="十四、推荐系统( Recommender Systems)"></a>十四、推荐系统( Recommender Systems)</h1><h2 id="14-1-问题形式化"><a href="#14-1-问题形式化" class="headerlink" title="14.1 问题形式化"></a>14.1 问题形式化</h2><p>对机器学习来说，特征是很重要的，选择的特征，将对学习算法的性能有很大的影响</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/145import.png" alt></p>
 <p>标记：</p>
 <ul>
@@ -737,12 +737,12 @@ p(x) &= p(x_1;\mu_1, \sigma^2_1)p(x_2;\mu_2, \sigma^2_2) \cdots p(x_n;\mu_n, \si
 <li><p><script type="math/tex">m^{(j)}</script>代表用户<script type="math/tex">j</script>评过分的电影的总数</p>
 </li>
 </ul>
-<h3 id="14-2-基于内容的推荐系统"><a href="#14-2-基于内容的推荐系统" class="headerlink" title="14.2 基于内容的推荐系统"></a>14.2 基于内容的推荐系统</h3><p>假设每部电影都有两个特征，如<script type="math/tex">x _1</script>代表电影的浪漫程度，<script type="math/tex">x_ 2</script>代表电影的动作程度</p>
+<h2 id="14-2-基于内容的推荐系统"><a href="#14-2-基于内容的推荐系统" class="headerlink" title="14.2 基于内容的推荐系统"></a>14.2 基于内容的推荐系统</h2><p>假设每部电影都有两个特征，如<script type="math/tex">x _1</script>代表电影的浪漫程度，<script type="math/tex">x_ 2</script>代表电影的动作程度</p>
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/146import.png" alt></p>
 <blockquote>
 <p>则每部电影都有一个特征向量，如<script type="math/tex">x ^{(1)}</script>是第一部电影的特征向量为[0.9 0]</p>
 </blockquote>
-<h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><ul>
+<h3 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h3><ul>
 <li><p><script type="math/tex">\theta^{(j)}</script>用户<script type="math/tex">j</script>的参数向量</p>
 </li>
 <li><p><script type="math/tex">x ^{(i)}</script>电影<script type="math/tex">i</script>的特征向量</p>
@@ -758,14 +758,14 @@ p(x) &= p(x_1;\mu_1, \sigma^2_1)p(x_2;\mu_2, \sigma^2_2) \cdots p(x_n;\mu_n, \si
 <p>对于所有用户<script type="math/tex">1, 2, ... , n_u</script>，代价函数<script type="math/tex">J(\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)})</script>：</p>
 <script type="math/tex; mode=display">
 J(\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)})=\min_{\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}} = \frac{1}{2} \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} \left((\theta^{(j)})^Tx^{(i)}-y^{(i,j)}\right)^2
-+ \frac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n(\theta_k^{(j)})^2</script><h4 id="参数更新"><a href="#参数更新" class="headerlink" title="参数更新"></a>参数更新</h4><p>使用梯度下降法来更新参数：</p>
++ \frac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n(\theta_k^{(j)})^2</script><h3 id="参数更新"><a href="#参数更新" class="headerlink" title="参数更新"></a>参数更新</h3><p>使用梯度下降法来更新参数：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 & \text{更新偏置(插值):} \\
 & \quad \theta_0^{(j)} = \theta_0^{(j)} - \alpha\sum_{i:r(i,j)=1}\big((\theta^{(j)})^T x^{(i)} - y^{(i,j)}\big) x_0^{(i)} \\
 & \text{更新权重:} \\
 & \quad \theta_k^{(j)} = \theta_k^{(j)} - \alpha\left(\sum_{i:r(i,j)=1}\big((\theta^{(j)})^T x^{(i)} - y^{(i,j)}\big) x_k^{(i)} + \lambda\theta_k^{(j)}\right), \quad k \neq 0
-\end{aligned}</script><h3 id="14-3-协同过滤"><a href="#14-3-协同过滤" class="headerlink" title="14.3 协同过滤"></a>14.3 协同过滤</h3><p>在现实中，不会有任何网站，任何人有精力，有能力去评估每部电影所具有的一些指数。因此，基于内容的推荐系统从构架初期，可能就会遭遇非常大的阻力</p>
+\end{aligned}</script><h2 id="14-3-协同过滤"><a href="#14-3-协同过滤" class="headerlink" title="14.3 协同过滤"></a>14.3 协同过滤</h2><p>在现实中，不会有任何网站，任何人有精力，有能力去评估每部电影所具有的一些指数。因此，基于内容的推荐系统从构架初期，可能就会遭遇非常大的阻力</p>
 <p>假定先有了各个用户对电影的偏爱评估<script type="math/tex">\theta</script>:</p>
 <script type="math/tex; mode=display">
 \theta^{(1)} = \begin{pmatrix} 0 \\ 5 \\ 0 \end{pmatrix},
@@ -834,19 +834,19 @@ J(\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)})=\min_{\theta^{(1)}, \theta^{(
 </tbody>
 </table>
 </div>
-<h4 id="目标优化"><a href="#目标优化" class="headerlink" title="目标优化"></a>目标优化</h4><p>通过<script type="math/tex">\theta^{(1)}, ..., \theta^{(n_u)}</script>来学习<script type="math/tex">x^{(i)}</script>：</p>
+<h3 id="目标优化"><a href="#目标优化" class="headerlink" title="目标优化"></a>目标优化</h3><p>通过<script type="math/tex">\theta^{(1)}, ..., \theta^{(n_u)}</script>来学习<script type="math/tex">x^{(i)}</script>：</p>
 <script type="math/tex; mode=display">
 \min_{x^{(i)}} = \frac{1}{2} \sum_{j:r(i,j)=1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i,j)}\right) ^2
 + \frac{\lambda}{2} \sum_{k=1}^n (x_k^{(i)})^2</script><p>对于所有的电影指数<script type="math/tex">x^{(1)},...,x^{(n_m)}</script>：</p>
 <script type="math/tex; mode=display">
 \min_{x^{(1)},...,x^{(i)},...,x^{(n_m)}} = \frac{1}{2} \sum_{i=1}^{n_m} \sum_{j:r(i,j)=1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i,j)}\right) ^2
-+ \frac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n (x_k^{(i)})^2</script><h4 id="协同过滤算法"><a href="#协同过滤算法" class="headerlink" title="协同过滤算法"></a>协同过滤算法</h4><p>现在，拥有了评价用户的<script type="math/tex">\theta</script>和评价商品的<script type="math/tex">x</script>，并且：</p>
++ \frac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n (x_k^{(i)})^2</script><h3 id="协同过滤算法"><a href="#协同过滤算法" class="headerlink" title="协同过滤算法"></a>协同过滤算法</h3><p>现在，拥有了评价用户的<script type="math/tex">\theta</script>和评价商品的<script type="math/tex">x</script>，并且：</p>
 <ul>
 <li>给定<script type="math/tex">\theta</script>及用户对商品的评价，能估计<script type="math/tex">x</script></li>
 <li>给定<script type="math/tex">x</script>，又能估计<script type="math/tex">\theta</script></li>
 </ul>
 <p>因此，就构成了<script type="math/tex">\theta</script>−&gt;<script type="math/tex">x</script>−&gt;<script type="math/tex">\theta</script>−&gt;<script type="math/tex">x...</script>的优化序列，这便构成了协同过滤算法，即同时优化商品和用户具有的参数</p>
-<h4 id="协同过滤的目标优化"><a href="#协同过滤的目标优化" class="headerlink" title="协同过滤的目标优化"></a>协同过滤的目标优化</h4><p>1.推测用户喜好：给定<script type="math/tex">x^{(1)},...,x^{(n_m)}</script>，估计<script type="math/tex">\theta^{(1)},...,\theta^{(n_u)}</script>：</p>
+<h3 id="协同过滤的目标优化"><a href="#协同过滤的目标优化" class="headerlink" title="协同过滤的目标优化"></a>协同过滤的目标优化</h3><p>1.推测用户喜好：给定<script type="math/tex">x^{(1)},...,x^{(n_m)}</script>，估计<script type="math/tex">\theta^{(1)},...,\theta^{(n_u)}</script>：</p>
 <script type="math/tex; mode=display">
 \min_{\theta^{(1)}, ..., \theta^{(n_u)}} = \frac{1}{2} \sum_{j=1}^{n_u} \sum_{i:r(i,j)=1} \left((\theta^{(j)})^Tx^{(i)}-y^{(i,j)}\right)^2
 + \frac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n(\theta_k^{(j)})^2</script><p>2.推测商品内容：给定<script type="math/tex">\theta^{(1)},...,\theta^{(n_u)}</script>，估计<script type="math/tex">x^{(1)},...,x^{(n_m)}</script>：</p>
@@ -860,7 +860,7 @@ J(\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)})=\min_{\theta^{(1)}, \theta^{(
 \frac{1}{2} \sum_{(i,j):r(i,j)=1} \left( (\theta^{(j)})^T x^{(i)} - y^{(i,j)}\right) ^2
 + \frac{\lambda}{2} \sum_{i=1}^{n_m} \sum_{k=1}^n (x_k^{(i)})^2
 + \frac{\lambda}{2} \sum_{j=1}^{n_u} \sum_{k=1}^n(\theta_k^{(j)})^2</script><p>$\sum_{(i,j):r(i,j)=1}$反映了用户和商品所有有效配对</p>
-<h4 id="算法流程-1"><a href="#算法流程-1" class="headerlink" title="算法流程"></a>算法流程</h4><p>使用了协同过滤的推荐算法流程为：</p>
+<h3 id="算法流程-1"><a href="#算法流程-1" class="headerlink" title="算法流程"></a>算法流程</h3><p>使用了协同过滤的推荐算法流程为：</p>
 <ol>
 <li>随机初始化<script type="math/tex">x^{(1)},...,x^{(n_m)}</script>,<script type="math/tex">\theta^{(1)},...,\theta^{(n_u)}</script>为一些较小值</li>
 <li>使用梯度下降法来最小化<script type="math/tex">J(x^{(1)},....x^{(i)},...,x^{(n_m)} ; \theta^{(1)},....\theta^{(j)} ..., \theta^{(n_u)})</script>，<script type="math/tex">j=1,2,..,n_u</script>，<script type="math/tex">i=1,2,...,n_m</script>，参数的更新式为：</li>
@@ -872,8 +872,8 @@ J(\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)})=\min_{\theta^{(1)}, \theta^{(
 & \theta_k^{(j)} = \theta_k^{(j)} - \alpha\left(\sum_{i:r(i,j)=1}\big((\theta^{(j)})^T x^{(i)} - y^{(i,j)}\big) x_k^{(i)} + \lambda\theta_k^{(j)} \right)
 \end{aligned}</script><p>如果用户的偏好向量为<script type="math/tex">\theta</script>，而商品的特征向量为<script type="math/tex">x</script>,则可以预测用户评价为<script type="math/tex">\theta^Tx</script></p>
 <p>因为协同过滤算法<script type="math/tex">\theta</script>和<script type="math/tex">x</script>相互影响，因此，二者都没必要使用偏置<script type="math/tex">\theta_\theta</script>和<script type="math/tex">x _0</script>，即，<script type="math/tex">x \in R^n</script>,<script type="math/tex">\theta \in R^n</script></p>
-<h4 id="获得类似电影"><a href="#获得类似电影" class="headerlink" title="获得类似电影"></a>获得类似电影</h4><p>当获得了电影<script type="math/tex">i</script>的特征向量后，就可以通过计算<script type="math/tex">||x^{(j)}</script>—<script type="math/tex">x^{(i)}||</script>来比较电影<script type="math/tex">j</script>与电影<script type="math/tex">i</script>的相似度。那么，给予了电影<script type="math/tex">j</script>足够好评的用户，也会被推荐到类似的电影</p>
-<h3 id="14-4-向量化：低秩矩阵分解"><a href="#14-4-向量化：低秩矩阵分解" class="headerlink" title="14.4 向量化：低秩矩阵分解"></a>14.4 向量化：低秩矩阵分解</h3><p>将用户对电影的评分表格：</p>
+<h3 id="获得类似电影"><a href="#获得类似电影" class="headerlink" title="获得类似电影"></a>获得类似电影</h3><p>当获得了电影<script type="math/tex">i</script>的特征向量后，就可以通过计算<script type="math/tex">||x^{(j)}</script>—<script type="math/tex">x^{(i)}||</script>来比较电影<script type="math/tex">j</script>与电影<script type="math/tex">i</script>的相似度。那么，给予了电影<script type="math/tex">j</script>足够好评的用户，也会被推荐到类似的电影</p>
+<h2 id="14-4-向量化：低秩矩阵分解"><a href="#14-4-向量化：低秩矩阵分解" class="headerlink" title="14.4 向量化：低秩矩阵分解"></a>14.4 向量化：低秩矩阵分解</h2><p>将用户对电影的评分表格：</p>
 <div class="table-container">
 <table>
 <thead>
@@ -960,7 +960,7 @@ X =
 \end{bmatrix}</script><p>即<script type="math/tex">X</script>的每一行描述了一部电影的内容，<script type="math/tex">\theta^T</script>的每一列描述了用户对于电影内容偏好程度，亦即，将原来稀疏的矩阵分解为了<script type="math/tex">X</script>和<script type="math/tex">\theta</script>。现在预测可以写为：</p>
 <script type="math/tex; mode=display">
 Predicated = X \Theta^T</script><p>用这个方法求取<script type="math/tex">X</script>和<script type="math/tex">\theta</script>，获得推荐系统需要的参数，称之为<strong>低秩矩阵分解</strong>，该方法不仅能在编程时直接通过向量化的手法获得参数，还通过矩阵分解节省了内存空间</p>
-<h3 id="14-5-推行工作上的细节：均值归一化"><a href="#14-5-推行工作上的细节：均值归一化" class="headerlink" title="14.5 推行工作上的细节：均值归一化"></a>14.5 推行工作上的细节：均值归一化</h3><p>假定现在新注册了一个用户<script type="math/tex">Eve(5)</script>，他还没有对任何电影作出评价：</p>
+<h2 id="14-5-推行工作上的细节：均值归一化"><a href="#14-5-推行工作上的细节：均值归一化" class="headerlink" title="14.5 推行工作上的细节：均值归一化"></a>14.5 推行工作上的细节：均值归一化</h2><p>假定现在新注册了一个用户<script type="math/tex">Eve(5)</script>，他还没有对任何电影作出评价：</p>
 <div class="table-container">
 <table>
 <thead>
@@ -1342,7 +1342,7 @@ y^{(i, 5)} = (\theta^{(5)})^T x^{(i)} + \mu_i = \mu_i</script><p>即，系统在
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、异常检测-Anomaly-Detection"><span class="nav-number">1.</span> <span class="nav-text">十三、异常检测(Anomaly Detection)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#13-1-问题的动机"><span class="nav-number">1.1.</span> <span class="nav-text">13.1 问题的动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#飞机引擎-QA-质量控制测试"><span class="nav-number">1.1.1.</span> <span class="nav-text">飞机引擎 QA(质量控制测试)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用"><span class="nav-number">1.1.2.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#识别欺骗"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">识别欺骗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#检测一个数据中心"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">检测一个数据中心</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-2-高斯分布"><span class="nav-number">1.2.</span> <span class="nav-text">13.2 高斯分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-3-算法"><span class="nav-number">1.3.</span> <span class="nav-text">13.3 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-4-开发和评价一个异常检测系统"><span class="nav-number">1.4.</span> <span class="nav-text">13.4 开发和评价一个异常检测系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-5-异常检测与监督学习对比"><span class="nav-number">1.5.</span> <span class="nav-text">13.5 异常检测与监督学习对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-6-选择特征"><span class="nav-number">1.6.</span> <span class="nav-text">13.6 选择特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-7-多元高斯分布"><span class="nav-number">1.7.</span> <span class="nav-text">13.7 多元高斯分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器运转监控的问题"><span class="nav-number">1.7.1.</span> <span class="nav-text">服务器运转监控的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">1.7.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数"><span class="nav-number">1.7.3.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法流程"><span class="nav-number">1.7.4.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多元高斯分布模型与一般高斯分布模型的差异"><span class="nav-number">1.7.5.</span> <span class="nav-text">多元高斯分布模型与一般高斯分布模型的差异</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十四、推荐系统-Recommender-Systems"><span class="nav-number">2.</span> <span class="nav-text">十四、推荐系统( Recommender Systems)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#14-1-问题形式化"><span class="nav-number">2.1.</span> <span class="nav-text">14.1 问题形式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-2-基于内容的推荐系统"><span class="nav-number">2.2.</span> <span class="nav-text">14.2 基于内容的推荐系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参数-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数更新"><span class="nav-number">2.2.2.</span> <span class="nav-text">参数更新</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-3-协同过滤"><span class="nav-number">2.3.</span> <span class="nav-text">14.3 协同过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目标优化"><span class="nav-number">2.3.1.</span> <span class="nav-text">目标优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协同过滤算法"><span class="nav-number">2.3.2.</span> <span class="nav-text">协同过滤算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协同过滤的目标优化"><span class="nav-number">2.3.3.</span> <span class="nav-text">协同过滤的目标优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法流程-1"><span class="nav-number">2.3.4.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获得类似电影"><span class="nav-number">2.3.5.</span> <span class="nav-text">获得类似电影</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-4-向量化：低秩矩阵分解"><span class="nav-number">2.4.</span> <span class="nav-text">14.4 向量化：低秩矩阵分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-5-推行工作上的细节：均值归一化"><span class="nav-number">2.5.</span> <span class="nav-text">14.5 推行工作上的细节：均值归一化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#十三、异常检测-Anomaly-Detection"><span class="nav-number">1.</span> <span class="nav-text">十三、异常检测(Anomaly Detection)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#13-1-问题的动机"><span class="nav-number">1.1.</span> <span class="nav-text">13.1 问题的动机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#飞机引擎-QA-质量控制测试"><span class="nav-number">1.1.1.</span> <span class="nav-text">飞机引擎 QA(质量控制测试)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">1.1.2.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#识别欺骗"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">识别欺骗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检测一个数据中心"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">检测一个数据中心</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-2-高斯分布"><span class="nav-number">1.2.</span> <span class="nav-text">13.2 高斯分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-3-算法"><span class="nav-number">1.3.</span> <span class="nav-text">13.3 算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-4-开发和评价一个异常检测系统"><span class="nav-number">1.4.</span> <span class="nav-text">13.4 开发和评价一个异常检测系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-5-异常检测与监督学习对比"><span class="nav-number">1.5.</span> <span class="nav-text">13.5 异常检测与监督学习对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-6-选择特征"><span class="nav-number">1.6.</span> <span class="nav-text">13.6 选择特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-7-多元高斯分布"><span class="nav-number">1.7.</span> <span class="nav-text">13.7 多元高斯分布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器运转监控的问题"><span class="nav-number">1.7.1.</span> <span class="nav-text">服务器运转监控的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.7.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">1.7.3.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法流程"><span class="nav-number">1.7.4.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多元高斯分布模型与一般高斯分布模型的差异"><span class="nav-number">1.7.5.</span> <span class="nav-text">多元高斯分布模型与一般高斯分布模型的差异</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十四、推荐系统-Recommender-Systems"><span class="nav-number">2.</span> <span class="nav-text">十四、推荐系统( Recommender Systems)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#14-1-问题形式化"><span class="nav-number">2.1.</span> <span class="nav-text">14.1 问题形式化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-2-基于内容的推荐系统"><span class="nav-number">2.2.</span> <span class="nav-text">14.2 基于内容的推荐系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数更新"><span class="nav-number">2.2.2.</span> <span class="nav-text">参数更新</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-3-协同过滤"><span class="nav-number">2.3.</span> <span class="nav-text">14.3 协同过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目标优化"><span class="nav-number">2.3.1.</span> <span class="nav-text">目标优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协同过滤算法"><span class="nav-number">2.3.2.</span> <span class="nav-text">协同过滤算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协同过滤的目标优化"><span class="nav-number">2.3.3.</span> <span class="nav-text">协同过滤的目标优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法流程-1"><span class="nav-number">2.3.4.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得类似电影"><span class="nav-number">2.3.5.</span> <span class="nav-text">获得类似电影</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-4-向量化：低秩矩阵分解"><span class="nav-number">2.4.</span> <span class="nav-text">14.4 向量化：低秩矩阵分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-5-推行工作上的细节：均值归一化"><span class="nav-number">2.5.</span> <span class="nav-text">14.5 推行工作上的细节：均值归一化</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -65,6 +65,30 @@
   </entry>
   
   <entry>
+    <title>大话数据结构 第七章  图</title>
+    <link href="https://www.baozouai.com/2019/03/08/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%B8%83%E7%AB%A0%20%20%E5%9B%BE/"/>
+    <id>https://www.baozouai.com/2019/03/08/大话数据结构-第七章  图/</id>
+    <published>2019-03-07T20:47:00.000Z</published>
+    <updated>2019-03-07T06:02:12.650Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;7-1-图的定义&quot;&gt;&lt;a href=&quot;#7-1-图的定义&quot; class=&quot;headerlink&quot; title=&quot;7.1 图的定义&quot;&gt;&lt;/a&gt;7.1 图的定义&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;图（Graph）是由顶点的有穷非空集合和顶点之间边的集合组成，通常表示为：G(V,E)，其中G表示一个图，V是图G中顶点的集合，E是图G中边的集合&lt;/strong&gt;
+    
+    </summary>
+    
+      <category term="数据结构" scheme="https://www.baozouai.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="https://www.baozouai.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="数据结构" scheme="https://www.baozouai.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="https://www.baozouai.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>大话数据结构 第一章  数据结构概论</title>
     <link href="https://www.baozouai.com/2019/03/08/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%B8%80%E7%AB%A0%20%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A6%82%E8%AE%BA/"/>
     <id>https://www.baozouai.com/2019/03/08/大话数据结构-第一章  数据结构概论/</id>
@@ -74,6 +98,30 @@
     <summary type="html">
     
       &lt;h1 id=&quot;1-1-基本概念和术语&quot;&gt;&lt;a href=&quot;#1-1-基本概念和术语&quot; class=&quot;headerlink&quot; title=&quot;1.1 基本概念和术语&quot;&gt;&lt;/a&gt;1.1 基本概念和术语&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;数据&lt;/strong&gt;：是描述客观事物的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。数据不仅仅包括整型、实型等数值类型，还包括字符及声音、图像、视频等非数值类型&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据结构" scheme="https://www.baozouai.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="https://www.baozouai.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="数据结构" scheme="https://www.baozouai.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="https://www.baozouai.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大话数据结构 第六章  树</title>
+    <link href="https://www.baozouai.com/2019/03/08/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E5%85%AD%E7%AB%A0%20%20%E6%A0%91/"/>
+    <id>https://www.baozouai.com/2019/03/08/大话数据结构-第六章  树/</id>
+    <published>2019-03-07T20:47:00.000Z</published>
+    <updated>2019-03-07T06:01:49.071Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;6-1-树的定义&quot;&gt;&lt;a href=&quot;#6-1-树的定义&quot; class=&quot;headerlink&quot; title=&quot;6.1 树的定义&quot;&gt;&lt;/a&gt;6.1 树的定义&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;树（Tree）&lt;/strong&gt;是n（n≥0）个结点的有限集。n=0时称为&lt;strong&gt;空树&lt;/strong&gt;。
     
     </summary>
     
@@ -186,54 +234,6 @@
   </entry>
   
   <entry>
-    <title>大话数据结构 第七章  图</title>
-    <link href="https://www.baozouai.com/2019/03/08/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%B8%83%E7%AB%A0%20%20%E5%9B%BE/"/>
-    <id>https://www.baozouai.com/2019/03/08/大话数据结构-第七章  图/</id>
-    <published>2019-03-07T20:47:00.000Z</published>
-    <updated>2019-03-07T06:02:12.650Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;7-1-图的定义&quot;&gt;&lt;a href=&quot;#7-1-图的定义&quot; class=&quot;headerlink&quot; title=&quot;7.1 图的定义&quot;&gt;&lt;/a&gt;7.1 图的定义&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;图（Graph）是由顶点的有穷非空集合和顶点之间边的集合组成，通常表示为：G(V,E)，其中G表示一个图，V是图G中顶点的集合，E是图G中边的集合&lt;/strong&gt;
-    
-    </summary>
-    
-      <category term="数据结构" scheme="https://www.baozouai.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="https://www.baozouai.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="数据结构" scheme="https://www.baozouai.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="https://www.baozouai.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大话数据结构 第六章  树</title>
-    <link href="https://www.baozouai.com/2019/03/08/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E5%85%AD%E7%AB%A0%20%20%E6%A0%91/"/>
-    <id>https://www.baozouai.com/2019/03/08/大话数据结构-第六章  树/</id>
-    <published>2019-03-07T20:47:00.000Z</published>
-    <updated>2019-03-07T06:01:49.071Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;6-1-树的定义&quot;&gt;&lt;a href=&quot;#6-1-树的定义&quot; class=&quot;headerlink&quot; title=&quot;6.1 树的定义&quot;&gt;&lt;/a&gt;6.1 树的定义&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;树（Tree）&lt;/strong&gt;是n（n≥0）个结点的有限集。n=0时称为&lt;strong&gt;空树&lt;/strong&gt;。
-    
-    </summary>
-    
-      <category term="数据结构" scheme="https://www.baozouai.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="https://www.baozouai.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="数据结构" scheme="https://www.baozouai.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="https://www.baozouai.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>莫烦Python爬虫笔记</title>
     <link href="https://www.baozouai.com/2019/03/07/%E8%8E%AB%E7%83%A6Python%E7%88%AC%E8%99%AB%E7%AC%94%E8%AE%B0/"/>
     <id>https://www.baozouai.com/2019/03/07/莫烦Python爬虫笔记/</id>
@@ -262,31 +262,11 @@
     <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-7/"/>
     <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-7/</id>
     <published>2019-03-05T04:57:00.000Z</published>
-    <updated>2019-03-04T05:44:16.104Z</updated>
+    <updated>2019-03-07T11:19:05.203Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;十、支持向量机-Support-Vector-Machines&quot;&gt;&lt;a href=&quot;#十、支持向量机-Support-Vector-Machines&quot; class=&quot;headerlink&quot; title=&quot;十、支持向量机( Support Vector Machines)&quot;&gt;&lt;/a&gt;十、支持向量机( Support Vector Machines)&lt;/h2&gt;&lt;h3 id=&quot;10-1-优化目标&quot;&gt;&lt;a href=&quot;#10-1-优化目标&quot; class=&quot;headerlink&quot; title=&quot;10.1 优化目标&quot;&gt;&lt;/a&gt;10.1 优化目标&lt;/h3&gt;&lt;h4 id=&quot;代价函数&quot;&gt;&lt;a href=&quot;#代价函数&quot; class=&quot;headerlink&quot; title=&quot;代价函数&quot;&gt;&lt;/a&gt;代价函数&lt;/h4&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>斯坦福机器学习笔记(Week 9)</title>
-    <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-9/"/>
-    <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-9/</id>
-    <published>2019-03-04T21:20:00.000Z</published>
-    <updated>2019-03-04T05:43:49.168Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;十三、异常检测-Anomaly-Detection&quot;&gt;&lt;a href=&quot;#十三、异常检测-Anomaly-Detection&quot; class=&quot;headerlink&quot; title=&quot;十三、异常检测(Anomaly Detection)&quot;&gt;&lt;/a&gt;十三、异常检测(Anomaly Detection)&lt;/h2&gt;&lt;h3 id=&quot;13-1-问题的动机&quot;&gt;&lt;a href=&quot;#13-1-问题的动机&quot; class=&quot;headerlink&quot; title=&quot;13.1 问题的动机&quot;&gt;&lt;/a&gt;13.1 问题的动机&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;异常检测&lt;/strong&gt;是机器学习算法的一个常见应用。这种算法的一个有趣之处在于：它虽然主要用于非监督学习问题，但从某些角度看，它又类似于一些监督学习问题&lt;/p&gt;
+      &lt;h1 id=&quot;十、支持向量机-Support-Vector-Machines&quot;&gt;&lt;a href=&quot;#十、支持向量机-Support-Vector-Machines&quot; class=&quot;headerlink&quot; title=&quot;十、支持向量机( Support Vector Machines)&quot;&gt;&lt;/a&gt;十、支持向量机( Support Vector Machines)&lt;/h1&gt;&lt;h2 id=&quot;10-1-优化目标&quot;&gt;&lt;a href=&quot;#10-1-优化目标&quot; class=&quot;headerlink&quot; title=&quot;10.1 优化目标&quot;&gt;&lt;/a&gt;10.1 优化目标&lt;/h2&gt;&lt;h3 id=&quot;代价函数&quot;&gt;&lt;a href=&quot;#代价函数&quot; class=&quot;headerlink&quot; title=&quot;代价函数&quot;&gt;&lt;/a&gt;代价函数&lt;/h3&gt;
     
     </summary>
     
@@ -302,11 +282,31 @@
     <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-10/"/>
     <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-10/</id>
     <published>2019-03-04T21:20:00.000Z</published>
-    <updated>2019-03-04T05:43:40.990Z</updated>
+    <updated>2019-03-07T11:23:19.074Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;十五、大规模机器学习-Large-Scale-Machine-Learning&quot;&gt;&lt;a href=&quot;#十五、大规模机器学习-Large-Scale-Machine-Learning&quot; class=&quot;headerlink&quot; title=&quot;十五、大规模机器学习(Large Scale Machine Learning)&quot;&gt;&lt;/a&gt;十五、大规模机器学习(Large Scale Machine Learning)&lt;/h2&gt;&lt;h3 id=&quot;15-1-大型数据集的学习&quot;&gt;&lt;a href=&quot;#15-1-大型数据集的学习&quot; class=&quot;headerlink&quot; title=&quot;15.1 大型数据集的学习&quot;&gt;&lt;/a&gt;15.1 大型数据集的学习&lt;/h3&gt;&lt;p&gt;如果有一个低方差的模型，增加数据集的规模可以获得更好的结果&lt;/p&gt;
+      &lt;h1 id=&quot;十五、大规模机器学习-Large-Scale-Machine-Learning&quot;&gt;&lt;a href=&quot;#十五、大规模机器学习-Large-Scale-Machine-Learning&quot; class=&quot;headerlink&quot; title=&quot;十五、大规模机器学习(Large Scale Machine Learning)&quot;&gt;&lt;/a&gt;十五、大规模机器学习(Large Scale Machine Learning)&lt;/h1&gt;&lt;h2 id=&quot;15-1-大型数据集的学习&quot;&gt;&lt;a href=&quot;#15-1-大型数据集的学习&quot; class=&quot;headerlink&quot; title=&quot;15.1 大型数据集的学习&quot;&gt;&lt;/a&gt;15.1 大型数据集的学习&lt;/h2&gt;&lt;p&gt;如果有一个低方差的模型，增加数据集的规模可以获得更好的结果&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>斯坦福机器学习笔记(Week 9)</title>
+    <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-9/"/>
+    <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-9/</id>
+    <published>2019-03-04T21:20:00.000Z</published>
+    <updated>2019-03-07T11:22:02.073Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;十三、异常检测-Anomaly-Detection&quot;&gt;&lt;a href=&quot;#十三、异常检测-Anomaly-Detection&quot; class=&quot;headerlink&quot; title=&quot;十三、异常检测(Anomaly Detection)&quot;&gt;&lt;/a&gt;十三、异常检测(Anomaly Detection)&lt;/h1&gt;&lt;h2 id=&quot;13-1-问题的动机&quot;&gt;&lt;a href=&quot;#13-1-问题的动机&quot; class=&quot;headerlink&quot; title=&quot;13.1 问题的动机&quot;&gt;&lt;/a&gt;13.1 问题的动机&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;异常检测&lt;/strong&gt;是机器学习算法的一个常见应用。这种算法的一个有趣之处在于：它虽然主要用于非监督学习问题，但从某些角度看，它又类似于一些监督学习问题&lt;/p&gt;
     
     </summary>
     
@@ -322,11 +322,11 @@
     <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-8/"/>
     <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-8/</id>
     <published>2019-03-04T21:05:00.000Z</published>
-    <updated>2019-03-04T05:43:58.917Z</updated>
+    <updated>2019-03-07T11:20:19.999Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;十一、聚类-Clustering&quot;&gt;&lt;a href=&quot;#十一、聚类-Clustering&quot; class=&quot;headerlink&quot; title=&quot;十一、聚类(Clustering)&quot;&gt;&lt;/a&gt;十一、聚类(Clustering)&lt;/h2&gt;&lt;h3 id=&quot;11-1-无监督学习：简介&quot;&gt;&lt;a href=&quot;#11-1-无监督学习：简介&quot; class=&quot;headerlink&quot; title=&quot;11.1 无监督学习：简介&quot;&gt;&lt;/a&gt;11.1 无监督学习：简介&lt;/h3&gt;&lt;p&gt;在无监督学习中，需要将一系列无标签的训练数据，输入到一个算法中，让计算机学习无标签数据，找到这个数据的内在结构&lt;/p&gt;
+      &lt;h1 id=&quot;十一、聚类-Clustering&quot;&gt;&lt;a href=&quot;#十一、聚类-Clustering&quot; class=&quot;headerlink&quot; title=&quot;十一、聚类(Clustering)&quot;&gt;&lt;/a&gt;十一、聚类(Clustering)&lt;/h1&gt;&lt;h2 id=&quot;11-1-无监督学习：简介&quot;&gt;&lt;a href=&quot;#11-1-无监督学习：简介&quot; class=&quot;headerlink&quot; title=&quot;11.1 无监督学习：简介&quot;&gt;&lt;/a&gt;11.1 无监督学习：简介&lt;/h2&gt;&lt;p&gt;在无监督学习中，需要将一系列无标签的训练数据，输入到一个算法中，让计算机学习无标签数据，找到这个数据的内在结构&lt;/p&gt;
     
     </summary>
     
@@ -342,11 +342,11 @@
     <link href="https://www.baozouai.com/2019/03/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-6/"/>
     <id>https://www.baozouai.com/2019/03/05/斯坦福机器学习笔记-Week-6/</id>
     <published>2019-03-04T19:18:00.000Z</published>
-    <updated>2019-03-04T05:44:24.715Z</updated>
+    <updated>2019-03-07T11:16:46.104Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;八、应用机器学习的建议-Advice-for-Applying-Machine-Learning&quot;&gt;&lt;a href=&quot;#八、应用机器学习的建议-Advice-for-Applying-Machine-Learning&quot; class=&quot;headerlink&quot; title=&quot;八、应用机器学习的建议(Advice for Applying Machine Learning)&quot;&gt;&lt;/a&gt;八、应用机器学习的建议(Advice for Applying Machine Learning)&lt;/h2&gt;&lt;h3 id=&quot;8-1-决定下一步做什么&quot;&gt;&lt;a href=&quot;#8-1-决定下一步做什么&quot; class=&quot;headerlink&quot; title=&quot;8.1 决定下一步做什么&quot;&gt;&lt;/a&gt;8.1 决定下一步做什么&lt;/h3&gt;&lt;p&gt;当运用训练好了的模型来预测未知数据的时候发现有较大的误差，下一步可以做什么？&lt;/p&gt;
+      &lt;h1 id=&quot;八、应用机器学习的建议-Advice-for-Applying-Machine-Learning&quot;&gt;&lt;a href=&quot;#八、应用机器学习的建议-Advice-for-Applying-Machine-Learning&quot; class=&quot;headerlink&quot; title=&quot;八、应用机器学习的建议(Advice for Applying Machine Learning)&quot;&gt;&lt;/a&gt;八、应用机器学习的建议(Advice for Applying Machine Learning)&lt;/h1&gt;&lt;h2 id=&quot;8-1-决定下一步做什么&quot;&gt;&lt;a href=&quot;#8-1-决定下一步做什么&quot; class=&quot;headerlink&quot; title=&quot;8.1 决定下一步做什么&quot;&gt;&lt;/a&gt;8.1 决定下一步做什么&lt;/h2&gt;&lt;p&gt;当运用训练好了的模型来预测未知数据的时候发现有较大的误差，下一步可以做什么？&lt;/p&gt;
     
     </summary>
     
@@ -382,11 +382,11 @@
     <link href="https://www.baozouai.com/2019/03/04/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-5/"/>
     <id>https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-5/</id>
     <published>2019-03-04T04:05:00.000Z</published>
-    <updated>2019-03-04T05:55:29.145Z</updated>
+    <updated>2019-03-07T11:15:25.337Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;七、神经网络的学习-Neural-Networks-Learning&quot;&gt;&lt;a href=&quot;#七、神经网络的学习-Neural-Networks-Learning&quot; class=&quot;headerlink&quot; title=&quot;七、神经网络的学习( Neural Networks: Learning)&quot;&gt;&lt;/a&gt;七、神经网络的学习( Neural Networks: Learning)&lt;/h2&gt;&lt;h3 id=&quot;7-1-代价函数&quot;&gt;&lt;a href=&quot;#7-1-代价函数&quot; class=&quot;headerlink&quot; title=&quot;7.1 代价函数&quot;&gt;&lt;/a&gt;7.1 代价函数&lt;/h3&gt;&lt;p&gt;假设神经网络的训练样本有 &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;个，每个包含一组输入 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;和一组输出信号 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;，&lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; 表示神经网络结构总层数，&lt;script type=&quot;math/tex&quot;&gt;S_l&lt;/script&gt;表示第&lt;script type=&quot;math/tex&quot;&gt;l&lt;/script&gt;层的单元个数，&lt;script type=&quot;math/tex&quot;&gt;S_L&lt;/script&gt;代表最后一层中处理单元的个数&lt;/p&gt;
+      &lt;h1 id=&quot;七、神经网络的学习-Neural-Networks-Learning&quot;&gt;&lt;a href=&quot;#七、神经网络的学习-Neural-Networks-Learning&quot; class=&quot;headerlink&quot; title=&quot;七、神经网络的学习( Neural Networks: Learning)&quot;&gt;&lt;/a&gt;七、神经网络的学习( Neural Networks: Learning)&lt;/h1&gt;&lt;h2 id=&quot;7-1-代价函数&quot;&gt;&lt;a href=&quot;#7-1-代价函数&quot; class=&quot;headerlink&quot; title=&quot;7.1 代价函数&quot;&gt;&lt;/a&gt;7.1 代价函数&lt;/h2&gt;&lt;p&gt;假设神经网络的训练样本有 &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;个，每个包含一组输入 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;和一组输出信号 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;，&lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; 表示神经网络结构总层数，&lt;script type=&quot;math/tex&quot;&gt;S_l&lt;/script&gt;表示第&lt;script type=&quot;math/tex&quot;&gt;l&lt;/script&gt;层的单元个数，&lt;script type=&quot;math/tex&quot;&gt;S_L&lt;/script&gt;代表最后一层中处理单元的个数&lt;/p&gt;
     
     </summary>
     
@@ -402,11 +402,11 @@
     <link href="https://www.baozouai.com/2019/03/04/%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-4/"/>
     <id>https://www.baozouai.com/2019/03/04/福机器学习笔记-Week-4/</id>
     <published>2019-03-04T03:44:00.000Z</published>
-    <updated>2019-03-03T12:21:00.468Z</updated>
+    <updated>2019-03-07T11:09:25.214Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;六、神经网络：表述-Neural-Networks-Representation&quot;&gt;&lt;a href=&quot;#六、神经网络：表述-Neural-Networks-Representation&quot; class=&quot;headerlink&quot; title=&quot;六、神经网络：表述( Neural Networks: Representation)&quot;&gt;&lt;/a&gt;六、神经网络：表述( Neural Networks: Representation)&lt;/h2&gt;&lt;h3 id=&quot;6-1-非线性假设&quot;&gt;&lt;a href=&quot;#6-1-非线性假设&quot; class=&quot;headerlink&quot; title=&quot;6.1 非线性假设&quot;&gt;&lt;/a&gt;6.1 非线性假设&lt;/h3&gt;&lt;p&gt;无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大&lt;/p&gt;
+      &lt;h1 id=&quot;六、神经网络：表述-Neural-Networks-Representation&quot;&gt;&lt;a href=&quot;#六、神经网络：表述-Neural-Networks-Representation&quot; class=&quot;headerlink&quot; title=&quot;六、神经网络：表述( Neural Networks: Representation)&quot;&gt;&lt;/a&gt;六、神经网络：表述( Neural Networks: Representation)&lt;/h1&gt;&lt;h2 id=&quot;6-1-非线性假设&quot;&gt;&lt;a href=&quot;#6-1-非线性假设&quot; class=&quot;headerlink&quot; title=&quot;6.1 非线性假设&quot;&gt;&lt;/a&gt;6.1 非线性假设&lt;/h2&gt;&lt;p&gt;无论是线性回归还是逻辑回归都有这样一个缺点，即：当特征太多时，计算的负荷会非常大&lt;/p&gt;
     
     </summary>
     
