@@ -101,13 +101,13 @@
 
 
 
-<meta name="description" content="9.1 排序的基本概念与分类假设含有n个记录的序列为\{r_1,r_2,\cdots,r_n\}，其相应的关键字分别为\{k_1,k_2,\cdots,k_n\}，需确定1,2,……,n的一种排列p_1,p_2,\cdots,p_n，使其相应的关键字满足k_{p_1}\le k_{p_2}\le \cdots \le k_{p_n}（非递减或非递增）关系，即使得序列成为一个按关键字有序的序列\{r">
+<meta name="description" content="9.1 排序的基本概念与分类假设含有n个记录的序列为\{r_1,r_2,\cdots,r_n\}，其相应的关键字分别为\{k_1,k_2,\cdots,k_n\}，">
 <meta name="keywords" content="数据结构,算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大话数据结构 第九章 排序">
 <meta property="og:url" content="https://www.baozouai.com/2019/03/08/大话数据结构-第九章-排序/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
-<meta property="og:description" content="9.1 排序的基本概念与分类假设含有n个记录的序列为\{r_1,r_2,\cdots,r_n\}，其相应的关键字分别为\{k_1,k_2,\cdots,k_n\}，需确定1,2,……,n的一种排列p_1,p_2,\cdots,p_n，使其相应的关键字满足k_{p_1}\le k_{p_2}\le \cdots \le k_{p_n}（非递减或非递增）关系，即使得序列成为一个按关键字有序的序列\{r">
+<meta property="og:description" content="9.1 排序的基本概念与分类假设含有n个记录的序列为\{r_1,r_2,\cdots,r_n\}，其相应的关键字分别为\{k_1,k_2,\cdots,k_n\}，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/246import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/257import.png">
@@ -172,10 +172,10 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/349import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/350import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/351import.png">
-<meta property="og:updated_time" content="2019-03-07T05:54:54.469Z">
+<meta property="og:updated_time" content="2019-03-07T06:02:40.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大话数据结构 第九章 排序">
-<meta name="twitter:description" content="9.1 排序的基本概念与分类假设含有n个记录的序列为\{r_1,r_2,\cdots,r_n\}，其相应的关键字分别为\{k_1,k_2,\cdots,k_n\}，需确定1,2,……,n的一种排列p_1,p_2,\cdots,p_n，使其相应的关键字满足k_{p_1}\le k_{p_2}\le \cdots \le k_{p_n}（非递减或非递增）关系，即使得序列成为一个按关键字有序的序列\{r">
+<meta name="twitter:description" content="9.1 排序的基本概念与分类假设含有n个记录的序列为\{r_1,r_2,\cdots,r_n\}，其相应的关键字分别为\{k_1,k_2,\cdots,k_n\}，">
 <meta name="twitter:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/246import.png">
 
 
@@ -474,7 +474,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-07T13:54:54+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-07T14:02:40+08:00">
                 2019-03-07
               </time>
             
@@ -592,7 +592,7 @@
       
 
       
-        <h1 id="9-1-排序的基本概念与分类"><a href="#9-1-排序的基本概念与分类" class="headerlink" title="9.1 排序的基本概念与分类"></a>9.1 排序的基本概念与分类</h1><p><strong>假设含有n个记录的序列为</strong><script type="math/tex">\{r_1,r_2,\cdots,r_n\}</script><strong>，其相应的关键字分别为</strong><script type="math/tex">\{k_1,k_2,\cdots,k_n\}</script><strong>，需确定1,2,……,n的一种排列</strong><script type="math/tex">p_1,p_2,\cdots,p_n</script><strong>，使其相应的关键字满足</strong><script type="math/tex">k_{p_1}\le k_{p_2}\le \cdots \le k_{p_n}</script><strong>（非递减或非递增）关系，即使得序列成为一个按关键字有序的序列</strong><script type="math/tex">\{r_{p_1},r_{p_2},\cdots,r_{p_n}\}</script><strong>，这样的操作称为排序</strong></p>
+        <h1 id="9-1-排序的基本概念与分类"><a href="#9-1-排序的基本概念与分类" class="headerlink" title="9.1 排序的基本概念与分类"></a>9.1 排序的基本概念与分类</h1><p><strong>假设含有n个记录的序列为</strong><script type="math/tex">\{r_1,r_2,\cdots,r_n\}</script><strong>，其相应的关键字分别为</strong><script type="math/tex">\{k_1,k_2,\cdots,k_n\}</script><strong>，<a id="more"></a>需确定1,2,……,n的一种排列</strong><script type="math/tex">p_1,p_2,\cdots,p_n</script><strong>，使其相应的关键字满足</strong><script type="math/tex">k_{p_1}\le k_{p_2}\le \cdots \le k_{p_n}</script><strong>（非递减或非递增）关系，即使得序列成为一个按关键字有序的序列</strong><script type="math/tex">\{r_{p_1},r_{p_2},\cdots,r_{p_n}\}</script><strong>，这样的操作称为排序</strong></p>
 <p>在排序问题中，通常将数据元素称为<strong>记录</strong>。输入的是一个记录集合，输出的也是一个记录集合，可以将排序看成是线性表的一种操作</p>
 <p>排序的依据是关键字之间的大小关系，对同一个记录集合，针对不同的关键字进行排序，可以得到不同序列</p>
 <p>关键字<script type="math/tex">k_i</script>可以是记录<script type="math/tex">r</script>的主关键字，也可以是次关键字，甚至是若干数据项的组合。</p>
