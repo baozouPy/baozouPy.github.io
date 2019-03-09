@@ -118,7 +118,7 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/112import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/114import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/875import.png">
-<meta property="og:updated_time" content="2019-03-07T11:15:25.337Z">
+<meta property="og:updated_time" content="2019-03-07T11:32:40.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福机器学习笔记(Week  5)">
 <meta name="twitter:description" content="七、神经网络的学习( Neural Networks: Learning)7.1 代价函数假设神经网络的训练样本有 m个，每个包含一组输入 x和一组输出信号 y，L 表示神经网络结构总层数，S_l表示第l层的单元个数，S_L代表最后一层中处理单元的个数">
@@ -420,7 +420,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-07T19:15:25+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-07T19:32:40+08:00">
                 2019-03-07
               </time>
             
@@ -539,10 +539,10 @@
 <p><img src="https://baozou.gitbooks.io/-stanford-machine-learning/content/assets/100import.png" alt></p>
 <p>逻辑回归问题中代价函数为：</p>
 <script type="math/tex; mode=display">
-J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2</script><p>在逻辑回归中，只有一个输出变量，又称<strong>标量（scalar）</strong>，也只有一个因变量 y，但是在神经网络中，可以有很多输出变量，<script type="math/tex">h_\theta(x)</script>是一个维度为 K 的向量,训练集中的因变量也是同样维度的一个向量，因此代价函数会比逻辑回归更加复杂一些:</p>
+J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]+\frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2</script><p><strong>在逻辑回归中，只有一个输出变量</strong>，又称<strong>标量（scalar）</strong>，也只有一个因变量 y，但是在神经网络中，可以有很多输出变量，<script type="math/tex">h_\theta(x)</script>是一个维度为 K 的向量,训练集中的因变量也是同样维度的一个向量，因此代价函数会比逻辑回归更加复杂一些:</p>
 <script type="math/tex; mode=display">
 h_\theta(x)\in \mathbb{R}^K,\quad(h_\theta(x))_i = i^{th}\quad output</script><script type="math/tex; mode=display">
-J(\Theta) = - \frac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[y^{(i)}_k \log ((h_\Theta (x^{(i)}))_k) + (1 - y^{(i)}_k)\log (1 - (h_\Theta(x^{(i)}))_k)\right] + \frac{\lambda}{2m}\sum_{l=1}^{L-1} \sum_{i=1}^{S_l} \sum_{j=1}^{S_{l+1}} ( \Theta_{j,i}^{(l)})^2</script><p>对于每一行特征，都会给出<script type="math/tex">k</script>个预测，基本上可以利用循环，对每一行特征都预测 <script type="math/tex">K</script>个不同结果，然后利用循环在 <script type="math/tex">K</script>个预测中选择可能性最高的一个，将其与<script type="math/tex">y</script>中的实际数据进行比较</p>
+J(\Theta) = - \frac{1}{m} \sum_{i=1}^m \sum_{k=1}^K \left[y^{(i)}_k \log (h_\Theta (x^{(i)}_k)) + (1 - y^{(i)}_k)\log (1 -h_\Theta(x^{(i)}_k))\right] + \frac{\lambda}{2m}\sum_{l=1}^{L-1} \sum_{i=1}^{S_l} \sum_{j=1}^{S_{l+1}} ( \Theta_{j,i}^{(l)})^2</script><p>对于每一行特征，都会给出<script type="math/tex">k</script>个预测，基本上可以利用循环，对每一行特征都预测 <script type="math/tex">K</script>个不同结果，然后利用循环在 <script type="math/tex">K</script>个预测中选择可能性最高的一个，将其与<script type="math/tex">y</script>中的实际数据进行比较</p>
 <p>正则化的那一项只是排除了每一层<script type="math/tex">\theta_0</script>后，每一层的<script type="math/tex">\theta</script> 矩阵的和。最里层的循环j 循环所有的行（由<script type="math/tex">S_{l+1}</script>层的激活单元数决定），循环<script type="math/tex">i</script> 则循环所有的列，由该层(<script type="math/tex">S_l</script>层）的激活单元数所决定。即：</p>
 <p>$h_\theta(x)$与真实值之间的距离为每个样本—每个类输出的加和，对参数进行<strong>regularization</strong> 的 <strong>bias </strong>项处理所有参数的平方和</p>
 <h2 id="7-2-反向传播算法"><a href="#7-2-反向传播算法" class="headerlink" title="7.2 反向传播算法"></a>7.2 反向传播算法</h2><p>为了计算代价函数的偏导数<script type="math/tex">\frac{\partial }{\partial \Theta_{ij}^{(l)}}J(\Theta)</script>,需要采用一种反向传播算法，也就是首先计算最后一层的误差，然后再一层一层反向求出各层的误差，直到倒数第二层</p>
@@ -1021,7 +1021,7 @@ gradApprox \approx DVec</script><p>如果上式成立，则证明网络中<scrip
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共136.2k字</span>
+  <span class="post-count">博客全站共136k字</span>
 </div>
 
         
