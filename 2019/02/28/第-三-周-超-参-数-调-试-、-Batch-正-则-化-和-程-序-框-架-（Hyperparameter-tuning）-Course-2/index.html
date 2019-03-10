@@ -120,7 +120,6 @@
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-78.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-79.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-80.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-81.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-83.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-84.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-85.png">
@@ -128,7 +127,7 @@
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-87.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-88.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-89.png">
-<meta property="og:updated_time" content="2019-02-27T15:42:39.176Z">
+<meta property="og:updated_time" content="2019-03-10T11:53:58.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)">
 <meta name="twitter:description" content="3.1 调试处理（Tuning process）深度神经网络需要调试的超参数（Hyperparameters）包括：  \alpha：学习因子 \beta：动量梯度下降因子 \beta_1,\beta_2,\varepsilon：Adam算法参数 #layers：神经网络层数 #hidden units：各隐藏层神经元个数 learning rate decay：学习因子下降参数 mini-bat">
@@ -430,8 +429,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T23:42:39+08:00">
-                2019-02-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-10T19:53:58+08:00">
+                2019-03-10
               </time>
             
           </span>
@@ -623,7 +622,7 @@ z^{(i)}_{norm}=\frac{z^{(i)}-\mu}{\sqrt{\sigma^2+\varepsilon}}</script><p>m是�
 <p>使用深层神经网络，使用Batch Norm，该模型对花猫的识别能力应该也是不错</p>
 <h3 id="Batch-Norm-解决Covariate-shift的问题"><a href="#Batch-Norm-解决Covariate-shift的问题" class="headerlink" title="Batch Norm 解决Covariate shift的问题"></a>Batch Norm 解决Covariate shift的问题</h3><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-79.png" alt="upload successful">)</p>
 <p>网络的目的是通过不断的训练，最后输出一个更加接近于真实值的<script type="math/tex">\hat y</script>，以第2个隐藏层为输入来看：</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-80.png" alt="upload successful"><br><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-81.png" alt="upload successful"></p>
+<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-80.png" alt="upload successful"></p>
 <p>对于后面的神经网络，是以第二层隐层的输出值<script type="math/tex">a^{[2]}</script>作为输入特征的，通过前向传播得到最终的<script type="math/tex">\hat y</script>，但是网络还有前面两层，由于训练过程，参数<script type="math/tex">w^{[1]},w^{[2]}</script>是不断变化的，对于后面的网络，<script type="math/tex">a^{[2]}</script>的值也是处于不断变化之中，所以就有了Covariate shift的问题</p>
 <p>如果对<script type="math/tex">z^{[2]}</script>使用了Batch Norm，即使其值不断的变化，其均值和方差却会保持。Batch Norm的作用是限制前层的参数更新导致对后面网络数值分布程度的影响，使得输入后层的数值变得更加稳定。Batch Norm减少了各层<script type="math/tex">W^{[l]},B^{[l]}</script>之间的耦合性，让各层更加独立，实现自我训练学习的效果。如果输入发生covariate shift，Batch Norm的作用是对个隐藏层输出<script type="math/tex">Z^{[l]}</script>进行均值和方差的归一化处理，让<script type="math/tex">W^{[l]},B^{[l]}</script>更加稳定，使得原来的模型也有不错的表现</p>
 <p>Batch Norm 削弱了前层参数与后层参数之间的联系，使得网络的每层都可以自己进行学习，相对其他层有一定的独立性，有助于加速整个网络的学习</p>
@@ -765,7 +764,7 @@ dZ^{[L]}=A^{[L]}-Y</script>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/28/第四周：深层神经网络-Deep-Neural-Networks/" rel="next" title="第四周：深层神经网络(Deep Neural Networks)(Course 1)">
+              <a href="/2019/02/28/第四周：深层神经网络(Deep Neural Networks)(Course 1)/" rel="next" title="第四周：深层神经网络(Deep Neural Networks)(Course 1)">
                 <i class="fa fa-chevron-left"></i> 第四周：深层神经网络(Deep Neural Networks)(Course 1)
               </a>
             

@@ -139,8 +139,8 @@
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-143.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-144.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-145.png">
-<meta property="og:image" content="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#">
-<meta property="og:image" content="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a800c70b250dc43b7003aaeebb4eefc2.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c225755635059449e2a9a84135e2548e.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-146.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/6bd58a754152e7f5cf55a8c5bbac3100.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-147.png">
@@ -149,7 +149,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/dad50972904bcd2131657db7798595b7.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/7503372ab986cd3aedda7674bedfd5f0.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/8fd4c61773f0245c87871de14f0a2d03.png">
-<meta property="og:updated_time" content="2019-03-02T12:11:14.578Z">
+<meta property="og:updated_time" content="2019-03-10T12:11:45.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 卷积神经网络（Foundations of Convolutional Neural Networks）(Course 4)">
 <meta name="twitter:description" content="1.1 计算机视觉（Computer vision）图片分类，或图片识别：">
@@ -451,8 +451,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T20:11:14+08:00">
-                2019-03-02
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-10T20:11:45+08:00">
+                2019-03-10
               </time>
             
           </span>
@@ -685,10 +685,10 @@ m \times n_H^{[l]}\times n_W^{[l]}\times n_c^{[l]}</script><h2 id="1-8-简单卷
 <h2 id="1-9-池化层（Pooling-layers）"><a href="#1-9-池化层（Pooling-layers）" class="headerlink" title="1.9 池化层（Pooling layers）"></a>1.9 池化层（Pooling layers）</h2><p>Pooling layers是CNN中用来减小尺寸，提高运算速度的，同样能减小noise影响，让各特征更具有健壮性</p>
 <p>Pooling layers没有卷积运算，仅在滤波器算子滑动区域内取最大值，即max pooling，这是最常用的做法。超参数p很少在pooling layers中使用</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-145.png" alt="upload successful"></p>
-<p><img src="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" alt></p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a800c70b250dc43b7003aaeebb4eefc2.png" alt></p>
 <p>Max pooling的好处是只保留区域内的最大值（特征），数字大意味着可能探测到了某些特定的特征，忽略了其它值，降低了noise影响，提高了模型健壮性。max pooling需要的超参数仅为滤波器尺寸f和滤波器步进长度s，没有其他参数需要模型训练得到，计算量很小</p>
 <p>如果是多个通道，每个通道单独进行max pooling操作：</p>
-<p><img src="https://legacy.gitbook.com/book/baozou/neural-networks-and-deep-learning/edit#" alt></p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c225755635059449e2a9a84135e2548e.png" alt></p>
 <p>average pooling是在滤波器算子滑动区域计算平均值：</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-146.png" alt="upload successful"><br>实际应用中，max pooling比average pooling更为常用，也有例外，深度很深的神经网络可以用平均池化来分解规模为7×7×1000的网络的表示层，在整个空间内求平均值，得到1×1×1000</p>
 <p>总结：</p>

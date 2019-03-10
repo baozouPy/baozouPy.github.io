@@ -105,19 +105,19 @@
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)">
-<meta property="og:url" content="https://www.baozouai.com/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/index.html">
+<meta property="og:url" content="https://www.baozouai.com/2019/02/27/第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)/index.html">
 <meta property="og:site_name" content="暴走的技术博客">
 <meta property="og:description" content="2.1 二分类(Binary Classification)逻辑回归模型一般用来解决二分类（Binary Classification）问题 二分类就是输出y只有{0,1}两个离散值（也有{-1,1}的情况）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-8.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-9.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-10.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/341import.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-11.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-12.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-13.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-14.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-15.png">
-<meta property="og:updated_time" content="2019-02-27T15:40:34.971Z">
+<meta property="og:updated_time" content="2019-03-10T14:02:56.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)">
 <meta name="twitter:description" content="2.1 二分类(Binary Classification)逻辑回归模型一般用来解决二分类（Binary Classification）问题 二分类就是输出y只有{0,1}两个离散值（也有{-1,1}的情况）">
@@ -151,7 +151,7 @@
 
 
 
-  <link rel="canonical" href="https://www.baozouai.com/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/">
+  <link rel="canonical" href="https://www.baozouai.com/2019/02/27/第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)/">
 
 
 
@@ -374,7 +374,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/">
+    <link itemprop="mainEntityOfPage" href="https://www.baozouai.com/2019/02/27/第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="暴走">
@@ -419,8 +419,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T23:40:34+08:00">
-                2019-02-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-10T22:02:56+08:00">
+                2019-03-10
               </time>
             
           </span>
@@ -456,8 +456,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/" itemprop="commentCount"></span>
+                <a href="/2019/02/27/第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/27/第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -465,7 +465,7 @@
 
           
           
-             <span id="/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/" class="leancloud_visitors" data-flag-title="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)">
+             <span id="/2019/02/27/第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)/" class="leancloud_visitors" data-flag-title="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -532,7 +532,7 @@
 <p>在神经网络模型中，首先要将图片输入x（维度是（64，64，3））转化为一维的<strong>特征向量（featurevector）</strong>。方法是每个通道一行一行取，再连接起来。则转化后的输入特征向量维度为（12288，1）。此特征向量x是列向量，维度一般记为<script type="math/tex">n_x</script></p>
 <p>如果训练样本共有m张图片，那么整个训练样本X组成了矩阵，维度是（<script type="math/tex">n_x</script>,m),  <script type="math/tex">n_x</script>代表了每个样本<script type="math/tex">X^{(i)}</script>特征个数，列m代表了样本个数,输出Y组成了一维的行向量，维度是（1，m）</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-9.png" alt="upload successful">)</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-10.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/341import.png" alt></p>
 <h2 id="2-2-逻辑回归-Logistic-Regression"><a href="#2-2-逻辑回归-Logistic-Regression" class="headerlink" title="2.2 逻辑回归(Logistic Regression)"></a>2.2 逻辑回归(Logistic Regression)</h2><p>逻辑回归中，预测值<script type="math/tex">\hat y=P(y=1 | x)</script>表示为1的概率，取值范围在[0,1]之间</p>
 <p>使用线性模型，引入参数w和b。权重w的维度是（<script type="math/tex">n_x</script>，1），b是一个常数项</p>
 <p>逻辑回归的预测输出可以完整写成：</p>
@@ -679,7 +679,7 @@ J(w,b)=-\frac1m\sum_{i=1}^mL(\hat y^{(i)},y^{(i)})=-\frac 1m\sum_{i=1}^m[y^{(i)}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/27/第一门课-神经网络和深度学习-Neural-Networks-and-Deep-Learning/" rel="next" title="第一周：深度学习引言(Introduction to Deep Learning)(Course 1)">
+              <a href="/2019/02/27/第一周：深度学习引言(Introduction to Deep Learning)(Course 1)/" rel="next" title="第一周：深度学习引言(Introduction to Deep Learning)(Course 1)">
                 <i class="fa fa-chevron-left"></i> 第一周：深度学习引言(Introduction to Deep Learning)(Course 1)
               </a>
             
@@ -760,7 +760,7 @@ J(w,b)=-\frac1m\sum_{i=1}^mL(\hat y^{(i)},y^{(i)})=-\frac 1m\sum_{i=1}^m[y^{(i)}
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/" data-title="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)" data-url="https://www.baozouai.com/2019/02/27/第二周：神经网络的编程基础-Basics-of-Neural-Network-programming/">
+      <div class="ds-thread" data-thread-key="2019/02/27/第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)/" data-title="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)" data-url="https://www.baozouai.com/2019/02/27/第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)/">
       </div>
     </div>
 
