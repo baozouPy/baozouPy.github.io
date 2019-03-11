@@ -117,7 +117,8 @@
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-13.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-14.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-15.png">
-<meta property="og:updated_time" content="2019-03-11T05:02:21.651Z">
+<meta property="og:image" content="http://imshuai.com/content/images/2018/06/Screen-Shot-2018-06-09-at-18.35.35.jpg">
+<meta property="og:updated_time" content="2019-03-11T05:19:12.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)">
 <meta name="twitter:description" content="2.1 二分类(Binary Classification)逻辑回归模型一般用来解决二分类（Binary Classification）问题 二分类就是输出y只有{0,1}两个离散值（也有{-1,1}的情况）">
@@ -419,7 +420,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T13:02:21+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T13:19:12+08:00">
                 2019-03-11
               </time>
             
@@ -589,11 +590,12 @@ w_1:=w_1-\alpha\ dw_1</script><script type="math/tex; mode=display">
 w_2:=w_2-\alpha\ dw_2</script><script type="math/tex; mode=display">
 w_m:=w_m-\alpha\ dw_m</script><script type="math/tex; mode=display">
 b:=b-\alpha\ db</script><p>在深度学习中，样本数量m通常很大，使用for循环会让神经网络程序运行得很慢。应该尽量避免使用for循环操作，而使用矩阵运算，能够大大提高程序运行速度</p>
-<h1 id="2-6-向量化-logistic-回归的梯度输出（Vectorizing-Logistic-Regression’s-Gradient-Output）"><a href="#2-6-向量化-logistic-回归的梯度输出（Vectorizing-Logistic-Regression’s-Gradient-Output）" class="headerlink" title="2.6 向量化 logistic 回归的梯度输出（Vectorizing Logistic Regression’s Gradient Output）"></a>2.6 向量化 logistic 回归的梯度输出（Vectorizing Logistic Regression’s Gradient Output）</h1><p>db可表示为：</p>
+<h1 id="2-6-向量化-logistic-回归的梯度输出（Vectorizing-Logistic-Regression’s-Gradient-Output）"><a href="#2-6-向量化-logistic-回归的梯度输出（Vectorizing-Logistic-Regression’s-Gradient-Output）" class="headerlink" title="2.6 向量化 logistic 回归的梯度输出（Vectorizing Logistic Regression’s Gradient Output）"></a>2.6 向量化 logistic 回归的梯度输出（Vectorizing Logistic Regression’s Gradient Output）</h1><p><img src="http://imshuai.com/content/images/2018/06/Screen-Shot-2018-06-09-at-18.35.35.jpg" alt></p>
+<p>db可表示为：</p>
 <script type="math/tex; mode=display">
-db=\frac1m \sum_{i=1}^mdz^{(i)}</script><p>dw可表示为：</p>
+db=\frac{\partial J}{\partial b}=\frac1m \sum_{i=1}^mdz^{(i)} = \frac{1}{m} \sum_{i=1}^m (a^{(i)}-y^{(i)})</script><p>dw可表示为：</p>
 <script type="math/tex; mode=display">
-dw=\frac1m X\cdot dZ^T</script><p>单次迭代，梯度下降算法流程如下所示：</p>
+dw=\frac1m X\cdot dZ^T= \frac{1}{m}X(A-Y)^T</script><p>单次迭代，梯度下降算法流程如下所示：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Z = np.dot(w.T,X) + b</span><br><span class="line">A = sigmoid(Z)</span><br><span class="line">dZ = A-Y</span><br><span class="line">dw = <span class="number">1</span>/m*np.dot(X,dZ.T)</span><br><span class="line">db = <span class="number">1</span>/m*np.sum(dZ)</span><br><span class="line"></span><br><span class="line">w = w - alpha*dw</span><br><span class="line">b = b - alpha*db</span><br></pre></td></tr></table></figure>
 <h1 id="2-7-（选修）logistic-损失函数的解释（Explanation-of-logistic-regression-cost-function-）"><a href="#2-7-（选修）logistic-损失函数的解释（Explanation-of-logistic-regression-cost-function-）" class="headerlink" title="2.7 （选修）logistic 损失函数的解释（Explanation of logistic regression cost function ）"></a>2.7 （选修）logistic 损失函数的解释（Explanation of logistic regression cost function ）</h1><p>$\hat y$可以看成是预测输出为正类（+1）的概率：</p>
 <script type="math/tex; mode=display">
