@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-13.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-14.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-15.png">
-<meta property="og:updated_time" content="2019-03-10T14:02:56.434Z">
+<meta property="og:updated_time" content="2019-03-11T05:02:21.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)">
 <meta name="twitter:description" content="2.1 二分类(Binary Classification)逻辑回归模型一般用来解决二分类（Binary Classification）问题 二分类就是输出y只有{0,1}两个离散值（也有{-1,1}的情况）">
@@ -419,8 +419,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-10T22:02:56+08:00">
-                2019-03-10
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T13:02:21+08:00">
+                2019-03-11
               </time>
             
           </span>
@@ -526,14 +526,14 @@
       
 
       
-        <h2 id="2-1-二分类-Binary-Classification"><a href="#2-1-二分类-Binary-Classification" class="headerlink" title="2.1 二分类(Binary Classification)"></a>2.1 二分类(Binary Classification)</h2><p><strong>逻辑回归</strong>模型一般用来解决<strong>二分类（Binary Classification）</strong>问题</p>
+        <h1 id="2-1-二分类-Binary-Classification"><a href="#2-1-二分类-Binary-Classification" class="headerlink" title="2.1 二分类(Binary Classification)"></a>2.1 二分类(Binary Classification)</h1><p><strong>逻辑回归</strong>模型一般用来解决<strong>二分类（Binary Classification）</strong>问题</p>
 <p>二分类就是输出y只有{0,1}两个离散值（也有{-1,1}的情况）<br><a id="more"></a><br><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-8.png" alt="upload successful"></p>
 <p>彩色图片包含RGB三个通道。例如该cat图片的尺寸为（64，64，3）</p>
 <p>在神经网络模型中，首先要将图片输入x（维度是（64，64，3））转化为一维的<strong>特征向量（featurevector）</strong>。方法是每个通道一行一行取，再连接起来。则转化后的输入特征向量维度为（12288，1）。此特征向量x是列向量，维度一般记为<script type="math/tex">n_x</script></p>
 <p>如果训练样本共有m张图片，那么整个训练样本X组成了矩阵，维度是（<script type="math/tex">n_x</script>,m),  <script type="math/tex">n_x</script>代表了每个样本<script type="math/tex">X^{(i)}</script>特征个数，列m代表了样本个数,输出Y组成了一维的行向量，维度是（1，m）</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-9.png" alt="upload successful">)</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/341import.png" alt></p>
-<h2 id="2-2-逻辑回归-Logistic-Regression"><a href="#2-2-逻辑回归-Logistic-Regression" class="headerlink" title="2.2 逻辑回归(Logistic Regression)"></a>2.2 逻辑回归(Logistic Regression)</h2><p>逻辑回归中，预测值<script type="math/tex">\hat y=P(y=1 | x)</script>表示为1的概率，取值范围在[0,1]之间</p>
+<h1 id="2-2-逻辑回归-Logistic-Regression"><a href="#2-2-逻辑回归-Logistic-Regression" class="headerlink" title="2.2 逻辑回归(Logistic Regression)"></a>2.2 逻辑回归(Logistic Regression)</h1><p>逻辑回归中，预测值<script type="math/tex">\hat y=P(y=1 | x)</script>表示为1的概率，取值范围在[0,1]之间</p>
 <p>使用线性模型，引入参数w和b。权重w的维度是（<script type="math/tex">n_x</script>，1），b是一个常数项</p>
 <p>逻辑回归的预测输出可以完整写成：</p>
 <script type="math/tex; mode=display">
@@ -541,18 +541,22 @@
 <script type="math/tex; mode=display">
 \sigma'(z)=\sigma(z)(1-\sigma(z))</script><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-11.png" alt="upload successful"></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-12.png" alt="upload successful"></p>
-<h2 id="2-3-逻辑回归的代价函数（Logistic-Regression-Cost-Function）"><a href="#2-3-逻辑回归的代价函数（Logistic-Regression-Cost-Function）" class="headerlink" title="2.3 逻辑回归的代价函数（Logistic Regression Cost Function）"></a>2.3 逻辑回归的代价函数（Logistic Regression Cost Function）</h2><p>单个样本的<strong>cost function</strong>用<strong>Loss function</strong>来表示，使用<strong>平方误差（squared error）</strong>：</p>
+<h1 id="2-3-逻辑回归的代价函数（Logistic-Regression-Cost-Function）"><a href="#2-3-逻辑回归的代价函数（Logistic-Regression-Cost-Function）" class="headerlink" title="2.3 逻辑回归的代价函数（Logistic Regression Cost Function）"></a>2.3 逻辑回归的代价函数（Logistic Regression Cost Function）</h1><p>单个样本的<strong>cost function</strong>用<strong>Loss function</strong>来表示，使用<strong>平方误差（squared error）</strong>：</p>
 <script type="math/tex; mode=display">
-L(\hat y,y)=\frac12(\hat y-y)^2</script><p>逻辑回归一般不使用平方误差来作为Loss function。原因是这种Loss function一般是non-convex的。</p>
+L(\hat y,y)=\frac12(\hat y-y)^2</script><p><strong>逻辑回归一般不使用平方误差来作为Loss function。原因是这种Loss function一般是non-convex的</strong></p>
 <p>non-convex函数在使用梯度下降算法时，容易得到局部最小值（localminimum），即局部最优化。而最优化的目标是计算得到全局最优化（Global optimization），因此一般选择的Loss function应该是convex的</p>
 <p>构建另外一种Loss function(针对单个样本)，且是convex的：</p>
 <script type="math/tex; mode=display">
-L(\hat y,y)=-(ylog\ \hat y+(1-y)log\ (1-\hat y))</script><p>当y=1时，<script type="math/tex">L(\hat y,y)=-\log \hat y</script>，如果<script type="math/tex">\hat y</script>越接近1，<script type="math/tex">L(\hat y,y)\approx 0</script>，表示预测效果越好；如果<script type="math/tex">\hat y</script>越接近0，<script type="math/tex">L(\hat y,y)\approx +\infty</script>，表示预测效果越差</p>
-<p>当y=0时，<script type="math/tex">L(\hat y,y)=-\log(1- \hat y)</script>，如果<script type="math/tex">\hat y</script>越接近0，<script type="math/tex">L(\hat y,y)\approx 0</script>，表示预测效果越好；如果<script type="math/tex">\hat y</script>越接近1，<script type="math/tex">L(\hat y,y)\approx +\infty</script>，表示预测效果越差</p>
+L(\hat y,y)=-(ylog\ \hat y+(1-y)log\ (1-\hat y))</script><ul>
+<li><p>当y=1时，<script type="math/tex">L(\hat y,y)=-\log \hat y</script>，如果<script type="math/tex">\hat y</script>越接近1，<script type="math/tex">L(\hat y,y)\approx 0</script>，表示预测效果越好；如果<script type="math/tex">\hat y</script>越接近0，<script type="math/tex">L(\hat y,y)\approx +\infty</script>，表示预测效果越差</p>
+</li>
+<li><p>当y=0时，<script type="math/tex">L(\hat y,y)=-\log(1- \hat y)</script>，如果<script type="math/tex">\hat y</script>越接近0，<script type="math/tex">L(\hat y,y)\approx 0</script>，表示预测效果越好；如果<script type="math/tex">\hat y</script>越接近1，<script type="math/tex">L(\hat y,y)\approx +\infty</script>，表示预测效果越差</p>
+</li>
+</ul>
 <p><strong>Cost function</strong>是m个样本的<strong>Loss function</strong>的平均值，反映了m个样本的预测输出<script type="math/tex">\hat y</script>与真实样本输出y的平均接近程度:</p>
 <script type="math/tex; mode=display">
 J(w,b)=\frac1m\sum_{i=1}^mL(\hat y^{(i)},y^{(i)})=-\frac1m\sum_{i=1}^m[y^{(i)}log\ \hat y^{(i)}+(1-y^{(i)})log\ (1-\hat y^{(i)})]</script><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-13.png" alt="upload successful"></p>
-<h2 id="2-4-逻辑回归的梯度下降（Logistic-Regression-Gradient-Descent）"><a href="#2-4-逻辑回归的梯度下降（Logistic-Regression-Gradient-Descent）" class="headerlink" title="2.4 逻辑回归的梯度下降（Logistic Regression Gradient Descent）"></a>2.4 逻辑回归的梯度下降（Logistic Regression Gradient Descent）</h2><p>对单个样本而言，<strong>逻辑回归Loss function</strong>表达式如下：</p>
+<h1 id="2-4-逻辑回归的梯度下降（Logistic-Regression-Gradient-Descent）"><a href="#2-4-逻辑回归的梯度下降（Logistic-Regression-Gradient-Descent）" class="headerlink" title="2.4 逻辑回归的梯度下降（Logistic Regression Gradient Descent）"></a>2.4 逻辑回归的梯度下降（Logistic Regression Gradient Descent）</h1><p>对单个样本而言，<strong>逻辑回归Loss function</strong>表达式如下：</p>
 <script type="math/tex; mode=display">
 z=w^Tx+b</script><script type="math/tex; mode=display">
 \hat y=a=\sigma(z)</script><script type="math/tex; mode=display">
@@ -568,7 +572,7 @@ db=\frac{\partial L}{\partial b}=\frac{\partial L}{\partial z}\cdot \frac{\parti
 w_1:=w_1-\alpha\ dw_1</script><script type="math/tex; mode=display">
 w_2:=w_2-\alpha\ dw_2</script><script type="math/tex; mode=display">
 b:=b-\alpha\ db</script><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-15.png" alt="upload successful"></p>
-<h2 id="2-5-梯度下降的例子-Gradient-Descent-on-m-Examples"><a href="#2-5-梯度下降的例子-Gradient-Descent-on-m-Examples" class="headerlink" title="2.5 梯度下降的例子(Gradient Descent on m Examples)"></a>2.5 梯度下降的例子(Gradient Descent on m Examples)</h2><p>m个样本的<strong>Cost function</strong>表达式如下：</p>
+<h1 id="2-5-梯度下降的例子-Gradient-Descent-on-m-Examples"><a href="#2-5-梯度下降的例子-Gradient-Descent-on-m-Examples" class="headerlink" title="2.5 梯度下降的例子(Gradient Descent on m Examples)"></a>2.5 梯度下降的例子(Gradient Descent on m Examples)</h1><p>m个样本的<strong>Cost function</strong>表达式如下：</p>
 <script type="math/tex; mode=display">
 z^{(i)}=w^Tx^{(i)}+b</script><script type="math/tex; mode=display">
 \hat y^{(i)}=a^{(i)}=\sigma(z^{(i)})</script><script type="math/tex; mode=display">
@@ -578,20 +582,20 @@ dw_1=\frac1m\sum_{i=1}^mx_1^{(i)}(a^{(i)}-y^{(i)})</script><script type="math/te
 dw_2=\frac1m\sum_{i=1}^mx_2^{(i)}(a^{(i)}-y^{(i)})</script><script type="math/tex; mode=display">
 dw_m=\frac1m\sum_{i=1}^mx_m^{(i)}(a^{(i)}-y^{(i)})</script><script type="math/tex; mode=display">
 db=\frac1m\sum_{i=1}^m(a^{(i)}-y^{(i)})</script><p>算法流程如下所示：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">J=<span class="number">0</span>; dw1=<span class="number">0</span>; dw2=<span class="number">0</span>; db=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span> to m</span><br><span class="line">z(i) = wx(i)+b;</span><br><span class="line">a(i) = sigmoid(z(i));</span><br><span class="line">J += -[y(i)log(a(i))+(<span class="number">1</span>-y(i)）log(<span class="number">1</span>-a(i));</span><br><span class="line">dz(i) = a(i)-y(i);</span><br><span class="line">dw1 += x1(i)dz(i);</span><br><span class="line">dw2 += x2(i)dz(i);</span><br><span class="line">db += dz(i);</span><br><span class="line">J /= m;</span><br><span class="line">dw1 /= m;</span><br><span class="line">dw2 /= m;</span><br><span class="line">db /= m;</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">J=<span class="number">0</span>; dw1=<span class="number">0</span>; dw2=<span class="number">0</span>; db=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span> to m</span><br><span class="line">    z(i) = wx(i)+b;</span><br><span class="line">    a(i) = sigmoid(z(i));</span><br><span class="line">    J += -[y(i)log(a(i))+(<span class="number">1</span>-y(i)）log(<span class="number">1</span>-a(i));</span><br><span class="line">    dz(i) = a(i)-y(i);</span><br><span class="line">    dw1 += x1(i)dz(i);</span><br><span class="line">    dw2 += x2(i)dz(i);</span><br><span class="line">    db += dz(i);</span><br><span class="line">J /= m;</span><br><span class="line">dw1 /= m;</span><br><span class="line">dw2 /= m;</span><br><span class="line">db /= m;</span><br></pre></td></tr></table></figure>
 <p>经过每次迭代后，根据梯度下降算法，w和b都进行更新：</p>
 <script type="math/tex; mode=display">
 w_1:=w_1-\alpha\ dw_1</script><script type="math/tex; mode=display">
 w_2:=w_2-\alpha\ dw_2</script><script type="math/tex; mode=display">
 w_m:=w_m-\alpha\ dw_m</script><script type="math/tex; mode=display">
 b:=b-\alpha\ db</script><p>在深度学习中，样本数量m通常很大，使用for循环会让神经网络程序运行得很慢。应该尽量避免使用for循环操作，而使用矩阵运算，能够大大提高程序运行速度</p>
-<h2 id="2-6-向量化-logistic-回归的梯度输出（Vectorizing-Logistic-Regression’s-Gradient-Output）"><a href="#2-6-向量化-logistic-回归的梯度输出（Vectorizing-Logistic-Regression’s-Gradient-Output）" class="headerlink" title="2.6 向量化 logistic 回归的梯度输出（Vectorizing Logistic Regression’s Gradient Output）"></a>2.6 向量化 logistic 回归的梯度输出（Vectorizing Logistic Regression’s Gradient Output）</h2><p>db可表示为：</p>
+<h1 id="2-6-向量化-logistic-回归的梯度输出（Vectorizing-Logistic-Regression’s-Gradient-Output）"><a href="#2-6-向量化-logistic-回归的梯度输出（Vectorizing-Logistic-Regression’s-Gradient-Output）" class="headerlink" title="2.6 向量化 logistic 回归的梯度输出（Vectorizing Logistic Regression’s Gradient Output）"></a>2.6 向量化 logistic 回归的梯度输出（Vectorizing Logistic Regression’s Gradient Output）</h1><p>db可表示为：</p>
 <script type="math/tex; mode=display">
 db=\frac1m \sum_{i=1}^mdz^{(i)}</script><p>dw可表示为：</p>
 <script type="math/tex; mode=display">
 dw=\frac1m X\cdot dZ^T</script><p>单次迭代，梯度下降算法流程如下所示：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Z = np.dot(w.T,X) + b</span><br><span class="line">A = sigmoid(Z)</span><br><span class="line">dZ = A-Y</span><br><span class="line">dw = <span class="number">1</span>/m*np.dot(X,dZ.T)</span><br><span class="line">db = <span class="number">1</span>/m*np.sum(dZ)</span><br><span class="line"></span><br><span class="line">w = w - alpha*dw</span><br><span class="line">b = b - alpha*db</span><br></pre></td></tr></table></figure>
-<h2 id="2-7-（选修）logistic-损失函数的解释（Explanation-of-logistic-regression-cost-function-）"><a href="#2-7-（选修）logistic-损失函数的解释（Explanation-of-logistic-regression-cost-function-）" class="headerlink" title="2.7 （选修）logistic 损失函数的解释（Explanation of logistic regression cost function ）"></a>2.7 （选修）logistic 损失函数的解释（Explanation of logistic regression cost function ）</h2><p>$\hat y$可以看成是预测输出为正类（+1）的概率：</p>
+<h1 id="2-7-（选修）logistic-损失函数的解释（Explanation-of-logistic-regression-cost-function-）"><a href="#2-7-（选修）logistic-损失函数的解释（Explanation-of-logistic-regression-cost-function-）" class="headerlink" title="2.7 （选修）logistic 损失函数的解释（Explanation of logistic regression cost function ）"></a>2.7 （选修）logistic 损失函数的解释（Explanation of logistic regression cost function ）</h1><p>$\hat y$可以看成是预测输出为正类（+1）的概率：</p>
 <script type="math/tex; mode=display">
 \hat y=P(y=1|x)</script><p>当y=1时：</p>
 <script type="math/tex; mode=display">
@@ -904,7 +908,7 @@ J(w,b)=-\frac1m\sum_{i=1}^mL(\hat y^{(i)},y^{(i)})=-\frac 1m\sum_{i=1}^m[y^{(i)}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-二分类-Binary-Classification"><span class="nav-number">1.</span> <span class="nav-text">2.1 二分类(Binary Classification)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-逻辑回归-Logistic-Regression"><span class="nav-number">2.</span> <span class="nav-text">2.2 逻辑回归(Logistic Regression)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-逻辑回归的代价函数（Logistic-Regression-Cost-Function）"><span class="nav-number">3.</span> <span class="nav-text">2.3 逻辑回归的代价函数（Logistic Regression Cost Function）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-逻辑回归的梯度下降（Logistic-Regression-Gradient-Descent）"><span class="nav-number">4.</span> <span class="nav-text">2.4 逻辑回归的梯度下降（Logistic Regression Gradient Descent）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-梯度下降的例子-Gradient-Descent-on-m-Examples"><span class="nav-number">5.</span> <span class="nav-text">2.5 梯度下降的例子(Gradient Descent on m Examples)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-向量化-logistic-回归的梯度输出（Vectorizing-Logistic-Regression’s-Gradient-Output）"><span class="nav-number">6.</span> <span class="nav-text">2.6 向量化 logistic 回归的梯度输出（Vectorizing Logistic Regression’s Gradient Output）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-（选修）logistic-损失函数的解释（Explanation-of-logistic-regression-cost-function-）"><span class="nav-number">7.</span> <span class="nav-text">2.7 （选修）logistic 损失函数的解释（Explanation of logistic regression cost function ）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2-1-二分类-Binary-Classification"><span class="nav-number">1.</span> <span class="nav-text">2.1 二分类(Binary Classification)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-2-逻辑回归-Logistic-Regression"><span class="nav-number">2.</span> <span class="nav-text">2.2 逻辑回归(Logistic Regression)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-3-逻辑回归的代价函数（Logistic-Regression-Cost-Function）"><span class="nav-number">3.</span> <span class="nav-text">2.3 逻辑回归的代价函数（Logistic Regression Cost Function）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-4-逻辑回归的梯度下降（Logistic-Regression-Gradient-Descent）"><span class="nav-number">4.</span> <span class="nav-text">2.4 逻辑回归的梯度下降（Logistic Regression Gradient Descent）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-5-梯度下降的例子-Gradient-Descent-on-m-Examples"><span class="nav-number">5.</span> <span class="nav-text">2.5 梯度下降的例子(Gradient Descent on m Examples)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-6-向量化-logistic-回归的梯度输出（Vectorizing-Logistic-Regression’s-Gradient-Output）"><span class="nav-number">6.</span> <span class="nav-text">2.6 向量化 logistic 回归的梯度输出（Vectorizing Logistic Regression’s Gradient Output）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-7-（选修）logistic-损失函数的解释（Explanation-of-logistic-regression-cost-function-）"><span class="nav-number">7.</span> <span class="nav-text">2.7 （选修）logistic 损失函数的解释（Explanation of logistic regression cost function ）</span></a></li></ol></div>
             
 
           </div>

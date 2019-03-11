@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%95%E8%A8%80(Introduction%20to%20Deep%20Learning)(Course%201)/</loc>
+    <loc>https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%89%E5%91%A8%EF%BC%9A%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(Shallow%20neural%20networks)(Course%201)/</loc>
     
-    <lastmod>2019-03-10T16:25:05.525Z</lastmod>
+    <lastmod>2019-03-11T05:02:26.449Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80(Basics%20of%20Neural%20Network%20programming)(Course%201)/</loc>
     
-    <lastmod>2019-03-10T14:02:56.434Z</lastmod>
+    <lastmod>2019-03-11T05:02:21.651Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%95%E8%A8%80(Introduction%20to%20Deep%20Learning)(Course%201)/</loc>
+    
+    <lastmod>2019-03-11T05:02:20.240Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.baozouai.com/2019/02/28/%E7%AC%AC%E5%9B%9B%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(Deep%20Neural%20Networks)(Course%201)/</loc>
+    
+    <lastmod>2019-03-11T05:02:18.873Z</lastmod>
     
   </url>
   
@@ -247,13 +261,6 @@
   </url>
   
   <url>
-    <loc>https://www.baozouai.com/2019/02/28/%E7%AC%AC%E5%9B%9B%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(Deep%20Neural%20Networks)(Course%201)/</loc>
-    
-    <lastmod>2019-02-28T03:37:32.648Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%BA%8C%E5%91%A8%EF%BC%9A%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95-Optimization-algorithms-Course-2/</loc>
     
     <lastmod>2019-02-27T15:42:22.759Z</lastmod>
@@ -264,13 +271,6 @@
     <loc>https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%9A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B1%82%E9%9D%A2-Practical-aspects-of-Deep-Learning-Course-2/</loc>
     
     <lastmod>2019-02-27T15:42:05.398Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.baozouai.com/2019/02/27/%E7%AC%AC%E4%B8%89%E5%91%A8%EF%BC%9A%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(Shallow%20neural%20networks)(Course%201)/</loc>
-    
-    <lastmod>2019-02-27T15:41:00.445Z</lastmod>
     
   </url>
   
