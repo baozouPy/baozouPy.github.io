@@ -362,11 +362,11 @@
     <link href="https://www.baozouai.com/2019/03/04/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-5/"/>
     <id>https://www.baozouai.com/2019/03/04/斯坦福机器学习笔记-Week-5/</id>
     <published>2019-03-04T04:05:00.000Z</published>
-    <updated>2019-03-07T11:32:40.418Z</updated>
+    <updated>2019-03-15T08:02:40.193Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;七、神经网络的学习-Neural-Networks-Learning&quot;&gt;&lt;a href=&quot;#七、神经网络的学习-Neural-Networks-Learning&quot; class=&quot;headerlink&quot; title=&quot;七、神经网络的学习( Neural Networks: Learning)&quot;&gt;&lt;/a&gt;七、神经网络的学习( Neural Networks: Learning)&lt;/h1&gt;&lt;h2 id=&quot;7-1-代价函数&quot;&gt;&lt;a href=&quot;#7-1-代价函数&quot; class=&quot;headerlink&quot; title=&quot;7.1 代价函数&quot;&gt;&lt;/a&gt;7.1 代价函数&lt;/h2&gt;&lt;p&gt;假设神经网络的训练样本有 &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;个，每个包含一组输入 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;和一组输出信号 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;，&lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; 表示神经网络结构总层数，&lt;script type=&quot;math/tex&quot;&gt;S_l&lt;/script&gt;表示第&lt;script type=&quot;math/tex&quot;&gt;l&lt;/script&gt;层的单元个数，&lt;script type=&quot;math/tex&quot;&gt;S_L&lt;/script&gt;代表最后一层中处理单元的个数&lt;/p&gt;
+      &lt;h1 id=&quot;七、神经网络的学习-Neural-Networks-Learning&quot;&gt;&lt;a href=&quot;#七、神经网络的学习-Neural-Networks-Learning&quot; class=&quot;headerlink&quot; title=&quot;七、神经网络的学习( Neural Networks: Learning)&quot;&gt;&lt;/a&gt;七、神经网络的学习( Neural Networks: Learning)&lt;/h1&gt;&lt;h1 id=&quot;7-1-代价函数&quot;&gt;&lt;a href=&quot;#7-1-代价函数&quot; class=&quot;headerlink&quot; title=&quot;7.1 代价函数&quot;&gt;&lt;/a&gt;7.1 代价函数&lt;/h1&gt;&lt;p&gt;假设神经网络的训练样本有 &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;个，每个包含一组输入 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;和一组输出信号 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;，&lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; 表示神经网络结构总层数，&lt;script type=&quot;math/tex&quot;&gt;S_l&lt;/script&gt;表示第&lt;script type=&quot;math/tex&quot;&gt;l&lt;/script&gt;层的单元个数，&lt;script type=&quot;math/tex&quot;&gt;S_L&lt;/script&gt;代表最后一层中处理单元的个数&lt;/p&gt;
     
     </summary>
     

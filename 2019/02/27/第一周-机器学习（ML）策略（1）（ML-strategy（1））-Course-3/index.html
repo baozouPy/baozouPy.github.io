@@ -141,7 +141,7 @@
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-116.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-117.png">
 <meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-118.png">
-<meta property="og:updated_time" content="2019-03-02T12:11:46.479Z">
+<meta property="og:updated_time" content="2019-03-14T13:42:01.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 机器学习策略（1）（ML strategy（1））(Course 3)">
 <meta name="twitter:description" content="1.1 为什么是 ML 策略？（Why ML Strategy?）当最初得到一个深度神经网络模型时，希望从很多方面来对它进行优化，例如：  Collect more data  Collect more diverse training set  Train algorithm longer with gradient descent  Try Adam instead of gradient d">
@@ -443,8 +443,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T20:11:46+08:00">
-                2019-03-02
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-14T21:42:01+08:00">
+                2019-03-14
               </time>
             
           </span>
@@ -530,7 +530,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  14
+                  13
                 </span>
               
             </div>
@@ -550,7 +550,7 @@
       
 
       
-        <h2 id="1-1-为什么是-ML-策略？（Why-ML-Strategy-）"><a href="#1-1-为什么是-ML-策略？（Why-ML-Strategy-）" class="headerlink" title="1.1 为什么是 ML 策略？（Why ML Strategy?）"></a>1.1 为什么是 ML 策略？（Why ML Strategy?）</h2><p>当最初得到一个深度神经网络模型时，希望从很多方面来对它进行优化，例如：</p>
+        <h1 id="1-1-为什么是-ML-策略？（Why-ML-Strategy-）"><a href="#1-1-为什么是-ML-策略？（Why-ML-Strategy-）" class="headerlink" title="1.1 为什么是 ML 策略？（Why ML Strategy?）"></a>1.1 为什么是 ML 策略？（Why ML Strategy?）</h1><p>当最初得到一个深度神经网络模型时，希望从很多方面来对它进行优化，例如：</p>
 <ul>
 <li><p><strong>Collect more data</strong></p>
 </li>
@@ -572,8 +572,8 @@
 </li>
 </ul>
 <p>可选择的方法很多、很复杂、繁琐。盲目选择、尝试不仅耗费时间而且可能收效甚微。因此，使用快速、有效的策略来优化机器学习模型是非常必要的。</p>
-<h2 id="1-2-正交化（Orthogonalization）"><a href="#1-2-正交化（Orthogonalization）" class="headerlink" title="1.2 正交化（Orthogonalization）"></a>1.2 正交化（Orthogonalization）</h2><p>每次只调试一个参数，保持其它参数不变，使得到的模型某一性能改变是一种最常用的调参策略，称之为正交化方法（Orthogonalization）</p>
-<p>Orthogonalization的核心在于每次调试一个参数只会影响模型的某一个性能</p>
+<h1 id="1-2-正交化（Orthogonalization）"><a href="#1-2-正交化（Orthogonalization）" class="headerlink" title="1.2 正交化（Orthogonalization）"></a>1.2 正交化（Orthogonalization）</h1><p>每次只调试一个参数，保持其它参数不变，使得到的模型某一性能改变是一种最常用的调参策略，称之为<strong>正交化方法（Orthogonalization）</strong></p>
+<p>Orthogonalization的核心在于<strong>每次调试一个参数只会影响模型的某一个性能</strong></p>
 <p>机器学习监督式学习模型大致分成四个独立的“功能”：</p>
 <ul>
 <li><p><strong>Fit training set well on cost function ，</strong>优化训练集可以通过使用更复杂NN，使用Adam等优化算法来实现</p>
@@ -586,11 +586,11 @@
 </li>
 </ul>
 <p>每一种“功能”对应不同的调节方法，是正交的</p>
-<p>early stopping在模型功能调试中并不推荐使用。因为early stopping在提升验证集性能的同时降低了训练集的性能。即early stopping同时影响两个“功能”，不具有独立性、正交性</p>
+<p>early stopping在模型功能调试中并不推荐使用。因为early stopping在<strong>提升验证集性能的同时降低了训练集的性能</strong>。即early stopping同时影响两个“功能”，<strong>不具有独立性、正交性</strong></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-90.png" alt="upload successful"></p>
-<h2 id="1-3-单一数字评估指标（Single-number-evaluation-metric）"><a href="#1-3-单一数字评估指标（Single-number-evaluation-metric）" class="headerlink" title="1.3 单一数字评估指标（Single number evaluation metric）"></a>1.3 单一数字评估指标（Single number evaluation metric）</h2><p>A和B模型的准确率（Precision）和召回率（Recall）分别如下：</p>
+<h1 id="1-3-单一数字评估指标（Single-number-evaluation-metric）"><a href="#1-3-单一数字评估指标（Single-number-evaluation-metric）" class="headerlink" title="1.3 单一数字评估指标（Single number evaluation metric）"></a>1.3 单一数字评估指标（Single number evaluation metric）</h1><p>A和B模型的准确率（Precision）和召回率（Recall）分别如下：</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-91.png" alt="upload successful"></p>
-<p>使用单值评价指标F1 Score来评价模型的好坏。F1 Score综合了Precision和Recall的大小：</p>
+<p>使用<strong>单值评价指标F1 Score</strong>来评价模型的好坏。F1 Score综合了Precision和Recall的大小：</p>
 <script type="math/tex; mode=display">
 F1=\frac{2\cdot P\cdot R}{P+R}</script><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-92.png" alt="upload successful"></p>
 <p>还可以使用平均值作为单值评价指标：</p>
@@ -600,7 +600,11 @@ F1=\frac{2\cdot P\cdot R}{P+R}</script><p><img src="http://pnlb0i3oh.bkt.clouddn
 </blockquote>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-94.png" alt="upload successful"></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-95.png" alt="upload successful"></p>
-<h2 id="1-4-满足和优化指标（Satisficing-and-optimizing-metrics）"><a href="#1-4-满足和优化指标（Satisficing-and-optimizing-metrics）" class="headerlink" title="1.4 满足和优化指标（Satisficing and optimizing metrics）"></a>1.4 满足和优化指标（Satisficing and optimizing metrics）</h2><p>当把所有的性能指标都综合在一起，构成单值评价指标比较困难时：可以把某些性能作为优化指标（Optimizing metic），寻求最优化值；而某些性能作为满意指标（Satisficing metic），只要满足阈值就行</p>
+<h1 id="1-4-满足和优化指标（Satisficing-and-optimizing-metrics）"><a href="#1-4-满足和优化指标（Satisficing-and-optimizing-metrics）" class="headerlink" title="1.4 满足和优化指标（Satisficing and optimizing metrics）"></a>1.4 满足和优化指标（Satisficing and optimizing metrics）</h1><p>当把所有的性能指标都综合在一起，构成单值评价指标比较困难时：</p>
+<ul>
+<li>可以把某些性能作为<strong>优化指标（Optimizing metic）</strong>，寻求最优化值；</li>
+<li>而某些性能作为<strong>满意指标（Satisficing metic）</strong>，只要满足阈值就行</li>
+</ul>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-96.png" alt="upload successful"></p>
 <p>Accuracy和Running time这两个性能不太合适综合成单值评价指标。可以将Accuracy作为优化指标（Optimizing metic），Running time作为满意指标（Satisficing metic）。给Running time设定一个阈值，在其满足阈值的情况下，选择Accuracy最大的模型。如果设定Running time必须在100ms以内，模型C不满足阈值条件，剔除；模型B相比较模型A而言，Accuracy更高，性能更好</p>
 <p>如果要考虑N个指标，则选择一个指标为优化指标，其他N-1个指标都是满足指标：</p>
@@ -610,10 +614,10 @@ N_{metric}:\left\{ \begin{array}{l}
 N_{metric}-1\qquad Satisificing\ metric
 \end{array} \right.</script><p>性能指标（Optimizing metic）需要优化，越优越好；满意指标（Satisficing metic）只要满足设定的阈值</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-97.png" alt="upload successful"></p>
-<h2 id="1-5-训练-开发-测试集划分（Train-dev-test-distributions）"><a href="#1-5-训练-开发-测试集划分（Train-dev-test-distributions）" class="headerlink" title="1.5 训练/开发/测试集划分（Train/dev/test distributions）"></a>1.5 训练/开发/测试集划分（Train/dev/test distributions）</h2><p>训练、开发、测试集选择设置的一些规则和意见：</p>
+<h1 id="1-5-训练-开发-测试集划分（Train-dev-test-distributions）"><a href="#1-5-训练-开发-测试集划分（Train-dev-test-distributions）" class="headerlink" title="1.5 训练/开发/测试集划分（Train/dev/test distributions）"></a>1.5 训练/开发/测试集划分（Train/dev/test distributions）</h1><p>训练、开发、测试集选择设置的一些规则和意见：</p>
 <ul>
 <li>训练、开发、测试集的设置会对产品带来非常大的影响；</li>
-<li>在选择<strong>开发集</strong>和<strong>测试集</strong>时要使二者来自同一分布，且从所有数据中随机选取；</li>
+<li>在选择<strong>开发集</strong>和<strong>测试集</strong>时要使二者来自<strong>同一分布</strong>，且从所有数据中<strong>随机选取</strong>；</li>
 <li>所选择的开发集和测试集中的数据，要与未来想要或者能够得到的数据类似，即模型数据和未来数据要具有相似性；</li>
 <li>设置的测试集只要足够大，使其能够在过拟合的系统中给出高方差的结果就可以，也许10000左右的数目足够；</li>
 <li>设置开发集只要足够使其能够检测不同算法、不同模型之间的优劣差异就可以，百万大数据中1%的大小就足够；</li>
@@ -621,18 +625,18 @@ N_{metric}-1\qquad Satisificing\ metric
 <p>尽量保证dev sets和test sets来源于同一分布且都反映了实际样本的情况。如果dev sets和test sets不来自同一分布，从dev sets上选择的“最佳”模型往往不能够在test sets上表现得很好。好比在dev sets上找到最接近一个靶的靶心的箭，但是test sets提供的靶心却远远偏离dev sets上的靶心，结果肯定无法射中test sets上的靶心位置</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-98.png" alt="upload successful"></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-99.png" alt="upload successful"></p>
-<h2 id="1-6-开发集和测试集的大小（Size-of-dev-and-test-sets）"><a href="#1-6-开发集和测试集的大小（Size-of-dev-and-test-sets）" class="headerlink" title="1.6 开发集和测试集的大小（Size of dev and test sets）"></a>1.6 开发集和测试集的大小（Size of dev and test sets）</h2><ul>
+<h1 id="1-6-开发集和测试集的大小（Size-of-dev-and-test-sets）"><a href="#1-6-开发集和测试集的大小（Size-of-dev-and-test-sets）" class="headerlink" title="1.6 开发集和测试集的大小（Size of dev and test sets）"></a>1.6 开发集和测试集的大小（Size of dev and test sets）</h1><ul>
 <li>样本数量不多（小于一万）的时候，通常将Train/dev/test sets的比例设为60%/20%/20%</li>
 <li>没有dev sets的情况下，Train/test sets的比例设为70%/30%</li>
 <li>样本数量很大（百万级别）的时候，通常将相应的比例设为98%/1%/1%或者99%/1%</li>
 </ul>
-<p>dev sets数量的设置，遵循的准则是通过dev sets能够检测不同算法或模型的区别，以便选择出更好的模型</p>
-<p>test sets数量的设置，遵循的准则是通过test sets能够反映出模型在实际中的表现</p>
-<p>实际应用中，可能只有train/dev sets，而没有test sets。这种情况也是允许的，只要算法模型没有对dev sets过拟合。但条件允许的话，最好有test sets，实现无偏估计</p>
+<p>dev sets数量的设置，遵循的准则是通过dev sets能够<strong>检测不同算法或模型的区别</strong>，以便选择出更好的模型</p>
+<p>test sets数量的设置，遵循的准则是通过test sets能够<strong>反映出模型在实际中的表现</strong></p>
+<p>实际应用中，可能只有train/dev sets，而没有test sets。这种情况也是允许的，只要算法模型没有对dev sets过拟合。但条件允许的话，最好有test sets，实现<strong>无偏估计</strong></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-100.png" alt="upload successful"></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-101.png" alt="upload successful"></p>
-<h2 id="1-7-什么时候该改变开发-测试集和指标？（When-to-change-dev-test-sets-and-metrics）"><a href="#1-7-什么时候该改变开发-测试集和指标？（When-to-change-dev-test-sets-and-metrics）" class="headerlink" title="1.7 什么时候该改变开发/测试集和指标？（When to change dev/test sets and metrics）"></a>1.7 什么时候该改变开发/测试集和指标？（When to change dev/test sets and metrics）</h2><p>算法模型的评价标准有时候需要根据实际情况进行动态调整，目的是让算法模型在实际应用中有更好的效果</p>
-<h3 id="example1"><a href="#example1" class="headerlink" title="example1"></a>example1</h3><p>假设有两个猫的图片的分类器：</p>
+<h1 id="1-7-什么时候该改变开发-测试集和指标？（When-to-change-dev-test-sets-and-metrics）"><a href="#1-7-什么时候该改变开发-测试集和指标？（When-to-change-dev-test-sets-and-metrics）" class="headerlink" title="1.7 什么时候该改变开发/测试集和指标？（When to change dev/test sets and metrics）"></a>1.7 什么时候该改变开发/测试集和指标？（When to change dev/test sets and metrics）</h1><p>算法模型的评价标准有时候需要根据实际情况进行动态调整，目的是让算法模型在实际应用中有更好的效果</p>
+<h2 id="example1"><a href="#example1" class="headerlink" title="example1"></a>example1</h2><p>假设有两个猫的图片的分类器：</p>
 <ul>
 <li>评估指标：分类错误率</li>
 <li>算法A：3%错误率</li>
@@ -656,8 +660,8 @@ w^{(i)}=\begin{cases}
 <li><p><strong>How to do well on this metric</strong></p>
 </li>
 </ul>
-<p>第一步是找靶心，第二步是通过训练，射中靶心。但是在训练的过程中可能会根据实际情况改变算法模型的评价标准，进行动态调整,如果评估指标无法正确评估算法的排名，则需要重新定义一个新的评估指标</p>
-<h3 id="example2"><a href="#example2" class="headerlink" title="example2"></a>example2</h3><p>对example1中的两个不同的猫图片的分类器A和B：</p>
+<p><strong>第一步是找靶心，第二步是通过训练</strong>，射中靶心。但是在训练的过程中可能会根据实际情况改变算法模型的评价标准，进行动态调整,如果评估指标无法正确评估算法的排名，则需要重新定义一个新的评估指标</p>
+<h2 id="example2"><a href="#example2" class="headerlink" title="example2"></a>example2</h2><p>对example1中的两个不同的猫图片的分类器A和B：</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-102.png" alt="upload successful"></p>
 <p>实际情况是一直使用网上下载的高质量的图片进行训练；当部署到手机上时，由于图片的清晰度及拍照水平的原因，当实际测试算法时，会发现算法B的表现其实更好</p>
 <p>如果在训练开发测试的过程中得到的模型效果比较好，但是在实际应用中所真正关心的问题效果却不好的时候，就需要改变开发、测试集或者评估指标</p>
@@ -668,11 +672,11 @@ w^{(i)}=\begin{cases}
 </ol>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-103.png" alt="upload successful"></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-104.png" alt="upload successful"></p>
-<h2 id="1-8-为什么是人的表现？（-Why-human-level-performance-）"><a href="#1-8-为什么是人的表现？（-Why-human-level-performance-）" class="headerlink" title="1.8 为什么是人的表现？（ Why human-level performance?）"></a>1.8 为什么是人的表现？（ Why human-level performance?）</h2><p>机器学习模型的表现通常会跟人类水平表现作比较：</p>
+<h1 id="1-8-为什么是人的表现？（-Why-human-level-performance-）"><a href="#1-8-为什么是人的表现？（-Why-human-level-performance-）" class="headerlink" title="1.8 为什么是人的表现？（ Why human-level performance?）"></a>1.8 为什么是人的表现？（ Why human-level performance?）</h1><p>机器学习模型的表现通常会跟人类水平表现作比较：</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-105.png" alt="upload successful"></p>
-<p>当开始往人类水平努力时，进展很快，机器学习模型经过训练会不断接近human-level performance甚至超过它。超过之后，准确性会上升得比较缓慢，当继续训练算法时，可能模型越来越大，数据越来越多，但是性能无法超过某个理论上限，这就是所谓的贝叶斯最优错误率（<strong>Bayes optimal error</strong>）。理论上任何模型都不能超过它，即没有任何办法设计出一个<script type="math/tex">x</script>到<script type="math/tex">y</script>的函数，让它能够超过一定的准确度，bayes optimal error代表了<strong>最佳</strong>表现</p>
-<p>对于语音识别来说，如果<script type="math/tex">x</script>是音频片段，有些音频很嘈杂，基本不可能知道说的是什么，所以完美的准确率可能不是100%。对于猫图识别来说，也许一些图像非常模糊，不管是人类还是机器，都无法判断该图片中是否有猫。所以完美的准确度可能不是100</p>
-<p>贝叶斯最优错误率有时写作<strong>Bayesian</strong>，即<strong>省略optimal</strong>，就是从<script type="math/tex">x</script>到<script type="math/tex">y</script>映射的理论最优函数，永远不会被超越。，无论在一个问题上工作多少年，紫色线永远不会超越贝叶斯错误率，贝叶斯最佳错误率</p>
+<p>当开始往人类水平努力时，进展很快，机器学习模型经过训练会不断接近human-level performance甚至超过它。超过之后，准确性会上升得比较缓慢，当继续训练算法时，可能模型越来越大，数据越来越多，但是性能无法超过某个理论上限，这就是所谓的<strong>贝叶斯最优错误率（Bayes optimal error）</strong>。理论上任何模型都不能超过它，即没有任何办法设计出一个<script type="math/tex">x</script>到<script type="math/tex">y</script>的函数，让它能够超过一定的准确度，bayes optimal error代表了<strong>最佳</strong>表现</p>
+<p>对于语音识别来说，如果<script type="math/tex">x</script>是音频片段，有些音频很嘈杂，基本不可能知道说的是什么，所以完美的准确率可能不是100%。对于猫图识别来说，也许一些图像非常模糊，不管是人类还是机器，都无法判断该图片中是否有猫。所以完美的准确度可能不是100%</p>
+<p>贝叶斯最优错误率有时写作<strong>Bayesian</strong>，即<strong>省略optimal</strong>，就是从<script type="math/tex">x</script>到<script type="math/tex">y</script>映射的理论最优函数，永远不会被超越。无论在一个问题上工作多少年，紫色线永远不会超越贝叶斯最佳错误率</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-106.png" alt="upload successful"></p>
 <p>机器学习的进展直到超越人类的表现之前一直很快，当超越时，有时进展会变慢。有两个原因：</p>
 <ul>
@@ -684,20 +688,20 @@ w^{(i)}=\begin{cases}
 <p>只要人类的表现比任何其他算法都要好，就可以让人类看看算法处理的例子，知道错误出在哪里，并尝试了解为什么人能做对，算法做错</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-107.png" alt="upload successful"></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-108.png" alt="upload successful"></p>
-<h2 id="1-9-可避免偏差（Avoidable-bias）"><a href="#1-9-可避免偏差（Avoidable-bias）" class="headerlink" title="1.9 可避免偏差（Avoidable bias）"></a>1.9 可避免偏差（Avoidable bias）</h2><p>猫分类器:</p>
+<h1 id="1-9-可避免偏差（Avoidable-bias）"><a href="#1-9-可避免偏差（Avoidable-bias）" class="headerlink" title="1.9 可避免偏差（Avoidable bias）"></a>1.9 可避免偏差（Avoidable bias）</h1><p>猫分类器:</p>
 <p><a href="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/bbeeddabb1800e91b1460deade38e756.png" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bbeeddabb1800e91b1460deade38e756.png" alt></a></p>
-<p>人类具有近乎完美的准确度，人类水平的错误是1%,如果学习算法达到8%的训练错误率和10%的开发错误率，算法在训练集上的表现和人类水平的表现有很大差距，说明算法对训练集的拟合并不好。从减少偏差和方差这个角度看，把重点放在减少偏差上。比如训练更大的神经网络，跑久一点梯度下降，试试能不能在训练集上做得更好</p>
+<p>人类具有近乎完美的准确度，人类水平的错误是1%,如果学习算法达到8%的训练错误率和10%的开发错误率，算法在训练集上的表现和人类水平的表现有很大差距，说明算法对训练集的拟合并不好。从减少偏差和方差这个角度看，把重点放在减少偏差上。比如<strong>训练更大的神经网络，跑久一点梯度下降</strong>，试试能不能在训练集上做得更好</p>
 <p><a href="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/e94444af122172eecf5df8bdca435d1d.png" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e94444af122172eecf5df8bdca435d1d.png" alt></a></p>
-<p>同样的训练错误率和开发错误率，假设人类水平错误实际上是7.5%，系统在训练集上的表现还好，只比人类的表现差一点。在第二个例子中，应专注减少学习算法的方差，可以试试正则化，让开发错误率更接近训练错误率</p>
+<p>同样的训练错误率和开发错误率，假设人类水平错误实际上是7.5%，系统在训练集上的表现还好，只比人类的表现差一点。在第二个例子中，应专注减少学习算法的方差，可以试试<strong>正则化</strong>，让开发错误率更接近训练错误率</p>
 <p>用人类水平的错误率估计或代替贝叶斯错误率或贝叶斯最优错误率，对于计算机视觉任务而言，这样替代相当合理，因为人类非常擅长计算机视觉任务，人类能做到的水平和贝叶斯错误率相差不远</p>
 <p><a href="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/ac8eb51425d5dbf663d050398f7e8af8.png" target="_blank" rel="noopener"><br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac8eb51425d5dbf663d050398f7e8af8.png" alt></a></p>
-<p>左边的例子8%的训练错误率真的很高，可以把它降到1%，减少偏差的手段可能有效。右边的例子中，如果认为贝叶斯错误率是7.5%，这里使用人类水平错误率来替代贝叶斯错误率，就知道没有太多改善的空间了，不能继续减少训练错误率，训练误差和开发误差之间有更多的改进空间，可以将这个2%的差距缩小一点，使用减少方差的手段，比如正则化，或者收集更多的训练数据</p>
+<p>左边的例子8%的训练错误率真的很高，可以把它降到1%，减少偏差的手段可能有效。右边的例子中，如果认为贝叶斯错误率是7.5%，这里使用人类水平错误率来替代贝叶斯错误率，就知道没有太多改善的空间了，不能继续减少训练错误率，训练误差和开发误差之间有更多的改进空间，可以将这个2%的差距缩小一点，使用减少方差的手段，比如<strong>正则化，或者收集更多的训练数据</strong></p>
 <p>贝叶斯错误率或者对贝叶斯错误率的估计和训练错误率之间的差值称为<strong>可避免偏差</strong></p>
 <p>理论上是不可能超过贝叶斯错误率的，除非过拟合</p>
 <p>训练错误率和开发错误率之前的差值，说明算法在方差问题上还有多少改善空间</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-109.png" alt="upload successful"></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-110.png" alt="upload successful"></p>
-<h2 id="1-10-理解人的表现（Understanding-human-level-performance）"><a href="#1-10-理解人的表现（Understanding-human-level-performance）" class="headerlink" title="1.10 理解人的表现（Understanding human-level performance）"></a>1.10 理解人的表现（Understanding human-level performance）</h2><p>医学图像识别的例子：</p>
+<h1 id="1-10-理解人的表现（Understanding-human-level-performance）"><a href="#1-10-理解人的表现（Understanding-human-level-performance）" class="headerlink" title="1.10 理解人的表现（Understanding human-level performance）"></a>1.10 理解人的表现（Understanding human-level performance）</h1><p>医学图像识别的例子：</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-111.png" alt="upload successful"></p>
 <p>在减小误诊率的背景下，人类水平误差在这种情形下应定义为：0.5% error。但是实际应用中，不同人可能选择的human-level performance基准是不同的，这会带来一些影响</p>
 <p>如果在为了部署系统或者做研究分析的背景下，也许超过一名普通医生即可，即人类水平误差在这种情形下应定义为：1% error</p>
@@ -705,7 +709,7 @@ w^{(i)}=\begin{cases}
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-112.png" alt="upload successful"></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-113.png" alt="upload successful"></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-114.png" alt="upload successful"></p>
-<h2 id="1-11-超过人的表现（Surpassing-human-level-performance）"><a href="#1-11-超过人的表现（Surpassing-human-level-performance）" class="headerlink" title="1.11 超过人的表现（Surpassing human- level performance）"></a>1.11 超过人的表现（Surpassing human- level performance）</h2><p>对于自然感知类问题，例如视觉、听觉等，机器学习的表现不及人类。但是在很多其它方面，机器学习模型的表现已经超过人类了，包括：</p>
+<h1 id="1-11-超过人的表现（Surpassing-human-level-performance）"><a href="#1-11-超过人的表现（Surpassing-human-level-performance）" class="headerlink" title="1.11 超过人的表现（Surpassing human- level performance）"></a>1.11 超过人的表现（Surpassing human- level performance）</h1><p>对于自然感知类问题，例如视觉、听觉等，机器学习的表现不及人类。但是在很多其它方面，机器学习模型的表现已经超过人类了，包括：</p>
 <ul>
 <li><p><strong>Online advertising</strong></p>
 </li>
@@ -718,14 +722,19 @@ w^{(i)}=\begin{cases}
 <li><p><strong>Loan approvals</strong></p>
 </li>
 </ul>
-<p>机器学习模型超过human-level performance是比较困难的。但是只要提供足够多的样本数据，训练复杂的神经网络，模型预测准确性会大大提高，很有可能接近甚至超过human-level performance。值得一提的是当算法模型的表现超过human-level performance时，很难再通过人的直觉来解决如何继续提高算法模型性能的问题</p>
+<p>机器学习模型超过human-level performance是比较困难的。但是只要<strong>提供足够多的样本数据，训练复杂的神经网络</strong>，模型预测准确性会大大提高，很有可能接近甚至超过human-level performance。值得一提的是当算法模型的表现超过human-level performance时，很难再通过人的直觉来解决如何继续提高算法模型性能的问题</p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-115.png" alt="upload successful"></p>
 <p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-116.png" alt="upload successful"></p>
-<h2 id="1-12-改善你的模型的表现（Improving-your-model-performance）"><a href="#1-12-改善你的模型的表现（Improving-your-model-performance）" class="headerlink" title="1.12 改善你的模型的表现（Improving your model performance）"></a>1.12 改善你的模型的表现（Improving your model performance）</h2><p>提高机器学习模型性能主要要解决两个问题：avoidable bias和variance。training error与human-level error之间的差值反映的是avoidable bias，dev error与training error之间的差值反映的是variance</p>
+<h1 id="1-12-改善你的模型的表现（Improving-your-model-performance）"><a href="#1-12-改善你的模型的表现（Improving-your-model-performance）" class="headerlink" title="1.12 改善你的模型的表现（Improving your model performance）"></a>1.12 改善你的模型的表现（Improving your model performance）</h1><p>提高机器学习模型性能主要要解决两个问题：</p>
+<ul>
+<li>avoidable bias</li>
+<li>variance</li>
+</ul>
+<p>training error与human-level error之间的差值反映的是avoidable bias，dev error与training error之间的差值反映的是variance</p>
 <p><strong>基本假设：</strong></p>
 <ul>
 <li>模型在训练集上有很好的表现；</li>
-<li>模型推广到开发和测试集啥也有很好的表现</li>
+<li>模型推广到开发和测试集也有很好的表现</li>
 </ul>
 <p><strong>减少可避免偏差</strong></p>
 <ul>
@@ -813,8 +822,8 @@ w^{(i)}=\begin{cases}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/27/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/" rel="next" title="第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)">
-                <i class="fa fa-chevron-left"></i> 第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning）(Course 2)
+              <a href="/2019/02/27/第-三-周-超-参-数-调-试-、-Batch-正-则-化-和-程-序-框-架-（Hyperparameter-tuning）-Course-2/" rel="next" title="第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning Batch Normalization and Programming Frameworks）(Course 2)">
+                <i class="fa fa-chevron-left"></i> 第 三 周 超 参 数 调 试 、 Batch 正 则 化 和 程 序 框 架 （Hyperparameter tuning Batch Normalization and Programming Frameworks）(Course 2)
               </a>
             
           </div>
@@ -1038,7 +1047,7 @@ w^{(i)}=\begin{cases}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-为什么是-ML-策略？（Why-ML-Strategy-）"><span class="nav-number">1.</span> <span class="nav-text">1.1 为什么是 ML 策略？（Why ML Strategy?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-正交化（Orthogonalization）"><span class="nav-number">2.</span> <span class="nav-text">1.2 正交化（Orthogonalization）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-单一数字评估指标（Single-number-evaluation-metric）"><span class="nav-number">3.</span> <span class="nav-text">1.3 单一数字评估指标（Single number evaluation metric）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-满足和优化指标（Satisficing-and-optimizing-metrics）"><span class="nav-number">4.</span> <span class="nav-text">1.4 满足和优化指标（Satisficing and optimizing metrics）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-训练-开发-测试集划分（Train-dev-test-distributions）"><span class="nav-number">5.</span> <span class="nav-text">1.5 训练/开发/测试集划分（Train/dev/test distributions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-开发集和测试集的大小（Size-of-dev-and-test-sets）"><span class="nav-number">6.</span> <span class="nav-text">1.6 开发集和测试集的大小（Size of dev and test sets）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-什么时候该改变开发-测试集和指标？（When-to-change-dev-test-sets-and-metrics）"><span class="nav-number">7.</span> <span class="nav-text">1.7 什么时候该改变开发/测试集和指标？（When to change dev/test sets and metrics）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#example1"><span class="nav-number">7.1.</span> <span class="nav-text">example1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example2"><span class="nav-number">7.2.</span> <span class="nav-text">example2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-为什么是人的表现？（-Why-human-level-performance-）"><span class="nav-number">8.</span> <span class="nav-text">1.8 为什么是人的表现？（ Why human-level performance?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-可避免偏差（Avoidable-bias）"><span class="nav-number">9.</span> <span class="nav-text">1.9 可避免偏差（Avoidable bias）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-理解人的表现（Understanding-human-level-performance）"><span class="nav-number">10.</span> <span class="nav-text">1.10 理解人的表现（Understanding human-level performance）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11-超过人的表现（Surpassing-human-level-performance）"><span class="nav-number">11.</span> <span class="nav-text">1.11 超过人的表现（Surpassing human- level performance）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-改善你的模型的表现（Improving-your-model-performance）"><span class="nav-number">12.</span> <span class="nav-text">1.12 改善你的模型的表现（Improving your model performance）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-为什么是-ML-策略？（Why-ML-Strategy-）"><span class="nav-number">1.</span> <span class="nav-text">1.1 为什么是 ML 策略？（Why ML Strategy?）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-2-正交化（Orthogonalization）"><span class="nav-number">2.</span> <span class="nav-text">1.2 正交化（Orthogonalization）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-3-单一数字评估指标（Single-number-evaluation-metric）"><span class="nav-number">3.</span> <span class="nav-text">1.3 单一数字评估指标（Single number evaluation metric）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-4-满足和优化指标（Satisficing-and-optimizing-metrics）"><span class="nav-number">4.</span> <span class="nav-text">1.4 满足和优化指标（Satisficing and optimizing metrics）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-5-训练-开发-测试集划分（Train-dev-test-distributions）"><span class="nav-number">5.</span> <span class="nav-text">1.5 训练/开发/测试集划分（Train/dev/test distributions）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-6-开发集和测试集的大小（Size-of-dev-and-test-sets）"><span class="nav-number">6.</span> <span class="nav-text">1.6 开发集和测试集的大小（Size of dev and test sets）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-7-什么时候该改变开发-测试集和指标？（When-to-change-dev-test-sets-and-metrics）"><span class="nav-number">7.</span> <span class="nav-text">1.7 什么时候该改变开发/测试集和指标？（When to change dev/test sets and metrics）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example1"><span class="nav-number">7.1.</span> <span class="nav-text">example1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example2"><span class="nav-number">7.2.</span> <span class="nav-text">example2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-8-为什么是人的表现？（-Why-human-level-performance-）"><span class="nav-number">8.</span> <span class="nav-text">1.8 为什么是人的表现？（ Why human-level performance?）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-9-可避免偏差（Avoidable-bias）"><span class="nav-number">9.</span> <span class="nav-text">1.9 可避免偏差（Avoidable bias）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-10-理解人的表现（Understanding-human-level-performance）"><span class="nav-number">10.</span> <span class="nav-text">1.10 理解人的表现（Understanding human-level performance）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-11-超过人的表现（Surpassing-human-level-performance）"><span class="nav-number">11.</span> <span class="nav-text">1.11 超过人的表现（Surpassing human- level performance）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-12-改善你的模型的表现（Improving-your-model-performance）"><span class="nav-number">12.</span> <span class="nav-text">1.12 改善你的模型的表现（Improving your model performance）</span></a></li></ol></div>
             
 
           </div>
