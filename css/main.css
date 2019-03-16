@@ -2046,7 +2046,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6ed154;
+  background: #8cbfff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2832,7 +2832,7 @@ img:hover {
   overflow: hidden;
   padding: 0;
   width: 240px;
-  background: rgba(255,255,255,0.7);
+  background: rgba(16,20,35,0.85);
   box-shadow: initial;
   border-radius: initial;
 }
@@ -2891,7 +2891,7 @@ img:hover {
   box-sizing: border-box;
   padding: 40px;
   width: 700px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(16,20,35,0.9);
   min-height: 700px;
   box-shadow: initial;
   border-radius: initial;
@@ -3114,8 +3114,8 @@ header.post-header {
 .sidebar-inner {
   box-sizing: border-box;
   width: 240px;
-  color: #555;
-  background: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.9);
+  background: rgba(16,20,35,0.85);
   box-shadow: initial;
   border-radius: initial;
   opacity: 0;
@@ -3330,6 +3330,7 @@ pre {
   border: 1px solid #d6d6d6;
 }
 .post {
+  color: rgba(255,255,255,0.7);
   margin-top: 60px;
   margin-bottom: 60px;
   padding: 25px;
