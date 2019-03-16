@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[aaa]]></title>
+    <url>%2F2019%2F03%2F16%2Faaa%2F</url>
+    <content type="text"><![CDATA[aaa]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[大话数据结构 第九章 排序]]></title>
     <url>%2F2019%2F03%2F08%2F%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%92%E5%BA%8F%2F</url>
     <content type="text"><![CDATA[9.1 排序的基本概念与分类假设含有n个记录的序列为\{r_1,r_2,\cdots,r_n\}，其相应的关键字分别为\{k_1,k_2,\cdots,k_n\}，需确定1,2,……,n的一种排列p_1,p_2,\cdots,p_n，使其相应的关键字满足k_{p_1}\le k_{p_2}\le \cdots \le k_{p_n}（非递减或非递增）关系，即使得序列成为一个按关键字有序的序列\{r_{p_1},r_{p_2},\cdots,r_{p_n}\}，这样的操作称为排序 在排序问题中，通常将数据元素称为记录。输入的是一个记录集合，输出的也是一个记录集合，可以将排序看成是线性表的一种操作 排序的依据是关键字之间的大小关系，对同一个记录集合，针对不同的关键字进行排序，可以得到不同序列 关键字k_i可以是记录r的主关键字，也可以是次关键字，甚至是若干数据项的组合。 排序的稳定性假设k_i=k_j(1 \le i\le n,1\le j\le n,i\ne j)，且在排序前的序列中r_i领先于r_j（即i]]></content>
