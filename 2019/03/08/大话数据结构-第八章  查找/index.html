@@ -109,6 +109,7 @@
 <meta property="og:site_name" content="暴走的技术博客">
 <meta property="og:description" content="8.1 查找概论查找表（Search Table）是由同一类型的数据元素（或记录）构成的集合">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/400import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/200import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/180import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/161import.png">
@@ -167,11 +168,11 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/244import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/250import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/245import.png">
-<meta property="og:updated_time" content="2019-03-11T08:01:10.204Z">
+<meta property="og:updated_time" content="2019-03-16T05:25:22.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大话数据结构 第八章  查找">
 <meta name="twitter:description" content="8.1 查找概论查找表（Search Table）是由同一类型的数据元素（或记录）构成的集合">
-<meta name="twitter:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/200import.png">
+<meta name="twitter:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/400import.png">
 
 
 
@@ -469,8 +470,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T16:01:10+08:00">
-                2019-03-11
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T13:25:22+08:00">
+                2019-03-16
               </time>
             
           </span>
@@ -567,7 +568,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  37
+                  36
                 </span>
               
             </div>
@@ -587,53 +588,39 @@
       
 
       
-        <h1 id="8-1-查找概论"><a href="#8-1-查找概论" class="headerlink" title="8.1 查找概论"></a>8.1 查找概论</h1><p><strong>查找表（Search Table）是由同一类型的数据元素（或记录）构成的集合</strong></p>
-<a id="more"></a>**关键字（Key）是数据元素中某个数据项的值，又称为键值**，可以标识一个数据元素，也可以标识一个记录的某个数据项（字段），称为关键码，如①和②
-
-**若关键字可以唯一地标识一个记录，称此关键字为主关键字（Primary Key）**。意味着对不同的记录其主关键字均不相同。主关键字所在的数据项称为主关键码，如③和④
-
-**可以识别多个数据元素（或记录）的关键字，称为次关键字（SecondaryKey）**，如⑤。可以理解为是不以唯一标识一个数据元素（或记录）的关键字，对应的数据项就是次关键码
-
-![](https://baozou.gitbooks.io/-data-structure/content/assets/400import.png)
-
-**查找（Searching）是根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素（或记录）**
-
-若表中存在这样的一个记录，则称查找是成功的，此时查找的结果给出整个记录的信息，或指示该记录在查找表中的位置。比如查找主关键码“**代码**”的主关键字为“sh601398”的记录时，得到第2条唯一记录。查找次关键码“涨跌额”为“**-0.11**”的记录时，得到两条记录
-
-若表中不存在关键字等于给定值的记录，称查找不成功，此时查找的结果可给出一个“空”记录或“空”指针
-
-查找表按照操作方式来分有两大种：
-
-* **静态查找表（Static Search Table）**：只作查找操作的查找表
-
-主要操作：
-
-1. 查询某个“特定的”数据元素是否在查找表中
-2. 检索某个“特定的”数据元素和各种属性
-
-3. **动态查找表（Dynamic Search Table）**：在查找过程中同时插入查找表中不存在的数据元素，或者从查找表中删除已经存在的某个数据元素
-
-主要操作：
-
-1. 查找时插入数据元素
-2. 查找时删除数据元素
-
-面向查找操作的数据结构称为查找结构
-
-# 8.2 顺序表查找
-
-**顺序查找（Sequential Search）又叫线性查找，是最基本的查找技术**
-
-查找过程是：
-
-1. 从表中第一个（或最后一个）记录开始，逐个进行记录的关键字和给定值比较
-2. 若某个记录的关键字和给定值相等，则查找成功，找到所查的记录
-3. 如果直到最后一个（或第一个）记录，其关键字和给定值比较都不等时，则表中没有所查的记录，查找不成功
-
-## 顺序表查找算法
-
-顺序查找的算法：
-
+        <h1 id="8-1-查找概论"><a href="#8-1-查找概论" class="headerlink" title="8.1 查找概论"></a>8.1 查找概论</h1><p><strong>查找表（Search Table）是由同一类型的数据元素（或记录）构成的集合</strong><br><a id="more"></a><br><strong>关键字（Key）是数据元素中某个数据项的值，又称为键值</strong>，可以标识一个数据元素，也可以标识一个记录的某个数据项（字段），称为关键码，如①和②</p>
+<p><strong>若关键字可以唯一地标识一个记录，称此关键字为主关键字（Primary Key）</strong>。意味着对不同的记录其主关键字均不相同。主关键字所在的数据项称为主关键码，如③和④</p>
+<p><strong>可以识别多个数据元素（或记录）的关键字，称为次关键字（SecondaryKey）</strong>，如⑤。可以理解为是不以唯一标识一个数据元素（或记录）的关键字，对应的数据项就是次关键码</p>
+<p><img src="https://baozou.gitbooks.io/-data-structure/content/assets/400import.png" alt></p>
+<p><strong>查找（Searching）是根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素（或记录）</strong></p>
+<p>若表中存在这样的一个记录，则称查找是成功的，此时查找的结果给出整个记录的信息，或指示该记录在查找表中的位置。比如查找主关键码“<strong>代码</strong>”的主关键字为“sh601398”的记录时，得到第2条唯一记录。查找次关键码“涨跌额”为“<strong>-0.11</strong>”的记录时，得到两条记录</p>
+<p>若表中不存在关键字等于给定值的记录，称查找不成功，此时查找的结果可给出一个“空”记录或“空”指针</p>
+<p>查找表按照操作方式来分有两大种：</p>
+<ul>
+<li><strong>静态查找表（Static Search Table）</strong>：只作查找操作的查找表</li>
+</ul>
+<p>主要操作：</p>
+<ol>
+<li>查询某个“特定的”数据元素是否在查找表中</li>
+<li><p>检索某个“特定的”数据元素和各种属性</p>
+</li>
+<li><p><strong>动态查找表（Dynamic Search Table）</strong>：在查找过程中同时插入查找表中不存在的数据元素，或者从查找表中删除已经存在的某个数据元素</p>
+</li>
+</ol>
+<p>主要操作：</p>
+<ol>
+<li>查找时插入数据元素</li>
+<li>查找时删除数据元素</li>
+</ol>
+<p>面向查找操作的数据结构称为查找结构</p>
+<h1 id="8-2-顺序表查找"><a href="#8-2-顺序表查找" class="headerlink" title="8.2 顺序表查找"></a>8.2 顺序表查找</h1><p><strong>顺序查找（Sequential Search）又叫线性查找，是最基本的查找技术</strong></p>
+<p>查找过程是：</p>
+<ol>
+<li>从表中第一个（或最后一个）记录开始，逐个进行记录的关键字和给定值比较</li>
+<li>若某个记录的关键字和给定值相等，则查找成功，找到所查的记录</li>
+<li>如果直到最后一个（或第一个）记录，其关键字和给定值比较都不等时，则表中没有所查的记录，查找不成功</li>
+</ol>
+<h2 id="顺序表查找算法"><a href="#顺序表查找算法" class="headerlink" title="顺序表查找算法"></a>顺序表查找算法</h2><p>顺序查找的算法：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 顺序查找，a为数组，n为要查找的数组长度， key为要查找的关键字 */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Sequential_Search</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line"><span class="keyword">if</span> (a[i] == key)</span><br><span class="line"><span class="keyword">return</span> i;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="顺序表查找优化"><a href="#顺序表查找优化" class="headerlink" title="顺序表查找优化"></a>顺序表查找优化</h2><p>设置一个哨兵，可以解决不需要每次让i与n作比较</p>
 <p>改进后的顺序查找算法：</p>
@@ -710,7 +697,7 @@ mid=low+F[k-1]-1</script><p>在海量数据的查找过程中，这种细微的�
 <p>设n个记录的数据集被平均分成m块，每个块中有t条记录，显然n=m×t（m=n/t）。<script type="math/tex">L_b</script>为查找索引表的平均查找长度，因最好与最差的等概率原则，所以<script type="math/tex">L_b</script>的平均长度为<script type="math/tex">\frac{m+1}{2}</script>。<script type="math/tex">L_w</script>为块中查找记录的平均查找长度，同理可知平均查找长度为<script type="math/tex">\frac{t+1}{2}</script>。这样分块索引查找的平均查找长度为：</p>
 <p><img src="https://baozou.gitbooks.io/-data-structure/content/assets/167import.png" alt></p>
 <p>最佳的情况就是分的块数m与块中的记录数t相同，此时意味着<script type="math/tex">n=m\times t=t^2</script>，即：</p>
-<h1 id><a href="#" class="headerlink" title="#"></a>#</h1><script type="math/tex; mode=display">
+<script type="math/tex; mode=display">
 ASL_w=\frac{1}{2}\times(\frac{n}{t}+t)+1=t+1=\sqrt n+1</script><p>倒排索引</p>
 <p>索引项的通用结构是：</p>
 <ul>
@@ -1294,7 +1281,7 @@ _i(key)=RH_i(key)(i=1,2,...,k)</script><p><script type="math/tex">RH_i</script>�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#8-1-查找概论"><span class="nav-number">1.</span> <span class="nav-text">8.1 查找概论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序表查找优化"><span class="nav-number">1.1.</span> <span class="nav-text">顺序表查找优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-3-有序表查找"><span class="nav-number">2.</span> <span class="nav-text">8.3 有序表查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插值查找"><span class="nav-number">2.1.</span> <span class="nav-text">插值查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斐波那契查找"><span class="nav-number">2.2.</span> <span class="nav-text">斐波那契查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-4-线性索引查找"><span class="nav-number">3.</span> <span class="nav-text">8.4 线性索引查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#稠密索引"><span class="nav-number">3.1.</span> <span class="nav-text">稠密索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分块索引"><span class="nav-number">3.2.</span> <span class="nav-text">分块索引</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">4.</span> <span class="nav-text">#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-5-二叉排序树"><span class="nav-number">5.</span> <span class="nav-text">8.5 二叉排序树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉排序树查找操作"><span class="nav-number">5.1.</span> <span class="nav-text">二叉排序树查找操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉排序树插入操作"><span class="nav-number">5.2.</span> <span class="nav-text">二叉排序树插入操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉排序树删除操作"><span class="nav-number">5.3.</span> <span class="nav-text">二叉排序树删除操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉排序树总结"><span class="nav-number">5.4.</span> <span class="nav-text">二叉排序树总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-6-平衡二叉树（AVL树）"><span class="nav-number">6.</span> <span class="nav-text">8.6 平衡二叉树（AVL树）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡二叉树实现原理"><span class="nav-number">6.1.</span> <span class="nav-text">平衡二叉树实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡二叉树实现算法"><span class="nav-number">6.2.</span> <span class="nav-text">平衡二叉树实现算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-7-多路查找树（B树）"><span class="nav-number">7.</span> <span class="nav-text">8.7 多路查找树（B树）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3树"><span class="nav-number">7.1.</span> <span class="nav-text">2-3树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3树的插入实现"><span class="nav-number">7.1.1.</span> <span class="nav-text">2-3树的插入实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3树的删除实现"><span class="nav-number">7.1.2.</span> <span class="nav-text">2-3树的删除实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-4树"><span class="nav-number">7.2.</span> <span class="nav-text">2-3-4树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B树"><span class="nav-number">7.3.</span> <span class="nav-text">B树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-树"><span class="nav-number">7.4.</span> <span class="nav-text">B+树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-8-散列表查找（哈希表）概述"><span class="nav-number">8.</span> <span class="nav-text">8.8 散列表查找（哈希表）概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#散列表查找定义"><span class="nav-number">8.1.</span> <span class="nav-text">散列表查找定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散列表查找步骤"><span class="nav-number">8.2.</span> <span class="nav-text">散列表查找步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-9-散列函数的构造方法"><span class="nav-number">9.</span> <span class="nav-text">8.9 散列函数的构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接定址法"><span class="nav-number">9.1.</span> <span class="nav-text">直接定址法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字分析法"><span class="nav-number">9.2.</span> <span class="nav-text">数字分析法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平方取中法"><span class="nav-number">9.3.</span> <span class="nav-text">平方取中法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#折叠法"><span class="nav-number">9.4.</span> <span class="nav-text">折叠法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#除留余数法"><span class="nav-number">9.5.</span> <span class="nav-text">除留余数法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机数法"><span class="nav-number">9.6.</span> <span class="nav-text">随机数法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-10-处理散列冲突的方法"><span class="nav-number">10.</span> <span class="nav-text">8.10 处理散列冲突的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开放定址法"><span class="nav-number">10.1.</span> <span class="nav-text">开放定址法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再散列函数法"><span class="nav-number">10.2.</span> <span class="nav-text">再散列函数法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链地址法"><span class="nav-number">10.3.</span> <span class="nav-text">链地址法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公共溢出区法"><span class="nav-number">10.4.</span> <span class="nav-text">公共溢出区法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-11-散列表查找实现"><span class="nav-number">11.</span> <span class="nav-text">8.11 散列表查找实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#散列表查找算法实现"><span class="nav-number">11.1.</span> <span class="nav-text">散列表查找算法实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散列表查找性能分析"><span class="nav-number">11.2.</span> <span class="nav-text">散列表查找性能分析</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#8-1-查找概论"><span class="nav-number">1.</span> <span class="nav-text">8.1 查找概论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-2-顺序表查找"><span class="nav-number">2.</span> <span class="nav-text">8.2 顺序表查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序表查找算法"><span class="nav-number">2.1.</span> <span class="nav-text">顺序表查找算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序表查找优化"><span class="nav-number">2.2.</span> <span class="nav-text">顺序表查找优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-3-有序表查找"><span class="nav-number">3.</span> <span class="nav-text">8.3 有序表查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插值查找"><span class="nav-number">3.1.</span> <span class="nav-text">插值查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斐波那契查找"><span class="nav-number">3.2.</span> <span class="nav-text">斐波那契查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-4-线性索引查找"><span class="nav-number">4.</span> <span class="nav-text">8.4 线性索引查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#稠密索引"><span class="nav-number">4.1.</span> <span class="nav-text">稠密索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分块索引"><span class="nav-number">4.2.</span> <span class="nav-text">分块索引</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-5-二叉排序树"><span class="nav-number">5.</span> <span class="nav-text">8.5 二叉排序树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉排序树查找操作"><span class="nav-number">5.1.</span> <span class="nav-text">二叉排序树查找操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉排序树插入操作"><span class="nav-number">5.2.</span> <span class="nav-text">二叉排序树插入操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉排序树删除操作"><span class="nav-number">5.3.</span> <span class="nav-text">二叉排序树删除操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉排序树总结"><span class="nav-number">5.4.</span> <span class="nav-text">二叉排序树总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-6-平衡二叉树（AVL树）"><span class="nav-number">6.</span> <span class="nav-text">8.6 平衡二叉树（AVL树）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡二叉树实现原理"><span class="nav-number">6.1.</span> <span class="nav-text">平衡二叉树实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡二叉树实现算法"><span class="nav-number">6.2.</span> <span class="nav-text">平衡二叉树实现算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-7-多路查找树（B树）"><span class="nav-number">7.</span> <span class="nav-text">8.7 多路查找树（B树）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3树"><span class="nav-number">7.1.</span> <span class="nav-text">2-3树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3树的插入实现"><span class="nav-number">7.1.1.</span> <span class="nav-text">2-3树的插入实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3树的删除实现"><span class="nav-number">7.1.2.</span> <span class="nav-text">2-3树的删除实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-4树"><span class="nav-number">7.2.</span> <span class="nav-text">2-3-4树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B树"><span class="nav-number">7.3.</span> <span class="nav-text">B树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-树"><span class="nav-number">7.4.</span> <span class="nav-text">B+树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-8-散列表查找（哈希表）概述"><span class="nav-number">8.</span> <span class="nav-text">8.8 散列表查找（哈希表）概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#散列表查找定义"><span class="nav-number">8.1.</span> <span class="nav-text">散列表查找定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散列表查找步骤"><span class="nav-number">8.2.</span> <span class="nav-text">散列表查找步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-9-散列函数的构造方法"><span class="nav-number">9.</span> <span class="nav-text">8.9 散列函数的构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接定址法"><span class="nav-number">9.1.</span> <span class="nav-text">直接定址法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字分析法"><span class="nav-number">9.2.</span> <span class="nav-text">数字分析法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平方取中法"><span class="nav-number">9.3.</span> <span class="nav-text">平方取中法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#折叠法"><span class="nav-number">9.4.</span> <span class="nav-text">折叠法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#除留余数法"><span class="nav-number">9.5.</span> <span class="nav-text">除留余数法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机数法"><span class="nav-number">9.6.</span> <span class="nav-text">随机数法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-10-处理散列冲突的方法"><span class="nav-number">10.</span> <span class="nav-text">8.10 处理散列冲突的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开放定址法"><span class="nav-number">10.1.</span> <span class="nav-text">开放定址法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再散列函数法"><span class="nav-number">10.2.</span> <span class="nav-text">再散列函数法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链地址法"><span class="nav-number">10.3.</span> <span class="nav-text">链地址法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公共溢出区法"><span class="nav-number">10.4.</span> <span class="nav-text">公共溢出区法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-11-散列表查找实现"><span class="nav-number">11.</span> <span class="nav-text">8.11 散列表查找实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#散列表查找算法实现"><span class="nav-number">11.1.</span> <span class="nav-text">散列表查找算法实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散列表查找性能分析"><span class="nav-number">11.2.</span> <span class="nav-text">散列表查找性能分析</span></a></li></ol></li></ol></div>
             
 
           </div>
