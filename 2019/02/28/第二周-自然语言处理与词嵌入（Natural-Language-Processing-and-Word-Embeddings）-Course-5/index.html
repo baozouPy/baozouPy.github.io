@@ -138,7 +138,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cf60f429ef532a2b3bbad3db98b054c5.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4102795b004ff090ed83dc654f585852.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png">
-<meta property="og:updated_time" content="2019-03-16T02:18:53.328Z">
+<meta property="og:updated_time" content="2019-03-16T08:35:48.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
 <meta name="twitter:description" content="2.1 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：">
@@ -440,7 +440,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T10:18:53+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T16:35:48+08:00">
                 2019-03-16
               </time>
             
@@ -555,16 +555,16 @@
 <blockquote>
 <p>以上举例的特征实际上并不是手工设计的，而是算法（word embedding）学习而来；而且这些学习的特征，可能并不具有良好的解释性，但无论如何，算法都可以快速找到哪些单词是类似的</p>
 </blockquote>
-<p>特征向量的长度依情况而定，特征元素越多则对单词表征得越全面。这里的特征向量长度设定为300。使用特征表征之后，词汇表中的每个单词都可以使用对应的300 x 1的向量来表示，该向量的每个元素表示该单词对应的某个特征值。每个单词用e+词汇表索引的方式标记，例如<script type="math/tex">e_{5391}</script>，<script type="math/tex">e_{9853}</script>，<script type="math/tex">e_{4914}</script>，<script type="math/tex">e_{7157}</script>，<script type="math/tex">e_{456}</script>，<script type="math/tex">e_{6257}</script></p>
-<p>用这种表示方法来表示<strong>apple</strong>和<strong>orange</strong>这些词，那么<strong>apple</strong>和<strong>orange</strong>的这种表示肯定会非常相似，可能有些特征不太一样，如颜色口味，但总的来说<strong>apple</strong>和<strong>orange</strong>的大部分特征实际上都一样，或者说都有相似的值。这样对于已经知道<strong>orange juice</strong>的算法很大几率上也会明白<strong>apple juice</strong>这个东西，这样对于不同的单词算法会泛化的更好</p>
+<p>特征向量的长度依情况而定，<strong>特征元素越多则对单词表征得越全面</strong>。这里的特征向量长度设定为300。使用特征表征之后，词汇表中的每个单词都可以使用对应的300 x 1的向量来表示，该向量的每个元素表示该单词对应的某个特征值。每个单词用e+词汇表索引的方式标记，例如<script type="math/tex">e_{5391}</script>，<script type="math/tex">e_{9853}</script>，<script type="math/tex">e_{4914}</script>，<script type="math/tex">e_{7157}</script>，<script type="math/tex">e_{456}</script>，<script type="math/tex">e_{6257}</script></p>
+<p>用这种表示方法来表示<strong>apple</strong>和<strong>orange</strong>这些词，那么<strong>apple</strong>和<strong>orange</strong>的这种表示肯定会非常相似，可能有些特征不太一样，如颜色口味，但总的来说<strong>apple</strong>和<strong>orange</strong>的大部分特征实际上都一样，或者说都有相似的值。这样对于已经知道<strong>orange juice</strong>的算法很大几率上也会明白<strong>apple juice</strong>这个东西，这样<strong>对于不同的单词算法会泛化的更好</strong></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/59fb45cfdf7faa53571ec7b921b78358.png" alt></p>
 <p>如果能够学习到一个300维的特征向量，或者说300维的<strong>词嵌入</strong>，把这300维的数据嵌入到一个二维空间里，就可以可视化了。常用的可视化算法是<strong>t-SNE算法</strong>，会发现<strong>man</strong>和<strong>woman</strong>这些词聚集在一块，<strong>king</strong>和<strong>queen</strong>聚集在一块等等</p>
-<p>在对这些概念可视化的时候，词嵌入算法对于相近的概念，学到的特征也比较类似，最终把它们映射为相似的特征向量</p>
+<p>在对这些概念可视化的时候，<strong>词嵌入算法对于相近的概念，学到的特征也比较类似</strong>，最终把它们映射为相似的特征向量</p>
 <h1 id="2-2-使用词嵌入（Using-Word-Embeddings）"><a href="#2-2-使用词嵌入（Using-Word-Embeddings）" class="headerlink" title="2.2 使用词嵌入（Using Word Embeddings）"></a>2.2 使用词嵌入（Using Word Embeddings）</h1><p>之前Named entity识别的例子（即找出语句中的人名），每个单词采用的是one-hot编码。RNN模型能确定<strong>Sally Johnson</strong>是一个人名而不是一个公司名，是因为“orange farmer”是份职业，很明显“Sally Johnson”是一个人名（输出1）</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b4bf4b0cdcef0c9d021707c47d5aecda.png" alt></p>
 <p>如果用特征化表示方法，即用<strong>词嵌入</strong>作为输入训练好的模型，如果一个新的输入：“<strong>Robert Lin is an apple farmer.</strong>”，因为知道<strong>orange</strong>和<strong>apple</strong>很相近，那么算法很容易就知道<strong>Robert Lin</strong>也是一个人的名字</p>
-<p><strong>featurized representation</strong>的优点是可以减少训练样本的数目，前提是对海量单词建立特征向量表述。即使训练样本不够多，测试时遇到陌生单词，例如“durian cultivator”，根据之前海量词汇特征向量就判断出“durian”也是一种水果，与“apple”类似，而“cultivator”与“farmer”也很相似。从而得到与“durian cultivator”对应的应该也是一个人名。这种做法将单词用不同的特征来表示，即使是训练样本中没有的单词，也可以根据word embedding的结果得到与其词性相近的单词，从而得到与该单词相近的结果，有效减少了训练样本的数量</p>
-<p>词嵌入能够达到这种效果，原因是学习词嵌入的算法会考察非常大的文本集</p>
+<p><strong>featurized representation</strong>的优点是可以<strong>减少训练样本的数目</strong>，前提是对海量单词建立特征向量表述。即使训练样本不够多，测试时遇到陌生单词，例如“durian cultivator”，根据之前海量词汇特征向量就判断出“durian”也是一种水果，与“apple”类似，而“cultivator”与“farmer”也很相似。从而得到与“durian cultivator”对应的应该也是一个人名。这种做法将单词用不同的特征来表示，<strong>即使是训练样本中没有的单词，也可以根据word embedding的结果得到与其词性相近的单词，从而得到与该单词相近的结果，有效减少了训练样本的数量</strong></p>
+<p>词嵌入能够达到这种效果，原因是学习词嵌入的算法会<strong>考察非常大的文本集</strong></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8a1d58b7ade17208053c10728b2bf3b6.png" alt><br>词嵌入做迁移学习的步骤：</p>
 <ol>
 <li>先从大量的文本集中学习词嵌入，或者下载网上预训练好的词嵌入模型</li>
