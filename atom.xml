@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.baozouai.com/"/>
-  <updated>2019-03-16T04:12:32.178Z</updated>
+  <updated>2019-03-11T08:00:44.947Z</updated>
   <id>https://www.baozouai.com/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>aaa</title>
-    <link href="https://www.baozouai.com/2019/03/16/aaa/"/>
-    <id>https://www.baozouai.com/2019/03/16/aaa/</id>
-    <published>2019-03-16T12:12:05.000Z</published>
-    <updated>2019-03-16T04:12:32.178Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>大话数据结构 第九章 排序</title>
@@ -452,6 +430,26 @@
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
 J(\theta_0,\theta_1,...\theta_n)=\frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2&lt;/script&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
 h_\theta(x)=\theta^TX=\theta_0x_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n&lt;/script&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.baozouai.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>斯坦福机器学习笔记(Week  1)</title>
+    <link href="https://www.baozouai.com/2019/03/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Week-1/"/>
+    <id>https://www.baozouai.com/2019/03/03/斯坦福机器学习笔记-Week-1/</id>
+    <published>2019-03-03T03:19:00.000Z</published>
+    <updated>2019-03-11T07:51:32.555Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一-、引言&quot;&gt;&lt;a href=&quot;#一-、引言&quot; class=&quot;headerlink&quot; title=&quot;一 、引言&quot;&gt;&lt;/a&gt;一 、引言&lt;/h1&gt;&lt;h2 id=&quot;1-1-Supervised-Learning-amp-Uupervised-Learning&quot;&gt;&lt;a href=&quot;#1-1-Supervised-Learning-amp-Uupervised-Learning&quot; class=&quot;headerlink&quot; title=&quot;1.1 Supervised Learning&amp;amp;Uupervised Learning&quot;&gt;&lt;/a&gt;1.1 Supervised Learning&amp;amp;Uupervised Learning&lt;/h2&gt;&lt;h3 id=&quot;监督学习&quot;&gt;&lt;a href=&quot;#监督学习&quot; class=&quot;headerlink&quot; title=&quot;监督学习&quot;&gt;&lt;/a&gt;监督学习&lt;/h3&gt;&lt;p&gt;监督学习，其基本思想是我们数据集中的每个样本都有相应的“正确答案”，再根据这些样本作出预测回归（regression）问题，即通过回归来推出一个连续的输出分类（classification）问题，其目标是推出一组离散的结果&lt;/p&gt;
     
     </summary>
     
