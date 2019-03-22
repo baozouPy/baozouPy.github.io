@@ -144,7 +144,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d54256309adfc1e140390a334bfc49ee.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5b63e8b0c5c991bc19838b709524b79d.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/efa0f6e81320966647658cba96ff28ee.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-154.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/113.bmp">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e3d74c1ce2393ae4e706a1cc4024f311.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/155e535d0d3725181e7c080707acd84f.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/eeb764b9c08e48aa2bac70eb76110979.png">
@@ -153,7 +153,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/38e111b08f94c905ff97f627a4b986ff.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8323f5f9c33edb284eb038020f3ff7e7.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/49076b88b9ecbd1597f6ae37e8d87dc3.png">
-<meta property="og:updated_time" content="2019-03-09T08:30:52.220Z">
+<meta property="og:updated_time" content="2019-03-22T01:39:10.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第四周 特殊应用：人脸识别和神经风格转换(Special applications： Face recognition &amp; Neural style transfer)(Course 4)">
 <meta name="twitter:description" content="4.1 什么是人脸识别？（What is face recognition?） 人脸验证（face verification）问题：如果有一张输入图片以及某人的ID或者是名字，系统要做的是验证输入图片是否是这个人，也被称作1对1问题，只需要弄明白这个人是否和他声称的身份相符">
@@ -455,8 +455,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-09T16:30:52+08:00">
-                2019-03-09
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T09:39:10+08:00">
+                2019-03-22
               </time>
             
           </span>
@@ -542,7 +542,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  17
+                  18
                 </span>
               
             </div>
@@ -693,14 +693,14 @@ J_{content}(C,G) = \frac{1}{4 \times n_H \times n_W \times n_C}\sum _{ \text{all
 <h2 id="4-9-风格代价函数（Style-cost-function）"><a href="#4-9-风格代价函数（Style-cost-function）" class="headerlink" title="4.9 风格代价函数（Style cost function）"></a>4.9 风格代价函数（Style cost function）</h2><p>利用CNN网络模型，图片的风格可以定义成第<script type="math/tex">l</script>层隐藏层不同通道间激活函数的乘积（相关性）</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/efa0f6e81320966647658cba96ff28ee.png" alt></p>
 <p>选取第<script type="math/tex">l</script>层隐藏层，各通道使用不同颜色标注。因为每个通道提取图片的特征不同，比如1通道（红色）提取的是图片的垂直纹理特征，2通道（黄色）提取的是图片的橙色背景特征。那么这两个通道的相关性越大，表示原始图片及既包含了垂直纹理也包含了该橙色背景；相关性越小，表示原始图片并没有同时包含这两个特征。即计算不同通道的相关性，反映了原始图片特征间的相互关系，从某种程度上刻画了图片的“风格”</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-154.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/113.bmp" alt></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e3d74c1ce2393ae4e706a1cc4024f311.png" alt></p>
 <p>接下来定义图片的风格矩阵（style matrix）为：</p>
 <script type="math/tex; mode=display">
 G_{kk^{'}}^{[l]} = \sum_{i = 1}^{n_{H}^{[l]}}{\sum_{j = 1}^{n_{W}^{[l]}}{a_{i, j,k}^{[l]}a_{i, j, k^{'}}^{[l]}}}</script><script type="math/tex; mode=display">a_{i, j, k}^{[l]}$$为隐藏层$$l$$中$$(i,j,k)$$位置的激活项，$$i$$，$$j$$，$$k$$分别代表该位置的高度、宽度以及对应的通道数，k，$$k^{'}$$分别表示不同通道。风格矩阵$$G_{kk^{'}}^{[l]}$$计算第$$l$$层隐藏层不同通道对应的所有激活函数输出和，$$l$$层风格图像的矩阵$$G^{[l]}$$是一个$$n_{c} \times n_{c}$$的矩阵：
 
 
-![upload successful](http://pnlb0i3oh.bkt.clouddn.com/pasted-155.png)
+![](https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/NST_GM.png)
 
 若两个通道之间相似性高，则对应的$$G_{kk^{'}}^{[l]}$$较大；若两个通道之间相似性低，则对应的$$G_{kk^{'}}^{[l]}$$较小
 

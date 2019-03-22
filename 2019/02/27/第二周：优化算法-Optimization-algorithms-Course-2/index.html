@@ -109,28 +109,27 @@
 <meta property="og:site_name" content="暴走的技术博客">
 <meta property="og:description" content="2.1 Mini-batch 梯度下降（Mini-batch gradient descent）神经网络训练过程是同时对所有m个样本（称为batch）通过向量化计算方式进行的。如果m很大，训练速度会很慢，因为每次迭代都要对所有样本进进行求和运算和矩阵运算。这种梯度下降算法称为Batch Gradient Descent">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-51.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-52.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-53.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-54.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-55.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-57.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-58.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-59.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-60.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-61.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-62.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-63.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-64.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-65.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-66.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-67.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-68.png">
-<meta property="og:updated_time" content="2019-03-14T05:00:49.620Z">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/5import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/6import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/7import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/14import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/16import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/17import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/11import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/12import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/13import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/11.bmp">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/212Eimport.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/7.bmp">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/8.bmp">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/10import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/8import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/9import.png">
+<meta property="og:updated_time" content="2019-03-22T01:14:10.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周：优化算法 (Optimization algorithms)(Course 2)">
 <meta name="twitter:description" content="2.1 Mini-batch 梯度下降（Mini-batch gradient descent）神经网络训练过程是同时对所有m个样本（称为batch）通过向量化计算方式进行的。如果m很大，训练速度会很慢，因为每次迭代都要对所有样本进进行求和运算和矩阵运算。这种梯度下降算法称为Batch Gradient Descent">
-<meta name="twitter:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-51.png">
+<meta name="twitter:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/5import.png">
 
 
 
@@ -428,8 +427,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-14T13:00:49+08:00">
-                2019-03-14
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T09:14:10+08:00">
+                2019-03-22
               </time>
             
           </span>
@@ -554,16 +553,16 @@ for\ \ t=1,\cdots,T\ \ \{</script><script type="math/tex; mode=display">
 \}</script><p>经过T次循环之后，所有m个训练样本都进行了梯度下降计算。这个过程称之为经历了一个epoch。对于Batch Gradient Descent而言，一个epoch只进行一次梯度下降算法；而Mini-Batches Gradient Descent，一个epoch会进行T次梯度下降算法</p>
 <p>对于Mini-Batches Gradient Descent，可以进行多次epoch训练。每次epoch，最好是将总体训练数据打乱、重新分成T组mini-batches，这样有利于训练出最佳的神经网络模型</p>
 <h2 id="2-2-理解-mini-batch-梯度下降法（Understanding-mini-batch-gradient-descent）"><a href="#2-2-理解-mini-batch-梯度下降法（Understanding-mini-batch-gradient-descent）" class="headerlink" title="2.2 理解 mini-batch 梯度下降法（Understanding mini-batch gradient descent）"></a>2.2 理解 mini-batch 梯度下降法（Understanding mini-batch gradient descent）</h2><p>Batch gradient descent和Mini-batch gradient descent的cost曲线：</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-51.png" alt="upload successful"><br>对于一般的神经网络模型，使用Batch gradient descent，随着迭代次数增加，cost是不断减小的。而使用Mini-batch gradient descent，随着在不同的mini-batch上迭代训练，其cost不是单调下降，而是受类似noise的影响，出现振荡。但整体的趋势是下降的，最终也能得到较低的cost值</p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/5import.png" alt>  </p>
+<p>对于一般的神经网络模型，使用Batch gradient descent，随着迭代次数增加，cost是不断减小的。而使用Mini-batch gradient descent，随着在不同的mini-batch上迭代训练，其cost不是单调下降，而是受类似noise的影响，出现振荡。但整体的趋势是下降的，最终也能得到较低的cost值</p>
 <p>出现细微振荡的原因是不同的mini-batch之间是有差异的。可能第一个子集<script type="math/tex">(X^{\{1\}},Y^{\{1\}})</script>是好的子集，而第二个子集<script type="math/tex">(X^{\{2\}},Y^{\{2\}})</script>包含了一些噪声noise。出现细微振荡是正常的</p>
 <p>如果mini-batch size=m，即为Batch gradient descent，只包含一个子集为<script type="math/tex">(X^{\{1\}},Y^{\{1\}})=(X,Y)</script>；</p>
 <p>如果mini-batch size=1，即为Stachastic gradient descent，每个样本就是一个子集<script type="math/tex">(X^{\{1\}},Y^{\{1\}})=(x^{(i)},y^{(i)})</script>，共有m个子集</p>
 <p>蓝色的线代表Batch gradient descent，紫色的线代表Stachastic gradient descent。Batch gradient descent会比较平稳地接近全局最小值，但因为使用了所有m个样本，每次前进的速度有些慢。Stachastic gradient descent每次前进速度很快，但路线曲折，有较大的振荡，最终会在最小值附近来回波动，难达到最小值。而且在数值处理上不能使用向量化的方法来提高运算速度</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-52.png" alt="upload successful"></p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-53.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/6import.png" alt></p>
 <p>mini-batch size不能设置得太大（Batch gradient descent），也不能设置得太小（Stachastic gradient descent）。相当于结合了Batch gradient descent和Stachastic gradient descent各自的优点，既能使用向量化优化算法，又能较快速地找到最小值。mini-batch gradient descent的梯度下降曲线如下图绿色所示，每次前进速度较快，且振荡较小，基本能接近全局最小值。</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-54.png" alt="upload successful"></p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-55.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/7import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/14import.png" alt></p>
 <ul>
 <li>总体样本数量m不太大时，例如<script type="math/tex">m\leq2000</script>，建议直接使用Batch gradient descent</li>
 <li>总体样本数量m很大时，建议将样本分成许多mini-batches。推荐常用的mini-batch size为64,128,256,512。都是2的幂。原因是计算机存储数据一般是2的幂，这样设置可以提高运算速度</li>
@@ -572,13 +571,13 @@ for\ \ t=1,\cdots,T\ \ \{</script><script type="math/tex; mode=display">
 <h3 id="从训练集（X，Y）中构建小批量"><a href="#从训练集（X，Y）中构建小批量" class="headerlink" title="从训练集（X，Y）中构建小批量"></a>从训练集（X，Y）中构建小批量</h3><ul>
 <li>随机洗牌（<strong>Shuffle</strong>）：创建训练集（X，Y）的混洗版本，X和Y的每一列代表一个训练示例。随机混洗是在X和Y之间同步完成的。这样在混洗之后第<script type="math/tex">i</script>列的X对应的例子就是Y第<script type="math/tex">i</script>列中的标签。混洗步骤可确保将示例随机分成不同的小批次</li>
 </ul>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-57.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/16import.png" alt></p>
 <ul>
 <li>分区（<strong>Partition</strong>）：将混洗（X，Y）分区为小批量mini_batch_size（此处为64）。训练示例的数量并非总是可以被mini_batch_size整除。最后一个小批量可能会更小</li>
 </ul>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-58.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/17import.png" alt></p>
 <h2 id="2-3-指数加权平均数（Exponentially-weighted-averages）"><a href="#2-3-指数加权平均数（Exponentially-weighted-averages）" class="headerlink" title="2.3 指数加权平均数（Exponentially weighted averages）"></a>2.3 指数加权平均数（Exponentially weighted averages）</h2><p>半年内伦敦市的气温变化：</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-59.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/11import.png" alt></p>
 <blockquote>
 <p>温度数据有noise，抖动较大</p>
 </blockquote>
@@ -604,14 +603,14 @@ V_1=0.9V_0+0.1\theta_1</script><p>第二天的气温与第一天的气温有关�
 =&0.9V_{t-1}+0.1\theta_t\\
 =&0.9^tV_0+0.9^{t-1}\cdot0.1\theta_1+0.9^{t-2}\cdot 0.1\theta_2+\cdots+0.9\cdot0.1\theta_{t-1}+0.1\theta_t
 \end{aligned}</script><p>经过移动平均处理得到的气温如下图红色曲线所示：</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-60.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/12import.png" alt>  </p>
 <p>这种滑动平均算法称为<strong>指数加权平均（exponentially weighted average）</strong>。一般形式为：</p>
 <script type="math/tex; mode=display">
 V_t=\beta V_{t-1}+(1-\beta)\theta_t</script><p>$\beta$值决定了指数加权平均的<strong>天数</strong>，近似表示为：</p>
 <script type="math/tex; mode=display">
 \frac{1}{1-\beta}</script><p>当<script type="math/tex">\beta=0.9</script>，则<script type="math/tex">\frac{1}{1-\beta}=10</script>，表示将前10天进行指数加权平均。当<script type="math/tex">\beta=0.98</script>，则<script type="math/tex">\frac{1}{1-\beta}=50</script>，表示将前50天进行指数加权平均。<strong><script type="math/tex">\beta</script>值越大，则指数加权平均的天数越多，平均后的趋势线就越平缓，但是同时也会向右平移</strong></p>
 <p>绿色曲线和黄色曲线分别表示了<script type="math/tex">\beta=0.98</script>和<script type="math/tex">\beta=0.5</script>时，指数加权平均的结果</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-61.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/13import.png" alt></p>
 <h2 id="2-4-理解指数加权平均数（Understanding-exponentially-weighted-averages-）"><a href="#2-4-理解指数加权平均数（Understanding-exponentially-weighted-averages-）" class="headerlink" title="2.4 理解指数加权平均数（Understanding exponentially weighted averages ）"></a>2.4 理解指数加权平均数（Understanding exponentially weighted averages ）</h2><p>指数加权平均公式的一般形式：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}V_t
@@ -619,7 +618,7 @@ V_t=\beta V_{t-1}+(1-\beta)\theta_t</script><p>$\beta$值决定了指数加权�
 =&(1-\beta)\theta_t+(1-\beta)\cdot\beta\cdot\theta_{t-1}+(1-\beta)\cdot \beta^2\cdot\theta_{t-2}+\cdots
 +(1-\beta)\cdot \beta^{t-1}\cdot \theta_1+\beta^t\cdot V_0
 \end{aligned}</script><p>$\theta_t,\theta_{t-1},\theta_{t-2},\cdots,\theta_1$是原始数据值，<script type="math/tex">(1-\beta),(1-\beta)\beta,(1-\beta)\beta^2,\cdots,(1-\beta)\beta^{t-1}</script>是类似指数曲线，从右向左，呈指数下降的。<script type="math/tex">V_t​</script> 的值是这两个子式的点乘，将原始数据值与衰减指数点乘，相当于做了指数衰减，<strong>离得越近，影响越大，离得越远，影响越小，衰减越厉害</strong></p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-62.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/11.bmp" alt></p>
 <p>为了减少内存的使用，使用这样的语句来实现指数加权平均算法：</p>
 <script type="math/tex; mode=display">
 V_{\theta}=0</script><script type="math/tex; mode=display">
@@ -627,14 +626,14 @@ Repeat\ \{</script><script type="math/tex; mode=display">
 \ \ \ \ Get\ next\ \theta_t</script><script type="math/tex; mode=display">
 \ \ \ \ V_{\theta}:=\beta V_{\theta}+(1-\beta)\theta_t</script><script type="math/tex; mode=display">
 \}</script><h2 id="2-5-指-数-加-权-平-均-的-偏-差-修-正-（-Bias-correction-inexponentially-weighted-averages-）"><a href="#2-5-指-数-加-权-平-均-的-偏-差-修-正-（-Bias-correction-inexponentially-weighted-averages-）" class="headerlink" title="2.5 指 数 加 权 平 均 的 偏 差 修 正 （ Bias correction inexponentially weighted averages ）"></a>2.5 指 数 加 权 平 均 的 偏 差 修 正 （ Bias correction inexponentially weighted averages ）</h2><p>当<script type="math/tex">\beta=0.98</script>时，指数加权平均结果如绿色曲线。但实际上真实曲线如紫色曲线</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-63.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/212Eimport.png" alt></p>
 <p>紫色曲线与绿色曲线的区别是，紫色曲线开始的时候相对较低一些。因为开始时设置<script type="math/tex">V_0=0</script>，所以初始值会相对小一些，直到后面受前面的影响渐渐变小，趋于正常</p>
 <p>修正这种问题的方法是进行<strong>偏移校正（bias correction）</strong>，即在每次计算完<script type="math/tex">V_t</script>后，对<script type="math/tex">V_t</script>进行下式处理：</p>
 <script type="math/tex; mode=display">
 \frac{V_t}{1-\beta^t}</script><p>刚开始的时候，<script type="math/tex">t</script>比较小，<script type="math/tex">(1-\beta^t)<1</script>,<script type="math/tex">V_t</script>被修正得更大一些，效果是把紫色曲线开始部分向上提升一些，与绿色曲线接近重合。随着<script type="math/tex">t</script>增大，<script type="math/tex">(1-\beta^t)\approx1</script>，<script type="math/tex">V_t</script>基本不变，紫色曲线与绿色曲线依然重合。实现了简单的偏移校正，得到希望的绿色曲线</p>
 <p>机器学习中，<strong>偏移校正并不是必须的</strong>。因为，在迭代一次次数后（<script type="math/tex">t</script>较大），<script type="math/tex">V_t</script>受初始值影响微乎其微，紫色曲线与绿色曲线基本重合。<strong>一般可以忽略初始迭代过程，等到一定迭代之后再取值，就不需要进行偏移校正</strong></p>
 <h2 id="2-6-动量梯度下降法（Gradient-descent-with-Momentum-）"><a href="#2-6-动量梯度下降法（Gradient-descent-with-Momentum-）" class="headerlink" title="2.6 动量梯度下降法（Gradient descent with Momentum ）"></a>2.6 动量梯度下降法（Gradient descent with Momentum ）</h2><p>动量梯度下降算法速度比传统的梯度下降算法快很多。做法是<strong>在每次训练时，对梯度进行指数加权平均处理</strong>，然后用得到的梯度值更新权重<script type="math/tex">W</script>和常数项<script type="math/tex">b​</script></p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-64.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/7.bmp" alt></p>
 <p>原始的梯度下降算法如上图蓝色折线所示。在梯度下降过程中，梯度下降的振荡较大，尤其对于<script type="math/tex">W</script>、<script type="math/tex">b</script>之间数值范围差别较大的情况。此时每一点处的梯度只与当前方向有关，产生类似折线的效果，前进缓慢。而如果对梯度进行指数加权平均，<strong>使当前梯度不仅与当前方向有关，还与之前的方向有关</strong>，在纵轴方向，平均过程中，正负数相互抵消，所以平均值接近于零。但在横轴方向，所有的微分都指向横轴方向，因此横轴方向的平均值仍然较大，用算法几次迭代后，最终<strong>纵轴方向的摆动变小了，横轴方向运动更快</strong>，因此算法走了一条更加直接的路径，在抵达最小值的路上减少了摆动，这样处理让梯度前进方向<strong>更加平滑，减少振荡，能够更快地到达最小值处</strong></p>
 <p>权重<script type="math/tex">W</script>和常数项<script type="math/tex">b​</script>的指数加权平均表达式如下：</p>
 <script type="math/tex; mode=display">
@@ -652,7 +651,7 @@ V_{db}=\beta\cdot V_{db}+(1-\beta)\cdot db</script><p>动量的角度来看，�
 S_{dW}=\beta S_{dW}+(1-\beta)dW^2</script><script type="math/tex; mode=display">
 S_{db}=\beta S_{db}+(1-\beta)db^2</script><script type="math/tex; mode=display">
 W:=W-\alpha \frac{dW}{\sqrt{S_{dW}}},\ b:=b-\alpha \frac{db}{\sqrt{S_{db}}}</script><h3 id="RMSprop算法的原理解释"><a href="#RMSprop算法的原理解释" class="headerlink" title="RMSprop算法的原理解释"></a>RMSprop算法的原理解释</h3><p>令水平方向为<script type="math/tex">W</script>的方向，垂直方向为<script type="math/tex">b</script>的方向</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-65.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/8.bmp" alt></p>
 <p>梯度下降（蓝色折线）在垂直方向（<script type="math/tex">b</script>）上振荡较大，在水平方向（<script type="math/tex">W</script>）上振荡较小，表示在<script type="math/tex">b</script>方向上梯度较大，即<script type="math/tex">db</script>较大，而在<script type="math/tex">W</script>方向上梯度较小，即<script type="math/tex">dW</script>较小。因此，上述表达式中<script type="math/tex">S_{db}</script>较大，而<script type="math/tex">S_{dW}</script>较小。在更新<script type="math/tex">W</script>和<script type="math/tex">b</script>的表达式中，变化值<script type="math/tex">\frac{dW}{\sqrt{S_{dW}}}</script>较大，而<script type="math/tex">\frac{db}{\sqrt{S_{db}}}</script>较小。也就使得<script type="math/tex">W</script>变化得多一些，<script type="math/tex">b</script>变化得少一些。即加快了<script type="math/tex">W</script>方向的速度，减小了<script type="math/tex">b</script>方向的速度，减小振荡，实现快速梯度下降算法，其梯度下降过程如绿色折线所示。总的来说，就是如果<strong>哪个方向振荡大，就减小该方向的更新速度，从而减小振荡</strong></p>
 <p>为了避免RMSprop算法中分母为零，通常可以在分母增加一个极小的常数<script type="math/tex">\varepsilon</script>：</p>
 <script type="math/tex; mode=display">
@@ -671,7 +670,7 @@ W:=W-\alpha \frac{dW}{\sqrt{S_{dW}}+\varepsilon},\ b:=b-\alpha \frac{db}{\sqrt{S
 <p>Adam算法结合了动量梯度下降和RMSprop各自的优点，使得神经网络训练速度大大提高</p>
 <h2 id="2-9-学习率衰减-Learning-rate-decay"><a href="#2-9-学习率衰减-Learning-rate-decay" class="headerlink" title="2.9 学习率衰减(Learning rate decay)"></a>2.9 学习率衰减(Learning rate decay)</h2><p>减小学习因子<script type="math/tex">\alpha</script>也能有效提高神经网络训练速度，这种方法被称为<strong>learning rate decay</strong>, Learning rate decay就是随着迭代次数增加，学习因子<script type="math/tex">\alpha</script>逐渐减小</p>
 <p>下图中，蓝色折线表示使用恒定的学习因子<script type="math/tex">\alpha​</script>，由于每次训练<script type="math/tex">\alpha​</script>相同，步进长度不变，在接近最优值处的振荡也大，在最优值附近较大范围内振荡，与最优值距离就比较远。绿色折线表示使用不断减小的<script type="math/tex">\alpha​</script>，随着训练次数增加，<script type="math/tex">\alpha​</script>逐渐减小，步进长度减小，使得能够在最优值处较小范围内微弱振荡，不断逼近最优值。相比较恒定的<script type="math/tex">\alpha​</script>来说，learning rate decay更接近最优值</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-66.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/10import.png" alt></p>
 <p>Learning rate decay中对<script type="math/tex">\alpha</script>的公式：</p>
 <script type="math/tex; mode=display">
 \alpha=\frac{1}{1+decay\_rate*epoch}\alpha_0</script><p>deacy_rate是参数（可调），epoch是迭代次数。随着epoch增加，<script type="math/tex">\alpha</script>会不断变小</p>
@@ -681,9 +680,9 @@ W:=W-\alpha \frac{dW}{\sqrt{S_{dW}}+\varepsilon},\ b:=b-\alpha \frac{db}{\sqrt{S
 \alpha=\frac{k}{\sqrt{epoch}}\cdot \alpha_0\ \ \ \ or\ \ \ \ \frac{k}{\sqrt{t}}\cdot \alpha_0</script><p>$k$为可调参数，<script type="math/tex">t</script>为mini-bach number</p>
 <p>还可以设置<script type="math/tex">\alpha</script>为关于<script type="math/tex">t</script>的离散值，随着<script type="math/tex">t</script>增加，<script type="math/tex">\alpha</script>呈阶梯式减小。也可以根据训练情况灵活调整当前的<script type="math/tex">\alpha</script>值，但会比较耗时间</p>
 <h2 id="2-10-局部最优的问题-The-problem-of-local-optima"><a href="#2-10-局部最优的问题-The-problem-of-local-optima" class="headerlink" title="2.10 局部最优的问题(The problem of local optima)"></a>2.10 局部最优的问题(The problem of local optima)</h2><p>以前对局部最优解的理解是形如碗状的凹槽，如下图左边所示。但是在神经网络中，local optima的概念发生了变化。大部分梯度为零的“最优点”并不是这些凹槽处，而是形如右边所示的马鞍状，称为<strong>saddle point（鞍点）</strong>。即<strong>梯度为零并不能保证都是convex（极小值），也有可能是concave（极大值）</strong>。特别是在神经网络中参数很多的情况下，所有参数梯度为零的点很可能都是右边所示的马鞍状的saddle point，而不是左边那样的local optimum</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-67.png" alt="upload successful"></p>
-<p>类似马鞍状的<strong>plateaus（平稳端）</strong>会降低神经网络学习速度。Plateaus是梯度接近于零的平缓区域，在plateaus上梯度很小，前进缓慢，到达saddle point需要很长时间。到达saddle point后，由于随机扰动，梯度一般能够沿着图中绿色箭头，离开saddle point，继续前进，只是在plateaus上花费了太多时间</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-68.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/8import.png" alt></p>
+<p>类似马鞍状的plateaus（平稳端）会降低神经网络学习速度。Plateaus是梯度接近于零的平缓区域，在plateaus上梯度很小，前进缓慢，到达saddle point需要很长时间。到达saddle point后，由于随机扰动，梯度一般能够沿着图中绿色箭头，离开saddle point，继续前进，只是在plateaus上花费了太多时间</p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/9import.png" alt></p>
 <p>local optima的两点总结：</p>
 <ul>
 <li><p><strong>只要选择合理的强大的神经网络，一般不太可能陷入local optima</strong></p>

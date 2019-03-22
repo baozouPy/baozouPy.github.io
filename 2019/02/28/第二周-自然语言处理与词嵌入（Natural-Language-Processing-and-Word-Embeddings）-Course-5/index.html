@@ -133,12 +133,11 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ec4b604d619dd617f14c2a34945c075d.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bf6f5879d33ae4ef09b32f77df84948e.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ea844a0290e66d1c76a31e34b632dc0c.png">
-<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/25430afa93f24dc6caa6f85503bbad27.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cf60f429ef532a2b3bbad3db98b054c5.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4102795b004ff090ed83dc654f585852.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png">
-<meta property="og:updated_time" content="2019-03-16T08:35:48.461Z">
+<meta property="og:updated_time" content="2019-03-17T09:12:01.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
 <meta name="twitter:description" content="2.1 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：">
@@ -440,8 +439,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T16:35:48+08:00">
-                2019-03-16
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-17T17:12:01+08:00">
+                2019-03-17
               </time>
             
           </span>
@@ -569,7 +568,7 @@
 <ol>
 <li>先从大量的文本集中学习词嵌入，或者下载网上预训练好的词嵌入模型</li>
 <li>用这些词嵌入模型迁移到新的只有少量标注训练集的任务中，比如用300维的词嵌入来表示单词。好处就是可以用更低维度的特征向量代替原来的10000维的<strong>one-hot</strong>向量。尽管<strong>one-hot</strong>向量很快计算，但学到的用于词嵌入的300维的向量会更加紧凑</li>
-<li>当在新的任务上训练模型，而在命名实体识别任务上只有少量的标记数据集，可以选择要不要继续微调，用新的数据调整词嵌入。但实际中只有第二步中有很大的数据集才会这样做，如果标记的数据集不是很大，通常不会在微调词嵌入上费力气</li>
+<li>当在新的任务上训练模型，而在命名实体识别任务上只有少量的标记数据集，可以选择要不要继续微调，用新的数据调整词嵌入。但实际中<strong>只有第二步中有很大的数据集才会这样做</strong>，如果标记的数据集不是很大，通常不会在微调词嵌入上费力气</li>
 </ol>
 <p>当任务的训练集相对较小时，词嵌入的作用最明显，所以它广泛用于<strong>NLP</strong>领域</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/43943c791844cc7f077f6c6f98f1f629.png" alt></p>
@@ -577,21 +576,22 @@
 <p>人脸识别领域和词嵌入不同就是：</p>
 <ul>
 <li>在人脸识别中训练一个网络，任给一个人脸照片，甚至是没有见过的照片，神经网络都会计算出相应的一个编码结果</li>
-<li>学习词嵌入则是有一个固定的词汇表，比如10000个单词，学习向量<script type="math/tex">e_{1}</script>到<script type="math/tex">e_{10000}</script>，学习一个固定的编码，即每一个词汇表的单词的固定嵌入</li>
-<li>人脸识别中的算法未来可能涉及到海量的人脸照片，而自然语言处理有一个固定的词汇表，没有出现过的单词就记为未知单词</li>
+<li>学习词嵌入则是有一个固定的词汇表，比如10000个单词，学习向量<script type="math/tex">e_{1}</script>到<script type="math/tex">e_{10000}</script>，学习一个<strong>固定的编码</strong>，即每一个词汇表的单词的固定嵌入</li>
+<li>人脸识别中的算法未来可能涉及到海量的人脸照片，而自然语言处理有一个<strong>固定的词汇表</strong>，没有出现过的单词就记为未知单词</li>
 </ul>
 <h1 id="2-3-词嵌入的特性（Properties-of-Word-Embeddings）"><a href="#2-3-词嵌入的特性（Properties-of-Word-Embeddings）" class="headerlink" title="2.3 词嵌入的特性（Properties of Word Embeddings）"></a>2.3 词嵌入的特性（Properties of Word Embeddings）</h1><p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/12242657bd982acd1d80570cc090b4fe.png" alt></p>
 <p>该例中，假设用的是四维的嵌入向量，假如向量<script type="math/tex">e_{\text{man}}</script>和<script type="math/tex">e_{\text{woman}}</script>、<script type="math/tex">e_{\text{king}}</script>和<script type="math/tex">e_{\text{queen}}</script> 分别进行减法运算，相减结果表明，“Man”与“Woman”的主要区别是性别，“King”与“Queen”也是一样</p>
 <p>所以当算法被问及<strong>man</strong>对<strong>woman</strong>相当于<strong>king</strong>对什么时，算法所做的就是计算<script type="math/tex">e_{\text{man}}-e_{\text{woman}}</script>，然后找出一个向量也就是找出一个词，使得：</p>
 <script type="math/tex; mode=display">
 e_{\text{man}}-e_{\text{woman}}\approx e_{\text{king}} - e_{?}</script><p>即当这个新词是<strong>queen</strong>时，式子的左边会近似地等于右边</p>
-<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5a42eea162ddc75a1d37520618b4bcd2.png" alt>]<br>在图中，词嵌入向量在一个可能有300维的空间里，箭头代表的是向量在<strong>gender</strong>（<strong>性别</strong>）这一维的差，为了得出类比推理，计算当<strong>man</strong>对于<strong>woman</strong>，<strong>king</strong>对于什么，要做的就是找到单词<strong>w</strong>来使得</p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5a42eea162ddc75a1d37520618b4bcd2.png" alt></p>
+<p>在图中，词嵌入向量在一个可能有300维的空间里，箭头代表的是向量在<strong>gender</strong>（<strong>性别</strong>）这一维的差，为了得出类比推理，计算当<strong>man</strong>对于<strong>woman</strong>，<strong>king</strong>对于什么，要做的就是找到单词<strong>w</strong>来使得</p>
 <script type="math/tex; mode=display">
 e_{\text{man}}-e_{\text{woman}}\approx e_{\text{king}} - e_{w}</script><p>等式成立，即找到单词<strong>w</strong>来最大化<script type="math/tex">e_{w}</script>与<script type="math/tex">e_{\text{king}} - e_{\text{man}} + e_{\text{woman}}</script>的相似度，即</p>
 <script type="math/tex; mode=display">
 Find\ word\ w:argmax\ Sim(e_{w},e_{\text{king}} - e_{\text{man}} + e_{\text{woman}})</script><p>即把<script type="math/tex">e_{w}</script>全部放到等式的一边，另一边是<script type="math/tex">e_{\text{king}}- e_{\text{man}} + e_{\text{woman}}</script>。应用相似度函数，通过方程找到一个使得相似度最大的单词，如果结果理想的话会得到单词<strong>queen</strong></p>
-<p><strong>t-SNE算法</strong>所做的就是把这些300维的数据用一种非线性的方式映射到2维平面上，可以得知<strong>t-SNE</strong>中这种映射很复杂而且很非线性。在大多数情况下，由于<strong>t-SNE</strong>的非线性映射，不能总是期望使等式成立的关系会像左边那样成一个平行四边形</p>
-<p>关于相似函数，比较常用的是余弦相似度，假如在向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间定义相似度：</p>
+<p><strong>t-SNE算法</strong>所做的就是把这些300维的数据用一种非线性的方式映射到2维平面上，可以得知<strong>t-SNE</strong>中这种映射<strong>很复杂而且很非线性</strong>。在大多数情况下，由于<strong>t-SNE</strong>的非线性映射，不能总是期望使等式成立的关系会像左边那样成一个平行四边形</p>
+<p>关于相似函数，比较常用的是<strong>余弦相似度</strong>，假如在向量<script type="math/tex">u</script>和<script type="math/tex">v</script>之间定义相似度：</p>
 <script type="math/tex; mode=display">
 Sim(u,v)=\frac{u^Tv}{||u||\cdot ||v||}</script><p>分子是<script type="math/tex">u</script>和<script type="math/tex">v</script>的内积。如果<script type="math/tex">u</script>和<script type="math/tex">v</script>非常相似，那么它们的内积将会很大，把整个式子叫做余弦相似度，是因为该式是<script type="math/tex">u</script>和<script type="math/tex">v</script>的夹角的余弦值</p>
 <p><strong>参考资料：</strong> 给定两个向量<script type="math/tex">u</script>和<script type="math/tex">v</script>，余弦相似度定义如下：</p>
@@ -607,15 +607,15 @@ Sim(u,v)=\frac{u^Tv}{||u||\cdot ||v||}</script><p>分子是<script type="math/te
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ad1c7b1e85d39f56756c28787ccef892.png" alt></p>
 <p>则该单词的嵌入向量(embedding vector)表达式为：</p>
 <script type="math/tex; mode=display">
-e_w=E\cdot O_w</script><p>只要知道了embedding matrix<script type="math/tex">E</script>，就能计算出所有单词的embedding vector <script type="math/tex">e_w</script></p>
+e_w=E\cdot O_w</script><p>只要知道了embedding matrix <script type="math/tex">E</script>，就能计算出所有单词的embedding vector <script type="math/tex">e_w</script></p>
 <p>不过上述这种矩阵乘积运算<script type="math/tex">E\cdot O_w</script>效率并不高，矩阵维度很大，且<script type="math/tex">O_w</script>大部分元素为零。通常做法是直接从<script type="math/tex">E</script>中选取第<script type="math/tex">w</script>列作为<script type="math/tex">e_w</script></p>
-<h1 id="2-5-学习词嵌入（Learning-Word-Embeddings）"><a href="#2-5-学习词嵌入（Learning-Word-Embeddings）" class="headerlink" title="2.5 学习词嵌入（Learning Word Embeddings）"></a>2.5 学习词嵌入（Learning Word Embeddings）</h1><p>embedding matrix <script type="math/tex">E</script>可以通过构建自然语言模型，运用梯度下降算法得到。若输入样本是：</p>
+<h1 id="2-5-学习词嵌入（Learning-Word-Embeddings）"><a href="#2-5-学习词嵌入（Learning-Word-Embeddings）" class="headerlink" title="2.5 学习词嵌入（Learning Word Embeddings）"></a>2.5 学习词嵌入（Learning Word Embeddings）</h1><p>embedding matrix <script type="math/tex">E​</script>可以通过<strong>构建自然语言模型，运用梯度下降算法得到</strong>。若输入样本是：</p>
 <p><strong>I want a glass of orange (juice).</strong></p>
 <p>通过这句话的前6个单词，预测最后的单词“juice”。<script type="math/tex">E</script>未知待求，每个单词可用embedding vector <script type="math/tex">e_w</script>表示。构建的神经网络模型结构如下图所示：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/31347eca490e0ae8541140fb01c04d72.png" alt></p>
-<p>神经网络输入层包含6个embedding vectors，每个embedding vector维度是300，则输入层总共有1800个输入。Softmax层有10000个概率输出，与词汇表包含的单词数目一致。正确的输出label是“juice”。其中$E,W^{[1]},b^{[1]},W^{[2]},b^{[2]}$为待求值。对足够的训练例句样本，运用梯度下降算法，迭代优化，最终求出embedding matrix<script type="math/tex">E</script></p>
+<p>神经网络输入层包含6个embedding vectors，每个embedding vector维度是300，则输入层总共有1800个输入。Softmax层有10000个概率输出，与词汇表包含的单词数目一致。正确的输出label是“juice”。其中$E,W^{[1]},b^{[1]},W^{[2]},b^{[2]}$为待求值。对足够的训练例句样本，运用梯度下降算法，迭代优化，最终求出embedding matrix <script type="math/tex">E</script></p>
 <p>这种算法的效果还不错，能够保证具有相似属性单词的embedding vector相近</p>
-<p>为了让神经网络输入层数目固定，可以选择只取预测单词的前4个单词作为输入，例如该句中只选择“a glass of orange”四个单词作为输入。这里的4是超参数，可调</p>
+<p><strong>为了让神经网络输入层数目固定</strong>，可以选择只取预测单词的前4个单词作为输入，例如该句中只选择“a glass of orange”四个单词作为输入。这里的4是超参数，可调</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/747e619260737ded586ae51b3b4f07d6.png" alt></p>
 <p>把输入叫做<strong>context</strong>，输出叫做<strong>target</strong>。对应到上面这句话里：</p>
 <ul>
@@ -645,16 +645,15 @@ e_w=E\cdot O_w</script><p>只要知道了embedding matrix<script type="math/tex"
 <p>相应的loss function为：</p>
 <script type="math/tex; mode=display">
 L(\hat y,y)=-\sum_{i=1}^{10000}y_ilog\ \hat y_i</script><blockquote>
-<p>由于</p>
-<script type="math/tex; mode=display">y</script><p>是一个one-hot向量，所以上式实际上10000个项里面只有一项是非0的</p>
+<p>由于<script type="math/tex">y</script>是一个one-hot向量，所以上式实际上10000个项里面只有一项是非0的</p>
 </blockquote>
 <p>然后，运用梯度下降算法，迭代优化，最终得到embedding matrix <script type="math/tex">E</script></p>
-<p>然而，这种算法计算量大，影响运算速度。主要因为softmax输出单元为10000个，<script type="math/tex">\hat y</script>计算公式中包含了大量的求和运算</p>
+<p>然而，这种算法<strong>计算量大，影响运算速度</strong>。主要因为softmax输出单元为10000个，<script type="math/tex">\hat y</script>计算公式中包含了大量的求和运算</p>
 <p>解决的办法之一是使用<strong>hierarchical softmax classifier</strong>，即<strong>树形分类器</strong>：</p>
-<p>[<br><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/89743b5ade106cad1318b8f3f4547a7f.png" alt>]</p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/89743b5ade106cad1318b8f3f4547a7f.png" alt></p>
 <p>这种树形分类器是一种二分类。它在每个数节点上对目标单词进行区间判断，最终定位到目标单词。最多需要<script type="math/tex">\log_2 N</script>步就能找到目标单词，N为单词总数</p>
 <p>实际应用中，对树形分类器做了一些改进。改进后的树形分类器是非对称的，通常选择把比较常用的单词放在树的顶层，而把不常用的单词放在树的底层。这样更能提高搜索速度</p>
-<p>关于context的采样：如果使用均匀采样，那么一些常用的介词、冠词，例如the, of, a, and, to等出现的概率更大一些。但是这些单词的embedding vectors通常不是最关心的，更关心的例如orange, apple， juice等这些名词。所以实际应用中一般不选择随机均匀采样的方式来选择context，而是使用其它算法来处理这类问题</p>
+<p>关于context的采样：如果使用均匀采样，那么一些常用的介词、冠词，例如the, of, a, and, to等出现的概率更大一些。但是这些单词的embedding vectors通常不是最关心的，更关心的例如orange, apple， juice等这些名词。所以<strong>实际应用中一般不选择随机均匀采样的方式来选择context</strong>，而是使用其它算法来处理这类问题</p>
 <h1 id="2-7-负采样（Negative-Sampling）"><a href="#2-7-负采样（Negative-Sampling）" class="headerlink" title="2.7 负采样（Negative Sampling）"></a>2.7 负采样（Negative Sampling）</h1><p>算法要做的是构造一个新的监督学习问题：给定一对单词，比如<strong>orange</strong>和<strong>juice</strong>，去预测这是否是一对上下文词-目标词（<strong>context-target</strong>）</p>
 <p>在这个例子中<strong>orange</strong>和<strong>juice</strong>就是个正样本，用1作为标记，<strong>orange</strong>和<strong>king</strong>就是个负样本，标为0。要做的就是采样得到一个上下文词和一个目标词，中间列叫做词（<strong>word</strong>）。然后：</p>
 <ul>
@@ -675,7 +674,7 @@ L(\hat y,y)=-\sum_{i=1}^{10000}y_ilog\ \hat y_i</script><blockquote>
 <script type="math/tex; mode=display">
 P\left( y = 1 \middle| c,t \right) = \sigma(\theta_{t}^{T}e_{c})</script><p>如果输入词是<strong>orange</strong>，即词6257，要做的就是输入<strong>one-hot</strong>向量，和<script type="math/tex">E</script>相乘获得嵌入向量<script type="math/tex">e_{6257}</script>，最后得到10,000个可能的逻辑回归分类问题，其中一个（编号4）将会是用来判断目标词是否是<strong>juice</strong>的分类器，其他的词比如下面的某个分类器（编号5）是用来预测<strong>king</strong>是否是目标词</p>
 <p>negative sampling中某个固定的正样本对应<script type="math/tex">k</script>个负样本，即模型总共包含了<script type="math/tex">k+1</script>个<strong>binary classification</strong>。对比之前10000个输出单元的softmax分类，negative sampling转化为<script type="math/tex">k+1</script>个二分类问题，每次迭代并不是训练10000个，而仅训练其中<script type="math/tex">k+1</script>个，计算量要小很多，大大提高了模型运算速度</p>
-<p>这种方法就叫做<strong>负采样（Negative Sampling）: </strong>选择一个正样本，随机采样<script type="math/tex">k</script>个负样本</p>
+<p>这种方法就叫做<strong>负采样（Negative Sampling）: **</strong>选择一个正样本，随机采样<script type="math/tex">k</script>个负样本**</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b05dd0362a19496bb0ad91b8494e374c.png" alt></p>
 <p>选取了context <strong>orange</strong>之后，如何选取负样本：</p>
 <ul>
@@ -690,17 +689,17 @@ P(w_{i}) = \frac{f( w_{i})^{\frac{3}{4}}}{\sum_{j = 1}^{10,000}{f( w_{j} )^{\fra
 <p>假定<script type="math/tex">X_{ij}</script>是单词<script type="math/tex">i</script>在单词<script type="math/tex">j</script>上下文中出现的次数，<script type="math/tex">i</script>和<script type="math/tex">j</script> 与<script type="math/tex">t</script>和<script type="math/tex">c</script>的功能一样，可以认为<script type="math/tex">X_{ij}</script>等同于<script type="math/tex">X_{tc}</script>。根据context和target的定义，会得出<script type="math/tex">X_{ij}</script>等于<script type="math/tex">X_{ji}</script></p>
 <ul>
 <li>如果将context和target的范围定义为出现于左右各10词以内的话，就有对称关系<script type="math/tex">X_{ij}=X_{ji}</script></li>
-<li>如果对context的选择是context总是目target前一个单词，那么<script type="math/tex">X_{ij}\neq X_{ji}</script></li>
+<li>如果对context的选择是context总是在target前一个单词，那么<script type="math/tex">X_{ij}\neq X_{ji}</script></li>
 </ul>
-<p>对于<strong>GloVe</strong>算法，可以定义context和target为任意两个位置相近的单词，假设是左右各10词的距离，那么<script type="math/tex">X_{ij}</script>就是一个能够获取单词<script type="math/tex">i</script>和单词<script type="math/tex">j</script>彼此接近的频率计数器</p>
+<p>对于<strong>GloVe</strong>算法，可以定义context和target为任意两个位置相近的单词，假设是左右各10词的距离，那么<script type="math/tex">X_{ij}</script>就是一个能够获取单词<script type="math/tex">i</script>和单词<script type="math/tex">j</script>彼此接近的<strong>频率计数器</strong></p>
 <p><strong>GloVe</strong>模型做的就是进行优化，将差距进行最小化处理：</p>
 <script type="math/tex; mode=display">
 \text{mini}\text{mize}\sum_{i = 1}^{10,000}{\sum_{j = 1}^{10,000}}{f\left( X_{ij}
 \right)\left( \theta_{i}^{T}e_{j} + b_{i} + b_{j}^{'} - \log X_{ij} \right)^{2}}</script><p>$\theta_{i}^{T}e_{j}$即<script type="math/tex">\theta_{t}^{T}e_{c}</script>。对于<script type="math/tex">\theta_{t}^{T}e_{c}</script>，这两个单词同时出现的频率是多少受<script type="math/tex">X_{ij}</script>影响，若两个词的embedding vector越相近，同时出现的次数越多，则对应的loss越小</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f6fc2cec52f4ecb15567511aae822914.png" alt></p>
 <p>当<script type="math/tex">X_{ij}=0</script>时，权重因子<script type="math/tex">f(X_{ij})=0</script>。这种做法直接忽略了无任何相关性的context和target，只考虑<script type="math/tex">X_{ij}>0</script>的情况</p>
-<p>出现频率较大的单词相应的权重因子<script type="math/tex">f(X_{ij})</script>较大，出现频率较小的单词相应的权重因子<script type="math/tex">f(X_{ij})</script>较小一些</p>
-<p>因为<script type="math/tex">\theta</script>和<script type="math/tex">e</script>是完全对称的，所以<script type="math/tex">\theta_{i}</script>和<script type="math/tex">e_{j}</script>是对称的。因此训练算法的方法是一致地初始化<script type="math/tex">\theta</script>和<script type="math/tex">e</script>，然后使用梯度下降来最小化输出，当每个词都处理完之后取平均值：</p>
+<p>出现频率较大的单词相应的权重因子<script type="math/tex">f(X_{ij})</script>较大，反之较小</p>
+<p>因为<script type="math/tex">\theta</script>和<script type="math/tex">e</script>是完全对称的，所以<script type="math/tex">\theta_{i}</script>和<script type="math/tex">e_{j}</script>是对称的。因此<strong>训练算法的方法是一致地初始化<script type="math/tex">\theta</script>和<script type="math/tex">e</script>，然后使用梯度下降来最小化输出</strong>，当每个词都处理完之后取平均值：</p>
 <script type="math/tex; mode=display">
 e_{w}^{(final)}= \frac{e_{w} +\theta_{w}}{2}</script><p><strong>GloVe</strong>算法不能保证嵌入向量的独立组成部分：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ec4b604d619dd617f14c2a34945c075d.png" alt></p>
@@ -708,34 +707,50 @@ e_{w}^{(final)}= \frac{e_{w} +\theta_{w}}{2}</script><p><strong>GloVe</strong>�
 <p>使用上面的GloVe模型，从线性代数的角度解释如下：</p>
 <script type="math/tex; mode=display">
 \Theta_{i}^{T}e_{j} = \Theta_{i}^{T}A^{T}A^{-T}e_{j}=(A\Theta_{i})^{T}(A^{-T}e_{j})</script><p>加入的<script type="math/tex">A</script>项，可能构成任意的分量组合</p>
-<h1 id="2-9-情感分类（Sentiment-Classification）"><a href="#2-9-情感分类（Sentiment-Classification）" class="headerlink" title="2.9 情感分类（Sentiment Classification）"></a>2.9 情感分类（Sentiment Classification）</h1><p>情感分类任务就是看一段文本，然后分辨这个人是否喜欢他们在讨论的这个东西，最大的挑战就是可能标记的训练集没有那么多，但是有了词嵌入，即使只有中等大小标记的训练集，也能构建一个不错的情感分类器</p>
+<h1 id="2-9-情感分类（Sentiment-Classification）"><a href="#2-9-情感分类（Sentiment-Classification）" class="headerlink" title="2.9 情感分类（Sentiment Classification）"></a>2.9 情感分类（Sentiment Classification）</h1><p>情感分类任务就是看一段文本，然后分辨这个人是否喜欢他们在讨论的这个东西，<strong>最大的挑战就是可能标记的训练集没有那么多</strong>，但是有了词嵌入，即使只有中等大小标记的训练集，也能构建一个不错的情感分类器</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bf6f5879d33ae4ef09b32f77df84948e.png" alt></p>
 <blockquote>
 <p>输入<script type="math/tex">x</script>是一段文本，输出<script type="math/tex">y</script>是要预测的相应情感。比如一个餐馆评价的星级</p>
 </blockquote>
-<p>情感分类一个最大的挑战就是可能标记的训练集没有那么多。对于情感分类任务来说，训练集大小从10,000到100,000个单词都很常见，甚至有时会小于10,000个单词，采用了词嵌入能够带来更好的效果，尤其是只有很小的训练集</p>
+<p>情感分类一个<strong>最大的挑战就是可能标记的训练集没有那么多</strong>。对于情感分类任务来说，训练集大小从10,000到100,000个单词都很常见，甚至有时会小于10,000个单词，采用了词嵌入能够带来更好的效果，尤其是只有很小的训练集</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ea844a0290e66d1c76a31e34b632dc0c.png" alt></p>
-<p>给定四个词（”<strong>dessert is excellent</strong>“），通常用10,000个词的词汇表，找到相应的<strong>one-hot</strong>向量，再乘以嵌入矩阵<script type="math/tex">E</script>，<script type="math/tex">E</script>可以从一个很大的文本集里学习到，比如它可以从一亿个词或者一百亿个词里学习嵌入，然后用来提取单词<strong>the</strong>的嵌入向量<script type="math/tex">e_{8928}</script>，对<strong>dessert</strong>、<strong>is</strong>、<strong>excellent</strong>做同样的步骤</p>
-<p>然后取这些向量（编号2），如300维度的向量，通过平均值计算单元（编号3），求和并平均，再送进<strong>softmax</strong>分类器，然后输出<script type="math/tex">\hat y</script>。这个<strong>softmax</strong>能够输出5个可能结果的概率值，从一星到五星</p>
-<p>这个算法适用于任何长短的评论，因为即使评论是100个词长，也可以对这一百个词的特征向量求和取平均，得到一个300维的特征向量，然后送进<strong>softmax</strong>分类器</p>
-<p>但问题是没考虑词序，如负面的评价，”<strong>Completely lacking in good taste, good service, and good ambiance.</strong>“，<strong>good</strong>这个词出现了很多次，但算法忽略词序，仅仅把所有单词的词嵌入加起来或者平均下来，最后的特征向量会有很多<strong>good</strong>的表示，分类器很可能认为这是一个好的评论，尽管事实上这是一个差评，只有一星的评价</p>
-<p>为了解决这一问题，情感分类的另一种模型是RNN：</p>
-<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png" alt></p>
-<p>首先取这条评论，”<strong>Completely lacking in good taste, good service, and good ambiance.</strong>“，找出每一个<strong>one-hot</strong>向量，乘以词嵌入矩阵<script type="math/tex">E</script>，得到词嵌入表达<script type="math/tex">e</script>，然后把它们送进<strong>RNN</strong></p>
+<p>给定四个词（”<strong>dessert is excellent</strong>“），通常用10,000个词的词汇表：</p>
+<ol>
+<li><p>找到相应的<strong>one-hot</strong>向量</p>
+</li>
+<li><p>再乘以嵌入矩阵<script type="math/tex">E</script></p>
+</li>
+</ol>
+<script type="math/tex; mode=display">E$$可以从一个很大的文本集里学习到，比如它可以从一亿个词或者一百亿个词里学习嵌入，然后用来提取单词**the**的嵌入向量$$e_{8928}$$，对**dessert**、**is**、**excellent**做同样的步骤
+
+然后取这些向量（编号2），如300维度的向量，通过平均值计算单元（编号3），求和并平均，再送进**softmax**分类器，然后输出$$\hat y$$。这个**softmax**能够输出5个可能结果的概率值，从一星到五星
+
+这个算法**适用于任何长短的评论**，因为即使评论是100个词长，也可以对这一百个词的特征向量求和取平均，得到一个300维的特征向量，然后送进**softmax**分类器
+
+但**问题是没考虑词序**，如负面的评价，"**Completely lacking in good taste, good service, and good ambiance.**"，**good**这个词出现了很多次，但算法忽略词序，仅仅把所有单词的词嵌入加起来或者平均下来，最后的特征向量会有很多**good**的表示，分类器很可能认为这是一个好的评论，尽管事实上这是一个差评，只有一星的评价
+
+为了解决这一问题，情感分类的另一种模型是RNN：
+
+![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png)
+
+1. 首先取这条评论，"**Completely lacking in good taste, good service, and good ambiance.**"，找出每一个**one-hot**向量
+2. 乘以词嵌入矩阵$$E$$，得到词嵌入表达$$e</script><ol>
+<li>然后把它们送进<strong>RNN</strong></li>
+</ol>
 <p><strong>RNN</strong>的工作就是在最后一步（编号1）计算一个特征表示，用来预测<script type="math/tex">\hat y</script>。这样的算法考虑词的顺序效果更好，能意识到”<strong>things are lacking in good taste</strong>“是个负面的评价，“<strong>not good</strong>”也是一个负面的评价。而不像原来的算法一样，只是把所有的加在一起得到一个大的向量，根本意识不到“<strong>not good</strong>”和 “<strong>good</strong>”不是一个意思，”<strong>lacking in good taste</strong>“也是如此，等等</p>
-<p>如果训练一个这样的算法，最后会得到一个很合适的情感分类的算法。由于词嵌入是在一个更大的数据集里训练的，这样会更好的泛化一些没有见过的新的单词。比如”<strong>Completely absent of good taste, good service, and good ambiance.</strong>“，即使<strong>absent</strong>这个词不在标记的训练集里</p>
+<p>如果训练一个这样的算法，最后会得到一个很合适的情感分类的算法。由于词嵌入是在一个更大的数据集里训练的，这样<strong>会更好的泛化一些没有见过的新的单词</strong>。比如”<strong>Completely absent of good taste, good service, and good ambiance.</strong>”，即使<strong>absent</strong>这个词不在标记的训练集里</p>
 <p>如果是在一亿或者一百亿单词集里训练词嵌入，它仍然可以正确判断，并且泛化的很好，甚至这些词是在训练集中用于训练词嵌入，但不在专门做情感分类问题标记的训练集</p>
 <h1 id="2-10-词嵌入除偏（Debiasing-Word-Embeddings）"><a href="#2-10-词嵌入除偏（Debiasing-Word-Embeddings）" class="headerlink" title="2.10 词嵌入除偏（Debiasing Word Embeddings）"></a>2.10 词嵌入除偏（Debiasing Word Embeddings）</h1><p>根据训练模型所使用的文本，词嵌入能够反映出性别、种族、年龄、性取向等其他方面的偏见：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/25430afa93f24dc6caa6f85503bbad27.png" alt></p>
 <p>假设已经完成一个词嵌入的学习，各个词的位置如图：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cf60f429ef532a2b3bbad3db98b054c5.png" alt></p>
-<p>首先做的事就是辨别出想要减少或想要消除的特定偏见的趋势</p>
+<p>首先做的事就是<strong>辨别出想要减少或想要消除的特定偏见的趋势</strong></p>
 <p>怎样辨别出偏见相似的趋势：</p>
-<p>一、对于性别歧视，对所有性别对立的单词求差值，再平均：</p>
+<p>一、对于性别歧视，对所有性别对立的单词<strong>求差值，再平均</strong>：</p>
 <script type="math/tex; mode=display">
-bias\ direction=\frac1N ((e_{he}-e_{she})+(e_{male}-e_{female})+\cdots)</script><p>二、中和步骤，对于定义不确切的词可以将其处理一下，避免偏见。像<strong>doctor</strong>和<strong>babysitter</strong>使之在性别方面中立。将它们在这个轴（编号1）上进行处理，减少或是消除他们的性别歧视趋势的成分，即减少在水平方向上的距离（编号2方框内所示的投影）</p>
+bias\ direction=\frac1N ((e_{he}-e_{she})+(e_{male}-e_{female})+\cdots)</script><p>二、<strong>中和步骤</strong>，对于定义不确切的词可以将其处理一下，避免偏见。像<strong>doctor</strong>和<strong>babysitter</strong>使之在性别方面中立。将它们在这个轴（编号1）上进行处理，减少或是消除他们的性别歧视趋势的成分，即减少在水平方向上的距离（编号2方框内所示的投影）</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4102795b004ff090ed83dc654f585852.png" alt></p>
-<p>三、均衡步，<strong>babysitter</strong>和<strong>grandmother</strong>之间的距离或者说是相似度实际上是小于<strong>babysitter</strong>和<strong>grandfather</strong>之间的（编号1），因此这可能会加重不良状态，或者非预期的偏见，也就是说<strong>grandmothers</strong>相比于<strong>grandfathers</strong>最终更有可能输出<strong>babysitting</strong>。所以在最后的均衡步中，想要确保的是像<strong>grandmother</strong>和<strong>grandfather</strong>这样的词都能够有一致的相似度，或者说是相等的距离，做法是将<strong>grandmother</strong>和<strong>grandfather</strong>移至与中间轴线等距的一对点上（编号2），现在性别歧视的影响也就是这两个词与<strong>babysitter</strong>的距离就完全相同了（编号3）</p>
+<p>三、<strong>均衡步</strong>，<strong>babysitter</strong>和<strong>grandmother</strong>之间的距离或者说是相似度，实际上是小于<strong>babysitter</strong>和<strong>grandfather</strong>之间的（编号1），因此这可能会加重不良状态，或者非预期的偏见，也就是说<strong>grandmothers</strong>相比于<strong>grandfathers</strong>最终更有可能输出<strong>babysitting</strong>。所以在最后的均衡步中，想要确保的是像<strong>grandmother</strong>和<strong>grandfather</strong>这样的词都能够有一致的相似度，或者说是相等的距离，做法是将<strong>grandmother</strong>和<strong>grandfather</strong>移至与中间轴线等距的一对点上（编号2），现在性别歧视的影响也就是这两个词与<strong>babysitter</strong>的距离就完全相同了（编号3）</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png" alt></p>
 <p>最后，掌握哪些单词需要中立化非常重要。一般来说，大部分英文单词，例如职业、身份等都需要中立化，消除embedding vector中性别这一维度的影响</p>
 

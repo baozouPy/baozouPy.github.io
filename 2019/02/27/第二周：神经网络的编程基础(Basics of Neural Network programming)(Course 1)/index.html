@@ -109,20 +109,20 @@
 <meta property="og:site_name" content="暴走的技术博客">
 <meta property="og:description" content="2.1 二分类(Binary Classification)逻辑回归模型一般用来解决二分类（Binary Classification）问题 二分类就是输出y只有{0,1}两个离散值（也有{-1,1}的情况）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-8.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-9.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/18.bmp">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/340import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/341import.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-11.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-12.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-13.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-14.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-15.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/342import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/343import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/344import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/19.bmp">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/20.bmp">
 <meta property="og:image" content="http://imshuai.com/content/images/2018/06/Screen-Shot-2018-06-09-at-18.35.35.jpg">
-<meta property="og:updated_time" content="2019-03-11T05:19:12.458Z">
+<meta property="og:updated_time" content="2019-03-22T00:57:46.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)">
 <meta name="twitter:description" content="2.1 二分类(Binary Classification)逻辑回归模型一般用来解决二分类（Binary Classification）问题 二分类就是输出y只有{0,1}两个离散值（也有{-1,1}的情况）">
-<meta name="twitter:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-8.png">
+<meta name="twitter:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/18.bmp">
 
 
 
@@ -420,8 +420,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T13:19:12+08:00">
-                2019-03-11
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T08:57:46+08:00">
+                2019-03-22
               </time>
             
           </span>
@@ -528,11 +528,11 @@
 
       
         <h1 id="2-1-二分类-Binary-Classification"><a href="#2-1-二分类-Binary-Classification" class="headerlink" title="2.1 二分类(Binary Classification)"></a>2.1 二分类(Binary Classification)</h1><p><strong>逻辑回归</strong>模型一般用来解决<strong>二分类（Binary Classification）</strong>问题</p>
-<p>二分类就是输出y只有{0,1}两个离散值（也有{-1,1}的情况）<br><a id="more"></a><br><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-8.png" alt="upload successful"></p>
+<p>二分类就是输出y只有{0,1}两个离散值（也有{-1,1}的情况）<br><a id="more"></a><br><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/18.bmp" alt></p>
 <p>彩色图片包含RGB三个通道。例如该cat图片的尺寸为（64，64，3）</p>
 <p>在神经网络模型中，首先要将图片输入x（维度是（64，64，3））转化为一维的<strong>特征向量（featurevector）</strong>。方法是每个通道一行一行取，再连接起来。则转化后的输入特征向量维度为（12288，1）。此特征向量x是列向量，维度一般记为<script type="math/tex">n_x</script></p>
 <p>如果训练样本共有m张图片，那么整个训练样本X组成了矩阵，维度是（<script type="math/tex">n_x</script>,m),  <script type="math/tex">n_x</script>代表了每个样本<script type="math/tex">X^{(i)}</script>特征个数，列m代表了样本个数,输出Y组成了一维的行向量，维度是（1，m）</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-9.png" alt="upload successful">)</p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/340import.png" alt></p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/341import.png" alt></p>
 <h1 id="2-2-逻辑回归-Logistic-Regression"><a href="#2-2-逻辑回归-Logistic-Regression" class="headerlink" title="2.2 逻辑回归(Logistic Regression)"></a>2.2 逻辑回归(Logistic Regression)</h1><p>逻辑回归中，预测值<script type="math/tex">\hat y=P(y=1 | x)</script>表示为1的概率，取值范围在[0,1]之间</p>
 <p>使用线性模型，引入参数w和b。权重w的维度是（<script type="math/tex">n_x</script>，1），b是一个常数项</p>
@@ -540,8 +540,8 @@
 <script type="math/tex; mode=display">
 \hat y = Sigmoid(w^Tx+b)=\sigma(w^Tx+b)</script><p>Sigmoid函数的一阶导数可以用其自身表示：</p>
 <script type="math/tex; mode=display">
-\sigma'(z)=\sigma(z)(1-\sigma(z))</script><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-11.png" alt="upload successful"></p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-12.png" alt="upload successful"></p>
+\sigma'(z)=\sigma(z)(1-\sigma(z))</script><p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/342import.png" alt></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/343import.png" alt></p>
 <h1 id="2-3-逻辑回归的代价函数（Logistic-Regression-Cost-Function）"><a href="#2-3-逻辑回归的代价函数（Logistic-Regression-Cost-Function）" class="headerlink" title="2.3 逻辑回归的代价函数（Logistic Regression Cost Function）"></a>2.3 逻辑回归的代价函数（Logistic Regression Cost Function）</h1><p>单个样本的<strong>cost function</strong>用<strong>Loss function</strong>来表示，使用<strong>平方误差（squared error）</strong>：</p>
 <script type="math/tex; mode=display">
 L(\hat y,y)=\frac12(\hat y-y)^2</script><p><strong>逻辑回归一般不使用平方误差来作为Loss function。原因是这种Loss function一般是non-convex的</strong></p>
@@ -556,12 +556,12 @@ L(\hat y,y)=-(ylog\ \hat y+(1-y)log\ (1-\hat y))</script><ul>
 </ul>
 <p><strong>Cost function</strong>是m个样本的<strong>Loss function</strong>的平均值，反映了m个样本的预测输出<script type="math/tex">\hat y</script>与真实样本输出y的平均接近程度:</p>
 <script type="math/tex; mode=display">
-J(w,b)=\frac1m\sum_{i=1}^mL(\hat y^{(i)},y^{(i)})=-\frac1m\sum_{i=1}^m[y^{(i)}log\ \hat y^{(i)}+(1-y^{(i)})log\ (1-\hat y^{(i)})]</script><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-13.png" alt="upload successful"></p>
+J(w,b)=\frac1m\sum_{i=1}^mL(\hat y^{(i)},y^{(i)})=-\frac1m\sum_{i=1}^m[y^{(i)}log\ \hat y^{(i)}+(1-y^{(i)})log\ (1-\hat y^{(i)})]</script><p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/344import.png" alt></p>
 <h1 id="2-4-逻辑回归的梯度下降（Logistic-Regression-Gradient-Descent）"><a href="#2-4-逻辑回归的梯度下降（Logistic-Regression-Gradient-Descent）" class="headerlink" title="2.4 逻辑回归的梯度下降（Logistic Regression Gradient Descent）"></a>2.4 逻辑回归的梯度下降（Logistic Regression Gradient Descent）</h1><p>对单个样本而言，<strong>逻辑回归Loss function</strong>表达式如下：</p>
 <script type="math/tex; mode=display">
 z=w^Tx+b</script><script type="math/tex; mode=display">
 \hat y=a=\sigma(z)</script><script type="math/tex; mode=display">
-L(a,y)=-(y\log(a)+(1-y)\log(1-a))</script><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-14.png" alt="upload successful"></p>
+L(a,y)=-(y\log(a)+(1-y)\log(1-a))</script><p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/19.bmp" alt></p>
 <p>计算该逻辑回归的反向传播过程:</p>
 <script type="math/tex; mode=display">
 da=\frac{\partial L}{\partial a}=-\frac ya+\frac{1-y}{1-a}</script><script type="math/tex; mode=display">
@@ -572,7 +572,7 @@ db=\frac{\partial L}{\partial b}=\frac{\partial L}{\partial z}\cdot \frac{\parti
 <script type="math/tex; mode=display">
 w_1:=w_1-\alpha\ dw_1</script><script type="math/tex; mode=display">
 w_2:=w_2-\alpha\ dw_2</script><script type="math/tex; mode=display">
-b:=b-\alpha\ db</script><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-15.png" alt="upload successful"></p>
+b:=b-\alpha\ db</script><p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/20.bmp" alt></p>
 <h1 id="2-5-梯度下降的例子-Gradient-Descent-on-m-Examples"><a href="#2-5-梯度下降的例子-Gradient-Descent-on-m-Examples" class="headerlink" title="2.5 梯度下降的例子(Gradient Descent on m Examples)"></a>2.5 梯度下降的例子(Gradient Descent on m Examples)</h1><p>m个样本的<strong>Cost function</strong>表达式如下：</p>
 <script type="math/tex; mode=display">
 z^{(i)}=w^Tx^{(i)}+b</script><script type="math/tex; mode=display">

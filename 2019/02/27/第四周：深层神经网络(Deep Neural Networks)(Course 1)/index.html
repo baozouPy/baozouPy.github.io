@@ -109,18 +109,18 @@
 <meta property="og:site_name" content="暴走的技术博客">
 <meta property="og:description" content="4.1 深层神经网络（Deep L-layer neural network）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-27.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-28.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-29.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-30.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-31.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-32.png">
-<meta property="og:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-33.png">
-<meta property="og:updated_time" content="2019-03-11T10:22:53.345Z">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/29.bmp">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/30.bmp">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/3import.png">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/31.bmpg">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/32.bmp">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/33.bmp">
+<meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/2import.png">
+<meta property="og:updated_time" content="2019-03-22T01:02:24.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第四周：深层神经网络(Deep Neural Networks)(Course 1)">
 <meta name="twitter:description" content="4.1 深层神经网络（Deep L-layer neural network）">
-<meta name="twitter:image" content="http://pnlb0i3oh.bkt.clouddn.com/pasted-27.png">
+<meta name="twitter:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/29.bmp">
 
 
 
@@ -418,8 +418,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T18:22:53+08:00">
-                2019-03-11
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T09:02:24+08:00">
+                2019-03-22
               </time>
             
           </span>
@@ -525,12 +525,12 @@
       
 
       
-        <h1 id="4-1-深层神经网络（Deep-L-layer-neural-network）"><a href="#4-1-深层神经网络（Deep-L-layer-neural-network）" class="headerlink" title="4.1 深层神经网络（Deep L-layer neural network）"></a>4.1 深层神经网络（Deep L-layer neural network）</h1><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-27.png" alt="upload successful"></p>
+        <h1 id="4-1-深层神经网络（Deep-L-layer-neural-network）"><a href="#4-1-深层神经网络（Deep-L-layer-neural-network）" class="headerlink" title="4.1 深层神经网络（Deep L-layer neural network）"></a>4.1 深层神经网络（Deep L-layer neural network）</h1><p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/29.bmp" alt></p>
 <a id="more"></a>
 <p>$L-layer\quad NN$，则包含了<script type="math/tex">L-1</script>个隐藏层，最后的<script type="math/tex">L</script>层是输出层</p>
 <p>$a^{[l]}$和<script type="math/tex">W^{[l]}</script>中的上标<script type="math/tex">l</script>都是从<script type="math/tex">1</script>开始的，<script type="math/tex">l=1,\cdots,L</script></p>
 <p>输入<script type="math/tex">x</script>记为<script type="math/tex">a^{[0]}</script>​​，把输出层<script type="math/tex">\hat y</script>记为<script type="math/tex">a^{[L]}</script></p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-28.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/30.bmp" alt></p>
 <p>$X$：<script type="math/tex">(12288, 209)</script>(with <script type="math/tex">m=209</script> examples)</p>
 <div class="table-container">
 <table>
@@ -599,12 +599,13 @@ dZ^{[l]}=dA^{[l]}\ast g^{[l]'}(Z^{[l]})</script><script type="math/tex; mode=dis
 dW^{[l]}=\frac1mdZ^{[l]}\cdot A^{[l-1]T}</script><script type="math/tex; mode=display">
 db^{[l]}=\frac1mnp.sum(dZ^{[l]},axis=1,keepdim=True)</script><script type="math/tex; mode=display">
 dA^{[l-1]}=W^{[l]T}\cdot dZ^{[l]}</script><script type="math/tex; mode=display">
-dZ^{[l]}=W^{[l+1]T}\cdot dZ^{[l+1]}\ast g^{[l]'}(Z^{[l]})</script><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-29.png" alt="upload successful"></p>
+dZ^{[l]}=W^{[l+1]T}\cdot dZ^{[l+1]}\ast g^{[l]'}(Z^{[l]})</script><p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/3import.png" alt></p>
 <h1 id="4-3-深层网络中的前向传播（Forward-propagation-in-a-Deep-Network-）"><a href="#4-3-深层网络中的前向传播（Forward-propagation-in-a-Deep-Network-）" class="headerlink" title="4.3 深层网络中的前向传播（Forward propagation in a Deep Network ）"></a>4.3 深层网络中的前向传播（Forward propagation in a Deep Network ）</h1><p>对于第<script type="math/tex">l</script>层，其正向传播过程的<script type="math/tex">Z^{[l]}</script>和<script type="math/tex">A^{[l]}</script>可以表示为：</p>
 <script type="math/tex; mode=display">
 Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}</script><script type="math/tex; mode=display">
 A^{[l]}=g^{[l]}(Z^{[l]})</script><p>其中<script type="math/tex">l=1,\cdots,L</script></p>
-<h1 id="4-4-为什么使用深层表示？（Why-deep-representations-）"><a href="#4-4-为什么使用深层表示？（Why-deep-representations-）" class="headerlink" title="4.4 为什么使用深层表示？（Why deep representations?）"></a>4.4 为什么使用深层表示？（Why deep representations?）</h1><h2 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h2><p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-30.png" alt="upload successful"><br>经过训练，神经网络第一层所做的事就是从原始图片中提取出人脸的轮廓与边缘，即<strong>边缘检测</strong>。这样每个神经元得到的是一些边缘信息。神经网络第二层所做的事情就是将前一层的边缘进行组合，组合成人脸一些局部特征，比如眼睛、鼻子、嘴巴等。再往后面，就将这些局部特征组合起来，融合成人脸的模样。</p>
+<h1 id="4-4-为什么使用深层表示？（Why-deep-representations-）"><a href="#4-4-为什么使用深层表示？（Why-deep-representations-）" class="headerlink" title="4.4 为什么使用深层表示？（Why deep representations?）"></a>4.4 为什么使用深层表示？（Why deep representations?）</h1><h2 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h2><p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/31.bmpg" alt>  </p>
+<p>经过训练，神经网络第一层所做的事就是从原始图片中提取出人脸的轮廓与边缘，即<strong>边缘检测</strong>。这样每个神经元得到的是一些边缘信息。神经网络第二层所做的事情就是将前一层的边缘进行组合，组合成人脸一些局部特征，比如眼睛、鼻子、嘴巴等。再往后面，就将这些局部特征组合起来，融合成人脸的模样。</p>
 <p>随着层数由浅到深，神经网络提取的特征也是从边缘到局部特征到整体，由简单到复杂。如果隐藏层足够多，那么能够提取的特征就越丰富、越复杂，模型的准确率就会越高。</p>
 <h2 id="语音识别模型"><a href="#语音识别模型" class="headerlink" title="语音识别模型"></a>语音识别模型</h2><p>浅层的神经元能够检测一些简单的音调，较深的神经元能够检测出基本的音素，更深的神经元就能够检测出单词信息。如果网络够深，还能对短语、句子进行检测。</p>
 <p>神经网络从左到右，神经元提取的特征从简单到复杂。特征复杂度与神经网络层数成正相关。特征越来越复杂，功能也越来越强大</p>
@@ -618,10 +619,10 @@ y=x_1\oplus x_2\oplus x_3\oplus\cdots\oplus x_n</script><p>对于这个逻辑运
 <p>如果不用深层网络，使用单个隐藏层，需要的神经元个数将是指数级别那么大。由于包含了所有的逻辑位（<script type="math/tex">0</script>和<script type="math/tex">1</script>），则需要<script type="math/tex">2^{n-1}</script>个神经元</p>
 <p><strong>处理同一逻辑问题，深层网络所需的神经元个数比浅层网络要少很多</strong></p>
 <h1 id="4-5-搭建神经网络块（Building-blocks-of-deep-neural-networks）"><a href="#4-5-搭建神经网络块（Building-blocks-of-deep-neural-networks）" class="headerlink" title="4.5 搭建神经网络块（Building blocks of deep neural networks）"></a>4.5 搭建神经网络块（Building blocks of deep neural networks）</h1><p>第<script type="math/tex">l</script>层的流程块图</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-31.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/32.bmp" alt></p>
 <p>对于神经网络所有层，整体的流程块图正向传播过程和反向传播过程如下所示：</p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-32.png" alt="upload successful"></p>
-<p><img src="http://pnlb0i3oh.bkt.clouddn.com/pasted-33.png" alt="upload successful"></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/33.bmp" alt></p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/2import.png" alt></p>
 <h1 id="4-6-参数-VS-超参数（Parameters-vs-Hyperparameters）"><a href="#4-6-参数-VS-超参数（Parameters-vs-Hyperparameters）" class="headerlink" title="4.6 参数 VS 超参数（Parameters vs Hyperparameters）"></a>4.6 参数 VS 超参数（Parameters vs Hyperparameters）</h1><p>神经网络中的参数是<script type="math/tex">W^{[l]}</script>和<script type="math/tex">b^{[l]}</script></p>
 <p><strong>超参数</strong>则是例如学习速率<script type="math/tex">\alpha</script>，训练迭代次数<script type="math/tex">N</script>，神经网络层数<script type="math/tex">L</script>，各层神经元个数<script type="math/tex">n^{[l]}</script>，激活函数<script type="math/tex">g(z)</script>等</p>
 <p><strong>叫做超参数的原因是它们决定了参数<script type="math/tex">W^{[l]}</script>和<script type="math/tex">b^{[l]}</script>的值</strong></p>
