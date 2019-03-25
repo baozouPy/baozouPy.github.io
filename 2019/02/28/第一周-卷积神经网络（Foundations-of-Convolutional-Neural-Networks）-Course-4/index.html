@@ -149,7 +149,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/dad50972904bcd2131657db7798595b7.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/7503372ab986cd3aedda7674bedfd5f0.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/8fd4c61773f0245c87871de14f0a2d03.png">
-<meta property="og:updated_time" content="2019-03-22T01:33:29.533Z">
+<meta property="og:updated_time" content="2019-03-25T00:11:02.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 卷积神经网络（Foundations of Convolutional Neural Networks）(Course 4)">
 <meta name="twitter:description" content="1.1 计算机视觉（Computer vision）图片分类，或图片识别：">
@@ -451,8 +451,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T09:33:29+08:00">
-                2019-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-25T08:11:02+08:00">
+                2019-03-25
               </time>
             
           </span>
@@ -573,7 +573,7 @@
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5f9c10d0986f003e5bd6fa87a9ffe04b.png" alt></p>
 <p>∗表示卷积操作。python中，卷积用conv_forward()表示；tensorflow中，卷积用tf.nn.conv2d()表示；keras中，卷积用Conv2D()表示</p>
 <p>垂直边缘是一个3×3的区域，左边是明亮的像素，中间的并不需要考虑，右边是深色像素。在这个6×6图像的中间部分，明亮的像素在左边，深色的像素在右边，就被视为一个垂直边缘</p>
-<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0c8b5b8441557b671431d515aefa1e8a.png" alt>]</p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0c8b5b8441557b671431d515aefa1e8a.png" alt></p>
 <h2 id="1-3-更多边缘检测内容（More-edge-detection）"><a href="#1-3-更多边缘检测内容（More-edge-detection）" class="headerlink" title="1.3 更多边缘检测内容（More edge detection）"></a>1.3 更多边缘检测内容（More edge detection）</h2><p>图片边缘有两种渐变方式，一种是由明变暗，另一种是由暗变明。实际应用中，这两种渐变方式并不影响边缘检测结果，可以对输出图片取绝对值操作，得到同样的结果</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/783267536976c27544bbe36ac758a48e.png" alt></p>
 <blockquote>
@@ -596,25 +596,25 @@
 <p>或者：</p>
 <script type="math/tex; mode=display">
 \begin{bmatrix} 3& 0 & - 3 \\ 10 & 0 & - 10 \\ 3 & 0 & - 3 \end{bmatrix}</script><p>叫做<strong>Scharr过滤器</strong>，也是一种垂直边缘检测，如果将其翻转90度，就能得到对应水平边缘检测</p>
-<p>随着深度学习的发展，如果想检测图片的各种边缘特征，而不仅限于垂直边缘和水平边缘，那么filter的数值一般需要通过模型训练得到，将矩阵的所有数字都设置为参数，通过数据反馈，让神经网络自动去学习它们，类似于标准神经网络中的权重<script type="math/tex">W</script>一样由梯度下降算法反复迭代求得，会发现神经网络可以学习一些低级的特征，例如这些边缘的特征。CNN的主要目的就是计算出这些filter的数值，确定得到了这些filter后，CNN浅层网络也就实现了对图片所有边缘特征的检测</p>
+<p>随着深度学习的发展，如果想检测图片的各种边缘特征，而不仅限于垂直边缘和水平边缘，那么filter的数值一般需要通过模型训练得到，<strong>将矩阵的所有数字都设置为参数，通过数据反馈，让神经网络自动去学习它们，类似于标准神经网络中的权重<script type="math/tex">W</script>一样由梯度下降算法反复迭代求得</strong>，会发现神经网络可以学习一些低级的特征，例如这些边缘的特征。CNN的主要目的就是计算出这些filter的数值，确定得到了这些filter后，CNN浅层网络也就实现了对图片所有边缘特征的检测</p>
 <p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/f889ad7011738a23d78070e8ed2df04e.png" alt></p>
 <h2 id="1-4-Padding"><a href="#1-4-Padding" class="headerlink" title="1.4 Padding"></a>1.4 Padding</h2><p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/d21e2642815d03b15396f7998ba4459a.png" alt></p>
 <p>如果有一个<script type="math/tex">n\times n</script>的图像，用<script type="math/tex">f\times f</script>的过滤器做卷积，输出的维度就是<script type="math/tex">(n-f+1)\times (n-f+1)</script></p>
 <p>这样的话会有两个缺点:</p>
 <ul>
 <li>每次做卷积操作，<strong>输出图片尺寸缩小</strong></li>
-<li><strong>原始图片边缘信息对输出贡献得少，输出图片丢失边缘信息</strong></li>
+<li><strong>原始图片边缘信息对输出贡献较少，输出图片丢失边缘信息</strong></li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/170e076ceaeb70339baa7b25ad5f5e6c.png" alt></p>
 <blockquote>
 <p>角落边缘的像素（绿色阴影标记）只被一个输出所触碰或者使用，中间的像素点（红色方框标记）会有许多3×3的区域与之重叠。角落或者边缘区域的像素点在输出中采用较少，丢掉了图像边缘位置的许多信息</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/208104bae9256fba5d8e37e22a9f5408.png" alt></p>
-<p>可以在卷积操作之前填充这幅图像。沿着图像边缘再填充一层像素,6×6的图像填充成8×8的图像。就得到了一个尺寸和原始图像6×6的图像。习惯上，可以用0去填充，如果<script type="math/tex">p</script>是填充的数量，输出也就变成了<script type="math/tex">(n+2p-f+1)\times (n+2p-f+1)</script>。涂绿的像素点（左边矩阵）影响了输出中的这些格子（右边矩阵）。这样角落或图像边缘的信息发挥的作用较小的这一缺点就被削弱了</p>
+<p>可以在卷积操作之前填充这幅图像。沿着图像边缘再填充一层像素，6×6的图像填充成8×8的图像。就得到了一个尺寸和原始图像6×6的图像。习惯上，可以用0去填充，如果<script type="math/tex">p</script>是填充的数量，输出也就变成了<script type="math/tex">(n+2p-f+1)\times (n+2p-f+1)</script>。涂绿的像素点（左边矩阵）影响了输出中的这些格子（右边矩阵）。这样角落或图像边缘的信息发挥的作用较小的这一缺点就被削弱了</p>
 <p>选择填充多少像素，通常有两个选择，分别叫做<strong>Valid</strong>卷积和<strong>Same</strong>卷积</p>
-<p><strong>Valid</strong>卷积意味着不填充，如果有一个<script type="math/tex">n\times n</script>的图像，用一个<script type="math/tex">f\times f</script>的过滤器卷积，会给一个<script type="math/tex">(n-f+1)\times (n-f+1)</script>维的输出</p>
+<p><strong>Valid</strong>卷积意味着<strong>不填充</strong>，如果有一个<script type="math/tex">n\times n</script>的图像，用一个<script type="math/tex">f\times f</script>的过滤器卷积，会给一个<script type="math/tex">(n-f+1)\times (n-f+1)</script>维的输出</p>
 <p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/0663e1a9e477e2737067d9e79194208d.png" alt></p>
-<p>另一个叫做<strong>Same</strong>卷积，填充后输出大小和输入大小是一样的。由<script type="math/tex">n-f+1</script>，当填充<script type="math/tex">p</script>个像素点，<script type="math/tex">n</script>就变成了<script type="math/tex">n+2p</script>，公式变为：</p>
+<p>另一个叫做<strong>Same</strong>卷积，填充后<strong>输出大小和输入大小是一样</strong>的。由<script type="math/tex">n-f+1</script>，当填充<script type="math/tex">p</script>个像素点，<script type="math/tex">n</script>就变成了<script type="math/tex">n+2p</script>，公式变为：</p>
 <script type="math/tex; mode=display">
 n+2p-f+1</script><p>即：</p>
 <script type="math/tex; mode=display">
@@ -623,7 +623,7 @@ p=\frac{f-1}{2}</script><p>当<script type="math/tex">f</script>是一个奇数�
 <p>计算机视觉中，<script type="math/tex">f</script>通常是奇数，有两个原因：</p>
 <ul>
 <li>如果<script type="math/tex">f</script>是偶数，只能使用一些不对称填充</li>
-<li>当有一个奇数维过滤器，比如3×3或者5×5的，它就有一个中心点，便于指出过滤器的位置</li>
+<li>当有一个奇数维过滤器，比如3×3或者5×5的，它就有一个中心点，<strong>便于指出过滤器的位置</strong></li>
 </ul>
 <h2 id="1-5-卷积步长（Strided-convolutions）"><a href="#1-5-卷积步长（Strided-convolutions）" class="headerlink" title="1.5 卷积步长（Strided convolutions）"></a>1.5 卷积步长（Strided convolutions）</h2><p>Stride表示filter在原图片中水平方向和垂直方向每次的步进长度。之前默认stride=1。若stride=2，则表示filter每次步进长度为2，即隔一点移动一次</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/456import.png" alt></p>
@@ -632,7 +632,7 @@ p=\frac{f-1}{2}</script><p>当<script type="math/tex">f</script>是一个奇数�
 \lfloor\frac{n+2p-f}{s}+1\rfloor\ \times\ \lfloor\frac{n+2p-f}{s}+1\rfloor</script><p>真正的卷积运算会先将filter绕其中心旋转180度，然后再将旋转后的filter在原始图片上进行滑动计算。filter旋转如下所示：</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/435import.png" alt></p>
 <p>相关系数的计算过程则不会对filter进行旋转，而是直接在原始图片上进行滑动计算</p>
-<p>目前为止介绍的CNN卷积实际上计算的是相关系数，而不是数学意义上的卷积。为了简化计算，一般把CNN中的这种“相关系数”就称作卷积运算。之所以可以这么等效，是因为滤波器算子一般是水平或垂直对称的，180度旋转影响不大；而且最终滤波器算子需要通过CNN网络梯度下降算法计算得到，旋转部分可以看作是包含在CNN模型算法中。忽略旋转运算可以大大提高CNN网络运算速度，而且不影响模型性能。</p>
+<p>目前为止介绍的CNN卷积实际上<strong>计算的是相关系数</strong>，而不是数学意义上的卷积。为了简化计算，一般把CNN中的这种“相关系数”就称作卷积运算。之所以可以这么等效，是因为滤波器算子一般是水平或垂直对称的，180度旋转影响不大；而且最终滤波器算子需要通过CNN网络梯度下降算法计算得到，旋转部分可以看作是包含在CNN模型算法中。忽略旋转运算可以大大提高CNN网络运算速度，而且不影响模型性能</p>
 <p>卷积运算服从分配律：</p>
 <script type="math/tex; mode=display">
 (A*B)*C=A*(B*C)</script><h2 id="1-6三维卷积（Convolutions-over-volumes）"><a href="#1-6三维卷积（Convolutions-over-volumes）" class="headerlink" title="1.6三维卷积（Convolutions over volumes）"></a>1.6三维卷积（Convolutions over volumes）</h2><p>3通道的RGB图片对应的滤波器算子也是3通道的。例如一个图片是6 x 6 x 3，分别表示图片的高度（height）、宽度（weight）和通道（#channel）</p>
@@ -652,7 +652,7 @@ p=\frac{f-1}{2}</script><p>当<script type="math/tex">f</script>是一个奇数�
 <script type="math/tex; mode=display">
 Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}</script><script type="math/tex; mode=display">
 A^{[l]}=g^{[l]}(Z^{[l]})</script><p>卷积运算对应着上式中的乘积运算，滤波器组数值对应着权重<script type="math/tex">W^{[l]}</script>，所选的激活函数为<script type="math/tex">ReLU</script></p>
-<p>每个滤波器组有3x3x3=27个参数，还有1个偏移量<script type="math/tex">b</script>，则每个滤波器组有27+1=28个参数，两个滤波器组总共包含28x2=56个参数。选定滤波器组后，参数数目与输入图片尺寸无关。所以不存在由于图片尺寸过大，造成参数过多的情况，这就是卷积神经网络的一个特征，叫作“<strong>避免过拟合</strong>”。例如一张1000x1000x3的图片，标准神经网络输入层的维度将达到3百万，而在CNN中，参数数目只由滤波器组决定，数目相对来说要少得多，这是CNN的优势之一</p>
+<p>每个滤波器组有3x3x3=27个参数，还有1个偏移量<script type="math/tex">b</script>，则每个滤波器组有27+1=28个参数，两个滤波器组总共包含28x2=56个参数。<strong>选定滤波器组后，参数数目与输入图片尺寸无关</strong>。所以不存在由于图片尺寸过大，造成参数过多的情况，这就是卷积神经网络的一个特征，叫作“<strong>避免过拟合</strong>”。例如一张1000x1000x3的图片，标准神经网络输入层的维度将达到3百万，而在CNN中，<strong>参数数目只由滤波器组决定</strong>，数目相对来说要少得多，这是CNN的优势之一</p>
 <p>设层数为<script type="math/tex">l</script>，CNN单层结构的所有标记符号：</p>
 <ul>
 <li><script type="math/tex">f^{[l]}</script><strong>= filter size</strong></li>
@@ -671,7 +671,8 @@ n_W^{[l]}=\lfloor \frac{n_W^{[l-1]}+2p^{[l]}-f^{[l]}}{s^{[l]}}+1 \rfloor</script
 <script type="math/tex; mode=display">
 m \times n_H^{[l]}\times n_W^{[l]}\times n_c^{[l]}</script><h2 id="1-8-简单卷积网络示例（A-simple-convolution-network-example）"><a href="#1-8-简单卷积网络示例（A-simple-convolution-network-example）" class="headerlink" title="1.8 简单卷积网络示例（A simple convolution network example）"></a>1.8 简单卷积网络示例（A simple convolution network example）</h2><p>简单的CNN网络模型：</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/4545import.png" alt></p>
-<script type="math/tex; mode=display">a^{[3]}$$的维度是7 x 7 x 40，将$$a^{[3]}$$排列成1列，维度为1960 x 1，然后连接最后一级输出层。输出层可以是一个神经元，即二元分类（logistic）；也可以是多个神经元，即多元分类（softmax）。最后得到预测输出$$\hat y</script><p>随着CNN层数增加，<script type="math/tex">n_H^{[l]}</script>和<script type="math/tex">n_W^{[l]}</script>一般逐渐减小，而<script type="math/tex">n_c^{[l]}</script>一般逐渐增大</p>
+<p>$a^{[3]}​$的维度是7 x 7 x 40，将​<script type="math/tex">a^{[3]}​</script>排列成1列，维度为1960 x 1，然后连接最后一级输出层。输出层可以是一个神经元，即二元分类（logistic）；也可以是多个神经元，即多元分类（softmax）。最后得到预测输出​<script type="math/tex">\hat y​</script></p>
+<p>随着CNN层数增加，<script type="math/tex">n_H^{[l]}​</script>和<script type="math/tex">n_W^{[l]}​</script>一般逐渐减小，而<script type="math/tex">n_c^{[l]}​</script>一般逐渐增大</p>
 <p>CNN有三种类型的layer：</p>
 <ul>
 <li><p><strong>Convolution层（CONV）</strong></p>
