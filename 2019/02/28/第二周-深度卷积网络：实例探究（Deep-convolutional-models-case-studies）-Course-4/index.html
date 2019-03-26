@@ -11,6 +11,7 @@
 
 
 <head><meta name="generator" content="Hexo 3.8.0">
+
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -154,7 +155,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png">
-<meta property="og:updated_time" content="2019-03-26T01:39:09.605Z">
+<meta property="og:updated_time" content="2019-03-26T02:11:54.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 深度卷积网络:实例探究 (Deep convolutional models: case studies)(Course 4)">
 <meta name="twitter:description" content="2.1 经典网络（Classic networks）LeNet-5LeNet-5可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。">
@@ -224,6 +225,7 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
   
+
 
 
   
@@ -460,7 +462,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-26T09:39:09+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-26T10:11:54+08:00">
                 2019-03-26
               </time>
             
@@ -646,8 +648,8 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/49a16fdc10769a86355911f9e324c728.png" alt></p>
 <p>如果想保持通道数192不变，也是可行的，1×1卷积只是添加了非线性函数，也可以让网络学习更复杂的函数</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/70f3b26fe86c3ec2507b8bb85be8d30c.png" alt></p>
-<p>‘1×1卷积层给神经网络添加了一个非线性函数，从而减少、增加或保持输入层中的通道数量不变’</p>
-<h2 id="2-5-谷歌-Inception-网络简介（Inception-network-motivation）"><a href="#2-5-谷歌-Inception-网络简介（Inception-network-motivation）" class="headerlink" title="2.5 谷歌 Inception 网络简介（Inception network motivation）"></a>2.5 谷歌 Inception 网络简介（Inception network motivation）</h2><p><strong>Inception</strong>网络或<strong>Inception</strong>层的作用是<strong>代替人工来确定卷积层中的过滤器类型，或者确定是否需要创建卷积层或池化层</strong></p>
+<p><code>1×1卷积层给神经网络添加了一个非线性函数，从而减少、增加或保持输入层中的通道数量不变</code></p>
+<h2 id="2-5-谷歌-Inception-网络简介（Inception-network-motivation）"><a href="#2-5-谷歌-Inception-网络简介（Inception-network-motivation）" class="headerlink" title="2.5 谷歌 Inception 网络简介（Inception network motivation）"></a>2.5 谷歌 Inception 网络简介（Inception network motivation）</h2><p><code>Inception</code>网络或<code>Inception</code>层的作用是<code>代替人工来确定卷积层中的过滤器类型，或者确定是否需要创建卷积层或池化层</code></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/99f8fc7dbe7cd0726f5271aae11b9872.png" alt></p>
 <p>基本思想是<strong>Inception</strong>网络在单层网络上可以使用多个不同尺寸的filters，进行<strong>same convolutions</strong>，把各filter下得到的输出拼接起来。还可以将CONV layer与POOL layer混合，同时实现各种效果，但是要注意使用<strong>same pool</strong>。Inception Network<strong>不需人为决定</strong>使用哪个过滤器或者是否需要池化，它使用不同尺寸的filters并将CONV和POOL混合起来，将所有功能输出组合拼接，再由神经网络本身去学习参数并选择最好的模块</p>
 <p>Inception Network在提升性能的同时，会带来<strong>计算量大</strong>的问题：</p>
@@ -1732,8 +1734,10 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 
   
 
+  
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":80,"height":80},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
+
 
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
