@@ -149,7 +149,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/dad50972904bcd2131657db7798595b7.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/7503372ab986cd3aedda7674bedfd5f0.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/8fd4c61773f0245c87871de14f0a2d03.png">
-<meta property="og:updated_time" content="2019-03-25T00:11:02.733Z">
+<meta property="og:updated_time" content="2019-03-25T00:30:57.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 卷积神经网络（Foundations of Convolutional Neural Networks）(Course 4)">
 <meta name="twitter:description" content="1.1 计算机视觉（Computer vision）图片分类，或图片识别：">
@@ -451,7 +451,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-25T08:11:02+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-25T08:30:57+08:00">
                 2019-03-25
               </time>
             
@@ -683,22 +683,22 @@ m \times n_H^{[l]}\times n_W^{[l]}\times n_c^{[l]}</script><h2 id="1-8-简单卷
 </li>
 </ul>
 <p>CONV最为常见也最重要</p>
-<h2 id="1-9-池化层（Pooling-layers）"><a href="#1-9-池化层（Pooling-layers）" class="headerlink" title="1.9 池化层（Pooling layers）"></a>1.9 池化层（Pooling layers）</h2><p>Pooling layers是CNN中用来减小尺寸，提高运算速度的，同样能减小noise影响，让各特征更具有健壮性</p>
+<h2 id="1-9-池化层（Pooling-layers）"><a href="#1-9-池化层（Pooling-layers）" class="headerlink" title="1.9 池化层（Pooling layers）"></a>1.9 池化层（Pooling layers）</h2><p>Pooling layers是CNN中用来<strong>减小尺寸，提高运算速度的，同样能减小noise影响，让各特征更具有健壮性</strong></p>
 <p>Pooling layers没有卷积运算，仅在滤波器算子滑动区域内取最大值，即max pooling，这是最常用的做法。超参数p很少在pooling layers中使用</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/2323%20import.png" alt></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a800c70b250dc43b7003aaeebb4eefc2.png" alt></p>
-<p>Max pooling的好处是只保留区域内的最大值（特征），数字大意味着可能探测到了某些特定的特征，忽略了其它值，降低了noise影响，提高了模型健壮性。max pooling需要的超参数仅为滤波器尺寸f和滤波器步进长度s，没有其他参数需要模型训练得到，计算量很小</p>
+<p>Max pooling的好处是只保留区域内的最大值（特征），<strong>数字大意味着可能探测到了某些特定的特征，忽略了其它值，降低了noise影响，提高了模型健壮性</strong>。max pooling需要的超参数仅为滤波器尺寸f和滤波器步进长度s，没有其他参数需要模型训练得到，计算量很小</p>
 <p>如果是多个通道，每个通道单独进行max pooling操作：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/c225755635059449e2a9a84135e2548e.png" alt></p>
 <p>average pooling是在滤波器算子滑动区域计算平均值：</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/1%602import.png" alt></p>
 <p>实际应用中，max pooling比average pooling更为常用，也有例外，深度很深的神经网络可以用平均池化来分解规模为7×7×1000的网络的表示层，在整个空间内求平均值，得到1×1×1000</p>
 <p>总结：</p>
-<p>池化的超级参数包括过滤器大小<script type="math/tex">f</script>和步幅<script type="math/tex">s</script>，常用的参数值为<script type="math/tex">f=2</script>，<script type="math/tex">s=2</script>，应用频率非常高，其效果相当于高度和宽度缩减一半。最大池化时，往往很少用到超参数<strong>padding</strong>，<script type="math/tex">p</script>最常用的值是0，即<script type="math/tex">p=0</script>。最大池化的输入就是：</p>
+<p>池化的超级参数包括过滤器大小<script type="math/tex">f</script>和步幅<script type="math/tex">s</script>，常用的参数值为<script type="math/tex">f=2</script>，<script type="math/tex">s=2</script>，应用频率非常高，其效果相当于<strong>高度和宽度缩减一半</strong>。最大池化时，往往很少用到超参数<strong>padding</strong>，<script type="math/tex">p</script>最常用的值是0，即<script type="math/tex">p=0</script>。最大池化的输入就是：</p>
 <script type="math/tex; mode=display">
 n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>，则输出：</p>
 <script type="math/tex; mode=display">
-\lfloor\frac{n_{H} - f}{s} +1\rfloor \times \lfloor\frac{n_{w} - f}{s} + 1\rfloor \times n_{c}</script><p>输入通道与输出通道个数相同，因为对每个通道都做了池化。最大池化只是计算神经网络某一层的静态属性，池化过程中没有需要学习的参数。执行反向传播时，反向传播没有参数适用于最大池化</p>
+\lfloor\frac{n_{H} - f}{s} +1\rfloor \times \lfloor\frac{n_{w} - f}{s} + 1\rfloor \times n_{c}</script><p>输入通道与输出通道个数相同，因为对每个通道都做了池化。最大池化只是计算神经网络某一层的<strong>静态属性</strong>，池化过程中没有需要学习的参数。执行反向传播时，反向传播没有参数适用于最大池化</p>
 <p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/6bd58a754152e7f5cf55a8c5bbac3100.png" alt></p>
 <h2 id="1-10-卷积神经网络示例（Convolutional-neural-network-example）"><a href="#1-10-卷积神经网络示例（Convolutional-neural-network-example）" class="headerlink" title="1.10 卷积神经网络示例（Convolutional neural network example）"></a>1.10 卷积神经网络示例（Convolutional neural network example）</h2><p>简单的数字识别CNN例子：</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/467import.png" alt></p>
@@ -708,7 +708,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 <p>池化层和最大池化层没有参数；卷积层的参数相对较少，许多参数都存在于神经网络的全连接层。随着神经网络的加深，激活值尺寸会逐渐变小，如果激活值尺寸下降太快，也会影响神经网络性能</p>
 <p>尽量不要自己设置超参数，而是查看文献中别人采用了哪些超参数，选一个在别人任务中效果很好的架构，也可能适用于自己的应用程序</p>
 <p>在神经网络中，另一种常见模式就是一个或多个卷积后面跟随一个池化层，然后一个或多个卷积层后面再跟一个池化层，然后是几个全连接层，最后是一个<strong>softmax</strong></p>
-<h2 id="1-11-为什么使用卷积？（Why-convolutions-）"><a href="#1-11-为什么使用卷积？（Why-convolutions-）" class="headerlink" title="1.11 为什么使用卷积？（Why convolutions?）"></a>1.11 为什么使用卷积？（Why convolutions?）</h2><p>和只用全连接层相比，卷积层的两个主要优势在于参数共享和稀疏连接</p>
+<h2 id="1-11-为什么使用卷积？（Why-convolutions-）"><a href="#1-11-为什么使用卷积？（Why-convolutions-）" class="headerlink" title="1.11 为什么使用卷积？（Why convolutions?）"></a>1.11 为什么使用卷积？（Why convolutions?）</h2><p>和只用全连接层相比，卷积层的两个主要优势在于<strong>参数共享和稀疏连接</strong></p>
 <p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/beedba9de67752b61ad0eede899eb4de.png" alt></p>
 <p>如果这是一张1000×1000的图片，权重矩阵会变得非常大。而卷积层的参数数量：每个过滤器都是5×5，一个过滤器有25个参数，再加上偏差参数，那么每个过滤器就有26个参数，一共有6个过滤器，所以参数共计156个，参数数量很少</p>
 <p>卷积网络映射这么少参数有两个原因：</p>
@@ -722,9 +722,11 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 </ul>
 <p>右边输出单元（元素0）仅与36个输入特征中9个相连接。其它像素值都不会对输出产生任何影响，输出（右边矩阵中红色标记的元素 30）仅仅依赖于这9个特征（左边矩阵红色方框标记的区域），只有这9个输入特征与输出相连接，其它像素对输出没有任何影响</p>
 <p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/7503372ab986cd3aedda7674bedfd5f0.png" alt></p>
-<p>神经网络可以通过这两种机制减少参数，以便用更小的训练集来训练它，从而预防过拟合。CNN比较擅长捕捉区域位置偏移，也就是说CNN进行物体检测时，不太受物体所处图片位置的影响，增加检测的准确性和系统的健壮性。通过观察可以发现，向右移动两个像素，图片中的猫依然清晰可见，因为神经网络的卷积结构使得即使移动几个像素，这张图片依然具有非常相似的特征，应该属于同样的输出标记</p>
+<p>神经网络可以通过这两种机制减少参数，<strong>以便用更小的训练集来训练它，从而预防过拟合</strong>。<strong>CNN比较擅长捕捉区域位置偏移，也就是说CNN进行物体检测时，不太受物体所处图片位置的影响，增加检测的准确性和系统的健壮性</strong>。通过观察可以发现，向右移动两个像素，图片中的猫依然清晰可见，因为神经网络的卷积结构使得即使移动几个像素，这张图片依然具有非常相似的特征，应该属于同样的输出标记</p>
 <p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/8fd4c61773f0245c87871de14f0a2d03.png" alt></p>
-<p>最后，把这些层整合起来，比如要构建一个猫咪检测器，<script type="math/tex">x</script>表示一张图片，<script type="math/tex">\hat{y}</script>是二进制标记或某个重要标记。选定一个卷积神经网络，输入图片，增加卷积层和池化层，然后添加全连接层，并随机初始化参数<script type="math/tex">w</script>和<script type="math/tex">b</script>，最后输出一个<strong>softmax</strong>，即<script type="math/tex">\hat{y}</script>，代价函数<script type="math/tex">J</script>等于神经网络对整个训练集的预测的损失总和再除以<script type="math/tex">m</script>（即<script type="math/tex">\text{Cost} J = \frac{1}{m}\sum_{i = 1}^{m}{L(\hat{y}^{(i)},y^{(i)})}</script>）。所以训练神经网络，要做的就是使用梯度下降法，或其它算法，例如<strong>Momentum</strong>梯度下降法，含<strong>RMSProp</strong>或其它因子的梯度下降来优化神经网络中所有参数，以减少代价函数<script type="math/tex">J</script>的值</p>
+<p>最后，把这些层整合起来，比如要构建一个猫咪检测器，<script type="math/tex">x​</script>表示一张图片，<script type="math/tex">\hat{y}​</script>是二进制标记或某个重要标记。选定一个卷积神经网络，输入图片，增加卷积层和池化层，然后添加全连接层，并随机初始化参数<script type="math/tex">w​</script>和<script type="math/tex">b​</script>，最后输出一个<strong>softmax</strong>，即<script type="math/tex">\hat{y}​</script>，代价函数<script type="math/tex">J​</script>等于神经网络对整个训练集的预测的损失总和再除以<script type="math/tex">m​</script>（即:</p>
+<script type="math/tex; mode=display">
+\text{Cost}\ J = \frac{1}{m}\sum_{i = 1}^{m}{L(\hat{y}^{(i)},y^{(i)})}</script><p>所以训练神经网络，要做的就是使用梯度下降法，或其它算法，例如<strong>Momentum</strong>梯度下降法，含<strong>RMSProp</strong>或其它因子的梯度下降来优化神经网络中所有参数，以减少代价函数<script type="math/tex">J​</script>的值</p>
 
       
     </div>
