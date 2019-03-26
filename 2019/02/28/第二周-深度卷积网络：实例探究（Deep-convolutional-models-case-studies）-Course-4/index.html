@@ -154,7 +154,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png">
-<meta property="og:updated_time" content="2019-03-26T01:34:10.973Z">
+<meta property="og:updated_time" content="2019-03-26T01:39:09.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 深度卷积网络:实例探究 (Deep convolutional models: case studies)(Course 4)">
 <meta name="twitter:description" content="2.1 经典网络（Classic networks）LeNet-5LeNet-5可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。">
@@ -214,6 +214,10 @@
 
 
 
+  <!-- 爆炸红心效果 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/firework.js"></script>
 </head>
 <!--动态标题-->
 <script type="text/javascript" src="/js/src/dytitle.js"></script>
@@ -456,7 +460,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-26T09:34:10+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-26T09:39:09+08:00">
                 2019-03-26
               </time>
             
@@ -634,7 +638,8 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f97e6c31c2b27a2d4ef9610b8f32b335.png" alt></p>
 <p>如果过滤器是多个，就好像有多个输入单元，其输入内容为一个切片上所有数字，输出结果是6×6×#filters</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/70eba35d0705dc681c40f09a0926061a.png" alt></p>
-<p><strong>1×1卷积可以从根本上理解为对这32个不同的位置都应用一个全连接层</strong>，全连接层的作用是输入32个数字（过滤器数量标记为<script type="math/tex">n_{C}^{[ l + 1]}</script>，在这36个单元上重复此过程）,输出结果是6×6×#filters（过滤器数量），<strong>以便在输入层上实施一个非平凡（non-trivial）计算</strong></p>
+<font color="red">1×1卷积可以从根本上理解为对这32个不同的位置都应用一个全连接层</font>，全连接层的作用是输入32个数字（过滤器数量标记为$$n_{C}^{[ l + 1]}$$，在这36个单元上重复此过程）,输出结果是6×6×\#filters（过滤器数量），<font color="red">以便在输入层上实施一个非平凡（non-trivial）计算</font>
+
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/46698c486da9ae184532d773716c77e9.png" alt></p>
 <p>这种方法通常称为<strong>1×1卷积</strong>，也被称为<strong>Network in Network</strong></p>
 <p>假设一个28×28×192的输入层，如果通道数量很大，可以用32个大小为1×1×192的过滤器，使输出层为28×28×32，这就是<strong>压缩通道数（<script type="math/tex">n_{C}​</script>）的方法</strong></p>
