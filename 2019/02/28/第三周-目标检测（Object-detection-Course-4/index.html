@@ -11,7 +11,7 @@
 
 
 <head><meta name="generator" content="Hexo 3.8.0">
-	
+
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -144,7 +144,6 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d7ee9b9f455338a8724520841223b11.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/38eea69baa46091d516a0b7a33e5379e.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a86a2edbb89014e193ab613a162cff58.png">
-<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/78f2b2a2efdbd6aebe034ce30cda440b.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/074beeacfd9d400fc580171b09a6f3e9.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/514cfeb2d7315eba2b6a29f68eae2879.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6d0fa2073b280cd0bb111485ee1639e5.png">
@@ -161,7 +160,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/838a6aeb35865f9cfecac8dc593b565b.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e78e4465af892d0965e2b0863263ef8c.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e6ed1aa3263107d4e189dd75adc060b4.png">
-<meta property="og:updated_time" content="2019-03-22T01:35:49.078Z">
+<meta property="og:updated_time" content="2019-03-27T08:22:32.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三周 目标检测（Object detection)(Course 4)">
 <meta name="twitter:description" content="3.1 目标定位（Object localization）">
@@ -235,10 +234,6 @@
   
     
   
-
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
 
 
 
@@ -468,8 +463,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T09:35:49+08:00">
-                2019-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T16:22:32+08:00">
+                2019-03-27
               </time>
             
           </span>
@@ -634,17 +629,17 @@ L\left(\hat{y},y \right) = \left( \hat{y_1} - y_{1} \right)^{2} + \left(\hat{y_2
 <li>如果采用小粒度或小步幅，传递给卷积网络的小窗口会特别多，这意味着超高的计算成本</li>
 </ul>
 <h2 id="3-4-卷积的滑动窗口实现（Convolutional-implementation-of-sliding-windows）"><a href="#3-4-卷积的滑动窗口实现（Convolutional-implementation-of-sliding-windows）" class="headerlink" title="3.4 卷积的滑动窗口实现（Convolutional implementation of sliding windows）"></a>3.4 卷积的滑动窗口实现（Convolutional implementation of sliding windows）</h2><h3 id="把神经网络的全连接层转化成卷积层"><a href="#把神经网络的全连接层转化成卷积层" class="headerlink" title="把神经网络的全连接层转化成卷积层"></a>把神经网络的全连接层转化成卷积层</h3><p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/38be387e37d131e44aff9d7fc9e3488a.png" alt></p>
-<p>前几层和之前的一样，下一层全连接层用5×5×16的过滤器来实现，数量是400个（编号1），输入图像大小为5×5×16，输出维度是1×1×400，这400个节点中每个节点都是上一层5×5×16激活值经过某个任意线性函数的输出结果</p>
+<p>前几层和之前的一样，下一层全连接层用5×5×16的过滤器来实现，数量是400个（编号1），输入图像大小为5×5×16，输出维度是1×1×400，<strong>这400个节点中每个节点都是上一层5×5×16激活值经过某个任意线性函数的输出结果</strong></p>
 <p>再添加另外一个卷积层（编号2），用1×1卷积，假设有400个1×1的过滤器，在这400个过滤器的作用下，下一层的维度是1×1×400，是上个网络中的这一全连接层经由1×1过滤器的处理，得到一个<strong>softmax</strong>激活值，通过卷积网络，最终得到1×1×4的输出层，而不是这4个数字（编号3）</p>
 <p>以上就是用卷积层代替全连接层的过程，结果这几个单元集变成了1×1×400和1×1×4的维度</p>
 <h3 id="通过卷积实现滑动窗口对象检测算法"><a href="#通过卷积实现滑动窗口对象检测算法" class="headerlink" title="通过卷积实现滑动窗口对象检测算法"></a>通过卷积实现滑动窗口对象检测算法</h3><p>假设向滑动窗口卷积网络输入14×14×3的图片，神经网络最后的输出层，即<strong>softmax</strong>单元的输出是1×1×4</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/00c4fb1a1af9b50f0fd0bcf5eacca6ff.png" alt></p>
 <p>假设测试集图片是16×16×3，给输入图片加上黄色条块，在最初的滑动窗口算法中，把蓝色区域输入卷积网络（红色笔标记）生成0或1分类。接着滑动窗口，步幅为2个像素，向右滑动2个像素，将绿框区域输入给卷积网络，运行整个卷积网络，得到另外一个标签0或1。继续将这个橘色区域输入给卷积网络，卷积后得到另一个标签，最后对右下方的紫色区域进行最后一次卷积操作。在这个16×16×3的小图像上滑动窗口，卷积网络运行了4次，于是输出了了4个标签</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2a8750d733379aebf58f4354203153f2.png" alt></p>
-<p>这4次卷积操作中很多计算都是重复的。执行滑动窗口的卷积时使得卷积网络在这4次前向传播过程中共享很多计算，尤其是在编号1，卷积网络运行同样的参数，使用相同的5×5×16过滤器进行卷积操作，得到12×12×16的输出层。然后执行同样的最大池化（编号2），输出结果6×6×16。照旧应用400个5×5的过滤器（编号3），得到一个2×2×400的输出层，现在输出层为2×2×400，应用1×1过滤器（编号4）得到另一个2×2×400的输出层。再做一次全连接的操作（编号5），最终得到2×2×4的输出层，在输出层4个子方块中，蓝色的是图像左上部分14×14的输出（红色箭头标识），右上角方块是图像右上部分（绿色箭头标识）的对应输出，左下角方块是输入层左下角（橘色箭头标识），右下角是卷积网络处理输入层右下角14×14区域(紫色箭头标识)的结果</p>
+<p>这4次卷积操作中<strong>很多计算都是重复的</strong>。执行滑动窗口的卷积时使得<strong>卷积网络在这4次前向传播过程中共享很多计算</strong>，尤其是在编号1，卷积网络运行同样的参数，使用相同的5×5×16过滤器进行卷积操作，得到12×12×16的输出层。然后执行同样的最大池化（编号2），输出结果6×6×16。照旧应用400个5×5的过滤器（编号3），得到一个2×2×400的输出层，现在输出层为2×2×400，应用1×1过滤器（编号4）得到另一个2×2×400的输出层。再做一次全连接的操作（编号5），最终得到2×2×4的输出层，在输出层4个子方块中，蓝色的是图像左上部分14×14的输出（红色箭头标识），右上角方块是图像右上部分（绿色箭头标识）的对应输出，左下角方块是输入层左下角（橘色箭头标识），右下角是卷积网络处理输入层右下角14×14区域(紫色箭头标识)的结果</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ad1743ff113f9d30080f63a16c74ed64.png" alt></p>
 <p>具体的计算步骤：以绿色方块为例，假设剪切出这块区域（编号1），传递给卷积网络，第一层的激活值就是这块区域（编号2），最大池化后的下一层的激活值是这块区域（编号3），这块区域对应着后面几层输出的右上角方块（编号4，5，6）</p>
-<p>该卷积操作的原理是不需要把输入图像分割成四个子集，分别执行前向传播，而是把它们作为一张图片输入给卷积网络进行计算，其中的公共区域可以共享很多计算</p>
+<p>该卷积操作的原理是<strong>不需要把输入图像分割成四个子集，分别执行前向传播，而是把它们作为一张图片输入给卷积网络进行计算，其中的公共区域可以共享很多计算</strong></p>
 <p>假如对一个28×28×3的图片应用滑动窗口操作，以14×14区域滑动窗口，以大小为2的步幅不断地向右移动窗口，直到第8个单元格，得到输出层的第一行。然后向图片下方移动，最终输出8×8×4的结果</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5fd2f8d039a3bfc5187dfe33f5276235.png" alt></p>
 <p>总结滑动窗口的实现过程：</p>
@@ -652,19 +647,25 @@ L\left(\hat{y},y \right) = \left( \hat{y_1} - y_{1} \right)^{2} + \left(\hat{y_2
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/84a6a0505acc165c6600d4b6f03d5e3c.png" alt></p>
 <p>但是不能依靠连续的卷积操作来识别图片中的汽车，可以对大小为28×28的整张图片进行卷积操作，一次得到所有预测值，如果足够幸运，神经网络便可以识别出汽车的位置</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/447080411189a0a4544747c2380fbda4.png" alt></p>
-<p>在卷积层上应用滑动窗口算法提高了整个算法的效率，缺点是边界框的位置可能不够准确</p>
+<p><strong>在卷积层上应用滑动窗口算法提高了整个算法的效率，缺点是边界框的位置可能不够准确</strong></p>
 <h2 id="3-5-Bounding-Box预测（Bounding-box-predictions）"><a href="#3-5-Bounding-Box预测（Bounding-box-predictions）" class="headerlink" title="3.5 Bounding Box预测（Bounding box predictions）"></a>3.5 Bounding Box预测（Bounding box predictions）</h2><p>滑动窗口法的卷积实现算法效率很高，但不能输出最精准的边界框</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cd3e263bf279739afe62eb8730b4e167.png" alt></p>
 <p>输入图像是100×100的，用3×3网格，实际实现时会用更精细的网格（19×19）。使用<strong>图像分类</strong>和<strong>定位算法</strong></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e4bebc707829a1610572f43f8e0995c9.png" alt></p>
 <p>编号1什么也没有，左上格子的标签向量<script type="math/tex">y</script>是<script type="math/tex">\begin{bmatrix}0\ ?\ ?\ ?\ ?\ ?\ ?\ ? \end{bmatrix}</script>。其他什么也没有的格子都一样</p>
-<p>图中有两个对象，<strong>YOLO</strong>算法做的是取两个对象的<strong>中点</strong>，将对象分配给包含对象中点的格子。即使中心格子（编号5）同时有两辆车的一部分，分类标签<script type="math/tex">y</script>也为<script type="math/tex">y= \begin{bmatrix}0\ ?\ ?\ ?\ ?\ ?\ ?\ ? \end{bmatrix}</script>。编号4目标标签<script type="math/tex">y= \begin{bmatrix} 1\ b_{x}\ b_{y}\ b_{h}\ b_{w}\ 0\ 1\ 0 \end{bmatrix}</script>，编号6类似</p>
+<p>图中有两个对象，<strong>YOLO算法做的是取两个对象的中点，将对象分配给包含对象中点的格子</strong>。即使中心格子（编号5）同时有两辆车的一部分，分类标签<script type="math/tex">y</script>也为<script type="math/tex">y= \begin{bmatrix}0\ ?\ ?\ ?\ ?\ ?\ ?\ ? \end{bmatrix}</script>。编号4目标标签<script type="math/tex">y= \begin{bmatrix} 1\ b_{x}\ b_{y}\ b_{h}\ b_{w}\ 0\ 1\ 0 \end{bmatrix}</script>，编号6类似</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fb08477cd3937f7df0deddc1de1d2920.png" alt></p>
 <p>3×3中9个格子都对应一个8维输出目标向量<script type="math/tex">y</script>，其中一些值可以是<strong>dont care-s</strong>（即？）所以总的目标输出尺寸就是3×3×8</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/98633e9df22fd06cfc21af2e7d39bbb6.png" alt></p>
 <p>如果要训练一个输入为100×100×3的神经网络，输入图像通过普通的卷积网络，卷积层，最大池化层等等，最后映射到一个3×3×8输出尺寸。然后用反向传播训练神经网络，将任意输入<script type="math/tex">x</script>映射到输出向量<script type="math/tex">y</script></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/404fdcba2685b830ae3718d348ab1d75.png" alt></p>
-<p>这个算法的优点在于神经网络可以输出精确的边界框，测试的时候有要做的是喂入输入图像<script type="math/tex">x</script>，然后跑正向传播，直到得到输出<script type="math/tex">y</script>。然后3×3位置对应的9个输出，只要每个格子中对象数目没有超过1个，这个算法应该是没问题的。但实践中会使用更精细的19×19网格，输出就是19×19×8，多个对象分配到同一个格子得概率就小得多</p>
+<p>这个算法的优点在于<strong>神经网络可以输出精确的边界框</strong></p>
+<p>测试的时候要做的是：</p>
+<ol>
+<li>喂入输入图像<script type="math/tex">x</script></li>
+<li>然后跑正向传播，直到得到输出<script type="math/tex">y</script></li>
+</ol>
+<p>然后3×3位置对应的9个输出，只要每个格子中对象数目没有超过1个，这个算法应该是没问题的。但实践中会使用更精细的19×19网格，输出就是19×19×8，多个对象分配到同一个格子得概率就小得多</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a6d32959543c502ee18765cf20495bc2.png" alt></p>
 <p>即使对象可以横跨多个格子，也只会被分配到9个格子其中之一，或者19×19网络的其中一个格子。在19×19网格中，两个对象的中点（图中蓝色点所示）处于同一个格子的概率就会更低。</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b6b6ca6167596a180c7bab7296ea850c.png" alt></p>
@@ -675,21 +676,20 @@ L\left(\hat{y},y \right) = \left( \hat{y_1} - y_{1} \right)^{2} + \left(\hat{y_2
 <li><strong>因为是卷积实现，运行速度非常快，可以达到实时识别</strong></li>
 </ul>
 <p>如何编码这些边界框<script type="math/tex">b_{x}</script>、<script type="math/tex">b_{y}</script>、<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>：</p>
-<p>在<strong>YOLO</strong>算法中，编号1约定左上点是<script type="math/tex">(0,0)</script>，右下点是<script type="math/tex">(1,1)</script>，橙色中点的位置<script type="math/tex">b_{x}</script>大概是0.4，<script type="math/tex">b_{y}</script>大概是0.3，<script type="math/tex">b_{w}</script>是0.9，<script type="math/tex">b_{h}</script>是0.5。<script type="math/tex">b_{x}</script>、<script type="math/tex">b_{y}</script>、<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>单位是相对于格子尺寸的比例，所以<script type="math/tex">b_{x}</script>和<script type="math/tex">b_{y}</script>必须在0和1之间，因为从定义上看，橙色点位于对象分配到格子的范围内，如果它不在0和1之间，即它在方块外，那么这个对象就应该分配到另一个格子上。这个值（<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>）可能会大于1，特别是如果有一辆汽车的边界框是这样的（编号3所示），那么边界框的宽度和高度有可能大于1</p>
+<p>在<strong>YOLO</strong>算法中，编号1约定左上点是<script type="math/tex">(0,0)</script>，右下点是<script type="math/tex">(1,1)</script>，橙色中点的位置<script type="math/tex">b_{x}</script>大概是0.4，<script type="math/tex">b_{y}</script>大概是0.3，<script type="math/tex">b_{w}</script>是0.9，<script type="math/tex">b_{h}</script>是0.5。<script type="math/tex">b_{x}</script>、<script type="math/tex">b_{y}</script>、<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>单位是相对于格子尺寸的比例，所以<script type="math/tex">b_{x}</script>和<script type="math/tex">b_{y}</script>必须在0和1之间，<strong>因为从定义上看，橙色点位于对象分配到格子的范围内，如果它不在0和1之间，即它在方块外，那么这个对象就应该分配到另一个格子上</strong>。这个值（<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>）可能会大于1，特别是如果有一辆汽车的边界框是这样的（编号3所示），那么边界框的宽度和高度有可能大于1</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d7ee9b9f455338a8724520841223b11.png" alt></p>
 <h2 id="3-6-交并比（Intersection-over-union）"><a href="#3-6-交并比（Intersection-over-union）" class="headerlink" title="3.6 交并比（Intersection over union）"></a>3.6 交并比（Intersection over union）</h2><p>并交比函数可以用来评价对象检测算法</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/38eea69baa46091d516a0b7a33e5379e.png" alt></p>
 <p>交并比（<strong>loU</strong>）函数是计算两个边界框交集和并集之比。两个边界框的并集是两个边界框绿色阴影区域，而交集是这个橙色阴影区域，交并比就是交集的大小（橙色阴影面积）除以绿色阴影的并集面积</p>
 <p>一般约定，在计算机检测任务中，如果loU≥0.5，就说检测正确，如果预测器和实际边界框完美重叠，<strong>loU</strong>就是1，因为交集就等于并集</p>
 <h2 id="3-7-非极大值抑制（Non-max-suppression）"><a href="#3-7-非极大值抑制（Non-max-suppression）" class="headerlink" title="3.7 非极大值抑制（Non-max suppression）"></a>3.7 非极大值抑制（Non-max suppression）</h2><p>对象检测中的一个问题是算法可能对同一个对象做出多次检测，非极大值抑制可以确保算法对每个对象只检测一次</p>
-<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a86a2edbb89014e193ab613a162cff58.png" alt></p>
 <p>实践中当运行对象分类和定位算法时，对于每个格子都运行一次，编号1、2、3可能会认为这辆车中点应该在格子内部</p>
-<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/78f2b2a2efdbd6aebe034ce30cda440b.png" alt></p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a86a2edbb89014e193ab613a162cff58.png" alt></p>
 <p>这个算法做的是：</p>
 <p>1.首先看哪个检测结果相关的概率<script type="math/tex">p_{c}</script>（实际上是<script type="math/tex">p_{c}</script>乘以<script type="math/tex">c_{1}</script>、<script type="math/tex">c_{2}</script>或<script type="math/tex">c_{3}</script>）概率最大，右边车辆中是0.9，即最可靠的检测，用高亮标记，之后非极大值抑制逐一审视剩下的矩形，所有和这个最大的边框有很高交并比，高度重叠的其他边界框输出就会被抑制</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/074beeacfd9d400fc580171b09a6f3e9.png" alt></p>
 <p>2.逐一审视剩下的矩形，找出概率<script type="math/tex">p_{c}</script>最高的一个，在这种情况下是0.8，就认为检测出一辆车（左边车辆），然后非极大值抑制算法就会去掉其他<strong>loU</strong>值很高的矩形。现在每个矩形都会被高亮显示或者变暗，如果直接抛弃变暗的矩形，就剩下高亮显示的那些是最后得到的两个预测结果</p>
-<p>非最大值意味着只输出概率最大的分类结果，但抑制很接近，不是最大的其他预测结果</p>
+<p><strong>非最大值意味着只输出概率最大的分类结果，但抑制很接近，不是最大的其他预测结果</strong></p>
 <p>算法的细节：</p>
 <p>首先在19×19网格上执行算法，会得到19×19×8的输出尺寸。简化成只做汽车检测，会得到输出预测概率（<script type="math/tex">p_{c}</script>）和边界框参数（<script type="math/tex">b_{x}</script>、<script type="math/tex">b_{y}</script>、<script type="math/tex">b_{h}</script>和<script type="math/tex">b_{w}</script>）</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/514cfeb2d7315eba2b6a29f68eae2879.png" alt></p>
@@ -716,8 +716,8 @@ y= \begin{bmatrix} p_{c} & b_{x} & b_{y} &b_{h} & b_{w} & c_{1} & c_{2} & c_{3} 
 <p>现在每个对象都分配到对象中点所在的格子中，以及分配到和对象形状交并比最高的<strong>anchor box</strong>中。然后观察哪个<strong>anchor box</strong>和实际边界框（编号1，红色框）的交并比更高</p>
 <p>编号1对应同时有车和行人，编号3对应只有车：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/322b15fe615c739ebd1d36b669748618.png" alt></p>
-<p><strong>anchor box</strong>是为了处理两个对象出现在同一个格子的情况，实践中这种情况很少发生，特别用的是19×19网格</p>
-<p>怎么选择<strong>anchor box：</strong></p>
+<p><strong>anchor box是为了处理两个对象出现在同一个格子的情况</strong>，实践中这种情况很少发生，特别用的是19×19网格</p>
+<p>怎么选择<strong>anchor box</strong>：</p>
 <ul>
 <li>一般手工指定<strong>anchor box</strong>形状，可以选择5到10个<strong>anchor box</strong>形状，覆盖到想要检测的对象的各种形状</li>
 <li>更高级的是使用<strong>k-means算法</strong>，将两类对象形状聚类，选择最具有代表性的一组<strong>anchor box</strong></li>
@@ -1757,10 +1757,7 @@ y= \begin{bmatrix} p_{c} & b_{x} & b_{y} &b_{h} & b_{w} & c_{1} & c_{2} & c_{3} 
   
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":80,"height":80},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<!-- 爆炸红心效果 -->
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-<script type="text/javascript" src="/js/firework.js"></script>
+
 
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>

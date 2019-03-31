@@ -11,7 +11,7 @@
 
 
 <head><meta name="generator" content="Hexo 3.8.0">
-	
+
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -155,7 +155,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png">
-<meta property="og:updated_time" content="2019-03-26T02:11:54.339Z">
+<meta property="og:updated_time" content="2019-03-27T07:02:24.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 深度卷积网络:实例探究 (Deep convolutional models: case studies)(Course 4)">
 <meta name="twitter:description" content="2.1 经典网络（Classic networks）LeNet-5LeNet-5可以识别图中的手写数字，是针对灰度图片训练的，所以图片的大小只有32×32×1。">
@@ -229,10 +229,6 @@
   
     
   
-
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
 
 
 
@@ -462,8 +458,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-26T10:11:54+08:00">
-                2019-03-26
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T15:02:24+08:00">
+                2019-03-27
               </time>
             
           </span>
@@ -573,9 +569,9 @@
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/5e59b38c9b2942a407b49da84677dae9.png" alt></p>
 <p>随着网络越来越深，图像的高度和宽度在缩小，从最初的32×32缩小到28×28，再到14×14、10×10，最后只有5×5，通道数量一直在增加，从1增加到6个，再到16个</p>
 <p>这个神经网络中还有一种模式就是一个或多个卷积层后面跟着一个池化层，然后又是若干个卷积层再接一个池化层，然后是全连接层，最后是输出</p>
-<h2 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h2><p><strong>AlexNet</strong>包含约6000万个参数。当用于训练图像和数据集时，<strong>AlexNet</strong>能够处理非常相似的基本构造模块，这些模块往往包含着大量的隐藏单元或数据，<strong>AlexNet</strong>比<strong>LeNet</strong>表现更为出色的另一个原因是它使用了<strong>ReLu</strong>激活函数</p>
+<h3 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h3><p><strong>AlexNet</strong>包含约6000万个参数。当用于训练图像和数据集时，<strong>AlexNet</strong>能够处理非常相似的基本构造模块，这些模块往往包含着大量的隐藏单元或数据，<strong>AlexNet</strong>比<strong>LeNet</strong>表现更为出色的另一个原因是它使用了<strong>ReLu</strong>激活函数</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/92575493ecd20003b0b76ac51de0efbb.png" alt></p>
-<h2 id="VGG-16"><a href="#VGG-16" class="headerlink" title="VGG-16"></a>VGG-16</h2><p><strong>VGG</strong>，也叫作<strong>VGG-16</strong>网络。<strong>VGG-16</strong>网络没有那么多超参数<strong>，是一种只需要专注于构建卷积层的简单网络</strong>。首先用3×3，步幅为1的过滤器构建卷积层，<strong>padding</strong>参数为<strong>same</strong>卷积中的参数。然后用一个2×2，步幅为2的过滤器构建最大池化层。<strong>VGG</strong>网络的一大<strong>优点是简化了神经网络结构</strong></p>
+<h3 id="VGG-16"><a href="#VGG-16" class="headerlink" title="VGG-16"></a>VGG-16</h3><p><strong>VGG</strong>，也叫作<strong>VGG-16</strong>网络。<strong>VGG-16</strong>网络没有那么多超参数<strong>，是一种只需要专注于构建卷积层的简单网络</strong>。首先用3×3，步幅为1的过滤器构建卷积层，<strong>padding</strong>参数为<strong>same</strong>卷积中的参数。然后用一个2×2，步幅为2的过滤器构建最大池化层。<strong>VGG</strong>网络的一大<strong>优点是简化了神经网络结构</strong></p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/a645bff2623ba6f30f01fbc6e3149484.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a645bff2623ba6f30f01fbc6e3149484.png" alt></a></p>
 <p><a href="https://github.com/fengdu78/deeplearning_ai_books/blob/master/images/781ddc74bcc8da430c99b196d0c4c6d4.png" target="_blank" rel="noopener"><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/781ddc74bcc8da430c99b196d0c4c6d4.png" alt></a></p>
 <p>假设要识别这个图像，在最开始的两层用64个3×3的过滤器对输入图像进行卷积，输出结果是224×224×64，因为使用了<strong>same</strong>卷积，通道数量也一样</p>
@@ -649,9 +645,10 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <p>如果想保持通道数192不变，也是可行的，1×1卷积只是添加了非线性函数，也可以让网络学习更复杂的函数</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/70f3b26fe86c3ec2507b8bb85be8d30c.png" alt></p>
 <p><code>1×1卷积层给神经网络添加了一个非线性函数，从而减少、增加或保持输入层中的通道数量不变</code></p>
-<h2 id="2-5-谷歌-Inception-网络简介（Inception-network-motivation）"><a href="#2-5-谷歌-Inception-网络简介（Inception-network-motivation）" class="headerlink" title="2.5 谷歌 Inception 网络简介（Inception network motivation）"></a>2.5 谷歌 Inception 网络简介（Inception network motivation）</h2><p><code>Inception</code>网络或<code>Inception</code>层的作用是<code>代替人工来确定卷积层中的过滤器类型，或者确定是否需要创建卷积层或池化层</code></p>
+<h2 id="2-5-谷歌-Inception-网络简介（Inception-network-motivation）"><a href="#2-5-谷歌-Inception-网络简介（Inception-network-motivation）" class="headerlink" title="2.5 谷歌 Inception 网络简介（Inception network motivation）"></a>2.5 谷歌 Inception 网络简介（Inception network motivation）</h2><p><strong>Inception</strong>网络或Inception层的作用是<strong>代替人工来确定卷积层中的过滤器类型，或者确定是否需要创建卷积层或池化层</strong></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/99f8fc7dbe7cd0726f5271aae11b9872.png" alt></p>
-<p>基本思想是<strong>Inception</strong>网络在单层网络上可以使用多个不同尺寸的filters，进行<strong>same convolutions</strong>，把各filter下得到的输出拼接起来。还可以将CONV layer与POOL layer混合，同时实现各种效果，但是要注意使用<strong>same pool</strong>。Inception Network<strong>不需人为决定</strong>使用哪个过滤器或者是否需要池化，它使用不同尺寸的filters并将CONV和POOL混合起来，将所有功能输出组合拼接，再由神经网络本身去学习参数并选择最好的模块</p>
+<p>基本思想是<strong>Inception</strong>网络在<strong>单层网络上可以使用多个不同尺寸的filters</strong>，进行<strong>same convolutions</strong>，把各filter下得到的输出拼接起来。还可以将CONV layer与POOL layer混合，同时实现各种效果，但是要注意使用<strong>same pool</strong></p>
+<p>Inception Network<strong>不需人为决定</strong>使用哪个过滤器或者是否需要池化，它使用不同尺寸的filters并将CONV和POOL混合起来，将所有功能输出组合拼接，再由神经网络本身去学习参数并选择最好的模块</p>
 <p>Inception Network在提升性能的同时，会带来<strong>计算量大</strong>的问题：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/27894eae037f4fd859d33ebdda1cac9a.png" alt></p>
 <p>乘法运算的总次数为每个输出值所需要执行的乘法运算次数（5×5×192）乘以输出值个数（28×28×32），结果等于1.2亿。</p>
@@ -663,30 +660,33 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7d160f6eab22e4b9544b28b44da686a6.png" alt></p>
 <p>总结：</p>
 <ul>
-<li>如果在构建神经网络层的时候，不想决定池化层是使用1×1，3×3还是5×5的过滤器，<strong>Inception</strong>模块是最好的选择。可以应用各种类型的过滤器，只需要把输出连接起来</li>
-<li>计算成本问题，通过使用1×1卷积来构建瓶颈层，大大降低计算成本</li>
+<li>如果在构建神经网络层的时候，不想决定池化层是使用1×1，3×3还是5×5的过滤器，<strong>Inception</strong>模块是最好的选择。<strong>可以应用各种类型的过滤器，只需要把输出连接起来</strong></li>
+<li>计算成本问题，<strong>通过使用1×1卷积来构建瓶颈层，大大降低计算成本</strong></li>
 </ul>
-<p>只要合理构建瓶颈层，既可以显著缩小表示层规模，又不会降低网络性能，从而节省了计算</p>
+<p>只要合理构建瓶颈层，<strong>既可以显著缩小表示层规模，又不会降低网络性能，从而节省了计算</strong></p>
 <h2 id="2-6-Inception-网络（Inception-network）"><a href="#2-6-Inception-网络（Inception-network）" class="headerlink" title="2.6 Inception 网络（Inception network）"></a>2.6 Inception 网络（Inception network）</h2><p>引入1x1 Convolution后的Inception module如下图所示：</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/490import.png" alt></p>
-<p><strong>Inception</strong>模块会将之前层的激活或者输出作为它的输入，为了能在最后将这些输出都连接起来，会使用<strong>same</strong>类型的<strong>padding</strong>来池化，使得输出的高和宽依然是28×28，这样才能将它与其他输出连接起来。如果进行了最大池化，即便用了<strong>same padding</strong>，3×3的过滤器，<strong>stride</strong>为1，其输出将会是28×28×192，其通道数与输入（通道数）相同。要做的是再加上一个1×1的卷积层，将通道的数量缩小到28×28×32，避免了最后输出时，池化层占据所有的通道</p>
+<p><strong>Inception</strong>模块会将之前层的激活或者输出作为它的输入，为了能在最后将这些输出都连接起来，会使用<strong>same</strong>类型的<strong>padding</strong>来池化，使得输出的高和宽依然是28×28，这样才能将它与其他输出连接起来。如果进行了最大池化，即便用了<strong>same padding</strong>，3×3的过滤器，<strong>stride</strong>为1，其输出将会是28×28×192，其通道数与输入（通道数）相同。要做的是再加上一个1×1的卷积层，将通道的数量缩小到28×28×32，<strong>避免了最后输出时，池化层占据所有的通道</strong></p>
 <p>最后把得到的各个层的通道都加起来，得到一个28×28×256的输出。这就是一个<strong>Inception</strong>模块</p>
-<p><strong>Inception</strong>网络只是很多在不同的位置重复组成的网络：</p>
+<p><strong>Inception</strong>网络只是很多在不同的位置<strong>重复组成的网络</strong>：</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/492import.png" alt></p>
-<p>中间隐藏层也可以作为输出层Softmax，确保了即便是隐藏单元和中间层也参与了特征计算，也能预测图片的分类，起到一种调整的效果，<strong>有利于防止发生过拟合</strong></p>
+<p>中间隐藏层也可以作为输出层Softmax，<strong>确保了即便是隐藏单元和中间层也参与了特征计算，也能预测图片的分类，起到一种调整的效果</strong>，<strong>有利于防止发生过拟合</strong></p>
 <h2 id="2-7-迁移学习（Transfer-Learning）"><a href="#2-7-迁移学习（Transfer-Learning）" class="headerlink" title="2.7 迁移学习（Transfer Learning）"></a>2.7 迁移学习（Transfer Learning）</h2><p>训练集很小的情况：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8f0e69f085991cfc74726983418f6569.png" alt></p>
 <p>建议：从网上下载一些神经网络开源的实现，不仅把代码下载下来，也把权重下载下来。然后去掉<strong>Softmax</strong>层，创建自己的<strong>Softmax</strong>单元，用来输出<strong>Tigger</strong>、<strong>Misty</strong>和<strong>neither</strong>三个类别。把所有的层看作是冻结的，冻结网络中所有层的参数，只需要训练和<strong>Softmax</strong>层有关的参数。这个<strong>Softmax</strong>层有三种可能的输出，<strong>Tigger</strong>、<strong>Misty</strong>或者<strong>Neither</strong>。</p>
 <p>通过使用其他人预训练的权重，很可能得到很好的性能，即使只有一个小的数据集。大多数深度学习框架会有<code>trainableParameter=0</code>的参数，对于前面的层，可以设置这个参数。为了不训练这些权重，会有<code>freeze=1</code>的参数。<strong>只需要训练softmax层的权重，把前面这些层的权重都冻结</strong></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ac520bf9e9facfc026db46b187b513bd.png" alt></p>
-<p>由于前面的层都冻结了，相当于一个固定的函数，因此不需要改变和训练它，取输入图像<script type="math/tex">X</script>，然后把它映射到<strong>softmax</strong>前一层的激活函数。能加速训练的技巧是如果先计算这一层（紫色箭头标记），计算特征或者激活值，然后把它们存到硬盘里。所做的就是用这个固定的函数，在这个神经网络的前半部分（<strong>softmax</strong>层之前的所有层视为一个固定映射），取任意输入图像<script type="math/tex">X</script>，然后计算它的某个特征向量，这样训练的就是一个很浅的<strong>softmax</strong>模型，用这个特征向量来做预测。对计算有用的一步就是对训练集中所有样本的这一层的激活值进行预计算，然后存储到硬盘里，在此之上训练<strong>softmax</strong>分类器。存储到硬盘或者说预计算方法的优点是<strong>不需要每次遍历训练集再重新计算这个激活值</strong></p>
+<p>由于前面的层都冻结了，相当于一个固定的函数，因此不需要改变和训练它，取输入图像<script type="math/tex">X</script>，然后把它映射到<strong>softmax</strong>前一层的激活函数</p>
+<p>能加速训练的技巧是如果先计算这一层（紫色箭头标记），计算特征或者激活值，然后把它们存到硬盘里。所做的就是用这个固定的函数，在这个神经网络的前半部分（<strong>softmax</strong>层之前的所有层视为一个固定映射），取任意输入图像<script type="math/tex">X</script>，然后计算它的某个特征向量，这样训练的就是一个很浅的<strong>softmax</strong>模型，用这个特征向量来做预测</p>
+<p>对计算有用的一步就是对训练集中所有样本的这一层的激活值进行预计算，然后存储到硬盘里，在此之上训练<strong>softmax</strong>分类器</p>
+<p>存储到硬盘或者说预计算方法的优点是<strong>不需要每次遍历训练集再重新计算这个激活值</strong></p>
 <p>更大的训练集：<strong>应该冻结更少的层</strong>，然后训练后面的层。如果输出层的类别不同，那么需要构建自己的输出单元，<strong>Tigger</strong>、<strong>Misty</strong>或者<strong>Neither</strong>三个类别。可以取后面几层的权重，用作<strong>初始化</strong>，然后从这里开始梯度下降</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/e7079af956d884d6184c4bde62271175.png" alt></p>
 <p>也可以直接去掉这几层，换成自己的隐藏单元和<strong>softmax</strong>输出层，如果有越来越多的数据，那么需要<strong>冻结的层数就越少，能够训练的层数就越多</strong>。如果有一个更大的数据集，那么不要单单训练一个<strong>softmax</strong>单元，而是考虑训练中等大小的网络，包含最终要用的网络的后面几层</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/7cf0e18b739684106548cbbf0c1dd500.png" alt></p>
 <p>如果有大量数据：应该做的就是用开源的网络和它的权重，把所有的权重<strong>当作初始化</strong>，然后训练整个网络</p>
 <p>如果有越多的标定的数据，可以训练越多的层。极端情况下，可以<strong>用下载的权重只作为初始化，用它们来代替随机初始化，接着用梯度下降训练，更新网络所有层的所有权重</strong></p>
-<h2 id="2-8-数据扩充（Data-augmentation）"><a href="#2-8-数据扩充（Data-augmentation）" class="headerlink" title="2.8 数据扩充（Data augmentation）"></a>2.8 数据扩充（Data augmentation）</h2><p>当下计算机视觉的主要问题是没有办法得到充足的数据</p>
+<h2 id="2-8-数据扩充（Data-augmentation）"><a href="#2-8-数据扩充（Data-augmentation）" class="headerlink" title="2.8 数据扩充（Data augmentation）"></a>2.8 数据扩充（Data augmentation）</h2><p>当下计算机视觉的<strong>主要问题是没有办法得到充足的数据</strong></p>
 <p>最简单的数据扩充方法就是垂直镜像对称</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/f92337ae2e50a0896d42d45cc7951e43.png" alt></p>
 <p>另一个经常使用的技巧是随机裁剪，给定一个数据集，然后开始随机裁剪，得到不同的图片放在数据集中，随机裁剪并不是一个完美的数据扩充的方法，如果随机裁剪的那一部分（红色方框标记部分，编号4）看起来不像猫。但在实践中，这个方法还是很实用的，随机裁剪构成了很大一部分的真实图片</p>
@@ -696,7 +696,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <p>彩色转换：给<strong>R</strong>、<strong>G</strong>和<strong>B</strong>三个通道上加上不同的失真值</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/a5bcde6f0d2c2326be700c0ca441c934.png" alt></p>
 <p>实践中对<strong>R</strong>、<strong>G</strong>和<strong>B</strong>的变化是基于某些分布，改变可能很小，<strong>R</strong>、<strong>G</strong>和<strong>B</strong>的值是根据某种概率分布来决定，这样会使得学习算法对照片的颜色更改更具鲁棒性</p>
-<p>对<strong>R、G和B</strong>有不同的采样方式，其中一种影响颜色失真的算法是<strong>PCA</strong>，即主成分分析，<strong>PCA</strong>颜色增强的大概含义是，如果图片呈现紫色，即主要含有红色和蓝色，绿色很少，然后<strong>PCA</strong>颜色增强算法就会对红色和蓝色增减很多，绿色变化相对少一点，所以使总体的颜色保持一致</p>
+<p>对<strong>R、G和B</strong>有不同的采样方式，其中一种影响颜色失真的算法是<strong>PCA</strong>，即<strong>主成分分析</strong>，<strong>PCA</strong>颜色增强的大概含义是，如果图片呈现紫色，即主要含有红色和蓝色，绿色很少，然后<strong>PCA</strong>颜色增强算法就会对红色和蓝色增减很多，绿色变化相对少一点，所以使总体的颜色保持一致</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/d69cfc9648f3a37eede074bd28c74c0d.png" alt></p>
 <p>如果有特别大的训练数据，可以使用<strong>CPU</strong>线程，不停的从硬盘中读取数据，用<strong>CPU</strong>线程来实现失真变形，可以是随机裁剪、颜色变化，或者是镜像</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/2d9b9ca15ce25598d229470494d796ee.png" alt></p>
@@ -710,7 +710,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <li>语音识别有很大数量的数据</li>
 <li>虽然现在图像识别或图像分类方面有相当大的数据集，但因为图像识别是一个复杂的问题，通过分析像素并识别出它是什么，即使在线数据集非常大，如超过一百万张图片，仍然希望能有更多的数据</li>
 <li>物体检测拥有的数据更少</li>
-<li>图像识别是如何看图片的问题，并且告诉你这张图是不是猫，而对象检测则是看一幅图，画一个框，告诉你图片里的物体，比如汽车等等。因为获取边框的成本比标记对象的成本更高，所以进行对象检测的数据往往比图像识别数据要少</li>
+<li>图像识别是如何看图片的问题，如告诉你这张图是不是猫，而对象检测则是看一幅图，画一个框，告诉你图片里的物体，比如汽车等等。因为获取边框的成本比标记对象的成本更高，所以进行对象检测的数据往往比图像识别数据要少</li>
 </ul>
 <p>当有很多数据时，倾向于使用<strong>更简单的算法和更少的手工工程</strong>，只要有一个大型的神经网络，甚至一个更简单的架构，就可以去学习它想学习的东西</p>
 <p>当没有那么多的数据时，更多的是手工工程</p>
@@ -724,7 +724,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <p>在基准研究和比赛中，下面的tips可能会有较好的表现：</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/0d0a3e182ddb9e995af3c6a68c7a72eb.png" alt></p>
 <ul>
-<li><strong>集成</strong>，意味着想好了要的神经网络之后，可以独立训练几个神经网络，并平均它们的输出。比如说随机初始化三个、五个或者七个神经网络，然后训练所有这些网络，对输出<script type="math/tex">\hat y</script>进行平均计算，而不要平均权重，可能会在基准上提高1%，2%或者更好。但因为集成意味着要对<strong>每张图片进行测试</strong>，可能需要从3到15个不同的网络中运行一个图像，会让运行时间<strong>变慢</strong></li>
+<li><strong>集成</strong>，意味着想好了要的神经网络之后，可以<strong>独立训练几个神经网络，并平均它们的输出</strong>。比如说随机初始化三、五或七个神经网络，然后训练所有这些网络，对输出<script type="math/tex">\hat y</script>进行平均计算，但不要平均权重，可能会在基准上提高1%，2%或者更好。但因为集成意味着要对<strong>每张图片进行测试</strong>，可能需要从3到15个不同的网络中运行一个图像，会让运行时间<strong>变慢</strong></li>
 <li><strong>Multi-crop at test time</strong>，<strong>Multi-crop</strong>是一种将数据扩充应用到测试图像中的一种形式，<strong>在测试图片的多种版本上运行分类器，输出平均结果</strong></li>
 </ul>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/6027faa79b81f9940281ea36ca901504.png" alt></p>
@@ -732,7 +732,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/fbb8d5acae8a02c366cea92000577d62.png" alt></p>
 <p>编号1和编号3是中心<strong>crop</strong>，编号2和编号4是四个角落的<strong>crop</strong>。把这些加起来会有10种不同的图像的<strong>crop</strong>，命名为<strong>10-crop</strong>。通过分类器来运行这十张图片，然后对结果进行平均</p>
 <ul>
-<li>集成的一个大问题是需要保持所有这些不同的神经网络，占用了更多的计算机内存</li>
+<li>集成的一个大问题是需要保持所有这些不同的神经网络，<strong>占用了更多的计算机内存</strong></li>
 <li><strong>multi-crop</strong>，只保留一个网络，不会占用太多的内存，但仍然会让运行时间变慢</li>
 </ul>
 
@@ -1032,7 +1032,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-经典网络（Classic-networks）"><span class="nav-number">1.</span> <span class="nav-text">2.1 经典网络（Classic networks）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LeNet-5"><span class="nav-number">1.1.</span> <span class="nav-text">LeNet-5</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AlexNet"><span class="nav-number">2.</span> <span class="nav-text">AlexNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG-16"><span class="nav-number">3.</span> <span class="nav-text">VGG-16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-残差网络（Residual-Networks-ResNets-）"><span class="nav-number">4.</span> <span class="nav-text">2.2 残差网络（Residual Networks (ResNets)）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-残差网络为什么有用？（Why-ResNets-work-）"><span class="nav-number">5.</span> <span class="nav-text">2.3 残差网络为什么有用？（Why ResNets work?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-网络中的网络以及-1×1-卷积（Network-in-Network-and-1×1-convolutions）"><span class="nav-number">6.</span> <span class="nav-text">2.4 网络中的网络以及 1×1 卷积（Network in Network and 1×1 convolutions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-谷歌-Inception-网络简介（Inception-network-motivation）"><span class="nav-number">7.</span> <span class="nav-text">2.5 谷歌 Inception 网络简介（Inception network motivation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-Inception-网络（Inception-network）"><span class="nav-number">8.</span> <span class="nav-text">2.6 Inception 网络（Inception network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-迁移学习（Transfer-Learning）"><span class="nav-number">9.</span> <span class="nav-text">2.7 迁移学习（Transfer Learning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-数据扩充（Data-augmentation）"><span class="nav-number">10.</span> <span class="nav-text">2.8 数据扩充（Data augmentation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9-计算机视觉现状（The-state-of-computer-vision）"><span class="nav-number">11.</span> <span class="nav-text">2.9 计算机视觉现状（The state of computer vision）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-经典网络（Classic-networks）"><span class="nav-number">1.</span> <span class="nav-text">2.1 经典网络（Classic networks）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LeNet-5"><span class="nav-number">1.1.</span> <span class="nav-text">LeNet-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AlexNet"><span class="nav-number">1.2.</span> <span class="nav-text">AlexNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG-16"><span class="nav-number">1.3.</span> <span class="nav-text">VGG-16</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-残差网络（Residual-Networks-ResNets-）"><span class="nav-number">2.</span> <span class="nav-text">2.2 残差网络（Residual Networks (ResNets)）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-残差网络为什么有用？（Why-ResNets-work-）"><span class="nav-number">3.</span> <span class="nav-text">2.3 残差网络为什么有用？（Why ResNets work?）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-网络中的网络以及-1×1-卷积（Network-in-Network-and-1×1-convolutions）"><span class="nav-number">4.</span> <span class="nav-text">2.4 网络中的网络以及 1×1 卷积（Network in Network and 1×1 convolutions）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-谷歌-Inception-网络简介（Inception-network-motivation）"><span class="nav-number">5.</span> <span class="nav-text">2.5 谷歌 Inception 网络简介（Inception network motivation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-Inception-网络（Inception-network）"><span class="nav-number">6.</span> <span class="nav-text">2.6 Inception 网络（Inception network）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-迁移学习（Transfer-Learning）"><span class="nav-number">7.</span> <span class="nav-text">2.7 迁移学习（Transfer Learning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-数据扩充（Data-augmentation）"><span class="nav-number">8.</span> <span class="nav-text">2.8 数据扩充（Data augmentation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9-计算机视觉现状（The-state-of-computer-vision）"><span class="nav-number">9.</span> <span class="nav-text">2.9 计算机视觉现状（The state of computer vision）</span></a></li></ol></div>
             
 
           </div>
@@ -1737,10 +1737,7 @@ a^{[l+2]}=g(z^{[l+2]}+a^{[l]})=g(W^{[l+2]}a^{[l+1]}+b^{[l+2]}+a^{[l]})</script><
   
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":80,"height":80},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<!-- 爆炸红心效果 -->
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-<script type="text/javascript" src="/js/firework.js"></script>
+
 
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>

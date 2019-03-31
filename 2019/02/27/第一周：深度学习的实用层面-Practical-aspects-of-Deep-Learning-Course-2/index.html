@@ -11,7 +11,7 @@
 
 
 <head><meta name="generator" content="Hexo 3.8.0">
-	
+
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -133,7 +133,7 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/3import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/2import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%601import.png">
-<meta property="og:updated_time" content="2019-03-22T01:08:18.717Z">
+<meta property="og:updated_time" content="2019-03-27T06:57:33.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周：深度学习的实用层面(Practical aspects of Deep Learning)(Course 2)">
 <meta name="twitter:description" content="1.1 训练，验证，测试集（Train / Dev / Test sets）在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助创建高效的神经网络。训练神经网络时，需要做出很多决策，例如：  神经网络分多少层 每层含有多少个隐藏单元 学习速率是多少 各层采用哪些激活函数">
@@ -207,10 +207,6 @@
   
     
   
-
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
 
 
 
@@ -440,8 +436,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T09:08:18+08:00">
-                2019-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T14:57:33+08:00">
+                2019-03-27
               </time>
             
           </span>
@@ -552,17 +548,18 @@
 <li>神经网络分多少层</li>
 <li>每层含有多少个隐藏单元</li>
 <li>学习速率是多少</li>
-<li><p>各层采用哪些激活函数</p>
-<a id="more"></a>
+<li>各层采用哪些激活函数<a id="more"></a>
+</li>
+</ol>
 <p>循环迭代的过程是这样的：</p>
-</li>
-<li><p>先有个想法Idea，先选择初始的参数值，构建神经网络模型结构</p>
-</li>
+<ol>
+<li>先有个想法Idea，先选择初始的参数值，构建神经网络模型结构</li>
 <li>然后通过代码Code的形式，实现这个神经网络；</li>
 <li>通过实验Experiment验证这些参数对应的神经网络的表现性能。</li>
 <li>根据验证结果，对参数进行适当的调整优化，再进行下一次的Idea-&gt;Code-&gt;Experiment循环。通过很多次的循环，不断调整参数，选定最佳的参数值，从而让神经网络性能最优化</li>
 </ol>
-<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%601%60import.png" alt><br>在机器学习发展的小数据量时代，常见做法是将所有数据三七分，就是的70%训练集，30%测试集，如果没有明确设置验证集，也可以按照60%训练，20%验证和20%测试集来划分</p>
+<p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/%601%60import.png" alt></p>
+<p>在机器学习发展的小数据量时代，常见做法是将所有数据三七分，就是的70%训练集，30%测试集，如果没有明确设置验证集，也可以按照60%训练，20%验证和20%测试集来划分</p>
 <p><img src="http://www.ai-start.com/dl2017/images/ebbfb8514ff5a983f41e938d5870b79d.png" alt></p>
 <p>在大数据时代，数据量可能是百万级别，验证集和测试集占数据总量的比例会趋向于变得更小。因为<strong>验证集的目的就是验证不同的算法，检验哪种算法更有效</strong>，因此，验证集要足够大才能评估，比如2个甚至10个不同算法，并迅速判断出哪种算法更有效。可能不需要拿出20%的数据作为验证集</p>
 <p>数据量过百万的应用，训练集可以占到99.5%，验证和测试集各占0.25%，或者验证集占0.4%，测试集占0.1%</p>
@@ -1748,10 +1745,7 @@ d\theta_{approx}[i]=\frac{J(\theta_1,\theta_2,\cdots,\theta_i+\varepsilon,\cdots
   
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":80,"height":80},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<!-- 爆炸红心效果 -->
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-<script type="text/javascript" src="/js/firework.js"></script>
+
 
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
