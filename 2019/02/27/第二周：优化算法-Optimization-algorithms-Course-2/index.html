@@ -126,7 +126,7 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/10import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/8import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/9import.png">
-<meta property="og:updated_time" content="2019-03-22T01:14:10.338Z">
+<meta property="og:updated_time" content="2019-03-31T08:14:21.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周：优化算法 (Optimization algorithms)(Course 2)">
 <meta name="twitter:description" content="2.1 Mini-batch 梯度下降（Mini-batch gradient descent）神经网络训练过程是同时对所有m个样本（称为batch）通过向量化计算方式进行的。如果m很大，训练速度会很慢，因为每次迭代都要对所有样本进进行求和运算和矩阵运算。这种梯度下降算法称为Batch Gradient Descent">
@@ -192,6 +192,10 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
   
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
 
 
 
@@ -419,8 +423,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T09:14:10+08:00">
-                2019-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-31T16:14:21+08:00">
+                2019-03-31
               </time>
             
           </span>
@@ -626,13 +630,20 @@ Repeat\ \{</script><script type="math/tex; mode=display">
 <p>机器学习中，<strong>偏移校正并不是必须的</strong>。因为，在迭代一次次数后（<script type="math/tex">t</script>较大），<script type="math/tex">V_t</script>受初始值影响微乎其微，紫色曲线与绿色曲线基本重合。<strong>一般可以忽略初始迭代过程，等到一定迭代之后再取值，就不需要进行偏移校正</strong></p>
 <h2 id="2-6-动量梯度下降法（Gradient-descent-with-Momentum-）"><a href="#2-6-动量梯度下降法（Gradient-descent-with-Momentum-）" class="headerlink" title="2.6 动量梯度下降法（Gradient descent with Momentum ）"></a>2.6 动量梯度下降法（Gradient descent with Momentum ）</h2><p>动量梯度下降算法速度比传统的梯度下降算法快很多。做法是<strong>在每次训练时，对梯度进行指数加权平均处理</strong>，然后用得到的梯度值更新权重<script type="math/tex">W</script>和常数项<script type="math/tex">b​</script></p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/7.bmp" alt></p>
-<p>原始的梯度下降算法如上图蓝色折线所示。在梯度下降过程中，梯度下降的振荡较大，尤其对于<script type="math/tex">W</script>、<script type="math/tex">b</script>之间数值范围差别较大的情况。此时每一点处的梯度只与当前方向有关，产生类似折线的效果，前进缓慢。而如果对梯度进行指数加权平均，<strong>使当前梯度不仅与当前方向有关，还与之前的方向有关</strong>，在纵轴方向，平均过程中，正负数相互抵消，所以平均值接近于零。但在横轴方向，所有的微分都指向横轴方向，因此横轴方向的平均值仍然较大，用算法几次迭代后，最终<strong>纵轴方向的摆动变小了，横轴方向运动更快</strong>，因此算法走了一条更加直接的路径，在抵达最小值的路上减少了摆动，这样处理让梯度前进方向<strong>更加平滑，减少振荡，能够更快地到达最小值处</strong></p>
+<p>原始的梯度下降算法如上图蓝色折线所示。在梯度下降过程中，梯度下降的振荡较大，尤其对于<script type="math/tex">W</script>、<script type="math/tex">b</script>之间数值范围差别较大的情况。此时每一点处的梯度只与当前方向有关，产生类似折线的效果，前进缓慢</p>
+<p>如果对梯度进行指数加权平均，<strong>使当前梯度不仅与当前方向有关，还与之前的方向有关</strong>：</p>
+<ul>
+<li>在纵轴方向，平均过程中，正负数相互抵消，所以平均值接近于零</li>
+<li>但在横轴方向，所有的微分都指向横轴方向，因此横轴方向的平均值仍然较大</li>
+<li>用算法几次迭代后，最终<strong>纵轴方向的摆动变小了，横轴方向运动更快</strong>，因此算法走了一条更加直接的路径，在抵达最小值的路上减少了摆动，这样处理让梯度前进方向<strong>更加平滑，减少振荡，能够更快地到达最小值处</strong></li>
+</ul>
 <p>权重<script type="math/tex">W</script>和常数项<script type="math/tex">b​</script>的指数加权平均表达式如下：</p>
 <script type="math/tex; mode=display">
 V_{dW}=\beta\cdot V_{dW}+(1-\beta)\cdot dW</script><script type="math/tex; mode=display">
 V_{db}=\beta\cdot V_{db}+(1-\beta)\cdot db</script><p>动量的角度来看，以权重<script type="math/tex">W</script>为例，<script type="math/tex">V_{dW}</script>可以理解成速度<script type="math/tex">V</script>，<script type="math/tex">dW</script>可以看成是加速度<script type="math/tex">a</script>。指数加权平均实际上是计算当前的速度，当前速度由之前的速度和现在的加速度共同影响。而<script type="math/tex">\beta<1</script>又能限制速度<script type="math/tex">V_{dW}</script>过大。即<strong>当前的速度是渐变的，而不是瞬变的，是动量的过程。保证了梯度下降的平稳性和准确性，减少振荡，较快地达到最小值处</strong></p>
 <p>动量梯度下降算法的过程如下：</p>
-<script type="math/tex; mode=display">On\ iteration\ t:</script><script type="math/tex; mode=display">
+<p>On iteration t:</p>
+<script type="math/tex; mode=display">
 \ \ \ \ Compute\ dW,\ db\ on\ the\ current\ mini-batch</script><script type="math/tex; mode=display">
 \ \ \ \ V_{dW}=\beta V_{dW}+(1-\beta)dW</script><script type="math/tex; mode=display">
 \ \ \ \ V_{db}=\beta V_{db}+(1-\beta)db</script><script type="math/tex; mode=display">
@@ -660,9 +671,12 @@ W:=W-\alpha \frac{dW}{\sqrt{S_{dW}}+\varepsilon},\ b:=b-\alpha \frac{db}{\sqrt{S
 \ \ \ \ W:=W-\alpha\frac{V_{dW}^{corrected}}{\sqrt{S_{dW}^{corrected}}+\varepsilon},\ b:=b-\alpha\frac{V_{db}^{corrected}}{\sqrt{S_{db}^{corrected}}+\varepsilon}</script><p>Adam算法包含了几个超参数，分别是：<script type="math/tex">\alpha,\beta_1,\beta_2,\varepsilon​</script></p>
 <p>$\beta_1$通常设置为0.9，<script type="math/tex">\beta_2</script>通常设置为0.999，<script type="math/tex">\varepsilon</script>通常设置为<script type="math/tex">10^{-8}</script>。一般只需要对<script type="math/tex">\beta_1</script>和<script type="math/tex">\beta_2</script>进行调试</p>
 <p>Adam算法结合了动量梯度下降和RMSprop各自的优点，使得神经网络训练速度大大提高</p>
-<h2 id="2-9-学习率衰减-Learning-rate-decay"><a href="#2-9-学习率衰减-Learning-rate-decay" class="headerlink" title="2.9 学习率衰减(Learning rate decay)"></a>2.9 学习率衰减(Learning rate decay)</h2><p>减小学习因子<script type="math/tex">\alpha</script>也能有效提高神经网络训练速度，这种方法被称为<strong>learning rate decay</strong>, Learning rate decay就是随着迭代次数增加，学习因子<script type="math/tex">\alpha</script>逐渐减小</p>
-<p>下图中，蓝色折线表示使用恒定的学习因子<script type="math/tex">\alpha​</script>，由于每次训练<script type="math/tex">\alpha​</script>相同，步进长度不变，在接近最优值处的振荡也大，在最优值附近较大范围内振荡，与最优值距离就比较远。绿色折线表示使用不断减小的<script type="math/tex">\alpha​</script>，随着训练次数增加，<script type="math/tex">\alpha​</script>逐渐减小，步进长度减小，使得能够在最优值处较小范围内微弱振荡，不断逼近最优值。相比较恒定的<script type="math/tex">\alpha​</script>来说，learning rate decay更接近最优值</p>
+<h2 id="2-9-学习率衰减-Learning-rate-decay"><a href="#2-9-学习率衰减-Learning-rate-decay" class="headerlink" title="2.9 学习率衰减(Learning rate decay)"></a>2.9 学习率衰减(Learning rate decay)</h2><p>减小学习因子<script type="math/tex">\alpha</script>也能有效提高神经网络训练速度，这种方法被称为<strong>learning rate decay</strong>, 即随着迭代次数增加，学习因子<script type="math/tex">\alpha</script>逐渐减小</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/10import.png" alt></p>
+<ul>
+<li>蓝色折线表示使用恒定的学习因子<script type="math/tex">\alpha</script>，由于每次训练<script type="math/tex">\alpha</script>相同，步进长度不变，在接近最优值处的振荡也大，在最优值附近较大范围内振荡，与最优值距离就比较远</li>
+<li>绿色折线表示使用不断减小的<script type="math/tex">\alpha</script>，随着训练次数增加，<script type="math/tex">\alpha</script>逐渐减小，步进长度减小，使得能够在最优值处较小范围内微弱振荡，不断逼近最优值。相比较恒定的<script type="math/tex">\alpha</script>来说，learning rate decay更接近最优值</li>
+</ul>
 <p>Learning rate decay中对<script type="math/tex">\alpha</script>的公式：</p>
 <script type="math/tex; mode=display">
 \alpha=\frac{1}{1+decay\_rate*epoch}\alpha_0</script><p>deacy_rate是参数（可调），epoch是迭代次数。随着epoch增加，<script type="math/tex">\alpha</script>会不断变小</p>
@@ -671,9 +685,13 @@ W:=W-\alpha \frac{dW}{\sqrt{S_{dW}}+\varepsilon},\ b:=b-\alpha \frac{db}{\sqrt{S
 \alpha=0.95^{epoch}\cdot \alpha_0</script><script type="math/tex; mode=display">
 \alpha=\frac{k}{\sqrt{epoch}}\cdot \alpha_0\ \ \ \ or\ \ \ \ \frac{k}{\sqrt{t}}\cdot \alpha_0</script><p>$k$为可调参数，<script type="math/tex">t</script>为mini-bach number</p>
 <p>还可以设置<script type="math/tex">\alpha</script>为关于<script type="math/tex">t</script>的离散值，随着<script type="math/tex">t</script>增加，<script type="math/tex">\alpha</script>呈阶梯式减小。也可以根据训练情况灵活调整当前的<script type="math/tex">\alpha</script>值，但会比较耗时间</p>
-<h2 id="2-10-局部最优的问题-The-problem-of-local-optima"><a href="#2-10-局部最优的问题-The-problem-of-local-optima" class="headerlink" title="2.10 局部最优的问题(The problem of local optima)"></a>2.10 局部最优的问题(The problem of local optima)</h2><p>以前对局部最优解的理解是形如碗状的凹槽，如下图左边所示。但是在神经网络中，local optima的概念发生了变化。大部分梯度为零的“最优点”并不是这些凹槽处，而是形如右边所示的马鞍状，称为<strong>saddle point（鞍点）</strong>。即<strong>梯度为零并不能保证都是convex（极小值），也有可能是concave（极大值）</strong>。特别是在神经网络中参数很多的情况下，所有参数梯度为零的点很可能都是右边所示的马鞍状的saddle point，而不是左边那样的local optimum</p>
+<h2 id="2-10-局部最优的问题-The-problem-of-local-optima"><a href="#2-10-局部最优的问题-The-problem-of-local-optima" class="headerlink" title="2.10 局部最优的问题(The problem of local optima)"></a>2.10 局部最优的问题(The problem of local optima)</h2><ul>
+<li>以前对局部最优解的理解是形如碗状的凹槽，如下图左边所示</li>
+<li>但是在神经网络中，local optima的概念发生了变化。大部分梯度为零的“最优点”并不是这些凹槽处，而是形如右边所示的马鞍状，称为<strong>saddle point（鞍点）</strong></li>
+</ul>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/8import.png" alt></p>
-<p>类似马鞍状的plateaus（平稳端）会降低神经网络学习速度。Plateaus是梯度接近于零的平缓区域，在plateaus上梯度很小，前进缓慢，到达saddle point需要很长时间。到达saddle point后，由于随机扰动，梯度一般能够沿着图中绿色箭头，离开saddle point，继续前进，只是在plateaus上花费了太多时间</p>
+<p>即<strong>梯度为零并不能保证都是convex（极小值），也有可能是concave（极大值）</strong>。特别是在神经网络中参数很多的情况下，所有参数梯度为零的点很可能都是右边所示的马鞍状的saddle point，而不是左边那样的local optimum</p>
+<p>类似马鞍状的<strong>plateaus（平稳端）</strong>会降低神经网络学习速度。<strong>Plateaus是梯度接近于零的平缓区域</strong>，在plateaus上梯度很小，前进缓慢，到达saddle point需要很长时间。到达saddle point后，由于随机扰动，梯度一般能够沿着图中绿色箭头，离开saddle point，继续前进，只是在plateaus上花费了太多时间</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/9import.png" alt></p>
 <p>local optima的两点总结：</p>
 <ul>
@@ -1683,9 +1701,17 @@ W:=W-\alpha \frac{dW}{\sqrt{S_{dW}}+\varepsilon},\ b:=b-\alpha \frac{db}{\sqrt{S
   
 
   
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":80,"height":80},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
 
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
