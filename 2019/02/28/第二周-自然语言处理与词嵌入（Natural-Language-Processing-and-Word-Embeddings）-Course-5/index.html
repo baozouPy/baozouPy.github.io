@@ -134,11 +134,12 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ec4b604d619dd617f14c2a34945c075d.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/bf6f5879d33ae4ef09b32f77df84948e.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/ea844a0290e66d1c76a31e34b632dc0c.png">
+<meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/25430afa93f24dc6caa6f85503bbad27.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/cf60f429ef532a2b3bbad3db98b054c5.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/4102795b004ff090ed83dc654f585852.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/9b27d865dff73a2f10abbdc1c7fc966b.png">
-<meta property="og:updated_time" content="2019-03-17T09:12:01.402Z">
+<meta property="og:updated_time" content="2019-04-11T14:13:11.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二周 自然语言处理与词嵌入（Natural Language Processing and Word Embeddings）(Course 5)">
 <meta name="twitter:description" content="2.1 词汇表征（Word Representation）one-hot向量表示：单词Man，Woman，King，Queen，Apple，Orange分别出现在词汇表的第5391，9853，4914，7157，456，6257的位置，则它们分别用O_{5391},O_{9853} 等表示，O代表one-hot：">
@@ -435,8 +436,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-17T17:12:01+08:00">
-                2019-03-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-11T22:13:11+08:00">
+                2019-04-11
               </time>
             
           </span>
@@ -670,7 +671,7 @@ L(\hat y,y)=-\sum_{i=1}^{10000}y_ilog\ \hat y_i</script><blockquote>
 <script type="math/tex; mode=display">
 P\left( y = 1 \middle| c,t \right) = \sigma(\theta_{t}^{T}e_{c})</script><p>如果输入词是<strong>orange</strong>，即词6257，要做的就是输入<strong>one-hot</strong>向量，和<script type="math/tex">E</script>相乘获得嵌入向量<script type="math/tex">e_{6257}</script>，最后得到10,000个可能的逻辑回归分类问题，其中一个（编号4）将会是用来判断目标词是否是<strong>juice</strong>的分类器，其他的词比如下面的某个分类器（编号5）是用来预测<strong>king</strong>是否是目标词</p>
 <p>negative sampling中某个固定的正样本对应<script type="math/tex">k</script>个负样本，即模型总共包含了<script type="math/tex">k+1</script>个<strong>binary classification</strong>。对比之前10000个输出单元的softmax分类，negative sampling转化为<script type="math/tex">k+1</script>个二分类问题，每次迭代并不是训练10000个，而仅训练其中<script type="math/tex">k+1</script>个，计算量要小很多，大大提高了模型运算速度</p>
-<p>这种方法就叫做<strong>负采样（Negative Sampling）: **</strong>选择一个正样本，随机采样<script type="math/tex">k</script>个负样本**</p>
+<p>这种方法就叫做<strong>负采样（Negative Sampling）: 选择一个正样本，随机采样<script type="math/tex">k</script>个负样本</strong></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/b05dd0362a19496bb0ad91b8494e374c.png" alt></p>
 <p>选取了context <strong>orange</strong>之后，如何选取负样本：</p>
 <ul>
@@ -717,20 +718,15 @@ e_{w}^{(final)}= \frac{e_{w} +\theta_{w}}{2}</script><p><strong>GloVe</strong>�
 <li><p>再乘以嵌入矩阵<script type="math/tex">E</script></p>
 </li>
 </ol>
-<script type="math/tex; mode=display">E$$可以从一个很大的文本集里学习到，比如它可以从一亿个词或者一百亿个词里学习嵌入，然后用来提取单词**the**的嵌入向量$$e_{8928}$$，对**dessert**、**is**、**excellent**做同样的步骤
-
-然后取这些向量（编号2），如300维度的向量，通过平均值计算单元（编号3），求和并平均，再送进**softmax**分类器，然后输出$$\hat y$$。这个**softmax**能够输出5个可能结果的概率值，从一星到五星
-
-这个算法**适用于任何长短的评论**，因为即使评论是100个词长，也可以对这一百个词的特征向量求和取平均，得到一个300维的特征向量，然后送进**softmax**分类器
-
-但**问题是没考虑词序**，如负面的评价，"**Completely lacking in good taste, good service, and good ambiance.**"，**good**这个词出现了很多次，但算法忽略词序，仅仅把所有单词的词嵌入加起来或者平均下来，最后的特征向量会有很多**good**的表示，分类器很可能认为这是一个好的评论，尽管事实上这是一个差评，只有一星的评价
-
-为了解决这一问题，情感分类的另一种模型是RNN：
-
-![](https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png)
-
-1. 首先取这条评论，"**Completely lacking in good taste, good service, and good ambiance.**"，找出每一个**one-hot**向量
-2. 乘以词嵌入矩阵$$E$$，得到词嵌入表达$$e</script><ol>
+<p>$E$可以从一个很大的文本集里学习到，比如它可以从一亿个词或者一百亿个词里学习嵌入，然后用来提取单词<strong>the</strong>的嵌入向量<script type="math/tex">e_{8928}​</script>，对<strong>dessert</strong>、<strong>is</strong>、<strong>excellent</strong>做同样的步骤</p>
+<p>然后取这些向量（编号2），如300维度的向量，通过平均值计算单元（编号3），求和并平均，再送进<strong>softmax</strong>分类器，然后输出<script type="math/tex">\hat y</script>。这个<strong>softmax</strong>能够输出5个可能结果的概率值，从一星到五星</p>
+<p>这个算法<strong>适用于任何长短的评论</strong>，因为即使评论是100个词长，也可以对这一百个词的特征向量求和取平均，得到一个300维的特征向量，然后送进<strong>softmax</strong>分类器</p>
+<p>但<strong>问题是没考虑词序</strong>，如负面的评价，”<strong>Completely lacking in good taste, good service, and good ambiance.</strong>“，<strong>good</strong>这个词出现了很多次，但算法忽略词序，仅仅把所有单词的词嵌入加起来或者平均下来，最后的特征向量会有很多<strong>good</strong>的表示，分类器很可能认为这是一个好的评论，尽管事实上这是一个差评，只有一星的评价</p>
+<p>为了解决这一问题，情感分类的另一种模型是RNN：</p>
+<p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/de4b6513a8d1866bccf1fac3c0d0d6d2.png" alt></p>
+<ol>
+<li>首先取这条评论，”<strong>Completely lacking in good taste, good service, and good ambiance.</strong>“，找出每一个<strong>one-hot</strong>向量</li>
+<li>乘以词嵌入矩阵<script type="math/tex">E</script>，得到词嵌入表达<script type="math/tex">e</script></li>
 <li>然后把它们送进<strong>RNN</strong></li>
 </ol>
 <p><strong>RNN</strong>的工作就是在最后一步（编号1）计算一个特征表示，用来预测<script type="math/tex">\hat y</script>。这样的算法考虑词的顺序效果更好，能意识到”<strong>things are lacking in good taste</strong>“是个负面的评价，“<strong>not good</strong>”也是一个负面的评价。而不像原来的算法一样，只是把所有的加在一起得到一个大的向量，根本意识不到“<strong>not good</strong>”和 “<strong>good</strong>”不是一个意思，”<strong>lacking in good taste</strong>“也是如此，等等</p>

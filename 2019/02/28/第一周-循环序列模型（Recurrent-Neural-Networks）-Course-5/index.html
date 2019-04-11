@@ -138,7 +138,7 @@
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/053831ff43d039bd5e734df96d8794cb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8378c2bfe73e1ac9f85d6aa79b71b5eb.png">
 <meta property="og:image" content="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/455863a3c8c2dfaa0e5474bfa2c6824d.png">
-<meta property="og:updated_time" content="2019-03-22T01:42:58.026Z">
+<meta property="og:updated_time" content="2019-04-11T13:02:12.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 循环序列模型（Recurrent Neural Networks）(Course 5)">
 <meta name="twitter:description" content="1.1 为什么选择序列模型？（Why Sequence Models?）语音识别：给定一个输入音频片段 X，要求输出对应的文字记录 Y。输入和输出数据都是序列模型，因为 X是一个按时播放的音频片段，输出 Y是一系列单词">
@@ -435,8 +435,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T09:42:58+08:00">
-                2019-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-11T21:02:12+08:00">
+                2019-04-11
               </time>
             
           </span>
@@ -731,22 +731,22 @@ a^{< t>}=\Gamma_o*tanh(c^{<t>})</script><p><strong>LSTM</strong>主要的区别�
 <p><strong>LSTM</strong>前向传播图：</p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/LSTM.png" alt></p>
 <p><img src="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/Xnip2018-07-22_16-50-24.jpg" alt>  </p>
-<p><strong>GRU</strong>：模型简单，更容易创建一个更大的网络，只有两个门，在计算上运行得更快，且可以扩大模型的规模</p>
+<p><strong>GRU</strong>：只有两个门，模型简单，在计算上运行得更快，且可以扩大模型的规模，更容易创建一个更大的网络</p>
 <p><strong>LSTM：</strong>更加强大和灵活，因为它有三个门而不是两个</p>
 <p><img src="http://imshuai.com/content/images/2018/07/Xnip2018-07-22_16-46-15.jpg" alt></p>
 <blockquote>
 <p><a href="http://imshuai.com/deeplearning-ai-notes-course5-week1/" target="_blank" rel="noopener">来自毛帅的博客</a></p>
 </blockquote>
 <h1 id="1-11-双向循环神经网络（Bidirectional-RNN）"><a href="#1-11-双向循环神经网络（Bidirectional-RNN）" class="headerlink" title="1.11 双向循环神经网络（Bidirectional RNN）"></a>1.11 双向循环神经网络（Bidirectional RNN）</h1><p>双向<strong>RNN</strong>模型在序列的某点处<strong>不仅可以获取之前的信息，还可以获取未来的信息</strong></p>
-<p>用只有4个单词的句子，<script type="math/tex">x^{<1>}​</script>到<script type="math/tex">x^{<4>}​</script>。这个网络有一个前向的循环单元<script type="math/tex">a^{\overrightarrow <1>}​</script>，<script type="math/tex">a^{\overrightarrow <2>}​</script>，<script type="math/tex">a^{\overrightarrow <3>}​</script>，<script type="math/tex">a^{\overrightarrow <4>}​</script>，这四个循环单元都有一个当前输入<script type="math/tex">x​</script>输入进去，得到预测的<script type="math/tex">\hat y^{<1>}​</script>，<script type="math/tex">\hat y^{<2>}​</script>，<script type="math/tex">\hat y^{<3>}​</script>和<script type="math/tex">\hat y^{<4>}​</script></p>
-<p>再增加一个反向循环层：<script type="math/tex">a^{\overleftarrow <1>}</script>，<script type="math/tex">a^{\overleftarrow <2>}</script>，<script type="math/tex">a^{\overleftarrow <3>}</script>，<script type="math/tex">a^{\overleftarrow <4>}</script></p>
+<p>用只有4个单词的句子，<script type="math/tex">x^{<1>}​</script>到<script type="math/tex">x^{<4>}​</script>。这个网络有一个前向的循环单元<script type="math/tex">{\overrightarrow{a}}^{< 1>}​</script>，<script type="math/tex">{\overrightarrow{a}}^{< 1>}​</script>，<script type="math/tex">{\overrightarrow{a}}^{< 3>}​</script>，<script type="math/tex">{\overrightarrow{a}}^{< 4>}​</script>，这四个循环单元都有一个当前输入<script type="math/tex">x​</script>输入进去，得到预测的<script type="math/tex">\hat y^{<1>}​</script>，<script type="math/tex">\hat y^{<2>}​</script>，<script type="math/tex">\hat y^{<3>}​</script>和<script type="math/tex">\hat y^{<4>}​</script></p>
+<p>再增加一个反向循环层：<script type="math/tex">{\overleftarrow{a}}^{< 1>}</script>，<script type="math/tex">{\overleftarrow{a}}^{< 2>}</script>，<script type="math/tex">{\overleftarrow{a}}^{< 3>}</script>，<script type="math/tex">{\overleftarrow{a}}^{< 4>}</script></p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/48c787912f7f8daee638dd311583d6cf.png" alt></p>
-<p>给定一个输入序列<script type="math/tex">x^{<1>}</script>到<script type="math/tex">x^{<4>}</script>，这个序列先后计算前向的<script type="math/tex">a^{\overrightarrow <1>}</script>，<script type="math/tex">a^{\overrightarrow <2>}</script>，<script type="math/tex">a^{\overrightarrow <3>}</script>，<script type="math/tex">a^{\overrightarrow <4>}</script>，而反向序列从<script type="math/tex">a^{\overleftarrow <4>}</script>开始，计算完了反向的<script type="math/tex">a^{\overleftarrow <4>}</script>，可以用这些激活值计算反向<script type="math/tex">a^{\overleftarrow <3>},a^{\overleftarrow <2>},a^{\overleftarrow <1>}</script></p>
+<p>给定一个输入序列<script type="math/tex">x^{<1>}</script>到<script type="math/tex">x^{<4>}</script>，这个序列先后计算前向的而反<script type="math/tex">{\overrightarrow{a}}^{< 1>}</script>，<script type="math/tex">{\overrightarrow{a}}^{< 1>}</script>，<script type="math/tex">{\overrightarrow{a}}^{< 3>}</script>，<script type="math/tex">{\overrightarrow{a}}^{< 4>}</script>，向序列从<script type="math/tex">a^{\overleftarrow <4>}</script>开始，计算完了反向的<script type="math/tex">{\overrightarrow{a}}^{< 4>}</script>，可以用这些激活值计算反向<script type="math/tex">{\overrightarrow{a}}^{< 3>},{\overrightarrow{a}}^{< 2>},{\overrightarrow{a}}^{< 1>}</script></p>
 <p>值得注意的是计算的是网络激活值，<strong>这不是反向传播而是前向的传播</strong>，图中前向传播一部分计算是从左到右，一部分计算是从右到左。把所有激活值都计算完了就可以计算预测结果</p>
 <p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/053831ff43d039bd5e734df96d8794cb.png" alt></p>
 <p>预测结果：</p>
 <script type="math/tex; mode=display">
-\hat y^{} =g(W_{y}\left\lbrack a^{\overrightarrow <t>},a^{\overleftarrow <t>} \right\rbrack +b_{y})</script><p>这些基本单元不仅仅是标准<strong>RNN</strong>单元，也可以是<strong>GRU</strong>单元或者<strong>LSTM</strong>单元</p>
+\hat y^{} =g(W_{y}\left\lbrack {\overrightarrow{a}}^{< t>},{\overleftarrow{a}}^{< t>} \right\rbrack +b_{y})</script><p>这些基本单元不仅仅是标准<strong>RNN</strong>单元，也可以是<strong>GRU</strong>单元或者<strong>LSTM</strong>单元</p>
 <p>双向<strong>RNN</strong>网络模型的缺点是<strong>需要完整的数据序列才能预测任意位置</strong>。比如要构建一个语音识别系统，双向<strong>RNN</strong>模型需要等待整个语音说完，获取整个语音表达才能处理这段语音，并进一步做语音识别</p>
 <h1 id="1-12-深层循环神经网络（Deep-RNNs）"><a href="#1-12-深层循环神经网络（Deep-RNNs）" class="headerlink" title="1.12 深层循环神经网络（Deep RNNs）"></a>1.12 深层循环神经网络（Deep RNNs）</h1><p><img src="https://github.com/fengdu78/deeplearning_ai_books/raw/master/images/8378c2bfe73e1ac9f85d6aa79b71b5eb.png" alt></p>
 <p>$a^{\lbrack l\rbrack }$表示第<script type="math/tex">l</script>层的激活值，&lt;t&gt;表示第<script type="math/tex">t</script>个时间点</p>
