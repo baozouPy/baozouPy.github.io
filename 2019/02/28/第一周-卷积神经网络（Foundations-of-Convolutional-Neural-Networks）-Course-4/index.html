@@ -150,7 +150,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/dad50972904bcd2131657db7798595b7.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/7503372ab986cd3aedda7674bedfd5f0.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/8fd4c61773f0245c87871de14f0a2d03.png">
-<meta property="og:updated_time" content="2019-04-03T07:03:47.954Z">
+<meta property="og:updated_time" content="2019-04-08T01:11:42.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一周 卷积神经网络（Foundations of Convolutional Neural Networks）(Course 4)">
 <meta name="twitter:description" content="1.1 计算机视觉（Computer vision）图片分类，或图片识别：">
@@ -447,8 +447,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-03T15:03:47+08:00">
-                2019-04-03
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-08T09:11:42+08:00">
+                2019-04-08
               </time>
             
           </span>
@@ -720,7 +720,7 @@ n_{H} \times n_{W} \times n_{c}</script><p>假设没有<strong>padding</strong>�
 <p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/7503372ab986cd3aedda7674bedfd5f0.png" alt></p>
 <p>神经网络可以通过这两种机制减少参数，<strong>以便用更小的训练集来训练它，从而预防过拟合</strong>。<strong>CNN比较擅长捕捉区域位置偏移，也就是说CNN进行物体检测时，不太受物体所处图片位置的影响，增加检测的准确性和系统的健壮性</strong>。通过观察可以发现，向右移动两个像素，图片中的猫依然清晰可见，因为神经网络的卷积结构使得即使移动几个像素，这张图片依然具有非常相似的特征，应该属于同样的输出标记</p>
 <p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/8fd4c61773f0245c87871de14f0a2d03.png" alt></p>
-<p>最后，把这些层整合起来，比如要构建一个猫咪检测器，<script type="math/tex">x​</script>表示一张图片，<script type="math/tex">\hat{y}​</script>是二进制标记或某个重要标记。选定一个卷积神经网络，输入图片，增加卷积层和池化层，然后添加全连接层，并随机初始化参数<script type="math/tex">w​</script>和<script type="math/tex">b​</script>，最后输出一个<strong>softmax</strong>，即<script type="math/tex">\hat{y}​</script>，代价函数<script type="math/tex">J​</script>等于神经网络对整个训练集的预测的损失总和再除以<script type="math/tex">m​</script>（即:</p>
+<p>最后，把这些层整合起来，比如要构建一个猫咪检测器，<script type="math/tex">x</script>表示一张图片，<script type="math/tex">\hat{y}</script>是二进制标记或某个重要标记。选定一个卷积神经网络，输入图片，增加卷积层和池化层，然后添加全连接层，并随机初始化参数<script type="math/tex">w</script>和<script type="math/tex">b</script>，最后输出一个<strong>softmax</strong>，即<script type="math/tex">\hat{y}</script>，代价函数<script type="math/tex">J</script>等于神经网络对整个训练集的预测的损失总和再除以<script type="math/tex">m</script>:</p>
 <script type="math/tex; mode=display">
 \text{Cost}\ J = \frac{1}{m}\sum_{i = 1}^{m}{L(\hat{y}^{(i)},y^{(i)})}</script><p>所以训练神经网络，要做的就是使用梯度下降法，或其它算法，例如<strong>Momentum</strong>梯度下降法，含<strong>RMSProp</strong>或其它因子的梯度下降来优化神经网络中所有参数，以减少代价函数<script type="math/tex">J​</script>的值</p>
 
