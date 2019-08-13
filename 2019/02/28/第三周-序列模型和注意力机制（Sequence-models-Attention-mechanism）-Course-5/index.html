@@ -140,7 +140,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/28443f8b28afa63adb6cf89ce19c4f6d.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/f2da69f9fa6462c8e591e79db452f6c1.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/neural-networks-and-deep-learning/content/assets/506import.png">
-<meta property="og:updated_time" content="2019-03-30T15:46:12.743Z">
+<meta property="og:updated_time" content="2019-04-11T15:25:43.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三周 序列模型和注意力机制（Sequence models &amp; Attention mechanism）(Course 5)">
 <meta name="twitter:description" content="3.1 基础模型（Basic Models）机器翻译用x^{} 到x^{&amp;lt; 5&amp;gt;}表示输入句子的单词，用y^{}到y^{}表示输出句子的单词：">
@@ -437,8 +437,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-30T23:46:12+08:00">
-                2019-03-30
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-11T23:25:43+08:00">
+                2019-04-11
               </time>
             
           </span>
@@ -612,7 +612,7 @@ arg\ max \sum_{t=1}^{T_y}\log P(\hat y^{<t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>
 <script type="math/tex; mode=display">
 arg\ max\ \frac{1}{T_y}\sum_{t=1}^{T_y}\log P(\hat y^{< t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script><p>在实践中，会用一个更柔和的方法（<strong>a softer approach</strong>），在<script type="math/tex">T_{y}</script>上加上指数<script type="math/tex">\alpha</script>：</p>
 <script type="math/tex; mode=display">
-arg\ max\ \frac{1}{T_y^{\alpha}}\sum_{t=1}^{T_y}\log P(\hat y^{< t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script><p>$\alpha$可以等于0.7。如果<script type="math/tex">\alpha</script>等于1，就相当于完全用长度来归一化，如果<script type="math/tex">\alpha</script>等于0，<script type="math/tex">T_{y}</script>的0次幂就是1，就相当于完全没有归一化，<script type="math/tex">**\alpha</script>就是算法另一个超参数（hyper parameter）**</p>
+arg\ max\ \frac{1}{T_y^{\alpha}}\sum_{t=1}^{T_y}\log P(\hat y^{< t>}|x,\hat y^{<1>},\cdots,\hat y^{<t-1>})</script><p>$\alpha$可以等于0.7。如果<script type="math/tex">\alpha</script>等于1，就相当于完全用长度来归一化，如果<script type="math/tex">\alpha</script>等于0，<script type="math/tex">T_{y}</script>的0次幂就是1，就相当于完全没有归一化，<script type="math/tex">\alpha</script><strong>就是算法另一个超参数（hyper parameter）</strong></p>
 <p>总结一下如何运行束搜索算法：</p>
 <p>当运行束搜索时，会看到很多长度分别等于1、2、3…的句子等等，针对这些所有的可能的输出句子：</p>
 <ol>
@@ -687,7 +687,7 @@ p=BP\cdot exp(\frac1n\sum_{i=1}^np_i)</script><p>BLEU得分被用来评估许多
 <p><img src="https://raw.githubusercontent.com/fengdu78/deeplearning_ai_books/master/images/1e6b86a4e3690b4a0c6b8146ffa2f791.png" alt></p>
 <p>用<script type="math/tex">a^{<t{'}>}​</script>表示时间步<script type="math/tex">t​</script>上的特征向量。用<script type="math/tex">t{'}​</script>来索引法语句子里面的词，由于是双向RNN，每个<script type="math/tex">a^{<t{'}>}​</script>：</p>
 <script type="math/tex; mode=display">
-a^{<t{'}>}=(a^{\overrightarrow <t{'}>},a^{\overleftarrow <t{'}>})</script><p>注意力权重用<script type="math/tex">\alpha</script>表示，C是各个RNN神经元经过注意力权重得到的参数值。例如<script type="math/tex">\alpha^{<1,t{'}>}</script>表示机器翻译的第一个单词“jane”对应的第<script type="math/tex">t{'}</script>个RNN神经元，<script type="math/tex">C^{<1>}</script>表示机器翻译第一个单词“jane”对应的解码网络输入参数。满足：</p>
+a^{<t{'}>}=({\overrightarrow{a}}^{<t{'}>},{\overleftarrow{a}}^{ <t{'}>})</script><p>注意力权重用<script type="math/tex">\alpha</script>表示，C是各个RNN神经元经过注意力权重得到的参数值。例如<script type="math/tex">\alpha^{<1,t{'}>}</script>表示机器翻译的第一个单词“jane”对应的第<script type="math/tex">t{'}</script>个RNN神经元，<script type="math/tex">C^{<1>}</script>表示机器翻译第一个单词“jane”对应的解码网络输入参数。满足：</p>
 <script type="math/tex; mode=display">
 \sum_{t{'}}\alpha^{<1,t{'}>}=1</script><script type="math/tex; mode=display">
 C^{<1>}=\sum_{t{'}}\alpha^{<1,t{'}>}\cdot a^{<t{'}>}</script><p>用状态<script type="math/tex">S</script>表示生成翻译。<script type="math/tex">\alpha^{<t,t{'}>}</script>是输出<script type="math/tex">\hat y^{<t>}</script>花在<script type="math/tex">a^{< t{ '}>}</script>上的注意力权重因子。即在<script type="math/tex">t</script>处生成输出词应该花多少注意力在第<script type="math/tex">t{'}</script>个输入词上面</p>
