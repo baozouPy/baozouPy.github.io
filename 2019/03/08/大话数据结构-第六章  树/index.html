@@ -117,7 +117,7 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/112import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/113import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/114import.png">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/851071-8c15b75546c75a60.png?imageMogr2/auto-orient/strip|imageView2/2/w/700">
+<meta property="og:image" content="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-Le0cHgsa8V5yblGT8Aj%2F-LmbCXcTyzPe3jWspDkf%2F-LmbCj1OluN7qtanzUon%2F851071-8c15b75546c75a60.png?alt=media&token=3fc698bf-d94f-4c56-8241-a34e8bcd93ae">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/851071-22d8048a6f0c1c75.png?imageMogr2/auto-orient/strip|imageView2/2/w/700">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/851071-92cb0e0a0f25f155.png?imageMogr2/auto-orient/strip|imageView2/2/w/700">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/851071-9aff0ffd7f66af3b.png?imageMogr2/auto-orient/strip|imageView2/2/w/618">
@@ -174,7 +174,7 @@
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/147import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/148import.png">
 <meta property="og:image" content="https://baozou.gitbooks.io/-data-structure/content/assets/149import.png">
-<meta property="og:updated_time" content="2019-04-04T12:27:20.248Z">
+<meta property="og:updated_time" content="2019-08-19T00:11:59.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大话数据结构 第六章  树">
 <meta name="twitter:description" content="6.1 树的定义树（Tree）是n（n≥0）个结点的有限集。n=0时称为空树。">
@@ -471,8 +471,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-04T20:27:20+08:00">
-                2019-04-04
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-19T08:11:59+08:00">
+                2019-08-19
               </time>
             
           </span>
@@ -632,7 +632,7 @@
 <p>结点结构定义代码</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//树的双亲表示法结点结构定义</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_TREE_SIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> TElemType;   <span class="comment">//树结点的数据类型,目前暂定义为整型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">PTNode</span>   //结点结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">        TElemType data;     <span class="comment">//结点数据</span></span><br><span class="line">        <span class="keyword">int</span> parent;               <span class="comment">//双亲位置</span></span><br><span class="line">&#125;PTNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>                 //树结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">        PTNode nodes[MAX_TREE_SIZE];     <span class="comment">//结点数组</span></span><br><span class="line">        <span class="keyword">int</span> r,n;                     <span class="comment">//根的位置和结点数</span></span><br><span class="line">&#125;PTree;</span><br></pre></td></tr></table></figure>
 <p>由于根结点是没有双亲的,约定根结点的位置域设置为-1,这就意味着所有的结点都存在他的双亲结点</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/851071-8c15b75546c75a60.png?imageMogr2/auto-orient/strip|imageView2/2/w/700" alt></p>
+<p><img src="https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-Le0cHgsa8V5yblGT8Aj%2F-LmbCXcTyzPe3jWspDkf%2F-LmbCj1OluN7qtanzUon%2F851071-8c15b75546c75a60.png?alt=media&amp;token=3fc698bf-d94f-4c56-8241-a34e8bcd93ae" alt></p>
 <p>根据结点的parent指针很容易找到它的双亲结点,所用时间复杂度为O(1),知道parent为-1,表示找到了树结点的根.如果要知道结点的孩子是什么,就必须遍历整个结构才行</p>
 <p>改进：</p>
 <p>增加一个结点最左边孩子的域,叫<strong>长子域，</strong>如果没有孩子的结点,这个长子域就设置为-1</p>
