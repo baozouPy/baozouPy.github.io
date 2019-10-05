@@ -35,4 +35,3 @@ https://www.baozouai.com/2019/02/27/第三周：浅层神经网络(Shallow neura
 https://www.baozouai.com/2019/02/27/第二周：神经网络的编程基础(Basics of Neural Network programming)(Course 1)/
 https://www.baozouai.com/2019/02/27/第一周：深度学习引言(Introduction to Deep Learning)(Course 1)/
 https://www.baozouai.com/2019/02/26/DeepLearning-ai深度学习课程笔记/
-https://www.baozouai.com/2018/10/23/vue官方文档知识点/
